@@ -11,10 +11,11 @@ import {
 import Icon from '~/components/Icon'
 import getBookName from '~/helpers/getBookName'
 
-const getRewardLabel = (entry, enhanced = false) => {
+const getResourceLabel = (entry, enhanced = false) => {
   const amount = entry.rewardAmount || entry.amount
+  const type = entry.reward || entry.type
 
-  switch (entry.reward) {
+  switch (type) {
     case 'RUBIES':
       return enhanced ? (
         <Rubies amount={amount} />
@@ -84,4 +85,4 @@ const getRewardLabel = (entry, enhanced = false) => {
   }
 }
 
-export default getRewardLabel
+export default getResourceLabel

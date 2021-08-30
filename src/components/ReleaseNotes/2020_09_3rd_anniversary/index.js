@@ -12,7 +12,7 @@ import Table from '~/components/Table'
 import Title from '~/components/Title'
 import { BRAWL_MILESTONES } from '~/constants/brawl'
 import getMilestoneCost from '~/helpers/getMilestoneCost'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 
 export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
@@ -78,7 +78,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
                     <td>
                       <Coins amount={cost} /> ({-1 * (milestone.cost - cost)})
                     </td>
-                    <td>{getRewardLabel(milestone, true)}</td>
+                    <td>{getResourceLabel(milestone, true)}</td>
                   </tr>
                 )
               })}

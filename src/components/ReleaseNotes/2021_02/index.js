@@ -17,7 +17,7 @@ import Title from '~/components/Title'
 import TogglableContent from '~/components/TogglableContent'
 import displayBundle from '~/helpers/displayBundle'
 import getCalendarValue from '~/helpers/getCalendarValue'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import rewards from './rewards'
 
@@ -182,8 +182,8 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
               {rewards.map(([free, premium], index) => (
                 <tr key={index}>
                   <td className={css({ width: '100px' })}>#{index + 1}</td>
-                  <td>{getRewardLabel(free, true)}</td>
-                  <td>{getRewardLabel(premium, true)}</td>
+                  <td>{getResourceLabel(free, true)}</td>
+                  <td>{getResourceLabel(premium, true)}</td>
                 </tr>
               ))}
             </tbody>

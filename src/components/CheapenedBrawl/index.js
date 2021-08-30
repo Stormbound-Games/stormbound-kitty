@@ -9,7 +9,7 @@ import Title from '~/components/Title'
 import { Crowns, Coins } from '~/components/Resource'
 import { BRAWL_MILESTONES } from '~/constants/brawl'
 import getMilestoneCost from '~/helpers/getMilestoneCost'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 import styles from './styles'
 
 export default React.memo(function CheapenedBrawl({
@@ -74,7 +74,7 @@ export default React.memo(function CheapenedBrawl({
                   <td>
                     <Coins amount={cost} /> ({-1 * (milestone.cost - cost)})
                   </td>
-                  <td>{getRewardLabel(milestone, true)}</td>
+                  <td>{getResourceLabel(milestone, true)}</td>
                 </tr>
               )
             })}

@@ -15,7 +15,7 @@ import Table from '~/components/Table'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import displayBundle from '~/helpers/displayBundle'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 import getCalendarValue from '~/helpers/getCalendarValue'
 import rewards from './rewards'
 
@@ -167,8 +167,8 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
               {rewards.map((reward, index) => (
                 <tr key={index}>
                   <td className={css({ width: '100px' })}>#{index + 1}</td>
-                  <td>{getRewardLabel(reward[0], true)}</td>
-                  <td>{getRewardLabel(reward[1], true)}</td>
+                  <td>{getResourceLabel(reward[0], true)}</td>
+                  <td>{getResourceLabel(reward[1], true)}</td>
                 </tr>
               ))}
             </tbody>

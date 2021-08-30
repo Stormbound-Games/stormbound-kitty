@@ -1,4 +1,4 @@
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 
 const displayBundle = value => {
   const keys = Object.keys(value)
@@ -6,7 +6,7 @@ const displayBundle = value => {
 
   keys.forEach((reward, index) => {
     const amount = value[reward]
-    const content = getRewardLabel({ reward, amount }, true)
+    const content = getResourceLabel({ reward, amount }, true)
     const isLast = index === keys.length - 1
     tree = !tree ? (
       content

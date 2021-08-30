@@ -15,7 +15,7 @@ import Row from '~/components/Row'
 import Table from '~/components/Table'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 import { BRAWLS, BRAWL_MILESTONES } from '~/constants/brawl'
 
 export default React.memo(function GuideBrawl(props) {
@@ -155,7 +155,7 @@ export default React.memo(function GuideBrawl(props) {
                   <td>
                     <Coins amount={milestone.cost} />
                   </td>
-                  <td>{getRewardLabel(milestone, true)}</td>
+                  <td>{getResourceLabel(milestone, true)}</td>
                 </tr>
               ))}
             </tbody>

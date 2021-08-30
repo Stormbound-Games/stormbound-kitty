@@ -31,7 +31,7 @@ import getBrawlRewards from '~/helpers/getBrawlRewards'
 import getClimbingRewards from '~/helpers/getClimbingRewards'
 import getHeroesLeagueRewards from '~/helpers/getHeroesLeagueRewards'
 import getLeagueChestRewards from '~/helpers/getLeagueChestRewards'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 import getVictoryCoins from '~/helpers/getVictoryCoins'
 import {
   DailyIncome,
@@ -248,7 +248,7 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value=''>Select a milestone</option>
                 {BRAWL_MILESTONES.CASUAL.map((milestone, index) => (
                   <option key={milestone.crowns} value={index}>
-                    {index + 1}. {getRewardLabel(milestone)}
+                    {index + 1}. {getResourceLabel(milestone)}
                   </option>
                 ))}
               </Select>
@@ -263,7 +263,7 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value=''>Select a milestone</option>
                 {BRAWL_MILESTONES.WARRIOR.map((milestone, index) => (
                   <option key={milestone.crowns} value={index}>
-                    {index + 1}. {getRewardLabel(milestone)}
+                    {index + 1}. {getResourceLabel(milestone)}
                   </option>
                 ))}
               </Select>
@@ -280,7 +280,7 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value=''>Select a milestone</option>
                 {BRAWL_MILESTONES.ULTIMATE.map((milestone, index) => (
                   <option key={milestone.crowns} value={index}>
-                    {index + 1}. {getRewardLabel(milestone)}
+                    {index + 1}. {getResourceLabel(milestone)}
                   </option>
                 ))}
               </Select>

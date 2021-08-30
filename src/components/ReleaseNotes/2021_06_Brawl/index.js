@@ -10,7 +10,7 @@ import Table from '~/components/Table'
 import Row from '~/components/Row'
 import { Coins, Crowns } from '~/components/Resource'
 import getMilestoneCost from '~/helpers/getMilestoneCost'
-import getRewardLabel from '~/helpers/getRewardLabel'
+import getResourceLabel from '~/helpers/getResourceLabel'
 import {
   MILESTONES_CASUAL,
   MILESTONES_WARRIOR,
@@ -39,7 +39,7 @@ const BrawlTable = ({ data }) => (
           <td data-label='With Premium Pass'>
             <Coins amount={getMilestoneCost(milestone, 0.9)} />
           </td>
-          <td data-label='Reward'>{getRewardLabel(milestone, true)}</td>
+          <td data-label='Reward'>{getResourceLabel(milestone, true)}</td>
         </tr>
       ))}
     </tbody>
