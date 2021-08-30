@@ -7,7 +7,7 @@ const container = {
     right: 0,
     width: '40%',
     top: '12em' /* 1 */,
-    zIndex: 20,
+    zIndex: 9,
   },
 }
 
