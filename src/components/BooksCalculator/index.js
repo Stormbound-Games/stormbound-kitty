@@ -5,7 +5,7 @@ import { BOOKS, EXPECTATIONS } from '~/constants/books'
 import Page from '~/components/Page'
 import BookExplanation from '~/components/BookExplanation'
 import BookOutcome from '~/components/BookOutcome'
-import Image from '~/components/Image'
+import Table from '~/components/Table'
 import NumberInput from '~/components/NumberInput'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
@@ -14,6 +14,7 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import TogglableContent from '~/components/TogglableContent'
 import CardLink from '~/components/CardLink'
+import { Rubies } from '~/components/Resource'
 import countCards from '~/helpers/countCards'
 import getBookName from '~/helpers/getBookName'
 import styles from './styles'
@@ -211,19 +212,27 @@ export default React.memo(function BooksCalculator(props) {
 
         <Only.Desktop>
           <Row.Column width='1/3'>
-            <Image
-              src={
-                '/assets/images/books/book-' +
-                bookType.toLowerCase().replace(/_/g, '-') +
-                '.png'
-              }
-              extend={styles.book}
-              alt={getBookName(bookType)}
-              withAvif
-              width={219}
-              height={340}
-              lazy
-            />
+            <Title>Book costs</Title>
+            <Table zebra>
+              <thead>
+                <tr>
+                  <th>Book name</th>
+                  <th>Book cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.keys(BOOKS)
+                  .filter(book => BOOKS[book].cost)
+                  .map(book => (
+                    <tr key={book}>
+                      <td data-label='Book name'>{getBookName(book)}</td>
+                      <td data-label='Book cost'>
+                        <Rubies amount={BOOKS[book].cost} />
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
           </Row.Column>
         </Only.Desktop>
       </Row>
