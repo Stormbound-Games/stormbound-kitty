@@ -31,29 +31,32 @@ export default React.memo(function CardDisplayControls(props) {
   return (
     <Only.Desktop>
       <div className={css(styles.container)}>
-        <CTA
-          disabled={!previousCard}
-          to={previousCard ? `/card/${previousCard.id}/display` : undefined}
-          scroll={false}
-          data-testid='prev-btn'
-        >
-          Previous card
-        </CTA>
-
+        <div>
+          <CTA
+            disabled={!previousCard}
+            to={previousCard ? `/card/${previousCard.id}/display` : undefined}
+            scroll={false}
+            data-testid='prev-btn'
+          >
+            Previous card
+          </CTA>
+        </div>
         {cardInCollection && (
           <Only.CustomCollection>
             <CardProgress card={cardInCollection} />
           </Only.CustomCollection>
         )}
 
-        <CTA
-          disabled={!nextCard}
-          to={nextCard ? `/card/${nextCard.id}/display` : undefined}
-          scroll={false}
-          data-testid='next-btn'
-        >
-          Next card
-        </CTA>
+        <div>
+          <CTA
+            disabled={!nextCard}
+            to={nextCard ? `/card/${nextCard.id}/display` : undefined}
+            scroll={false}
+            data-testid='next-btn'
+          >
+            Next card
+          </CTA>
+        </div>
       </div>
     </Only.Desktop>
   )
