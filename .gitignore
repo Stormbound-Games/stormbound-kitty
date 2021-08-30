@@ -1,18 +1,26 @@
+# Dependencies
 node_modules
-coverage
+
+# Dist
 build
+out
+
+# Misc
 .DS_Store
+
+# Development
 .env
+.env.*
 *.log*
-screenshots
-.nyc_output
-coverage
-public/sitemap.xml
 .vscode
 .eslintcache
-.netlify
 .husky/_
 .next
 .vercel
-out
+
+# Artifacts
+cypress/screenshots
+.nyc_output
+coverage
+public/sitemap.xml
 public/assets/images/formulas/*.png
