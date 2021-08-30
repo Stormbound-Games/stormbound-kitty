@@ -1,4 +1,5 @@
 import React from 'react'
+import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
 import Row from '~/components/Row'
@@ -62,7 +63,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <ListBuilderToc tiers={tiers} />
 
           {isMounted && (
-            <Spacing bottom='LARGE'>
+            <Spacing bottom='BASE'>
               <Select
                 label='Display factions'
                 id='factions'
@@ -79,6 +80,15 @@ export default React.memo(function ListBuilderDisplayView(props) {
               </Select>
             </Spacing>
           )}
+
+          <Info icon='compass' title='Intro to equals'>
+            <p>
+              If you are new to equal matches, be sure to read the{' '}
+              <Link to='/guides/equals-intro'>introduction to equals</Link> by{' '}
+              <Link to='/members/derk'>Derk</Link> to learn everything about
+              this game mode.
+            </p>
+          </Info>
         </Row.Column>
 
         <Row.Column width='2/3'>
