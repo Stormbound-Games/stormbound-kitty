@@ -7,7 +7,6 @@ import useViewportSize from '~/hooks/useViewportSize'
 import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
 import useIsMounted from '~/hooks/useIsMounted'
-import styles from '~/components/Header/styles'
 
 export default React.memo(function NavCardBuilder(props) {
   const { css } = useFela()
