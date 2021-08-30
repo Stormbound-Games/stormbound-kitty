@@ -5,7 +5,7 @@ import Spacing from '~/components/Spacing'
 
 export default React.memo(function ListBuilderTierList(props) {
   return props.tiers.map((tier, index) => (
-    <Spacing bottom='BASE' key={index}>
+    <Spacing bottom='BASE' key={tier.name || index}>
       <ListBuilderTier
         {...tier}
         color={TIER_COLORS[index]}

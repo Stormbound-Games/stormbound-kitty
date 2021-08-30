@@ -39,7 +39,7 @@ export default React.memo(function BattleSimCards(props) {
           return (
             <div
               className={css(styles.slot)}
-              key={index}
+              key={cardId || index}
               data-testid={`card-slot-${index}`}
             >
               {!card && !props.canDrawCard ? null : (

@@ -17,7 +17,7 @@ export default React.memo(function BrawlProgress(props) {
     <ul className={css(styles.progress)}>
       {milestones.map((milestone, index) => (
         <li
-          key={index}
+          key={milestone.crowns}
           className={css(
             styles.item({
               isActive: props.active === index,
