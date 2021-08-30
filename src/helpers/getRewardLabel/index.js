@@ -8,6 +8,7 @@ import {
   Epic,
   Legendary,
 } from '~/components/Resource'
+import Icon from '~/components/Icon'
 import getBookName from '~/helpers/getBookName'
 
 const getRewardLabel = (entry, enhanced = false) => {
@@ -65,6 +66,18 @@ const getRewardLabel = (entry, enhanced = false) => {
         <Legendary amount={amount} />
       ) : (
         `${amount} legendary card${amount === 1 ? '' : 's'}`
+      )
+    case 'AD':
+      return enhanced ? (
+        <>
+          <Icon
+            icon='youtube'
+            extend={{ transform: 'translateY(2px)', color: 'var(--beige)' }}
+          />{' '}
+          {amount} ad{amount === 1 ? '' : 's'}
+        </>
+      ) : (
+        `${amount} ad${amount === 1 ? '' : 's'}`
       )
     default:
       return null
