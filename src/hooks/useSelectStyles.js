@@ -19,6 +19,9 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
 
     valueContainer: provided => ({
       ...provided,
+      lineHeight: 'inherit',
+      paddingTop: '0.4em',
+      paddingBottom: '0.4em',
       // When rendered without a border, it looks slightly better without
       // the  horizontal padding.
       paddingLeft: noBorder ? 0 : provided.paddingLeft,
