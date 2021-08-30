@@ -31,7 +31,7 @@ export default React.memo(function CardBuilderApp(props) {
         <CardBuilderCardDisplay mode={props.mode} {...cardData} id={cardId} />
       </Spacing>
 
-      {isOfficial && (
+      {isOfficial && props.mode === 'DISPLAY' && (
         <Spacing bottom='LARGEST'>
           <CardDisplayControls cardId={cardId} />
         </Spacing>
