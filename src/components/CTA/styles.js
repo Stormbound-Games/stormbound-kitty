@@ -1,10 +1,10 @@
 /**
- * 1. `1.45em` is a magic number that gives enough space on both sides to render
+ * 1. `1.5em` is a magic number that gives enough space on both sides to render
  *    the backgrounds. Safari needs 1px less… :eye-roll:
  */
 const cta = ({ isDisabled, isFullWidthOnMobile }) => ({
   display: 'inline-flex',
-  padding: '0 calc(1.45em - 1px)' /* 1 */,
+  padding: '0 calc(1.5em - 1px)' /* 1 */,
   border: 0,
   position: 'relative',
 
@@ -30,10 +30,11 @@ const cta = ({ isDisabled, isFullWidthOnMobile }) => ({
 })
 
 const content = {
-  padding: 'var(--s-smaller) var(--s-base)',
+  padding: 'var(--s-small) var(--s-base)',
   flexGrow: 1,
   height: '100%',
 
+  lineHeight: 1,
   fontSize: '80%',
   whiteSpace: 'nowrap',
   textTransform: 'uppercase',
