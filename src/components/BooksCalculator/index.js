@@ -226,7 +226,11 @@ export default React.memo(function BooksCalculator(props) {
                   .filter(book => BOOKS[book].cost)
                   .map(book => (
                     <tr key={book}>
-                      <td data-label='Book name'>{getBookName(book)}</td>
+                      <td data-label='Book name'>
+                        <Link onClick={() => setBookType(book)}>
+                          {getBookName(book)}
+                        </Link>
+                      </td>
                       <td data-label='Book cost'>
                         {getResourceLabel(BOOKS[book].cost, true)}
                       </td>
