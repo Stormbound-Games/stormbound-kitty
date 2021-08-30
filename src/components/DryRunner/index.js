@@ -14,11 +14,8 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import isCard from '~/helpers/isCard'
-import useViewportSize from '~/hooks/useViewportSize'
 
 export default React.memo(function DryRunner(props) {
-  const { viewportWidth } = useViewportSize()
-
   return (
     <Page
       title='Deck Dry-Run'
@@ -30,7 +27,7 @@ export default React.memo(function DryRunner(props) {
           <Title>Deck</Title>
           <Deck
             deck={props.displayDeck}
-            orientation={viewportWidth > 700 ? 'vertical' : 'horizontal'}
+            orientation='vertical'
             onClick={
               props.mode === 'MANUAL' ? props.onDeckCardClick : undefined
             }

@@ -29,7 +29,6 @@ import modifyDeck from '~/helpers/modifyDeck'
 import serialisation from '~/helpers/serialisation'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
-import useViewportSize from '~/hooks/useViewportSize'
 import usePrevious from '~/hooks/usePrevious'
 import useNavigator from '~/hooks/useNavigator'
 import { TAGS } from '~/constants/deck'
@@ -113,7 +112,6 @@ const getStoredTooltipsSetting = () => {
 }
 
 export default React.memo(function DeckEditorView(props) {
-  const { viewportWidth } = useViewportSize()
   const navigator = useNavigator()
   const deckId = serialisation.deck.serialise(props.deck)
   const { collection, indexedCollection, hasDefaultCollection } =
@@ -224,7 +222,7 @@ export default React.memo(function DeckEditorView(props) {
             showTooltips={cardTooltips}
             id='deck'
             deck={deck}
-            orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
+            orientation='vertical'
             onClick={props.removeCardFromDeck}
             onClickLabel='Remove card from deck'
             highlightedCards={props.highlightedCards}

@@ -15,7 +15,6 @@ import modifyDeck from '~/helpers/modifyDeck'
 import getDeckPresets from '~/helpers/getDeckPresets'
 import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 import toSentence from '~/helpers/toSentence'
-import useViewportSize from '~/hooks/useViewportSize'
 import useNavigator from '~/hooks/useNavigator'
 import { BRAWL_INDEX } from '~/constants/brawl'
 
@@ -26,7 +25,6 @@ const getDefaultBrawlModifier = deck => {
 }
 
 export default React.memo(function DeckDetailView(props) {
-  const { viewportWidth } = useViewportSize()
   const { notify } = React.useContext(NotificationContext)
   const navigator = useNavigator()
   const defaultModifier = getDefaultBrawlModifier(props.deck)
@@ -69,7 +67,7 @@ export default React.memo(function DeckDetailView(props) {
           <Deck
             id='deck'
             deck={deck}
-            orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
+            orientation='vertical'
             highlightedCards={props.highlightedCards}
             onClick={card => navigator.push('/card/' + card.id + '/display')}
             onClickLabel='Open card in card builder'
