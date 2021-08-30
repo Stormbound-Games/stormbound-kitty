@@ -2,21 +2,16 @@ import { BOOKS } from '~/constants/books'
 import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
 import getPeriodMultiplier from '~/helpers/getPeriodMultiplier'
 
-const RUBY_CONVERSION_MAP = {
-  CARD_SHOP: 20,
-  CLASSIC: 20,
-  DRAGON: 40,
-  ELDER: 40,
-  FELINE: 40,
-  HEROIC: 40,
-  ARCHDRAGON: 90,
-  MYTHIC: 80,
-  PIRATE: 40,
-  STRUCTURE: 40,
-  CHAOS: 50,
-  LEGENDS: 120,
-  MAGIC: 40,
-}
+const RUBY_CONVERSION_MAP = Object.keys(BOOKS).reduce(
+  (acc, key) => {
+    if (BOOKS[key].cost.type !== 'RUBIES') return acc
+    acc[key] = BOOKS[key].cost.amount
+    return acc
+  },
+  {
+    CARD_SHOP: 20,
+  }
+)
 
 class Income {
   constructor(period, income) {
