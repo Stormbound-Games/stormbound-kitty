@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import CardSelect from '~/components/CardSelect'
 import SubNav from '~/components/SubNav'
 import getRawCardData from '~/helpers/getRawCardData'
@@ -9,7 +8,6 @@ import useNavigator from '~/hooks/useNavigator'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function NavCardBuilder(props) {
-  const { css } = useFela()
   const isMounted = useIsMounted()
   const { viewportWidth } = useViewportSize()
   const { id } = useQueryParams()
