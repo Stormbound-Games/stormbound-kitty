@@ -10,7 +10,7 @@ const menu = ({ isOpen }) => ({
   zIndex: 19,
   border: '1px solid var(--dark-beige)',
   textAlign: 'left',
-  left: 'calc(var(--s-base) * -1)',
+  left: 0,
   padding: '1.5rem 1.5rem 0em' /* 1 */,
   visibility: isOpen ? 'visible' : 'hidden',
   opacity: isOpen ? 1 : 0,
