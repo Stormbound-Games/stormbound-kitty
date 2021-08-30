@@ -30,18 +30,15 @@ export default React.memo(function HeaderBanner(props) {
 
   return (
     <Spacing bottom={['BASE', 'LARGEST']}>
-      <header
+      <div
         className={css(styles.banner)}
-        style={{
-          '--image': `url(${background})`,
-          '--ratio': props.ratio,
-        }}
+        style={{ '--image': `url(${background})`, '--ratio': props.ratio }}
       >
         <Only.Desktop>
           <img src={background} alt='' hidden />
         </Only.Desktop>
         <h1 className={css(styles.title)}>{props.title}</h1>
-      </header>
+      </div>
     </Spacing>
   )
 })
