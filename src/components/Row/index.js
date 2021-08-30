@@ -14,7 +14,9 @@ const Row = React.memo(function Row(props) {
     isDesktopOnly: props.isDesktopOnly,
     withNarrowGutter: props.withNarrowGutter,
   })
-  const margin = useSpacing(props.spacing || { bottom: 'BASE' })
+  const margin = useSpacing(
+    props.spacing || { bottom: [props.isDesktopOnly ? 'NONE' : 'BASE', 'BASE'] }
+  )
 
   return (
     <div
