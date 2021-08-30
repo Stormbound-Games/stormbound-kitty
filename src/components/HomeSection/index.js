@@ -14,6 +14,19 @@ export default React.memo(function HomeSection(props) {
       <div className={css(styles.inner)}>
         <Row isDesktopOnly>
           <Row.Column>
+            <h2 className={css(styles.title)}>{props.title}</h2>
+
+            {props.children}
+
+            <div className={css(styles.actions)}>
+              {props.actions.map(action => (
+                <CTA key={action.to} extend={styles.action} to={action.to}>
+                  {action.children}
+                </CTA>
+              ))}
+            </div>
+          </Row.Column>
+          <Row.Column>
             {props.image && (
               <Only.Desktop>
                 <Image
@@ -27,19 +40,6 @@ export default React.memo(function HomeSection(props) {
                 />
               </Only.Desktop>
             )}
-          </Row.Column>
-          <Row.Column>
-            <h2 className={css(styles.title)}>{props.title}</h2>
-
-            {props.children}
-
-            <div className={css(styles.actions)}>
-              {props.actions.map(action => (
-                <CTA key={action.to} extend={styles.action} to={action.to}>
-                  {action.children}
-                </CTA>
-              ))}
-            </div>
           </Row.Column>
         </Row>
       </div>

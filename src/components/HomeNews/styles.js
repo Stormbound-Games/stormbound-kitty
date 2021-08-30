@@ -4,10 +4,10 @@
 const container = {
   medium: {
     position: 'absolute',
-    left: 0,
+    right: 0,
     width: '40%',
     top: '12em' /* 1 */,
-    zIndex: 2,
+    zIndex: 20,
   },
 }
 

@@ -2,7 +2,7 @@ const section = {
   marginLeft: 'calc(var(--s-large) * -1)',
   marginRight: 'calc(var(--s-large) * -1)',
   overflow: 'hidden',
-  backgroundImage: 'linear-gradient(60deg, var(--color), transparent)',
+  backgroundImage: 'linear-gradient(300deg, var(--color), transparent)',
 
   medium: {
     width: '100vw',
@@ -19,13 +19,13 @@ const section = {
       position: 'absolute',
       paddingTop: '50%',
       width: '50%',
-      transform: 'translate(-20%, -50%) rotate(45deg)',
-      left: 0,
+      transform: 'translate(20%, -50%) rotate(45deg)',
+      right: 0,
       top: '50%',
-      WebkitMaskImage: 'linear-gradient(35deg, var(--black), transparent)',
-      maskImage: 'linear-gradient(35deg, var(--black), transparent)',
+      WebkitMaskImage: 'linear-gradient(270deg, var(--black), transparent)',
+      maskImage: 'linear-gradient(270deg, var(--black), transparent)',
       backgroundImage:
-        'repeating-linear-gradient(80deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',
+        'repeating-linear-gradient(10deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',
     },
   },
 }
@@ -38,7 +38,7 @@ const inner = {
     width: '1200px',
     maxWidth: '100%',
     margin: '0 auto',
-    textAlign: 'right',
+    textAlign: 'left',
     padding: 'var(--s-large)',
   },
 }
@@ -55,7 +55,7 @@ const title = {
 
 const image = {
   medium: {
-    marginRight: 'auto',
+    marginLeft: 'auto',
     maxHeight: '15em',
     zIndex: 2,
     position: 'relative',
@@ -68,7 +68,7 @@ const actions = {
    */
   medium: {
     marginTop: 'var(--s-large)',
-    marginRight: 'calc(var(--s-smaller) * -1)' /* 1 */,
+    marginLeft: 'calc(var(--s-smaller) * -1)' /* 1 */,
     marginBottom: 'var(--s-base)',
   },
 }

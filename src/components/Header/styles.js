@@ -13,25 +13,20 @@ const header = {
  *    loads. This really is only needed in development where `getStaticProps`
  *    (which holds the navigation data) is fetched with every request. This is
  *    unneeded (although safe) in production.
- * 2. Opaque color to cover the underlying image on the home page.
- * 3. Use the height of the mobile header (including its top padding) instead of
- *   `100%` to have the nav menu overlap the subnav is there is one.
- * 4. Use padding instead of margin as the element has a solid background color
- *    which is not rendered behind margin.
  */
 const nav = ({ isMobileNavOpen }) => ({
   minHeight: '54px' /* 1 */,
-  backgroundColor: 'var(--black)' /* 2 */,
   borderBottom: '1px solid var(--dark-beige)',
   paddingTop: 'var(--s-base)',
 
   small: {
     position: 'absolute',
-    top: '62px' /* 3 */,
+    top: '62px' /* 2 */,
     left: 0,
     right: 0,
     paddingTop: 0,
     zIndex: 20,
+    backgroundColor: 'var(--black)',
     boxShadow: '0 1.5em 1em -1em #0000004d',
     visibility: isMobileNavOpen ? 'visible' : 'hidden',
     opacity: isMobileNavOpen ? 1 : 0,
