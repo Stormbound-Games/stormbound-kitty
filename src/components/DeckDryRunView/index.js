@@ -9,17 +9,11 @@ import useQueryParams from '~/hooks/useQueryParams'
 import useDryRunner from './useDryRunner'
 
 export default React.memo(function DeckDryRunView(props) {
-  const query = useQueryParams()
   const { notify } = React.useContext(NotificationContext)
   const sendNotification = React.useCallback(
     message => notify({ icon: 'sword', children: message }),
     [notify]
   )
-  // The mode is theoretically not quite supposed to be changed at run time, but
-  // this is a workaround to be able to pick an initial hand for testing
-  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
-  // been picked.
-  const [mode, setMode] = React.useState(query.mode || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
   const [harvestersCards, setHarvestersCards] = React.useState([])
@@ -48,13 +42,7 @@ export default React.memo(function DeckDryRunView(props) {
 
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
-  // prettier-ignore
-  const settings = {
-    HoS,
-    mode, setMode,
-    equalsMode, setEqualsMode,
-    modifier, setModifier,
-  }
+  const settings = { HoS, equalsMode, setEqualsMode, modifier, setModifier }
   const deckMechanisms = useDeckMechanisms({ deck, ...settings })
   const dryRunner = useDryRunner({ ...props, ...deckMechanisms, ...settings })
 
