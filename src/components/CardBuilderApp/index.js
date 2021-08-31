@@ -10,7 +10,6 @@ import LevelForm from '~/components/CardBuilderLevelForm'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import useQueryParams from '~/hooks/useQueryParams'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import isCardOfficial from '~/helpers/isCardOfficial'
 import usePageProps from './usePageProps'
@@ -19,12 +18,7 @@ import useVersionedCardData from './useVersionedCardData'
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
   const { cardId } = props
-  // Note that `versionId` will *always* be `NaN` in the first render coming
-  // from the server since the markup is generated at build time where query
-  // parameters are non-existent. It’s only when the client hydrates that the
-  // query parameters are read from the URL and available via the router. This
-  // means the page will essentially ignore the version ID until the app mounts.
-  const versionId = +useQueryParams().v
+  const versionId = Number(props.versionId)
   const isOfficial = isCardOfficial(cardId)
   const cardData = useVersionedCardData(props, versionId)
   const pageProps = usePageProps(props, versionId)

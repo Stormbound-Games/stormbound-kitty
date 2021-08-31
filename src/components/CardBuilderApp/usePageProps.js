@@ -9,7 +9,7 @@ const usePageProps = (props, versionId) => {
   const id = props.cardId
 
   if (isCardOfficial(id)) {
-    const date = versionId ? 'Prior ' + formatPreciseDate(+versionId) : null
+    const date = versionId ? 'Prior ' + formatPreciseDate(versionId) : null
     const wiki = getWikiCardLink(name)
 
     properties.meta = [faction, type, race, date].filter(Boolean).join(' · ')
