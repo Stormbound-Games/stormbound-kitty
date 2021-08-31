@@ -26,9 +26,9 @@ describe('Card Builder — Official card', () => {
           .last()
           .click()
           .url()
-          // Do not test for the full timestamp as the conversion is done on the
+          // Do not test for the timestamp as the conversion is done on the
           // client, which can result in some subtle timezone differences.
-          .should('include', '?v=156936')
+          .should('not.match', /\/display$/)
         cy.get(s.CARD_ABILITY)
           .first()
           .invoke('text')
@@ -41,7 +41,11 @@ describe('Card Builder — Official card', () => {
       .first()
       .invoke('text')
       .then(ability => {
-        cy.get(s.VERSION_BTN).last().click().url().should('not.include', '?v=')
+        cy.get(s.VERSION_BTN)
+          .last()
+          .click()
+          .url()
+          .should('match', /\/display$/)
         cy.get(s.CARD_ABILITY)
           .first()
           .invoke('text')

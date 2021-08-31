@@ -18,6 +18,7 @@ export default React.memo(function CardChangeFeed(props) {
 
   if (!hasReleaseChange) {
     changes.push({
+      timestamp: 1505728800000,
       date: '18/09/2017',
       description: 'Released with the game',
       id: props.id,
@@ -36,10 +37,9 @@ export default React.memo(function CardChangeFeed(props) {
             ...entry,
             date: parseDate(entry.date),
           }))
-          .sort((a, b) => b.date - a.date)
           .map((entry, index, array) => {
             const previousEntry = array[index - 1]
-            const previewVersionId = previousEntry?.date.valueOf()
+            const previewVersionId = previousEntry?.timestamp
             const isCurrentlyPreviewed = currentVersionId
               ? previewVersionId === currentVersionId
               : index === 0

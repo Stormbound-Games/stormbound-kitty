@@ -25,15 +25,20 @@ const getContest = id => {
 const getChangelog = id => {
   if (!isCardOfficial(id)) return []
 
-  return CHANGELOG.filter(change => change.id === id).sort(
-    (a, b) => b.timestamp - a.timestamp
-  )
+  return CHANGELOG.filter(change => change.id === id)
+    .map(change => ({ ...change, timestamp: parseDate(change.date).valueOf() }))
+    .sort((a, b) => b.timestamp - a.timestamp)
 }
 
 export async function getStaticPaths() {
   const paths = CARDS.filter(card => !card.token)
     .map(card => card.id)
-    .map(id => ({ params: { rest: [id, 'display'] } }))
+    .map(id =>
+      getChangelog(id).map(change => ({
+        params: { rest: [id, 'display', String(change.timestamp)] },
+      }))
+    )
+    .flat()
     .concat([{ params: { rest: [] } }])
 
   return { paths, fallback: 'blocking' }
@@ -48,13 +53,22 @@ export async function getStaticProps(context) {
     card: {},
     contest: null,
     mode: 'EDITOR',
+    versionId: null,
     versions: [],
   }
 
   try {
-    const [id, display] = params
+    const [id, display, versionId = null] = params
+    const versions = getChangelog(id)
 
-    if (display && display !== 'display') {
+    if (
+      // Invalid view keyword
+      (display && display !== 'display') ||
+      // Version ID with a non-official card
+      (versionId && !isCardOfficial(id)) ||
+      // Invalid version ID
+      (versionId && !versions.some(v => String(v.timestamp) === versionId))
+    ) {
       return { notFound: true }
     }
 
@@ -70,7 +84,8 @@ export async function getStaticProps(context) {
         cardId: id,
         card: getInitialCardData(id),
         contest: getContest(id),
-        versions: getChangelog(id),
+        versionId,
+        versions,
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
       },
     }
