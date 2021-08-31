@@ -1,5 +1,6 @@
 import formatCardStats from '~/helpers/formatCardStats'
 import getRawCardData from '~/helpers/getRawCardData'
+import { formatPreciseDate } from '~/helpers/formatDate'
 
 const isIncomplete = state => {
   if (!state.name) return true
@@ -9,9 +10,18 @@ const isIncomplete = state => {
   return false
 }
 
-const getCardBuilderMetaTags = state => {
+const getCardBuilderMetaTags = (state, versionId) => {
   const cardData = getRawCardData(state.imageCardId)
   const metaTags = {}
+
+  // If the card is a past version of an official card, mention it in the page
+  // title so it shows up in embeds, such as on Discord. Otherwise, nothing
+  // indicates that the thumbnail and its stats are from a former version of the
+  // card.
+  if (versionId && cardData.id) {
+    metaTags.metaTitle =
+      cardData.name + ' (prior ' + formatPreciseDate(new Date(versionId)) + ')'
+  }
 
   metaTags.title = state.name || cardData.name || 'Card Builder'
 

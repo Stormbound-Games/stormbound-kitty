@@ -22,7 +22,7 @@ export default React.memo(function CardBuilderApp(props) {
   const isOfficial = isCardOfficial(cardId)
   const cardData = useVersionedCardData(props, versionId)
   const pageProps = usePageProps(props, versionId)
-  const metaTags = getCardBuilderMetaTags(cardData)
+  const metaTags = getCardBuilderMetaTags(cardData, versionId)
 
   return (
     <Page {...pageProps} {...metaTags}>
