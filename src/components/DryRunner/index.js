@@ -28,9 +28,7 @@ export default React.memo(function DryRunner(props) {
           <Deck
             deck={props.displayDeck}
             orientation='vertical'
-            onClick={
-              props.mode === 'MANUAL' ? props.onDeckCardClick : undefined
-            }
+            onClick={props.onDeckCardClick}
             isCardDisabled={card => props.hand.find(isCard(card))}
             highlightedCards={props.displayDeck.filter(
               card => !props.hand.find(isCard(card))

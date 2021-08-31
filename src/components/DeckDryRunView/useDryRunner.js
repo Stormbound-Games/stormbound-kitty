@@ -1,9 +1,15 @@
 import React from 'react'
+import querystring from 'querystring'
 import isCard from '~/helpers/isCard'
 import usePrevious from '~/hooks/usePrevious'
 
 const useDryRunner = props => {
-  const { reset, cycle, draw, play, setMode, canCardBePlayed } = props
+  // The mode is theoretically not quite supposed to be changed at run time, but
+  // this is a workaround to be able to pick an initial hand for testing
+  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
+  // been picked.
+  const [mode, setMode] = React.useState('AUTOMATIC')
+  const { reset, cycle, draw, play, canCardBePlayed } = props
   const [activeCard, setActiveCard] = React.useState(null)
   const [turnsWithLeftOverMana, setTurnsWithLeftOverMana] = React.useState(0)
   const [turnsWithoutCycling, setTurnsWithoutCycling] = React.useState(0)
@@ -38,19 +44,28 @@ const useDryRunner = props => {
   }, [cycle, activeCard])
 
   const playCard = React.useCallback(() => {
-    play(activeCard)
+    // The reason the mode is not read from the URL here is that when in manual
+    // mode, once the initial hand has been picked, the game is switched back to
+    // automatic mode, which is the one that should be honored.
+    play(activeCard, { mode })
     setTotalCardsPlayed(count => count + 1)
     setActiveCard(null)
-  }, [play, activeCard])
+  }, [play, activeCard, mode])
 
   const resetGame = React.useCallback(() => {
-    reset()
+    // When initialising or reseting the game, read the expected game mode from
+    // the URL, and set it in the state, as well as pass it to the `reset`
+    // function to determine whether the hand should be (re)filled.
+    const query = querystring.parse(window.location.search.replace('?', ''))
+
+    reset(query.mode !== 'MANUAL')
+    setMode(query.mode || 'AUTOMATIC')
     setActiveCard(null)
     setTurnsWithLeftOverMana(0)
     setTurnsWithoutCycling(0)
     setTotalUnspentMana(0)
     setTotalCardsPlayed(0)
-  }, [reset])
+  }, [reset, setMode])
 
   const displayDeck = React.useMemo(() => {
     const sum = props.deck.map(card => card.weight).reduce((a, b) => a + b, 0)
@@ -151,7 +166,7 @@ const useDryRunner = props => {
     totalCardsPlayed,
     displayChance,
     displayDeck,
-    onDeckCardClick,
+    onDeckCardClick: mode === 'MANUAL' ? onDeckCardClick : undefined,
     setDisplayChance,
     resetGame,
     selectCard,

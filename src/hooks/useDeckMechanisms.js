@@ -31,7 +31,6 @@ const getDefaultState = props => ({
 })
 
 const useDeckMechanisms = props => {
-  const mode = props.mode || 'AUTOMATIC'
   const [state, setState] = React.useState(getDefaultState(props))
 
   const draw = React.useCallback((card = null) => {
@@ -55,16 +54,11 @@ const useDeckMechanisms = props => {
         // If it’s not a discard move and the card costs more mana than the
         // current round, skip play.
         return options.discard || canAfford
-          ? deckMechanisms.play(
-              clone(state),
-              card,
-              { ...options, mode },
-              props.HoS
-            )
+          ? deckMechanisms.play(clone(state), card, options, props.HoS)
           : state
       })
     },
-    [props.HoS, mode]
+    [props.HoS]
   )
 
   const addCardToDeck = React.useCallback(
@@ -103,16 +97,18 @@ const useDeckMechanisms = props => {
     [state.mana, state.deck, state.turn, state.specifics]
   )
 
-  const reset = React.useCallback(() => {
-    setState(state => {
-      const newState = getDefaultState({ ...props, RNG: state.RNG })
-      const mode = props.mode || 'AUTOMATIC'
+  const reset = React.useCallback(
+    withRefill => {
+      setState(state => {
+        const newState = getDefaultState({ ...props, RNG: state.RNG })
 
-      if (mode !== 'MANUAL') deckMechanisms.refill(newState)
+        if (withRefill) deckMechanisms.refill(newState)
 
-      return newState
-    })
-  }, [props])
+        return newState
+      })
+    },
+    [props]
+  )
 
   const setPlayerOrder = React.useCallback(playerOrder => {
     const turn = playerOrder === 'SECOND' ? 2 : 1
