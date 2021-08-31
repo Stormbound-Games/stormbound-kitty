@@ -18,8 +18,8 @@ export default React.memo(function Videos(props) {
       description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
       isEditorialContent
     >
-      {chunk(props.channels, 2).map((row, index) => (
-        <Row key={index} isDesktopOnly>
+      {chunk(props.channels, 2).map(row => (
+        <Row key={row.map(channel => channel.author).join('+')} isDesktopOnly>
           {row.map((channel, index, array) => (
             <React.Fragment key={channel.author}>
               <Row.Column>

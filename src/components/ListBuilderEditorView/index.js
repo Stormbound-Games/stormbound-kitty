@@ -218,7 +218,7 @@ class ListBuilderEditorView extends React.Component {
               <ListBuilderTier
                 {...this.state}
                 {...tier}
-                key={index}
+                key={tier.name || index}
                 color={TIER_COLORS[index]}
                 prefix={`tier-${index}-`}
                 // Basic edition

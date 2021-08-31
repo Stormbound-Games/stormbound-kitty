@@ -143,8 +143,8 @@ export default React.memo(function Deck(props) {
       <ul className={css(styles.list)}>
         {slots.map((card, index) => (
           <DeckSlot
-            key={card ? card.id + index : index}
             {...props}
+            key={card ? card.id + '-' + index : index}
             orientation={orientation}
             showEmptySlots={showEmptySlots}
             card={card}

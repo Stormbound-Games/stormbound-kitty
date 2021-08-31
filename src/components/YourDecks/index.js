@@ -19,7 +19,7 @@ export default React.memo(function YourDecks(props) {
   return (
     <>
       {rows.map((row, index) => (
-        <Row isDesktopOnly key={index}>
+        <Row isDesktopOnly key={row.map(deck => deck.id).join('+')}>
           <Row.Column>
             <YourDeck
               {...row[0]}

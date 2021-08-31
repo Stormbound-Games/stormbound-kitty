@@ -46,7 +46,7 @@ export default React.memo(function GuideLegendaries(props) {
         <ListBuilderTier
           {...tier}
           color={TIER_COLORS[index]}
-          key={index}
+          key={tier.name || index}
           prefix={`tier-${index}-`}
           isEditable={false}
         />

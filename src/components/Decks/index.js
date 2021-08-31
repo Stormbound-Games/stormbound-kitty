@@ -25,16 +25,17 @@ export default React.memo(function Decks(props) {
 
   return (
     <>
-      {rows.map((row, rowIndex) => (
-        <Row isDesktopOnly key={rowIndex}>
+      {rows.map(row => (
+        <Row isDesktopOnly key={row.map(deck => deck.id).join('+')}>
           {Array.from({ length: columns }, (_, index) => (
             <Row.Column
-              key={index}
+              key={row[index]?.id ?? index}
               width={columns > 2 ? `1/${columns}` : undefined}
             >
               {row[index] ? (
                 <FeaturedDeck
                   {...row[index]}
+                  key={row[index].id}
                   showUpgrades={props.showUpgrades}
                   onClick={navigateToCard}
                   actions={

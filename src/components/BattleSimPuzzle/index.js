@@ -29,7 +29,7 @@ export const getExcerptForPuzzle = puzzle => (
           .slice(0)
           .sort()
           .map((restriction, index) => (
-            <React.Fragment key={index}>
+            <React.Fragment key={restriction}>
               <span title={RESTRICTIONS[restriction].description}>
                 {RESTRICTIONS[restriction].name}
               </span>

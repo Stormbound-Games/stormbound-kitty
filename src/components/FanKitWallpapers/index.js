@@ -59,8 +59,8 @@ export default React.memo(function FanKitWallpapers(props) {
         close={() => dialogRef.current.hide()}
       />
 
-      {chunk(desktopWallpapers, 2).map((row, index) => (
-        <Row isDesktopOnly key={index}>
+      {chunk(desktopWallpapers, 2).map(row => (
+        <Row isDesktopOnly key={row.map(wp => wp.id).join('+')}>
           <Row.Column>
             {row[0] && (
               <FanKitItem
@@ -86,8 +86,8 @@ export default React.memo(function FanKitWallpapers(props) {
         </Row>
       ))}
 
-      {chunk(mobileWallpapers, 3).map((row, index) => (
-        <Row isDesktopOnly key={index}>
+      {chunk(mobileWallpapers, 3).map(row => (
+        <Row isDesktopOnly key={row.map(wp => wp.id).join('+')}>
           <Row.Column width='1/3'>
             {row[0] && (
               <FanKitItem

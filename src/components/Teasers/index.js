@@ -6,10 +6,10 @@ import chunk from '~/helpers/chunk'
 export default React.memo(function Teasers(props) {
   const columns = props.columns || 3
 
-  return chunk(props.items, columns).map((row, index) => (
-    <Row key={index} isDesktopOnly>
+  return chunk(props.items, columns).map(row => (
+    <Row key={row.map(item => item.title).join('+')} isDesktopOnly>
       {Array.from({ length: columns }, (_, index) => (
-        <Row.Column key={index} width='1/3'>
+        <Row.Column key={row[index]?.title ?? index} width='1/3'>
           {row[index] && <Teaser {...row[index]} />}
         </Row.Column>
       ))}

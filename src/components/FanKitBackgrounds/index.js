@@ -89,8 +89,8 @@ export default React.memo(function FanKitBackgrounds(props) {
         close={() => dialogRef.current.hide()}
       />
 
-      {chunk(desktopBackgrounds, 2).map((row, index) => (
-        <Row isDesktopOnly key={index}>
+      {chunk(desktopBackgrounds, 2).map(row => (
+        <Row isDesktopOnly key={row.map(bg => bg.id).join('+')}>
           <Row.Column>
             {row[0] && (
               <FanKitItem
