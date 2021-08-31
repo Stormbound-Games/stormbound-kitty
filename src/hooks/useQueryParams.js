@@ -1,16 +1,8 @@
 import { useRouter } from 'next/router'
-import querystring from 'querystring'
 
 const useQueryParams = () => {
   const router = useRouter()
-  const query = {
-    ...router.query,
-    // Query parameters are not provided by `next/router` in the first render
-    // from the server since the markup is pre-compiled at build time where
-    // query do not exist. The full path (containing the potential query string)
-    // can be read and parsed to get potential query parameters however.
-    ...querystring.parse(router.asPath.split('?')[1]),
-  }
+  const query = { ...router.query }
 
   // The `rest` route parameter is used for tools which have an optional ID in
   // the URL (e.g. `/card` and `/card/:id`). In that case, the first argument is
