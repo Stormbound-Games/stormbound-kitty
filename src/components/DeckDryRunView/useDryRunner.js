@@ -68,8 +68,10 @@ const useDryRunner = props => {
   }, [props.deck, props.hand, displayChance])
 
   React.useEffect(
+    // Note that this *also* happens on mount, which is how we start the game in
+    // the first place.
     () => resetGame(),
-    //eslint-disable-next-line
+    // eslint-disable-next-line
     [props.equalsMode, props.modifier]
   )
 

@@ -125,12 +125,6 @@ const useDeckMechanisms = props => {
     }))
   }, [])
 
-  React.useEffect(() => {
-    setState(state =>
-      mode === 'MANUAL' ? state : deckMechanisms.refill(state)
-    )
-  }, [mode])
-
   return {
     ...state,
     canCardBePlayed: _canCardBePlayed,
