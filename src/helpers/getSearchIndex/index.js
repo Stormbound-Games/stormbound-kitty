@@ -31,7 +31,7 @@ const getSearchIndex = (withEverything = true) => {
   links.push({
     label: 'Brawl Tracker',
     path: '/brawl',
-    breadcrumbs: ['Tools', 'Your Content'],
+    breadcrumbs: ['Your Content'],
   })
 
   BRAWLS.slice(0, limit).forEach(brawl => {
@@ -39,7 +39,7 @@ const getSearchIndex = (withEverything = true) => {
     links.push({
       label: brawl.label,
       path: '/brawl/' + slug,
-      breadcrumbs: ['Tools', 'Your Content'],
+      breadcrumbs: ['Your Content'],
     })
   })
 
@@ -128,13 +128,13 @@ const getSearchIndex = (withEverything = true) => {
   links.push({
     label: 'Card Collection',
     path: '/collection',
-    breadcrumbs: ['Tools', 'Your Content'],
+    breadcrumbs: ['Your Content'],
   })
 
   links.push({
     label: 'Card Collection Statistics',
     path: '/collection/stats',
-    breadcrumbs: ['Tools', 'Your Content'],
+    breadcrumbs: ['Your Content'],
   })
 
   links.push({
@@ -160,7 +160,7 @@ const getSearchIndex = (withEverything = true) => {
   links.push({
     label: 'Deck Collection',
     path: '/deck/collection',
-    breadcrumbs: ['Tools', 'Your Content'],
+    breadcrumbs: ['Your Content'],
   })
 
   links.push({
