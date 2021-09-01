@@ -1,6 +1,6 @@
 import isKATMember from '~/helpers/isKATMember'
 import ARTWORKS from '~/data/artworks'
-import UPDATES from '~/data/updates'
+import CHANNELS from '~/data/channels'
 import DECKS from '~/data/decks'
 import DONATIONS from '~/data/donations'
 import EVENTS from '~/data/events'
@@ -8,8 +8,9 @@ import GUIDES from '~/data/guides'
 import PODCASTS from '~/data/podcasts'
 import PUZZLES from '~/data/puzzles'
 import STORIES from '~/data/stories'
-import TOURNAMENTS from '~/data/tournaments'
 import SWCC from '~/data/swcc'
+import TOURNAMENTS from '~/data/tournaments'
+import UPDATES from '~/data/updates'
 
 const sortAlphabetically = (a, b) =>
   b.member.toLowerCase() > a.member.toLowerCase()
@@ -25,11 +26,9 @@ const getMembersList = () => {
     members[artwork.author] = members[artwork.author] || []
     members[artwork.author].push('ARTWORK')
   })
-  UPDATES.forEach(update => {
-    members[update.author] = members[update.author] || []
-    update.entries.forEach(() => {
-      members[update.author].push('UPDATE')
-    })
+  CHANNELS.forEach(channel => {
+    members[channel.author] = members[channel.author] || []
+    members[channel.author].push('CHANNEL')
   })
   DECKS.forEach(deck => {
     members[deck.author] = members[deck.author] || []
@@ -79,10 +78,19 @@ const getMembersList = () => {
       members[member].push('PODIUM')
     })
   })
+  UPDATES.forEach(update => {
+    members[update.author] = members[update.author] || []
+    update.entries.forEach(() => {
+      members[update.author].push('UPDATE')
+    })
+  })
 
   return Object.keys(members)
     .reduce((acc, member) => {
-      const entries = members[member]
+      // Members who have a YouTube channel should be returned as part of the
+      // list of members, but having a channel shouldn’t be counted as a
+      // contribution per se.
+      const entries = members[member].filter(entry => entry !== 'CHANNEL')
       const updates = entries.filter(entry => entry === 'UPDATE')
       const donations = entries.filter(entry => entry === 'DONATION')
 
