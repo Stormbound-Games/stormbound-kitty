@@ -16,7 +16,7 @@ export async function getStaticProps() {
 
 const CollectionStatsPage = ({ navigation, ...props }) => (
   <Layout
-    active={['TOOLS', 'YOUR_CONTENT', 'COLLECTION_STATS']}
+    active={['YOUR_CONTENT', 'YOUR_CONTENT', 'COLLECTION_STATS']}
     navigation={navigation}
   >
     <CollectionStats {...props} />

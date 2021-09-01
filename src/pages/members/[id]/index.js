@@ -4,6 +4,7 @@ import Layout from '~/components/Layout'
 import getMemberContent from '~/helpers/getMemberContent'
 import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
+import useMemberName from '~/hooks/useMemberName'
 
 export async function getStaticPaths() {
   const paths = getMembersList().map(({ member }) => ({
@@ -38,10 +39,18 @@ export async function getStaticProps(context) {
   }
 }
 
-const MemberPage = ({ navigation, ...props }) => (
-  <Layout active={['COMMUNITY', 'DISCOVER', 'MEMBERS']} navigation={navigation}>
-    <Member memberId={props.id} {...props} />
-  </Layout>
-)
+const MemberPage = ({ navigation, ...props }) => {
+  const [name] = useMemberName()
+  const active =
+    name?.toLowerCase() === props.id
+      ? ['YOUR_CONTENT', 'YOUR_CONTENT', 'FEED']
+      : ['COMMUNITY', 'DISCOVER', 'MEMBERS']
+
+  return (
+    <Layout active={active} navigation={navigation}>
+      <Member memberId={props.id} {...props} />
+    </Layout>
+  )
+}
 
 export default MemberPage

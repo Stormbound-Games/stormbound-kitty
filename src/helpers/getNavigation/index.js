@@ -168,12 +168,23 @@ const getNavigation = () => {
             },
           ],
         },
+      ],
+    },
+    {
+      id: 'YOUR_CONTENT',
+      icon: 'user',
+      label: 'Your Content',
+      items: [
         {
           id: 'YOUR_CONTENT',
-          title: 'Your Content',
+          title: 'About you',
           icon: 'user',
           items: [
-            { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },
+            {
+              label: 'Card Collection',
+              to: '/collection',
+              id: 'COLLECTION',
+            },
             {
               label: 'Collection Stats',
               to: '/collection/stats',

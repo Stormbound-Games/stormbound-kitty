@@ -8,7 +8,6 @@ import MobileHeader from '~/components/MobileHeader'
 import NavCardBuilder from '~/components/NavCardBuilder'
 import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
-import Only from '~/components/Only'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
 import useMemberName from '~/hooks/useMemberName'
@@ -78,13 +77,13 @@ const useNavigation = (navigation = []) => {
   if (!name && !isUnseen) return navigation
 
   const feed = name && {
-    label: 'Personal Feed',
+    label: 'Activity Feed',
     to: `/members/${name.toLowerCase()}`,
     id: 'FEED',
   }
 
   return navigation.map(category => {
-    if (category.id !== 'TOOLS') return category
+    if (category.id !== 'YOUR_CONTENT') return category
 
     const items = category.items.map(column => {
       if (column.id !== 'YOUR_CONTENT') return column
@@ -98,7 +97,7 @@ const useNavigation = (navigation = []) => {
       return { ...column, items: [feed, ...items].filter(Boolean) }
     })
 
-    return { ...category, isNew: isUnseen, items }
+    return { ...category, label: name, isNew: isUnseen, items }
   })
 }
 
@@ -136,18 +135,16 @@ export default React.memo(function Header(props) {
               />
             </li>
           ))}
-          <Only.Desktop>
-            <li className={css(styles.item({ isRight: true }))}>
-              <Link
-                disabled={!isMounted}
-                onClick={props.openSearch}
-                extend={styles.action}
-                data-testid='search-button'
-              >
-                <Icon extend={styles.icon} icon='search' /> Search
-              </Link>
-            </li>
-          </Only.Desktop>
+          <li className={css(styles.item({ isRight: true }))}>
+            <Link
+              disabled={!isMounted}
+              onClick={props.openSearch}
+              extend={styles.action}
+              data-testid='search-button'
+            >
+              <Icon extend={styles.icon} icon='search' /> Search
+            </Link>
+          </li>
         </ul>
       </nav>
       <SubNav active={props.active.slice(2)} />

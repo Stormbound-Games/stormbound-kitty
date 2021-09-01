@@ -25,7 +25,7 @@ export default React.memo(function Member(props) {
 
   return (
     <Page
-      title={isCurrentUser ? 'Your feed' : displayName}
+      title={isCurrentUser ? 'Activity Feed' : displayName}
       description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       noIndex={count === 0 && !channel}
       action={{ to: '/members', children: 'Back to Members' }}
