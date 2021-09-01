@@ -7,7 +7,6 @@
     "abort-controller": "^3.0.0",
     "canvas": "^2.8.0",
     "copy-to-clipboard": "^3.3.1",
-    "dateformat": "^4.5.1",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
     "downshift": "^6.1.7",

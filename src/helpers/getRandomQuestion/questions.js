@@ -1,4 +1,3 @@
-import dateFormat from 'dateformat'
 import {
   FACTIONS,
   RACES,
@@ -16,6 +15,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import abbreviate from '~/helpers/abbreviate'
 import shuffle from '~/helpers/shuffle'
 import sortCards from '~/helpers/sortCards'
+import { formatPreciseDate } from '~/helpers/formatDate'
 
 const SORTED_CARDS = CARDS.sort(sortCards())
 const CARD_NAMES = CARDS.filter(card => !card.token).map(card => card.name)
@@ -1263,7 +1263,8 @@ const questions = [
       const month = Math.floor(Math.random() * 12) + 1
       const year = arrayRandom([2016, 2017, 2018])
       const date = new Date(year, month - 1, day)
-      return dateFormat(date, 'mmmm dd, yyyy')
+
+      return formatPreciseDate(date)
     }),
   },
 

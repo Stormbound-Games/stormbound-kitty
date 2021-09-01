@@ -1,8 +1,8 @@
-import dateFormat from 'dateformat'
 import CHANGELOG from '~/data/changelog'
 import getEmbed from '~/helpers/getEmbed'
 import searchCards from '~/helpers/searchCards'
 import parseDate from '~/helpers/parseDate'
+import { formatPreciseDate } from '~/helpers/formatDate'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -49,7 +49,7 @@ const changelog = {
       ...Object.keys(changesByDate)
         .sort((a, b) => parseDate(b) - parseDate(a))
         .map(date => {
-          const name = dateFormat(parseDate(date), 'd mmm yyyy')
+          const name = formatPreciseDate(parseDate(date))
           const value = changesByDate[date]
             .map(change => '- ' + change.description)
             .join('\n')
