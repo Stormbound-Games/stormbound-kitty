@@ -21,9 +21,7 @@ const formatEntryWithDate = entry => ({
 })
 
 const getUserChannel = id =>
-  CHANNELS.find(
-    channel => channel.date && channel.author.toLowerCase() === id
-  ) || null
+  CHANNELS.find(channel => channel.author.toLowerCase() === id) || null
 
 const getUserStories = id =>
   STORIES.filter(story => story.date && story.author.toLowerCase() === id).map(
@@ -133,7 +131,7 @@ const getMemberContent = id => {
   // correct capitalisation since it cannot be retrieved from the URL parameter
   // unfortunately.
   const displayName = channel
-    ? channel.name
+    ? channel.author
     : content.map(
         ({ author, authors = [], hosts = [], podium = [], winner = {} }) =>
           author ||
