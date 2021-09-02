@@ -28,6 +28,9 @@ export default React.memo(function GuideStructures(props) {
         <li>
           <Link to='#advanced-tactics'>Advanced tactics</Link>
         </li>
+        <li>
+          <Link to='#closing-notes'>Closing notes</Link>
+        </li>
       </TableOfContents>
 
       <Info icon='compass' title='Temples'>
@@ -352,6 +355,15 @@ export default React.memo(function GuideStructures(props) {
           structures.
         </li>
       </ul>
+
+      <Title id='closing-notes'>Closing notes</Title>
+
+      <p>
+        I hope you’ve learned a thing or two from this guide, and that you’ll
+        find playing with and against structures more enjoyable, whether you’re
+        a new player or a veteran. Oh, and don’t forget to experiment! The
+        frontier of new tech starts with you!
+      </p>
     </>
   )
 })
