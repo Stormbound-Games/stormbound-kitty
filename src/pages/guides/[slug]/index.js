@@ -108,6 +108,9 @@ const GUIDE_COMPONENTS = {
       loading: Loader,
     }
   ),
+  STRUCTURES: dynamic(() => import('~/components/Guide/Structures'), {
+    loading: Loader,
+  }),
   TRIGGERS: dynamic(() => import('~/components/Guide/Triggers'), {
     loading: Loader,
   }),

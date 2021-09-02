@@ -42,6 +42,20 @@
     "date": "04/2019"
   },
   {
+    "id": "STRUCTURES",
+    "name": "Structures Guide",
+    "authors": [
+      "redsnake_25"
+    ],
+    "excerpt": "In this guide, redsnake_25 goes into why structures matter, how to play them efficiently and how to do your best to counter them on the battlefield.",
+    "slug": "structures",
+    "faction": "neutral",
+    "cardId": "N13",
+    "background": "/assets/images/wallpapers/lite/wp-d-4.png",
+    "category": "PLAYSTYLE",
+    "date": "09/2021"
+  },
+  {
     "id": "BRAWL",
     "name": "Brawl Guide",
     "authors": [
