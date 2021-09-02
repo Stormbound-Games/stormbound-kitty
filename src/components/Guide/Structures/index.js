@@ -35,8 +35,8 @@ export default React.memo(function GuideStructures(props) {
 
       <Info icon='compass' title='Temples'>
         <p>
-          Note that we will not cover temples in this guide as I have not played
-          with these relatively new cards enough to give solid advice.
+          Note that temples will not be covered in this guide as I have not
+          played with these relatively new cards enough to give solid advice.
         </p>
       </Info>
 
@@ -47,9 +47,9 @@ export default React.memo(function GuideStructures(props) {
         defend structures:
       </p>
       <ol>
-        <li>keeping your structures away from the opponent,</li>
-        <li>keeping your opponent away from your structures,</li>
-        <li>blocking direct access to structures.</li>
+        <li>Keeping your structures away from the opponent</li>
+        <li>Keeping your opponent away from your structures</li>
+        <li>Blocking direct access to structures</li>
       </ol>
 
       <h3>Keep your structures away from the opponent</h3>
@@ -184,7 +184,7 @@ export default React.memo(function GuideStructures(props) {
           presence for when you can play your structures so that they are safe.
         </li>
         <li>
-          The only real way around hard counters like <CardLink id='N21' /> and
+          The only real way around hard counters like <CardLink id='N21' /> and{' '}
           <CardLink id='S10' /> is counter-cycling. You will either need to
           out-cycle your opponent to cycle back to your structure before they
           can cycle back to their counter (<CardLink id='N14' /> and{' '}
@@ -232,13 +232,25 @@ export default React.memo(function GuideStructures(props) {
         <li>
           Apply pressure before they’ve played their structure. Force your
           opponent into a situation such that playing a structure would be as
-          bad a play as possible. This can include: forcing them to play their
-          structure on a middle column in front of their base, making the only
-          available tile to play a structure vulnerable to attack the very next
-          turn, forcing them to play their structure in a way that wastes value,
-          and lining up units on row 4 so that if they play a structure on their
-          back line, they will have blocked their own backline, leaving them
-          without space to play cards on their next turn.
+          bad a play as possible. This can include:
+          <ul>
+            <li>
+              Forcing them to play their structure on a middle column in front
+              of their base
+            </li>
+            <li>
+              Ensuring the only available tile to play a structure vulnerable to
+              attack the very next turn
+            </li>
+            <li>
+              Forcing them to play their structure in a way that wastes value
+            </li>
+            <li>
+              Lining up units on row 4 so that if they play a structure on their
+              back line, they will have blocked their own backline, leaving them
+              without space to play cards on their next turn
+            </li>
+          </ul>
         </li>
         <li>
           Destroy it immediately. It can’t generate value if it’s been
