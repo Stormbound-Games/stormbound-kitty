@@ -268,7 +268,8 @@
     "cardId": "F3",
     "background": "/assets/images/banners/environment_shadowfen.png",
     "category": "PLAYSTYLE",
-    "date": "06/2020"
+    "date": "06/2020",
+    "skipNav": true
   },
   {
     "id": "WINTER",
