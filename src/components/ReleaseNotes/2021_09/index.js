@@ -178,6 +178,15 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           September 13th.
         </p>
 
+        <Info icon='gift' title='Unboosted tomes'>
+          <p>
+            Please note that the books granted by the following offers will
+            yield the <span className='Highlight'>normal amount of cards</span>,
+            and no more. Extra cards in tomes will be exclusive to those that
+            are bought with in-game resources.
+          </p>
+        </Info>
+
         <Image
           src='/assets/images/releases/4th_anniversary_packs.png'
           alt='For $4.99: 1 Mythic Tome + 100 Coins; For $19.99: 4 Mythic Tome + 4 Heroic Tomes + 500 coins; For $49.99: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins; For $99.99: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
