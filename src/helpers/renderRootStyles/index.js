@@ -259,11 +259,20 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
-      paddingLeft: '1.5em',
-      textIndent: '-1.5em',
+      paddingLeft: '1.2em',
+      textIndent: '-1.2em',
       marginBottom: 'var(--s-smaller)',
     },
-    '.EditorialContent li:not([class])'
+    '.EditorialContent ol li:not([class])'
+  )
+
+  renderer.renderStatic(
+    {
+      paddingLeft: '1.4em',
+      textIndent: '-1.4em',
+      marginBottom: 'var(--s-smaller)',
+    },
+    '.EditorialContent ul li:not([class])'
   )
 
   renderer.renderStatic(

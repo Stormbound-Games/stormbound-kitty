@@ -150,7 +150,7 @@ const useDryRunner = props => {
     setTotalUnspentMana(count => count + (previousMana || 0))
     if (previousMana) setTurnsWithLeftOverMana(count => count + 1)
     if (!previousHasCycledThisTurn) setTurnsWithoutCycling(count => count + 1)
-    // react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.turn])
 
   React.useEffect(() => {

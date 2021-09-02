@@ -1,7 +1,6 @@
 import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
-import Guide from '~/components/Guide'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
@@ -58,10 +57,9 @@ export default React.memo(function GuideComplete(props) {
             </li>
             <li>
               <Link href='#how-when-and-where-to-play-structures'>
-                How, when and where to play{' '}
+                How, when and where to play structures
               </Link>
             </li>
-            structures
             <li>
               <Link href='#when-to-push-your-advantage'>
                 When to push your advantage
@@ -467,106 +465,6 @@ export default React.memo(function GuideComplete(props) {
         defeat…
       </p>
 
-      <p>I will review all of them considering how few there are.</p>
-      <ul>
-        <li>
-          <CardLink id='N13' />: Great card, good health/cost ratio. Can be used
-          in defense or to maintain your Line.
-        </li>
-        <li>
-          <CardLink id='S7' />: This card is meh… It can do great things but it
-          is quite easy to handle. You cannot play it on the early turns because
-          of the tempo loss and you need to already have a good board presence
-          to be effective. It is a Win-More card. If you are behind you will not
-          be able to play it.
-        </li>
-        <li>
-          <CardLink id='N34' />: A powerful card despite randomness which offers
-          control over the board by shooting at every turn. It is expensive
-          though and setting it up early needs to be done can be slow.
-        </li>
-        <li>
-          <CardLink id='N45' />: This card is the real deal… when level 5. It
-          does everything you need it to do: defensive, aggressive and
-          controlling. Your opponent HAS TO kill it. Before that, it is not good
-          enough for 6 mana.
-        </li>
-        <li>
-          <CardLink id='I5' />: Its low mana and great interaction with
-          Fortification Tonic and Hearthguards make it an interesting card.
-          Plus, it has the best animation of all structures.
-        </li>
-        <li>
-          <CardLink id='I14' />: I think this card needs to be reworked a bit.
-          It does not work with <CardLink id='I2' /> (the new Unit will prevent
-          the spawn next turn) and it’s easily blocked. Still, the card is fun
-          to play and can do things at low level. Past gold the card isn’t good
-          enough.
-        </li>
-        <li>
-          <CardLink id='W9' />: This is a fine card because it is in the best
-          controlling faction of the game. Its effect is great and useful, and
-          it has enough health to sometimes be used in a defensive strategy.
-        </li>
-        <li>
-          <CardLink id='W24' />: This card gives its own strength to heal your
-          base. It’s a pretty slow card and is therefore not suitable for winter
-          runners or otherwise medium-paced winter control. This is a card you
-          play when you already have a lot of board control, so running clearing
-          cards like <CardLink id='N57' />, <CardLink id='N47' />, or freeze
-          combos like <CardLink id='W11' /> and <CardLink id='W4' />, along with
-          mana gain from sources like <CardLink id='W9' /> and{' '}
-          <CardLink id='W19' />, can give you enough tempo to actually play{' '}
-          <CardLink id='W24' />. Buffing <CardLink id='W24' /> with spells such
-          as <CardLink id='W6' /> or <CardLink id='W14' /> isn’t recommended
-          because it worsens the tempo of a card that already makes you lose
-          tempo, and exposes you to faster decks like rush.
-        </li>
-        <li>
-          <CardLink id='N20' />: Maybe some use in lower league and some exotic
-          decks use it in Diamond, but after Silver this card is mostly bad. The
-          conditions are excessively hard to have consistently.
-        </li>
-        <li>
-          <CardLink id='S18' />: This card is quite interesting, it is direct
-          damage to the base (which is always nice) but in a faction that does
-          not play well with structures, lacking the control to make them
-          efficient. Definitely something to do in the proper deck but I never
-          saw it played efficiently.
-        </li>
-        <li>
-          <CardLink id='W3' />: Again, not a bad card but not a good one either.
-          It does not do that much. It is a defensive card in an already great
-          defensive faction.
-        </li>
-        <li>
-          <CardLink id='F13' />: This card is quite interesting because it is an
-          enabler for poison mechanics. I find it best played in the early
-          turns. It has enough health to be a good body on the board and is
-          crippling for the enemy attack early on. Its effect is less impressive
-          after the 8 mana turn where you have better things to do with your
-          mana and your opponent does no matter that much about it.
-        </li>
-        <li>
-          <CardLink id='I10' />: This card is excellent as a better version of{' '}
-          <CardLink id='N13' /> for Ironclad. You need to consider the defensive
-          ability of the card. The upgrade is a sweet bonus. To chose between
-          the two I compare their strength: past level 3 I always play{' '}
-          <CardLink id='I10' /> instead of <CardLink id='N13' />.
-        </li>
-        <li>
-          <CardLink id='I19' />: This card has no randomness and damages the
-          enemy base. A kill in <CardLink id='I2' />
-          ’s structure deck.
-        </li>
-        <li>
-          <CardLink id='T12' />: Just to remind that the eggs laid by
-          <CardLink id='F21' /> are structures until they hatch. Fun fact: you
-          can make them hatch with a <CardLink id='I2' /> you stole with
-          Harvesters of souls.
-        </li>
-      </ul>
-
       <p>
         The next question is:{' '}
         <span className='Highlight'>“where to play structures?”</span>
@@ -584,6 +482,14 @@ export default React.memo(function GuideComplete(props) {
         Always think about that before playing it. You don’t want to end with a{' '}
         <CardLink id='N13' /> on the 2 middle tiles.
       </p>
+
+      <Info icon='compass' title='Structures Guide'>
+        <p>
+          For more information about playing and countering structures, please
+          refer to the <Link to='/guides/structures'>Structures Guide</Link>{' '}
+          which goes into more details.
+        </p>
+      </Info>
 
       <h3 id='when-to-push-your-advantage'>When to push your advantage</h3>
 
