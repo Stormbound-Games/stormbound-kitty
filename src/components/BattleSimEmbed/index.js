@@ -23,7 +23,7 @@ const BattleSimEmbed = props => {
         {state => <BattleSimApp withoutGestures {...state} />}
       </BattleSimState>
       {props.children ? (
-        <Spacing top='BASE'>
+        <Spacing top='SMALL'>
           <p className={css(styles.caption)}>{props.children}</p>
         </Spacing>
       ) : null}
