@@ -1,3 +1,9 @@
+// Horizontal spacing within the card is expressed in `em` instead of using a
+// spacing variable (`rem`) as it needs to scale with the card font size.
+// Additionally, `2em` would be fine generally, but spells have a thicker border
+// where additional spacing is needed. If it’s too big for other cards, it could
+// be based on the card type.
+const HORIZONTAL_SPACING = '2.5em'
 const MISSING_FILTER = 'contrast(200%) saturate(0.5) grayscale(0.5)'
 const IMAGES = {
   mana: "url('/assets/images/card/mana.png')",
@@ -141,7 +147,7 @@ const header = {
   display: 'flex',
   flexDirection: 'column',
   marginTop: '4em' /* 1 */,
-  padding: '0 2em',
+  padding: '0 ' + HORIZONTAL_SPACING,
   textTransform: 'uppercase',
 }
 
@@ -163,16 +169,18 @@ const race = {
 }
 
 /**
- * 1. Add a hue animation to hero cards like in the game.
+ * 1. Using `max-height` does not work properly in Safari and results in the
+ *    image not being properly contained despite `object-fit: contain`.
+ * 2. Add a hue animation to hero cards like in the game.
  */
 const imageWrapper = ({ rarity }) => ({
-  width: '80%',
+  width: `calc(100% - ${HORIZONTAL_SPACING} * 2)`,
   margin: 'auto',
-  maxHeight: '45%',
+  height: '45%' /* 1 */,
 
   ...(rarity === 'legendary'
     ? {
-        animationName: { to: { filter: 'hue-rotate(360deg)' } } /* 1 */,
+        animationName: { to: { filter: 'hue-rotate(360deg)' } } /* 2 */,
         animationDuration: '8000ms',
         animationIterationCount: 'infinite',
       }
@@ -201,7 +209,7 @@ const ability = {
  */
 const footer = {
   position: 'relative' /* 1 */,
-  padding: '0 2em',
+  padding: '0 ' + HORIZONTAL_SPACING,
 }
 
 /**
