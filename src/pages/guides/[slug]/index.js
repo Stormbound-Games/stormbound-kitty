@@ -93,6 +93,9 @@ const GUIDE_COMPONENTS = {
   MANA_CURVE: dynamic(() => import('~/components/Guide/ManaCurve'), {
     loading: Loader,
   }),
+  MIAS_METROPOLIS: dynamic(() => import('~/components/Guide/MiasMetropolis'), {
+    loading: Loader,
+  }),
   PIRATE: dynamic(() => import('~/components/Guide/Pirate'), {
     loading: Loader,
   }),
