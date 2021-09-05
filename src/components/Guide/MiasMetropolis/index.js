@@ -1,7 +1,10 @@
 import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
+import FeaturedDeck from '~/components/FeaturedDeck'
+import Guide from '~/components/Guide'
 import Link from '~/components/Link'
+import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 
@@ -9,11 +12,10 @@ export default React.memo(function GuideMiasMetropolis(props) {
   return (
     <>
       <p>
-        The Mia’s Metropolis deck main playstyle is one that pursues maximum
-        value at all times. The main goal is to work out an overwhelming
-        backline of incredibly powerful buildings that build up so much value
-        over time that your momentum snowballs to the point of no return for the
-        opponent.
+        Mia’s Metropolis’ main playstyle is one that pursues maximum value at
+        all times, the main goal to build up an overwhelming backline of
+        incredibly powerful buildings that buildup so much value over time that
+        your momentum snowballs to the point of no return for the opponent.
       </p>
 
       <TableOfContents>
@@ -26,14 +28,17 @@ export default React.memo(function GuideMiasMetropolis(props) {
         <li>
           <Link href='#core-cards'>Core Cards</Link>
         </li>
+        <li>
+          <Link href='#conclusion'>Conclusion</Link>
+        </li>
       </TableOfContents>
 
       <Title id='overview'>Overview</Title>
 
       <p>
         So, how do you pursue maximum value? The deck’s usage of a variety of
-        cheap cards allows you to make positive mana trades, maximizes mana use
-        per turn, and offers a huge amount of power and presence early in the
+        cheap cards allows you to make positive mana trades, maximize mana use
+        per turn, and offer a huge amount of power and presence early in the
         game to build up that all important momentum. So:
       </p>
 
@@ -61,29 +66,57 @@ export default React.memo(function GuideMiasMetropolis(props) {
         differences.
       </p>
 
-      <h3>Hysteria Variation</h3>
+      <Guide.FullWidth>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <FeaturedDeck
+              id='5xn1n2i1i2n3i4n67i8n15n63i19n34'
+              name='Hysteria Variation'
+              author='IMM0RT4L'
+              tags={['HIGH_LEVELS']}
+            />
+          </Row.Column>
+          <Row.Column>
+            <h3>Hysteria Variation</h3>
+            <p>
+              This variation stands out for its namesake combo:{' '}
+              <CardLink id='I4' /> + <CardLink id='N63' />. It’s a very basic
+              combo, use Ozone Purifiers to push an enemy unit right in front of
+              their base, then drop Unhealthy Hysteria to use the enemy’s own
+              unit to do direct damage to them. In addition, Ozone Purifiers and
+              Unhealthy Hysteria are both very powerful standalone cards, though
+              they are weaker overall than their Rush Counterparts.
+            </p>
+          </Row.Column>
+        </Row>
+      </Guide.FullWidth>
 
-      <p>
-        This variation stands out for its namesake combo: <CardLink id='I4' /> +
-        <CardLink id='N63' />. It’s a very basic combo, use Ozone Purifiers to
-        push an enemy unit right in front of their base, then drop Unhealthy
-        Hysteria to use the enemy’s own unit to do direct damage to them. In
-        addition, Ozone Purifiers and Unhealthy Hysteria are both very powerful
-        standalone cards, though they are weaker overall than their Rush
-        Counterparts.
-      </p>
+      <Guide.FullWidth>
+        <Row>
+          <Row.Column>
+            <h3>Rush Variation</h3>
 
-      <h3>Rush Variation</h3>
-
-      <p>
-        This variation stands out for its more aggressive playstyle, opting for
-        greater strength on the board with <CardLink id='N4' /> and more
-        movement/opportunities for direct damage with <CardLink id='I7' />. In
-        my personal experience, this variation is stronger overall mainly due to
-        the fact that Ozone Purifiers and Unhealthy Hysteria are less versatile
-        than Lawless Herd and Greengale Serpents, being less useful in certain
-        matchups versus universal power.
-      </p>
+            <p>
+              This variation stands out for its more aggressive playstyle,
+              opting for greater strength on the board with <CardLink id='N4' />{' '}
+              and more movement/opportunities for direct damage with{' '}
+              <CardLink id='I7' />. In my personal experience, this variation is
+              stronger overall mainly due to the fact that Ozone Purifiers and
+              Unhealthy Hysteria are less versatile than Lawless Herd and
+              Greengale Serpents, being less useful in certain matchups versus
+              universal power.
+            </p>
+          </Row.Column>
+          <Row.Column>
+            <FeaturedDeck
+              id='5xn1n2i1i2n3n67i7i8n15i15i19n34'
+              name='Rush Variation'
+              author='IMM0RT4L'
+              tags={['HIGH_LEVELS', 'RUSH']}
+            />
+          </Row.Column>
+        </Row>
+      </Guide.FullWidth>
 
       <Title id='core-cards'>Core Cards</Title>
 
@@ -361,6 +394,59 @@ export default React.memo(function GuideMiasMetropolis(props) {
         units/structures instead of doing more direct damage. This is because
         board presence should be prioritized over direct damage in this deck
         that aims to create maximum value and snowball momentum.
+      </p>
+
+      <Title id='faction-matchups'>Faction matchups</Title>
+
+      <h3>Ironclad Union</h3>
+      <p>
+        This deck has a good matchup against its own faction. Against other
+        archetypes, Mia’s Metropolis has enough resources to create a sizeable
+        early game advantage on the board which in turn gives the player more
+        than enough breathing room to play structures and start snowballing. In
+        a mirror matchup, the winner is the one that has the better luck to draw
+        higher value cards at an earlier time.
+      </p>
+
+      <h3>Winter Pact</h3>
+      <p>
+        Ironically, this deck has a very strong matchup against Winter Pact,
+        given that Winter Pact is well known for late game value. The reason for
+        this is simple: Mia’s Metropolis has enough strong early game cards to
+        create a ton of value and pressure on the board much faster than Winter
+        Pact decks are able to, and by the time Winter Pact’s late game value
+        starts to show, it is often too late.
+      </p>
+
+      <h3>Tribes of the Shadowfen</h3>
+      <p>
+        Shadowfen is this deck’s worst matchup in terms of faction. Shadowfen
+        has plenty of resources such as Curse of Strings or Blood Ministers to
+        take advantage of this deck’s early game presence, and the poison
+        mechanic is especially damaging to the focus on building up strong units
+        on the board at the start.
+      </p>
+
+      <h3>Swarm of the East</h3>
+      <p>
+        This deck’s matchup against Swarm of the East is good because both sides
+        have an emphasis on board presence and pressure, with this deck
+        generally having stronger resources to accomplish that. If the enemy is
+        unable to deal with it, an early Trueshot Post will almost always result
+        in a victory. The only thing to watch out for is even more aggressive
+        decks that aim to quickly end the game with direct damage. In these
+        matchups, focus more on reducing the enemy’s frontline and keeping their
+        unit’s strength in check.
+      </p>
+
+      <Title id='conclusion'>Conclusion</Title>
+
+      <p>
+        Mia’s Metropolis is a powerful deck that relies on board control to take
+        over the tempo of games. Despite this focus on value, the deck has a
+        plethora of resources to directly finish off opponents for a quick
+        finish. Play this deck for a consistent climb to Diamond League and
+        above.
       </p>
     </>
   )
