@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Mia’s Metropolis",
+    "description": "There is a new Ironclad guide by IMM0RT4L’s on their deck ‘Mia’s Metropolis’!",
+    "link": "/guides/mias-metropolis"
+  },
+  {
     "intro": "Structures Guide",
     "description": "There is a new guide on using and countering structures, courtesy of redsnake_25!",
     "link": "/guides/structures"
