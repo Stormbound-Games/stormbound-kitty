@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
+import Label from '~/components/Label'
 import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
@@ -50,10 +51,10 @@ export default React.memo(function CardBuilderHallOfFame(props) {
       {props.seasons.map((season, index) => (
         <details key={index} open={index == 0}>
           <summary className={css(styles.summary)}>
-            <h3 className={css(styles.title)}>
+            <Label as='h3' extend={styles.title}>
               <Icon icon='sword' extend={styles.icon} />
               Season {props.seasons.length - index} entries
-            </h3>
+            </Label>
           </summary>
 
           <CardBuilderHallOfFameSeason

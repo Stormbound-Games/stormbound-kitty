@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import CardLink from '~/components/CardLink'
-import Icon from '~/components/Icon'
 import { PROBABILITIES } from '~/constants/dryRunner'
 import styles from './styles'
 
@@ -81,16 +80,7 @@ export default React.memo(function DryRunnerExplanation(props) {
           const category = CARD_MECHANICS[categoryTitle]
           return (
             <details key={categoryTitle} className={css(styles.entry)}>
-              <summary>
-                <Icon
-                  icon='eye'
-                  extend={{
-                    transform: 'translateY(2px)',
-                    marginRight: '0.5ch',
-                  }}
-                />{' '}
-                {category.label} (expand)
-              </summary>
+              <summary>+ {category.label} (expand)</summary>
               <ul className={css(styles.list)}>
                 {Object.keys(CARD_ATTRIBUTES)
                   .filter(cardId => category.cards.includes(cardId))
