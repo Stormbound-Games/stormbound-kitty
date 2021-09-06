@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Label from '~/components/Label'
 import Radio from '~/components/Radio'
 import CardLink from '~/components/CardLink'
 import { FRIENDLY_CHANCES } from '~/constants/dryRunner'
@@ -95,7 +96,7 @@ export default React.memo(function DryRunnerRNGField(props) {
 
   return (
     <fieldset>
-      <legend>RNG (luck)</legend>
+      <Label as='legend'>RNG (luck)</Label>
       <Radio
         id='RNG-FRIENDLY'
         name='RNG'

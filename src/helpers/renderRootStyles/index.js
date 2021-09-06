@@ -165,17 +165,6 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
-      textTransform: 'uppercase',
-      fontSize: '90%',
-      color: 'var(--beige)',
-      display: 'inline-block',
-      marginBottom: 'var(--s-smallest)',
-    },
-    'legend'
-  )
-
-  renderer.renderStatic(
-    {
       padding: 0,
       margin: 0,
       border: 0,

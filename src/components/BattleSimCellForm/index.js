@@ -4,6 +4,7 @@ import { DEFAULT_CELL } from '~/constants/battle'
 import CardSelect from '~/components/CardSelect'
 import Checkbox from '~/components/Checkbox'
 import CTA from '~/components/CTA'
+import Label from '~/components/Label'
 import NumberInput from '~/components/NumberInput'
 import Radio from '~/components/Radio'
 import Row from '~/components/Row'
@@ -146,7 +147,7 @@ export default React.memo(function BattleSimCellForm(props) {
           </Row.Column>
           <Row.Column>
             <fieldset>
-              <legend>Active player</legend>
+              <Label as='legend'>Active player</Label>
               <div className={css(styles.radios)}>
                 <Radio
                   id='activePlayerBlue'
@@ -178,7 +179,7 @@ export default React.memo(function BattleSimCellForm(props) {
       </div>
 
       <fieldset>
-        <legend>Statuses</legend>
+        <Label as='legend'>Statuses</Label>
         <Spacing bottom='BASE'>
           <div className={css(styles.checkboxes)}>
             <Checkbox

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Label from '~/components/Label'
 import Link from '~/components/Link'
 import Footnotes, { Footnote } from '~/components/Footnotes'
 import Image from '~/components/Image'
@@ -162,7 +163,7 @@ export default React.memo(function HeroScoreCalculator(props) {
           <Row>
             <Row.Column>
               <fieldset>
-                <legend>Game outcome</legend>
+                <Label as='legend'>Game outcome</Label>
                 <Radio
                   id='outcome-won'
                   extend={styles.radio}

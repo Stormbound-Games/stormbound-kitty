@@ -14,8 +14,7 @@ const handButton = {
 }
 
 const expandButton = {
-  marginLeft: 'var(--s-base)',
-  textTransform: 'uppercase',
+  textTransform: 'inherit',
 }
 
 const styles = {

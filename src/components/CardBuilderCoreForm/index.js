@@ -5,6 +5,7 @@ import Checkbox from '~/components/Checkbox'
 import FactionSelect from '~/components/FactionSelect'
 import ImageErrorDialog from '~/components/CardBuilderImageErrorDialog'
 import Input from '~/components/Input'
+import Label from '~/components/Label'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
@@ -157,7 +158,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <fieldset>
-              <legend>Unit-specific modifiers</legend>
+              <Label as='legend'>Unit-specific modifiers</Label>
               <Spacing top={['SMALL', 'NONE']}>
                 <Row>
                   <Row.Column>

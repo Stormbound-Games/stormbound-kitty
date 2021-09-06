@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Checkbox from '~/components/Checkbox'
+import Label from '~/components/Label'
 import NumberInput from '~/components/NumberInput'
 import ResetButton from '~/components/ResetButton'
 import Row from '~/components/Row'
@@ -33,7 +34,7 @@ export default React.memo(function BattleSimGameForm(props) {
         </Row.Column>
         <Row.Column>
           <fieldset>
-            <legend>Grid Markers</legend>
+            <Label as='legend'>Grid Markers</Label>
             <Checkbox
               id='gridMarkers'
               checked={props.gridMarkers}

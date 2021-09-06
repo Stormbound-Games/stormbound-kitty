@@ -1,4 +1,5 @@
 import React from 'react'
+import Label from '~/components/Label'
 import Radio from '~/components/Radio'
 import Spacing from '~/components/Spacing'
 
@@ -6,7 +7,7 @@ export default React.memo(function BrawlCalculatorMode(props) {
   return (
     <Spacing bottom='LARGE'>
       <fieldset>
-        <legend>I want to find out…</legend>
+        <Label as='legend'>I want to find out…</Label>
         <Radio
           name='mode'
           id='coins'

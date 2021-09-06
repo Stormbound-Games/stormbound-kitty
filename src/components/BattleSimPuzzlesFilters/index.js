@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { RESTRICTIONS, CATEGORIES } from '~/constants/puzzles'
 import Checkbox from '~/components/Checkbox'
+import Label from '~/components/Label'
 import Input from '~/components/Input'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
@@ -67,7 +68,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
       <Row>
         <Row.Column>
           <fieldset>
-            <legend>Restrictions</legend>
+            <Label as='legend'>Restrictions</Label>
             {Object.keys(RESTRICTIONS).map(restriction => (
               <Checkbox
                 key={restriction}

@@ -4,6 +4,7 @@ import { DEFAULT_CARD } from '~/constants/deck'
 import DiamondButton from '~/components/DiamondButton'
 import CardSelect from '~/components/CardSelect'
 import DeckImport from '~/components/BattleSimDeckImport'
+import Label from '~/components/Label'
 import Link from '~/components/Link'
 import NumberInput from '~/components/NumberInput'
 import Row from '~/components/Row'
@@ -109,15 +110,15 @@ export default React.memo(function BattleSimCardsForm(props) {
   return (
     <>
       <fieldset className={css(styles.form)} data-testid='cards-form'>
-        <legend className={css(styles.legend)}>
+        <Label as='legend' extend={styles.legend}>
           Cards
           <Link
             onClick={() => setExpanded(e => !e)}
             extend={styles.expandButton}
           >
-            {expanded ? 'Collapse deck' : 'Expand deck'}
+            {expanded ? '- Collapse deck' : '+ Expand deck'}
           </Link>
-        </legend>
+        </Label>
 
         {props.cards.map((card, index) => (
           <CardsFormRow
