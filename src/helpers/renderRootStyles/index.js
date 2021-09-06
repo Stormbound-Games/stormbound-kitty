@@ -220,6 +220,13 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
+      display: 'none',
+    },
+    'summary::-webkit-details-marker'
+  )
+
+  renderer.renderStatic(
+    {
       color: 'var(--beige)',
       borderBottomColor: 'currentcolor',
     },
