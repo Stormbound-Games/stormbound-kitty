@@ -2,6 +2,7 @@ import React from 'react'
 import Link from '~/components/Link'
 import { RARITIES } from '~/constants/game'
 import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import Label from '~/components/Label'
 import Page from '~/components/Page'
 import BookExplanation from '~/components/BookExplanation'
 import BookOutcome from '~/components/BookOutcome'
@@ -12,13 +13,10 @@ import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import TogglableContent from '~/components/TogglableContent'
 import CardLink from '~/components/CardLink'
-import { Rubies } from '~/components/Resource'
 import countCards from '~/helpers/countCards'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getBookName from '~/helpers/getBookName'
-import styles from './styles'
 
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
 
@@ -120,21 +118,9 @@ export default React.memo(function BooksCalculator(props) {
                 </Row.Column>
               </Row>
 
-              <TogglableContent
-                isExpanded={isAdvancedMode}
-                id='advanced-mode'
-                renderToggle={toggleProps => (
-                  <Link
-                    {...toggleProps}
-                    extend={styles.toggle}
-                    onClick={() => setIsAdvancedMode(mode => !mode)}
-                  >
-                    {isAdvancedMode
-                      ? '- Collapse advanced mode'
-                      : '+ Expand advanced mode'}
-                  </Link>
-                )}
-              >
+              <details>
+                <Label as='summary'>+ Advanced mode</Label>
+
                 <p>
                   Define how many different cards of any rarity you are looking
                   for to know the odds of finding at least some of them when
@@ -194,9 +180,9 @@ export default React.memo(function BooksCalculator(props) {
                     />
                   </Row.Column>
                 </Row>
-              </TogglableContent>
+              </details>
             </form>
-          </Spacing>{' '}
+          </Spacing>
         </Row.Column>
 
         <Row.Column width='1/3'>
