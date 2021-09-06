@@ -1,8 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import TogglableContent from '~/components/TogglableContent'
 import CardLink from '~/components/CardLink'
-import Link from '~/components/Link'
+import Icon from '~/components/Icon'
 import { PROBABILITIES } from '~/constants/dryRunner'
 import styles from './styles'
 
@@ -77,45 +76,36 @@ export default React.memo(function DryRunnerExplanation(props) {
         The dry-run simulator currently correctly supports the following
         abilities, while their effect might vary depending on the RNG setting:
       </p>
-      <ul className={css(styles.explanation)}>
+      <div className={css(styles.explanation)}>
         {Object.keys(CARD_MECHANICS).map(categoryTitle => {
           const category = CARD_MECHANICS[categoryTitle]
           return (
-            <li key={categoryTitle}>
-              {category.label}
-              <TogglableContent
-                isExpanded={expanded.includes(categoryTitle)}
-                id={categoryTitle}
-                renderToggle={toggleProps => (
-                  <Link
-                    {...toggleProps}
-                    extend={styles.toggle}
-                    onClick={() => toggle(categoryTitle)}
-                  >
-                    (
-                    {expanded.includes(categoryTitle)
-                      ? '- collapse'
-                      : '+ expand'}
-                    )
-                  </Link>
-                )}
-              >
-                <ul className={css(styles.list)}>
-                  {Object.keys(CARD_ATTRIBUTES)
-                    .filter(cardId => category.cards.includes(cardId))
-                    .map(cardId => (
-                      <li className={css(styles.item)} key={cardId}>
-                        <CardLink id={cardId} />
-                        {': '}
-                        {CARD_ATTRIBUTES[cardId]}
-                      </li>
-                    ))}
-                </ul>
-              </TogglableContent>
-            </li>
+            <details key={categoryTitle} className={css(styles.entry)}>
+              <summary>
+                <Icon
+                  icon='eye'
+                  extend={{
+                    transform: 'translateY(2px)',
+                    marginRight: '0.5ch',
+                  }}
+                />{' '}
+                {category.label} (expand)
+              </summary>
+              <ul className={css(styles.list)}>
+                {Object.keys(CARD_ATTRIBUTES)
+                  .filter(cardId => category.cards.includes(cardId))
+                  .map(cardId => (
+                    <li className={css(styles.item)} key={cardId}>
+                      <CardLink id={cardId} />
+                      {': '}
+                      {CARD_ATTRIBUTES[cardId]}
+                    </li>
+                  ))}
+              </ul>
+            </details>
           )
         })}
-      </ul>
+      </div>
     </>
   )
 })

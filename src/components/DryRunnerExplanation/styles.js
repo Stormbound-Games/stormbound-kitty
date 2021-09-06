@@ -1,7 +1,10 @@
 const explanation = {
   listStylePosition: 'inside',
-  paddingLeft: 'var(--s-base)',
   marginTop: 'var(--s-smaller)',
+}
+
+const entry = {
+  marginBottom: 'var(--s-smaller)',
 }
 
 const list = {
@@ -24,6 +27,6 @@ const toggle = {
   ':hover': { color: 'var(--white)' },
 }
 
-const styles = { explanation, list, item, toggle }
+const styles = { explanation, entry, list, item, toggle }
 
 export default styles
