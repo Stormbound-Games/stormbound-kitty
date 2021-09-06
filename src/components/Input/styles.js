@@ -1,11 +1,3 @@
-const label = {
-  textTransform: 'uppercase',
-  fontSize: '90%',
-  color: 'var(--beige)',
-  display: 'inline-block',
-  marginBottom: 'var(--s-smallest)',
-}
-
 const input = {
   WebkitAppearance: 'none',
   appearance: 'none',
@@ -20,6 +12,6 @@ const input = {
   ':disabled': { opacity: 0.5 },
 }
 
-const styles = { label, input }
+const styles = { input }
 
 export default styles

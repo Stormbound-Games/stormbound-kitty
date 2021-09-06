@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Label from '~/components/Label'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
@@ -14,9 +15,7 @@ function Input({ hideLabel, extend, label, ...props }, ref) {
           {label}
         </VisuallyHidden>
       ) : (
-        <label htmlFor={props.id} className={css(styles.label)}>
-          {label}
-        </label>
+        <Label htmlFor={props.id}>{label}</Label>
       )}
       <input
         type='text'

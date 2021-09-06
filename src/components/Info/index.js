@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
+import Label from '~/components/Label'
 import useSpacing from '~/hooks/useSpacing'
 import styles from './styles'
 
@@ -11,10 +12,10 @@ export default React.memo(function Info(props) {
   return (
     <div className={css(styles.info, margin, props.extend)}>
       <div className={css({ '> :last-child': { marginBottom: 0 } })}>
-        <span className={css(styles.title)}>
+        <Label as='span' extend={styles.title}>
           {!!props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
           {props.title}
-        </span>
+        </Label>
         {props.children}
       </div>
       {props.CTA && <div className={css(styles.cta)}>{props.CTA}</div>}

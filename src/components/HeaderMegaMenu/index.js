@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import BlankButton from '~/components/BlankButton'
 import Link from '~/components/Link'
 import Icon from '~/components/Icon'
+import Label from '~/components/Label'
 import NewPulse from '~/components/NewPulse'
 import Row from '~/components/Row'
 import styles from './styles'
@@ -41,10 +42,11 @@ export default React.memo(
         <Row isDesktopOnly>
           {props.columns.map((column, index) => (
             <Row.Column width={`1/${props.columns.length}`} key={index}>
-              <h2
-                className={css(
-                  styles.title({ isActive: props.active[0] === column.id })
-                )}
+              <Label
+                as='h2'
+                extend={styles.title({
+                  isActive: props.active[0] === column.id,
+                })}
               >
                 {column.icon ? (
                   <Icon icon={column.icon} extend={styles.icon} />
@@ -54,7 +56,7 @@ export default React.memo(
                 ) : (
                   column.title
                 )}
-              </h2>
+              </Label>
               <ul className={css(styles.list)}>
                 {column.items.map(item => (
                   <li key={item.label} className={css(styles.item)}>

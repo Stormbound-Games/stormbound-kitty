@@ -13,9 +13,7 @@ const title = {
   padding: '0 var(--s-smaller)',
   left: '1em',
   backgroundColor: 'var(--black)',
-  color: 'var(--beige)',
-  fontSize: '90%',
-  textTransform: 'uppercase',
+  marginBottom: 0,
 }
 
 const icon = {

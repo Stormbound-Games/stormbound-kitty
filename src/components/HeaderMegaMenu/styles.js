@@ -40,12 +40,7 @@ const menu = ({ isOpen }) => ({
 })
 
 const title = ({ isActive }) => ({
-  fontSize: '90%',
-  textTransform: 'uppercase',
-  letterSpacing: '1px',
-  color: 'var(--beige)',
   marginTop: 0,
-  marginBottom: 'var(--s-smaller)',
   fontWeight: isActive ? 'bold' : 'normal',
   borderBottom: '1px solid var(--dark-beige)',
   paddingBottom: 'var(--s-smaller)',
