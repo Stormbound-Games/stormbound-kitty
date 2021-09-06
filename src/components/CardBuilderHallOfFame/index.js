@@ -1,11 +1,11 @@
 import React from 'react'
-import BlankButton from '~/components/BlankButton'
+import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
 import Teasers from '~/components/Teasers'
-import TogglableContent from '~/components/TogglableContent'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
 import serialisation from '~/helpers/serialisation'
+import styles from './styles'
 
 export const getCardData = id => {
   const data = serialisation.card.deserialise(id)
@@ -41,48 +41,25 @@ export const CardBuilderHallOfFameSeason = React.memo(
 )
 
 export default React.memo(function CardBuilderHallOfFame(props) {
-  const [statuses, setStatuses] = React.useState(
-    props.seasons.map((_, index) => index === 0)
-  )
-
-  const updateAtIndex = React.useCallback(
-    index => {
-      const clone = statuses.slice(0)
-      clone[index] = !statuses[index]
-      return clone
-    },
-    [statuses]
-  )
+  const { css } = useFela()
 
   return (
     <>
       <Title id='hall-of-fame'>Hall of Fame</Title>
 
       {props.seasons.map((season, index) => (
-        <TogglableContent
-          key={index}
-          id={`season-${props.seasons.length - index}`}
-          isExpanded={statuses[index]}
-          renderToggle={toggleProps => (
-            <h3>
-              <BlankButton
-                {...toggleProps}
-                extend={{ textTransform: 'uppercase' }}
-                onClick={() => setStatuses(() => updateAtIndex(index))}
-              >
-                <Icon
-                  icon={statuses[index] ? 'arrow-down' : 'arrow-right'}
-                  extend={{ transform: 'translateY(2px)', marginRight: '1ch' }}
-                />{' '}
-                Season {props.seasons.length - index} entries
-              </BlankButton>
+        <details key={index} open={index == 0}>
+          <summary className={css(styles.summary)}>
+            <h3 className={css(styles.title)}>
+              <Icon icon='sword' extend={styles.icon} />
+              Season {props.seasons.length - index} entries
             </h3>
-          )}
-        >
+          </summary>
+
           <CardBuilderHallOfFameSeason
             weeks={season.filter(week => !!week.winner)}
           />
-        </TogglableContent>
+        </details>
       ))}
     </>
   )
