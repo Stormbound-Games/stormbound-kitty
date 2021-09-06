@@ -17,12 +17,10 @@ import {
 } from '~/components/Resource'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
-import Table from '~/components/Table'
+import RewardsTable from '~/components/RewardsTable'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import TogglableContent from '~/components/TogglableContent'
 import displayBundle from '~/helpers/displayBundle'
-import getResourceLabel from '~/helpers/getResourceLabel'
 import getCalendarValue from '~/helpers/getCalendarValue'
 import rewards from './rewards'
 
@@ -159,42 +157,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           </li>
         </ul>
 
-        <TogglableContent
-          isExpanded={isTableExpanded}
-          id='reward-table'
-          renderToggle={toggleProps => (
-            <p>
-              Refer to the following table to get the rewards breakdown per day.{' '}
-              <Link
-                {...toggleProps}
-                onClick={() => expandTable(isExpanded => !isExpanded)}
-              >
-                {isTableExpanded
-                  ? '- Hide table breakdown'
-                  : '+ Show table breakdown'}
-              </Link>
-            </p>
-          )}
-        >
-          <Table>
-            <thead>
-              <tr>
-                <th className={css({ width: '100px' })}>Day</th>
-                <th>Free</th>
-                <th>Premium</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rewards.map(([free, premium], index) => (
-                <tr key={index}>
-                  <td className={css({ width: '100px' })}>#{index + 1}</td>
-                  <td>{getResourceLabel(free, true)}</td>
-                  <td>{getResourceLabel(premium, true)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </TogglableContent>
+        <RewardsTable rewards={rewards} />
 
         <Title id='exclusive-offers'>Exclusive offers</Title>
         <p>

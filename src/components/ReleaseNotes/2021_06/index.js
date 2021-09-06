@@ -9,16 +9,14 @@ import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
 import Row from '~/components/Row'
-import Table from '~/components/Table'
+import RewardsTable from '~/components/RewardsTable'
 import TableOfContents from '~/components/TableOfContents'
 import { Coins, Rubies, Stones } from '~/components/Resource'
 import ResourceIcon from '~/components/ResourceIcon'
-import TogglableContent from '~/components/TogglableContent'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import displayBundle from '~/helpers/displayBundle'
 import getCalendarValue from '~/helpers/getCalendarValue'
-import getResourceLabel from '~/helpers/getResourceLabel'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesJune2021(props) {
@@ -301,42 +299,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </li>
         </ul>
 
-        <TogglableContent
-          isExpanded={isTableExpanded}
-          id='reward-table'
-          renderToggle={toggleProps => (
-            <p>
-              Refer to the following table to get the rewards breakdown per day.{' '}
-              <Link
-                {...toggleProps}
-                onClick={() => expandTable(isExpanded => !isExpanded)}
-              >
-                {isTableExpanded
-                  ? '- Hide table breakdown'
-                  : '+ Show table breakdown'}
-              </Link>
-            </p>
-          )}
-        >
-          <Table>
-            <thead>
-              <tr>
-                <th className={css({ width: '100px' })}>Day</th>
-                <th>Free</th>
-                <th>Premium</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rewards.map(([free, premium], index) => (
-                <tr key={index}>
-                  <td className={css({ width: '100px' })}>#{index + 1}</td>
-                  <td>{getResourceLabel(free, true)}</td>
-                  <td>{getResourceLabel(premium, true)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </TogglableContent>
+        <RewardsTable rewards={rewards} />
 
         <p>
           Additionally, the Premium Pass will grand access to all friendly
