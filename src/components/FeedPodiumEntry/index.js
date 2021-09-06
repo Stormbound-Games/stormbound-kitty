@@ -3,7 +3,6 @@ import { useFela } from 'react-fela'
 import Deck from '~/components/Deck'
 import FeedEntry from '~/components/FeedEntry'
 import MemberList from '~/components/MemberList'
-import Only from '~/components/Only'
 import serialisation from '~/helpers/serialisation'
 
 export default React.memo(function FeedPodiumEntry(props) {
@@ -42,9 +41,8 @@ export default React.memo(function FeedPodiumEntry(props) {
       in {props.name}.
       {deck && (
         <details open className={css({ maxWidth: '450px' })}>
-          <summary>
-            <Only.Desktop>Click</Only.Desktop>
-            <Only.Mobile>Tap</Only.Mobile> to toggle deck display
+          <summary className={css({ marginBottom: 'var(--s-base)' })}>
+            + Toggle deck display
           </summary>
           <Deck
             deck={serialisation.deck.deserialise(deck)}
