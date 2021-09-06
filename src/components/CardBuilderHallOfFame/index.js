@@ -1,5 +1,8 @@
 import React from 'react'
+import BlankButton from '~/components/BlankButton'
+import Icon from '~/components/Icon'
 import Teasers from '~/components/Teasers'
+import TogglableContent from '~/components/TogglableContent'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
 import serialisation from '~/helpers/serialisation'
@@ -20,6 +23,7 @@ export const CardBuilderHallOfFameSeason = React.memo(
       const cardData = getCardData(week.winner.id)
 
       return {
+        id: week.winner.id,
         card: cardData,
         title: 'Card by ' + week.winner.author,
         meta: `Week #${week.id} – ${week.name}`,
@@ -37,17 +41,49 @@ export const CardBuilderHallOfFameSeason = React.memo(
 )
 
 export default React.memo(function CardBuilderHallOfFame(props) {
+  const [statuses, setStatuses] = React.useState(
+    props.seasons.map((_, index) => index === 0)
+  )
+
+  const updateAtIndex = React.useCallback(
+    index => {
+      const clone = statuses.slice(0)
+      clone[index] = !statuses[index]
+      return clone
+    },
+    [statuses]
+  )
+
   return (
     <>
-      <Title>Season 2</Title>
-      <CardBuilderHallOfFameSeason
-        weeks={props.seasons[0].filter(week => !!week.winner)}
-      />
+      <Title id='hall-of-fame'>Hall of Fame</Title>
 
-      <Title>Season 1</Title>
-      <CardBuilderHallOfFameSeason
-        weeks={props.seasons[1].filter(week => !!week.winner)}
-      />
+      {props.seasons.map((season, index) => (
+        <TogglableContent
+          key={index}
+          id={`season-${props.seasons.length - index}`}
+          isExpanded={statuses[index]}
+          renderToggle={toggleProps => (
+            <h3>
+              <BlankButton
+                {...toggleProps}
+                extend={{ textTransform: 'uppercase' }}
+                onClick={() => setStatuses(() => updateAtIndex(index))}
+              >
+                <Icon
+                  icon={statuses[index] ? 'arrow-down' : 'arrow-right'}
+                  extend={{ transform: 'translateY(2px)', marginRight: '1ch' }}
+                />{' '}
+                Season {props.seasons.length - index} entries
+              </BlankButton>
+            </h3>
+          )}
+        >
+          <CardBuilderHallOfFameSeason
+            weeks={season.filter(week => !!week.winner)}
+          />
+        </TogglableContent>
+      ))}
     </>
   )
 })

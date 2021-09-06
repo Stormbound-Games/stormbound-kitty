@@ -51,6 +51,9 @@ export default React.memo(function CardBuilderContest(props) {
             <li>
               <Link href='#rules'>Rules</Link>
             </li>
+            <li>
+              <Link href='#hall-of-fame'>Hall of Fame</Link>
+            </li>
           </TableOfContents>
 
           <Title id='disqualification'>Disqualification</Title>
