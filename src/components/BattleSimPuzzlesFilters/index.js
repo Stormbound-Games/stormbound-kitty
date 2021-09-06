@@ -3,19 +3,14 @@ import { useFela } from 'react-fela'
 import { RESTRICTIONS, CATEGORIES } from '~/constants/puzzles'
 import Checkbox from '~/components/Checkbox'
 import Input from '~/components/Input'
-import Link from '~/components/Link'
+import Label from '~/components/Label'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
-import TogglableContent from '~/components/TogglableContent'
-import useViewportSize from '~/hooks/useViewportSize'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function BattleSimPuzzlesFilters(props) {
   const { css } = useFela()
-  const { viewportWidth } = useViewportSize()
-  const [areFiltersExpanded, expandFilters] = React.useState(
-    viewportWidth > 700
-  )
   const updateDifficulty = props.updateFilter('difficulty')
   const updateName = props.updateFilter('name')
   const updateCategory = props.updateFilter('category')
@@ -74,23 +69,9 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
       <Row>
         <Row.Column>
           <fieldset>
-            <TogglableContent
-              isExpanded={areFiltersExpanded}
-              id='puzzles-filters'
-              renderToggle={toggleProps => (
-                <legend>
-                  <Link
-                    {...toggleProps}
-                    extend={styles.toggle}
-                    onClick={() => expandFilters(s => !s)}
-                  >
-                    {areFiltersExpanded
-                      ? '- Hide restrictions'
-                      : '+ Show restrictions'}
-                  </Link>
-                </legend>
-              )}
-            >
+            <VisuallyHidden as='legend'>Restrictions</VisuallyHidden>
+            <details open>
+              <Label as='summary'>Restrictions</Label>
               {Object.keys(RESTRICTIONS).map(restriction => (
                 <Checkbox
                   key={restriction}
@@ -114,7 +95,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
                   </span>
                 </Checkbox>
               ))}
-            </TogglableContent>
+            </details>
           </fieldset>
         </Row.Column>
       </Row>
