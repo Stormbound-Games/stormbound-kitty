@@ -1,32 +1,19 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
 import Table from '~/components/Table'
-import TogglableContent from '~/components/TogglableContent'
 import getResourceLabel from '~/helpers/getResourceLabel'
+import useSpacing from '~/hooks/useSpacing'
 
 export default React.memo(function RewardsTable(props) {
   const { css } = useFela()
-  const [isTableExpanded, expandTable] = React.useState(false)
+  const spacing = useSpacing({ bottom: 'BASE' })
 
   return (
-    <TogglableContent
-      isExpanded={isTableExpanded}
-      id='reward-table'
-      renderToggle={toggleProps => (
-        <p>
-          Refer to the following table to get the rewards breakdown per day.{' '}
-          <Link
-            {...toggleProps}
-            onClick={() => expandTable(isExpanded => !isExpanded)}
-          >
-            {isTableExpanded
-              ? '- Hide table breakdown'
-              : '+ Show table breakdown'}
-          </Link>
-        </p>
-      )}
-    >
+    <details>
+      <summary className={css({ borderBottomColor: 'currentcolor' }, spacing)}>
+        Expand the rewards breakdown per day.
+      </summary>
+
       <Table>
         <thead>
           <tr>
@@ -45,6 +32,6 @@ export default React.memo(function RewardsTable(props) {
           ))}
         </tbody>
       </Table>
-    </TogglableContent>
+    </details>
   )
 })
