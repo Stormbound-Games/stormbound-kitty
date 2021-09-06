@@ -41,12 +41,7 @@ export default React.memo(function DeckEditorFilters(props) {
   }
 
   return (
-    <MobileTogglableContent
-      id='deck-filters'
-      withSymbols
-      labelCollapsed='Expand collection filters'
-      labelExpanded='Collapse collection filters'
-    >
+    <MobileTogglableContent label='Display collection filters'>
       <div
         className={css(styles.filters)}
         onSubmit={event => event.preventDefault()}

@@ -1,32 +1,19 @@
 import React from 'react'
-import Link from '~/components/Link'
+import { useFela } from 'react-fela'
 import Only from '~/components/Only'
-import TogglableContent from '~/components/TogglableContent'
+import styles from './styles'
 
 export default React.memo(function MobileTogglableContent(props) {
-  const [isExpanded, expand] = React.useState(false)
-  const labelExpanded = (props.withSymbols ? '+ ' : '') + props.labelExpanded
-  const labelCollapsed = (props.withSymbols ? '+ ' : '') + props.labelCollapsed
+  const { css } = useFela()
 
   return (
     <>
       <Only.Desktop>{props.children}</Only.Desktop>
       <Only.Mobile>
-        <TogglableContent
-          id={props.id}
-          isExpanded={isExpanded}
-          renderToggle={toggleProps => (
-            <Link
-              {...toggleProps}
-              onClick={() => expand(s => !s)}
-              extend={{ marginBottom: 'var(--s-base)' }}
-            >
-              {isExpanded ? labelExpanded : labelCollapsed}
-            </Link>
-          )}
-        >
-          {props.children}
-        </TogglableContent>
+        <details className={css(styles.details)}>
+          <summary className={css(styles.summary)}>{props.label}</summary>
+          <div className={css(styles.content)}>{props.children}</div>
+        </details>
       </Only.Mobile>
     </>
   )

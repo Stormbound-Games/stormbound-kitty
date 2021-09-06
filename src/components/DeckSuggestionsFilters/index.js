@@ -31,12 +31,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
   const authors = React.useMemo(() => getAuthors(props.decks), [props.decks])
 
   return (
-    <MobileTogglableContent
-      id='deck-suggestions'
-      withSymbols
-      labelCollapsed='Expand deck filters'
-      labelExpanded='Collapse deck filters'
-    >
+    <MobileTogglableContent label='Display deck filters'>
       <form onSubmit={event => event.preventDefault()}>
         <Row withNarrowGutter>
           <Row.Column>

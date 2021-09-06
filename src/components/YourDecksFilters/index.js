@@ -19,12 +19,7 @@ export default React.memo(function YourDecksFilters(props) {
   if (decks.length < 2) return null
 
   return (
-    <MobileTogglableContent
-      id='deck-filters'
-      withSymbols
-      labelCollapsed='Expand deck filters'
-      labelExpanded='Collapse deck filters'
-    >
+    <MobileTogglableContent label='Display deck filters'>
       <form onSubmit={event => event.preventDefault()}>
         <Row withNarrowGutter>
           <Row.Column>

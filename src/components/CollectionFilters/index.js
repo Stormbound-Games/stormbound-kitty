@@ -42,12 +42,7 @@ export default React.memo(function CollectionFilters(props) {
   }
 
   return (
-    <MobileTogglableContent
-      id='collection-filters'
-      withSymbols
-      labelCollapsed='Expand collection filters'
-      labelExpanded='Collapse collection filters'
-    >
+    <MobileTogglableContent label='Display collection filters'>
       <Spacing bottom='BASE'>
         <form onSubmit={event => event.preventDefault()}>
           <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
