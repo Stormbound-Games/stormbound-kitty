@@ -3,10 +3,8 @@ import { useFela } from 'react-fela'
 import { RESTRICTIONS, CATEGORIES } from '~/constants/puzzles'
 import Checkbox from '~/components/Checkbox'
 import Input from '~/components/Input'
-import Label from '~/components/Label'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
-import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function BattleSimPuzzlesFilters(props) {
@@ -69,33 +67,30 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
       <Row>
         <Row.Column>
           <fieldset>
-            <VisuallyHidden as='legend'>Restrictions</VisuallyHidden>
-            <details open>
-              <Label as='summary'>Restrictions</Label>
-              {Object.keys(RESTRICTIONS).map(restriction => (
-                <Checkbox
-                  key={restriction}
-                  id={restriction}
-                  value={restriction}
-                  checked={props.restrictions.includes(restriction)}
-                  onChange={event => {
-                    if (props.restrictions.includes(event.target.value)) {
-                      updateRestrictions(
-                        props.restrictions.filter(r => r !== restriction)
-                      )
-                    } else {
-                      updateRestrictions([...props.restrictions, restriction])
-                    }
-                  }}
-                  data-testid='restriction-checkbox'
-                >
-                  {RESTRICTIONS[restriction].name}
-                  <span className={css(styles.info)}>
-                    {RESTRICTIONS[restriction].description}
-                  </span>
-                </Checkbox>
-              ))}
-            </details>
+            <legend>Restrictions</legend>
+            {Object.keys(RESTRICTIONS).map(restriction => (
+              <Checkbox
+                key={restriction}
+                id={restriction}
+                value={restriction}
+                checked={props.restrictions.includes(restriction)}
+                onChange={event => {
+                  if (props.restrictions.includes(event.target.value)) {
+                    updateRestrictions(
+                      props.restrictions.filter(r => r !== restriction)
+                    )
+                  } else {
+                    updateRestrictions([...props.restrictions, restriction])
+                  }
+                }}
+                data-testid='restriction-checkbox'
+              >
+                {RESTRICTIONS[restriction].name}
+                <span className={css(styles.info)}>
+                  {RESTRICTIONS[restriction].description}
+                </span>
+              </Checkbox>
+            ))}
           </fieldset>
         </Row.Column>
       </Row>
