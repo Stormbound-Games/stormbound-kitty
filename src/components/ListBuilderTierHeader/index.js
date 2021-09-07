@@ -3,7 +3,6 @@ import { useFela } from 'react-fela'
 import CardSelect from '~/components/CardSelect'
 import DiamondButton from '~/components/DiamondButton'
 import Input from '~/components/Input'
-import Only from '~/components/Only'
 import generateId from '~/helpers/generateId'
 import styles from './styles'
 
@@ -18,7 +17,7 @@ export default React.memo(function ListBuilderTierHeader(props) {
             label='Tier name'
             id={`${props.prefix}listName`}
             value={props.name}
-            onChange={event => props.onNameChange(event.target.value)}
+            onChange={event => props.updateName(event.target.value)}
             maxLength={30}
             placeholder='Unnamed tier'
           />

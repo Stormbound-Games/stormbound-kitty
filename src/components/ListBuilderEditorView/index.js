@@ -64,7 +64,7 @@ class ListBuilderEditorView extends React.Component {
     this.setState(state => ({ tiers: [...state.tiers, { ...DEFAULT_TIER }] }))
   }
 
-  onTierUpdate = index => tier => {
+  updateTier = (index, tier) => {
     this.setState(state => {
       const tiers = [...state.tiers]
       tiers[index] = { ...tiers[index], ...tier }
@@ -72,18 +72,18 @@ class ListBuilderEditorView extends React.Component {
     })
   }
 
-  addCardToTier = index => cardId => {
+  addCardToTier = (index, cardId) => {
     if (!cardId) return
 
-    this.onTierUpdate(index)({
+    this.updateTier(index, {
       cards: [...this.state.tiers[index].cards, cardId],
     })
   }
 
-  removeCardFromTier = index => cardId => {
+  removeCardFromTier = (index, cardId) => {
     if (this.state.preventRemoval) return
 
-    this.onTierUpdate(index)({
+    this.updateTier(index, {
       cards: this.state.tiers[index].cards.filter(card => card !== cardId),
     })
   }
@@ -167,7 +167,7 @@ class ListBuilderEditorView extends React.Component {
         dndTarget
       )
 
-      this.onTierUpdate(dndTierIndex)({ cards })
+      this.updateTier(dndTierIndex, { cards })
     }
   }
 
@@ -218,14 +218,14 @@ class ListBuilderEditorView extends React.Component {
               <ListBuilderTier
                 {...this.state}
                 {...tier}
-                key={tier.name || index}
+                key={index}
                 color={TIER_COLORS[index]}
                 prefix={`tier-${index}-`}
                 // Basic edition
                 isEditable={true}
-                onNameChange={name => this.onTierUpdate(index)({ name })}
-                addCard={cardId => this.addCardToTier(index)(cardId)}
-                removeCard={cardId => this.removeCardFromTier(index)(cardId)}
+                updateName={name => this.updateTier(index, { name })}
+                addCard={cardId => this.addCardToTier(index, cardId)}
+                removeCard={cardId => this.removeCardFromTier(index, cardId)}
                 // Tiers order
                 moveUp={this.moveTierUp(index)}
                 moveDown={this.moveTierDown(index)}
