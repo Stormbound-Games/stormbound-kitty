@@ -15,6 +15,12 @@ const GUIDE_COMPONENTS = {
   BRAWL: dynamic(() => import('~/components/Guide/Brawl'), {
     loading: Loader,
   }),
+  BRAWL_AFTERSHOCK: dynamic(
+    () => import('~/components/Guide/BrawlAftershock'),
+    {
+      loading: Loader,
+    }
+  ),
   BRAWL_EYE_OF_THE_TEMPEST: dynamic(
     () => import('~/components/Guide/BrawlEyeOfTheTempest'),
     { loading: Loader }

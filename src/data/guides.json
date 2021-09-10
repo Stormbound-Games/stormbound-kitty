@@ -70,6 +70,20 @@
     "date": "07/2020"
   },
   {
+    "id": "BRAWL_AFTERSHOCK",
+    "name": "Aftershock",
+    "authors": [
+      "Bryan"
+    ],
+    "excerpt": "In this structure edition of the Brawl Gazette, Bryan goes through everything to know about the Aftershock Brawl.",
+    "slug": "aftershock",
+    "faction": "neutral",
+    "cardId": "I2",
+    "background": "/assets/images/banners/environment_ironclad.png",
+    "category": "BRAWL_MODE",
+    "date": "09/2021"
+  },
+  {
     "id": "BRAWL_LUCRATIVE_PROJECT",
     "name": "Lucrative Project",
     "authors": [
@@ -110,7 +124,8 @@
     "cardId": "W10",
     "background": "/assets/images/banners/environment_winter.png",
     "category": "BRAWL_MODE",
-    "date": "10/2020"
+    "date": "10/2020",
+    "skipNav": true
   },
   {
     "id": "BRAWL_EYE_OF_THE_TEMPEST",
