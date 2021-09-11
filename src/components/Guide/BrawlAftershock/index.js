@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import Link from '~/components/Link'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import Guide from '~/components/Guide'
@@ -62,6 +63,15 @@ export default React.memo(function GuideAftershock(props) {
         </li>
       </ul>
 
+      <BattleSimEmbed
+        id='LCwsLCwsLCwsLCwsLCwsM04zUjMsNk4zNEIzLCwsNEkxNEIzO1IxME4tQjEwSTszTTA7Ow=='
+        environment='ironclad'
+      >
+        Because your structures trigger from left to right, Trueshot Post will
+        trigger first and destroy the unit blocking your Mech Workshop, which
+        will now be able to spawn a construct.
+      </BattleSimEmbed>
+
       <h3>Unit placement</h3>
 
       <p>
@@ -75,6 +85,22 @@ export default React.memo(function GuideAftershock(props) {
         Mia + a structure, since Mia can only trigger surrounding structures at
         level 3.
       </p>
+
+      <BattleSimEmbed
+        id='LCwsLCwsLCwsLCwsM04xQjMsLCwsNk4zNEIzLCwsO1IxMEktQjEwSTs0TTA7Ow=='
+        environment='ironclad'
+      >
+        Because Green Prototypes are in front of Trueshot Post, the enemy can’t
+        destroy it directly with another structure.
+      </BattleSimEmbed>
+
+      <BattleSimEmbed
+        id='LDNONjdCMywsNEkxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMEktQjEwSTs0TTA7Ow=='
+        environment='ironclad'
+      >
+        In this position, your units are preventing the opponent’s Mia because
+        she can only trigger surrounding structures at level 3.
+      </BattleSimEmbed>
 
       <h3>Cycling</h3>
       <p>
