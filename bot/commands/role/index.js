@@ -13,7 +13,7 @@ const LEAGUE_ROLES = [
 ]
 const FACTION_ROLES = ['Swarm', 'Shadowfen', 'Ironclad', 'Winter', 'Neutral']
 const MISC_ROLES = ['Tournamentee', 'Streambound', 'SWCC', 'BS squad', 'Artist']
-const ROLES = [...LEAGUE_ROLES, ...MISC_ROLES]
+const ROLES = [...LEAGUE_ROLES, ...FACTION_ROLES, ...MISC_ROLES]
 
 const getAvailableRoles = guild => {
   return ROLES.filter(roleName =>
