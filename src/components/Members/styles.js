@@ -7,7 +7,7 @@ const list = {
 }
 
 const item = {
-  flex: '1 1 50%',
+  flex: '0 1 50%',
   padding: 'var(--s-smaller) var(--s-base)',
 
   medium: { flexBasis: 'calc(100% / 3)' },

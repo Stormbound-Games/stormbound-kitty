@@ -2,6 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { useFela } from 'react-fela'
 import inputStyles from '~/components/Input/styles'
+import Label from '~/components/Label'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import { FACTIONS } from '~/constants/game'
 import getCardsByFaction from '~/helpers/getCardsByFaction'
@@ -27,9 +28,7 @@ export default React.memo(function CardSelect(props) {
           {props.label}
         </VisuallyHidden>
       ) : (
-        <label htmlFor={props.id} className={css(inputStyles.label)}>
-          {props.label}
-        </label>
+        <Label htmlFor={props.id}>{props.label}</Label>
       )}
 
       <Select
