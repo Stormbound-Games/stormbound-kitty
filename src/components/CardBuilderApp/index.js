@@ -30,7 +30,7 @@ export default React.memo(function CardBuilderApp(props) {
         <CardBuilderCardDisplay mode={props.mode} {...cardData} id={cardId} />
       </Spacing>
 
-      {isOfficial && props.mode === 'DISPLAY' && (
+      {isOfficial && props.mode === 'DISPLAY' && !cardData.token && (
         <Spacing bottom='LARGEST'>
           <CardDisplayControls cardId={cardId} />
         </Spacing>
@@ -61,7 +61,7 @@ export default React.memo(function CardBuilderApp(props) {
         </Spacing>
       )}
 
-      {isOfficial && (
+      {isOfficial && !cardData.token && (
         <Page.Narrow>
           <CardChangeFeed
             id={props.cardId}
