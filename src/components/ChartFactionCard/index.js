@@ -8,26 +8,19 @@ import {
   Tooltip,
 } from 'recharts'
 import Title from '~/components/Title'
+import capitalise from '~/helpers/capitalise'
+import getCardsByFaction from '~/helpers/getCardsByFaction'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartFactionCard(props) {
-
-  const factions = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
-  const data = props.cards
-    .filter(card => !card.token)
-    .reduce(
-      (acc, card) => {        
-        acc[factions.indexOf(card.faction)].value++
-        return acc
-      },
-      [
-        { name: 'Neutral', value: 0, color: 'var(--beige)' },
-        { name: 'Winterpact', value: 0, color: 'var(--winter)' },
-        { name: 'Ironclad', value: 0, color: 'var(--ironclad)' },
-        { name: 'Shadowfen', value: 0, color: 'var(--shadowfen)' },
-        { name: 'Swarm', value: 0, color: 'var(--swarm)' }
-      ]
-    )
+  const cards = getCardsByFaction()
+  const data = Object.keys(cards)
+    .filter(faction => faction !== 'tokens')
+    .map(faction => ({
+      name: capitalise(faction),
+      value: cards[faction].length,
+      color: `var(--${faction})`,
+    }))
 
   return (
     <>
