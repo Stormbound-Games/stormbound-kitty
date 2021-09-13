@@ -14,6 +14,8 @@ import Info from '~/components/Info'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
+import ChartUnitRace from '../ChartUnitRace'
+import ChartFactionCard from '../ChartFactionCard'
 
 export default React.memo(function CardsStats(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
@@ -81,8 +83,22 @@ export default React.memo(function CardsStats(props) {
               <ChartModifier cards={props.cards} />
             </Spacing>
           </Row.Column>
-          <Row.Column />
+          <Row.Column>
+            <Spacing vertical='BASE'>
+              <ChartUnitRace cards={props.cards} />
+            </Spacing>
+          </Row.Column>
         </Row>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Spacing vertical='BASE'>
+              <ChartFactionCard cards={props.cards} />
+            </Spacing>
+          </Row.Column>
+          <Row.Column/>           
+        </Row>
+
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
