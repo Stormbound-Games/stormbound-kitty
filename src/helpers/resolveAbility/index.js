@@ -15,12 +15,11 @@ const resolveAbility = string => {
     return { values: SLOTS, display: null }
   }
 
-  const decoded = decodeURIComponent(string)
-  const variables = decoded.match(VARIABLES_RE)
+  const variables = string.match(VARIABLES_RE)
   const values = SLOTS.map((slot, index) => {
-    if (!variables) return decoded
+    if (!variables) return string
 
-    let result = decoded
+    let result = string
 
     variables.forEach(variable => {
       const chunks = variable.split('/')
@@ -30,7 +29,7 @@ const resolveAbility = string => {
     return result
   })
 
-  return { values, display: decoded }
+  return { values, display: string }
 }
 
 export default resolveAbility
