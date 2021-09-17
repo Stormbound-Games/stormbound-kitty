@@ -83,7 +83,7 @@ export default React.memo(function About(props) {
                   extend={styles.cta}
                   href='https://gum.co/stormbound-kitty?wanted=true'
                 >
-                  Support
+                  Support{' '}
                   <Only.Mobile>
                     <br />
                   </Only.Mobile>
