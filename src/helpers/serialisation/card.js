@@ -72,7 +72,7 @@ export const deserialiseCard = string => {
     card.imageURL = decodeURIComponent(chunks[8])
   }
 
-  card.ability = resolveAbility(chunks[9])
+  card.ability = resolveAbility(decodeURIComponent(chunks[9]))
 
   // Whether the card has a level defined can act as a legacy check since the
   // multi-level system doesn’t serialise the level

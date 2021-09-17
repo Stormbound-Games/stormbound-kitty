@@ -10,16 +10,6 @@ describe('The `resolveAbility` helper', () => {
     })
   })
 
-  it('should decode string', () => {
-    const ability = 'This%20is%20nice'
-    const decoded = decodeURIComponent(ability)
-
-    expect(resolveAbility(ability)).toEqual({
-      values: [decoded, decoded, decoded, decoded, decoded],
-      display: decoded,
-    })
-  })
-
   it('should leave untouched a simple ability', () => {
     const ability = 'This is the ability'
 
