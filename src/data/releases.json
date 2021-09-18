@@ -1,6 +1,18 @@
 [
   {
     "cardId": "N86",
+    "title": "Update 10-2021",
+    "name": "October Update",
+    "meta": "October 1st, 2021",
+    "date": "10/2021",
+    "excerpt": "October is already there, and with it new Stormbound release with new Ancient cards, plenty offers and balance tweaks!",
+    "slug": "10-2021",
+    "background": "/assets/images/banners/halloween.png",
+    "id": "2021_10",
+    "ratio": "50%"
+  },
+  {
+    "cardId": "N86",
     "title": "Update 09-2021",
     "name": "September Update",
     "meta": "September 1st, 2021",
