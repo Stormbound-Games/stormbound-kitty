@@ -88,6 +88,7 @@ export default React.memo(function CollectionFilters(props) {
                     <option value='*'>Any</option>
                     <option value='MISSING'>Missing</option>
                     <option value='UPGRADABLE'>Upgradable</option>
+                    <option value='MAXABLE'>Maxable</option>
                     <option value='EXCESS'>Excess copies</option>
                   </Select>
                 </Row.Column>

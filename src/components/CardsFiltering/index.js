@@ -1,6 +1,7 @@
 import React from 'react'
 import getExtraAfterMax from '~/helpers/getExtraAfterMax'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
+import isLevelAvailable from '~/helpers/isLevelAvailable'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import abbreviate from '~/helpers/abbreviate'
 import parseAdvancedSearch, {
@@ -166,6 +167,7 @@ export default React.memo(function CardsFiltering(props) {
     card =>
       filters.status === '*' ||
       (filters.status === 'MISSING' && card.missing) ||
+      (filters.status === 'MAXABLE' && isLevelAvailable(card, 5)) ||
       (filters.status === 'UPGRADABLE' && isCardUpgradable(card)) ||
       (filters.status === 'EXCESS' && getExtraAfterMax(card).coins > 0),
     [filters.status]
