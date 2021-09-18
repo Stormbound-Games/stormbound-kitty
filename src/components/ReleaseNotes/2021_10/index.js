@@ -20,8 +20,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
-          October, bringing balance changes, new cards, and a lot of generous
-          offers!
+          October, bringing balance changes, new ancient cards, some generous
+          offers and new Brawl modifiers!
         </p>
 
         <p>
@@ -43,15 +43,18 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
             <Link href='#cheapened-brawl'>Cheapened Brawl</Link>
           </li>
           <li>
-            <Link href='#brawl-modifiers'>Brawl Modifiers</Link>
+            <Link href='#brawl-modifiers'>Brawl modifiers</Link>
           </li>
           <li>
-            <Link href='#halloween-event'>Halloween Event</Link>
+            <Link href='#halloween-event'>Halloween event</Link>
           </li>
           <li>
             <Link href='#vanishing-packs-bonus-system'>
-              Vanishing Packs Bonus System
+              Vanishing packs bonus system
             </Link>
+          </li>
+          <li>
+            <Link href='#new-avatars'>New avatars</Link>
           </li>
           <li>
             <Link href='#faq'>FAQ</Link>
@@ -108,8 +111,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
         <Title id='new-cards'>New cards</Title>
 
         <p>
-          This release will introduce four new ancient cards, all neutral units,
-          with some interesting mechanics that trigger{' '}
+          On October 4th, four new neutral ancient cards will be released, with
+          some interesting mechanics that trigger{' '}
           <span className='Highlight'>before moving</span>, like for{' '}
           <CardLink id='N80' />. You can find some clarifications around the
           mechanics in the <Link to='#faq'>FAQ</Link> at the end of these
@@ -134,7 +137,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           </p>
         </CheapenedBrawl>
 
-        <Title id='brawl-modifiers'>Brawl Modifiers</Title>
+        <Title id='brawl-modifiers'>Brawl modifiers</Title>
 
         <p>
           There will be 4 new Brawl modifiers coming in October to keep things
@@ -145,11 +148,26 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Modifier 1:</span>
+            <span className='Highlight'>Reserve Management:</span> any unused
+            mana point is carried over to the next turn. There is no such thing
+            as wasted mana anymore.
+          </li>
+          <li>
+            <span className='Highlight'>Chaos Unleashed:</span> units get a
+            random status effect (silence, freeze, poison, confusion, or
+            vitality) when played.
+          </li>
+          <li>
+            <span className='Highlight'>Steady Growth:</span> cards level up (up
+            to level 5) when cycled.
+          </li>
+          <li>
+            <span className='Highlight'>The Great Mill:</span> playing any card
+            instantly draws another one. Mana is the true limit.
           </li>
         </ul>
 
-        <Title id='halloween-event'>Halloween Event</Title>
+        <Title id='halloween-event'>Halloween event</Title>
 
         <p>
           To celebrate Halloween, there will be a small gift of{' '}
@@ -176,8 +194,13 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           good time to put a few bucks into the game if you were considering it!
         </p>
 
+        <p>
+          There will be some special weekly and monthly vanishing packs
+          available throughout the month of November.
+        </p>
+
         <Title id='vanishing-packs-bonus-system'>
-          Vanishing Packs Bonus System
+          Vanishing packs bonus system
         </Title>
 
         <p>
@@ -217,11 +240,22 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           As an example, if you collect 6 points in October, you get to collect
           the reward for the first milestone. When November comes, nothing will
           get reset: you will still have 6 points, and there will still be 2
-          milestones to reach. If in November you get 15 points in total (or
-          more), you’ll collect the remaining 2 milestones. Then in December,
-          your points will get back to 0, and the milestones will be available
-          for collection again once you have enough points.
+          milestones to reach. If in November you get 15 points in total, you’ll
+          collect the remaining 2 milestones. Then in December, your points will
+          get back to 0, and the milestones will be available for collection
+          again once you have enough points.
         </p>
+
+        <p>
+          An update made to vanishing packs is also that they are no longer
+          limited to a single purchase for a given period (daily, weekly,
+          monthly). That limit has been increased 3. So a vanishing pack can be
+          bought 3 times per day/week/month.
+        </p>
+
+        <Title id='new-avatars'>New avatars</Title>
+
+        <p>TBA.</p>
 
         <FAQSection
           id='faq'
@@ -233,9 +267,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
               answer: (
                 <>
                   The balance changes will be deployed with the season reset as
-                  usual along with the compensation for Rogue Sheep. The offers
-                  and gifts will come around the 18th of September since this is
-                  the anniversary day. The new card will come on September 23rd.
+                  usual. The availability of packs will be spread throughout the
+                  month, one Ancient pack a week.
                 </>
               ),
             },
