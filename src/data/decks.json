@@ -1218,7 +1218,7 @@
     "tags": [
       "HIGH_LEVELS",
       "RUSH",
-      "MIDRANGE"    
+      "MIDRANGE"
     ],
     "date": "09/2021"
   },
@@ -1239,6 +1239,36 @@
     "tags": [
       "BRAWL",
       "PURE_AMALGAMATION"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Bag of Bones",
+    "id": "5xn1n2s1n3s2n67s6n15s11s15s19s28",
+    "author": "BigTokes",
+    "tags": [
+      "HIGH_LEVELS",
+      "RUSH"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Bad Medicine",
+    "id": "5xn1n2i1i4n67i7i9n63i27i20i12i28",
+    "author": "BigTokes",
+    "tags": [
+      "HIGH_LEVELS",
+      "RUSH"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Cozy Kings",
+    "id": "5xn1w1w2n67n14w4n18w11n60n69w19w22",
+    "author": "BigTokes",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "09/2021"
   }
