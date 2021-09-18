@@ -167,6 +167,21 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           </li>
         </ul>
 
+        <p>
+          As soon as one of these new modifier shows up, it will be available in
+          friendly mode so you can practice with your friends.
+        </p>
+
+        <Info icon='sword' title='Deck dry-runner'>
+          <p>
+            <span className='Highlight'>Reserve Management</span>,{' '}
+            <span className='Highlight'>Steady Growth</span> and{' '}
+            <span className='Highlight'>The Great Mill</span> have all been
+            implemented in the deck dry-runner. So you can already try them out
+            with your favourite decks to see how it feels like!
+          </p>
+        </Info>
+
         <Title id='halloween-event'>Halloween event</Title>
 
         <p>
