@@ -460,7 +460,7 @@
     "mana": 5,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "When played with a full hand, *discard all* cards and *draw 3/3/3/4/4* new cards"
+    "ability": "When played with a full hand, *discard all* cards and *draw 4* new cards"
   },
   {
     "name": "Trueshot Post",

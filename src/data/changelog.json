@@ -1,6 +1,15 @@
 [
   {
     "date": "01/10/2021",
+    "description": "Ability made to always draw 4 cards",
+    "id": "N33",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played with a full hand, *discard all* cards and *draw 4* new cards"
+    }
+  },
+  {
+    "date": "01/10/2021",
     "description": "Mana and ability strength threshold decreased by 1",
     "id": "F22",
     "type": "BUFF",
