@@ -1,5 +1,14 @@
 [
   {
+    "date": "01/10/2021",
+    "description": "Ability damage increased by 1",
+    "id": "I18",
+    "type": "BUFF",
+    "from": {
+      "ability": "*Push* back all enemy units in a target unit’s column and deal *3/4/5/6/7 damage* to them"
+    }
+  },
+  {
     "date": "01/09/2021",
     "description": "Ability made to synergize with in-hand pirates",
     "id": "N77",
