@@ -109,10 +109,10 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <CardBuilderCardDisplay {...getInitialCardData('N86')} />
-        <CardBuilderCardDisplay {...getInitialCardData('N86')} />
-        <CardBuilderCardDisplay {...getInitialCardData('N86')} />
-        <CardBuilderCardDisplay {...getInitialCardData('N86')} />
+        <CardBuilderCardDisplay {...getInitialCardData('N87')} />
+        <CardBuilderCardDisplay {...getInitialCardData('N88')} />
+        <CardBuilderCardDisplay {...getInitialCardData('N89')} />
+        <CardBuilderCardDisplay {...getInitialCardData('N90')} />
       </Page.Embed>
 
       <Page.Narrow>
