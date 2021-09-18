@@ -1178,7 +1178,7 @@
   },
   {
     "name": "Cozy Kings",
-    "id": "5xn1w1w2n67n14w4n18w11n60n69w19w22",
+    "id": "5xn1w1w2n3n67n14w4n18n60n69w19w22",
     "author": "BigTokes",
     "tags": [
       "HIGH_LEVELS",
@@ -1212,6 +1212,16 @@
     "author": "Murmello",
     "tags": [
       "HIGH_LEVELS"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Dark Tower",
+    "id": "5xn1s1n3n67n13n23n18n80n69s18n39n57",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "09/2021"
   }
