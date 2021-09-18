@@ -27,7 +27,6 @@ const getAuthors = decks => {
 
 export default React.memo(function DeckSuggestionsFilters(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
-  const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(() => getAuthors(props.decks), [props.decks])
 
   return (
@@ -75,11 +74,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               label='Name'
               type='search'
               id='name'
-              value={name}
-              onChange={event => {
-                updateName(event.target.value)
-                props.updateName(event.target.value)
-              }}
+              value={props.name}
+              onChange={event => props.updateName(event.target.value)}
               placeholder='e.g. Reckless Rush'
             />
           </Row.Column>
@@ -115,6 +111,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
           </Row.Column>
           <Row.Column extend={{ alignSelf: 'flex-end' }}>
             <CTA
+              type='button'
               disabled={
                 props.author === '*' &&
                 props.tags.length === 0 &&
