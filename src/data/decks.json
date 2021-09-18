@@ -160,16 +160,6 @@
     "date": "04/2020"
   },
   {
-    "name": "Aftershock Control",
-    "id": "5xn1n2i1i2i3n14i10n21i14i19n34n45",
-    "author": "Emkaem",
-    "tags": [
-      "BRAWL",
-      "STRUCTURE_MANA"
-    ],
-    "date": "04/2020"
-  },
-  {
     "name": "Mech’n’rats",
     "id": "3xn1i1n3n4i4i7i8n16i11i6i15i12",
     "author": "VultureMadAtTheOx",
@@ -385,16 +375,6 @@
     "date": "06/2020"
   },
   {
-    "name": "Dreamdeck",
-    "id": "5xn1f4f3n3n67n9f7f25f8f14f17f28",
-    "author": "Murmello",
-    "tags": [
-      "HIGH_LEVELS"
-    ],
-    "nerfed": "03/2021",
-    "date": "06/2020"
-  },
-  {
     "name": "Undead Swarm",
     "id": "5xn1n2s1n3n4s2n67s6s8s11s14s17",
     "author": "OneC",
@@ -571,16 +551,6 @@
       "FELINE_STRENGTH"
     ],
     "date": "09/2020"
-  },
-  {
-    "name": "Avian Harvesters",
-    "id": "5xn1n2s1n3s24n67s10s8s15n36n49s22",
-    "author": "Murmello",
-    "tags": [
-      "HIGH_LEVELS"
-    ],
-    "nerfed": "12/2020",
-    "date": "10/2020"
   },
   {
     "name": "Warm Winter",
@@ -1251,6 +1221,15 @@
     "tags": [
       "HIGH_LEVELS",
       "CONTROL"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Green",
+    "id": "5xn1f3n3f8f4n67f7f25f10f12f17f21",
+    "author": "Murmello",
+    "tags": [
+      "HIGH_LEVELS"
     ],
     "date": "09/2021"
   }
