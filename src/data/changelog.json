@@ -1,6 +1,15 @@
 [
   {
     "date": "01/10/2021",
+    "description": "Strength-based ability increased by 1",
+    "id": "N65",
+    "type": "BUFF",
+    "from": {
+      "ability": "If played bordering an enemy *gain 1 strength* else *gain 1 speed*"
+    }
+  },
+  {
+    "date": "01/10/2021",
     "description": "Ability made to always draw 4 cards",
     "id": "N33",
     "type": "BUFF",
