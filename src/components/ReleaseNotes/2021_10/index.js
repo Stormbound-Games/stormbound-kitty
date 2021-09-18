@@ -10,7 +10,7 @@ import Info from '~/components/Info'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
-import { Coins, Rubies, Stones, Legendary } from '~/components/Resource'
+import { Coins, Rubies, Stones } from '~/components/Resource'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
 
@@ -49,8 +49,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
             <Link href='#halloween-event'>Halloween Event</Link>
           </li>
           <li>
-            <Link href='#vanity-pack-bonus-system'>
-              Vanity Pack Bonus System
+            <Link href='#vanishing-packs-bonus-system'>
+              Vanishing Packs Bonus System
             </Link>
           </li>
           <li>
@@ -106,6 +106,15 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
         </ul>
 
         <Title id='new-cards'>New cards</Title>
+
+        <p>
+          This release will introduce four new ancient cards, all neutral units,
+          with some interesting mechanics that trigger{' '}
+          <span className='Highlight'>before moving</span>, like for{' '}
+          <CardLink id='N80' />. You can find some clarifications around the
+          mechanics in the <Link to='#faq'>FAQ</Link> at the end of these
+          release notes.
+        </p>
       </Page.Narrow>
 
       <Page.Embed>
@@ -167,7 +176,9 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           good time to put a few bucks into the game if you were considering it!
         </p>
 
-        <Title id='vanity-pack-bonus-system'>Vanity Pack Bonus System</Title>
+        <Title id='vanishing-packs-bonus-system'>
+          Vanishing Packs Bonus System
+        </Title>
 
         <p>
           To make spending a few bucks here and there into vanishing packs more
@@ -225,6 +236,45 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
                   usual along with the compensation for Rogue Sheep. The offers
                   and gifts will come around the 18th of September since this is
                   the anniversary day. The new card will come on September 23rd.
+                </>
+              ),
+            },
+            {
+              id: 'fragmented-essentials',
+              question: 'How does Fragmented Essentials’ split work?',
+              answer: (
+                <>
+                  It pick a side-cell at random (if both are free) and splits
+                  half its strength there. If it has an odd amount of strength,
+                  it randomly splits it so the fragment might have more or less
+                  strength than the base unit. Note that the fragment is{' '}
+                  <span className='Highlight'>not</span> a token though—it’s
+                  also a Fragmented Essentials unit. So it will also split and
+                  spawn before it moves next.
+                </>
+              ),
+            },
+            {
+              id: 'bounded-daemons',
+              question: 'Are Bounded Daemons another Dreadfauns?',
+              answer: (
+                <>
+                  Not really. Bounded Daemons will spawn every time it moves (or
+                  rather, just before) while Dreadfauns only spawns on play.
+                  Additionally, Bounded Daemons only spawns on lateral sides,
+                  not in front or in the back, so it can move right away.
+                </>
+              ),
+            },
+            {
+              id: 'lost-psyches',
+              question:
+                'Can Lost Psyches teleport on the tile they are already on?',
+              answer: (
+                <>
+                  No. Either there are available tiles on the row and they{' '}
+                  <span className='Highlight'>will</span> teleport away, or all
+                  tiles are occupied and they will not attempt to teleport.
                 </>
               ),
             },

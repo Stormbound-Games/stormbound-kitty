@@ -5,7 +5,7 @@ import FAQEntry from '~/components/FAQEntry'
 export default React.memo(function FAQSection(props) {
   return (
     <>
-      <Title>{props.title}</Title>
+      <Title id={props.id}>{props.title}</Title>
       <dl>
         {props.entries.map(entry => (
           <FAQEntry key={entry.id} {...entry} />
