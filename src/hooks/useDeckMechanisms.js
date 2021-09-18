@@ -40,9 +40,11 @@ const useDeckMechanisms = props => {
   }, [])
 
   const cycle = React.useCallback(
-    (card, options = deckMechanisms.DEFAULT_CYCLE_OPTIONS) =>
-      setState(state => deckMechanisms.cycle(clone(state), card, options)),
-    []
+    (card, options = deckMechanisms.DEFAULT_CYCLE_OPTIONS) => {
+      const opts = { ...options, modifier: props.modifier }
+      setState(state => deckMechanisms.cycle(clone(state), card, opts))
+    },
+    [props.modifier]
   )
 
   const play = React.useCallback(

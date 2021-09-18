@@ -1,8 +1,9 @@
 import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
 import rwcDuplicates from '~/helpers/rwcDuplicates'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCard, { isNotCard } from '~/helpers/isCard'
 
-export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true }
+export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true, modifier: null }
 
 /**
  * Mutate the given state following a cycle.
@@ -10,11 +11,35 @@ export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true }
  * @param {DRCard} card - Cycled card
  * @param {Object} options - Cycling options
  * @param {Boolean} [options.countAsCycled = true] - Whether it counts as this turn’s cycle
+ * @param {Boolean} [options.modifier = null] - Active Brawl modifier
  * @return {Object} Mutated state
  */
-const cycle = (state, card, options = DEFAULT_CYCLE_OPTIONS) => {
+const cycle = (state, card, opts) => {
+  const options = { ...DEFAULT_CYCLE_OPTIONS, ...opts }
+
   // Remove the cycled card from the hand.
   state.hand = state.hand.filter(isNotCard(card))
+
+  // If the current Brawl modifier is “Steady Growth” and the card is not level
+  // 5 yet, increase its level.
+  if (options.modifier === 'STEADY_GROWTH' && card.level < 5) {
+    state.deck = state.deck.map(deckCard => {
+      const isCycledCard = isCard(card)(deckCard)
+
+      if (!isCycledCard) return deckCard
+
+      const leveled = getResolvedCardData({
+        id: card.id,
+        level: card.level + 1,
+      })
+
+      // Preserve its deck ID in case it’s a copy of another card (Mirz, HoS…).
+      leveled.idx = card.idx
+      leveled.weight = card.weight
+
+      return leveled
+    })
+  }
 
   // The available cards for cycle are all the ones that are not currently
   // in the hand, and that are not the one that has been cycled. From there,
