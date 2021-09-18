@@ -1,6 +1,15 @@
 [
   {
     "date": "01/10/2021",
+    "description": "Ability damage increased by 1",
+    "id": "N73",
+    "type": "BUFF",
+    "from": {
+      "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board"
+    }
+  },
+  {
+    "date": "01/10/2021",
     "description": "Strength-based ability increased by 1",
     "id": "N65",
     "type": "BUFF",
