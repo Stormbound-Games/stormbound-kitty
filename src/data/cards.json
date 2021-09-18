@@ -1933,10 +1933,10 @@
     "race": null,
     "rarity": "rare",
     "image": "curse_of_strings.png",
-    "mana": 7,
+    "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Convert* a target enemy unit with *8/10/12/15/18 or less strength* to fight for you"
+    "ability": "*Convert* a target enemy unit with *7/9/11/14/17 or less strength* to fight for you"
   },
   {
     "name": "High Priestess Klaxi",

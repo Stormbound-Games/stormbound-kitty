@@ -1,6 +1,16 @@
 [
   {
     "date": "01/10/2021",
+    "description": "Mana and ability strength threshold decreased by 1",
+    "id": "F22",
+    "type": "BUFF",
+    "from": {
+      "mana": 7,
+      "ability": "*Convert* a target enemy unit with *8/10/12/15/18 or less strength* to fight for you"
+    }
+  },
+  {
+    "date": "01/10/2021",
     "description": "Ability damage increased by 1",
     "id": "I18",
     "type": "BUFF",
