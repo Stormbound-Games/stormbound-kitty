@@ -5,6 +5,7 @@ import Label from '~/components/Label'
 import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
+import microMarkdown from '~/helpers/microMarkdown'
 import serialisation from '~/helpers/serialisation'
 import styles from './styles'
 
@@ -31,7 +32,8 @@ export const CardBuilderHallOfFameSeason = React.memo(
         to: `/card/${week.winner.id}/display`,
         excerpt: (
           <>
-            <strong className='Highlight'>Ability:</strong> {cardData.ability}
+            <strong className='Highlight'>Ability:</strong>{' '}
+            {microMarkdown(cardData.ability)}
           </>
         ),
       }
