@@ -68,10 +68,7 @@ Guide.FullWidth = React.memo(function FullWidth(props) {
   const { css } = useFela()
 
   return (
-    <div
-      className={css(styles.fullWidth)}
-      style={{ '--padding': props.padding }}
-    >
+    <div className={css(styles.fullWidth)}>
       <Spacing vertical={['LARGE', 'LARGER']}>{props.children}</Spacing>
     </div>
   )

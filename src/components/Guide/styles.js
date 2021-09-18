@@ -6,12 +6,8 @@ const fullWidth = {
   marginRight: 'auto',
 
   '@media (min-width: 1200px)': {
-    /**
-     * 1. Negate half the layout body horizontal padding.
-     */
-    marginLeft: 'calc(-50vw + 1200px / 2)',
-    marginRight: 'calc(-50vw + 1200px / 2)',
-    padding: '0 calc(var(--padding, 100px) + 0.625em)' /* 1 */,
+    marginLeft: 'calc((1200px - 65ch - var(--s-large) * 2) / 2 * -1)',
+    marginRight: 'calc((1200px - 65ch - var(--s-large) * 2) / 2 * -1)',
   },
 }
 
