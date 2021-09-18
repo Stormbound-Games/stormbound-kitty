@@ -573,7 +573,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After attacking, *spawn* a *3/3/4/5/6* strength Undead on the tile behind"
+    "ability": "After attacking, *spawn* a *3/4/5/6/7* strength Undead on the tile behind"
   },
   {
     "name": "Lucky Charmers",
