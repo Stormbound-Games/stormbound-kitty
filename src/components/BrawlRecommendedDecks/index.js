@@ -19,7 +19,7 @@ export default React.memo(function BrawlRecommendedDecks(props) {
       <p className={css({ marginTop: '-1.25em' })}>
         <Icon icon='arrow-right' extend={{ transform: 'translateY(2px)' }} />{' '}
         Check more{' '}
-        <Link to={'/deck/suggestions?tags=BRAWL%2C' + id}>
+        <Link to={'/deck/featured?tags=BRAWL%2C' + id}>
           decks for this brawl
         </Link>
       </p>

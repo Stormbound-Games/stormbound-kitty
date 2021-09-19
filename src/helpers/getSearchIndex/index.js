@@ -164,8 +164,8 @@ const getSearchIndex = (withEverything = true) => {
   })
 
   links.push({
-    label: 'Popular Decks',
-    path: '/deck/suggestions',
+    label: 'Featured Decks',
+    path: '/deck/featured',
     breadcrumbs: ['Community', 'Meta'],
   })
 

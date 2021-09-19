@@ -11,16 +11,16 @@ import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
-import SuggestionsFilters from '~/components/DeckSuggestionsFilters'
+import FeaturedDecksFilters from '~/components/FeaturedDecksFilters'
 import Title from '~/components/Title'
 import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
-import sortDeckSuggestions from '~/helpers/sortDeckSuggestions'
+import sortFeaturedDecks from '~/helpers/sortFeaturedDecks'
 import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import serialisation from '~/helpers/serialisation'
 
-export default React.memo(function DeckSuggestions(props) {
+export default React.memo(function FeaturedDecks(props) {
   const query = useQueryParams()
   const navigator = useNavigator()
   const formRef = React.useRef(null)
@@ -62,8 +62,8 @@ export default React.memo(function DeckSuggestions(props) {
     if (querystring.stringify(parameters) !== querystring.stringify(query)) {
       const path =
         Object.keys(parameters).length > 0
-          ? '/deck/suggestions?' + querystring.stringify(parameters)
-          : '/deck/suggestions'
+          ? '/deck/featured?' + querystring.stringify(parameters)
+          : '/deck/featured'
 
       navigator.replace(path)
     }
@@ -101,10 +101,7 @@ export default React.memo(function DeckSuggestions(props) {
     [including]
   )
 
-  const sortFn = sortDeckSuggestions(
-    { hasDefaultCollection, collection },
-    order
-  )
+  const sortFn = sortFeaturedDecks({ hasDefaultCollection, collection }, order)
   const decks = React.useMemo(
     () =>
       props.decks
@@ -132,7 +129,7 @@ export default React.memo(function DeckSuggestions(props) {
 
   return (
     <Page
-      title='Popular Decks'
+      title='Featured Decks'
       description={getDeckSearchDescription(state)}
       meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
       action={{
@@ -145,7 +142,7 @@ export default React.memo(function DeckSuggestions(props) {
         <Row.Column width='1/3'>
           <Title>Filters</Title>
 
-          <SuggestionsFilters
+          <FeaturedDecksFilters
             {...state}
             order={order}
             decks={props.decks}

@@ -3,6 +3,11 @@ module.exports = {
   reactStrictMode: true,
   async redirects() {
     return [
+      {
+        source: '/deck/suggestions',
+        destination: '/deck/featured',
+        permanent: true,
+      },
       { source: '/rr', destination: '/guides/reckless-rush', permanent: true },
       { source: '/guides', destination: '/guides/essentials', permanent: true },
       { source: '/guides/lexicon', destination: '/lexicon', permanent: true },

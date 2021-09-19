@@ -2,7 +2,7 @@ import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import resolveCollection from '~/helpers/resolveCollection'
 
-const sortDeckSuggestions = ({ hasDefaultCollection, collection }, order) => {
+const sortFeaturedDecks = ({ hasDefaultCollection, collection }, order) => {
   const resolvedCollection = !hasDefaultCollection
     ? resolveCollection(collection)
     : null
@@ -31,4 +31,4 @@ const sortDeckSuggestions = ({ hasDefaultCollection, collection }, order) => {
   }
 }
 
-export default sortDeckSuggestions
+export default sortFeaturedDecks

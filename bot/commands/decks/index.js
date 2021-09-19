@@ -50,7 +50,7 @@ const decks = {
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/deck/suggestions')
+      .setURL('https://stormbound-kitty.com/deck/featured')
       .setDescription(
         `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, tags and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
       )
@@ -58,10 +58,10 @@ const decks = {
   handler: function (message) {
     const embed = getEmbed()
       .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/deck/suggestions')
+      .setURL('https://stormbound-kitty.com/deck/featured')
 
-    // If no additional parameters were given, reply with the overall deck
-    // suggestions page
+    // If no additional parameters were given, reply with the overall featured
+    // decks page
     if (message.length === 0) {
       embed.setDescription(getDeckSearchDescription())
 
@@ -76,7 +76,7 @@ const decks = {
     }
 
     const url =
-      'https://stormbound-kitty.com/deck/suggestions' +
+      'https://stormbound-kitty.com/deck/featured' +
       (searchParams.toString().length ? '?' : '') +
       searchParams.toString()
 

@@ -295,7 +295,7 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <p>
-        The <Link to='/deck/suggestions?tags=BRAWL'>popular decks</Link> offer
+        The <Link to='/deck/featured?tags=BRAWL'>featured decks</Link> offer
         quite a few deck for every single Brawl, which should be a solid base
         for every one to compose a deck they feel comfortable with.
       </p>
