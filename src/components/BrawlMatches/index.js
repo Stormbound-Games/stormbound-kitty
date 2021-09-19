@@ -15,7 +15,7 @@ import {
   CROWN_REWARDS,
   VICTORY_BONUSES,
 } from '~/constants/brawl'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import styles from './styles'
 
 const getDefaultFaction = id => {
@@ -141,7 +141,7 @@ export default React.memo(function BrawlMatches(props) {
                       : 'Unspecified'}
                   </td>
                   <td data-label='Opponent’s faction'>
-                    {capitalise(match.opponentFaction || 'unspecified')}
+                    {capitalize(match.opponentFaction || 'unspecified')}
                   </td>
                   <td
                     data-label='Match outcome'

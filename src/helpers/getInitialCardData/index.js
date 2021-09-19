@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getCardFromSlug from '~/helpers/getCardFromSlug'
 import getRawCardData from '~/helpers/getRawCardData'
 
@@ -10,13 +10,13 @@ const getInitialCardData = card => {
   const officialCard = getCardFromSlug(card)
 
   if (officialCard) {
-    // Go through the serialisation on the official card data as it deals with
+    // Go through the serialization on the official card data as it deals with
     // normalisation and resolution of properties like mana, strength and image.
-    const resolvedCard = serialisation.card.deserialise(
-      serialisation.card.serialise(getRawCardData(officialCard.id))
+    const resolvedCard = serialization.card.deserialize(
+      serialization.card.serialize(getRawCardData(officialCard.id))
     )
 
-    // Card serialisation doesn’t define the `token` key, so it can be resolved
+    // Card serialization doesn’t define the `token` key, so it can be resolved
     // from the ID. Not amazing but it does the job.
     if (card.startsWith('T')) resolvedCard.token = true
 
@@ -25,7 +25,7 @@ const getInitialCardData = card => {
 
   const decodedData = decodeURIComponent(card)
 
-  return serialisation.card.deserialise(decodedData)
+  return serialization.card.deserialize(decodedData)
 }
 
 export default getInitialCardData

@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 const getInitialDeckData = deck => {
   if (!deck) {
@@ -7,7 +7,7 @@ const getInitialDeckData = deck => {
 
   const decodedData = decodeURIComponent(deck)
 
-  return serialisation.deck.deserialise(decodedData)
+  return serialization.deck.deserialize(decodedData)
 }
 
 export default getInitialDeckData

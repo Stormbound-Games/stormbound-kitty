@@ -5,7 +5,7 @@ import Card from '~/components/Card'
 import Image from '~/components/Image'
 import BrawlProgressBar from '~/components/BrawlProgressBar'
 import ResourceIcon from '~/components/ResourceIcon'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import styles from './styles'
@@ -21,7 +21,7 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
       return (
         <Image
           src={`/assets/images/books/book-${bookType}.png`}
-          alt={`${capitalise(bookType)} book`}
+          alt={`${capitalize(bookType)} book`}
           extend={styles.bookImage}
           withAvif
         />

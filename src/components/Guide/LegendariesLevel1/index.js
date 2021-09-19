@@ -139,7 +139,7 @@ export default React.memo(function GuideLegendaries(props) {
         crazy value in long games. Not all of her eggs need to survive either to
         find success. The eggs force the opponent to make uncomfortable plays,
         which is always a good thing for you. Even if all the eggs were
-        destroyed or you managed to hatch only one, you still utilised 8
+        destroyed or you managed to hatch only one, you still utilized 8
         strength for 6 mana. That is more than cards like <CardLink id='I21' />!
         Qordia’s sturdy 5 strength body also serves as a powerful tool for
         clearing enemies. Lastly, her synergies with dragon cards are

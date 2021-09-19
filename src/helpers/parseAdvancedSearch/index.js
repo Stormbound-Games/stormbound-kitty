@@ -75,7 +75,7 @@ const parseAdvancedSearch = value => {
   }, accumulator)
 }
 
-export const serialiseFilters = filters => {
+export const serializeFilters = filters => {
   let search = []
 
   if (filters.hero) search.push('is:hero')

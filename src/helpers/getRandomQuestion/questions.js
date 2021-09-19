@@ -9,7 +9,7 @@ import { BRAWLS } from '~/constants/brawl'
 import CARDS from '~/data/cards'
 import DECKS from '~/data/decks'
 import arrayRandom from '~/helpers/arrayRandom'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getRawCardData from '~/helpers/getRawCardData'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import abbreviate from '~/helpers/abbreviate'
@@ -124,8 +124,8 @@ const questions = [
 
     return {
       question: `What is the race of ${randomCard.name}?`,
-      answer: capitalise(randomCard.race),
-      options: Object.keys(RACES).map(capitalise),
+      answer: capitalize(randomCard.race),
+      options: Object.keys(RACES).map(capitalize),
     }
   },
 
@@ -134,8 +134,8 @@ const questions = [
 
     return {
       question: `What is the faction of ${randomCard.name}?`,
-      answer: capitalise(randomCard.faction),
-      options: Object.keys(FACTIONS).map(capitalise),
+      answer: capitalize(randomCard.faction),
+      options: Object.keys(FACTIONS).map(capitalize),
     }
   },
 
@@ -366,7 +366,7 @@ const questions = [
   {
     question: 'Which type of tokens did Tegor the Vengeful initially spawned?',
     answer: 'Knight',
-    options: Object.keys(RACES).map(capitalise),
+    options: Object.keys(RACES).map(capitalize),
   },
 
   {
@@ -555,7 +555,7 @@ const questions = [
   {
     question: 'Of which race are Beards of Crowglyphs showing visual elements?',
     answer: 'Dragon',
-    options: Object.keys(RACES).map(capitalise),
+    options: Object.keys(RACES).map(capitalize),
   },
 
   {
@@ -666,7 +666,7 @@ const questions = [
   {
     question: 'Which unit type is Powder Tower built by?',
     answer: 'Pirate',
-    options: Object.keys(RACES).map(capitalise),
+    options: Object.keys(RACES).map(capitalize),
   },
 
   {
@@ -1090,7 +1090,7 @@ const questions = [
   {
     question: 'In the kingdom order, which is the 3rd faction?',
     answer: 'Ironclad',
-    options: Object.keys(FACTIONS).map(capitalise),
+    options: Object.keys(FACTIONS).map(capitalize),
   },
 
   {
@@ -1150,7 +1150,7 @@ const questions = [
         randomRace,
         arrayRandom(Object.keys(RACES).filter(race => race !== randomRace)),
       ]
-        .map(capitalise)
+        .map(capitalize)
         .join(' and ')
     }),
   }),
@@ -1368,8 +1368,8 @@ const questions = [
 
   () => ({
     question: 'Which race does *not* have a card with an “on death” effect?',
-    answer: capitalise(arrayRandom(racesWithoutOnDeath)),
-    options: racesWithOnDeath.map(capitalise),
+    answer: capitalize(arrayRandom(racesWithoutOnDeath)),
+    options: racesWithOnDeath.map(capitalize),
   }),
 
   {
@@ -1441,7 +1441,7 @@ const questions = [
   },
 
   {
-    question: 'According to its flavour text, what was Unstable Build?',
+    question: 'According to its flavor text, what was Unstable Build?',
     answer: 'A centre of knowledge',
     options:
       'A Construct factory,A military base,A laboratory,An observatory,A dance-hall'.split(
@@ -1556,7 +1556,7 @@ const questions = [
     answer: 'Shadowfen',
     options: Object.keys(FACTIONS)
       .filter(faction => faction !== 'neutral')
-      .map(capitalise),
+      .map(capitalize),
   },
 
   {

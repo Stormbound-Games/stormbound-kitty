@@ -1,4 +1,4 @@
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getRawCardData from '~/helpers/getRawCardData'
 import toSentence from '~/helpers/toSentence'
 import { TAGS } from '~/constants/deck'
@@ -10,7 +10,7 @@ const getDeckSearchDescription = (state = {}) => {
 
   return [
     'Find a collection of',
-    state.faction !== '*' ? capitalise(state.faction) : '',
+    state.faction !== '*' ? capitalize(state.faction) : '',
     'decks',
     state.including ? `including ${cardData.name}` : '',
     tags.length === 0

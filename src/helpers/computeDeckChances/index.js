@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import canCardBePlayed from '~/helpers/canCardBePlayed'
 import canDeployUnits from '~/helpers/canDeployUnits'
 import getCombinations from '~/helpers/getCombinations'
@@ -102,7 +102,7 @@ export const getHandCost = ({ availableMana, hand }) => {
 
 const cache = new Map()
 const computeDeckChances = (deck, availableMana, modifier = 'NONE') => {
-  const key = serialisation.deck.serialise(deck) + modifier + availableMana
+  const key = serialization.deck.serialize(deck) + modifier + availableMana
 
   // If we already have computed the data for this deck in this modifier for
   // this amount of mana, read the result from the cache instead of starting

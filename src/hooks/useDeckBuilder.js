@@ -1,5 +1,5 @@
 import React from 'react'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import sortByMana from '~/helpers/sortByMana'
 import useNavigator from '~/hooks/useNavigator'
@@ -7,7 +7,7 @@ import useQueryParams from '~/hooks/useQueryParams'
 
 const useDeckBuilderPath = (deck, view) => {
   const { mode } = useQueryParams()
-  const id = serialisation.deck.serialise(deck)
+  const id = serialization.deck.serialize(deck)
 
   switch (view) {
     case 'DETAIL':

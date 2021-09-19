@@ -300,12 +300,12 @@ export default React.memo(function GuidePirate(props) {
         The previous strategies are simply regular deck archetypes that use a
         small handful of pirates for their benefits. “Pure” pirate decks, on the
         other hand, are the most clearly recognizable “pirate decks” that seek
-        to capitalise on *all* of pirate strengths. Because this is the most
+        to capitalize on *all* of pirate strengths. Because this is the most
         “piratey” kind of deck, I will walk through it with more detail.
       </p>
       <p>
         “Pure” pirate decks tend to have at least 8 or more pirate cards in
-        them. The reason is to maximise the value and reliability of Lucky
+        them. The reason is to maximize the value and reliability of Lucky
         Charmers, which is the main focus of a “pure” pirate deck. Pirates tend
         to have rather high costs, so when making a deck with so many, it’s
         important that you make your non-pirate cards fill in the early curve

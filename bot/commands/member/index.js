@@ -1,11 +1,11 @@
 import getEmbed from '~/helpers/getEmbed'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getMemberContent from '~/helpers/getMemberContent'
 
 const BASE_URL = 'https://stormbound-kitty.com'
 const aggregate = (acc, { entries }) => acc + entries.length
 const getEmbedField = details => type => ({
-  name: capitalise(type),
+  name: capitalize(type),
   value:
     type === 'updates'
       ? details[type].reduce(aggregate, 0)

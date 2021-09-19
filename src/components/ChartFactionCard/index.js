@@ -8,7 +8,7 @@ import {
   Tooltip,
 } from 'recharts'
 import Title from '~/components/Title'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getCardsByFaction from '~/helpers/getCardsByFaction'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
@@ -17,7 +17,7 @@ export default React.memo(function ChartFactionCard(props) {
   const data = Object.keys(cards)
     .filter(faction => faction !== 'tokens')
     .map(faction => ({
-      name: capitalise(faction),
+      name: capitalize(faction),
       value: cards[faction].length,
       color: `var(--${faction})`,
     }))

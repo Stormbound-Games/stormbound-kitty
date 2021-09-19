@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from '~/components/Select'
 import { FACTIONS } from '~/constants/game'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 
 export default React.memo(function FactionSelect({
   anyLabel,
@@ -23,10 +23,10 @@ export default React.memo(function FactionSelect({
         .filter(faction => withNeutral || faction !== 'neutral')
         .map(faction => (
           <React.Fragment key={faction}>
-            <option value={faction}>{capitalise(faction)}</option>
+            <option value={faction}>{capitalize(faction)}</option>
             {withExtendedVersions && faction !== 'neutral' && (
               <option value={'neutral,' + faction}>
-                {capitalise(faction)} + Neutral
+                {capitalize(faction)} + Neutral
               </option>
             )}
           </React.Fragment>

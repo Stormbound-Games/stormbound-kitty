@@ -1,4 +1,4 @@
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 
 const getAverageManaCost = cards =>
   cards.map(card => card.mana).reduce((a, b) => a + b, 0) / cards.length
@@ -12,7 +12,7 @@ const advice = (cards, modifier = '') => {
   // `2.8` is an arbitrary threshold. This check really is only there to mark
   // unusually cheap decks (which are not the cause of a mana-Brawl modifier).
   // This is not a fantastic advice though, because the current meta highly
-  // favour cheap decks over expensive ones. But extremely cheap decks might
+  // favor cheap decks over expensive ones. But extremely cheap decks might
   // suffer if they don’t finish the game early, so it’s worth an advice still.
   if (modifier.includes('MANA') && averageManaCost < LOWER_THRESHOLD)
     return null
@@ -25,7 +25,7 @@ const advice = (cards, modifier = '') => {
   const duration = averageManaCost > UPPER_THRESHOLD ? 'short' : 'long'
 
   return {
-    name: capitalise(name) + ' deck',
+    name: capitalize(name) + ' deck',
     description: `This deck has an average mana cost of ${averageManaCost.toFixed(
       2
     )}, which might be a little ${adjective}. Consider including one or two more ${opposite} cards to be able to power through ${duration} games.`,

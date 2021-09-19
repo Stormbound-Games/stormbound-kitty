@@ -1,7 +1,7 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 const getDeckDistanceToMax = collection => deck => {
-  const cards = serialisation.deck.deserialise(deck.id)
+  const cards = serialization.deck.deserialize(deck.id)
   const findInCollection = card => collection[card.id]
   const computeDistance = (distance, card) =>
     // It is technically possible for the card not to be found in the collection

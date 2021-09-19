@@ -45,7 +45,7 @@ const resolveStrength = (value, cardType) => {
   return { values: chunks, display: value }
 }
 
-export const deserialiseCard = string => {
+export const deserializeCard = string => {
   const chunks = string.split(';')
   const card = {}
 
@@ -63,7 +63,7 @@ export const deserialiseCard = string => {
       ? parseInt(chunks[5])
       : null
 
-  // If the serialised image data is the ID of an existing card, set the ID in
+  // If the serialized image data is the ID of an existing card, set the ID in
   // `imageCardId` key; otherwise set it in `imageURL` key; then and delete
   // image.
   if (getRawCardData(chunks[8]).image) {
@@ -75,7 +75,7 @@ export const deserialiseCard = string => {
   card.ability = resolveAbility(decodeURIComponent(chunks[9]))
 
   // Whether the card has a level defined can act as a legacy check since the
-  // multi-level system doesn’t serialise the level
+  // multi-level system doesn’t serialize the level
   card.level = Number(chunks[10]) || null
 
   card.hasSingleLevel =
@@ -90,7 +90,7 @@ export const deserialiseCard = string => {
   return card
 }
 
-const serialiseCard = formState =>
+const serializeCard = formState =>
   [
     getShortFaction(formState.faction),
     getShortRace(formState.race),
@@ -109,8 +109,8 @@ const serialiseCard = formState =>
   ].join(';')
 
 const card = {
-  serialise: card => base64Encode(serialiseCard(card)),
-  deserialise: hash => deserialiseCard(base64Decode(hash)),
+  serialize: card => base64Encode(serializeCard(card)),
+  deserialize: hash => deserializeCard(base64Decode(hash)),
 }
 
 export default card

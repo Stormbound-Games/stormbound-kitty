@@ -47,7 +47,7 @@ const selectors = {
 
   CELL_IMAGE: '[data-testid="cell-image"]',
   CELL_POISONED: '[data-testid="cell-poisoned"]',
-  CELL_VITALISED: '[data-testid="cell-vitalised"]',
+  CELL_VITALIZED: '[data-testid="cell-vitalized"]',
   CELL_FROZEN: '[data-testid="cell-frozen"]',
   CELL_CONFUSED: '[data-testid="cell-confused"]',
   CELL_DISABLED: '[data-testid="cell-disabled"]',
@@ -59,7 +59,7 @@ const selectors = {
   CELL_FORM_RED_RADIO: '[data-testid="cell-player-RED-radio"]',
   CELL_FORM_FROZEN_CHECKBOX: '[data-testid="cell-frozen-checkbox"]',
   CELL_FORM_POISON_CHECKBOX: '[data-testid="cell-poisoned-checkbox"]',
-  CELL_FORM_VITALITY_CHECKBOX: '[data-testid="cell-vitalised-checkbox"]',
+  CELL_FORM_VITALITY_CHECKBOX: '[data-testid="cell-vitalized-checkbox"]',
   CELL_FORM_CONFUSED_CHECKBOX: '[data-testid="cell-confused-checkbox"]',
   CELL_FORM_DISABLED_CHECKBOX: '[data-testid="cell-disabled-checkbox"]',
   CELL_FORM_STRENGTH: '[data-testid="cell-strength-input"]',

@@ -5,7 +5,7 @@ import isLevelAvailable from '~/helpers/isLevelAvailable'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import abbreviate from '~/helpers/abbreviate'
 import parseAdvancedSearch, {
-  serialiseFilters,
+  serializeFilters,
 } from '~/helpers/parseAdvancedSearch'
 import sortCards, { sortByValue, sortByLockedCoins } from '~/helpers/sortCards'
 import useViewportSize from '~/hooks/useViewportSize'
@@ -217,7 +217,7 @@ export default React.memo(function CardsFiltering(props) {
 
   const toggleAdvancedSearch = () => {
     if (advanced) setFilters({ ...DEFAULT_FILTERS })
-    else setSearch(serialiseFilters(filters))
+    else setSearch(serializeFilters(filters))
 
     setAdvanced(advanced => !advanced)
   }

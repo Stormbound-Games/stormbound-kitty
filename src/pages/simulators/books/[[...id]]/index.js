@@ -2,7 +2,7 @@ import React from 'react'
 import BookOpeningSimulator from '~/components/BookOpeningSimulator'
 import Layout from '~/components/Layout'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticPaths() {
@@ -14,7 +14,7 @@ export async function getStaticProps(context) {
   const [id] = context.params.id || []
 
   try {
-    const cards = serialisation.cards.deserialise(id).map(getResolvedCardData)
+    const cards = serialization.cards.deserialize(id).map(getResolvedCardData)
 
     return { props: { navigation, cards } }
   } catch (error) {

@@ -16,7 +16,7 @@ import Row from '~/components/Row'
 import ShareButton from '~/components/ListBuilderShareButton'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import Title from '~/components/Title'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getInitialListData from '~/helpers/getInitialListData'
 import reorder from '~/helpers/reorder'
 import useNavigator from '~/hooks/useNavigator'
@@ -47,7 +47,7 @@ class ListBuilderEditorView extends React.Component {
 
     if (hasAnyTierChanged) {
       this.props.navigator.replace(
-        '/list/' + serialisation.list.serialise(this.state.tiers)
+        '/list/' + serialization.list.serialize(this.state.tiers)
       )
     }
 

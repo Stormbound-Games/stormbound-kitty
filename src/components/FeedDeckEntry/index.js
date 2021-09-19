@@ -4,7 +4,7 @@ import Link from '~/components/Link'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import FeedEntry from '~/components/FeedEntry'
 import Tags from '~/components/Tags'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 
 export default React.memo(function FeedDeckEntry(props) {
@@ -14,7 +14,7 @@ export default React.memo(function FeedDeckEntry(props) {
 
   return (
     <FeedEntry icon='stack' date={props.date}>
-      {props.author} has set up {prefix} {capitalise(faction)} deck with tags{' '}
+      {props.author} has set up {prefix} {capitalize(faction)} deck with tags{' '}
       <Tags tags={props.tags} /> called{' '}
       <Link to={'/deck/' + props.id + '/detail'}>{props.name}</Link>.
       <div className={css({ maxWidth: '450px' })}>

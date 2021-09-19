@@ -26,8 +26,8 @@ export default React.memo(function BattleSimCellForm(props) {
   const [poisoned, setPoisoned] = React.useState(
     activeCellCard.card.type !== 'structure' ? activeCellCard.poisoned : false
   )
-  const [vitalised, setVitalised] = React.useState(
-    activeCellCard.card.type !== 'structure' ? activeCellCard.vitalised : false
+  const [vitalized, setVitalized] = React.useState(
+    activeCellCard.card.type !== 'structure' ? activeCellCard.vitalized : false
   )
   const [frozen, setFrozen] = React.useState(
     activeCellCard.card.type !== 'structure' ? activeCellCard.frozen : false
@@ -50,7 +50,7 @@ export default React.memo(function BattleSimCellForm(props) {
 
     setStrength(activeCellCard.strength || 1)
     setPoisoned(isStructure ? activeCellCard.poisoned : false)
-    setVitalised(isStructure ? activeCellCard.vitalised : false)
+    setVitalized(isStructure ? activeCellCard.vitalized : false)
     setFrozen(isStructure ? activeCellCard.frozen : false)
     setConfused(isStructure ? activeCellCard.confused : false)
     setDisabled(isStructure ? activeCellCard.disabled : false)
@@ -64,7 +64,7 @@ export default React.memo(function BattleSimCellForm(props) {
     // checkboxes if the selected card is a structure
     if (getRawCardData(card).type === 'structure') {
       setPoisoned(false)
-      setVitalised(false)
+      setVitalized(false)
       setFrozen(false)
       setConfused(false)
       setDisabled(false)
@@ -189,7 +189,7 @@ export default React.memo(function BattleSimCellForm(props) {
               checked={poisoned}
               onChange={event => {
                 setPoisoned(event.target.checked)
-                if (event.target.checked) setVitalised(false)
+                if (event.target.checked) setVitalized(false)
               }}
               data-testid='cell-poisoned-checkbox'
             >
@@ -197,16 +197,16 @@ export default React.memo(function BattleSimCellForm(props) {
             </Checkbox>
             <Checkbox
               extend={styles.checkbox}
-              id='vitalised'
+              id='vitalized'
               disabled={getRawCardData(card).type === 'structure'}
-              checked={vitalised}
+              checked={vitalized}
               onChange={event => {
-                setVitalised(event.target.checked)
+                setVitalized(event.target.checked)
                 if (event.target.checked) setPoisoned(false)
               }}
-              data-testid='cell-vitalised-checkbox'
+              data-testid='cell-vitalized-checkbox'
             >
-              Vitalised
+              Vitalized
             </Checkbox>
             <Checkbox
               extend={styles.checkbox}
@@ -248,7 +248,7 @@ export default React.memo(function BattleSimCellForm(props) {
           activeCellCard.strength !== +strength ||
           activeCellCard.level !== +level ||
           activeCellCard.poisoned !== poisoned ||
-          activeCellCard.vitalised !== vitalised ||
+          activeCellCard.vitalized !== vitalized ||
           activeCellCard.frozen !== frozen ||
           activeCellCard.confused !== confused ||
           activeCellCard.disabled !== disabled ||

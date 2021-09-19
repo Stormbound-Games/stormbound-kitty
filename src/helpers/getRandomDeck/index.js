@@ -119,7 +119,7 @@ const isMatchingFaction = faction => card =>
 
 /**
  * Return a random deck (cards not resolved).
- * @param {Object} options - Randomisation options
+ * @param {Object} options - Randomization options
  * @param {String} options.faction - Deck faction
  * @param {Card[]} options.availableCards - Cards than can be picked
  * @param {Number} options.maxLegendaryCards - Maximum amount of legendary cards

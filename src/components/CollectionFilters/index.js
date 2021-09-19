@@ -12,7 +12,7 @@ import MobileTogglableContent from '~/components/MobileTogglableContent'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import Row from '~/components/Row'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import styles from './styles'
 
 const isButtonDisabled = props =>
@@ -68,7 +68,7 @@ export default React.memo(function CollectionFilters(props) {
                     <option value='*'>Any</option>
                     {Object.keys(TYPES).map(type => (
                       <option value={type} key={type}>
-                        {capitalise(type)}
+                        {capitalize(type)}
                       </option>
                     ))}
                   </Select>
@@ -126,7 +126,7 @@ export default React.memo(function CollectionFilters(props) {
                     <option value='*'>Any</option>
                     {Object.keys(RARITIES).map(rarity => (
                       <option value={rarity} key={rarity}>
-                        {capitalise(rarity)}
+                        {capitalize(rarity)}
                       </option>
                     ))}
                   </Select>
@@ -142,7 +142,7 @@ export default React.memo(function CollectionFilters(props) {
                     <option value='*'>Any</option>
                     {Object.keys(RACES).map(race => (
                       <option value={race} key={race}>
-                        {capitalise(race)}
+                        {capitalize(race)}
                       </option>
                     ))}
                   </Select>

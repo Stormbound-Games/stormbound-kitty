@@ -6,7 +6,7 @@ import deck from './deck'
 import list from './list'
 import quest from './quest'
 
-const serialisation = {
+const serialization = {
   battle,
   brawl,
   card,
@@ -16,4 +16,4 @@ const serialisation = {
   quest,
 }
 
-export default serialisation
+export default serialization

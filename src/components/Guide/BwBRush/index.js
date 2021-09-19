@@ -9,7 +9,7 @@ import Link from '~/components/Link'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import CardLink from '~/components/CardLink'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
@@ -106,8 +106,8 @@ export default React.memo(function GuideBwBRush(props) {
           </Row.Column>
           <Row.Column>
             <DeckStatsChart
-              deck={serialisation.deck
-                .deserialise('5xn1w1n2w2n3n4n12n16w7w8n27w14')
+              deck={serialization.deck
+                .deserialize('5xn1w1n2w2n3n4n12n16w7w8n27w14')
                 .map(getResolvedCardData)}
               modifier='NONE'
             />
@@ -143,8 +143,8 @@ export default React.memo(function GuideBwBRush(props) {
           </Row.Column>
           <Row.Column>
             <DeckStatsChart
-              deck={serialisation.deck
-                .deserialise('5xn1w1n2w2n3n4n11n12n21w7n27w14')
+              deck={serialization.deck
+                .deserialize('5xn1w1n2w2n3n4n11n12n21w7n27w14')
                 .map(getResolvedCardData)}
               modifier='NONE'
             />

@@ -22,7 +22,7 @@ export default React.memo(function ChartAbility(props) {
     pull: { name: 'Push/pull', color: 'var(--ironclad)' },
     push: { name: 'Push/pull', color: 'var(--ironclad)' },
     chip: { name: 'Chip', color: 'var(--beige)' },
-    vital: { name: 'Vitality', color: 'var(--vitalised)' },
+    vital: { name: 'Vitality', color: 'var(--vitalized)' },
     disable: { name: 'Disable', color: 'var(--disabled)' },
   }
   const regex = new RegExp('(' + Object.keys(abilities).join('|') + ')', 'i')

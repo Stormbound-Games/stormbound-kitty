@@ -63,13 +63,13 @@ export default React.memo(function TournamentHallOfFame(props) {
               id: 'about-tournaments',
               question: 'What exactly are tournaments? How do they work?',
               answer:
-                'Tournaments are organised by community members and yield in-game rewards such as cards and rubies. They usually face about 20 players divided in brackets, eliminating more and more of them until there is only one (or more) winner left. Some tournmanents have different rules, but they more or less all work like this.',
+                'Tournaments are organized by community members and yield in-game rewards such as cards and rubies. They usually face about 20 players divided in brackets, eliminating more and more of them until there is only one (or more) winner left. Some tournmanents have different rules, but they more or less all work like this.',
             },
             {
               id: 'hosting-a-tournament',
               question: 'Who can host a tournament?',
               answer:
-                'In theory, everyone can. Kepp and Brzoza on Discord are responsible for the schedule. If you would like to host an event, have them invite you to a dedicated Discord server where all the event hosts organise events. In there, you will find the schedule, and will be able to talk about your ideas and get some help.',
+                'In theory, everyone can. Kepp and Brzoza on Discord are responsible for the schedule. If you would like to host an event, have them invite you to a dedicated Discord server where all the event hosts organize events. In there, you will find the schedule, and will be able to talk about your ideas and get some help.',
             },
             {
               id: 'head-count',
@@ -106,7 +106,7 @@ export default React.memo(function TournamentHallOfFame(props) {
             },
             {
               id: 'tools',
-              question: 'Are there tools to help organise everything?',
+              question: 'Are there tools to help organize everything?',
               answer: (
                 <>
                   The <Link to='/deck'>deck builder</Link> to compose decks,{' '}
@@ -120,7 +120,7 @@ export default React.memo(function TournamentHallOfFame(props) {
               id: 'rules',
               question: 'How to write good rules that prevent cheating?',
               answer:
-                'Have a look at the rules of previous tournaments to avoid starting from scratch. Make sure to have them proofread by some tournament organisers so they are bulletproof. ',
+                'Have a look at the rules of previous tournaments to avoid starting from scratch. Make sure to have them proofread by some tournament organizers so they are bulletproof. ',
             },
           ]}
         />

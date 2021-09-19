@@ -1,6 +1,6 @@
 import React from 'react'
 import isEqual from 'lodash.isequal'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 import resolveAbility from '~/helpers/resolveAbility'
 import useNavigator from '~/hooks/useNavigator'
@@ -63,7 +63,7 @@ const useCardBuilderEditor = props => {
       }
 
       navigator.replace(
-        ['/card', isDefaultState ? '' : serialisation.card.serialise(data)]
+        ['/card', isDefaultState ? '' : serialization.card.serialize(data)]
           .filter(Boolean)
           .join('/')
       )

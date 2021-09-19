@@ -63,8 +63,8 @@ export default React.memo(function GuideNobleCoalition(props) {
               sweetcap+HRC combo.
             </p>
             <p>
-              Critical Pancake is one of my favourite deckbuilders every week
-              and my own Brawl decks are usually very close to his. Could switch{' '}
+              Critical Pancake is one of my favorite deckbuilders every week and
+              my own Brawl decks are usually very close to his. Could switch{' '}
               <CardLink id='F20' /> for <CardLink id='N68' />, since more cats
               might now have outgrown the Minister’s reach.
             </p>

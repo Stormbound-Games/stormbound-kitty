@@ -9,7 +9,7 @@ const bsFill = (
     strength,
     player,
     poisoned,
-    vitalised,
+    vitalized,
     frozen,
     disabled,
     confused,
@@ -26,7 +26,7 @@ const bsFill = (
       strength,
       player,
       poisoned,
-      vitalised,
+      vitalized,
       frozen,
       disabled,
       confused,
@@ -78,7 +78,7 @@ const bsFill = (
           force: true,
           log: false,
         })
-      } else if (vitalised) {
+      } else if (vitalized) {
         cy.get(s.CELL_FORM_VITALITY_CHECKBOX, { log: false }).click({
           force: true,
           log: false,

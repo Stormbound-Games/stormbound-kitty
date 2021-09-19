@@ -18,7 +18,7 @@ import useNavigator from '~/hooks/useNavigator'
 import sortFeaturedDecks from '~/helpers/sortFeaturedDecks'
 import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 export default React.memo(function FeaturedDecks(props) {
   const query = useQueryParams()
@@ -94,8 +94,8 @@ export default React.memo(function FeaturedDecks(props) {
   const matchesIncluding = React.useCallback(
     deck =>
       !including ||
-      serialisation.deck
-        .deserialise(deck.id)
+      serialization.deck
+        .deserialize(deck.id)
         .map(card => card.id)
         .includes(including),
     [including]

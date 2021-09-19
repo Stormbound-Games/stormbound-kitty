@@ -3,7 +3,7 @@ import CTA from '~/components/CTA'
 import Input from '~/components/Input'
 import Deck from '~/components/Deck'
 import Dialog from '~/components/Dialog'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 export default React.memo(function BattleSimDeckImport(props) {
   const dialog = React.useRef(null)
@@ -34,7 +34,7 @@ export default React.memo(function BattleSimDeckImport(props) {
     try {
       const re = /\/deck\/([\w=%]+)(?:\/|$|\?)/i
       const [, id] = decodeURIComponent(url).match(re)
-      setDeck(serialisation.deck.deserialise(id))
+      setDeck(serialization.deck.deserialize(id))
       setError(null)
     } catch {
       setError('Unfortunately this deck could not be imported.')

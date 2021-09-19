@@ -11,7 +11,7 @@ import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import toSentence from '~/helpers/toSentence'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import modifyDeck from '~/helpers/modifyDeck'
@@ -22,8 +22,8 @@ const manaBrawls = BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(
 )
 
 const Graph = props => {
-  const cards = serialisation.deck
-    .deserialise(props.id)
+  const cards = serialization.deck
+    .deserialize(props.id)
     .map(getResolvedCardData)
   const deck = modifyDeck(cards, props.modifier)
 

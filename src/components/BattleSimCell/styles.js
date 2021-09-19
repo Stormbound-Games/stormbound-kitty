@@ -225,7 +225,7 @@ const poison = {
   },
 }
 
-const dot = ({ isBubble, isConfused, isPoisoned, isVitalised }) => ({
+const dot = ({ isBubble, isConfused, isPoisoned, isVitalized }) => ({
   position: 'absolute',
   width: '0.6em',
   height: '0.6em',
@@ -260,9 +260,9 @@ const dot = ({ isBubble, isConfused, isPoisoned, isVitalised }) => ({
       }
     : {}),
 
-  ...(isVitalised
+  ...(isVitalized
     ? {
-        backgroundColor: isBubble ? 'darkgreen' : 'var(--vitalised)',
+        backgroundColor: isBubble ? 'darkgreen' : 'var(--vitalized)',
         ...(isBubble
           ? {
               borderRadius: '50%',

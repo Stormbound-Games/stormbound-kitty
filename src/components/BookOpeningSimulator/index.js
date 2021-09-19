@@ -17,7 +17,7 @@ import Title from '~/components/Title'
 import openBook from '~/helpers/openBook'
 import getBookName from '~/helpers/getBookName'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import useViewportSize from '~/hooks/useViewportSize'
 import useNavigator from '~/hooks/useNavigator'
 import { BOOKS } from '~/constants/books'
@@ -150,7 +150,7 @@ export default React.memo(function BookOpeningSimulator(props) {
   const [cards, setCards] = React.useState(props.cards || [])
   const [amount, setAmount] = React.useState(1)
   const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
-  const id = serialisation.cards.serialise(cards)
+  const id = serialization.cards.serialize(cards)
 
   const isFormValid = React.useMemo(
     () =>

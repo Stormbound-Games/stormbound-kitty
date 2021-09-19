@@ -2,12 +2,12 @@ import indexOf from '~/helpers/indexOf'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 
 // Exported for testing purposes
-export const serialiseCards = cards => {
+export const serializeCards = cards => {
   // To be entirely honest I’m not sure I fully remember how we can have cards
   // that do not have an ID here; maybe when passing a deck with empty slots?
   cards = cards.filter(card => card && card.id)
 
-  // Token cards are serialised a little different since their strength is
+  // Token cards are serialized a little different since their strength is
   // carried in the level slot (see below), so we cannot use the global level
   // when some cards are tokens.
   const hasToken = cards.some(card => card.token || card.id.startsWith('T'))
@@ -24,20 +24,20 @@ export const serialiseCards = cards => {
   return cards
     .map(
       card =>
-        // Because the serialised cards are joined together without commas and
+        // Because the serialized cards are joined together without commas and
         // because tokens carry their strength in their level, we need a
-        // deterministic approach to deserialise them later on.
+        // deterministic approach to deserialize them later on.
         String(card.level).padStart(card.token ? 2 : 1, '0') + card.id
     )
     .join('')
 }
 
 // Exported for testing purposes
-export const deserialiseCards = string => {
+export const deserializeCards = string => {
   let count = 0
 
   // If the base64 decoded string contains commas, it was originally encoded
-  // with the old serialisation system, and these commas need to be removed
+  // with the old serialization system, and these commas need to be removed
   // for the new system to work.
   string = string.replace(/,/g, '')
 
@@ -81,8 +81,8 @@ export const deserialiseCards = string => {
 }
 
 const cards = {
-  serialise: cards => serialiseCards(cards),
-  deserialise: string => deserialiseCards(string),
+  serialize: cards => serializeCards(cards),
+  deserialize: string => deserializeCards(string),
 }
 
 export default cards

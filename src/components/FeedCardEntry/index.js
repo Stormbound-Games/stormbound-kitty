@@ -5,12 +5,12 @@ import FeedEntry from '~/components/FeedEntry'
 import Teaser from '~/components/Teaser'
 import Spacing from '~/components/Spacing'
 import { getCardData } from '~/components/CardBuilderHallOfFame'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import styles from './styles'
 
 export default React.memo(function FeedCardEntry(props) {
   const { css } = useFela()
-  const card = serialisation.card.deserialise(props.winner.id)
+  const card = serialization.card.deserialize(props.winner.id)
   const cardData = getCardData(props.winner.id)
 
   return (

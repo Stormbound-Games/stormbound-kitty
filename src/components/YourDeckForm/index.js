@@ -4,13 +4,13 @@ import Input from '~/components/Input'
 import Link from '~/components/Link'
 import Row from '~/components/Row'
 import TagsSelect from '~/components/TagsSelect'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getRawCardData from '~/helpers/getRawCardData'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 
 const isValidCard = card => Boolean(getRawCardData(card.id).id)
 const validateDeckId = id =>
-  id && serialisation.deck.deserialise(getDeckIDFromURL(id)).every(isValidCard)
+  id && serialization.deck.deserialize(getDeckIDFromURL(id)).every(isValidCard)
 
 export default React.memo(function YourDeckForm(props) {
   const [deckID, setDeckID] = React.useState(props.id)
