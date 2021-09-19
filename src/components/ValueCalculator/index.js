@@ -13,7 +13,7 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getCardValue from '~/helpers/getCardValue'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
@@ -88,7 +88,7 @@ export default React.memo(function ValueCalculator(props) {
 
   React.useEffect(() => {
     navigator.replace(
-      ['/calculators/value', serialisation.cards.serialise([A, B])]
+      ['/calculators/value', serialization.cards.serialize([A, B])]
         .filter(Boolean)
         .join('/')
         .toLowerCase()

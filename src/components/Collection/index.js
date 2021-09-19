@@ -105,7 +105,7 @@ export default React.memo(function Collection(props) {
               <p>
                 The collection is locally saved in your browser as you update it
                 so you can safely leave or refresh the page. If you want to save
-                it more permanently and synchronise it between device, you can
+                it more permanently and synchronize it between device, you can
                 export it as a CSV.
               </p>
             </Spacing>

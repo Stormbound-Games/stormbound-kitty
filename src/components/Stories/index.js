@@ -3,12 +3,12 @@ import Teasers from '~/components/Teasers'
 import Link from '~/components/Link'
 import getExcerpt from '~/helpers/getExcerpt'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 
 const StoryAuthor = React.memo(function StoryAuthor(props) {
   return (
     <>
-      {capitalise(props.type || 'story')} by{' '}
+      {capitalize(props.type || 'story')} by{' '}
       <Link to={'/members/' + props.author.toLowerCase()}>{props.author}</Link>{' '}
     </>
   )

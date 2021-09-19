@@ -4,7 +4,7 @@ import Info from '~/components/Info'
 import ResourceIcon from '~/components/ResourceIcon'
 import { Coins, Stones } from '~/components/Resource'
 import { RARITIES } from '~/constants/game'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getRawCardData from '~/helpers/getRawCardData'
 import toSentence from '~/helpers/toSentence'
 
@@ -88,7 +88,7 @@ export default React.memo(function NerfCompensationInfo(props) {
               className={css({ textIndent: '-1.25em', paddingLeft: '1.25em' })}
             >
               <ResourceIcon resource={rarity.toUpperCase()} />
-              &nbsp; {capitalise(rarity)} card:{' '}
+              &nbsp; {capitalize(rarity)} card:{' '}
               {COMPENSATION[rarity].reduce((acc, level, index) => {
                 return (
                   <>

@@ -221,7 +221,7 @@ export default React.memo(function GuideResources(props) {
       </ol>
 
       <p>
-        Playing on mobile can greatly reduce the time it takes to maximise coins
+        Playing on mobile can greatly reduce the time it takes to maximize coins
         through wins, especially with a solid rush deck for this. Ultimate Brawl
         typically isn’t worth the costs beyond Milestone 5 (Mythic Tome) and
         even then you would want to achieve at least a win-rate of 50% (roughly{' '}
@@ -299,11 +299,11 @@ export default React.memo(function GuideResources(props) {
         some <ResourceIcon resource='COIN' /> coins and{' '}
         <ResourceIcon resource='RUBY' /> rubies aside to buy singular cards in
         the shop or save up <ResourceIcon resource='RUBY' /> rubies for a Mythic
-        book. You’ll have a feel for the cards and maybe also have some
-        favourite cards and/or factions to buy more specific copies from. Please
-        refer to the section below for some recommended cards or have a look at
-        the <Link to='/list/ranked'>tier list</Link> to see which cards have
-        high value in this game.
+        book. You’ll have a feel for the cards and maybe also have some favorite
+        cards and/or factions to buy more specific copies from. Please refer to
+        the section below for some recommended cards or have a look at the{' '}
+        <Link to='/list/ranked'>tier list</Link> to see which cards have high
+        value in this game.
       </p>
 
       <p>
@@ -319,7 +319,7 @@ export default React.memo(function GuideResources(props) {
         Upgrading cards can get costly so be mindful of what you upgrade. It is
         not a great idea to try and upgrade everything but rather focus on the
         cards you use. If you cannot play much, make sure you open your daily
-        free card and aim to complete your daily missions, favouring the{' '}
+        free card and aim to complete your daily missions, favoring the{' '}
         <Coins amount={150} /> mission over the <Stones amount={2} /> mission
         (each mission can be re-rolled once a day before completing).
       </p>

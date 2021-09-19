@@ -5,9 +5,9 @@ import chunk from '~/helpers/chunk'
 import getRawCardData from '~/helpers/getRawCardData'
 import { base64Decode, base64Encode } from '~/helpers/base64'
 import { getShortFaction, getLongFaction } from '~/helpers/encoding'
-import serialisation from './'
+import serialization from './'
 
-const serialiseBoard = board =>
+const serializeBoard = board =>
   board
     .map(row =>
       row
@@ -21,7 +21,7 @@ const serialiseBoard = board =>
                 cell.poisoned ? 'P' : '',
                 cell.frozen ? 'F' : '',
                 cell.confused ? 'C' : '',
-                cell.vitalised ? 'V' : '',
+                cell.vitalized ? 'V' : '',
                 cell.disabled ? 'D' : '',
               ].join('')
             : ''
@@ -30,7 +30,7 @@ const serialiseBoard = board =>
     )
     .join(',')
 
-const deserialiseBoard = string => {
+const deserializeBoard = string => {
   const cells = arrayPad(string.split(','), 20, '', +1).map(item => {
     if (!item) {
       return { ...DEFAULT_CELL }
@@ -45,7 +45,7 @@ const deserialiseBoard = string => {
       poisoned = '',
       frozen = '',
       confused = '',
-      vitalised = '',
+      vitalized = '',
       disabled = '',
     ] = item.match(/^(\d+)(\w+)([RB])([1-5])?(P)?(F)?(C)?(V)?(D)?$/)
 
@@ -55,7 +55,7 @@ const deserialiseBoard = string => {
       card: getRawCardData(id),
       player: player === 'R' ? 'RED' : 'BLUE',
       poisoned: poisoned === 'P',
-      vitalised: vitalised === 'V',
+      vitalized: vitalized === 'V',
       frozen: frozen === 'F',
       confused: confused === 'C',
       disabled: disabled === 'D',
@@ -65,12 +65,12 @@ const deserialiseBoard = string => {
   return chunk(cells, 4)
 }
 
-const serialisePlayers = ({ RED, BLUE }) =>
+const serializePlayers = ({ RED, BLUE }) =>
   `R${RED.health}${getShortFaction(RED.faction)}` +
   '-' +
   `B${BLUE.health}${getShortFaction(BLUE.faction)}`
 
-const deserialisePlayers = string => {
+const deserializePlayers = string => {
   const MATCH_FALLBACK = [void 0, 10, null]
   const [red, blue] = string.split('-')
   const [, redHealth, redFaction] =
@@ -84,10 +84,10 @@ const deserialisePlayers = string => {
   }
 }
 
-const serialiseSettings = ({ mana, gridMarkers }) =>
+const serializeSettings = ({ mana, gridMarkers }) =>
   mana + (gridMarkers ? 'M1' : 'M0')
 
-const deserialiseSettings = string => {
+const deserializeSettings = string => {
   // Technically mana needs to be defined, however, when clearing the field, it
   // can be undefined hence the wildcard (`*`) instead of plus (`+`).
   const [, mana, gridMarkers] = string.match(/^(\d*)(?:M([01]))?$/)
@@ -95,16 +95,16 @@ const deserialiseSettings = string => {
   return { mana: +mana, gridMarkers: !!+gridMarkers }
 }
 
-const deserialiseBattleSimCards = (string, size) =>
-  arrayPad(serialisation.cards.deserialise(string), size, DEFAULT_CARD, +1)
+const deserializeBattleSimCards = (string, size) =>
+  arrayPad(serialization.cards.deserialize(string), size, DEFAULT_CARD, +1)
 
-const deserialiseHand = (handString, cardsString) => {
+const deserializeHand = (handString, cardsString) => {
   // Board was created before it was possible to have a full deck, so the `hand`
-  // part of the serialised string is actually undefined instead of being an
+  // part of the serialized string is actually undefined instead of being an
   // empty string. In that case, we need to consider the 4 first cards from the
   // deck to be the hand.
   if (handString === undefined) {
-    return deserialiseBattleSimCards(cardsString, 4)
+    return deserializeBattleSimCards(cardsString, 4)
       .filter(card => !!card.id)
       .map(card => card.id)
   }
@@ -112,16 +112,16 @@ const deserialiseHand = (handString, cardsString) => {
   return handString.split(',').slice(0, 4).filter(Boolean)
 }
 
-const serialiseBattle = (board, players, settings, { cards, hand }) =>
+const serializeBattle = (board, players, settings, { cards, hand }) =>
   [
-    serialiseBoard(board),
-    serialisePlayers(players),
-    serialiseSettings(settings),
-    serialisation.cards.serialise(cards),
+    serializeBoard(board),
+    serializePlayers(players),
+    serializeSettings(settings),
+    serialization.cards.serialize(cards),
     hand.join(','),
   ].join(';')
 
-const deserialiseBattle = encodedString => {
+const deserializeBattle = encodedString => {
   const string = decodeURIComponent(encodedString)
   const [
     board = '',
@@ -132,17 +132,17 @@ const deserialiseBattle = encodedString => {
   ] = string.split(';')
 
   return {
-    board: deserialiseBoard(board),
-    players: deserialisePlayers(players),
-    cards: deserialiseBattleSimCards(cards, 12),
-    hand: deserialiseHand(hand, cards),
-    ...deserialiseSettings(settings),
+    board: deserializeBoard(board),
+    players: deserializePlayers(players),
+    cards: deserializeBattleSimCards(cards, 12),
+    hand: deserializeHand(hand, cards),
+    ...deserializeSettings(settings),
   }
 }
 
 const battle = {
-  serialise: (...chunks) => base64Encode(serialiseBattle(...chunks)),
-  deserialise: hash => deserialiseBattle(base64Decode(hash)),
+  serialize: (...chunks) => base64Encode(serializeBattle(...chunks)),
+  deserialize: hash => deserializeBattle(base64Decode(hash)),
 }
 
 export default battle

@@ -1,9 +1,9 @@
 import DECKS from '~/data/decks'
 import arrayRandom from '~/helpers/arrayRandom'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getEmbed from '~/helpers/getEmbed'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import { TAGS } from '~/constants/deck'
 import { parseMessage } from '../decks'
 
@@ -38,7 +38,7 @@ const suggestdeck = {
         { name: 'Author', value: deck.author, inline: true },
         {
           name: 'Faction',
-          value: capitalise(getFactionFromDeckID(deck.id)),
+          value: capitalize(getFactionFromDeckID(deck.id)),
           inline: true,
         },
         {
@@ -68,8 +68,8 @@ const suggestdeck = {
 
       if (
         params.including &&
-        !serialisation.deck
-          .deserialise(deck.id)
+        !serialization.deck
+          .deserialize(deck.id)
           .map(card => card.id)
           .includes(params.including)
       ) {
@@ -88,7 +88,7 @@ const suggestdeck = {
         { name: 'Author', value: deck.author, inline: true },
         {
           name: 'Faction',
-          value: capitalise(getFactionFromDeckID(deck.id)),
+          value: capitalize(getFactionFromDeckID(deck.id)),
           inline: true,
         },
         {

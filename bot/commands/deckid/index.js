@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import searchCards from '~/helpers/searchCards'
 import getEmbed from '~/helpers/getEmbed'
 import getRawCardData from '~/helpers/getRawCardData'
@@ -44,7 +44,7 @@ const deckid = {
 
     if (cards.length === 0) return
 
-    const id = serialisation.deck.serialise(cards.filter(Boolean).slice(0, 12))
+    const id = serialization.deck.serialize(cards.filter(Boolean).slice(0, 12))
     const embed = getEmbed()
       .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com/deck/' + id)

@@ -1,6 +1,6 @@
 import api from '~/helpers/api'
 import arrayRandom from '~/helpers/arrayRandom'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import formatTriviaScores, {
   groupScoresByPoints,
 } from '~/helpers/formatTriviaScores'
@@ -271,7 +271,7 @@ export default class Trivia {
       )
     } else if (this.mode === 'IMAGE') {
       return this.canvas.getAttachment(this.answer.image).then(attachment => {
-        const difficulty = capitalise((this.difficulty || '').toLowerCase())
+        const difficulty = capitalize((this.difficulty || '').toLowerCase())
 
         embed
           .setTitle('🔮  Image trivia started')

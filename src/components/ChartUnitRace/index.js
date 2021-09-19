@@ -9,7 +9,7 @@ import {
 } from 'recharts'
 import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
 export default React.memo(function ChartUnitRace(props) {
@@ -29,7 +29,7 @@ export default React.memo(function ChartUnitRace(props) {
     feline: 'var(--beige)',
   }
   const data = Object.keys(RACES).map(race => ({
-    name: capitalise(race),
+    name: capitalize(race),
     value: countCards({ race }, false),
     color: RACES[race],
   }))

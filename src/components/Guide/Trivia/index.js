@@ -63,7 +63,7 @@ export default React.memo(function GuideTrivia(props) {
         </li>
         <li>
           <CardLink id='I7' /> was named after Gale, an early player who helped
-          conceptualise a lot of cards.
+          conceptualize a lot of cards.
         </li>
         <li>
           <CardLink id='I13' /> was named after Emkaem, a former Paladin Studios
@@ -79,7 +79,7 @@ export default React.memo(function GuideTrivia(props) {
         </li>
         <li>
           <CardLink id='S4' /> was named after Kepp, a Discord moderator and
-          tournament organiser.
+          tournament organizer.
         </li>
         <li>
           <CardLink id='S12' /> was named after Omer, a player since the

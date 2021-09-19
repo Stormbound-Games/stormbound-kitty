@@ -12,7 +12,7 @@ import Link from '~/components/Link'
 import Panel from '~/components/BattleSimPanel'
 import PlayerForm from '~/components/BattleSimPlayerForm'
 import Puzzle from '~/components/BattleSimPuzzle'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import styles from './styles'
 
 class BattleSimAppMobile extends React.Component {
@@ -205,7 +205,7 @@ class BattleSimAppMobile extends React.Component {
                 <p>
                   <Link
                     href={
-                      `/deck/` + serialisation.deck.serialise(this.props.cards)
+                      `/deck/` + serialization.deck.serialize(this.props.cards)
                     }
                     inNewTab
                   >

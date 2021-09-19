@@ -138,7 +138,7 @@ export default React.memo(function GuideDrawing(props) {
           play/cycle will cause a reweighing of the deck, which makes the card’s
           weight non null. From there, a subsequent draw (through card ability
           or cycling) can cause the card to be drawn (and played) again even
-          though the odds are not in favour.
+          though the odds are not in favor.
         </p>
       </Info>
 

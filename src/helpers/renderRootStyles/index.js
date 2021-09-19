@@ -73,7 +73,7 @@ const renderRootStyles = renderer => {
       '--poison': '#700470',
       '--freeze': '#60adc7',
       '--confused': '#c59948',
-      '--vitalised': '#24e071',
+      '--vitalized': '#24e071',
       '--disabled': '#a52086',
 
       // League colors

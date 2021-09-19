@@ -24,7 +24,7 @@ import {
   Rubies,
   Stones,
 } from '~/components/Resource'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getActivityRewards from '~/helpers/getActivityRewards'
 import getBookName from '~/helpers/getBookName'
 import getBrawlRewards from '~/helpers/getBrawlRewards'
@@ -373,7 +373,7 @@ export default React.memo(function IncomeCalculator(props) {
               >
                 {PERIODS.map(period => (
                   <option key={period} value={period}>
-                    {capitalise(period.toLowerCase())}
+                    {capitalize(period.toLowerCase())}
                   </option>
                 ))}
               </Select>

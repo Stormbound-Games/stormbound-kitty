@@ -13,7 +13,7 @@ import Row from '~/components/Row'
 import Sparkles from '~/components/Sparkles'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import styles from './styles'
 
@@ -196,8 +196,8 @@ export default React.memo(function GuideRecklessRush(props) {
           </Row.Column>
           <Row.Column>
             <DeckStatsChart
-              deck={serialisation.deck
-                .deserialise('2xn1n2s1n3s24s2n67s6n24n15s8s11')
+              deck={serialization.deck
+                .deserialize('2xn1n2s1n3s24s2n67s6n24n15s8s11')
                 .map(getResolvedCardData)}
               modifier='NONE'
             />
@@ -220,7 +220,7 @@ export default React.memo(function GuideRecklessRush(props) {
         very first thing I’d like you to do is take a good look at the deck.
         Take some time to understand it, analyse it (find which cards mix
         together well) and most importantly{' '}
-        <span className='Highlight'>memorise</span> it!
+        <span className='Highlight'>memorize</span> it!
       </p>
       <p>
         I cannot stress this part enough because if you are going into a match
@@ -535,7 +535,7 @@ export default React.memo(function GuideRecklessRush(props) {
         amounts of damage to the enemy base. Think of Devastators like the egg
         of a beast. All alone, Devastators will get eaten up by all the other
         cards in the game but with proper care and consideration, a beast will
-        hatch and deal massive damage to the enemy. Devastators’ favourite tiles
+        hatch and deal massive damage to the enemy. Devastators’ favorite tiles
         are both top corners on the left and right, as these tiles are the most
         difficult for the opponent to reach.
       </p>
@@ -566,7 +566,7 @@ export default React.memo(function GuideRecklessRush(props) {
         substitute for Potion of Growth when using it as a finisher or simply to
         make a unit stronger. Generally, you do not want to self-activate
         Snowmasons by making it attack into enemy units because every bit of
-        strength counts and you want to utilise Snowmasons weak body to protect
+        strength counts and you want to utilize Snowmasons weak body to protect
         one of your stronger units.
       </p>
       <p>
@@ -675,7 +675,7 @@ export default React.memo(function GuideRecklessRush(props) {
 
       <Info icon='equalizer' title='Best value'>
         <p>
-          When given multiple options, you should prioritise the Trinity Opener
+          When given multiple options, you should prioritize the Trinity Opener
           that grants you the most value based off your card levels. Therefore,
           there is no one absolute best opener, it depends on the value of your
           cards.
@@ -787,14 +787,14 @@ export default React.memo(function GuideRecklessRush(props) {
 
       <p>
         Although Devastators is a high-risk/high-reward card, there are ways to
-        minimise the risks when playing this card. By expanding on what we have
+        minimize the risks when playing this card. By expanding on what we have
         already learned, Trinity Openers are amazing for setting up an early
         Devastators. It is important to note that the earlier into the match you
         set down Devastators, the harder it is for your enemy to deal with it
         because of mana constraints. After a turn 1 Trinity opener, assuming the
         enemy was unsuccessful in clearing both units, you can get an early
         Devastators tucked into either the top left or top right corner. These
-        are Devastators’ two favourite tiles on the board.
+        are Devastators’ two favorite tiles on the board.
       </p>
 
       <BattleSimEmbed id='NFMxMUIzLDNOMUIzLCwsLCwzUzJCMywsLCwsLDRGM1IzLCwsLCwsLDtSMTBXLUIxMFM7M00wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7'>
@@ -885,8 +885,8 @@ export default React.memo(function GuideRecklessRush(props) {
         nature of this complex game, this rule is not always the correct play.
       </p>
       <p>
-        You should be aiming to maximise your usage of Devastators and on the
-        other side of the spectrum, minimise your usage of Forgotten Souls. Bear
+        You should be aiming to maximize your usage of Devastators and on the
+        other side of the spectrum, minimize your usage of Forgotten Souls. Bear
         in mind that these two cards make an amazing combo, so the next question
         you should be asking is, how do I properly set up this combo? Ideally
         you want to play this combo exactly when it is available (at the 7-mana
@@ -956,7 +956,7 @@ export default React.memo(function GuideRecklessRush(props) {
         Outside of prioritisation and cycling, order plays a very significant
         role that usually goes unnoticed to the inexperienced player. At the
         basic level players start developing an idea behind how to properly
-        utilise order to their advantage because it is the most logical play.
+        utilize order to their advantage because it is the most logical play.
       </p>
       <p>
         For instance if the enemy has a unit placed near their base for defense,
@@ -1054,8 +1054,8 @@ export default React.memo(function GuideRecklessRush(props) {
         Although the order in which two cards are played does not affect the
         state of the board, the order does affect which one I am more likely to
         draw back first. This is referred to as the FVO and it largely depends
-        on which cards you prioritise having later on in the match. For
-        instance, in the case where I prioritise having Restless Goats in the
+        on which cards you prioritize having later on in the match. For
+        instance, in the case where I prioritize having Restless Goats in the
         late game for lethal over Gifted Recruits, I will play Restless Goats
         first to increase my chances of drawing it back faster.
       </p>

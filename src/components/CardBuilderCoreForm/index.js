@@ -9,7 +9,7 @@ import Label from '~/components/Label'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 
 export default React.memo(function CardBuilderCoreForm(props) {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
@@ -54,7 +54,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
             >
               {Object.keys(RARITIES).map(rarity => (
                 <option value={rarity} key={rarity}>
-                  {capitalise(rarity)}
+                  {capitalize(rarity)}
                 </option>
               ))}
             </Select>
@@ -70,7 +70,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
             >
               {Object.keys(TYPES).map(type => (
                 <option value={type} key={type}>
-                  {capitalise(type)}
+                  {capitalize(type)}
                 </option>
               ))}
             </Select>
@@ -100,7 +100,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
               <option value=''>Race</option>
               {Object.keys(RACES).map(race => (
                 <option value={race} key={race}>
-                  {capitalise(race)}
+                  {capitalize(race)}
                 </option>
               ))}
             </Select>

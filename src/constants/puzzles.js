@@ -9,7 +9,7 @@ export const RESTRICTIONS = {
   },
   RNG_FRIENDLY: {
     name: 'RNG-friendly',
-    description: 'All RNG goes in your favour.',
+    description: 'All RNG goes in your favor.',
   },
   ANTI_RNG: {
     name: 'Anti-RNG',

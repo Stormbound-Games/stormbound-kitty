@@ -14,7 +14,7 @@ export default React.memo(function GuideChillbeards(props) {
       <p>
         <CardLink id='W22' /> is a rather underused card, especially in higher
         leagues, mostly due to its high mana cost and non-trivial success
-        condition. In this guide, I will give a few tips to maximise the value
+        condition. In this guide, I will give a few tips to maximize the value
         of Chillbeards.
       </p>
 

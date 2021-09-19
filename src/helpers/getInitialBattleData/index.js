@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import { DEFAULT_PLAYER, DEFAULT_BOARD, DEFAULT_MANA } from '~/constants/battle'
 import { DEFAULT_DECK } from '~/constants/deck'
 
@@ -18,7 +18,7 @@ const getInitialBattleData = sim => {
 
   const decodedData = decodeURIComponent(sim)
 
-  return { ...serialisation.battle.deserialise(decodedData) }
+  return { ...serialization.battle.deserialize(decodedData) }
 }
 
 export default getInitialBattleData

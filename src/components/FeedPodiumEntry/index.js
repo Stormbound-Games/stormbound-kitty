@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Deck from '~/components/Deck'
 import FeedEntry from '~/components/FeedEntry'
 import MemberList from '~/components/MemberList'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 export default React.memo(function FeedPodiumEntry(props) {
   const { css } = useFela()
@@ -45,7 +45,7 @@ export default React.memo(function FeedPodiumEntry(props) {
             + Toggle deck display
           </summary>
           <Deck
-            deck={serialisation.deck.deserialise(deck)}
+            deck={serialization.deck.deserialize(deck)}
             orientation='horizontal'
             id={deck}
           />

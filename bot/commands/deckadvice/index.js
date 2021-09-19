@@ -1,7 +1,7 @@
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getEmbed from '~/helpers/getEmbed'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 
 const deckadvice = {
@@ -25,7 +25,7 @@ const deckadvice = {
       .setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
 
     try {
-      const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
+      const cards = serialization.deck.deserialize(id).map(getResolvedCardData)
       const advice = await getDeckAdvice(cards)
 
       if (advice.length === 0) {

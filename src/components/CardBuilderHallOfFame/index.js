@@ -6,11 +6,11 @@ import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
 import microMarkdown from '~/helpers/microMarkdown'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import styles from './styles'
 
 export const getCardData = id => {
-  const data = serialisation.card.deserialise(id)
+  const data = serialization.card.deserialize(id)
   data.image = getRawCardData(data.imageCardId).image || data.imageURL
   data.strength = data.strength.values[0]
   data.mana = data.mana.values[0]

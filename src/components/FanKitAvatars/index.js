@@ -5,7 +5,7 @@ import Page from '~/components/Page'
 import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import getRawCardData from '~/helpers/getRawCardData'
 import indexArray from '~/helpers/indexArray'
 import useLazyLoad from '~/hooks/useLazyLoad'
@@ -55,7 +55,7 @@ const AVATARS = [
 const avatars = AVATARS.map(avatar => ({
   name:
     getRawCardData(avatar)?.name ??
-    avatar.split(/_/g).map(capitalise).join(' '),
+    avatar.split(/_/g).map(capitalize).join(' '),
   id: avatar,
   image: '/assets/images/avatars/' + avatar + '.png',
 }))

@@ -3,12 +3,12 @@ import FanKitDownloadDialog from '~/components/FanKitDownloadDialog'
 import FanKitItem from '~/components/FanKitItem'
 import Page from '~/components/Page'
 import Row from '~/components/Row'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import chunk from '~/helpers/chunk'
 import indexArray from '~/helpers/indexArray'
 
 const resolveAsset = idPrefix => (background, index) => ({
-  name: background.split(/_/g).map(capitalise).join(' '),
+  name: background.split(/_/g).map(capitalize).join(' '),
   id: idPrefix + '_BACKGROUND_' + index,
   image: '/assets/images/backgrounds/lite/' + background + '.png',
 })

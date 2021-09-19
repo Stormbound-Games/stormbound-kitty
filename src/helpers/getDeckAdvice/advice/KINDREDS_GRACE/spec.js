@@ -1,7 +1,7 @@
 import advice, { SPAWNS } from './'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getRawCardData from '~/helpers/getRawCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import modifyDeck from '~/helpers/modifyDeck'
 
 const SPAWNS_ARRAY = Object.keys(SPAWNS)
@@ -15,7 +15,7 @@ const BASE_DECKS = {
 }
 
 const getCards = (id, modifier = 'NONE') =>
-  modifyDeck(serialisation.deck.deserialise(id), modifier).map(
+  modifyDeck(serialization.deck.deserialize(id), modifier).map(
     getResolvedCardData
   )
 

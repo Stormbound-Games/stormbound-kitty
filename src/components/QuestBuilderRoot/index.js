@@ -5,7 +5,7 @@ import Row from '~/components/Row'
 import Title from '~/components/Title'
 import Quest from '~/components/Quest'
 import Page from '~/components/Page'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import useNavigator from '~/hooks/useNavigator'
 
 export default React.memo(function QuestBuilderRoot(props) {
@@ -38,7 +38,7 @@ export default React.memo(function QuestBuilderRoot(props) {
     else
       navigator.replace(
         '/quest/' +
-          serialisation.quest.serialise({
+          serialization.quest.serialize({
             currency,
             amount,
             name,

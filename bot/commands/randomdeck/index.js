@@ -5,7 +5,7 @@ import searchCards from '~/helpers/searchCards'
 import getEmbed from '~/helpers/getEmbed'
 import getRandomDeck from '~/helpers/getRandomDeck'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
   faction => faction !== 'neutral'
@@ -118,7 +118,7 @@ const randomdeck = {
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
     const deck = getRandomDeck({ initialCards, faction: resolvedFaction })
-    const id = serialisation.deck.serialise(deck)
+    const id = serialization.deck.serialize(deck)
 
     return 'https://stormbound-kitty.com/deck/' + id
   },

@@ -77,7 +77,7 @@ export default React.memo(function GuideTerrificSlayers(props) {
 
       <Title id='limited-aoe'>Limited AoE</Title>
       <p>
-        <abbr title='Area of Effeft'>AoE</abbr> and randomised damage (such as{' '}
+        <abbr title='Area of Effeft'>AoE</abbr> and randomized damage (such as{' '}
         <CardLink id='N23' />) are not recommended as these can weaken your
         target(s) when unwanted. You want to keep nice and juicy dragons for
         maximum value—

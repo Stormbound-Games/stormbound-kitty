@@ -1,12 +1,12 @@
 import React from 'react'
 import SubNav from '~/components/SubNav'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import useQueryParams from '~/hooks/useQueryParams'
 
 export default React.memo(function NavDeckBuilder(props) {
   const { id } = useQueryParams()
   const deck = React.useMemo(
-    () => (id ? serialisation.deck.deserialise(id) : []),
+    () => (id ? serialization.deck.deserialize(id) : []),
     [id]
   )
   const hasBigEnoughDeck = deck.length === 12

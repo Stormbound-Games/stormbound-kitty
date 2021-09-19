@@ -5,12 +5,12 @@ import advice, {
   HIGH_LEVEL_FINISHERS,
 } from './'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import modifyDeck from '~/helpers/modifyDeck'
 import getRawCardData from '~/helpers/getRawCardData'
 
 const getCards = (id, modifier = 'NONE') =>
-  modifyDeck(serialisation.deck.deserialise(id), modifier).map(
+  modifyDeck(serialization.deck.deserialize(id), modifier).map(
     getResolvedCardData
   )
 

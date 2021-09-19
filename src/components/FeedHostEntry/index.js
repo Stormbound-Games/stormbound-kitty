@@ -7,7 +7,7 @@ export default React.memo(function FeedHostEntry(props) {
 
   return (
     <FeedEntry icon='users' date={props.date}>
-      {name} has organised
+      {name} has organized
       {props.hosts.length > 1 ? (
         <>
           , alongside{' '}

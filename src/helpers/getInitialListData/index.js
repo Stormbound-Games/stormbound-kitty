@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import { DEFAULT_LIST } from '~/constants/list'
 
 const getInitialListData = list => {
@@ -8,7 +8,7 @@ const getInitialListData = list => {
 
   const decodedData = decodeURIComponent(list)
 
-  return serialisation.list.deserialise(decodedData)
+  return serialization.list.deserialize(decodedData)
 }
 
 export default getInitialListData

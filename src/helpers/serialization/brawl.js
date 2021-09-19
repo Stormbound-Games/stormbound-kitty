@@ -7,7 +7,7 @@ import {
   getLongVictoryBonus,
 } from '~/helpers/encoding'
 
-const serialiseMatch = match =>
+const serializeMatch = match =>
   [
     match.opponentHealth || 0, // `undefined` for unknown health
     getShortFaction(match.opponentFaction), // `N` for unknown faction
@@ -15,7 +15,7 @@ const serialiseMatch = match =>
     getShortVictoryBonus(match.bonus),
   ].join('')
 
-const deserialiseMatch = string => {
+const deserializeMatch = string => {
   const [, health, faction, status, bonus] = string.match(
     /^(\d{1,2})([IFSWN])([WFDLS])([A-Z]+)?$/
   )
@@ -28,12 +28,12 @@ const deserialiseMatch = string => {
   }
 }
 
-const serialiseMatches = matches => matches.map(serialiseMatch)
-const deserialiseMatches = matches => matches.map(deserialiseMatch)
+const serializeMatches = matches => matches.map(serializeMatch)
+const deserializeMatches = matches => matches.map(deserializeMatch)
 
 const brawl = {
-  serialise: matches => serialiseMatches(matches),
-  deserialise: matches => deserialiseMatches(matches),
+  serialize: matches => serializeMatches(matches),
+  deserialize: matches => deserializeMatches(matches),
 }
 
 export default brawl

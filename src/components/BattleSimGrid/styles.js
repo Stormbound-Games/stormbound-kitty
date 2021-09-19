@@ -8,7 +8,7 @@ const appearMarkers = {
 }
 
 /**
- * 1. Initialise counters for rows (at 6 so it goes from bottom to top) and
+ * 1. Initialize counters for rows (at 6 so it goes from bottom to top) and
  *    columns markers
  */
 const grid = {

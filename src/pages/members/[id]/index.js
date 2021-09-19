@@ -20,7 +20,7 @@ export async function getStaticProps(context) {
     getMemberContent(id)
 
   // This is a bit of a hack, in case there is a link to a member page that is
-  // missing the ID and gets serialised as `undefined`.
+  // missing the ID and gets serialized as `undefined`.
   if (id === 'undefined') {
     return { notFound: true }
   }

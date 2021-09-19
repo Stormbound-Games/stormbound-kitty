@@ -1,5 +1,5 @@
 import getRawCardData from '~/helpers/getRawCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 const useVersionedCardData = (props, versionId) => {
   if (!versionId || props.versions.length === 0) return props.card
@@ -11,7 +11,7 @@ const useVersionedCardData = (props, versionId) => {
       getRawCardData(props.cardId)
     )
 
-  return serialisation.card.deserialise(serialisation.card.serialise(cardData))
+  return serialization.card.deserialize(serialization.card.serialize(cardData))
 }
 
 export default useVersionedCardData

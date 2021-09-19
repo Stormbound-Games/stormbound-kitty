@@ -5,7 +5,7 @@ import Layout from '~/components/Layout'
 import getCardValue from '~/helpers/getCardValue'
 import generateFormulaImage from '~/helpers/generateFormulaImage'
 import getNavigation from '~/helpers/getNavigation'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import CARDS from '~/data/cards'
 
 export async function getStaticPaths() {
@@ -26,7 +26,7 @@ export async function getStaticProps(context) {
   )
 
   try {
-    const cards = serialisation.cards.deserialise(id)
+    const cards = serialization.cards.deserialize(id)
     return {
       props: {
         navigation,

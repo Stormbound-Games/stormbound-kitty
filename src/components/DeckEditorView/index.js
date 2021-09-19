@@ -26,7 +26,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 import indexArray from '~/helpers/indexArray'
 import modifyDeck from '~/helpers/modifyDeck'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import usePrevious from '~/hooks/usePrevious'
@@ -64,7 +64,7 @@ const useArticleProps = deck => {
   // Retrieve whether the given deck is one of the suggested decks, in which
   // case we can display more information on screen.
   const matchedDeck = isSuggestedDeck(deck) || {}
-  const id = serialisation.deck.serialise(deck)
+  const id = serialization.deck.serialize(deck)
   const { decks, addDeck, removeDeck, toggleUnseen } =
     React.useContext(PersonalDecksContext)
   const props = {}
@@ -93,7 +93,7 @@ const useArticleProps = deck => {
       toggleUnseen(!bookmark)
       bookmark
         ? removeDeck(bookmark.uuid)
-        : addDeck({ ...matchedDeck, id: serialisation.deck.serialise(deck) })
+        : addDeck({ ...matchedDeck, id: serialization.deck.serialize(deck) })
     },
     children: bookmark ? 'Unbookmark deck' : 'Bookmark deck',
     icon: 'star',
@@ -113,7 +113,7 @@ const getStoredTooltipsSetting = () => {
 
 export default React.memo(function DeckEditorView(props) {
   const navigator = useNavigator()
-  const deckId = serialisation.deck.serialise(props.deck)
+  const deckId = serialization.deck.serialize(props.deck)
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
@@ -163,7 +163,7 @@ export default React.memo(function DeckEditorView(props) {
     : props.deck.map(adjustCardToCollection(indexedCollection)).filter(Boolean)
   const adjustedDeckId = hasDefaultCollection
     ? deckId
-    : serialisation.deck.serialise(adjustedDeck)
+    : serialization.deck.serialize(adjustedDeck)
 
   // If the `adjustCardLevels` option is enabled, and the deck ID and adjusted
   // deck ID are different, we need to redirect to the adjusted deck ID path

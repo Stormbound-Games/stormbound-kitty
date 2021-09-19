@@ -10,12 +10,12 @@ import {
 import Title from '~/components/Title'
 import { RARITIES } from '~/constants/game'
 import { TOOLTIP_STYLES } from '~/constants/stats'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
 export default React.memo(function ChartRarity(props) {
   const data = Object.keys(RARITIES).map(rarity => ({
-    name: capitalise(rarity),
+    name: capitalize(rarity),
     value: countCards({ rarity }) - 1,
     color: `var(--${rarity})`,
   }))

@@ -1,4 +1,4 @@
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
 import DECKS from '~/data/decks'
@@ -137,7 +137,7 @@ const getMemberContent = id => {
           author ||
           [...authors, ...hosts, ...podium.flat()].find(findDisplayName) ||
           winner.author
-      )[0] || capitalise(id)
+      )[0] || capitalize(id)
 
   // The count is not quite the length of the `content` array as some entries
   // such as code updates can hold multiple updates (e.g. one per PR).

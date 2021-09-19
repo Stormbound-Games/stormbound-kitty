@@ -29,11 +29,11 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
       </BrawlGuideDisclaimer>
 
       <p>
-        This Brawl has a lot of different approaches and is a community
-        favourite for this reason. The first approach makes use of spawning free
-        toads and buffing them with a 4 mana <CardLink id='N40' /> that has just
-        been buffed to provide more strength for the primary target. You can get
-        an insane amount of stats on the board this way.
+        This Brawl has a lot of different approaches and is a community favorite
+        for this reason. The first approach makes use of spawning free toads and
+        buffing them with a 4 mana <CardLink id='N40' /> that has just been
+        buffed to provide more strength for the primary target. You can get an
+        insane amount of stats on the board this way.
       </p>
       <p>
         However, AoE spells like <CardLink id='N29' /> and <CardLink id='N44' />{' '}

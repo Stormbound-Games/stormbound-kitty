@@ -10,7 +10,7 @@ const QUEST_PROPERTIES = [
   { name: 'description', resolve: value => decodeURIComponent(value) },
 ]
 
-export const deserialiseQuest = string =>
+export const deserializeQuest = string =>
   string.split(';').reduce((acc, value, index) => {
     const property = QUEST_PROPERTIES[index]
     acc[property.name] = property.resolve(value)
@@ -18,7 +18,7 @@ export const deserialiseQuest = string =>
     return acc
   }, {})
 
-export const serialiseQuest = formState =>
+export const serializeQuest = formState =>
   [
     encodeURIComponent(formState.name),
     formState.amount,
@@ -28,8 +28,8 @@ export const serialiseQuest = formState =>
   ].join(';')
 
 const quest = {
-  serialise: quest => base64Encode(serialiseQuest(quest)),
-  deserialise: hash => deserialiseQuest(base64Decode(hash)),
+  serialize: quest => base64Encode(serializeQuest(quest)),
+  deserialize: hash => deserializeQuest(base64Decode(hash)),
 }
 
 export default quest

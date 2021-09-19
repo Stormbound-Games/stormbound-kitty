@@ -22,7 +22,7 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
@@ -151,7 +151,7 @@ const getCopiesData = collection => {
       RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
 
     return {
-      name: capitalise(rarity),
+      name: capitalize(rarity),
       Owned: owned,
       Missing: total - owned,
       total,
@@ -172,12 +172,12 @@ const getProgressData = collection => {
           [
             {
               color: `var(--${rarity}-bright)`,
-              name: 'Maxed out ' + capitalise(rarity),
+              name: 'Maxed out ' + capitalize(rarity),
               value: 0,
             },
             {
               color: `var(--${rarity})`,
-              name: 'In progress ' + capitalise(rarity),
+              name: 'In progress ' + capitalize(rarity),
               value: 0,
             },
           ]
@@ -218,7 +218,7 @@ export default React.memo(function CollectionStats(props) {
   return (
     <Page
       title='Collection Stats'
-      description='Get insights about your own card collection and visualise it'
+      description='Get insights about your own card collection and visualize it'
       action={{
         to: '/collection',
         children: 'Back to collection',

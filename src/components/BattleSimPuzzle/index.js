@@ -4,7 +4,7 @@ import { RESTRICTIONS } from '~/constants/puzzles'
 import Teaser from '~/components/Teaser'
 import { formatDate } from '~/helpers/formatDate'
 import parseDate from '~/helpers/parseDate'
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 
 export const getCardForPuzzle = puzzle => ({
   name: puzzle.name,
@@ -21,7 +21,7 @@ export const getCardForPuzzle = puzzle => ({
 
 export const getExcerptForPuzzle = puzzle => (
   <>
-    {capitalise(puzzle.category.toLowerCase())} puzzle created by{' '}
+    {capitalize(puzzle.category.toLowerCase())} puzzle created by{' '}
     <Link to={`/members/${puzzle.author.toLowerCase()}`}>{puzzle.author}</Link>{' '}
     in {formatDate(parseDate(puzzle.date))}. Difficulty: {puzzle.difficulty}/3.{' '}
     {puzzle.restrictions.length > 0

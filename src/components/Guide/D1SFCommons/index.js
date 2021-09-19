@@ -14,13 +14,13 @@ import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 import { Common, Rare } from '~/components/Resource'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import styles from './styles'
 
 const DECK_ID = '5xn1n2f3n3f4n9n12n16n28f14n30n52'
 
 const Graph = props => {
-  const deck = serialisation.deck.deserialise(props.id).map(getResolvedCardData)
+  const deck = serialization.deck.deserialize(props.id).map(getResolvedCardData)
 
   return (
     <DeckStatsChart
@@ -351,7 +351,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       <p>
         In most scenarios, cycling Salty Outcasts, Bluesail Raiders, Confinement
         or Toxic Sacrifice (in that order of preference) is usually the way to
-        go for the first hand. The idea is to optimise the chances to play 2 to
+        go for the first hand. The idea is to optimize the chances to play 2 to
         3 cards a turn in the first few rounds of the game.
       </p>
 
@@ -463,7 +463,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         When facing a structure deck, it’s important to go upfront and destroy
-        or minimise the impact of towers. Seeing a <CardLink id='I2' /> or a
+        or minimize the impact of towers. Seeing a <CardLink id='I2' /> or a
         cycled <CardLink id='I3' /> in the early turns is a good indicator that
         either a <CardLink id='I19' /> or an <CardLink id='I10' /> are coming,
         so it’s important to move fast to counter before the opponent starts

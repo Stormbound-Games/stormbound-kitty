@@ -68,7 +68,7 @@ const getFAQ = () => [
 
             <p>
               You can deactivate that feature in Chrome’s Settings → Appearance
-              → Customise Fonts → Minimum font size. Set it to “tiny”, and
+              → Customize Fonts → Minimum font size. Set it to “tiny”, and
               everything should look good!
             </p>
           </>

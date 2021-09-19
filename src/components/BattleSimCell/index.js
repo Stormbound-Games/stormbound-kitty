@@ -12,7 +12,7 @@ const getTitle = props => {
   const { strength, card, level, player } = props
   const name = card.name
   const side = player === 'RED' ? 'enemy' : 'friendly'
-  const statuses = ['poisoned', 'vitalised', 'frozen', 'confused', 'disabled']
+  const statuses = ['poisoned', 'vitalized', 'frozen', 'confused', 'disabled']
     .filter(status => props[status])
     .join(', ')
   return `${strength}-strength ${side} ${name} (lvl ${level}) (${statuses})`
@@ -26,7 +26,7 @@ export default React.memo(function BattleSimCell(props) {
     isDragging: props.isDragging,
     isDisplay: props.mode === 'DISPLAY',
     isPoisoned: props.poisoned,
-    isVitalised: props.vitalised,
+    isVitalized: props.vitalized,
     isFrozen: props.frozen,
     isConfused: props.confused,
     isDisabled: props.disabled,
@@ -67,10 +67,10 @@ export default React.memo(function BattleSimCell(props) {
         />
       ) : null}
 
-      {!!(props.poisoned || props.vitalised) && (
+      {!!(props.poisoned || props.vitalized) && (
         <div
           className={css(styles.dots)}
-          data-testid={props.poisoned ? 'cell-poisoned' : 'cell-vitalised'}
+          data-testid={props.poisoned ? 'cell-poisoned' : 'cell-vitalized'}
         >
           <span className={css(styles.dot({ isBubble: true }))} />
           <span className={css(styles.dot)} />

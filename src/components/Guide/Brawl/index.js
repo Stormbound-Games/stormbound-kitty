@@ -38,7 +38,7 @@ export default React.memo(function GuideBrawl(props) {
         Despite being still primarily aimed at high-level players with its
         rather steep and cost curve, it still benefits new players alike. In
         this guide, we will see why you should care about the Brawl regardless
-        of your experience, and what are the best strategy to maximise output.
+        of your experience, and what are the best strategy to maximize output.
       </p>
 
       <TableOfContents>

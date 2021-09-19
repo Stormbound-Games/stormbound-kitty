@@ -9,7 +9,7 @@ import RarityBar from '~/components/RarityBar'
 import { Stones } from '~/components/Resource'
 import Tags from '~/components/Tags'
 import TooltipedIcon from '~/components/TooltipedIcon'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
 import getRawCardData from '~/helpers/getRawCardData'
 import resolveCollection from '~/helpers/resolveCollection'
@@ -20,10 +20,10 @@ import styles from './styles'
 const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
   const { hasDefaultCollection, collection } =
     React.useContext(CollectionContext)
-  const deserialisedDeck = serialisation.deck.deserialise(id)
+  const deserializedDeck = serialization.deck.deserialize(id)
   const modifiedDeck = brawl
-    ? modifyDeck(deserialisedDeck, brawl)
-    : deserialisedDeck
+    ? modifyDeck(deserializedDeck, brawl)
+    : deserializedDeck
 
   if (hasDefaultCollection || tags.includes('EQUALS') || staticLevels) {
     // The `id` does not have to be derivated from the `modifiedDeck` since a
@@ -49,7 +49,7 @@ const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
   })
   const distance = getDeckDistanceToMax(resolvedCollection)({ id })
 
-  return { deck, id: serialisation.deck.serialise(deck), distance }
+  return { deck, id: serialization.deck.serialize(deck), distance }
 }
 
 export default React.memo(function FeaturedDeck(props) {

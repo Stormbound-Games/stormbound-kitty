@@ -177,7 +177,7 @@ export default React.memo(function GuideEqualsIntro(props) {
       <p>
         The Equals format is almost exclusively used in tournaments. This format
         can only be played in friendly matches currently, this is also how
-        Tournament matches are organised (add your next opponent as friend
+        Tournament matches are organized (add your next opponent as friend
         in-game and then select level 1 cards and 10 base health when
         challenging them for a friendly match).
       </p>

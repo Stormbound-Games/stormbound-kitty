@@ -1,6 +1,6 @@
 import CARDS from '~/data/cards'
 import DECKS from '~/data/decks'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import { getLongFaction } from '~/helpers/encoding'
 
@@ -36,7 +36,7 @@ const getLiveTierList = () => {
     // incorrectly skewing the popularity of cards
     if (tags.includes('BRAWL') || tags.includes('EQUALS')) return
 
-    const deck = serialisation.deck.deserialise(id)
+    const deck = serialization.deck.deserialize(id)
 
     COUNTS[getFactionFromDeckID(id)]++
     COUNTS.neutral++
@@ -70,8 +70,8 @@ const getLiveTierList = () => {
     tiers.push({ name: 'Unused', cards: unusedCards })
   }
 
-  // Finally serialise the list
-  return serialisation.list.serialise(tiers)
+  // Finally serialize the list
+  return serialization.list.serialize(tiers)
 }
 
 export default getLiveTierList

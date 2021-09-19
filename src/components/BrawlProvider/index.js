@@ -1,7 +1,7 @@
 import React from 'react'
 import { NotificationContext } from '~/components/NotificationProvider'
 import getBrawlStatus from '~/helpers/getBrawlStatus'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 export const BrawlContext = React.createContext([])
 
@@ -13,12 +13,12 @@ const getDefaultBrawlData = id => {
 
 const getInitialBrawlData = id => {
   try {
-    const deserialise = brawl => ({
+    const deserialize = brawl => ({
       ...brawl,
-      matches: serialisation.brawl.deserialise(brawl.matches),
+      matches: serialization.brawl.deserialize(brawl.matches),
     })
 
-    return JSON.parse(localStorage.getItem('sk.brawl.' + id)).map(deserialise)
+    return JSON.parse(localStorage.getItem('sk.brawl.' + id)).map(deserialize)
   } catch (error) {
     // Every type of Brawl is stored separately as an array. Each entry in that
     // array constitutes a weekly Brawl of the given type (e.g. construct =2
@@ -55,7 +55,7 @@ export default React.memo(function BrawlProvider(props) {
   React.useEffect(() => {
     const data = brawls.map(brawl => ({
       ...brawl,
-      matches: serialisation.brawl.serialise(brawl.matches),
+      matches: serialization.brawl.serialize(brawl.matches),
     }))
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
@@ -127,7 +127,7 @@ export default React.memo(function BrawlProvider(props) {
       setBrawls(
         groups[props.id].map(brawl => ({
           ...brawl,
-          matches: serialisation.brawl.deserialise(brawl.matches),
+          matches: serialization.brawl.deserialize(brawl.matches),
         }))
       )
     }

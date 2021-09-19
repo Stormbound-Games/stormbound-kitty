@@ -1,4 +1,4 @@
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 
 const getInitialQuestData = quest => {
   if (!quest) {
@@ -7,7 +7,7 @@ const getInitialQuestData = quest => {
 
   const decodedData = decodeURIComponent(quest)
 
-  return serialisation.quest.deserialise(decodedData)
+  return serialization.quest.deserialize(decodedData)
 }
 
 export default getInitialQuestData

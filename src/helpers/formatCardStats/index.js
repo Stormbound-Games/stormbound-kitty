@@ -1,12 +1,12 @@
-import capitalise from '~/helpers/capitalise'
+import capitalize from '~/helpers/capitalize'
 
 const formatCardStats = state => {
-  const faction = capitalise(state.faction)
-  const type = capitalise(state.type)
-  const name = capitalise(state.name)
-  const rarity = capitalise(state.rarity)
-  const race = capitalise(state.race || '')
-  const ability = capitalise(state.ability.display || '')
+  const faction = capitalize(state.faction)
+  const type = capitalize(state.type)
+  const name = capitalize(state.name)
+  const rarity = capitalize(state.rarity)
+  const race = capitalize(state.race || '')
+  const ability = capitalize(state.ability.display || '')
   const mana = `${state.mana.display} mana`
   const strength =
     state.type !== 'spell' ? `${state.strength.display} strength` : ''

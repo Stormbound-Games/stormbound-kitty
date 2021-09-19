@@ -31,7 +31,7 @@ export default React.memo(function GuideFreedomFight(props) {
         Like all cost-reduction Brawls, this œne is all about timing and combos
         and a bit about hand RNG early on. For example, you want to combine
         playing Azure Hatchers immediately with Obsidian Butchers, before the
-        opponent can capitalise on your frogs with their own butchers or
+        opponent can capitalize on your frogs with their own butchers or
         Sharpfist Exiles. You want to combine your poison cards with Amberhides
         to make use of the drain buff before the opponent can. You always want
         to maintain your frontline to threaten with Salty Outcasts, and prevent

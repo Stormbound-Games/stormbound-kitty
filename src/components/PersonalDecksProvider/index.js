@@ -1,6 +1,6 @@
 import React from 'react'
 import { NotificationContext } from '~/components/NotificationProvider'
-import serialisation from '~/helpers/serialisation'
+import serialization from '~/helpers/serialization'
 import uuid from '~/helpers/uuid'
 
 export const PersonalDecksContext = React.createContext([])
@@ -12,7 +12,7 @@ const resolveTags = deck =>
   deck.tags ? deck : { ...deck, tags: [deck.category], category: undefined }
 
 const getTagsFromId = id => {
-  const cards = serialisation.deck.deserialise(id)
+  const cards = serialization.deck.deserialize(id)
   const average =
     cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
 
