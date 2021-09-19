@@ -292,7 +292,7 @@
   {
     "intro": "Decks",
     "description": "Mana-Brawl decks now display the adjusted mana cost of their cards.",
-    "link": "/deck/suggestions"
+    "link": "/deck/featured"
   },
   {
     "intro": "Deck Advice",
@@ -335,9 +335,9 @@
     "link": "/deck/collection"
   },
   {
-    "intro": "Popular Decks",
-    "description": "The popular decks can now be sorted by most recently added, faction or feasibility.",
-    "link": "/deck/suggestions"
+    "intro": "Featured Decks",
+    "description": "The featured decks can now be sorted by most recently added, faction or feasibility.",
+    "link": "/deck/featured"
   },
   {
     "intro": "Card Builder",
@@ -370,9 +370,9 @@
     "link": "/fan-kit/cards"
   },
   {
-    "intro": "Popular Decks",
-    "description": "Popular decks show card levels from your collection and are ordered accordingly.",
-    "link": "/deck/suggestions"
+    "intro": "Featured Decks",
+    "description": "Featured decks show card levels from your collection and are ordered accordingly.",
+    "link": "/deck/featured"
   },
   {
     "intro": "Card Builder",
@@ -415,9 +415,9 @@
     "link": "/brawl"
   },
   {
-    "intro": "Popular Decks",
-    "description": "The popular decks no longer have tags, but a new filter by author feature is available.",
-    "link": "/deck/suggestions"
+    "intro": "Featured Decks",
+    "description": "The featured decks no longer have tags, but a new filter by author feature is available.",
+    "link": "/deck/featured"
   },
   {
     "intro": "Stories",

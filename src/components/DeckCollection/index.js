@@ -128,8 +128,8 @@ export default React.memo(function DeckCollection(props) {
         context.decks.length === 1 ? '1 deck' : `${context.decks.length} decks`
       }
       action={{
-        to: '/deck/suggestions',
-        children: 'Deck suggestions',
+        to: '/deck/featured',
+        children: 'Featured Decks',
         icon: 'arrow-right',
       }}
     >

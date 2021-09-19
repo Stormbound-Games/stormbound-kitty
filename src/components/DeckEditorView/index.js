@@ -419,7 +419,7 @@ const HelpInfo = React.memo(function HelpInfo(props) {
         If you do not know where to start,{' '}
         <Link to='/guides/deck'>read the deck-building guide</Link> to learn how
         to make a viable deck, or try one of the{' '}
-        <Link to='/deck/suggestions'>ready-to-go suggested decks</Link>.
+        <Link to='/deck/featured'>ready-to-go featured decks</Link>.
       </p>
     </Info>
   )

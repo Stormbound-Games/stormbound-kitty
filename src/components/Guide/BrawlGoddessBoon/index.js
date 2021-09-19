@@ -46,8 +46,8 @@ export default React.memo(function GuideGoddessBoon(props) {
       <Info icon='eye' title='Brawl Decks'>
         <p>
           Check the{' '}
-          <Link to='/deck/suggestions?tags=BRAWL%2CFROSTLING_STRENGTH'>
-            community-provided decks
+          <Link to='/deck/featured?tags=BRAWL%2CFROSTLING_STRENGTH'>
+            featured decks
           </Link>{' '}
           for this brawl. You might find a deck that suits you, or that you can
           base your own creation on.

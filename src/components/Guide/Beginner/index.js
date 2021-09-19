@@ -86,9 +86,9 @@ export default React.memo(function GuideBeginner(props) {
       <Title>Cards and decks</Title>
 
       <p>
-        <Link to='/deck/suggestions'>Decks</Link> can be made with cards from
-        the Neutral faction and also one of the others (Shadowfen, Ironclad,
-        Winter, Swarm).
+        <Link to='/deck/featured'>Decks</Link> can be made with cards from the
+        Neutral faction and also one of the others (Shadowfen, Ironclad, Winter,
+        Swarm).
       </p>
 
       <p>

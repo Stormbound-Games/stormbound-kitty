@@ -1,5 +1,5 @@
 import React from 'react'
-import DeckSuggestions from '~/components/DeckSuggestions'
+import FeaturedDecks from '~/components/FeaturedDecks'
 import Layout from '~/components/Layout'
 import DECKS from '~/data/decks'
 import getNavigation from '~/helpers/getNavigation'
@@ -15,13 +15,13 @@ export async function getServerSideProps() {
   }
 }
 
-const DeckSuggestionsPage = ({ navigation, ...props }) => (
+const FeaturedDecksPage = ({ navigation, ...props }) => (
   <Layout
-    active={['COMMUNITY', 'META', 'DECK_SUGGESTIONS']}
+    active={['COMMUNITY', 'META', 'FEATURED_DECKS']}
     navigation={navigation}
   >
-    <DeckSuggestions {...props} />
+    <FeaturedDecks {...props} />
   </Layout>
 )
 
-export default DeckSuggestionsPage
+export default FeaturedDecksPage

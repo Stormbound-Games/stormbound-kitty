@@ -211,9 +211,9 @@ const getNavigation = () => {
           icon: 'stack',
           items: [
             {
-              label: 'Popular Decks',
-              to: '/deck/suggestions',
-              id: 'DECK_SUGGESTIONS',
+              label: 'Featured Decks',
+              to: '/deck/featured',
+              id: 'FEATURED_DECKS',
             },
             {
               label: 'Equals Tier List',

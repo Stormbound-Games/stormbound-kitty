@@ -59,9 +59,7 @@ export default React.memo(function GuideFreedomFight(props) {
       <Info icon='eye' title='Brawl Decks'>
         <p>
           Check the{' '}
-          <Link to='/deck/suggestions?tags=BRAWL%2CTOAD_MANA'>
-            community-provided decks
-          </Link>{' '}
+          <Link to='/deck/featured?tags=BRAWL%2CTOAD_MANA'>featured decks</Link>{' '}
           for this brawl. You might find a deck that suits you, or that you can
           base your own creation on.
         </p>

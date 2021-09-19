@@ -358,8 +358,8 @@ const getFAQ = () => [
                 cards at the correct level.
               </li>
               <li>
-                The <Link to='/deck/suggestions'>suggested decks</Link> will
-                order decks by feasibility based on your cards.
+                The <Link to='/deck/featured'>featured decks</Link> will order
+                decks by feasibility based on your cards.
               </li>
               <li>
                 The <Link to='/calculators/books'>book odds calculator</Link>{' '}

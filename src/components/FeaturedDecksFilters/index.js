@@ -25,7 +25,7 @@ const getAuthors = decks => {
   )
 }
 
-export default React.memo(function DeckSuggestionsFilters(props) {
+export default React.memo(function FeaturedDecksFilters(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const authors = React.useMemo(() => getAuthors(props.decks), [props.decks])
 
