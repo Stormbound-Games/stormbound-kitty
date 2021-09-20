@@ -100,10 +100,8 @@ export default React.memo(function GuideBeginner(props) {
 
       <p>
         Unit races are relevant in some situations if you plan to use cards like{' '}
-        <CardLink id='N40' /> or <CardLink id='N35' />. Note that both Elder and
-        Hero count as unit races, so if Ubass the Hunter was to be played next
-        to Prime Oracle Bragda, his ability would trigger twice (since Bradga is
-        both a Hero and an Elder).
+        <CardLink id='N40' /> or <CardLink id='N35' />. Note that both the Elder
+        and Hero modifiers count as unit races for cards like Ubass the Hunter.
       </p>
 
       <p>
