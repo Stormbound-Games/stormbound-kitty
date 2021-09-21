@@ -218,24 +218,44 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           Vanishing packs bonus system
         </Title>
 
-        <p>
-          To make spending a few bucks here and there into vanishing packs more
-          rewarding, we are introducing a system where every vanishing pack
-          purchase grants you collectible points.
-        </p>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <p>
+              To make spending a few bucks here and there into vanishing packs
+              more rewarding, we are introducing a system where every vanishing
+              pack purchase grants you collectible points.
+            </p>
 
-        <ul>
-          <li>Buying a daily vanishing pack yields 1 point.</li>
-          <li>Buying a weekly vanishing pack yields 2 points.</li>
-          <li>Buying a monthly vanishing pack yields 3 points.</li>
-        </ul>
+            <ul>
+              <li>
+                Buying a <span className='Highlight'>daily</span> vanishing pack
+                yields <span className='Highlight'>1 point</span>.
+              </li>
+              <li>
+                Buying a <span className='Highlight'>weekly</span> vanishing
+                pack yields <span className='Highlight'>2 points</span>.
+              </li>
+              <li>
+                Buying a <span className='Highlight'>monthly</span> vanishing
+                pack yields <span className='Highlight'>3 points</span>.
+              </li>
+            </ul>
 
-        <p>
-          These points are used to reach 3 different milestones which yield
-          additional resources. Once the third milestone has been claimed, all 3
-          milestones will get reset in the next month so they can eventually be
-          collected again.
-        </p>
+            <p>
+              These points are used to reach 3 different milestones which yield
+              additional resources. Once the third milestone has been claimed,
+              all 3 milestones will get reset in the next month so they can
+              eventually be collected again.
+            </p>
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/vanishing_packs.png'
+              alt='A screenshot of the new tab dedicated to vanishing packs'
+              extend={{ marginTop: 0 }}
+            />
+          </Row.Column>
+        </Row>
 
         <ul>
           <li>
