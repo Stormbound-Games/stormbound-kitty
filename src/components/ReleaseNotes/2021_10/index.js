@@ -270,7 +270,32 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
 
         <Title id='new-avatars'>New avatars</Title>
 
-        <p>TBA.</p>
+        <p>
+          There will be three new premium avatars introduced in October, for{' '}
+          <Rubies amount={200} /> a piece as usual. They are all somewhat
+          gender-neutral: an officer, an elf and some sort of a druid. They have
+          been added to the <Link to='/fan-kit/avatars'>fan-kit</Link>.
+        </p>
+
+        <Row>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/avatars/officer.png'
+              alt='Officer'
+              withoutWebp
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image src='/assets/images/avatars/elf.png' alt='Elf' withoutWebp />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/avatars/druidess.png'
+              alt='Druidess'
+              withoutWebp
+            />
+          </Row.Column>
+        </Row>
 
         <FAQSection
           id='faq'
