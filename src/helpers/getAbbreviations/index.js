@@ -41,6 +41,7 @@ const COMMON_ABBREVIATIONS = {
   SF: 'Shadowfen',
   SM: 'Snowmasons',
   SS: 'Sleetstompers',
+  SY: 'Sheepyard',
   STE: 'Survive Trigger Effect',
   SWCC: 'Stormbound Weekly Card Contest',
   WC: 'Wolfcloaks',
