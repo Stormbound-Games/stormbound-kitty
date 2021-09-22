@@ -93,7 +93,7 @@ export default React.memo(function SearchDialog(props) {
 
   // Function executed when selecting a result to navigate to its path.
   const handleNavigation = React.useCallback(
-    ({ selectedItem }) => navigator.push(selectedItem.path),
+    ({ selectedItem }) => selectedItem && navigator.push(selectedItem.path),
     [navigator]
   )
 

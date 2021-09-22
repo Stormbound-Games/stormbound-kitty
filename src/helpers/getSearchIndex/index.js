@@ -88,12 +88,6 @@ const getSearchIndex = (withEverything = true) => {
   CARDS.slice(0, limit).forEach(card => {
     links.push({
       label: card.name,
-      path: `/card/${card.id}`,
-      breadcrumbs: ['Tools', 'Card Builder', 'Editor'],
-    })
-
-    links.push({
-      label: card.name,
       path: `/card/${card.id}/display`,
       breadcrumbs: ['Tools', 'Card Builder', 'Display'],
     })
