@@ -337,13 +337,39 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
               question: 'How does Fragmented Essentials’ split work?',
               answer: (
                 <>
-                  It pick a side-cell at random (if both are free) and splits
-                  half its strength there. If it has an odd amount of strength,
-                  it randomly splits it so the fragment might have more or less
-                  strength than the base unit. Note that the fragment is{' '}
-                  <span className='Highlight'>not</span> a token though—it’s
-                  also a Fragmented Essentials unit. So it will also split and
-                  spawn before it moves next.
+                  <p>
+                    What happens depends on whether there is 0, 1 or 2 available
+                    cells on its sides:
+                  </p>
+                  <ul>
+                    <li>
+                      If both side cells are available, Fragmented Essentials
+                      split their strength (randomly if odd) into two copies,
+                      and then both move forward (but not split until next
+                      turn), leaving the center tile empty.
+                    </li>
+                    <li>
+                      If only one side cell is available, Fragmented Essentials
+                      splits half their strength (rounded down) there, and the
+                      copy moves forward (but not split until next turn).
+                    </li>
+                    <li>
+                      If no side cell are available or Fragmented Essentials
+                      have only 1 strength, nothing happens and they just move
+                      forward without splitting.
+                    </li>
+                  </ul>
+                  <p>
+                    Note that the fragments are{' '}
+                    <span className='Highlight'>not</span> tokens though—they
+                    also are Fragmented Essentials. So they will also split and
+                    spawn before they move next.
+                  </p>
+                  <p>
+                    Status effects such as poison and vitality are preserved on
+                    the fragments. So if the base unit is poisoned, fragments
+                    will also be poisoned.
+                  </p>
                 </>
               ),
             },
@@ -368,6 +394,17 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
                   No. Either there are available tiles on the row and they{' '}
                   <span className='Highlight'>will</span> teleport away, or all
                   tiles are occupied and they will not attempt to teleport.
+                </>
+              ),
+            },
+            {
+              id: 'erratic-neglects',
+              question:
+                'What qualifies as a status effect for Erratic Neglects?',
+              answer: (
+                <>
+                  Frozen, confused, vitalized, poisoned or silenced. Same list
+                  as for the new Chaos Unleashed Brawl modifier.
                 </>
               ),
             },
