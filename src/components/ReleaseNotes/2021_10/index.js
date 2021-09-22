@@ -128,6 +128,65 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
       </Page.Embed>
 
       <Page.Narrow>
+        <Spacing top='LARGEST'>
+          <p>
+            As usual, there will be 4 exclusive packs to collect early copies of
+            the new Ancient cards. They all cost $9.99 and bring 5 copies of the
+            given card + <Coins amount={750} />. They will be available at the
+            pace of one per week throughout October.
+          </p>
+        </Spacing>
+      </Page.Narrow>
+
+      <Page.Embed>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_bounded_daemons.png'
+              alt='Bounded Daemons pack: 5 copies of Bounded Daemons + 750 coins'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_lost_psyches.png'
+              alt='Lost Psyches pack: 5 copies of Lost Psyches + 750 coins'
+            />
+          </Row.Column>
+        </Row>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_erratic_neglects.png'
+              alt='Erratic Neglects pack: 5 copies of Erratic Neglects + 750 coins'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_fragmented_essences.png'
+              alt='Fragmented Essences pack: 5 copies of Fragmented Essences + 750 coins'
+            />
+          </Row.Column>
+        </Row>
+      </Page.Embed>
+
+      <Page.Narrow>
+        <p>
+          And if you would like some copies of all of the new Ancient cards and
+          some fusion stones, you could consider the $19.99 exclusive pack
+          granting 3 copies of each card + <Stones amount={10} /> and{' '}
+          <Coins amount={1000} />.
+        </p>
+
+        <Image
+          src='/assets/images/releases/pack_ancients.png'
+          alt='4 ancients card pack: 3 copies of Fragmented Essences, 3 copies of Erratic Neglects, 3 copies of Lost Psyches, 3 copies of Bounded Daemons, 10 Fusion Stones and 1000 coins'
+        />
+
         <CheapenedBrawl ratio={0.5}>
           <p>
             Similar to previous events, the Brawl starting on October 28th (and
