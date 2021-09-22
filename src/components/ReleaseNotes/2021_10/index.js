@@ -463,7 +463,10 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
               answer: (
                 <>
                   Frozen, confused, vitalized, poisoned or silenced. Same list
-                  as for the new Chaos Unleashed Brawl modifier.
+                  as for the new Chaos Unleashed Brawl modifier. Note that an
+                  already applied status effect cannot be rolled again. So if
+                  Erratic Neglects are already poisoned, they cannot roll poison
+                  again before moving—only the other status effects.
                 </>
               ),
             },
