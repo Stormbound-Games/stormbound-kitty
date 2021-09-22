@@ -392,8 +392,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
               ),
             },
             {
-              id: 'fragmented-essentials',
-              question: 'How does Fragmented Essentials’ split work?',
+              id: 'fragmented-essences',
+              question: 'How does Fragmented Essences’ split work?',
               answer: (
                 <>
                   <p>
@@ -402,26 +402,26 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
                   </p>
                   <ul>
                     <li>
-                      If both side cells are available, Fragmented Essentials
+                      If both side cells are available, Fragmented Essences
                       split their strength (randomly if odd) into two copies,
                       and then both move forward (but not split until next
                       turn), leaving the center tile empty.
                     </li>
                     <li>
-                      If only one side cell is available, Fragmented Essentials
+                      If only one side cell is available, Fragmented Essences
                       splits half their strength (rounded down) there, and the
                       copy moves forward (but not split until next turn).
                     </li>
                     <li>
-                      If no side cell are available or Fragmented Essentials
-                      have only 1 strength, nothing happens and they just move
+                      If no side cell are available or Fragmented Essences have
+                      only 1 strength, nothing happens and they just move
                       forward without splitting.
                     </li>
                   </ul>
                   <p>
                     Note that the fragments are{' '}
                     <span className='Highlight'>not</span> tokens though—they
-                    also are Fragmented Essentials. So they will also split and
+                    also are Fragmented Essences. So they will also split and
                     spawn before they move next.
                   </p>
                   <p>

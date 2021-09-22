@@ -1257,13 +1257,13 @@
     "ability": "Before moving, get a random status effect"
   },
   {
-    "name": "Fragmented Essentials",
+    "name": "Fragmented Essences",
     "id": "N90",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
     "rarity": "rare",
-    "image": "fragmented_essentials.png",
+    "image": "fragmented_essences.png",
     "mana": 2,
     "strength": "3/4/5/6/7",
     "movement": 0,
