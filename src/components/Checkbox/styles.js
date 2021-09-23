@@ -6,7 +6,7 @@ const checkbox = {
   margin: 'var(--s-smaller) 0',
 }
 
-const icon = ({ isChecked, isDisabled }) => ({
+const icon = ({ isDisabled }) => ({
   width: '1.25em',
   height: '1.25em',
   border: '1px solid #ded7a480',
@@ -17,18 +17,6 @@ const icon = ({ isChecked, isDisabled }) => ({
   left: 0,
   opacity: isDisabled ? 0.5 : undefined,
   cursor: isDisabled ? 'not-allowed' : 'pointer',
-
-  '::before': isChecked
-    ? {
-        content: '""',
-        position: 'absolute',
-        backgroundColor: 'var(--beige)',
-        top: '20%',
-        right: '20%',
-        bottom: '20%',
-        left: '20%',
-      }
-    : undefined,
 })
 
 const input = {
@@ -41,6 +29,16 @@ const input = {
   width: '100%',
   height: '100%',
   margin: 0,
+
+  ':checked + ::before': {
+    content: '""',
+    position: 'absolute',
+    backgroundColor: 'var(--beige)',
+    top: '20%',
+    right: '20%',
+    bottom: '20%',
+    left: '20%',
+  },
 
   /**
    * 1. Define the default browser outline on the icon itself so it looks like it
