@@ -29,7 +29,7 @@ const getStoryTeaser = story => {
     },
     meta: meta,
     excerpt: excerpt,
-    to: `/stories/${id}`,
+    to: `/stories/${story.slug || id}`,
   }
 }
 
