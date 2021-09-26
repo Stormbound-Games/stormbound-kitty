@@ -218,7 +218,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           </li>
           <li>
             <span className='Highlight'>Steady Growth:</span> cards level up (up
-            to level 5) when cycled.
+            to level 5) when cycled. They can also be leveled up beyond the
+            Casual/Warrior level cap!
           </li>
           <li>
             <span className='Highlight'>The Great Mill:</span> playing any card
