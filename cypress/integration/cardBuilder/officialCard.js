@@ -10,7 +10,6 @@ describe('Card Builder — Official card', () => {
       .get(s.CARD_SELECT)
       .find('input')
       .first()
-      .click({ force: true })
       .type('Sweet', { force: true })
       .type('{enter}', { force: true })
       .get(s.CARD_NAME)
@@ -99,7 +98,7 @@ describe('Card Builder — Official card', () => {
       .get('[data-testid="import-btn"]')
       .importFile('collection.import.csv')
 
-      .visit('/card/N1/display')
+      .visit('/card/N89/display')
 
       .get(s.PREV_BTN)
       .should('be.disabled')
@@ -108,7 +107,7 @@ describe('Card Builder — Official card', () => {
       .click()
 
       .url()
-      .should('match', /\/card\/N2\/display/)
+      .should('match', /\/card\/N1\/display/)
 
       .get(s.PREV_BTN)
       .click()
