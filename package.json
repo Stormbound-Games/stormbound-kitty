@@ -70,7 +70,7 @@
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",
     "next-sitemap": "^1.6.168",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
     "svg2png": "^4.1.1"
   },
