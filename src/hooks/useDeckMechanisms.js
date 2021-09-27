@@ -40,9 +40,11 @@ const useDeckMechanisms = props => {
   }, [])
 
   const cycle = React.useCallback(
-    (card, options = deckMechanisms.DEFAULT_CYCLE_OPTIONS) =>
-      setState(state => deckMechanisms.cycle(clone(state), card, options)),
-    []
+    (card, options = deckMechanisms.DEFAULT_CYCLE_OPTIONS) => {
+      const opts = { ...options, modifier: props.modifier }
+      setState(state => deckMechanisms.cycle(clone(state), card, opts))
+    },
+    [props.modifier]
   )
 
   const play = React.useCallback(
@@ -50,15 +52,16 @@ const useDeckMechanisms = props => {
       setState(state => {
         const cardData = state.deck.find(isCard(card))
         const canAfford = options.free || cardData.mana <= state.mana
+        const opts = { ...options, modifier: props.modifier }
 
         // If it’s not a discard move and the card costs more mana than the
         // current round, skip play.
         return options.discard || canAfford
-          ? deckMechanisms.play(clone(state), card, options, props.HoS)
+          ? deckMechanisms.play(clone(state), card, opts, props.HoS)
           : state
       })
     },
-    [props.HoS]
+    [props.modifier, props.HoS]
   )
 
   const addCardToDeck = React.useCallback(
@@ -76,8 +79,11 @@ const useDeckMechanisms = props => {
   )
 
   const endTurn = React.useCallback(
-    () => setState(state => deckMechanisms.endTurn(clone(state))),
-    []
+    () =>
+      setState(state =>
+        deckMechanisms.endTurn(clone(state), { modifier: props.modifier })
+      ),
+    [props.modifier]
   )
 
   const _canCardBePlayed = React.useCallback(

@@ -10,7 +10,9 @@ const getDialogImage = modifier => {
     return '/assets/images/cards/execution.png'
   }
 
-  return getRawCardData(BRAWL_INDEX[modifier].cardId).image
+  return (
+    '/assets/images/cards/' + getRawCardData(BRAWL_INDEX[modifier].cardId).image
+  )
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {

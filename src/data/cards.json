@@ -460,7 +460,7 @@
     "mana": 5,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "When played with a full hand, *discard all* cards and *draw 3/3/3/4/4* new cards"
+    "ability": "When played with a full hand, *discard all* cards and *draw 4* new cards"
   },
   {
     "name": "Trueshot Post",
@@ -573,7 +573,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After attacking, *spawn* a *3/3/4/5/6* strength Undead on the tile behind"
+    "ability": "After attacking, *spawn* a *3/4/5/6/7* strength Undead on the tile behind"
   },
   {
     "name": "Lucky Charmers",
@@ -913,7 +913,7 @@
     "mana": 4,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "If played bordering an enemy *gain 1 strength* else *gain 1 speed*"
+    "ability": "If played bordering an enemy *gain 2 strength* else *gain 1 speed*"
   },
   {
     "name": "Bigthrust Tigers",
@@ -1027,7 +1027,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board",
+    "ability": "After surviving damage, deal *3/3/4/4/5 damage* spread randomly among enemy units on the board",
     "elder": true
   },
   {
@@ -1216,6 +1216,58 @@
     "strength": "2/3/4/5/6",
     "movement": 0,
     "ability": "On play, confuse itself then gain 2 speed"
+  },
+  {
+    "name": "Bounded Daemons",
+    "id": "N87",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "ancient",
+    "rarity": "rare",
+    "image": "bounded_daemons.png",
+    "mana": 4,
+    "strength": "1/2/2/3/4",
+    "movement": 0,
+    "ability": "Before moving, *spawn* a unit with *2/2/3/3/4* strength on both sides"
+  },
+  {
+    "name": "Lost Psyches",
+    "id": "N88",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "ancient",
+    "rarity": "rare",
+    "image": "lost_psyches.png",
+    "mana": 3,
+    "strength": "2/3/4/5/6",
+    "movement": 1,
+    "ability": "Before moving, *teleport* itself to a random tile in its row"
+  },
+  {
+    "name": "Erratic Neglects",
+    "id": "N89",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "ancient",
+    "rarity": "rare",
+    "image": "erratic_neglects.png",
+    "mana": 1,
+    "strength": "1/2/3/4/5",
+    "movement": 0,
+    "ability": "Before moving, get a random status effect"
+  },
+  {
+    "name": "Fragmented Essences",
+    "id": "N90",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "ancient",
+    "rarity": "rare",
+    "image": "fragmented_essences.png",
+    "mana": 2,
+    "strength": "3/4/5/6/7",
+    "movement": 0,
+    "ability": "Before moving, *split* its strength equally into a unit on both sides. Cannot split again for this movement."
   },
   {
     "name": "Destructobots",
@@ -1469,7 +1521,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "*Push* back all enemy units in a target unit’s column and deal *3/4/5/6/7 damage* to them"
+    "ability": "*Push* back all enemy units in a target unit’s column and deal *4/5/6/7/8 damage* to them"
   },
   {
     "name": "Siege Assembly",
@@ -1933,10 +1985,10 @@
     "race": null,
     "rarity": "rare",
     "image": "curse_of_strings.png",
-    "mana": 7,
+    "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Convert* a target enemy unit with *8/10/12/15/18 or less strength* to fight for you"
+    "ability": "*Convert* a target enemy unit with *7/9/11/14/17 or less strength* to fight for you"
   },
   {
     "name": "High Priestess Klaxi",

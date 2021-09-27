@@ -1,12 +1,14 @@
 import handleCardEffect from './handleCardEffect'
 import isCard, { isNotCard } from '~/helpers/isCard'
 import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
+import refill from './refill'
 
 export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',
   free: false,
   discard: false,
   reweight: true,
+  modifier: null,
 }
 
 /**
@@ -18,6 +20,7 @@ export const DEFAULT_PLAY_OPTIONS = {
  * @param {Boolean} [opts.free = false] - Whether the play is for free
  * @param {String} [opts.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
  * @param {String} [opts.reweight = true] - Whether to reweight the deck
+ * @param {String} [opts.modifier = null] - Active Brawl modifier
  * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
@@ -60,7 +63,15 @@ const play = (state, card, opts, HoS) => {
     })
   }
 
-  return handleCardEffect(state, cardData, options.mode, HoS)
+  handleCardEffect(state, cardData, options.mode, HoS)
+
+  // If the current Brawl modifier is the “Great Mill”, refill the hand after
+  // each card is played.
+  if (options.modifier === 'THE_GREAT_MILL') {
+    refill(state)
+  }
+
+  return state
 }
 
 export default play

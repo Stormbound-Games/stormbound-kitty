@@ -128,6 +128,30 @@ export const BRAWLS = [
     title: 'Stunning attack',
     cardId: 'N61',
   },
+  {
+    id: 'RESERVE_MANAGEMENT',
+    label: 'Unspent mana is carried over',
+    title: 'Reserve Management',
+    cardId: 'W19',
+  },
+  {
+    id: 'CHAOS_UNLEASHED',
+    label: 'Units get a random status effect upon play',
+    title: 'Chaos Unleashed',
+    cardId: 'I12',
+  },
+  {
+    id: 'STEADY_GROWTH',
+    label: 'Cards level up when cycled',
+    title: 'Steady Growth',
+    cardId: 'N15',
+  },
+  {
+    id: 'THE_GREAT_MILL',
+    label: 'Hand is always full',
+    title: 'The Great Mill',
+    cardId: 'N33',
+  },
 ]
 
 export const BRAWL_INDEX = indexArray(BRAWLS)
