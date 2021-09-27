@@ -1,5 +1,60 @@
 [
   {
+    "date": "01/10/2021",
+    "description": "Ability strength increased by 1 at high levels",
+    "id": "N41",
+    "type": "BUFF",
+    "from": {
+      "ability": "After attacking, *spawn* a *3/3/4/5/6* strength Undead on the tile behind"
+    }
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Ability damage increased by 1",
+    "id": "N73",
+    "type": "BUFF",
+    "from": {
+      "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board"
+    }
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Strength-based ability increased by 1",
+    "id": "N65",
+    "type": "BUFF",
+    "from": {
+      "ability": "If played bordering an enemy *gain 1 strength* else *gain 1 speed*"
+    }
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Ability made to always draw 4 cards",
+    "id": "N33",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played with a full hand, *discard all* cards and *draw 4* new cards"
+    }
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Mana and ability strength threshold decreased by 1",
+    "id": "F22",
+    "type": "BUFF",
+    "from": {
+      "mana": 7,
+      "ability": "*Convert* a target enemy unit with *8/10/12/15/18 or less strength* to fight for you"
+    }
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Ability damage increased by 1",
+    "id": "I18",
+    "type": "BUFF",
+    "from": {
+      "ability": "*Push* back all enemy units in a target unit’s column and deal *3/4/5/6/7 damage* to them"
+    }
+  },
+  {
     "date": "01/09/2021",
     "description": "Ability made to synergize with in-hand pirates",
     "id": "N77",

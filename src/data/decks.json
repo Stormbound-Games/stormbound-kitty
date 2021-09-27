@@ -1,24 +1,5 @@
 [
   {
-    "name": "DGL Tempoclad",
-    "id": "1xn1i1i2n8i6i8i10n19i16i20i23n57",
-    "author": "Shades",
-    "tags": [
-      "EQUALS"
-    ],
-    "date": "06/2019"
-  },
-  {
-    "name": "DGL Obsidian Rush",
-    "id": "1xn1f3n8f5n11f8n22f12f14f17f18n57",
-    "author": "Shades",
-    "tags": [
-      "EQUALS",
-      "RUSH"
-    ],
-    "date": "06/2019"
-  },
-  {
     "name": "MakeWay4OurLady",
     "id": "3xn1n3n5s3n12n14n16n19n22n30n33n42",
     "author": "MooreFunn",
@@ -660,16 +641,6 @@
     "date": "02/2021"
   },
   {
-    "name": "From Fields Afar",
-    "id": "5xn2n3n9n23n63s10n21s13n29s18n44s22",
-    "author": "MAK313",
-    "tags": [
-      "HIGH_LEVELS",
-      "CONTROL"
-    ],
-    "date": "02/2021"
-  },
-  {
     "name": "Goldenheart",
     "id": "3xn1f3n3n67n9n23n81n18n25f18n39f23",
     "author": "Helios",
@@ -1208,7 +1179,7 @@
   },
   {
     "name": "Dark Tower",
-    "id": "5xn1s1n3n67n13n23n25n80n60s18n39n57",
+    "id": "5xn1s1n3n67n13n23n65n80n60s18n39n57",
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
@@ -1253,6 +1224,16 @@
     "tags": [
       "HIGH_LEVELS",
       "RUSH"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Rufescent",
+    "id": "5xn1w1w2n3n67n14w5n25w8w17w19n58",
+    "author": "Bryan",
+    "tags": [
+      "HIGH_LEVELS",
+      "MIDRANGE"
     ],
     "date": "09/2021"
   }
