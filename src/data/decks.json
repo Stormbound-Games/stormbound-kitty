@@ -1179,7 +1179,7 @@
   },
   {
     "name": "Dark Tower",
-    "id": "5xn1s1n3n67n13n23n25n80n60s18n39n57",
+    "id": "5xn1s1n3n67n13n23n65n80n60s18n39n57",
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
@@ -1214,6 +1214,16 @@
     "tags": [
       "HIGH_LEVELS",
       "CONTROL"
+    ],
+    "date": "09/2021"
+  },
+  {
+    "name": "Rufescent",
+    "id": "5xn1w1w2n3n67n14w5n25w8w17w19n58",
+    "author": "Bryan",
+    "tags": [
+      "HIGH_LEVELS",
+      "MIDRANGE"
     ],
     "date": "09/2021"
   }
