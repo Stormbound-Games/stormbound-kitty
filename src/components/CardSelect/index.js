@@ -1,7 +1,5 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { useFela } from 'react-fela'
-import inputStyles from '~/components/Input/styles'
 import Label from '~/components/Label'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import { FACTIONS } from '~/constants/game'
@@ -15,7 +13,6 @@ const ORDER = [...Object.keys(FACTIONS), 'tokens']
 const cardsByFaction = getCardsByFaction()
 
 export default React.memo(function CardSelect(props) {
-  const { css } = useFela()
   const styles = useSelectStyles({
     noBorder: props.noBorder,
     withClear: props.withClear,
