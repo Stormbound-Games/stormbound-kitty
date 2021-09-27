@@ -369,7 +369,7 @@ describe('The `getCardValue` helper', () => {
     expect(value1[0]).toEqual((3 / 4) * 1)
     expect(value1[1]).toEqual(((3 + 3) / 4) * 1)
     expect(value5[0]).toEqual((6 / 4) * 1)
-    expect(value5[1]).toEqual(((6 + 6) / 4) * 1)
+    expect(value5[1]).toEqual(((6 + 7) / 4) * 1)
   })
 
   it('should return value for Lucky Charmers', () => {
@@ -585,9 +585,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N65', 1)
     const value5 = getCardValue('N65', 5)
     expect(value1[0]).toEqual((2 / 4) * 1)
-    expect(value1[1]).toEqual((2.5 / 4) * 1.25)
+    expect(value1[1]).toEqual((3 / 4) * 1.25)
     expect(value5[0]).toEqual((6 / 4) * 1)
-    expect(value5[1]).toEqual((6.5 / 4) * 1.25)
+    expect(value5[1]).toEqual((7 / 4) * 1.25)
   })
 
   it('should return value for Bigthrust Tigers', () => {
@@ -657,9 +657,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N73', 1)
     const value5 = getCardValue('N73', 5)
     expect(value1[0]).toEqual((3 / 3) * 0.5)
-    expect(value1[1]).toEqual(((3 + 2) / 3) * 0.5)
+    expect(value1[1]).toEqual(((3 + 3) / 3) * 0.5)
     expect(value5[0]).toEqual((7 / 3) * 0.5)
-    expect(value5[1]).toEqual(((7 + 4) / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 5) / 3) * 0.5)
   })
 
   it('should return value for Beards of Crowglyph', () => {
@@ -892,10 +892,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Flaming Stream', () => {
     const value1 = getCardValue('I18', 1)
     const value5 = getCardValue('I18', 5)
-    expect(value1[0]).toEqual((3 * 1) / 5)
-    expect(value1[1]).toEqual((3 * 5) / 5)
-    expect(value5[0]).toEqual((7 * 1) / 5)
-    expect(value5[1]).toEqual((7 * 5) / 5)
+    expect(value1[0]).toEqual((4 * 1) / 5)
+    expect(value1[1]).toEqual((4 * 5) / 5)
+    expect(value5[0]).toEqual((8 * 1) / 5)
+    expect(value5[1]).toEqual((8 * 5) / 5)
   })
 
   it('should return value for Siege Assembly', () => {
@@ -1180,10 +1180,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Curse of Strings', () => {
     const value1 = getCardValue('F22', 1)
     const value5 = getCardValue('F22', 5)
-    expect(value1[0]).toEqual((1 * 2) / 7)
-    expect(value1[1]).toEqual((8 * 2) / 7)
-    expect(value5[0]).toEqual((1 * 2) / 7)
-    expect(value5[1]).toEqual((18 * 2) / 7)
+    expect(value1[0]).toEqual((1 * 2) / 6)
+    expect(value1[1]).toEqual((7 * 2) / 6)
+    expect(value5[0]).toEqual((1 * 2) / 6)
+    expect(value5[1]).toEqual((17 * 2) / 6)
   })
 
   it('should return value for High Priestess Klaxi', () => {
