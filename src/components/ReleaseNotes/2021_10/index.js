@@ -326,7 +326,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
             milestone) and yields <Rubies amount={200} />.
           </li>
           <li>
-            Milestone 3 requires 15 points in total (including the previpus
+            Milestone 3 requires 15 points in total (including the previous
             milestones) and yields <Stones amount={50} />.
           </li>
         </ul>
