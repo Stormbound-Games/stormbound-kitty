@@ -451,9 +451,8 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
                 'Can Lost Psyches teleport on the tile they are already on?',
               answer: (
                 <>
-                  No. Either there are available tiles on the row and they{' '}
-                  <span className='Highlight'>will</span> teleport away, or all
-                  tiles are occupied and they will not attempt to teleport.
+                  Yes. They can pick their own tile as a teleport target and
+                  teleport there.
                 </>
               ),
             },
