@@ -103,7 +103,12 @@ export default React.memo(function CardsFiltering(props) {
       const ability = normaliseText(card.ability || '')
       // Replace asterisk characters (`*`) with a greedy regular expression
       // token, then make a regular expression from the search input.
-      const re = new RegExp(search.replace(/\*/g, '(.*?)'), 'i')
+      const re = new RegExp(
+        search
+          .replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+          .replace(/\*/g, '(.*?)'),
+        'i'
+      )
 
       // if the search matches an abbreviation (regardless of casing), consider
       // it a match.
