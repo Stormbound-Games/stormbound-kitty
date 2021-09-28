@@ -41,7 +41,6 @@ const bsFill = (
       }
     })
     .get(s.CELL_FORM_CARD_SELECT, { log: false })
-    .click({ force: true, log: false })
     .type(card, { force: true, log: false })
     .type('{enter}', { force: true, log: false })
 

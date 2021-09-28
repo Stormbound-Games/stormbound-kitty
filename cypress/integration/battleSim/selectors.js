@@ -18,17 +18,17 @@ const selectors = {
   ABOUT_TITLE: '[data-testid="about-dialog-title"]',
 
   CARDS_FORM_SELECT_1:
-    '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(1) .CardSelect__input input',
+    '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(1) .CardSelect__input',
   CARDS_FORM_DISPLAY_1:
     '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(1)  .CardSelect__single-value',
   CARDS_FORM_LEVEL_1: '[data-testid="cards-form-level-0"]',
   CARDS_FORM_SELECT_2:
-    '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(2) .CardSelect__input input',
+    '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(2) .CardSelect__input',
   CARDS_FORM_DISPLAY_2:
     '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(2)  .CardSelect__single-value',
   CARDS_FORM_LEVEL_2: '[data-testid="cards-form-level-1"]',
   CARDS_FORM_SELECT_3:
-    '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(3) .CardSelect__input input',
+    '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(3) .CardSelect__input',
   CARDS_FORM_DISPLAY_3:
     '[data-testid="cards-form"] [data-testid="battle-sim-cards-form"]:nth-of-type(3)  .CardSelect__single-value',
   CARDS_FORM_LEVEL_3: '[data-testid="cards-form-level-2"]',
@@ -54,7 +54,7 @@ const selectors = {
   CELL_STRENGTH: '[data-testid="cell-strength"]',
 
   CELL_FORM: '[data-testid="cell-form"]',
-  CELL_FORM_CARD_SELECT: '[data-testid="cell-form"] .CardSelect__input input',
+  CELL_FORM_CARD_SELECT: '[data-testid="cell-form"] .CardSelect__input',
   CELL_FORM_BLUE_RADIO: '[data-testid="cell-player-BLUE-radio"]',
   CELL_FORM_RED_RADIO: '[data-testid="cell-player-RED-radio"]',
   CELL_FORM_FROZEN_CHECKBOX: '[data-testid="cell-frozen-checkbox"]',
