@@ -54,7 +54,7 @@ const selectors = {
   CELL_STRENGTH: '[data-testid="cell-strength"]',
 
   CELL_FORM: '[data-testid="cell-form"]',
-  CELL_FORM_CARD_SELECT: '[data-testid="cell-form"] .CardSelect__input input',
+  CELL_FORM_CARD_SELECT: '[data-testid="cell-form"] .CardSelect__input',
   CELL_FORM_BLUE_RADIO: '[data-testid="cell-player-BLUE-radio"]',
   CELL_FORM_RED_RADIO: '[data-testid="cell-player-RED-radio"]',
   CELL_FORM_FROZEN_CHECKBOX: '[data-testid="cell-frozen-checkbox"]',
