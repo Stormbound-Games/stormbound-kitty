@@ -13,7 +13,7 @@ export default React.memo(function Members(props) {
   const [sort, setSort] = React.useState('ALPHABETICALLY')
   const [type, setType] = React.useState('*')
   const members = props.members
-    .filter(({ type: cType }) => type === '*' || type === cType)
+    .filter(({ types }) => type === '*' || types.includes(type))
     .sort((a, b) => {
       if (sort === 'CONTRIBUTIONS') return b.count - a.count
       if (sort === 'ALPHABETICALLY') return a.member - b.member
@@ -54,7 +54,7 @@ export default React.memo(function Members(props) {
           <ul className={css(styles.list)}>
             {members.map(member => (
               <li className={css(styles.item)} key={member.member}>
-                <MemberListEntry {...member} />
+                <MemberListEntry {...member} type={type} />
               </li>
             ))}
           </ul>

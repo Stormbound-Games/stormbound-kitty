@@ -95,6 +95,7 @@ const getMembersList = () => {
       const donations = entries.filter(entry => entry === 'DONATION')
 
       return acc.concat({
+        types: entries,
         member,
         count: entries.length,
         roles: isKATMember({ member, updates, donations }),
