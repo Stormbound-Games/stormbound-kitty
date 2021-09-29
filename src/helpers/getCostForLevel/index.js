@@ -2,7 +2,7 @@ import { RARITY_COPIES, UPGRADE_COST } from '~/constants/game'
 
 const getCostForLevel =
   target =>
-  ({ rarity, level, copies }) => {
+  ({ rarity, level, copies, missing }) => {
     const conf = RARITY_COPIES[rarity]
 
     // It is technically possible for the card not to be found in the collection
@@ -23,7 +23,7 @@ const getCostForLevel =
     if (level === 5) return { coins: 0, stones: 0, copies: 0, extraCopies: 0 }
 
     let coins = 0
-    let stones = 0
+    let stones = missing ? conf.stonesForMissing : 0
     let missingCopies = 0
     let availableCopies = copies
 
