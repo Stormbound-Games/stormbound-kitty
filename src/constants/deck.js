@@ -23,7 +23,7 @@ export const TAGS = {
   EQUALS: 'Equals',
   BRAWL: 'Brawl',
   CASUAL: 'Casual',
-  WARIOR: 'Warrior',
+  WARRIOR: 'Warrior',
   ULTIMATE: 'Ultimate',
   RUSH: 'Rush',
   MIDRANGE: 'Midrange',
