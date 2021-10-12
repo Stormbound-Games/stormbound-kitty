@@ -67,7 +67,7 @@
     "find-webpack": "^2.2.1",
     "husky": "^7.0.2",
     "jest": "^27.2.5",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^11.2.3",
     "mathjax-node": "^2.1.1",
     "next-sitemap": "^1.6.179",
     "nodemon": "^2.0.13",
