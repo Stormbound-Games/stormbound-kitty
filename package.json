@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reach/tooltip": "^0.16.0",
+    "@reach/tooltip": "^0.16.2",
     "abort-controller": "^3.0.0",
     "canvas": "^2.8.0",
     "copy-to-clipboard": "^3.3.1",
