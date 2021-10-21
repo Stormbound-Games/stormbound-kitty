@@ -531,9 +531,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N59', 1)
     const value5 = getCardValue('N59', 5)
     expect(value1[0]).toEqual((3 / 4) * 0.5)
-    expect(value1[1]).toEqual(((3 + 3 * 5) / 4) * 0.5)
+    expect(value1[1]).toEqual(((3 + 2 * 5) / 4) * 0.5)
     expect(value5[0]).toEqual((7 / 4) * 0.5)
-    expect(value5[1]).toEqual(((7 + 7 * 5) / 4) * 0.5)
+    expect(value5[1]).toEqual(((7 + 6 * 5) / 4) * 0.5)
   })
 
   it('should return value for Fluffy Badboxers', () => {

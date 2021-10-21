@@ -1,6 +1,15 @@
 [
   {
     "date": "01/11/2021",
+    "description": "Ability strength decreased by 1",
+    "id": "N59",
+    "type": "NERF",
+    "from": {
+      "ability": "On play, *spawn 3/4/5/6/7* strength Knights in front of all surrounding enemy units"
+    }
+  },
+  {
+    "date": "01/11/2021",
     "description": "Mana cost increased by 1",
     "id": "W19",
     "type": "NERF",
