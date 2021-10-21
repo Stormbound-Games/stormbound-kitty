@@ -1091,9 +1091,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('F12', 1)
     const value5 = getCardValue('F12', 5)
     expect(value1[0]).toEqual((3 / 4) * 1)
-    expect(value1[1]).toEqual(((3 + 3) / 4) * 1)
+    expect(value1[1]).toEqual(((3 + 2) / 4) * 1)
     expect(value5[0]).toEqual((7 / 4) * 1)
-    expect(value5[1]).toEqual(((7 + 7) / 4) * 1)
+    expect(value5[1]).toEqual(((7 + 6) / 4) * 1)
   })
 
   it('should return value for Venomfall Spire', () => {

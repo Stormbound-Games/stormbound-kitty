@@ -1,6 +1,15 @@
 [
   {
     "date": "01/11/2021",
+    "description": "Ability decreased by 1",
+    "id": "F12",
+    "type": "NERF",
+    "from": {
+      "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 3/4/5/6/7* strength"
+    }
+  },
+  {
+    "date": "01/11/2021",
     "description": "Ability strength decreased by 1",
     "id": "N59",
     "type": "NERF",
