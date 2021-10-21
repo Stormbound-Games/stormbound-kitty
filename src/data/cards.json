@@ -1681,6 +1681,19 @@
     "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy the older copy. Otherwise, return to the hand."
   },
   {
+    "name": "Function Wilds",
+    "id": "I30",
+    "type": "unit",
+    "faction": "ironclad",
+    "race": "construct",
+    "rarity": "rare",
+    "image": "function_wilds.png",
+    "mana": 3,
+    "strength": "1/23/4/5",
+    "movement": 1,
+    "ability": "On play, *vitalize* itself and *1/1/2/2/2* surrounding friendly unit/unit/units/units/units"
+  },
+  {
     "name": "Brood Sages",
     "id": "F1",
     "sid": "u403",
@@ -2092,6 +2105,19 @@
     "ability": "At the end of your turn, *remember* the state of surrounding friendly units and structures. At the start of your turn, *restore 1/2/2/3/3* of them to that state."
   },
   {
+    "name": "Soap Cleanse",
+    "id": "F30",
+    "type": "spell",
+    "faction": "shadowfen",
+    "race": null,
+    "rarity": "rare",
+    "image": "soap_cleanse.png",
+    "mana": 1,
+    "strength": null,
+    "movement": null,
+    "ability": "Restore up to *3/4/5/6/7* of all friendly poisoned units’ initial strength then vitalize them"
+  },
+  {
     "name": "Doppelbocks",
     "id": "S1",
     "sid": "u211",
@@ -2501,6 +2527,19 @@
     "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "At the start of your turn, deconfuse and give *1* additional move to all friendly units in front"
+  },
+  {
+    "name": "Diehards",
+    "id": "S30",
+    "type": "unit",
+    "faction": "swarm",
+    "race": "undead",
+    "rarity": "rare",
+    "image": "diehards.png",
+    "mana": 4,
+    "strength": "2/3/4/5/6",
+    "movement": 0,
+    "ability": "When this dies by *ability or spell*, *respawn* on the same tile with *4/6/8/10/12 strength*"
   },
   {
     "name": "Icicle Burst",
@@ -2940,6 +2979,19 @@
     "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play, freeze itself"
+  },
+  {
+    "name": "Blizzard Bombs",
+    "id": "W32",
+    "type": "unit",
+    "faction": "winter",
+    "race": "frostling",
+    "rarity": "rare",
+    "image": "blizzard_bombs.png",
+    "mana": 4,
+    "strength": "4/5/6/7/8",
+    "movement": 1,
+    "ability": "On death, freeze all surrounding units"
   },
   {
     "token": true,
