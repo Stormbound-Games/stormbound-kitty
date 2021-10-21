@@ -1226,7 +1226,7 @@
     "rarity": "rare",
     "image": "bounded_daemons.png",
     "mana": 4,
-    "strength": "1/2/2/3/4",
+    "strength": "2/3/3/4/5",
     "movement": 0,
     "ability": "Before moving, *spawn* a unit with *2/2/3/3/4* strength on both sides"
   },
