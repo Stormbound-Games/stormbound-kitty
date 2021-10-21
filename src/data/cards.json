@@ -2765,10 +2765,10 @@
     "race": null,
     "rarity": "epic",
     "image": "gift_of_the_wise.png",
-    "mana": 8,
+    "mana": 9,
     "strength": null,
     "movement": null,
-    "ability": "Gain *10/11/12/13/14 mana*"
+    "ability": "Gain *11/12/13/14/15 mana*"
   },
   {
     "name": "Calming Spirits",

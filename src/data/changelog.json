@@ -1,6 +1,16 @@
 [
   {
     "date": "01/11/2021",
+    "description": "Mana cost increased by 1",
+    "id": "W19",
+    "type": "NERF",
+    "from": {
+      "mana": 8,
+      "ability": "Gain *10/11/12/13/14 mana*"
+    }
+  },
+  {
+    "date": "01/11/2021",
     "description": "Ability made to only trigger against units",
     "id": "W22",
     "type": "NERF",
