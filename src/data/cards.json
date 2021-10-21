@@ -1239,7 +1239,7 @@
     "rarity": "rare",
     "image": "lost_psyches.png",
     "mana": 3,
-    "strength": "2/3/4/5/6",
+    "strength": "3/4/5/6/7",
     "movement": 1,
     "ability": "Before moving, *teleport* itself to a random tile in its row"
   },
