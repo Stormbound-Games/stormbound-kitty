@@ -29,6 +29,7 @@ export default React.memo(function DiamondButton({
   ) : (
     <button
       aria-pressed={isActive}
+      type='button'
       {...props}
       className={css(styles.button, extend)}
       title={label}
