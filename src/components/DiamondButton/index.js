@@ -6,6 +6,7 @@ import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function DiamondButton({
+  icon,
   isActive,
   extend,
   label,
@@ -21,7 +22,7 @@ export default React.memo(function DiamondButton({
         data-testid={props['data-testid']}
         title={label}
       >
-        <Icon icon={props.icon} />
+        <Icon icon={icon} />
         <VisuallyHidden>{label}</VisuallyHidden>
       </a>
     </RouterLink>
@@ -32,7 +33,7 @@ export default React.memo(function DiamondButton({
       className={css(styles.button, extend)}
       title={label}
     >
-      <Icon icon={props.icon} />
+      <Icon icon={icon} />
       <VisuallyHidden>{label}</VisuallyHidden>
     </button>
   )
