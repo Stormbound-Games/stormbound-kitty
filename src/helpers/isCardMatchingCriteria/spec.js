@@ -38,6 +38,13 @@ describe('The `isCardMatchingCriteria` helper', () => {
     expect(isElder(getResolvedCardData({ id: 'N3' }))).toEqual(false)
   })
 
+  it('should handle name', () => {
+    const isTemple = isCardMatchingCriteria({ name: /^Temple/ })
+
+    expect(isTemple(getResolvedCardData({ id: 'N1' }))).toEqual(false)
+    expect(isTemple(getResolvedCardData({ id: 'S29' }))).toEqual(true)
+  })
+
   it('should handle mix', () => {
     const isRareConstruct = isCardMatchingCriteria({
       rarity: 'rare',

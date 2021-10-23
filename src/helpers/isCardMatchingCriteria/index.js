@@ -6,6 +6,7 @@ const isCardMatchingCriteria =
       (!card.ability || (card.ability && !card.ability.match(criteria.ability)))
     )
       return false
+    if (criteria.name && !card.name.match(criteria.name)) return false
     if (criteria.rarity && card.rarity !== criteria.rarity) return false
     if (criteria.type && card.type !== criteria.type) return false
     if (criteria.race && card.race !== criteria.race) return false
