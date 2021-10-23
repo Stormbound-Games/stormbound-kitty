@@ -21,9 +21,36 @@ const getBookName = (bookType, plural = false) => {
     case 'FELINE':
     case 'FELINE_BOOK':
       return `Book${plural ? 's' : ''} of Felines`
+    case 'CONSTRUCT':
+    case 'CONSTRUCT_BOOK':
+      return `Book${plural ? 's' : ''} of Constructs`
+    case 'RODENT':
+    case 'RODENT_BOOK':
+      return `Book${plural ? 's' : ''} of Rodents`
+    case 'FROSTLING':
+    case 'FROSTLING_BOOK':
+      return `Book${plural ? 's' : ''} of Frostlings`
+    case 'DWARF':
+    case 'DWARF_BOOK':
+      return `Book${plural ? 's' : ''} of Dwarves`
+    case 'UNDEAD':
+    case 'UNDEAD_BOOK':
+      return `Book${plural ? 's' : ''} of Undead`
+    case 'SATYR':
+    case 'SATYR_BOOK':
+      return `Book${plural ? 's' : ''} of Satyrs`
+    case 'TOAD':
+    case 'TOAD_BOOK':
+      return `Book${plural ? 's' : ''} of Toads`
+    case 'RAVEN':
+    case 'RAVEN_BOOK':
+      return `Book${plural ? 's' : ''} of Ravens`
     case 'ELDER':
     case 'ELDER_BOOK':
       return `Book${plural ? 's' : ''} of Elders`
+    case 'TEMPLE':
+    case 'TEMPLE_BOOK':
+      return `Book${plural ? 's' : ''} of Temples`
     case 'DRAGON':
     case 'DRAGON_BOOK':
       return `Book${plural ? 's' : ''} of Dragons`
