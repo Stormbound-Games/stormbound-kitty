@@ -1,5 +1,18 @@
 [
   {
+    "cardId": "I30",
+    "title": "Update 11-2021",
+    "name": "November Update",
+    "meta": "November 1st, 2021",
+    "date": "11/2021",
+    "excerpt": "November is already there, and with it new Stormbound release with new cards, new books, balance tweaks and a deck/import export functionality!",
+    "slug": "11-2021",
+    "background": "/assets/images/banners/november-2021.jpg",
+    "id": "2021_11",
+    "ratio": "50%",
+    "withAvif": true
+  },
+  {
     "cardId": "N86",
     "title": "Update 10-2021",
     "name": "October Update",
