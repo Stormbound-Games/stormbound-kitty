@@ -32,6 +32,12 @@ export const BOOKS = {
     draws: 3,
     cost: { type: 'RUBIES', amount: 40 },
   },
+  KNIGHT: {
+    only: { race: 'knight' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
   FELINE: {
     only: { race: 'feline' },
     percentiles: [0.5, 0.3, 0.15, 0.05],
@@ -77,6 +83,60 @@ export const BOOKS = {
   MAGIC: {
     only: { type: 'spell' },
     percentiles: [0.5, 0.3, 0.2, 0],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  CONSTRUCT: {
+    only: { race: 'construct' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  RODENT: {
+    only: { race: 'rodent' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  FROSTLING: {
+    only: { race: 'frostling' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  DWARF: {
+    only: { race: 'dwarf' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  UNDEAD: {
+    only: { race: 'undead' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  SATYR: {
+    only: { race: 'satyr' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  TOAD: {
+    only: { race: 'toad' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  RAVEN: {
+    only: { race: 'raven' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+    cost: { type: 'RUBIES', amount: 40 },
+  },
+  TEMPLE: {
+    only: { name: /^Temple/ },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
     draws: 3,
     cost: { type: 'RUBIES', amount: 40 },
   },
