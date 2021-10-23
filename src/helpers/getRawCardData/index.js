@@ -4,6 +4,7 @@ import FUSION_STONES from './fs'
 
 const INDEXES = {
   id: indexArray(CARDS, 'id'),
+  sid: indexArray(CARDS, 'sid'),
   name: indexArray(CARDS, 'name'),
 }
 
