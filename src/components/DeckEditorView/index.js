@@ -238,7 +238,7 @@ export default React.memo(function DeckEditorView(props) {
                 setCardTooltips={setCardTooltips}
               />
               <Spacing top={['BASE', 'NONE']} bottom='LARGE'>
-                <DeckActions reset={props.reset} />
+                <DeckActions deck={deck} reset={props.reset} />
               </Spacing>
             </>
           ) : (
@@ -347,7 +347,7 @@ const DeckActions = React.memo(function DeckActions(props) {
         />
       </Row.Column>
       <Row.Column>
-        <ShareButton />
+        <ShareButton deck={props.deck} />
       </Row.Column>
     </Row>
   )

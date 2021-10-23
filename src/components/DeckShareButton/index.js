@@ -1,8 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
+import copy from 'copy-to-clipboard'
 import CTA from '~/components/CTA'
+import DiamondButton from '~/components/DiamondButton'
+import Icon from '~/components/Icon'
+import Input from '~/components/Input'
 import ShareDialog from '~/components/ShareDialog'
 import Spacing from '~/components/Spacing'
 import download from '~/helpers/download'
+import { convertToSbId } from '~/helpers/convertDeckId'
 
 const exportAsImage = () => {
   const deck = document.querySelector('#deck')
@@ -29,6 +35,16 @@ const exportAsImage = () => {
 }
 
 export default React.memo(function DeckShareButton(props) {
+  const { css } = useFela()
+  const sbId = convertToSbId(props.deck)
+  const [hasCopied, setHasCopied] = React.useState(false)
+  const copyToClipboard = React.useCallback(() => {
+    if (copy(sbId)) {
+      setHasCopied(true)
+      setTimeout(() => setHasCopied(false), 3000)
+    }
+  }, [sbId])
+
   return (
     <ShareDialog
       label='Share deck'
@@ -43,8 +59,28 @@ export default React.memo(function DeckShareButton(props) {
 
       <p>
         If you would like to share your deck with others, you can easily do so
-        by downloading it as an image, or by sharing it directly.
+        by downloading it as an image, copying the Stormbound deck ID for the
+        game, or by sharing the link directly.
       </p>
+
+      <div className={css({ display: 'flex', alignItems: 'center' })}>
+        <div className={css({ flex: '1 1 auto', textAlign: 'left' })}>
+          <Input readOnly value={sbId} label='Stormbound deck ID' />
+        </div>
+
+        <DiamondButton
+          extend={{
+            zIndex: 1,
+            flexShrink: 0,
+            marginTop: '1.25em',
+            marginLeft: '1em',
+            marginRight: '0.5em',
+          }}
+          onClick={copyToClipboard}
+          icon={hasCopied ? 'checkmark' : 'copy'}
+          label={hasCopied ? 'Copied!' : 'Copy'}
+        />
+      </div>
 
       <Spacing top='BASE'>
         <CTA type='button' onClick={exportAsImage}>
