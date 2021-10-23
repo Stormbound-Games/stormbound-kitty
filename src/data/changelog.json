@@ -1,6 +1,30 @@
 [
   {
     "date": "01/10/2021",
+    "description": "Added to the game",
+    "id": "N90",
+    "type": "INFO"
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Added to the game",
+    "id": "N89",
+    "type": "INFO"
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Added to the game",
+    "id": "N88",
+    "type": "INFO"
+  },
+  {
+    "date": "01/10/2021",
+    "description": "Added to the game",
+    "id": "N87",
+    "type": "INFO"
+  },
+  {
+    "date": "01/10/2021",
     "description": "Ability strength increased by 1 at high levels",
     "id": "N41",
     "type": "BUFF",
