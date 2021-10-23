@@ -1,5 +1,6 @@
 import serialization from './'
 import { base64Decode } from '~/helpers/base64'
+import convertDeckId from '~/helpers/convertDeckId'
 
 const serializeDeck = cards => {
   // Do not en/decode to base64 as the hash ends up being longer than the
@@ -16,6 +17,14 @@ const serializeDeck = cards => {
 const deserializeDeck = hash => {
   try {
     const string = base64Decode(hash)
+
+    // If the base64 decoded string is a Stormbound deck ID, it should be
+    // converted to a Stormbound-Kitty deck ID before being decoded.
+    if (/^\d((b|s|u|ud|ue|ut)\d+)+$/.test(string)) {
+      const deckId = convertDeckId(string)
+
+      return serialization.cards.deserialize(deckId)
+    }
 
     // The card serialization system operates within the base64 range, which
     // means it is technically possible to base64 decode a deck string without
