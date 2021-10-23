@@ -229,9 +229,10 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
 
             <Info icon='stack' title='Compatibility with the site'>
               <p>
-                In the near future, it should be possible to load your exported
-                decks onto the site. There is no plan on being able to paste a
-                Stormbound-Kitty deck ID into the game though.
+                It is already possible to load decks from their Stormbound ID in
+                the <Link to='/deck'>deck builder</Link>. Similarly, the sharing
+                feature from the deck builder will provide the Stormbound ID so
+                it can pasted in the game!
               </p>
             </Info>
           </Row.Column>
