@@ -1,6 +1,6 @@
 import serialization from './'
 import { base64Decode } from '~/helpers/base64'
-import convertDeckId from '~/helpers/convertDeckId'
+import { convertToSkId } from '~/helpers/convertDeckId'
 
 const serializeDeck = cards => {
   // Do not en/decode to base64 as the hash ends up being longer than the
@@ -19,9 +19,11 @@ const deserializeDeck = hash => {
     const string = base64Decode(hash)
 
     // If the base64 decoded string is a Stormbound deck ID, it should be
-    // converted to a Stormbound-Kitty deck ID before being decoded.
+    // converted to a Stormbound-Kitty deck ID before being decoded. Note that
+    // we pass the base64 hash, and not the decoded string, as `convertToSkId`
+    // expects a base 64 value.
     if (/^\d((b|s|u|ud|ue|ut)\d+)+$/.test(string)) {
-      const deckId = convertDeckId(string)
+      const deckId = convertToSkId(hash)
 
       return serialization.cards.deserialize(deckId)
     }

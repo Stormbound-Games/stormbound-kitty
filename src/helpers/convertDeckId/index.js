@@ -1,7 +1,10 @@
+import { FACTIONS } from '~/constants/game'
 import serialization from '~/helpers/serialization'
 import getRawCardData from '~/helpers/getRawCardData'
+import { base64Decode, base64Encode } from '~/helpers/base64'
 
-const convertDeckId = hash => {
+export const convertToSkId = blob => {
+  const hash = base64Decode(blob)
   const sbIds = hash
     // Slice off the first character which is the faction indicator.
     .slice(1)
@@ -20,4 +23,12 @@ const convertDeckId = hash => {
       .map(id => ({ id, level: 1 }))
   )
 }
-export default convertDeckId
+
+export const convertToSbId = deck => {
+  const cards = deck.map(card => getRawCardData(card.id))
+  const faction =
+    cards.find(card => card.faction !== 'neutral')?.faction ?? 'neutral'
+  const identifier = Object.keys(FACTIONS).indexOf(faction)
+
+  return base64Encode(identifier + cards.map(card => card.sid).join(''))
+}
