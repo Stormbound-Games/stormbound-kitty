@@ -1,6 +1,30 @@
 [
   {
     "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "F30",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "W32",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "S30",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "I30",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
     "description": "Strength increased by 1",
     "id": "N87",
     "type": "BUFF",
