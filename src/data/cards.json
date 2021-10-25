@@ -1220,6 +1220,7 @@
   {
     "name": "Bounded Daemons",
     "id": "N87",
+    "sid": "ua05",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
@@ -1233,6 +1234,7 @@
   {
     "name": "Lost Psyches",
     "id": "N88",
+    "sid": "ua03",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
@@ -1246,6 +1248,7 @@
   {
     "name": "Erratic Neglects",
     "id": "N89",
+    "sid": "ua07",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
@@ -1259,6 +1262,7 @@
   {
     "name": "Fragmented Essences",
     "id": "N90",
+    "sid": "ua06",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
@@ -1683,6 +1687,7 @@
   {
     "name": "Function Wilds",
     "id": "I30",
+    "sid": "u316",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -2107,6 +2112,7 @@
   {
     "name": "Soap Cleanse",
     "id": "F30",
+    "sid": "s403",
     "type": "spell",
     "faction": "shadowfen",
     "race": null,
@@ -2531,6 +2537,7 @@
   {
     "name": "Diehards",
     "id": "S30",
+    "sid": "u040",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2983,6 +2990,7 @@
   {
     "name": "Blizzard Bombs",
     "id": "W32",
+    "sid": "u118",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
