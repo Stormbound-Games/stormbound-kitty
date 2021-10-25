@@ -1694,7 +1694,7 @@
     "rarity": "rare",
     "image": "function_wilds.png",
     "mana": 3,
-    "strength": "1/23/4/5",
+    "strength": "1/2/3/4/5",
     "movement": 1,
     "ability": "On play, *vitalize* itself and *1/1/2/2/2* surrounding friendly unit/unit/units/units/units"
   },
