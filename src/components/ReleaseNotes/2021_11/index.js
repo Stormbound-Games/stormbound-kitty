@@ -7,6 +7,7 @@ import FAQSection from '~/components/FAQSection'
 import Footnotes, { Footnote } from '~/components/Footnotes'
 import Link from '~/components/Link'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
+import Only from '~/components/Only'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
 import Row from '~/components/Row'
@@ -260,11 +261,156 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
 
         <p>
           There will be 8 new books, one per non-neutral race, working in a
-          similar fashion to the Book of Felines and Book of Pirates. They cost{' '}
+          similar fashion to the Book of Felines and Book of Pirates, as well as
+          a Book of Knights and a Book of Temples. They cost{' '}
           <Rubies amount={40} />, contain 3 cards and have a rarity drop of 50%
           / 30% / 15% / 5%.
         </p>
+      </Page.Narrow>
 
+      <Page.Embed>
+        <Only.Desktop>
+          <Row>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-satyr.png'
+                alt='New Book of Satyrs'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-undead.png'
+                alt='New Book of Undead'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-toad.png'
+                alt='New Book of Toads'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-raven.png'
+                alt='New Book of Ravens'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-dwarf.png'
+                alt='New Book of Dwarves'
+              />
+            </Row.Column>
+          </Row>
+          <Row>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-frostling.png'
+                alt='New Book of Frostlings'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-construct.png'
+                alt='New Book of Constructs'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-rodent.png'
+                alt='New Book of Rodents'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-temple.png'
+                alt='New Book of Temples'
+              />
+            </Row.Column>
+            <Row.Column width='1/5'>
+              <Image
+                src='/assets/images/books/book-knight.png'
+                alt='New Book of Knights'
+              />
+            </Row.Column>
+          </Row>
+        </Only.Desktop>
+
+        <Only.Mobile>
+          <Row>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-satyr.png'
+                alt='New Book of Satyrs'
+              />
+            </Row.Column>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-undead.png'
+                alt='New Book of Undead'
+              />
+            </Row.Column>
+          </Row>
+          <Row>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-toad.png'
+                alt='New Book of Toads'
+              />
+            </Row.Column>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-raven.png'
+                alt='New Book of Ravens'
+              />
+            </Row.Column>
+          </Row>
+          <Row>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-dwarf.png'
+                alt='New Book of Dwarves'
+              />
+            </Row.Column>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-frostling.png'
+                alt='New Book of Frostlings'
+              />
+            </Row.Column>
+          </Row>
+          <Row>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-construct.png'
+                alt='New Book of Constructs'
+              />
+            </Row.Column>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-rodent.png'
+                alt='New Book of Rodents'
+              />
+            </Row.Column>
+          </Row>
+          <Row>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-temple.png'
+                alt='New Book of Temples'
+              />
+            </Row.Column>
+            <Row.Column>
+              <Image
+                src='/assets/images/books/book-knight.png'
+                alt='New Book of Knights'
+              />
+            </Row.Column>
+          </Row>
+        </Only.Mobile>
+      </Page.Embed>
+
+      <Page.Narrow>
         <Title id='black-friday-offers'>Black Friday offers</Title>
 
         <p>
