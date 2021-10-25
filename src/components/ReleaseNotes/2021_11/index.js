@@ -262,9 +262,10 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         <p>
           There will be 8 new books, one per non-neutral race, working in a
           similar fashion to the Book of Felines and Book of Pirates, as well as
-          a Book of Knights and a Book of Temples. They cost{' '}
-          <Rubies amount={40} />, contain 3 cards and have a rarity drop of 50%
-          / 30% / 15% / 5%.
+          a Book of Knights and a Book of Temples (which does contain{' '}
+          <CardLink id='N56' />
+          ). They cost <Rubies amount={40} />, contain 3 cards and have a rarity
+          drop of 50% / 30% / 15% / 5%.
         </p>
       </Page.Narrow>
 
