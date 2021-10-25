@@ -38,10 +38,13 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
             <Link href='#new-cards'>New cards</Link>
           </li>
           <li>
-            <Link href='#new-books'>New books</Link>
+            <Link href='#deck-import-export'>Deck import/export</Link>
           </li>
           <li>
-            <Link href='#deck-import-export'>Deck import/export</Link>
+            <Link href='#favorite-cards'>Favorite cards</Link>
+          </li>
+          <li>
+            <Link href='#new-books'>New books</Link>
           </li>
           <li>
             <Link href='#black-friday-offers'>Black Friday offers</Link>
@@ -70,15 +73,15 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         <Title id='disclaimer'>Disclaimer</Title>
 
         <p>
-          In October, we needed to finish everything that was planned regarding
-          Stormbound’s monetization. That’s why we have tweaked Vanishing packs
-          and in last 2 weeks you could see some great time-limited offers
-          around. Right now we can fully conentrate on delivering features and
-          content you’ve been waiting for a long time.
+          In October, we needed to finish a lot of things that were planned
+          regarding Stormbound’s monetization. That’s why we have tweaked
+          vanishing packs and in last 2 weeks you could see some great
+          time-limited offers around. Right now we can fully conentrate on
+          delivering features and content you’ve been waiting for a long time.
         </p>
 
         <p>
-          This is why you can expect the following to come in the next few
+          Therefore, you can expect the following to come in the next few
           months:
         </p>
         <ul>
@@ -88,11 +91,11 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
             features to make this mode the best around.
           </li>
           <li>
-            <span className='Highlight'>Reworked Campaign mode</span>: It will
+            <span className='Highlight'>Reworked campaign mode</span>: It will
             bring much more enjoyment to your daily gaming sessions.
           </li>
           <li>
-            <span className='Highlight'>Cards level limits on Ranked mode</span>
+            <span className='Highlight'>Cards level limits in ranked mode</span>
             : We are finally ready to get Stormbound to the always desired state
             of progression. Skill will now be more important.
           </li>
@@ -261,6 +264,15 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
       </Page.Embed>
 
       <Page.Narrow>
+        <Title id='favorite-cards'>Favorite cards</Title>
+
+        <p>
+          It will now be possible to mark cards from your collection as
+          “favorite” so they can be brought up quicker with a search. We hope
+          this makes creating new decks faster by being able to mark typical
+          filler cards.
+        </p>
+
         <Title id='new-books'>New books</Title>
 
         <p>
@@ -269,7 +281,8 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           a Book of Knights and a Book of Temples (which does contain{' '}
           <CardLink id='N56' />
           ). They cost <Rubies amount={40} />, contain 3 cards and have a rarity
-          drop of 50% / 30% / 15% / 5%.
+          drop of 50% / 30% / 15% / 5% (except the Book of Temples which has 35%
+          / 30% / 20% / 15%).
         </p>
       </Page.Narrow>
 
@@ -478,9 +491,9 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
 
         <CheapenedBrawl ratio={0.5}>
           <p>
-            Similar to previous events, the Brawl starting on September 16th
-            (and only that one) is going to be cheaper. All fights will be 50%
-            off. Owners of the Premium Pass will also have their usual discount
+            Similar to previous events, the Brawl starting on November 25th (and
+            only that one) is going to be cheaper. All fights will be 50% off.
+            Owners of the Premium Pass will also have their usual discount
             applied, leading to a 60% reduction.
           </p>
         </CheapenedBrawl>
@@ -498,7 +511,8 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
                   usual. The rest of the release will come a week later, on
                   November 8th, along with the first of the new cards. The 3
                   other new cards will be released once per week during the next
-                  3 weeks.
+                  3 weeks. The Black Friday special offers will be available
+                  during the last week of November.
                 </>
               ),
             },
