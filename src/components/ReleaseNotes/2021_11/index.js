@@ -162,8 +162,8 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <p>
             As usual, there will be 4 exclusive packs to collect early copies of
             the new cards. They all cost $9.99 and bring 5 copies of the given
-            card + <Coins amount={750} />. They will be available at the pace of
-            one per week throughout November.
+            card + <Stones amount={5} /> + <Coins amount={750} />. They will be
+            available at the pace of one per week throughout November.
           </p>
         </Spacing>
       </Page.Narrow>
@@ -173,15 +173,17 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row.Column>
             <Image
               extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_bounded_daemons.png'
-              alt='Blizzard Bombs pack: 5 copies of Blizzard Bombs + 750 coins'
+              src='/assets/images/releases/pack-blizzard-bombs.png'
+              alt='Blizzard Bombs pack: 5 copies of Blizzard Bombs + 5 Fusion Stones + 750 coins'
+              withAvif
             />
           </Row.Column>
           <Row.Column>
             <Image
               extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_lost_psyches.png'
-              alt='Function Wilds pack: 5 copies of Function Wilds + 750 coins'
+              src='/assets/images/releases/pack-function-wilds.png'
+              alt='Function Wilds pack: 5 copies of Function Wilds + 5 Fusion Stones + 750 coins'
+              withAvif
             />
           </Row.Column>
         </Row>
@@ -190,15 +192,17 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row.Column>
             <Image
               extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_erratic_neglects.png'
-              alt='Soap Cleanse pack: 5 copies of Soap Cleanse + 750 coins'
+              src='/assets/images/releases/pack-soap-cleanse.png'
+              alt='Soap Cleanse pack: 5 copies of Soap Cleanse + 5 Fusion Stones + 750 coins'
+              withAvif
             />
           </Row.Column>
           <Row.Column>
             <Image
               extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_fragmented_essences.png'
-              alt='Diehards pack: 5 copies of Diehards + 750 coins'
+              src='/assets/images/releases/pack-diehards.png'
+              alt='Diehards pack: 5 copies of Diehards + 5 Fusion Stones + 750 coins'
+              withAvif
             />
           </Row.Column>
         </Row>
