@@ -136,7 +136,7 @@ export const BOOKS = {
   },
   TEMPLE: {
     only: { name: /^Temple/ },
-    percentiles: [0.5, 0.3, 0.15, 0.05],
+    percentiles: [0.35, 0.3, 0.2, 0.15],
     draws: 3,
     cost: { type: 'RUBIES', amount: 40 },
   },
