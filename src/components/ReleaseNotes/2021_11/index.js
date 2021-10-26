@@ -148,16 +148,19 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         <Title id='new-cards'>New cards</Title>
 
         <p>
-          On November 8th, 15th, 22nd and 29th, four new cards will be released,
-          one per faction (the order is not yet confirmed).
+          Throughout November, four new cards will be released, one per faction.
         </p>
       </Page.Narrow>
 
       <Page.Embed>
-        <CardBuilderCardDisplay {...getInitialCardData('I30')} />
-        <CardBuilderCardDisplay {...getInitialCardData('W32')} />
-        <CardBuilderCardDisplay {...getInitialCardData('F30')} />
+        <h3>Released on November 8th</h3>
         <CardBuilderCardDisplay {...getInitialCardData('S30')} />
+        <h3>Released on November 15th</h3>
+        <CardBuilderCardDisplay {...getInitialCardData('I30')} />
+        <h3>Released on November 22nd</h3>
+        <CardBuilderCardDisplay {...getInitialCardData('F30')} />
+        <h3>Released on November 29th</h3>
+        <CardBuilderCardDisplay {...getInitialCardData('W32')} />
       </Page.Embed>
 
       <Page.Narrow>
