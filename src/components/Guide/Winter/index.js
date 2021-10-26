@@ -351,7 +351,7 @@ export default React.memo(function GuideWinter(props) {
       <p>
         Cards such as <CardLink id='W5' />, <CardLink id='W13' />,{' '}
         <CardLink id='W7' />, and <CardLink id='N19' /> can help maintain board
-        presence until you have at least 7 mana, when you ideally play{' '}
+        presence until you have at least 9 mana, when you ideally play{' '}
         <CardLink id='W19' />
         and <CardLink id='W10' /> in an aggressive position.
       </p>
@@ -377,16 +377,16 @@ export default React.memo(function GuideWinter(props) {
 
       <h3 id='gift-of-the-wise'>Gift of the Wise</h3>
       <p>
-        That’s most likely your 8+ mana play at each turn you get it—if you want
+        That’s most likely your 9+ mana play at each turn you get it—if you want
         to swap a card, I’d recommend making sure that you can still play{' '}
         <CardLink id='W19' /> afterwards.
       </p>
       <p>
-        Example: you have 8 mana left and 3 cards, two cards are{' '}
+        Example: you have 9 mana left and 3 cards, two cards are{' '}
         <CardLink id='W19' /> and <CardLink id='W13' />. If you play{' '}
         <CardLink id='W13' /> first, then swap a card, you won’t be able to play
-        <CardLink id='W19' /> anymore (as you’ll have only 6 mana left), and may
-        miss the opportunity to play the card you just got.
+        <CardLink id='W19' /> anymore, and may miss the opportunity to play the
+        card you just got.
       </p>
 
       <h3 id='2-tiles-moving-units'>2-Tiles Moving Units (2-TMU)</h3>

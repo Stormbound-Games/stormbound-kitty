@@ -46,7 +46,7 @@ const CARD_ATTRIBUTES = {
   )}% / 100% chance of staying on the board and a 0% / ${parseInt(
     PROBABILITIES.DAWNSPARKS_HITS * 100
   )}% / 100% chance of giving you mana each turn`,
-  W19: 'Gives you between 10 and 14 mana, depending on its level',
+  W19: 'Gives you between 11 and 15 mana, depending on its level',
   N8: 'Adds a random token card to your deck',
   S3: `Comes back to your hand with a 0% / ${parseInt(
     PROBABILITIES.AHMI_RETURNS * 100

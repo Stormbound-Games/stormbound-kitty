@@ -11,11 +11,11 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 describe('The `getEffectiveManaCost` helper', () => {
   it('should handle Gift of the Wise', () => {
     expect(
-      getEffectiveManaCost(7)(getResolvedCardData({ id: 'W19', level: 1 }))
-    ).toEqual(8)
-    expect(
       getEffectiveManaCost(8)(getResolvedCardData({ id: 'W19', level: 1 }))
-    ).toEqual(-1)
+    ).toEqual(9)
+    expect(
+      getEffectiveManaCost(9)(getResolvedCardData({ id: 'W19', level: 1 }))
+    ).toEqual(-2)
   })
 
   it('should handle Rimelings', () => {
@@ -114,6 +114,6 @@ describe('The `getHandCost` helper', () => {
 
   it('should consider effective mana when computing hand cost', () => {
     const hand = deck.slice(0, 3).concat(deck.slice(-1))
-    expect(getHandCost({ availableMana: 11, hand })).toEqual(1)
+    expect(getHandCost({ availableMana: 11, hand })).toEqual(0)
   })
 })
