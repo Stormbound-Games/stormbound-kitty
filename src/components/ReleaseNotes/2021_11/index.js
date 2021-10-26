@@ -139,7 +139,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           </li>
           <li>
             <CardLink id='W22' />
-            ’s ability now only triggers against units.
+            ’s ability no longer triggers against the base.
           </li>
         </ul>
 

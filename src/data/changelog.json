@@ -80,7 +80,7 @@
   },
   {
     "date": "01/11/2021",
-    "description": "Ability made to only trigger against units",
+    "description": "Ability made to no longer trigger against the base",
     "id": "W22",
     "type": "NERF",
     "from": {
