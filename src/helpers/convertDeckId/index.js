@@ -26,8 +26,8 @@ export const convertToSkId = blob => {
 export const convertToSbId = deck => {
   const factions = ['neutral', 'swarm', 'winter', 'ironclad', 'shadowfen']
   const cards = deck.map(card => getRawCardData(card.id))
-  const faction =
-    cards.find(card => card.faction !== 'neutral')?.faction ?? 'neutral'
+  const nonNeutralCard = cards.find(card => card.faction !== 'neutral')
+  const faction = nonNeutralCard ? nonNeutralCard.faction : 'neutral'
   const identifier = factions.indexOf(faction) || 1
 
   return base64Encode(identifier + cards.map(card => card.sid).join(''))
