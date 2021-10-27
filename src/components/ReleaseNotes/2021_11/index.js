@@ -41,9 +41,6 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
             <Link href='#deck-import-export'>Deck import/export</Link>
           </li>
           <li>
-            <Link href='#favorite-cards'>Favorite cards</Link>
-          </li>
-          <li>
             <Link href='#new-books'>New books</Link>
           </li>
           <li>
@@ -267,15 +264,6 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
       </Page.Embed>
 
       <Page.Narrow>
-        <Title id='favorite-cards'>Favorite cards</Title>
-
-        <p>
-          It will now be possible to mark cards from your collection as
-          “favorite” so they can be brought up quicker with a search. We hope
-          this makes creating new decks faster by being able to mark typical
-          filler cards.
-        </p>
-
         <Title id='new-books'>New books</Title>
 
         <p>
