@@ -10,6 +10,8 @@ import Books from '~/components/Icons/Books'
 import Bubbles from '~/components/Icons/Bubbles'
 import Bullhorn from '~/components/Icons/Bullhorn'
 import Cat from '~/components/Icons/Cat'
+import Checkmark from '~/components/Icons/Checkmark'
+import Copy from '~/components/Icons/Copy'
 import Compass from '~/components/Icons/Compass'
 import Cross from '~/components/Icons/Cross'
 import Crown from '~/components/Icons/Crown'
@@ -58,6 +60,8 @@ const MAP = {
   bubbles: Bubbles,
   bullhorn: Bullhorn,
   cat: Cat,
+  checkmark: Checkmark,
+  copy: Copy,
   compass: Compass,
   cross: Cross,
   crown: Crown,

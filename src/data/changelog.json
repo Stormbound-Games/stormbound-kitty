@@ -1,5 +1,93 @@
 [
   {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "F30",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "W32",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "S30",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Added to the game",
+    "id": "I30",
+    "type": "INFO"
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Strength increased by 1",
+    "id": "N87",
+    "type": "BUFF",
+    "from": {
+      "strength": "1/2/2/3/4"
+    }
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Strength increased by 1",
+    "id": "N88",
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/4/5/6"
+    }
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Strength decreased by 1",
+    "id": "N90",
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Ability decreased by 1",
+    "id": "F12",
+    "type": "NERF",
+    "from": {
+      "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 3/4/5/6/7* strength"
+    }
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Ability strength decreased by 1",
+    "id": "N59",
+    "type": "NERF",
+    "from": {
+      "ability": "On play, *spawn 3/4/5/6/7* strength Knights in front of all surrounding enemy units"
+    }
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Mana cost increased by 1",
+    "id": "W19",
+    "type": "NERF",
+    "from": {
+      "mana": 8,
+      "ability": "Gain *10/11/12/13/14 mana*"
+    }
+  },
+  {
+    "date": "01/11/2021",
+    "description": "Ability made to no longer trigger against the base",
+    "id": "W22",
+    "type": "NERF",
+    "from": {
+      "ability": "Before attacking, *gain 3/4/5/6/7* strength"
+    }
+  },
+  {
     "date": "01/10/2021",
     "description": "Added to the game",
     "id": "N90",

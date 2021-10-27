@@ -14,6 +14,7 @@ import ImportCollection from '~/components/ImportCollection'
 import Info from '~/components/Info'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Link from '~/components/Link'
+import LoadDeck from '~/components/LoadDeck'
 import Only from '~/components/Only'
 import RandomDeckButton from '~/components/RandomDeckButton'
 import ResetButton from '~/components/ResetButton'
@@ -238,11 +239,14 @@ export default React.memo(function DeckEditorView(props) {
                 setCardTooltips={setCardTooltips}
               />
               <Spacing top={['BASE', 'NONE']} bottom='LARGE'>
-                <DeckActions reset={props.reset} />
+                <DeckActions deck={deck} reset={props.reset} />
               </Spacing>
             </>
           ) : (
-            <HelpInfo defineDeck={props.defineDeck} />
+            <>
+              <LoadInfo defineDeck={props.defineDeck} />
+              <HelpInfo defineDeck={props.defineDeck} />
+            </>
           )}
 
           <Only.Desktop>
@@ -347,7 +351,7 @@ const DeckActions = React.memo(function DeckActions(props) {
         />
       </Row.Column>
       <Row.Column>
-        <ShareButton />
+        <ShareButton deck={props.deck} />
       </Row.Column>
     </Row>
   )
@@ -405,6 +409,22 @@ const CardLevelsCheckbox = React.memo(function CardLevelsCheckbox(props) {
     >
       Adjust card levels to collection
     </Checkbox>
+  )
+})
+
+const LoadInfo = React.memo(function LoadInfo(props) {
+  return (
+    <Info
+      icon='stack'
+      title='Load deck from game'
+      CTA={<LoadDeck defineDeck={props.defineDeck} />}
+    >
+      <p>
+        If you export a deck via the game, you can load it directly onto the
+        site to tweak and experiment with it. Click the “Load deck” button below
+        to get started.
+      </p>
+    </Info>
   )
 })
 

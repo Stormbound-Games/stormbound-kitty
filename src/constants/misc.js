@@ -1,6 +1,7 @@
 export const UNVALUED_CARDS = [
   'I2',
   'I29',
+  'I30',
   'N38',
   'N48',
   'N77',
@@ -11,12 +12,15 @@ export const UNVALUED_CARDS = [
   'S20',
   'S27',
   'S29',
+  'S30',
   'W11',
   'W19',
   'W24',
   'W29',
   'W30',
+  'W32',
   'W8',
   'W9',
   'F29',
+  'F30',
 ]
