@@ -515,7 +515,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
             Execution, Gifted Recruits, Green Prototypes, Personal Servers,
             Doppelbocks, Felflares, Dreadfauns, Bladestorm, Summon Militia,
             Chillbeards, Veterans of War, Icicle Burst, Crimson Sentry, Twilight
-            Prowlers, Frosthexers, Copperskin Rangers, The Heart and
+            Prowlers, Frosthexers, Copperskin Rangers, The Hearth and
             Confinement.
             <Link href='#most-played-cards' aria-label='Back to content'>
               ↩
