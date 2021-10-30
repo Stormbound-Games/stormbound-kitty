@@ -999,16 +999,6 @@
     "date": "07/2021"
   },
   {
-    "name": "Powderpuff Girl",
-    "id": "5xn1i1i2n3n67i7i8n18i20n69i19n45",
-    "author": "ArthisRoo",
-    "tags": [
-      "HIGH_LEVELS",
-      "CONTROL"
-    ],
-    "date": "07/2021"
-  },
-  {
     "name": "Chronobreak",
     "id": "5xn1n3n6n67f7f29n18f14n82f19f21n45",
     "author": "ArthisRoo",
@@ -1287,6 +1277,16 @@
       "BRAWL",
       "WARRIOR",
       "PIRATE_MOVEMENT"
+    ],
+    "date": "10/2021"
+  },
+  {
+    "name": "Powderpuff Girl",
+    "id": "5xn1i1i2n67i7n23n18i20n38i19n45n68",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "10/2021"
   }
