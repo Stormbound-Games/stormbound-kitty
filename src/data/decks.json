@@ -1036,6 +1036,7 @@
       "HIGH_LEVELS",
       "RUSH"
     ],
+    "nerfed": "11/2021",
     "date": "09/2021"
   },
   {
@@ -1136,6 +1137,7 @@
       "HIGH_LEVELS",
       "CONTROL"
     ],
+    "nerfed": "11/2021",
     "date": "09/2021"
   },
   {
@@ -1156,6 +1158,7 @@
       "HIGH_LEVELS",
       "CONTROL"
     ],
+    "nerfed": "11/2021",
     "date": "09/2021"
   },
   {
@@ -1283,6 +1286,16 @@
   {
     "name": "Powderpuff Girl",
     "id": "5xn1i1i2n67i7n23n18i20n38i19n45n68",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
+    ],
+    "date": "10/2021"
+  },
+  {
+    "name": "Sim City",
+    "id": "5xn1i1i2n3i3n23i8i10i27i20i19n34",
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
