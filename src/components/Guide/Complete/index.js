@@ -554,8 +554,8 @@ export default React.memo(function GuideComplete(props) {
           + Good Constructs synergies (<CardLink id='I8' /> is insane).
         </li>
         <li>
-          + Possibility to do chip damage (with <CardLink id='I15' /> and
-          <CardLink id='N37' />
+          + Possibility to do chip damage (with <CardLink id='I15' /> and{' '}
+          <CardLink id='I28' />
           ).
         </li>
         <li>+ Good at all levels of play.</li>
