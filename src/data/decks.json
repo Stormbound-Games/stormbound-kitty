@@ -999,16 +999,6 @@
     "date": "07/2021"
   },
   {
-    "name": "Powderpuff Girl",
-    "id": "5xn1i1i2n3n67i7i8n18i20n69i19n45",
-    "author": "ArthisRoo",
-    "tags": [
-      "HIGH_LEVELS",
-      "CONTROL"
-    ],
-    "date": "07/2021"
-  },
-  {
     "name": "Chronobreak",
     "id": "5xn1n3n6n67f7f29n18f14n82f19f21n45",
     "author": "ArthisRoo",
@@ -1046,6 +1036,7 @@
       "HIGH_LEVELS",
       "RUSH"
     ],
+    "nerfed": "11/2021",
     "date": "09/2021"
   },
   {
@@ -1146,6 +1137,7 @@
       "HIGH_LEVELS",
       "CONTROL"
     ],
+    "nerfed": "11/2021",
     "date": "09/2021"
   },
   {
@@ -1166,6 +1158,7 @@
       "HIGH_LEVELS",
       "CONTROL"
     ],
+    "nerfed": "11/2021",
     "date": "09/2021"
   },
   {
@@ -1287,6 +1280,36 @@
       "BRAWL",
       "WARRIOR",
       "PIRATE_MOVEMENT"
+    ],
+    "date": "10/2021"
+  },
+  {
+    "name": "Powderpuff Girl",
+    "id": "5xn1i1i2n67i7n23n18i20n38i19n45n68",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
+    ],
+    "date": "10/2021"
+  },
+  {
+    "name": "Sim City",
+    "id": "5xn1i1i2n3i3n23i8i10i27i20i19n34",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
+    ],
+    "date": "10/2021"
+  },
+  {
+    "name": "Rat Race",
+    "id": "5xn1n2i1n3i4n12i7n63n16n59i20i12",
+    "author": "Drovark",
+    "tags": [
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "10/2021"
   }
