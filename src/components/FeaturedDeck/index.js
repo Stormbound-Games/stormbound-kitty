@@ -14,6 +14,8 @@ import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
 import getRawCardData from '~/helpers/getRawCardData'
 import resolveCollection from '~/helpers/resolveCollection'
 import modifyDeck from '~/helpers/modifyDeck'
+import parseDate from '~/helpers/parseDate'
+import { formatDate } from '~/helpers/formatDate'
 import useSpacing from '~/hooks/useSpacing'
 import styles from './styles'
 
@@ -52,6 +54,20 @@ const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
   return { deck, id: serialization.deck.serialize(deck), distance }
 }
 
+const Author = React.memo(function Author(props) {
+  const { author, noLink } = props
+
+  if (!author) return null
+  if (noLink) return ' by' + author
+
+  return (
+    <>
+      {' '}
+      by <Link to={`/members/${author.toLowerCase()}`}>{author}</Link>
+    </>
+  )
+})
+
 export default React.memo(function FeaturedDeck(props) {
   const { css } = useFela()
   const { id, deck, distance } = useAdjustedDeck(props)
@@ -78,6 +94,7 @@ export default React.memo(function FeaturedDeck(props) {
             <Link to={`/deck/${id}/detail`} data-testid='featured-deck-name'>
               {props.name}
             </Link>
+            <Author author={props.author} noLink={props.noAuthorLink} />
             {props.nerfed ? (
               <TooltipedIcon
                 label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
@@ -106,16 +123,12 @@ export default React.memo(function FeaturedDeck(props) {
             ) : null}
           </span>
           <span className={css(styles.author)}>
-            {props.author && (
+            {props.date && (
               <>
-                By{' '}
-                {!props.noAuthorLink ? (
-                  <Link to={`/members/${props.author.toLowerCase()}`}>
-                    {props.author}
-                  </Link>
-                ) : (
-                  props.author
-                )}{' '}
+                In{' '}
+                <span className='Highlight'>
+                  {formatDate(parseDate(props.date))}
+                </span>{' '}
                 as
               </>
             )}
