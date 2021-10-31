@@ -33,6 +33,18 @@ const Panel = React.memo(function Panel(props) {
   )
 })
 
+// Custom hook to avoid the wrapped `useEffect` hook from firing on initial
+// render.
+function useDidUpdateEffect(callback, dependencies) {
+  const didMountRef = React.useRef(false)
+
+  React.useEffect(() => {
+    if (didMountRef.current) return callback()
+    else didMountRef.current = true
+    // eslint-disable-next-line
+  }, dependencies)
+}
+
 const Tabs = React.memo(function Tabs(props) {
   const { css } = useFela()
   const extend = props.extend || {}
@@ -56,7 +68,10 @@ const Tabs = React.memo(function Tabs(props) {
     [active, props.tabs]
   )
 
-  React.useEffect(() => {
+  // Custom hook instead of regular `useEffect` to avoid the function from
+  // running on initial render as this causes the page to be scrolled to the
+  // active tab, which is not desired.
+  useDidUpdateEffect(() => {
     const index = props.tabs.findIndex(tab => tab.id === active)
     document.querySelector('#' + props.tabs[index].id).focus()
   }, [active, props.tabs])
