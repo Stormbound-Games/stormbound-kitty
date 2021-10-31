@@ -7,6 +7,8 @@ import Notice from '~/components/Notice'
 import Only from '~/components/Only'
 import Spacing from '~/components/Spacing'
 import getExcerpt from '~/helpers/getExcerpt'
+import parseDate from '~/helpers/parseDate'
+import { formatDate } from '~/helpers/formatDate'
 import { CATEGORIES } from '~/constants/guides'
 import styles from './styles'
 
@@ -15,6 +17,8 @@ export const GuideRenderingContext = React.createContext({
 })
 
 const Guide = React.memo(function Guide(props) {
+  const date = parseDate(props.date)
+
   return (
     <>
       <Page
@@ -22,7 +26,7 @@ const Guide = React.memo(function Guide(props) {
         description={getExcerpt(props.excerpt, 160)}
         image={props.background}
         authors={props.authors}
-        meta={CATEGORIES[props.category].name.short}
+        meta={formatDate(date) + ' · ' + CATEGORIES[props.category].name.short}
         background={props.background}
         action={{
           to: '/guides/' + CATEGORIES[props.category].slug,
