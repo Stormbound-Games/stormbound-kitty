@@ -28,7 +28,10 @@ export default React.memo(function GuideTrivia(props) {
           <Link href='#animated-ui-elements'>Animated UI elements</Link>
         </li>
         <li>
-          <Link href='#gravity-acceleration'>Gravity acceleration</Link>
+          <Link href='#quests'>Quests</Link>
+        </li>
+        <li>
+          <Link href='#gravity-acceleration'>Gravitational acceleration</Link>
         </li>
       </TableOfContents>
 
@@ -219,7 +222,55 @@ export default React.memo(function GuideTrivia(props) {
         clicked/tapped to show a little animation.
       </p>
 
-      <Title id='gravity-acceleration'>Gravity acceleration</Title>
+      <Title id='quests'>Quests</Title>
+
+      <p>
+        Many of the quests in the game are simple and easy to understand what
+        the player needs to do to complete them. However, there are some
+        interesting cases when completing any quest that requires you to{' '}
+        <em>spawn token units</em>.
+      </p>
+
+      <p>
+        Usually, spawning tokens involve token units. There are token units for
+        every single race in the game. But what happens when you are spawning
+        structures or even copies of non-vanilla cards?{' '}
+        <Link to='/members/pepegak'>Pepegak</Link> discovered these notable
+        scenarios:
+      </p>
+
+      <ul>
+        <li>
+          <CardLink id='I22' /> respawning at your base counts as spawning a
+          token.
+        </li>
+        <li>
+          <CardLink id='I29' /> being triggered by <CardLink id='I2' /> and
+          spawning on the board counts as spawning a token.
+        </li>
+        <li>
+          <CardLink id='W29' /> spawning a copy of itself counts as spawning a
+          token.
+        </li>
+        <li>
+          <CardLink id='W13' /> spawning a <CardLink id='N13' /> counts as
+          spawning a token.
+        </li>
+        <li>
+          <CardLink id='I24' /> spawning a <CardLink id='I14' /> counts as
+          spawning a token.
+        </li>
+        <li>
+          <CardLink id='N90' /> splitting up into multiple copies of itself does{' '}
+          <em>not</em> count as spawning a token.
+        </li>
+        <li>
+          <CardLink id='F29' /> restoring a missing unit or structure does{' '}
+          <em>not</em> count as spawning a token.
+        </li>
+      </ul>
+
+      <Title id='gravity-acceleration'>Gravitational acceleration</Title>
 
       <p>
         <Link to='/members/arthisroo'>ArthisRoo</Link> and{' '}
