@@ -444,8 +444,8 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         <p>
           Like most holiday events, there will be some one-time only special
           offers for people willing to put some money into the game. The Black
-          Friday exclusive packs will be available from November 24th (9AM CET)
-          until November 30th (end of day) so be sure to jump on them!
+          Friday exclusive packs will be available from November 22nd (9AM CET)
+          until November 28th (end of day) so be sure to jump on them!
         </p>
 
         <ul>
