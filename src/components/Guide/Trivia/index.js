@@ -225,10 +225,9 @@ export default React.memo(function GuideTrivia(props) {
       <Title id='quests'>Quests</Title>
 
       <p>
-        Many of the quests in the game are simple and easy to understand what
-        the player needs to do to complete them. However, there are some
-        interesting cases when completing any quest that requires you to{' '}
-        <em>spawn token units</em>.
+        Many of the quests in the game are simple and easy to understand. However,
+        there are some interesting cases when completing any quest that requires you
+        to <em>spawn token units</em>.
       </p>
 
       <p>
