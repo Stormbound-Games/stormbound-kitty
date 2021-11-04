@@ -62,7 +62,7 @@ export default React.memo(function FanKitCards(props) {
         name={activeCard.name}
         image={
           activeCard.image
-            ? '/assets/images/cards/full/' + activeCard.image
+            ? '/assets/images/cards/' + activeCard.image
             : undefined
         }
         dialogRef={instance => {
