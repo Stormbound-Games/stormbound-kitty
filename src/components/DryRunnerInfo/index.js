@@ -4,7 +4,7 @@ import DryRunnerSettings from '~/components/DryRunnerSettings'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 
-const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11', 'W32']
 
 const containsFreeze = deck =>
   deck.map(card => card.id).some(id => FREEZE_CARD_IDS.includes(id))
