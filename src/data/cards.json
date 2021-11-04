@@ -2546,7 +2546,7 @@
     "mana": 4,
     "strength": "2/3/4/5/6",
     "movement": 0,
-    "ability": "When dying from an *ability or spell*, *respawn* on this tile with *4/6/8/10/12 strength*"
+    "ability": "When dying from an *ability or spell*, *respawn* on a random surrounding tile with *4/6/8/10/12 strength*"
   },
   {
     "name": "Icicle Burst",
