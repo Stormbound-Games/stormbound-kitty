@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Page from '~/components/Page'
 import Card from '~/components/Card'
 import CTA from '~/components/CTA'
+import Icon from '~/components/Icon'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Notice from '~/components/Notice'
@@ -204,6 +205,12 @@ export default React.memo(function BookOpeningSimulator(props) {
             This is a small book opening simulator. It has no purpose other than
             enjoying the thrill of opening a new book. Pick the type of book you
             want to open, click the “Open” button below and see what you found!
+          </p>
+          <p>
+            <Icon icon='warning' /> <strong>Disclaimer:</strong> Please take the
+            outcome of this simulator with a grain of salt. This is a best guess
+            and not necessarily representative of actual in-game mechanics,
+            especially in regard to fusion stones.
           </p>
           <form onSubmit={open}>
             <Spacing bottom='LARGE'>
