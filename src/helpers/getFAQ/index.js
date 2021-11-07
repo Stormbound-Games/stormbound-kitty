@@ -180,6 +180,7 @@ const getFAQ = () => [
       },
     ],
   },
+
   {
     id: 'deck-builder',
     title: 'Deck Builder',
@@ -219,19 +220,7 @@ const getFAQ = () => [
           </>
         ),
       },
-      {
-        id: 'cross-faction-decks',
-        question:
-          'Why is it possible to create cross-faction decks since it’s not allowed in the game?',
-        answer: (
-          <>
-            The point of these tools is not exclusively to reproduce the game
-            experience, but to allow players to experiment with ideas and
-            concepts and take part in the game’s community. Cross-faction decks
-            can be fun to imagine.
-          </>
-        ),
-      },
+
       {
         id: 'random-deck',
         question: 'How are random decks generated?',
