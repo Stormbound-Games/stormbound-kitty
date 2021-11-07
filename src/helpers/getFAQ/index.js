@@ -186,6 +186,33 @@ const getFAQ = () => [
     title: 'Deck Builder',
     entries: [
       {
+        id: 'game-deck-id',
+        question: 'Are the deck IDs the same on the site and in the game?',
+        answer: (
+          <>
+            <p>
+              They are not, as the site had deck IDs as far back as March 2019,
+              while the game didn’t offer that feature until November 2021. They
+              are also not directly compatible since the card IDs they rely on
+              are different between the site and the game. For instance,{' '}
+              <CardLink id='N1' />’ ID is <code>N1</code> on the site, but{' '}
+              <code>u007</code> in Stormbound. Additionally, Stormbound’s deck
+              IDs do not include card levels, because they are always inferred
+              by the player’s collection, which is not the case for decks on the
+              site.
+            </p>
+            <p>
+              That being said, the <Link to='/deck'>deck builder</Link> provides
+              a way to import a deck ID <strong>from</strong> the game, and its
+              share feature also provides the deck ID <strong>for</strong> the
+              game, so it can be pasted into Stormbound. This way, you can
+              import your decks from the game to analyse and perfect them onto
+              the site, then back into the game once you’re happy with them.
+            </p>
+          </>
+        ),
+      },
+      {
         id: 'adding-a-deck',
         question: 'Can I add my own deck to the suggested ones on the site?',
         answer: (
