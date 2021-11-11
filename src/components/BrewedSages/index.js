@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
+import Notice from '~/components/Notice'
 import Page from '~/components/Page'
 import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
@@ -58,6 +59,26 @@ export default React.memo(function BrewedSages(props) {
             </Sparkles>
           </div>
         </Spacing>
+
+        <Notice icon='quill'>
+          Be sure to check their{' '}
+          <Link
+            href='https://rb.gy/mnvj5n'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            meta report spreadsheet
+          </Link>{' '}
+          and follow{' '}
+          <Link
+            href='https://twitter.com/BrewedSages'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            @BrewedSages on Twitter
+          </Link>{' '}
+          to avoid missing any new episode!
+        </Notice>
       </Page.Narrow>
 
       <Spacing vertical='LARGER'>
