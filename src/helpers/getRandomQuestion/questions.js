@@ -765,8 +765,8 @@ const questions = [
 
   {
     question: 'What is the maximum amount of damage a level 5 Ubass can deal?',
-    answer: 30,
-    options: [15, 18, 21, 24, 27, 33, 36, 39, 42],
+    answer: 24,
+    options: [15, 18, 21, 30, 27, 33, 36, 39, 42],
   },
 
   {
