@@ -194,6 +194,17 @@ export default React.memo(function GuideTrivia(props) {
           <CardLink id='W23' />: He uses his mighty twin hammers for everything:
           to win battles, craft armor, repair buildings and as a cushion.
         </li>
+        <li>
+          <CardLink id='W29' />: Winter always seeks to preserve the reality it
+          encounters, forgetting that being stuck in the same moment in time is
+          no differen than death. This temple reminds us that the only constant
+          in life is growing transformation.
+        </li>
+        <li>
+          <CardLink id='N81' />: Build to amplify resonance with the unifying
+          field of the universe. Anyone who shares the experience of its power
+          knows the true meaning of being one.
+        </li>
       </ul>
 
       <p>
@@ -225,9 +236,9 @@ export default React.memo(function GuideTrivia(props) {
       <Title id='quests'>Quests</Title>
 
       <p>
-        Many of the quests in the game are simple and easy to understand. However,
-        there are some interesting cases when completing any quest that requires you
-        to <em>spawn token units</em>.
+        Many of the quests in the game are simple and easy to understand.
+        However, there are some interesting cases when completing any quest that
+        requires you to <em>spawn token units</em>.
       </p>
 
       <p>
