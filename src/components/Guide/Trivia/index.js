@@ -122,8 +122,8 @@ export default React.memo(function GuideTrivia(props) {
       <Title id='loading-texts'>Loading texts</Title>
 
       <p>
-        Most of the legendary cards in the game have some trivia texts that are
-        displayed during loading time when queuing for a game.
+        Some cards from the game—most of which are legendary—have some trivia
+        texts that are displayed during loading time when queuing for a game.
       </p>
 
       <ul>
@@ -146,6 +146,11 @@ export default React.memo(function GuideTrivia(props) {
         <li>
           <CardLink id='N58' />: Though she can seduce anyone with her harp, she
           is still searching for true love.
+        </li>
+        <li>
+          <CardLink id='N81' />: Build to amplify resonance with the unifying
+          field of the universe. Anyone who shares the experience of its power
+          knows the true meaning of being one.
         </li>
         <li>
           <CardLink id='I2' />: Her full title is Doctor of Science, Arts,
@@ -199,11 +204,6 @@ export default React.memo(function GuideTrivia(props) {
           encounters, forgetting that being stuck in the same moment in time is
           no differen than death. This temple reminds us that the only constant
           in life is growing transformation.
-        </li>
-        <li>
-          <CardLink id='N81' />: Build to amplify resonance with the unifying
-          field of the universe. Anyone who shares the experience of its power
-          knows the true meaning of being one.
         </li>
       </ul>
 
