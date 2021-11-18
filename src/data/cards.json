@@ -1057,7 +1057,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After surviving damage, *gain 1/1/2/2/3* strength for each stronger enemy unit on the board",
+    "ability": "After surviving damage, *gain 2/2/3/3/4* strength for each stronger enemy unit on the board",
     "elder": true
   },
   {

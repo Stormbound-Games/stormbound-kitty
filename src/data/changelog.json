@@ -1,6 +1,15 @@
 [
   {
     "date": "01/12/2021",
+    "description": "Ability increased by 1",
+    "id": "N75",
+    "type": "BUFF",
+    "from": {
+      "ability": "After surviving damage, *gain 1/1/2/2/3* strength for each stronger enemy unit on the board"
+    }
+  },
+  {
+    "date": "01/12/2021",
     "description": "Strength increased by 1",
     "id": "N17",
     "type": "BUFF",
