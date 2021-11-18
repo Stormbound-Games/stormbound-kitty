@@ -151,8 +151,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue('N17', 5)
     expect(value1[0]).toEqual(((3 - 8 * 1) / 3) * 0.5)
     expect(value1[1]).toEqual(((3 + 8 * 1) / 3) * 0.5)
-    expect(value5[0]).toEqual(((6 - 8 * 3) / 3) * 0.5)
-    expect(value5[1]).toEqual(((6 + 8 * 3) / 3) * 0.5)
+    expect(value5[0]).toEqual(((7 - 8 * 3) / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 8 * 3) / 3) * 0.5)
   })
 
   it('should return value for Beasts of Terror', () => {
@@ -422,10 +422,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Victors of the Melee', () => {
     const value1 = getCardValue('N47', 1)
     const value5 = getCardValue('N47', 5)
-    expect(value1[0]).toEqual((3 / 6) * 1)
-    expect(value1[1]).toEqual(((3 + 2 * 8) / 6) * 1)
-    expect(value5[0]).toEqual((7 / 6) * 1)
-    expect(value5[1]).toEqual(((7 + 4 * 8) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 6) * 1)
+    expect(value1[1]).toEqual(((4 + 2 * 8) / 6) * 1)
+    expect(value5[0]).toEqual((8 / 6) * 1)
+    expect(value5[1]).toEqual(((8 + 4 * 8) / 6) * 1)
   })
 
   it.skip('should return value for Archdruid Earyn', () => {
@@ -675,9 +675,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N75', 1)
     const value5 = getCardValue('N75', 5)
     expect(value1[0]).toEqual((3 / 4) * 1)
-    expect(value1[1]).toEqual(((3 + MAX_TILES * 1) / 4) * 1)
+    expect(value1[1]).toEqual(((3 + MAX_TILES * 2) / 4) * 1)
     expect(value5[0]).toEqual((6 / 4) * 1)
-    expect(value5[1]).toEqual(((6 + MAX_TILES * 3) / 4) * 1)
+    expect(value5[1]).toEqual(((6 + MAX_TILES * 4) / 4) * 1)
   })
 
   it('should return value for Prime Oracle Bragda', () => {
@@ -974,9 +974,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('I27', 1)
     const value5 = getCardValue('I27', 5)
     expect(value1[0]).toEqual((4 / 4) * 1)
-    expect(value1[1]).toEqual(((4 + 2) / 4) * 1)
+    expect(value1[1]).toEqual(((4 + 1) / 4) * 1)
     expect(value5[0]).toEqual((8 / 4) * 1)
-    expect(value5[1]).toEqual(((8 + 6) / 4) * 1)
+    expect(value5[1]).toEqual(((8 + 5) / 4) * 1)
   })
 
   it('should return value for Booming Professors', () => {
@@ -1054,8 +1054,8 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Rain of Frogs', () => {
     const value1 = getCardValue('F8', 1)
     const value5 = getCardValue('F8', 5)
-    expect(value1[0]).toEqual((4 * 1) / 3)
-    expect(value1[1]).toEqual((4 * 1) / 3)
+    expect(value1[0]).toEqual((3 * 1) / 2)
+    expect(value1[1]).toEqual((4 * 1) / 2)
     expect(value5[0]).toEqual((6 * 1) / 2)
     expect(value5[1]).toEqual((6 * 1) / 2)
   })

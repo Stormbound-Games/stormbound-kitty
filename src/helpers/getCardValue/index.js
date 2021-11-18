@@ -241,8 +241,10 @@ const getCardValue = (id, level = 1) => {
       return [(value * 1) / mana, (value * 2) / mana]
     }
     case 'F8': /* Rain of Frogs */ {
-      const [value, toads] = ability.match(/(\d)/g).map(Number)
-      return [(toads * value) / mana, (toads * value) / mana]
+      const [value, toadMin, toadMax = toadMin] = ability
+        .match(/(\d)/g)
+        .map(Number)
+      return [(toadMin * value) / mana, (toadMax * value) / mana]
     }
     case 'F1': /* Brood Sages */ {
       return [
