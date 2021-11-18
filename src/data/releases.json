@@ -1,5 +1,18 @@
 [
   {
+    "cardId": "N91",
+    "title": "Update 12-2021",
+    "name": "December Update",
+    "meta": "December 1st, 2021",
+    "date": "12/2021",
+    "excerpt": "December is already there, and with it new Stormbound release with a new card, balance tweaks and a lot of exclusive offers and bonuses!",
+    "slug": "12-2021",
+    "background": "/assets/images/banners/christmas.jpg",
+    "id": "2021_12",
+    "ratio": "50%",
+    "withAvif": true
+  },
+  {
     "cardId": "I30",
     "title": "Update 11-2021",
     "name": "November Update",
