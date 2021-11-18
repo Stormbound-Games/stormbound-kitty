@@ -1,6 +1,12 @@
 [
   {
     "date": "01/12/2021",
+    "description": "Added to the game",
+    "id": "N91",
+    "type": "INFO"
+  },
+  {
+    "date": "01/12/2021",
     "description": "Strength increased by 1",
     "id": "N47",
     "type": "BUFF",
