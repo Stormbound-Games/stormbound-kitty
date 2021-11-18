@@ -1,6 +1,15 @@
 [
   {
     "date": "01/12/2021",
+    "description": "Strength increased by 1",
+    "id": "N17",
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
+  },
+  {
+    "date": "01/12/2021",
     "description": "Ability decreased by 1",
     "id": "I27",
     "type": "NERF",

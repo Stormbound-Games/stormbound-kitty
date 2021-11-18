@@ -234,7 +234,7 @@
     "rarity": "rare",
     "image": "wetland_deceivers.png",
     "mana": 3,
-    "strength": "3/4/4/5/6",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play, *destroy* all surrounding units with *1/1/2/2/3 /or/or/or/or /less/less/less/less strength*"
   },
