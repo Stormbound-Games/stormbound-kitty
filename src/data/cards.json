@@ -1274,6 +1274,20 @@
     "ability": "Before moving, *split* its strength equally into a unit on both sides. Cannot split again for this movement."
   },
   {
+    "name": "Minion Launchers",
+    "id": "N91",
+    "sid": "",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "rodent",
+    "rarity": "common",
+    "image": "minion_launchers.png",
+    "mana": 4,
+    "strength": "4/5/6/7/8",
+    "movement": 0,
+    "ability": "On play, *deal 1/2/2/3/3* damage to a random friendly non-legendary unit on the side, then deal the same damage to the first enemy in front"
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "sid": "u306",
