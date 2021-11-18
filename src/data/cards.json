@@ -656,7 +656,7 @@
     "rarity": "rare",
     "image": "victors_of_the_melee.png",
     "mana": 6,
-    "strength": "3/4/4/6/7",
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "When attacking, deal *2/2/3/3/4 damage* to all surrounding enemy units and structures"
   },
