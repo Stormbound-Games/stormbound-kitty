@@ -15,8 +15,15 @@ export default React.memo(function Members(props) {
   const members = props.members
     .filter(({ types }) => type === '*' || types.includes(type))
     .sort((a, b) => {
-      if (sort === 'CONTRIBUTIONS') return b.count - a.count
       if (sort === 'ALPHABETICALLY') return a.member - b.member
+      if (sort === 'CONTRIBUTIONS') {
+        const isFromType = t => t === type
+        const allTypes = type === '*'
+        const aCount = allTypes ? a.count : a.types.filter(isFromType).length
+        const bCount = allTypes ? b.count : b.types.filter(isFromType).length
+
+        return bCount - aCount
+      }
       return 0
     })
 
