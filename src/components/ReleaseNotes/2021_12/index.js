@@ -248,11 +248,44 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           </li>
           <li>
             <span className='Highlight'>Sapphire Bundle</span> ($6.99): 1 book
-            of choice + <Rubies amount={25} />. This one pack can be bought as
+            of Temples + <Stones amount={25} />. This one pack can be bought as
             many times as desired!
           </li>
         </ul>
+      </Page.Narrow>
 
+      <Page.Embed>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/christmas_pack_1.png'
+              alt='Christmas Tree Pack ($9.99): 3 Mythic Tomes + 2 Heroic Tomes + 1 Classic Tome + 500 coins'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/christmas_pack_2.png'
+              alt='Helpful Elf pack ($19.99): 20 rare cards + 15 epic cards + 10 legendary cards'
+            />
+          </Row.Column>
+        </Row>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/christmas_pack_3.png'
+              alt='Santa Edrik pack ($49.99): 6,500 coins + 650 rubies'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/christmas_pack_4.png'
+              alt='Sapphire Bundle pack ($6.99): 1 Book of Temples + 25 Fusion Stones'
+            />
+          </Row.Column>
+        </Row>
+      </Page.Embed>
+
+      <Page.Narrow>
         <p>
           On top of that, <span className='Highlight'>all books</span>{' '}
           (including Noble, but not the Humble book) will yield an extra card
