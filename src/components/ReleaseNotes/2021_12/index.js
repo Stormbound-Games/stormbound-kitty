@@ -6,7 +6,6 @@ import Image from '~/components/Image'
 import FAQSection from '~/components/FAQSection'
 import Link from '~/components/Link'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import Only from '~/components/Only'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
 import Row from '~/components/Row'
@@ -169,6 +168,23 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           <Stones amount={6} />, so players can decide themselves if they want
           to level up another common card right away or keep them for later.
         </p>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/updated-tutorial-1.jpg'
+              alt='Updated tutorial displaying an explanation about the yellow halo around a card which can be upgraded'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/updated-tutorial-2.jpg'
+              alt='Screenshot of the dialog offering 6 Fusion Stones after completing the new updated tutorial'
+              withAvif
+            />
+          </Row.Column>
+        </Row>
 
         <Title id='card-level-cap'>Card level cap</Title>
 
