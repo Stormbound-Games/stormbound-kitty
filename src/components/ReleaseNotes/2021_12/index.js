@@ -144,7 +144,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         </Spacing>
 
         <Image
-          extend={{ marginTop: 0, marginBottom: 0 }}
+          extend={{ marginBottom: 0 }}
           src='/assets/images/releases/pack-minion-launchers.png'
           alt='Minion Launchers pack: 10 copies of Minion Launchers + 5 Fusion Stones + 750 coins'
           withAvif
