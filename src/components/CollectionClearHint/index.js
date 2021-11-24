@@ -7,21 +7,26 @@ import Link from '~/components/Link'
 import Only from '~/components/Only'
 import download from '~/helpers/download'
 import getRawCardData from '~/helpers/getRawCardData'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import sortCards from '~/helpers/sortCards'
 
 const formatCollectionAsCSV = cards => {
   const headers = ['id', 'name', 'level', 'copies']
   const data = [
     headers,
-    ...cards.map(card => [
-      card.id,
-      // Make sure the name doesn’t contain a comma otherwise it might cause
-      // an issue when deserialising the CSV
-      getRawCardData(card.id).name.replace(',', ''),
-      // For people to open the CSV file in Excel, it’s better if it contains
-      // *all* cards; missing ones are marked as level 0
-      card.missing ? 0 : card.level,
-      card.copies || 0,
-    ]),
+    ...cards
+      .map(getResolvedCardData)
+      .sort(sortCards({ withFaction: false }))
+      .map(card => [
+        card.id,
+        // Make sure the name doesn’t contain a comma otherwise it might cause
+        // an issue when deserialising the CSV
+        getRawCardData(card.id).name.replace(',', ''),
+        // For people to open the CSV file in Excel, it’s better if it contains
+        // *all* cards; missing ones are marked as level 0
+        card.missing ? 0 : card.level,
+        card.copies || 0,
+      ]),
   ].join('\n')
 
   return data
