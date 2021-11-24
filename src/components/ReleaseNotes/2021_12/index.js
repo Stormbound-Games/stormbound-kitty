@@ -47,7 +47,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
             <Link href='#card-upgrading-tutorial'>Card upgrading tutorial</Link>
           </li>
           <li>
-            <Link href='#card-level-cap'>Card level ap</Link>
+            <Link href='#card-level-cap'>Card level cap</Link>
           </li>
           <li>
             <Link href='#christmas-offers'>Christmas offers</Link>
@@ -161,7 +161,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           We are introducing a card upgrading tutorial for new players who have
           never upgraded any cards. The tutorial will guide them through the
           upgrading system, and will make each player have a level 2{' '}
-          <CardLink id='N2' /> card at the end of it.
+          <CardLink id='N3' /> card at the end of it.
         </p>
 
         <p>
@@ -212,9 +212,8 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         </ul>
 
         <p>
-          We hope this to be the final stone in solving the matchmaking
-          difficulties once and for all, leveling the play field on a per league
-          basis.
+          We hope this to help solving the matchmaking difficulties by leveling
+          the play field on a per league basis.
         </p>
 
         <Title id='christmas-offers'>Christmas offers</Title>
@@ -293,6 +292,13 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           yielding coins and rubies will grant{' '}
           <span className='Highlight'>+30% more resources</span> for the
           duration of the Christmas event.
+        </p>
+
+        <p>
+          Last but not least, matches will yield twice as many coins, and the
+          coin cap will be raised to <Coins amount={800} /> (
+          <Coins amount={1400} /> for Premium Pass holders) for the duration of
+          the event.
         </p>
 
         <CheapenedBrawl ratio={0.5} title='Cheapened and special Brawl'>
