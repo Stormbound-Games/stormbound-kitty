@@ -49,6 +49,11 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
             <Link href='#card-level-cap'>Card level cap</Link>
           </li>
           <li>
+            <Link href='#friendly-battle-notification'>
+              Friendly battle notification
+            </Link>
+          </li>
+          <li>
             <Link href='#christmas-offers'>Christmas offers</Link>
           </li>
           <li>
@@ -231,6 +236,32 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           We hope this to help solving the matchmaking difficulties by leveling
           the play field on a per league basis.
         </p>
+
+        <Title id='friendly-battle-notification'>
+          Friendly battle notification
+        </Title>
+
+        <p>
+          A small quality of life change is coming up: there will now be a small
+          notification banner when a friend invites you for a match.
+        </p>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/friendly-notification-1.jpg'
+              alt='Notification banner displaying “Player 3345” invites you to FRIENDS'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/friendly-notification-2.jpg'
+              alt='Notification banner displaying an invite from a player from the friend list to do a friendly match'
+              withAvif
+            />
+          </Row.Column>
+        </Row>
 
         <Title id='christmas-offers'>Christmas offers</Title>
 
