@@ -1055,7 +1055,7 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('F8', 1)
     const value5 = getCardValue('F8', 5)
     expect(value1[0]).toEqual((3 * 1) / 2)
-    expect(value1[1]).toEqual((4 * 1) / 2)
+    expect(value1[1]).toEqual((3 * 1) / 2)
     expect(value5[0]).toEqual((6 * 1) / 2)
     expect(value5[1]).toEqual((6 * 1) / 2)
   })

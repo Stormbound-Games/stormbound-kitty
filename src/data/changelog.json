@@ -43,7 +43,7 @@
   },
   {
     "date": "01/12/2021",
-    "description": "Mana cost decreased by 1 and ability adjusted at level 1 only",
+    "description": "Mana cost and ability decreased by 1 at level 1",
     "id": "F8",
     "type": "MIXED",
     "from": {

@@ -1822,7 +1822,7 @@
     "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Spawn* a *1* strength Toad on *3-4/4/4-5/5/6* random tiles"
+    "ability": "*Spawn* a *1* strength Toad on *3/4/4-5/5/6* random tiles"
   },
   {
     "name": "Wandering Wyrms",

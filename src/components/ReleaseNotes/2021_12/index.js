@@ -119,7 +119,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           </li>
           <li>
             <CardLink id='F8' /> now costs 2 mana at level 1 (down from 3) and
-            its ability spawns 3 or 4 toads (down from 4).
+            its ability spawns 3 toads (down from 4).
           </li>
         </ul>
 
