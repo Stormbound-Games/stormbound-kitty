@@ -333,6 +333,19 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
 
       <Page.Narrow>
         <p>
+          The special avatar from the Christmas Brawl Pack will be this
+          Christmas Minion, which will be unavailable past the event. If you
+          want it or desire to flaunt your swag in front of your friends, this
+          is now or never!
+        </p>
+
+        <Image
+          src='/assets/images/avatars/minion_christmas.png'
+          alt='Christmas Minion avatar'
+          withoutWebp
+        />
+
+        <p>
           On top of that, <span className='Highlight'>all books</span>{' '}
           (including Noble, but not the Humble book) will yield an extra card
           until the end of the Christmas event. Similarly, the paid bundles
