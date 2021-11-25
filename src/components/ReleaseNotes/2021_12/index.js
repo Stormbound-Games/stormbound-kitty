@@ -233,7 +233,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         </ul>
 
         <p>
-          We hope this to help solving the matchmaking difficulties by leveling
+          We hope this helps solving the matchmaking difficulties by leveling
           the play field on a per league basis.
         </p>
 
