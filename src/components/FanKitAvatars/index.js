@@ -45,6 +45,7 @@ const AVATARS = [
   'icicle_flower',
   'kitty',
   'knight',
+  'minion_christmas',
   'officer',
   'pirate',
   'pirate_parrot',

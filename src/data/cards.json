@@ -234,7 +234,7 @@
     "rarity": "rare",
     "image": "wetland_deceivers.png",
     "mana": 3,
-    "strength": "3/4/4/5/6",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play, *destroy* all surrounding units with *1/1/2/2/3 /or/or/or/or /less/less/less/less strength*"
   },
@@ -656,7 +656,7 @@
     "rarity": "rare",
     "image": "victors_of_the_melee.png",
     "mana": 6,
-    "strength": "3/4/4/6/7",
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "When attacking, deal *2/2/3/3/4 damage* to all surrounding enemy units and structures"
   },
@@ -1057,7 +1057,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After surviving damage, *gain 1/1/2/2/3* strength for each stronger enemy unit on the board",
+    "ability": "After surviving damage, *gain 2/2/3/3/4* strength for each stronger enemy unit on the board",
     "elder": true
   },
   {
@@ -1272,6 +1272,20 @@
     "strength": "2/3/4/5/6",
     "movement": 0,
     "ability": "Before moving, *split* its strength equally into a unit on both sides. Cannot split again for this movement."
+  },
+  {
+    "name": "Minion Launchers",
+    "id": "N91",
+    "sid": "",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "rodent",
+    "rarity": "common",
+    "image": "minion_launchers.png",
+    "mana": 4,
+    "strength": "4/5/6/7/8",
+    "movement": 0,
+    "ability": "On play, *deal 1/2/2/3/3* damage to a random friendly non-legendary unit on the side, then deal the same damage to the first enemy in front"
   },
   {
     "name": "Destructobots",
@@ -1652,7 +1666,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "After surviving damage, set strength to 3/4/5/6/7",
+    "ability": "After surviving damage, set strength to 2/3/4/5/6",
     "elder": true
   },
   {
@@ -1805,10 +1819,10 @@
     "race": null,
     "rarity": "epic",
     "image": "rain_of_frogs.png",
-    "mana": "3/2/2/2/2",
+    "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Spawn* a *1* strength Toad on *4/4/4-5/5/6* random tiles"
+    "ability": "*Spawn* a *1* strength Toad on *3/4/4-5/5/6* random tiles"
   },
   {
     "name": "Wandering Wyrms",

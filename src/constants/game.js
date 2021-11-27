@@ -65,6 +65,7 @@ export const CHIP_CARDS = [
   'I28',
   'N35',
   'N44',
+  'N91',
   'F28',
   'S13',
   'S18',
