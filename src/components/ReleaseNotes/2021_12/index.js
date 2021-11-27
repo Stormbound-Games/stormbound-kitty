@@ -380,7 +380,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
 
         <CheapenedBrawl ratio={0.5} title='Cheapened and special Brawl'>
           <p>
-            Similar to previous events, the Brawl starting on Christmas 20th
+            Similar to previous events, the Brawl starting on Christmas 23rd
             (and only that one) is going to be cheaper. All fights will be 50%
             off. Owners of the Premium Pass will also have their usual discount
             applied, leading to a 60% reduction.
