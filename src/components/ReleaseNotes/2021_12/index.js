@@ -177,14 +177,14 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/releases/updated-tutorial-1.jpg'
+              src='/assets/images/releases/updated-tutorial-1.png'
               alt='Updated tutorial displaying an explanation about the yellow halo around a card which can be upgraded'
               withAvif
             />
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/releases/updated-tutorial-2.jpg'
+              src='/assets/images/releases/updated-tutorial-2.png'
               alt='Screenshot of the dialog offering 6 Fusion Stones after completing the new updated tutorial'
               withAvif
             />
@@ -249,14 +249,14 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/releases/friendly-notification-1.jpg'
+              src='/assets/images/releases/friendly-notification-1.png'
               alt='Notification banner displaying “Player 3345” invites you to FRIENDS'
               withAvif
             />
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/releases/friendly-notification-2.jpg'
+              src='/assets/images/releases/friendly-notification-2.png'
               alt='Notification banner displaying an invite from a player from the friend list to do a friendly match'
               withAvif
             />
@@ -272,6 +272,8 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           CET) until the end of the next Brawl!
         </p>
 
+        <p>The 3 packs from last year will come again this year!</p>
+
         <ul>
           <li>
             <span className='Highlight'>Christmas Tree Pack</span> ($9.99): 3
@@ -284,13 +286,42 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
             <Legendary amount={10} />
           </li>
           <li>
-            <span className='Highlight'>Christmas Brawl pack</span> ($19.99): 15
-            copies of <CardLink id='N91' /> + a special avatar +{' '}
-            <Rubies amount={200} /> + <Stones amount={10} />
-          </li>
-          <li>
             <span className='Highlight'>Santa Edrik pack</span> ($49.99):{' '}
             <Coins amount={6500} /> + <Rubies amount={650} />
+          </li>
+        </ul>
+      </Page.Narrow>
+
+      <Page.Embed>
+        <Row isDesktopOnly>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/christmas_pack_1.png'
+              alt='Christmas Tree Pack ($9.99): 3 Mythic Tomes + 2 Heroic Tomes + 1 Classic Tome + 500 coins'
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/christmas_pack_2.png'
+              alt='Helpful Elf pack ($19.99): 20 rare cards + 15 epic cards + 10 legendary cards'
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/christmas_pack_3.png'
+              alt='Santa Edrik pack ($49.99): 6,500 coins + 650 rubies'
+            />
+          </Row.Column>
+        </Row>
+      </Page.Embed>
+
+      <Page.Narrow>
+        <p>And two new exclusive packs will be introduced!</p>
+        <ul>
+          <li>
+            <span className='Highlight'>Christmas pack</span> ($19.99): 15
+            copies of <CardLink id='N91' /> + a special avatar +{' '}
+            <Rubies amount={200} /> + <Stones amount={10} />
           </li>
           <li>
             <span className='Highlight'>Sapphire Bundle</span> ($6.99): 1 book
@@ -304,22 +335,8 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/releases/christmas_pack_1.png'
-              alt='Christmas Tree Pack ($9.99): 3 Mythic Tomes + 2 Heroic Tomes + 1 Classic Tome + 500 coins'
-            />
-          </Row.Column>
-          <Row.Column>
-            <Image
-              src='/assets/images/releases/christmas_pack_2.png'
-              alt='Helpful Elf pack ($19.99): 20 rare cards + 15 epic cards + 10 legendary cards'
-            />
-          </Row.Column>
-        </Row>
-        <Row isDesktopOnly>
-          <Row.Column>
-            <Image
-              src='/assets/images/releases/christmas_pack_3.png'
-              alt='Santa Edrik pack ($49.99): 6,500 coins + 650 rubies'
+              src='/assets/images/releases/christmas_pack_5.png'
+              alt='Christmas pack ($19.99): 15 copies of Minion Launchers + 200 Rubies + 10 Fusion Stones'
             />
           </Row.Column>
           <Row.Column>
@@ -333,10 +350,10 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
 
       <Page.Narrow>
         <p>
-          The special avatar from the Christmas Brawl Pack will be this
-          Christmas Minion, which will be unavailable past the event. If you
-          want it or desire to flaunt your swag in front of your friends, this
-          is now or never!
+          The special avatar from the Christmas Pack will be this Christmas
+          Minion, which will be unavailable past the event. If you want it or
+          desire to flaunt your swag in front of your friends, this is now or
+          never!
         </p>
 
         <Image
