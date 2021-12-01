@@ -405,7 +405,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
                 <>
                   The balance changes will be deployed with the season reset as
                   usual. The Christmas event itself (on which all the exclusive
-                  offers and bonuses are bound) will start on Christmas 20th and
+                  offers and bonuses are bound) will start on December 20th and
                   end with the next Brawl, on the following Sunday.
                 </>
               ),
