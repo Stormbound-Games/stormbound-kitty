@@ -17,6 +17,7 @@ import CardLink from '~/components/CardLink'
 import countCards from '~/helpers/countCards'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getBookName from '~/helpers/getBookName'
+import styles from './styles'
 
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
 
@@ -118,9 +119,22 @@ export default React.memo(function BooksCalculator(props) {
                 </Row.Column>
               </Row>
 
-              <details>
-                <Label as='summary'>+ Advanced mode</Label>
-
+              <Label
+                as='button'
+                id='advanced-mode-toggle'
+                aria-controls='advanced-mode'
+                aria-expanded={isAdvancedMode}
+                type='button'
+                onClick={() => setIsAdvancedMode(m => !m)}
+                extend={styles.toggle}
+              >
+                + Advanced mode
+              </Label>
+              <div
+                id='advanced-mode'
+                hidden={!isAdvancedMode}
+                aria-labelledby='advanced-mode-toggle'
+              >
                 <p>
                   Define how many different cards of any rarity you are looking
                   for to know the odds of finding at least some of them when
@@ -180,7 +194,7 @@ export default React.memo(function BooksCalculator(props) {
                     />
                   </Row.Column>
                 </Row>
-              </details>
+              </div>
             </form>
           </Spacing>
         </Row.Column>
