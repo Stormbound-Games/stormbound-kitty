@@ -18,6 +18,9 @@ const getBookName = (bookType, plural = false) => {
     case 'PIRATE':
     case 'PIRATE_BOOK':
       return `Book${plural ? 's' : ''} of Pirates`
+    case 'KNIGHT':
+    case 'KNIGHT_BOOK':
+      return `Book${plural ? 's' : ''} of Knights`
     case 'FELINE':
     case 'FELINE_BOOK':
       return `Book${plural ? 's' : ''} of Felines`
