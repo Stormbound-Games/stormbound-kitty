@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Notice from '~/components/Notice'
 import Page from '~/components/Page'
@@ -49,6 +50,18 @@ export default React.memo(function BrewedSages(props) {
           around the mic on a regular basis to discuss everything Stormbound.
           Tune in, and enjoy the show!
         </p>
+
+        <Info icon='gift' title='Get some merch!'>
+          <p>
+            Looking to get that special someone a gift this holiday? Check out
+            the new{' '}
+            <Link href='https://www.zazzle.com/store/the_brewed_sages/products'>
+              Brewed Sages Merchandise Store
+            </Link>
+            ! All proceeds (which are expected to derive entirely from our three
+            spouses) go to offset our hosting costs.
+          </p>
+        </Info>
 
         <Spacing vertical='LARGER'>
           <div className={css(styles.container)}>
