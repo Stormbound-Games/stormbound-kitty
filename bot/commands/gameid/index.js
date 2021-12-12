@@ -4,7 +4,7 @@ import api from '~/helpers/api'
 const gameid = {
   command: 'gameid',
   label: '🎮  Game ID',
-  help: function (message, client, messageObject) {
+  help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
       .setDescription(
@@ -61,6 +61,22 @@ const gameid = {
           return embed.setDescription(message)
         })
     }
+
+    return api
+      .getGameId(guildId, messageObject.author.id)
+      .then(id =>
+        id
+            ? embed.setDescription(`Your game ID is ${id}.`)
+            : embed.setDescription('Your game ID is not recorded yet.')
+      )
+      .catch(error => {
+        console.error(error)
+        const message =
+            error.name === 'AbortError'
+                ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+                : `There was an issue finding ${messageObject.author.id}’s game ID.`
+        return embed.setDescription(message)
+      })
   },
 }
 
