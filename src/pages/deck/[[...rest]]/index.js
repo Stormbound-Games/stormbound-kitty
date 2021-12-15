@@ -35,7 +35,10 @@ export async function getStaticProps(context) {
   try {
     const [id, view] = params
 
-    if (view && !['dry-run', 'detail'].includes(view)) {
+    if (
+      ['dry-run', 'detail'].includes(id) ||
+      (view && !['dry-run', 'detail'].includes(view))
+    ) {
       return { notFound: true }
     }
 
