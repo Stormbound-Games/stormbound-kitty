@@ -928,10 +928,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Project PH03-NIX', () => {
     const value1 = getCardValue('I22', 1)
     const value5 = getCardValue('I22', 5)
-    expect(value1[0]).toEqual((5 / 6) * 1)
-    expect(value1[1]).toEqual(((5 * 2) / 6) * 1)
-    expect(value5[0]).toEqual((10 / 6) * 1)
-    expect(value5[1]).toEqual(((10 * 2) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 5) * 1)
+    expect(value1[1]).toEqual(((4 * 2) / 5) * 1)
+    expect(value5[0]).toEqual((9 / 5) * 1)
+    expect(value5[1]).toEqual(((9 * 2) / 5) * 1)
   })
 
   it('should return value for Armed Schemers', () => {
