@@ -1640,9 +1640,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('W17', 1)
     const value5 = getCardValue('W17', 5)
     expect(value1[0]).toEqual((1 / 6) * 1.5)
-    expect(value1[1]).toEqual((6 / 6) * 1.5)
+    expect(value1[1]).toEqual((7 / 6) * 1.5)
     expect(value5[0]).toEqual((1 / 6) * 1.5)
-    expect(value5[1]).toEqual((12 / 6) * 1.5)
+    expect(value5[1]).toEqual((13 / 6) * 1.5)
   })
 
   it('should return value for Fleshmenders', () => {
