@@ -1648,10 +1648,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Fleshmenders', () => {
     const value1 = getCardValue('W18', 1)
     const value5 = getCardValue('W18', 5)
-    expect(value1[0]).toEqual((4 / 7) * 1.5)
-    expect(value1[1]).toEqual(((4 + 6) / 7) * 1.5)
-    expect(value5[0]).toEqual((8 / 7) * 1.5)
-    expect(value5[1]).toEqual(((8 + 12) / 7) * 1.5)
+    expect(value1[0]).toEqual((5 / 7) * 1.5)
+    expect(value1[1]).toEqual(((5 + 6) / 7) * 1.5)
+    expect(value5[0]).toEqual((10 / 7) * 1.5)
+    expect(value5[1]).toEqual(((10 + 12) / 7) * 1.5)
   })
 
   it.skip('should return value for Gift of the Wise', () => {
