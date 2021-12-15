@@ -2192,7 +2192,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On death, randomly *spawn* a *3/4/5/6/7* strength Dragon on a tile bordering a friendly Dragon"
+    "ability": "On death, randomly *spawn* a *4/5/6/7/8* strength Dragon on a tile bordering a friendly Dragon"
   },
   {
     "name": "Faun Companions",

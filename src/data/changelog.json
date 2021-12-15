@@ -1,6 +1,15 @@
 [
   {
     "date": "01/01/2022",
+    "description": "Ability increased by 1",
+    "id": "S4",
+    "type": "BUFF",
+    "from": {
+      "ability": "On death, randomly *spawn* a *3/4/5/6/7* strength Dragon on a tile bordering a friendly Dragon"
+    }
+  },
+  {
+    "date": "01/01/2022",
     "description": "Mana and strength decreased by 1",
     "id": "S27",
     "type": "BUFF",

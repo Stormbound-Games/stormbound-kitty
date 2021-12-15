@@ -1271,9 +1271,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('S4', 1)
     const value5 = getCardValue('S4', 5)
     expect(value1[0]).toEqual((3 / 3) * 0.5)
-    expect(value1[1]).toEqual(((3 + 3) / 3) * 0.5)
+    expect(value1[1]).toEqual(((3 + 4) / 3) * 0.5)
     expect(value5[0]).toEqual((7 / 3) * 0.5)
-    expect(value5[1]).toEqual(((7 + 7) / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 8) / 3) * 0.5)
   })
 
   it('should return value for Faun Companions', () => {
