@@ -2514,7 +2514,7 @@
     "rarity": "rare",
     "image": "petrified_fossils.png",
     "mana": 4,
-    "strength": "4/5/6/7/9",
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "After surviving damage, *command* all friendly units with equal or less strength forward",
     "elder": true

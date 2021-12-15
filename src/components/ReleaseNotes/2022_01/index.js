@@ -74,7 +74,7 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
           </li>
           <li>
             <CardLink id='S27' /> now cost 4 mana (down from 5) and their
-            strength is now 4/5/6/7/9 (down from 4/5/6/8/10).
+            strength is now 4/5/6/7/8 (down from 4/5/6/8/10).
           </li>
           <li>
             <CardLink id='S4' />’ ability now spawns a dragon with 4/5/6/7/8
