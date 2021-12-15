@@ -1,6 +1,16 @@
 [
   {
     "date": "01/01/2022",
+    "description": "Mana and strength decreased by 1",
+    "id": "S27",
+    "type": "BUFF",
+    "from": {
+      "mana": 5,
+      "strength": "4/5/6/8/10"
+    }
+  },
+  {
+    "date": "01/01/2022",
     "description": "Strength increased by 1",
     "id": "W18",
     "type": "BUFF",
