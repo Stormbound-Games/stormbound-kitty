@@ -255,5 +255,17 @@
     "board": "LCwsLDVOM1I1LCwxM041N1I1LCwsNU4xUjUsLCwsLCw2RjNSNSwsLCw7UjFGLUIyUzsxME0xOzRONjcxUzY1Uzg1UzI7TjY3LFMyLFM4LFM2",
     "image": "/assets/images/puzzles/elusive_runners.png",
     "date": "01/2021"
+  },
+  {
+    "name": "Angular Influence",
+    "category": "LETHAL",
+    "difficulty": 2,
+    "restrictions": [
+      "ANTI_RNG"
+    ],
+    "author": "Equinox",
+    "board": "NlczUjUsOFc4UjUsLCw4TjEzUjUsNE45MEI1Viw1TjNSNSw1TjkwQjVWLCwsLCwsLDlOOTBCNVYsMTZOMTRSNSwxME42N1I1LCwsO1I5Vy1CMTBTOzdNMDs1UzY1TjY3NFMyNVMxOTtTNixONjcsUzIsUzE5",
+    "image": "/assets/images/puzzles/angular_influence.png",
+    "date": "12/2021"
   }
 ]
