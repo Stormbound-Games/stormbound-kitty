@@ -1,6 +1,19 @@
 [
   {
     "cardId": "N91",
+    "title": "Update 01-2022",
+    "name": "January Update",
+    "meta": "January 1st, 2021",
+    "date": "01/2022",
+    "excerpt": "2022 is already there, and with it new Stormbound release with balance tweaks, and the long awaited draft mode!",
+    "slug": "01-2022",
+    "background": "/assets/images/banners/level-caps.jpg",
+    "id": "2022_01",
+    "ratio": "50%",
+    "withAvif": true
+  },
+  {
+    "cardId": "N91",
     "title": "Update 12-2021",
     "name": "December Update",
     "meta": "December 1st, 2021",

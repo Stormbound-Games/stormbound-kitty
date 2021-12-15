@@ -7,6 +7,9 @@ import getNavigation from '~/helpers/getNavigation'
 import RELEASES from '~/data/releases'
 
 const RELEASE_COMPONENTS = {
+  '2022_01': dynamic(() => import('~/components/ReleaseNotes/2022_01'), {
+    loading: Loader,
+  }),
   '2021_12': dynamic(() => import('~/components/ReleaseNotes/2021_12'), {
     loading: Loader,
   }),
