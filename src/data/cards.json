@@ -585,7 +585,7 @@
     "rarity": "rare",
     "image": "lucky_charmers.png",
     "mana": 6,
-    "strength": "3/4/4/5/6",
+    "strength": "4/5/5/6/7",
     "movement": 1,
     "ability": "On play, *gain 3/3/4/5/6* strength for each Pirate in your hand"
   },

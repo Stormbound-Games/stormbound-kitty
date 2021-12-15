@@ -375,10 +375,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Lucky Charmers', () => {
     const value1 = getCardValue('N42', 1)
     const value5 = getCardValue('N42', 5)
-    expect(value1[0]).toEqual((3 / 6) * 1)
-    expect(value1[1]).toEqual(((3 + 3 * 3) / 6) * 1)
-    expect(value5[0]).toEqual((6 / 6) * 1)
-    expect(value5[1]).toEqual(((6 + 6 * 3) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 6) * 1)
+    expect(value1[1]).toEqual(((4 + 3 * 3) / 6) * 1)
+    expect(value5[0]).toEqual((7 / 6) * 1)
+    expect(value5[1]).toEqual(((7 + 6 * 3) / 6) * 1)
   })
 
   it('should return value for Ludic Matriarchs', () => {
