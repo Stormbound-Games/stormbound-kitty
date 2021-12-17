@@ -205,7 +205,8 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
           A draft session costs 1 “entry card”. Entry cards are special
           resources which are necessary to start a draft session. A player can
           have a maximum of 3 entry cards at a given time — that’s the upper cap
-          for that resource. Entry cards can be obtained the following ways:
+          for that resource and they do not expire so they can be saved from one
+          week to the next. Entry cards can be obtained the following ways:
         </p>
         <ul>
           <li>
