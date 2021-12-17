@@ -27,7 +27,8 @@ export default React.memo(function CardUpgradeStats(props) {
             </span>
             {nextLevelCost.coins > 0 && (
               <>
-                <Coins amount={nextLevelCost.coins} /> and{' '}
+                <Coins amount={nextLevelCost.coins} />
+                {nextLevelCost.stones ? <> and </> : null}
               </>
             )}
             {nextLevelCost.stones > 0 && (
