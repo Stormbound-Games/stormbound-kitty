@@ -77,7 +77,7 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
             strength is now 4/5/6/7/8 (down from 4/5/6/8/10).
           </li>
           <li>
-            <CardLink id='S4' />’ ability now spawns a dragon with 4/5/6/7/8
+            <CardLink id='S4' />’ ability now spawns a dragon with 3/4/6/7/8
             strength (up from 3/4/5/6/7).
           </li>
           <li>
@@ -89,7 +89,7 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
             6/7/8/10/12).
           </li>
           <li>
-            <CardLink id='W18' />’ strength is now 5/6/7/8/10 (up from
+            <CardLink id='W18' />’ strength is now 5/6/7/8/9 (up from
             4/5/6/7/8).
           </li>
         </ul>
@@ -531,7 +531,13 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
             {
               id: 'release-date',
               question: 'When is the update going to be released?',
-              answer: <>TBA.</>,
+              answer: (
+                <>
+                  The balance changes will be deployed with the season reset as
+                  usual. The Draft mode will be released on December 20th —
+                  Merry Christmas!
+                </>
+              ),
             },
             {
               id: 'abandoning-a-session',

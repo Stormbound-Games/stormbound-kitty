@@ -1,7 +1,7 @@
 [
   {
     "date": "01/01/2022",
-    "description": "Ability increased by 1",
+    "description": "Ability increased by 1 at high levels",
     "id": "S4",
     "type": "BUFF",
     "from": {

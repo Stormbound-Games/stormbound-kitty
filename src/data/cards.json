@@ -2192,7 +2192,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On death, randomly *spawn* a *4/5/6/7/8* strength Dragon on a tile bordering a friendly Dragon"
+    "ability": "On death, randomly *spawn* a *3/4/6/7/8* strength Dragon on a tile bordering a friendly Dragon"
   },
   {
     "name": "Faun Companions",
@@ -2812,7 +2812,7 @@
     "rarity": "epic",
     "image": "fleshmenders.png",
     "mana": 7,
-    "strength": "5/6/7/8/10",
+    "strength": "5/6/7/8/9",
     "movement": 2,
     "ability": "On play, *give 6/7/8/10/12* strength to a random bordering friendly unit or structure"
   },
