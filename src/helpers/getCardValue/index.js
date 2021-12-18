@@ -486,7 +486,10 @@ const getCardValue = (id, level = 1) => {
       ]
     }
     case 'I22': /* Project PH03-NIX */ {
-      return [(strength / mana) * speed, ((strength + strength) / mana) * speed]
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability)) / mana) * speed,
+      ]
     }
     case 'I27': /* Scrapped Planners */ {
       return [

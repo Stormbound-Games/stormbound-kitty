@@ -929,9 +929,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('I22', 1)
     const value5 = getCardValue('I22', 5)
     expect(value1[0]).toEqual((4 / 5) * 1)
-    expect(value1[1]).toEqual(((4 * 2) / 5) * 1)
-    expect(value5[0]).toEqual((9 / 5) * 1)
-    expect(value5[1]).toEqual(((9 * 2) / 5) * 1)
+    expect(value1[1]).toEqual(((4 + 5) / 5) * 1)
+    expect(value5[0]).toEqual((8 / 5) * 1)
+    expect(value5[1]).toEqual(((8 + 10) / 5) * 1)
   })
 
   it('should return value for Armed Schemers', () => {
@@ -1271,7 +1271,7 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('S4', 1)
     const value5 = getCardValue('S4', 5)
     expect(value1[0]).toEqual((3 / 3) * 0.5)
-    expect(value1[1]).toEqual(((3 + 4) / 3) * 0.5)
+    expect(value1[1]).toEqual(((3 + 3) / 3) * 0.5)
     expect(value5[0]).toEqual((7 / 3) * 0.5)
     expect(value5[1]).toEqual(((7 + 8) / 3) * 0.5)
   })
