@@ -585,7 +585,7 @@
     "rarity": "rare",
     "image": "lucky_charmers.png",
     "mana": 6,
-    "strength": "3/4/4/5/6",
+    "strength": "4/5/5/6/7",
     "movement": 1,
     "ability": "On play, *gain 3/3/4/5/6* strength for each Pirate in your hand"
   },
@@ -1592,8 +1592,8 @@
     "race": "construct",
     "rarity": "legendary",
     "image": "project_ph03-nix.png",
-    "mana": 6,
-    "strength": "5/6/7/8/10",
+    "mana": 5,
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/10* strength",
     "hero": true
@@ -2192,7 +2192,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On death, randomly *spawn* a *3/4/5/6/7* strength Dragon on a tile bordering a friendly Dragon"
+    "ability": "On death, randomly *spawn* a *3/4/6/7/8* strength Dragon on a tile bordering a friendly Dragon"
   },
   {
     "name": "Faun Companions",
@@ -2513,8 +2513,8 @@
     "race": "undead",
     "rarity": "rare",
     "image": "petrified_fossils.png",
-    "mana": 5,
-    "strength": "4/5/6/8/10",
+    "mana": 4,
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "After surviving damage, *command* all friendly units with equal or less strength forward",
     "elder": true
@@ -2798,7 +2798,7 @@
     "rarity": "rare",
     "image": "wolfcloaks.png",
     "mana": 6,
-    "strength": "6/7/8/10/12",
+    "strength": "7/8/9/11/13",
     "movement": 2,
     "ability": "On play, *lose 1* strength for every other friendly unit on the board"
   },
@@ -2812,7 +2812,7 @@
     "rarity": "epic",
     "image": "fleshmenders.png",
     "mana": 7,
-    "strength": "4/5/6/7/8",
+    "strength": "5/6/7/8/9",
     "movement": 2,
     "ability": "On play, *give 6/7/8/10/12* strength to a random bordering friendly unit or structure"
   },

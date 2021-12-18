@@ -32,20 +32,20 @@ const getNavigation = () => {
           icon: 'bullhorn',
           items: [
             {
+              label: 'Update 01-2022',
+              to: '/releases/01-2022',
+              id: '2022_01',
+              isNew: true,
+            },
+            {
               label: 'Update 12-2021',
               to: '/releases/12-2021',
               id: '2021_12',
-              isNew: true,
             },
             {
               label: 'Update 11-2021',
               to: '/releases/11-2021',
               id: '2021_11',
-            },
-            {
-              label: 'Update 10-2021',
-              to: '/releases/10-2021',
-              id: '2021_10',
             },
             {
               label: 'All Releases',

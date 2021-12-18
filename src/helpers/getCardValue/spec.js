@@ -375,10 +375,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Lucky Charmers', () => {
     const value1 = getCardValue('N42', 1)
     const value5 = getCardValue('N42', 5)
-    expect(value1[0]).toEqual((3 / 6) * 1)
-    expect(value1[1]).toEqual(((3 + 3 * 3) / 6) * 1)
-    expect(value5[0]).toEqual((6 / 6) * 1)
-    expect(value5[1]).toEqual(((6 + 6 * 3) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 6) * 1)
+    expect(value1[1]).toEqual(((4 + 3 * 3) / 6) * 1)
+    expect(value5[0]).toEqual((7 / 6) * 1)
+    expect(value5[1]).toEqual(((7 + 6 * 3) / 6) * 1)
   })
 
   it('should return value for Ludic Matriarchs', () => {
@@ -928,10 +928,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Project PH03-NIX', () => {
     const value1 = getCardValue('I22', 1)
     const value5 = getCardValue('I22', 5)
-    expect(value1[0]).toEqual((5 / 6) * 1)
-    expect(value1[1]).toEqual(((5 * 2) / 6) * 1)
-    expect(value5[0]).toEqual((10 / 6) * 1)
-    expect(value5[1]).toEqual(((10 * 2) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 5) * 1)
+    expect(value1[1]).toEqual(((4 + 5) / 5) * 1)
+    expect(value5[0]).toEqual((8 / 5) * 1)
+    expect(value5[1]).toEqual(((8 + 10) / 5) * 1)
   })
 
   it('should return value for Armed Schemers', () => {
@@ -1273,7 +1273,7 @@ describe('The `getCardValue` helper', () => {
     expect(value1[0]).toEqual((3 / 3) * 0.5)
     expect(value1[1]).toEqual(((3 + 3) / 3) * 0.5)
     expect(value5[0]).toEqual((7 / 3) * 0.5)
-    expect(value5[1]).toEqual(((7 + 7) / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 8) / 3) * 0.5)
   })
 
   it('should return value for Faun Companions', () => {
@@ -1640,18 +1640,18 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('W17', 1)
     const value5 = getCardValue('W17', 5)
     expect(value1[0]).toEqual((1 / 6) * 1.5)
-    expect(value1[1]).toEqual((6 / 6) * 1.5)
+    expect(value1[1]).toEqual((7 / 6) * 1.5)
     expect(value5[0]).toEqual((1 / 6) * 1.5)
-    expect(value5[1]).toEqual((12 / 6) * 1.5)
+    expect(value5[1]).toEqual((13 / 6) * 1.5)
   })
 
   it('should return value for Fleshmenders', () => {
     const value1 = getCardValue('W18', 1)
     const value5 = getCardValue('W18', 5)
-    expect(value1[0]).toEqual((4 / 7) * 1.5)
-    expect(value1[1]).toEqual(((4 + 6) / 7) * 1.5)
-    expect(value5[0]).toEqual((8 / 7) * 1.5)
-    expect(value5[1]).toEqual(((8 + 12) / 7) * 1.5)
+    expect(value1[0]).toEqual((5 / 7) * 1.5)
+    expect(value1[1]).toEqual(((5 + 6) / 7) * 1.5)
+    expect(value5[0]).toEqual((9 / 7) * 1.5)
+    expect(value5[1]).toEqual(((9 + 12) / 7) * 1.5)
   })
 
   it.skip('should return value for Gift of the Wise', () => {
