@@ -81,6 +81,10 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
             strength (up from 3/4/5/6/7).
           </li>
           <li>
+            <CardLink id='I22' /> now costs 5 mana (down from 6) and its
+            strength is now 4/5/6/7/8 (down from 5/6/7/8/10).
+          </li>
+          <li>
             <CardLink id='W17' />’ strength is now 7/8/9/11/13 (up from
             6/7/8/10/12).
           </li>
