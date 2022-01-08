@@ -69,7 +69,7 @@ export default React.memo(function TournamentHallOfFame(props) {
               id: 'hosting-a-tournament',
               question: 'Who can host a tournament?',
               answer:
-                'In theory, everyone can. Kepp and Brzoza on Discord are responsible for the schedule. If you would like to host an event, have them invite you to a dedicated Discord server where all the event hosts organize events. In there, you will find the schedule, and will be able to talk about your ideas and get some help.',
+                'In theory, everyone can. Brzoza on Discord is responsible for the schedule. If you would like to host an event, have him invite you to a dedicated Discord server where all the event hosts organize events. In there, you will find the schedule, and will be able to talk about your ideas and get some help.',
             },
             {
               id: 'head-count',
