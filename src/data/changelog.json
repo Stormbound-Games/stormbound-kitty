@@ -4240,6 +4240,7 @@
     "id": "W19",
     "type": "MIXED",
     "from": {
+      "mana": 0,
       "ability": "Gain *1/1/2/2/3 mana* /and/and/and/and /draw/draw/draw/draw /1/1/2/2 /card/card/cards/cards"
     }
   },
