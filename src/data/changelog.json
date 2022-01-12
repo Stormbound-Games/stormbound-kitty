@@ -5383,7 +5383,7 @@
     "type": "NERF",
     "from": {
       "mana": 7,
-      "strength": "On play, give *6/7/8/10/12 strength* to a random bordering friendly unit or structure"
+      "ability": "On play, give *6/7/8/10/12 strength* to a random bordering friendly unit or structure"
     }
   },
   {
