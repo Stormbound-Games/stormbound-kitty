@@ -160,6 +160,8 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
         </ul>
 
+        <NerfCompensationInfo ids={['N1']} />
+
         <Title id='new-cards'>New cards</Title>
 
         <p>
