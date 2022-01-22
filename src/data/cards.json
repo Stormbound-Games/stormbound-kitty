@@ -2769,8 +2769,8 @@
     "race": "dragon",
     "rarity": "rare",
     "image": "broken_earth_drakes.png",
-    "mana": 7,
-    "strength": 3,
+    "mana": 6,
+    "strength": 2,
     "movement": 1,
     "ability": "When this dies not bordering any base, deal *3/4/5/6/7 damage* to all non-Dragon units"
   },

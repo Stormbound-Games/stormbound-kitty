@@ -1,6 +1,16 @@
 [
   {
     "date": "01/02/2022",
+    "description": "Strength and mana cost decreased by 1",
+    "id": "W15",
+    "type": "BUFF",
+    "from": {
+      "strength": 3,
+      "mana": 7
+    }
+  },
+  {
+    "date": "01/02/2022",
     "description": "Strength increased by 1",
     "id": "N70",
     "type": "BUFF",

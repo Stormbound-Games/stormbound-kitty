@@ -1621,10 +1621,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Broken Earth Drakes', () => {
     const value1 = getCardValue('W15', 1)
     const value5 = getCardValue('W15', 5)
-    expect(value1[0]).toEqual(((3 - 3 * 18) / 7) * 1)
-    expect(value1[1]).toEqual(((3 + 3 * 18) / 7) * 1)
-    expect(value5[0]).toEqual(((3 - 7 * 18) / 7) * 1)
-    expect(value5[1]).toEqual(((3 + 7 * 18) / 7) * 1)
+    expect(value1[0]).toEqual(((2 - 3 * 18) / 6) * 1)
+    expect(value1[1]).toEqual(((2 + 3 * 18) / 6) * 1)
+    expect(value5[0]).toEqual(((2 - 7 * 18) / 6) * 1)
+    expect(value5[1]).toEqual(((2 + 7 * 18) / 6) * 1)
   })
 
   it('should return value for Dawnsparks', () => {
