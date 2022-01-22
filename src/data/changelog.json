@@ -1,5 +1,14 @@
 [
   {
+    "date": "01/02/2022",
+    "description": "Ability made to vitalize the enemy unit",
+    "id": "N1",
+    "type": "NERF",
+    "from": {
+      "ability": "On death, *give 1/2/3/4/5* strength to a random surrounding *enemy* unit"
+    }
+  },
+  {
     "date": "01/01/2022",
     "description": "Ability increased by 1 at high levels",
     "id": "S4",

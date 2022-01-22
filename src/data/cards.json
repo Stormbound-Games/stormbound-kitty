@@ -11,7 +11,7 @@
     "mana": 1,
     "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "On death, *give 1/2/3/4/5* strength to a random surrounding *enemy* unit"
+    "ability": "On death, *give 1/2/3/4/5* strength to a random surrounding *enemy* unit and *vitalize* it"
   },
   {
     "name": "Summon Militia",
