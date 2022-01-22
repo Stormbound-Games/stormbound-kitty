@@ -1143,7 +1143,7 @@
     "rarity": "common",
     "image": "temple_of_the_heart.png",
     "mana": 3,
-    "strength": "2/3/4/5/6",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "At the start of your turn remove *1/1/1/2/2 strength* from the stronger base and *give it* to the weaker one"
   },
