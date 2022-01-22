@@ -629,10 +629,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Aged Duskbringers', () => {
     const value1 = getCardValue('N70', 1)
     const value5 = getCardValue('N70', 5)
-    expect(value1[0]).toEqual((4 / 7) * 1)
-    expect(value1[1]).toEqual(((4 + 4) / 7) * 1)
-    expect(value5[0]).toEqual((9 / 7) * 1)
-    expect(value5[1]).toEqual(((9 + 9) / 7) * 1)
+    expect(value1[0]).toEqual((5 / 7) * 1)
+    expect(value1[1]).toEqual(((5 + 4) / 7) * 1)
+    expect(value5[0]).toEqual((10 / 7) * 1)
+    expect(value5[1]).toEqual(((10 + 9) / 7) * 1)
   })
 
   it('should return value for Rapid Mousers', () => {

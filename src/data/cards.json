@@ -982,7 +982,7 @@
     "rarity": "rare",
     "image": "aged_duskbringers.png",
     "mana": 7,
-    "strength": "4/5/6/7/9",
+    "strength": "5/6/7/8/10",
     "movement": 1,
     "ability": "After surviving damage, randomly *give 4/5/6/7/9* strength to another friendly unit",
     "elder": true
