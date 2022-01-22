@@ -2,6 +2,15 @@
   {
     "date": "01/02/2022",
     "description": "Ability increased by 1",
+    "id": "N40",
+    "type": "BUFF",
+    "from": {
+      "ability": "*Give 6/7/7/9/11* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
+    }
+  },
+  {
+    "date": "01/02/2022",
+    "description": "Ability increased by 1",
     "id": "W6",
     "type": "BUFF",
     "from": {

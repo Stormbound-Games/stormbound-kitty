@@ -357,10 +357,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Kindred’s Grace', () => {
     const value1 = getCardValue('N40', 1)
     const value5 = getCardValue('N40', 5)
-    expect(value1[0]).toEqual(6 / 6)
-    expect(value1[1]).toEqual((6 + 2 * MAX_TILES) / 6)
-    expect(value5[0]).toEqual(11 / 6)
-    expect(value5[1]).toEqual((11 + 5 * MAX_TILES) / 6)
+    expect(value1[0]).toEqual(7 / 6)
+    expect(value1[1]).toEqual((7 + 2 * MAX_TILES) / 6)
+    expect(value5[0]).toEqual(12 / 6)
+    expect(value5[1]).toEqual((12 + 5 * MAX_TILES) / 6)
   })
 
   it('should return value for Lich Summoners', () => {
