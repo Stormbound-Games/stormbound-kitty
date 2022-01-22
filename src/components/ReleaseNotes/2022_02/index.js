@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import CardLink from '~/components/CardLink'
 import CheapenedBrawl from '~/components/CheapenedBrawl'
@@ -7,12 +6,9 @@ import Image from '~/components/Image'
 import FAQSection from '~/components/FAQSection'
 import Link from '~/components/Link'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import Only from '~/components/Only'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
 import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
-import Table from '~/components/Table'
 import TableOfContents from '~/components/TableOfContents'
 import {
   Coins,
@@ -27,8 +23,6 @@ import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesFebruary2022(props) {
-  const { css } = useFela()
-
   return (
     <>
       <Page.Narrow>
@@ -56,6 +50,9 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
           <li>
             <Link href='#valentines-event'>Valentine’s Event</Link>
+          </li>
+          <li>
+            <Link href='#qol-improvements'>Quality of life improvements</Link>
           </li>
           <li>
             <Link href='#faq'>FAQ</Link>
@@ -260,6 +257,58 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
       </Page.Embed>
 
       <Page.Narrow>
+        <Title id='qol-improvements'>Quality of life improvements</Title>
+
+        <p>
+          We are happy to introduce a handful of bug fixes as will interface
+          improvements in this release, starting with the friends notifications
+          toggle. When turned off, other players cannot send you invites.
+        </p>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/GUI_friends_busy.png'
+              alt='Screenshot of the friends menu displaying a toggle on the top right corner for notifications, labeled “Busy” and “Online”, currently set to “Busy”'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/GUI_friends_not_busy.png'
+              alt='Screenshot of the friends menu displaying a toggle on the top right corner for notifications, labeled “Busy” and “Online”, currently set to “Online”'
+            />
+          </Row.Column>
+        </Row>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <p>
+              You will now be able to mark cards as favorite within your
+              collection, as well as sort it with favorite cards first. This
+              should help players frequently making new decks by letting them
+              rapidly add their must-include cards!
+            </p>
+
+            <Image
+              src='/assets/images/releases/favorite_sorting.jpg'
+              alt='Screenshot of the collection view with a new “Favorite first” in the “Sort by” menu'
+            />
+          </Row.Column>
+          <Row.Column>
+            <p>
+              Last but not least, the community menu will now provide a direct
+              link to the release notes on the site. We hope this helps new
+              player learn more about the release cycle we have, as well as the
+              latest changes to the game.
+            </p>
+
+            <Image
+              src='/assets/images/releases/patch_notes_button.png'
+              alt='Screenshot of the community menu showing a new “Patch Notes” button'
+            />
+          </Row.Column>
+        </Row>
+
         <FAQSection
           id='faq'
           title='FAQ'
