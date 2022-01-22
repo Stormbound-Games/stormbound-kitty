@@ -8,6 +8,7 @@ const parseCardGuess = message => {
   message = message.toLowerCase()
   if (message === 'hero') return ['hero', true]
   if (message === 'elder') return ['elder', true]
+  if (message === 'ancient') return ['ancient', true]
   if (Object.keys(RARITIES).includes(message)) return ['rarity', message]
   if (message.split(',').every(chunk => Object.keys(FACTIONS).includes(chunk)))
     return ['faction', message]

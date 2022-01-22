@@ -10,6 +10,7 @@ export default React.memo(function BookExplanation({ book }) {
   const qualifier = [
     only.rarity,
     only.elder && 'elder',
+    only.ancient && 'ancient',
     only.race,
     only.type,
     only.ability && only.ability.toString().replace(/\//g, ''),

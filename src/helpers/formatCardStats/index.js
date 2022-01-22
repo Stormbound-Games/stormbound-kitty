@@ -11,7 +11,11 @@ const formatCardStats = state => {
   const strength =
     state.type !== 'spell' ? `${state.strength.display} strength` : ''
   const movement = state.type === 'unit' ? `${state.movement} movement` : ''
-  const modifiers = [state.elder ? 'Elder' : '', state.hero ? 'Hero' : '']
+  const modifiers = [
+    state.ancient ? 'Ancient' : '',
+    state.elder ? 'Elder' : '',
+    state.hero ? 'Hero' : '',
+  ]
     .filter(Boolean)
     .join(' ')
 

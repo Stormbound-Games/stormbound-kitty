@@ -54,12 +54,10 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle races', () => {
-    Object.keys(RACES)
-      .filter(race => race === 'Ancient')
-      .forEach(race => {
-        const id = getCardId(randomcard(race))
-        expect(getRawCardData(id).race).toEqual(race)
-      })
+    Object.keys(RACES).forEach(race => {
+      const id = getCardId(randomcard(race))
+      expect(getRawCardData(id).race).toEqual(race)
+    })
   })
 
   it('should handle negative races', () => {
@@ -91,6 +89,16 @@ describe('Bot — !randomcard', () => {
   it('should handle negative hero', () => {
     const id = getCardId(randomcard('!hero'))
     expect(getRawCardData(id).hero).toEqual(undefined)
+  })
+
+  it('should handle ancient', () => {
+    const id = getCardId(randomcard('ancient'))
+    expect(getRawCardData(id).ancient).toEqual(true)
+  })
+
+  it('should handle negative ancient', () => {
+    const id = getCardId(randomcard('!ancient'))
+    expect(getRawCardData(id).ancient).toEqual(undefined)
   })
 
   it('should handle elder', () => {

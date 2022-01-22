@@ -27,6 +27,9 @@ const parseMessage = content => {
     } else if (filter.value === 'elder') {
       filter.key = 'elder'
       filter.value = true
+    } else if (filter.value === 'ancient') {
+      filter.key = 'ancient'
+      filter.value = true
     } else if (Object.keys(FACTIONS).includes(filter.value)) {
       filter.key = 'faction'
     } else if (Object.keys(RACES).includes(filter.value)) {

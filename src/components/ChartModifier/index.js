@@ -18,20 +18,22 @@ export default React.memo(function ChartModifier(props) {
         if (card.type !== 'unit') return acc
         if (card.hero) acc[0].value++
         if (card.elder) acc[1].value++
-        if (!card.elder && !card.hero) acc[2].value++
+        if (card.ancient) acc[2].value++
+        if (!card.elder && !card.hero && !card.ancient) acc[3].value++
 
         return acc
       },
       [
         { name: 'Hero', value: 0, color: 'var(--ironclad)' },
         { name: 'Elder', value: 0, color: 'var(--shadowfen)' },
+        { name: 'Ancient', value: 0, color: 'var(--winter)' },
         { name: 'None', value: 0, color: 'var(--beige)' },
       ]
     )
 
   return (
     <>
-      <Title>Unit modifiers</Title>
+      <Title>Race modifiers</Title>
       <ResponsiveContainer width='100%' height={300}>
         <PieChart>
           <Tooltip {...TOOLTIP_STYLES} />

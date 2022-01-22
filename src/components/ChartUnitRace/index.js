@@ -24,7 +24,6 @@ export default React.memo(function ChartUnitRace(props) {
     satyr: 'var(--light-swarm)',
     knight: 'var(--neutral)',
     pirate: 'var(--affordable)',
-    ancient: 'var(--upgradable)',
     dragon: 'var(--dark-beige)',
     feline: 'var(--beige)',
   }

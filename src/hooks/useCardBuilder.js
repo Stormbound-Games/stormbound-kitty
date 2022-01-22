@@ -83,13 +83,14 @@ const useCardBuilderEditor = props => {
   const setMana = setProperty('mana', resolveLevels)
   const setStrength = setProperty('strength', resolveLevels)
   const setRace = setProperty('race')
+  const setAncient = setProperty('ancient')
   const setElder = setProperty('elder')
   const setHero = setProperty('hero')
   const setAbility = setProperty('ability', resolveAbility)
 
   const setType = React.useCallback(type => {
-    // If the new type is a spell, disable movement, strength, race and unit
-    // modifiers
+    // If the new type is a spell, disable movement, strength, race and
+    // modifiers (but *not* ancient)
     if (type === 'spell') {
       setCardData(cardData => ({
         ...cardData,
@@ -102,8 +103,8 @@ const useCardBuilderEditor = props => {
       }))
     }
 
-    // If the new type is a structure, disable movement, race and unit modifiers
-    // and if the current type is a spell, enable strength
+    // If the new type is a structure, disable movement, race and modifiers (but
+    // *not* ancient) and if the current type is a spell, enable strength
     else if (type === 'structure') {
       setCardData(cardData => ({
         ...cardData,
@@ -161,6 +162,7 @@ const useCardBuilderEditor = props => {
     setFaction,
     setType,
     setRace,
+    setAncient,
     setElder,
     setHero,
     setMovement,

@@ -135,7 +135,7 @@ export default class Trivia {
         embed.addField('Value', value, true)
 
         if (value === true) {
-          const lead = key === 'elder' ? 'an' : 'a'
+          const lead = key === 'elder' || key === 'ancient' ? 'an' : 'a'
           const title =
             this.answer[key] === value
               ? '👍 Correct guess: ' + key

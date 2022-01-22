@@ -33,6 +33,7 @@ describe('The `parseAdvancedSearch` helper', () => {
   it('should handle modifiers', () => {
     expect(parse('is:hero')).toEqual({ hero: true })
     expect(parse('is:elder')).toEqual({ elder: true })
+    expect(parse('is:ancient')).toEqual({ ancient: true })
   })
 
   it('should be case-insensitive', () => {

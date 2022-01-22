@@ -30,11 +30,8 @@ describe('Card Builder — Hero', () => {
 
   it('should be unchecked if picking structure type', () => {
     cy.get(s.TYPE_SELECT).select('structure')
-    cy.get(s.ELDER_CHECKBOX).should('not.be.checked').and('be.disabled')
-    cy.get(s.CARD_PREVIEW)
-      .eq(0)
-      .find(s.CARD_RACE)
-      .should('not.contain', 'elder')
+    cy.get(s.HERO_CHECKBOX).should('not.be.checked').and('be.disabled')
+    cy.get(s.CARD_PREVIEW).eq(0).find(s.CARD_RACE).should('not.contain', 'hero')
   })
 
   it('should be unchecked if picking spell type', () => {

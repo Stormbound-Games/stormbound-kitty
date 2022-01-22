@@ -24,6 +24,7 @@ const isButtonDisabled = props =>
   props.race === '*' &&
   !props.text &&
   !props.elder &&
+  !props.ancient &&
   !props.hero &&
   props.order === 'NATURAL'
 
@@ -184,7 +185,7 @@ export default React.memo(function CollectionFilters(props) {
           <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row withNarrowGutter>
-                <Row.Column>
+                <Row.Column width='1/3'>
                   <Checkbox
                     id='elder'
                     checked={props.elder}
@@ -194,7 +195,7 @@ export default React.memo(function CollectionFilters(props) {
                     Elder
                   </Checkbox>
                 </Row.Column>
-                <Row.Column>
+                <Row.Column width='1/3'>
                   <Checkbox
                     id='hero'
                     checked={props.hero}
@@ -202,6 +203,16 @@ export default React.memo(function CollectionFilters(props) {
                     data-testid='hero-checkbox'
                   >
                     Hero
+                  </Checkbox>
+                </Row.Column>
+                <Row.Column width='1/3'>
+                  <Checkbox
+                    id='ancient'
+                    checked={props.ancient}
+                    onChange={event => props.setAncient(event.target.checked)}
+                    data-testid='ancient-checkbox'
+                  >
+                    Ancient
                   </Checkbox>
                 </Row.Column>
               </Row>

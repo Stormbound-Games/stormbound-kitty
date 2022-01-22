@@ -92,16 +92,17 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        Every unit belongs to a <em>race</em> and can also be an Elder or a Hero
-        (
+        Every unit belongs to a <em>race</em> and can also be an Elder, a Hero
+        or an Ancient (
         <CardLink id='N76' /> is the only Elder Hero but there is an Undead
         Hero, Frostling Elder, and so on).
       </p>
 
       <p>
-        Unit races are relevant in some situations if you plan to use cards like{' '}
-        <CardLink id='N40' /> or <CardLink id='N35' />. Note that both the Elder
-        and Hero modifiers count as unit races for cards like Ubass the Hunter.
+        Card races are relevant in some situations if you plan to use cards like{' '}
+        <CardLink id='N40' /> or <CardLink id='N35' />. Note that the Elder,
+        Ancient and Hero modifiers count as unit races for cards like Ubass the
+        Hunter.
       </p>
 
       <p>

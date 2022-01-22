@@ -80,6 +80,7 @@ export const serializeFilters = filters => {
 
   if (filters.hero) search.push('is:hero')
   if (filters.elder) search.push('is:elder')
+  if (filters.ancient) search.push('is:ancient')
   if (filters.text) search.push(filters.text)
   if (filters.faction !== '*') search.push('is:' + filters.faction)
   if (filters.race !== '*') search.push('is:' + filters.race)

@@ -26,6 +26,8 @@ describe('Card Builder — Reset', () => {
       .check()
       .get(s.HERO_CHECKBOX)
       .check()
+      .get(s.ANCIENT_CHECKBOX)
+      .check()
 
       .url()
       .should('not.match', /\/card$/)
@@ -54,6 +56,8 @@ describe('Card Builder — Reset', () => {
       .get(s.ELDER_CHECKBOX)
       .should('not.be.checked')
       .get(s.HERO_CHECKBOX)
+      .should('not.be.checked')
+      .get(s.ANCIENT_CHECKBOX)
       .should('not.be.checked')
   })
 })

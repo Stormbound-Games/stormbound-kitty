@@ -14,6 +14,7 @@ const selectors = {
   RACE_SELECT: '[data-testid="race-select"]',
   ABILITY_SELECT: '[data-testid="ability-select"]',
   NAME_INPUT: '[data-testid="name-input"]',
+  ANCIENT_CHECKBOX: '[data-testid="ancient-checkbox"]',
   ELDER_CHECKBOX: '[data-testid="elder-checkbox"]',
   HERO_CHECKBOX: '[data-testid="hero-checkbox"]',
   RESET_FILTERS_BTN: '[data-testid="reset-filters-btn"]',

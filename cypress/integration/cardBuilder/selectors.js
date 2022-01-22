@@ -14,6 +14,7 @@ const selectors = {
   CARD_RARITY: '[data-testid="card-rarity"]',
   CARD_STRENGTH: '[data-testid="card-strength"]',
 
+  ANCIENT_CHECKBOX: '[data-testid="cb-ancient-checkbox"]',
   ABILITY_INPUT: '[data-testid="cb-ability-input"]',
   ELDER_CHECKBOX: '[data-testid="cb-elder-checkbox"]',
   FACTION_SELECT: '[data-testid="cb-faction-select"]',

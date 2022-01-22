@@ -85,6 +85,16 @@ describe('Deck Builder — Search', () => {
       })
   })
 
+  it('should be able to filter by ancient', () => {
+    cy.get(s.ANCIENT_CHECKBOX)
+      .check()
+      .get(s.CARD)
+      .find(s.CARD_RACE)
+      .each($node => {
+        expect($node.text()).to.contain('ancient')
+      })
+  })
+
   it('should be able to filter by elder', () => {
     cy.get(s.ELDER_CHECKBOX)
       .check()

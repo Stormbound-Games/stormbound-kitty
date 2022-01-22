@@ -23,6 +23,7 @@ const DEFAULT_FILTERS = {
   status: '*',
   level: '*',
   ability: '*',
+  ancient: false,
   hero: false,
   elder: false,
 }
@@ -85,6 +86,7 @@ export default React.memo(function CardsFiltering(props) {
   const setLevel = updateFilter('level')
   const setAbility = updateFilter('ability')
   const setHero = updateFilter('hero')
+  const setAncient = updateFilter('ancient')
   const setElder = updateFilter('elder')
   const resetFilters = () => setFilters({ ...DEFAULT_FILTERS })
 
@@ -215,6 +217,11 @@ export default React.memo(function CardsFiltering(props) {
     [filters.hero]
   )
 
+  const matchesAncient = React.useCallback(
+    card => !filters.ancient || Boolean(card.ancient) === filters.ancient,
+    [filters.ancient]
+  )
+
   const matchesElder = React.useCallback(
     card => !filters.elder || Boolean(card.elder) === filters.elder,
     [filters.elder]
@@ -249,6 +256,7 @@ export default React.memo(function CardsFiltering(props) {
     setStatus,
     setLevel,
     setAbility,
+    setAncient,
     setHero,
     setElder,
     // While these are not card filters per se, they are grouped within the
@@ -288,6 +296,7 @@ export default React.memo(function CardsFiltering(props) {
       if (!matchesStatus(card)) return false
       if (!matchesLevel(card)) return false
       if (!matchesAbility(card)) return false
+      if (!matchesAncient(card)) return false
       if (!matchesHero(card)) return false
       if (!matchesElder(card)) return false
       return true

@@ -86,6 +86,9 @@ export const deserializeCard = string => {
 
   card.elder = (chunks[11] || '').includes('E')
   card.hero = (chunks[11] || '').includes('H')
+  // For a while, “Ancient” was considered a race and not a unit modifier, so
+  // it might have been carried in the race slot.
+  card.ancient = (chunks[11] || '').includes('A') || chunks[1] === 'A'
 
   return card
 }
@@ -105,7 +108,9 @@ const serializeCard = formState =>
       encodeURIComponent(formState.imageURL || ''),
     encodeURIComponent(formState.ability || ''),
     formState.level,
-    (formState.elder ? 'E' : '') + (formState.hero ? 'H' : ''),
+    (formState.elder ? 'E' : '') +
+      (formState.hero ? 'H' : '') +
+      (formState.ancient ? 'A' : ''),
   ].join(';')
 
 const card = {
