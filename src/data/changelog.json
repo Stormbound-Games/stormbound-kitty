@@ -1,6 +1,30 @@
 [
   {
     "date": "01/02/2022",
+    "description": "Added to the game",
+    "id": "I31",
+    "type": "INFO"
+  },
+  {
+    "date": "01/02/2022",
+    "description": "Added to the game",
+    "id": "F31",
+    "type": "INFO"
+  },
+  {
+    "date": "01/02/2022",
+    "description": "Added to the game",
+    "id": "W33",
+    "type": "INFO"
+  },
+  {
+    "date": "01/02/2022",
+    "description": "Added to the game",
+    "id": "S31",
+    "type": "INFO"
+  },
+  {
+    "date": "01/02/2022",
     "description": "Ability increased by 1",
     "id": "N40",
     "type": "BUFF",

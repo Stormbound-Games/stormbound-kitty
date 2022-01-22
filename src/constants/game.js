@@ -70,6 +70,7 @@ export const CHIP_CARDS = [
   'S13',
   'S18',
   'S22',
+  'S31',
   'I19',
   'N45',
   'N81',
