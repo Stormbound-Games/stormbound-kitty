@@ -43,13 +43,19 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
             <Link href='#compensation'>Compensation</Link>
           </li>
           <li>
-            <Link href='#cheapened-brawl'>Cheapened Brawl</Link>
+            <Link href='#cheapened-brawls'>Cheapened Brawls</Link>
           </li>
           <li>
             <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
             <Link href='#new-cards'>New cards</Link>
+          </li>
+          <li>
+            <Link href='#new-brawls'>New Brawls</Link>
+          </li>
+          <li>
+            <Link href='#valentines-event'>Valentine’s Event</Link>
           </li>
           <li>
             <Link href='#faq'>FAQ</Link>
@@ -101,7 +107,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
           <li>
             The Brawl event for that week will be half the price (see{' '}
-            <Link to='#cheapened-brawl'>Cheapened Brawl</Link> below).
+            <Link to='#cheapened-brawls'>Cheapened Brawls</Link> below).
           </li>
           <li>
             Every player logging into the game at least once during the first
@@ -110,10 +116,11 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
         </ul>
 
-        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
+        <CheapenedBrawl ratio={1 / 2} title='Cheapened Brawls'>
           <p>
-            The Brawl starting on February 3rd (and only that one) is going to
-            be cheaper. All fight will cost 50% of their original price.
+            The Brawl starting on February 3rd <strong>and</strong> the Brawl
+            starting on Fabruary 17th are going to be cheaper. All fight will
+            cost 50% of their original price.
           </p>
         </CheapenedBrawl>
 
@@ -166,6 +173,88 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <CardBuilderCardDisplay {...getInitialCardData('I31')} />
         <CardBuilderCardDisplay {...getInitialCardData('S31')} />
         <CardBuilderCardDisplay {...getInitialCardData('W33')} />
+      </Page.Embed>
+
+      <Page.Narrow>
+        <Title id='new-brawls'>New Brawls</Title>
+
+        <p>
+          Similar to what we did{' '}
+          <Link to='/releases/12-2021'>back in December</Link> for{' '}
+          <CardLink id='N91' />, we will introduce 4 new Brawl modifiers for the
+          4 new cards. We think it’s a good way for you to be able to try, play
+          with and enjoy newly added cards before you start collecting
+        </p>
+
+        <p>
+          Like last time, a 0-mana level 1 (unless owned and leveled) copy of
+          the new card will be added to everyone’s deck (thus causing all decks
+          to have 13 cards). This will be in Warrior mode only.
+        </p>
+
+        <ul>
+          <li>
+            The Warrior Brawl starting on the February 3rd will be for{' '}
+            <CardLink id='F31' />.
+          </li>
+          <li>
+            The Warrior Brawl starting on the February 10th will be for{' '}
+            <CardLink id='S31' />.
+          </li>
+          <li>
+            The Warrior Brawl starting on the February 17th will be for{' '}
+            <CardLink id='W33' />.
+          </li>
+          <li>
+            The Warrior Brawl starting on the February 24th will be for{' '}
+            <CardLink id='I31' />.
+          </li>
+        </ul>
+
+        <Title id='valentines-event'>Valentine’s Event</Title>
+
+        <p>
+          With Valentine’s day approaching quickly, we thought we’d do a small
+          event to mark the occasion. To begin with, and as mentioned before,
+          the Brawl of the 17th will be half the price!
+        </p>
+
+        <p>Additionally, there will be 3 new Valentine avatars.</p>
+
+        <p>
+          Like most holiday events, there will be some one-time only special
+          offers for people willing to put some money into the game. The
+          Valentine exclusive packs will be available from February 8th (9AM
+          CET) until Feburary 14th (end of day) so be sure to jump on them!
+        </p>
+      </Page.Narrow>
+
+      <Page.Embed>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/valentines_pack.png'
+              alt='Valentines Pack ($29.99): all 4 weekly journals (48 cards in total, with guaranteed 4 legendaries, and 12 cards of each faction), 100 coins and 50 rubies; Lovely Bundle ($59.99): 100 neutral cards (with rarity odds being 45%, 30%, 15%, 10%), 1500 coins and 250 rubies'
+            />
+            <p>
+              <span className='Highlight'>Valentines Pack</span> ($29.99): all 4
+              weekly journals (48 cards in total, with guaranteed 4 legendaries,
+              and 12 cards of each faction), <Coins amount={100} /> and{' '}
+              <Rubies amount={50} />.
+            </p>
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/lovely_bundle.png'
+              alt='Lovely Bundle ($59.99): 100 neutral cards (with rarity odds being 45%, 30%, 15%, 10%), 1500 coins and 250 rubies'
+            />
+            <p>
+              <span className='Highlight'>Lovely Bundle</span> ($59.99): 100
+              neutral cards (with rarity odds being 45%, 30%, 15%, 10%),{' '}
+              <Coins amount={1500} /> and <Rubies amount={250} />.
+            </p>
+          </Row.Column>
+        </Row>
       </Page.Embed>
 
       <Page.Narrow>
