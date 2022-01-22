@@ -1540,10 +1540,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Moment’s Peace', () => {
     const value1 = getCardValue('W6', 1)
     const value5 = getCardValue('W6', 5)
-    expect(value1[0]).toEqual(4 / 5)
-    expect(value1[1]).toEqual(4 / 5)
-    expect(value5[0]).toEqual(8 / 5)
-    expect(value5[1]).toEqual(8 / 5)
+    expect(value1[0]).toEqual(5 / 5)
+    expect(value1[1]).toEqual(5 / 5)
+    expect(value5[0]).toEqual(10 / 5)
+    expect(value5[1]).toEqual(10 / 5)
   })
 
   it('should return value for Mystwives', () => {
