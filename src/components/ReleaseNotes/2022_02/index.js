@@ -40,6 +40,12 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
 
         <TableOfContents>
           <li>
+            <Link href='#compensation'>Compensation</Link>
+          </li>
+          <li>
+            <Link href='#cheapened-brawl'>Cheapened Brawl</Link>
+          </li>
+          <li>
             <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
@@ -62,6 +68,54 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
             to slow down this pandemic. Do the right thing. 🙏
           </p>
         </Info>
+
+        <Title id='compensation'>Compensation</Title>
+
+        <p>
+          Over the last month, there were a few issues related to one of our
+          service providers performing a framework update. This may have
+          resulted in decreased performance, which was aggravated by the fact
+          that the release of the Draft Mode caused more players than usual to
+          play.
+        </p>
+
+        <p>
+          We did our best to roll out quick fixes to bring back the game to a
+          playable state, with only occasional performance drops in specific
+          cases. With the community’s help, we have identified all remaining
+          issues and fixed them one by one, both via backend updates and client
+          releases.
+        </p>
+
+        <p>
+          Nevertheless, we would like to apologize for the issues you’ve faced
+          and issue a small gift in compensation.
+        </p>
+
+        <ul>
+          <li>
+            We will enable a “double coin event” during the first week of
+            February. Matches will yield twice as many coins, and the coin cap
+            will be raised to <Coins amount={800} /> (
+            <Coins amount={1400} /> for Premium Pass holders) for that week.
+          </li>
+          <li>
+            The Brawl event for that week will be half the price (see{' '}
+            <Link to='#cheapened-brawl'>Cheapened Brawl</Link> below).
+          </li>
+          <li>
+            Every player logging into the game at least once during the first
+            week of February will be granted 1 free entry card for the Draft
+            mode.
+          </li>
+        </ul>
+
+        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
+          <p>
+            The Brawl starting on February 3rd (and only that one) is going to
+            be cheaper. All fight will cost 50% of their original price.
+          </p>
+        </CheapenedBrawl>
 
         <Title id='balance-changes'>Balance changes</Title>
 
