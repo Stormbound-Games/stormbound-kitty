@@ -1040,7 +1040,7 @@
     "rarity": "epic",
     "image": "beards_of_crowglyph.png",
     "mana": 6,
-    "strength": "6/7/8/10/12",
+    "strength": "7/8/9/11/13",
     "movement": 0,
     "ability": "After surviving damage, spawn an Elder with *strength equal to this* on a random bordering tile",
     "elder": true

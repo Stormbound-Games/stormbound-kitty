@@ -665,10 +665,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Beards of Crowglyph', () => {
     const value1 = getCardValue('N74', 1)
     const value5 = getCardValue('N74', 5)
-    expect(value1[0]).toEqual((6 / 6) * 0.5)
-    expect(value1[1]).toEqual(((6 + 6 - 1) / 6) * 0.5)
-    expect(value5[0]).toEqual((12 / 6) * 0.5)
-    expect(value5[1]).toEqual(((12 + 12 - 1) / 6) * 0.5)
+    expect(value1[0]).toEqual((7 / 6) * 0.5)
+    expect(value1[1]).toEqual(((7 + 6 - 1) / 6) * 0.5)
+    expect(value5[0]).toEqual((13 / 6) * 0.5)
+    expect(value5[1]).toEqual(((13 + 12 - 1) / 6) * 0.5)
   })
 
   it('should return value for Greenwood Ancients', () => {

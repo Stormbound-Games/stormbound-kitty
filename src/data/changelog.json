@@ -1,6 +1,15 @@
 [
   {
     "date": "01/02/2022",
+    "description": "Strength increased by 1",
+    "id": "N74",
+    "type": "BUFF",
+    "from": {
+      "strength": "6/7/8/10/12"
+    }
+  },
+  {
+    "date": "01/02/2022",
     "description": "Ability made to vitalize the enemy unit",
     "id": "N1",
     "type": "NERF",
