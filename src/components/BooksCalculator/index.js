@@ -2,6 +2,7 @@ import React from 'react'
 import Link from '~/components/Link'
 import { RARITIES } from '~/constants/game'
 import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import Info from '~/components/Info'
 import Label from '~/components/Label'
 import Page from '~/components/Page'
 import BookExplanation from '~/components/BookExplanation'
@@ -75,13 +76,25 @@ export default React.memo(function BooksCalculator(props) {
           <p>
             This is a calculator to estimate the odds of getting fusion stones
             or a specific card when opening a certain book, as well as the
-            average amount of coins based on your collection. Huge thanks to
-            Neicigam (Neicigam#0095 on Discord) for helping with the math and
-            the logic making this simulator possible.{' '}
+            average amount of coins based on your collection.{' '}
             <Link to={{ pathname: '/faq', hash: '#books-calculator' }}>
               Learn more about how it works.
             </Link>
           </p>
+
+          <Info
+            icon='warning'
+            title='Important disclaimer'
+            spacing={{ vertical: 'SMALL' }}
+          >
+            <p>
+              This is only an approximate simulation based on available
+              information. This is in no way a guarantee, and any suggested
+              outcome shared by the calculator should be taken with a grain of
+              salt.
+            </p>
+          </Info>
+
           <Spacing top='BASE' bottom='LARGER'>
             <form>
               <Row withNarrowGutter>

@@ -419,9 +419,15 @@ const getFAQ = () => [
         answer: (
           <>
             <p>
-              The <Link to='/calculators/books'>book calculator</Link>{' '}
-              calculates the probability of not getting fusion stones out of a
-              book (other calculations are just small variations of this one).
+              First of all, the{' '}
+              <Link to='/calculators/books'>book calculator</Link> is only an
+              approximate simulation based on available information. This is in
+              no way a guarantee, and any suggested outcome shared by the
+              calculator should be taken with a grain of salt.
+            </p>
+            <p>
+              It calculates the probability of not getting fusion stones out of
+              a book (other calculations are just small variations of this one).
               To do that, it lays down all the different “drawing sequences”:
               For example, ‘EEELEL’ (Epic, Epic, Epic, Legendary, Epic,
               Legendary) is a valid and likely sequence for a Mythic Tome. So at
@@ -443,7 +449,7 @@ const getFAQ = () => [
               not getting fusion stones out of a Mythic Tome.
             </p>
             <p>
-              Of course this is correct only under the assumption that book
+              Of course, this is correct only under the assumption that book
               draws work this way.
             </p>
           </>
