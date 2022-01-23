@@ -206,12 +206,17 @@ export default React.memo(function BookOpeningSimulator(props) {
             enjoying the thrill of opening a new book. Pick the type of book you
             want to open, click the “Open” button below and see what you found!
           </p>
-          <p>
-            <Icon icon='warning' /> <strong>Disclaimer:</strong> Please take the
-            outcome of this simulator with a grain of salt. This is a best guess
-            and not necessarily representative of actual in-game mechanics,
-            especially in regard to fusion stones.
-          </p>
+          <Info
+            icon='warning'
+            title='Important disclaimer'
+            spacing={{ top: 'SMALL', bottom: 'LARGE' }}
+          >
+            <p>
+              Please take the outcome of this simulator with a grain of salt.
+              This is a best guess and not necessarily representative of actual
+              in-game mechanics, especially in regard to fusion stones.
+            </p>
+          </Info>
           <form onSubmit={open}>
             <Spacing bottom='LARGE'>
               <Select
