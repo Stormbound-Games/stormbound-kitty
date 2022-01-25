@@ -1282,7 +1282,7 @@
   {
     "name": "Minion Launchers",
     "id": "N91",
-    "sid": "",
+    "sid": "u317",
     "type": "unit",
     "faction": "neutral",
     "race": "rodent",
@@ -1721,7 +1721,7 @@
   {
     "name": "Absorbing Warmints",
     "id": "I31",
-    "sid": "",
+    "sid": "ua14",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -2161,7 +2161,7 @@
   {
     "name": "Plague Monarchs",
     "id": "F31",
-    "sid": "",
+    "sid": "ua12",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -2601,7 +2601,7 @@
   {
     "name": "Martyr Spongers",
     "id": "S31",
-    "sid": "",
+    "sid": "ua15",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -3069,7 +3069,7 @@
   {
     "name": "Orgone Leechers",
     "id": "W33",
-    "sid": "",
+    "sid": "ua13",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
