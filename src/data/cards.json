@@ -1728,7 +1728,7 @@
     "rarity": "epic",
     "image": "absorbing_warmints.png",
     "mana": 4,
-    "strength": "4/5/6/7/8",
+    "strength": "3/4/5/6/7",
     "movement": 1,
     "ability": "Before moving, make all *friendly* ancients on the board pull enemy units from behind, then *deal 1/2/2/3/3* damage to all pulled units",
     "ancient": true
@@ -3076,8 +3076,8 @@
     "rarity": "epic",
     "image": "orgone_leechers.png",
     "mana": 3,
-    "strength": "6/7/8/10/12",
-    "movement": 0,
+    "strength": "6/7/8/9/11",
+    "movement": 1,
     "ability": "Before moving, *reduce mana* by 3, then freeze an enemy in the tile in front. Decrease mana reduction by 1 for each other *friendly* ancient on the board.",
     "ancient": true
   },
