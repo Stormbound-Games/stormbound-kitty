@@ -240,24 +240,25 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <p>
           Like last time, a 0-mana level 1 (unless owned and leveled) copy of
           the new card will be added to everyone’s deck (thus causing all decks
-          to have 13 cards). This will be in Warrior mode only.
+          to have 13 cards). Only difference with last time is that if you also
+          have that card in your base deck, it will cost 0 mana as well.
         </p>
 
         <ul>
           <li>
-            The Warrior Brawl starting on the February 3rd will be for{' '}
+            The Warrior Brawl starting on the February 10th will be for{' '}
             <CardLink id='F31' />.
           </li>
           <li>
-            The Warrior Brawl starting on the February 10th will be for{' '}
+            The Warrior Brawl starting on the February 17th will be for{' '}
             <CardLink id='S31' />.
           </li>
           <li>
-            The Warrior Brawl starting on the February 17th will be for{' '}
+            The Warrior Brawl starting on the February 24th will be for{' '}
             <CardLink id='W33' />.
           </li>
           <li>
-            The Warrior Brawl starting on the February 24th will be for{' '}
+            The Warrior Brawl starting on the March 3rd will be for{' '}
             <CardLink id='I31' />.
           </li>
         </ul>
