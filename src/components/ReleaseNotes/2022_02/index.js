@@ -8,6 +8,7 @@ import Link from '~/components/Link'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
+import Spacing from '~/components/Spacing'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import {
@@ -175,6 +176,57 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
       </Page.Embed>
 
       <Page.Narrow>
+        <Spacing top='LARGEST'>
+          <p>
+            As usual, there will be 4 exclusive packs to collect early copies of
+            the new Ancient cards. They all cost $9.99 and bring 5 copies of the
+            given card + <Coins amount={750} /> and <Stones amount={5} />. They
+            will be available at the pace of one per week throughout February.
+          </p>
+        </Spacing>
+      </Page.Narrow>
+
+      <Page.Embed>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_plague_monarchs.png'
+              alt='Plague Monarchs pack: 5 copies of Bounded Daemons + 750 coins + 5 fusion stones'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_martyr_spongers.png'
+              alt='Martyr Spongers pack: 5 copies of Lost Psyches + 750 coins + 5 fusion stones'
+              withAvif
+            />
+          </Row.Column>
+        </Row>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_absorbing_warmints.png'
+              alt='Absorbing Warmints pack: 5 copies of Erratic Neglects + 750 coins + 5 fusion stones'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0, marginBottom: 0 }}
+              src='/assets/images/releases/pack_orgone_leechers.png'
+              alt='Orgone Leechers pack: 5 copies of Fragmented Essences + 750 coins + 5 fusion stones'
+              withAvif
+            />
+          </Row.Column>
+        </Row>
+      </Page.Embed>
+
+      <Page.Narrow>
         <Title id='new-brawls'>New Brawls</Title>
 
         <p>
@@ -218,7 +270,10 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           the Brawl of the 17th will be half the price!
         </p>
 
-        <p>Additionally, there will be 3 new Valentine avatars.</p>
+        <p>
+          Additionally, there will be 3 new Valentine avatars, each available at{' '}
+          <Rubies amount={200} /> a piece.
+        </p>
 
         <p>
           Like most holiday events, there will be some one-time only special
@@ -316,7 +371,14 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
             {
               id: 'release-date',
               question: 'When is the update going to be released?',
-              answer: <>TBD.</>,
+              answer: (
+                <>
+                  The balance changes will be deployed with the season reset as
+                  usual. The Valentine’s offer will be available between
+                  February 14th and February 20th. The first card will be
+                  released on February 7th, then a new one every week.
+                </>
+              ),
             },
           ]}
         />
