@@ -2159,14 +2159,14 @@
     "ability": "*Restore* up to 3/4/5/6/7 initial strength of all friendly poisoned units and *vitalize* them"
   },
   {
-    "name": "Plague Parasites",
+    "name": "Plague Monarchs",
     "id": "F31",
     "sid": "",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
     "rarity": "epic",
-    "image": "plague_parasites.png",
+    "image": "plague_monarchs.png",
     "mana": 5,
     "strength": "3/3/4/4/5",
     "movement": 1,
