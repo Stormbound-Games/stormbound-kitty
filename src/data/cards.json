@@ -1719,14 +1719,14 @@
     "ability": "On play, *vitalize* itself and 1/1/2/2/2 surrounding friendly unit/unit/units/units/units"
   },
   {
-    "name": "Absorbing Warmints",
+    "name": "Absorbing Varmints",
     "id": "I31",
     "sid": "ua14",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
     "rarity": "epic",
-    "image": "absorbing_warmints.png",
+    "image": "absorbing_varmints.png",
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 1,

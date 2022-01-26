@@ -210,8 +210,8 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           <Row.Column>
             <Image
               extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_absorbing_warmints.png'
-              alt='Absorbing Warmints pack: 5 copies of Erratic Neglects + 750 coins + 5 fusion stones'
+              src='/assets/images/releases/pack_absorbing_varmints.png'
+              alt='Absorbing Varmints pack: 5 copies of Erratic Neglects + 750 coins + 5 fusion stones'
               withAvif
             />
           </Row.Column>
