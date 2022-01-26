@@ -276,6 +276,30 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           <Rubies amount={200} /> a piece.
         </p>
 
+        <Row>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/avatars/valentine_woman.png'
+              alt=''
+              withoutWebp
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/avatars/valentine_man.png'
+              alt=''
+              withoutWebp
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/avatars/valentine_heart_monarch.png'
+              alt=''
+              withoutWebp
+            />
+          </Row.Column>
+        </Row>
+
         <p>
           Like most holiday events, there will be some one-time only special
           offers for people willing to put some money into the game. The
