@@ -49,7 +49,12 @@ export default React.memo(function BookOutcome(props) {
 
   return (
     <Info icon='books' title='Outcome'>
-      {props.isAdvancedMode && expectations.join('') === '0000' ? (
+      {props.target === 'FUSION_STONES' && BOOKS[props.book].only ? (
+        <p>
+          It is not possible to compute the odds of pulling Fusion Stones in
+          this kind of book.
+        </p>
+      ) : props.isAdvancedMode && expectations.join('') === '0000' ? (
         <p>
           Define how many different cards you need of each rarity to get the
           odds of drawing at least one of them in a {bookName} book.
