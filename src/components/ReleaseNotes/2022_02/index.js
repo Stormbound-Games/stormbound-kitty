@@ -303,8 +303,8 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <p>
           Like most holiday events, there will be some one-time only special
           offers for people willing to put some money into the game. The
-          Valentine exclusive packs will be available from February 8th (9AM
-          CET) until Feburary 14th (end of day) so be sure to jump on them!
+          Valentine exclusive packs will be available from February 14th (9AM
+          CET) until Feburary 20th (end of day) so be sure to jump on them!
         </p>
       </Page.Narrow>
 
