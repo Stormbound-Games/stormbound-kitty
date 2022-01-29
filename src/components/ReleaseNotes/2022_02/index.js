@@ -279,21 +279,21 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <Row>
           <Row.Column width='1/3'>
             <Image
-              src='/assets/images/avatars/valentine_woman.png'
+              src='/assets/images/avatars/valentine_woman_nobg.png'
               alt=''
               withoutWebp
             />
           </Row.Column>
           <Row.Column width='1/3'>
             <Image
-              src='/assets/images/avatars/valentine_man.png'
+              src='/assets/images/avatars/valentine_man_nobg.png'
               alt=''
               withoutWebp
             />
           </Row.Column>
           <Row.Column width='1/3'>
             <Image
-              src='/assets/images/avatars/valentine_heart_monarch.png'
+              src='/assets/images/avatars/valentine_heart_monarch_nobg.png'
               alt=''
               withoutWebp
             />

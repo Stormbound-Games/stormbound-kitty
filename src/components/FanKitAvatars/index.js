@@ -57,6 +57,10 @@ const AVATARS = [
   'valentine_woman',
   'valentine_man',
   'valentine_heart_monarch',
+  'minion_christmas_nobg',
+  'valentine_woman_nobg',
+  'valentine_man_nobg',
+  'valentine_heart_monarch_nobg',
 ]
 
 const avatars = AVATARS.map(avatar => ({
