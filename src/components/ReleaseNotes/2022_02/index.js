@@ -147,7 +147,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
           <li>
             <CardLink id='W15' />’ mana cost is now 6 (down from 7) and their
-            strength if now 2 (down from 3).
+            strength is now 2 (down from 3).
           </li>
           <li>
             <CardLink id='W6' />
