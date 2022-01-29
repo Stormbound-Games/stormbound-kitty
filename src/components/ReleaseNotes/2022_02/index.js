@@ -181,7 +181,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
             <p>
               A nice side-effect of these new cards being introduced is that the{' '}
               <Link to='/card'>card builder</Link> now supports creating Ancient
-              cards of certain races, such as Ancient Frostling.
+              cards of certain races, such as Frostling Ancient.
             </p>
           </Info>
 
