@@ -151,7 +151,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
           <li>
             <CardLink id='W6' />
-            ’s ability now grants 5/6/7/8/10 (up from 4/5/6/7/8).
+            ’s ability now grants 5/6/7/8/9 (up from 4/5/6/7/8).
           </li>
           <li>
             <CardLink id='N40' />

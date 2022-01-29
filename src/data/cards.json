@@ -2665,7 +2665,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "*Give 5/6/7/8/10* strength to a target friendly unit or structure. *Freeze* all surrounding enemy units."
+    "ability": "*Give 5/6/7/8/9* strength to a target friendly unit or structure. *Freeze* all surrounding enemy units."
   },
   {
     "name": "Mystwives",
