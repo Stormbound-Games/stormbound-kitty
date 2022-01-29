@@ -15,10 +15,13 @@ const CARD_MECHANICS = {
   },
   FREEZE: { label: 'Freeze mechanics', cards: ['W1', 'W8'] },
   MANA: {
-    label: 'Gaining mana',
-    cards: ['W12', 'W19', 'W10', 'W9', 'W16', 'W8'],
+    label: 'Gaining/losing mana',
+    cards: ['W12', 'W19', 'W10', 'W9', 'W16', 'W8', 'W33'],
   },
-  RNG: { label: 'RNG-dependent', cards: ['S3', 'W9', 'W16', 'W8', 'I29'] },
+  RNG: {
+    label: 'RNG-dependent',
+    cards: ['S3', 'W9', 'W16', 'W8', 'I29', 'W33'],
+  },
   FIRST_TURN: {
     label: 'First turn restrictions',
     cards: ['W1', 'F4', 'N9', 'N15', 'N63'],
@@ -26,6 +29,8 @@ const CARD_MECHANICS = {
   OTHERS: { label: 'Others', cards: ['N8', 'F8'] },
 }
 
+const { FROZEN_CORE_STAYS, DAWNSPARKS_STAYS, DAWNSPARKS_HITS, AHMI_RETURNS } =
+  PROBABILITIES
 const CARD_ATTRIBUTES = {
   N12: 'Discards a random non-Pirate card from your hand',
   N14: 'Draws one or two cards, depending on the level',
@@ -38,19 +43,20 @@ const CARD_ATTRIBUTES = {
   W8: 'Destroys frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
   W12: 'Gives back 3 mana',
   W10: 'Spends remaining mana to gain strength',
-  W9: `Has a 0% / ${parseInt(
-    PROBABILITIES.FROZEN_CORE_STAYS * 100
-  )}% / 100% chance each turn of staying on the board and giving you mana each turn`,
-  W16: `Have a 0% / ${parseInt(
-    PROBABILITIES.DAWNSPARKS_STAYS * 100
-  )}% / 100% chance of staying on the board and a 0% / ${parseInt(
-    PROBABILITIES.DAWNSPARKS_HITS * 100
-  )}% / 100% chance of giving you mana each turn`,
+  W9: `Has a 0% / ${
+    FROZEN_CORE_STAYS * 100
+  }% / 100% chance each turn of staying on the board and giving you mana each turn`,
+  W16: `Have a 0% / ${
+    DAWNSPARKS_STAYS * 100
+  }% / 100% chance of staying on the board and a 0% / ${
+    DAWNSPARKS_HITS * 100
+  }% / 100% chance of giving you mana each turn`,
+  W33: `Have a 0% / 50% / 100% chance of staying on the board`,
   W19: 'Gives you between 11 and 15 mana, depending on its level',
   N8: 'Adds a random token card to your deck',
-  S3: `Comes back to your hand with a 0% / ${parseInt(
-    PROBABILITIES.AHMI_RETURNS * 100
-  )}% / 100% probability`,
+  S3: `Comes back to your hand with a 0% / ${
+    AHMI_RETURNS * 100
+  }% / 100% probability`,
   F4: 'On turn one, can only be played when a friendly unit has previously been played',
   N15: 'Cannot be played without a friendly target unit',
   S10: 'Cannot be played without a target unit/structure',

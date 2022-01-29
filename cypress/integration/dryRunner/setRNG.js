@@ -1,14 +1,15 @@
 import s from './selectors'
 
-const DECK_ID = '5n25n35n235n45n65n625s35n125n145w95w165s21'
-const HAND = ['W9', 'W16', 'N12', 'S3']
+const DECK_ID = '5n25n35n235n45n65n625s35n125n145w95w165w33'
+const HAND = ['W9', 'W16', 'W33', 'S3']
 
 describe('Dry-runner — Set RNG', () => {
   ;[
     { name: 'Frozen Cores', id: 'W9', mana: 3 },
     { name: 'Dawnsparks', id: 'W16', mana: 4 },
+    { name: 'Orgone Leechers', id: 'W33', mana: -3 },
   ].forEach(({ name, id, mana }) => {
-    it(`should only be possible to get mana from ${name} that have not been destroyed yet`, () => {
+    it(`should only be possible to update mana from ${name} that have not been destroyed yet`, () => {
       cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
         .drDrawHand(HAND)
         .drEndTurn(3)

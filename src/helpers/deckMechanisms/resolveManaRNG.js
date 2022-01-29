@@ -15,26 +15,43 @@ import { PROBABILITIES } from '~/constants/dryRunner'
  * @return {Object} Mutated state
  */
 const resolveManaRNG = state => {
+  // Regardless of the RNG setting, we need to reduce the amount of Orgone
+  // Leechers as they eventually either die or reach the base.
+  state.specifics.activeOrgoneLeechers -= getBinomialRandomVariableResult(
+    state.specifics.activeOrgoneLeechers,
+    PROBABILITIES.ORGONE_LEECHERS_STAYS
+  )
+
   switch (state.RNG) {
     case 'UNFRIENDLY': {
       state.specifics.activeFrozenCores = 0
       state.specifics.activeDawnsparks = 0
+
+      // When RNG is unfriendly, we expect the opponent player to destroy all
+      // other ancients but the Orgone Leechers so they leech a maximum amount
+      // of mana.
+      state.specifics.activeFriendlyAncients = 0
+      state.mana -= Math.min(3 * state.specifics.activeOrgoneLeechers)
       break
     }
 
     case 'REGULAR': {
-      const { activeFrozenCores, activeDawnsparks } = state.specifics
-
       // Choose how many Frozen Cores survive
       state.specifics.activeFrozenCores = getBinomialRandomVariableResult(
-        activeFrozenCores,
+        state.specifics.activeFrozenCores,
         PROBABILITIES.FROZEN_CORE_STAYS
       )
 
       // Choose how many Dawnsparks units survive
       state.specifics.activeDawnsparks = getBinomialRandomVariableResult(
-        activeDawnsparks,
+        state.specifics.activeDawnsparks,
         PROBABILITIES.DAWNSPARKS_STAYS
+      )
+
+      // Choose how many friendly ancients survive (for Orgone Leechers)
+      state.specifics.activeFriendlyAncients -= getBinomialRandomVariableResult(
+        state.specifics.activeFriendlyAncients,
+        PROBABILITIES.ANCIENT_STAYS
       )
 
       // Add mana from remaining Frozen Cores
@@ -46,15 +63,31 @@ const resolveManaRNG = state => {
           state.specifics.activeDawnsparks,
           PROBABILITIES.DAWNSPARKS_HITS
         ) * 4
+
+      // Decrease mana based on the amount of active friendly ancients.
+      state.mana -= Math.max(
+        (3 - state.specifics.activeFriendlyAncients) *
+          state.specifics.activeOrgoneLeechers,
+        0
+      )
       break
     }
 
     case 'FRIENDLY':
-    default:
+    default: {
       state.mana += state.specifics.activeFrozenCores * 3
       state.mana += state.specifics.activeDawnsparks * 4
+      state.mana -= Math.max(
+        (3 - state.specifics.activeFriendlyAncients) *
+          state.specifics.activeOrgoneLeechers,
+        0
+      )
       break
+    }
   }
+
+  // Make sure mana never goes negative.
+  if (state.mana < 0) state.mana = 0
 
   return state
 }

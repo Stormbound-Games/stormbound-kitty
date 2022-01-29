@@ -151,6 +151,12 @@ const handleCardEffect = (state, card, mode, HoS) => {
       break
     }
 
+    // Orgone Leechers
+    case 'W33': {
+      state.specifics.activeOrgoneLeechers += 1
+      break
+    }
+
     // Freebooters
     case 'N14': {
       const { hand } = state

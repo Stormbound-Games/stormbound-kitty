@@ -4,7 +4,7 @@ import DryRunnerSettings from '~/components/DryRunnerSettings'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 
-const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11', 'W32']
+const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11', 'W32', 'W33']
 
 const containsFreeze = deck =>
   deck.map(card => card.id).some(id => FREEZE_CARD_IDS.includes(id))
@@ -60,10 +60,29 @@ const getDawnsparksText = activeDawnsparks => {
   )
 }
 
+// Get the text that should be displayed to indicate how many Orgone Leechers
+// there are on the board
+const getOrgoneLeechersText = activeOrgoneLeechers => {
+  return (
+    <>
+      There {activeOrgoneLeechers === 1 ? 'is' : 'are'}{' '}
+      {activeOrgoneLeechers ? activeOrgoneLeechers : 'no'} <CardLink id='W33' />{' '}
+      {activeOrgoneLeechers === 0
+        ? ''
+        : activeOrgoneLeechers === 1
+        ? 'unit '
+        : 'units '}
+      on the board.
+      <br />
+    </>
+  )
+}
+
 export default React.memo(function DryRunnerInfo(props) {
   const deckIds = props.deck.map(card => card.id)
   const containsFrozenCore = deckIds.includes('W9')
   const containsDawnsparks = deckIds.includes('W16')
+  const containsOrgoneLeechers = deckIds.includes('W33')
   const deckContainsFreeze = containsFreeze(props.deck)
 
   return (
@@ -115,12 +134,15 @@ export default React.memo(function DryRunnerInfo(props) {
 
             {(containsFrozenCore ||
               containsDawnsparks ||
+              containsOrgoneLeechers ||
               deckContainsFreeze) && (
               <p>
                 {containsFrozenCore &&
                   getFrozenCoreText(props.specifics.activeFrozenCores)}
                 {containsDawnsparks &&
                   getDawnsparksText(props.specifics.activeDawnsparks)}
+                {containsOrgoneLeechers &&
+                  getOrgoneLeechersText(props.specifics.activeOrgoneLeechers)}
                 {deckContainsFreeze &&
                   getFrozenEnemiesText(props.specifics.frozenEnemiesLevel)}
               </p>

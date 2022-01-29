@@ -52,6 +52,17 @@ const play = (state, card, opts, HoS) => {
     state.specifics.noUnitsOnFirstTurn = false
   }
 
+  // If the card is an ancient, increment the counter of friendly ancients on
+  // the board as it impacts some cards. If the card is Orgone Leechers though,
+  // we only increment the amount of ancients if we have other Orgone Leechers
+  // on the board otherwise it counts for itself.
+  if (
+    cardData.ancient &&
+    (cardData.id !== 'W33' || state.specifics.activeOrgoneLeechers)
+  ) {
+    state.specifics.activeFriendlyAncients += 1
+  }
+
   // After having played a card, we need to readjust the weight of all cards
   // that are not in the hand, as well as the card that has just been played
   // (reset to 0).

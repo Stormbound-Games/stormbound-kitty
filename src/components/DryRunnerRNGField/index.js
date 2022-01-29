@@ -6,70 +6,42 @@ import CardLink from '~/components/CardLink'
 import { FRIENDLY_CHANCES } from '~/constants/dryRunner'
 import styles from './styles'
 
+// prettier-ignore
 const RNG_SENSITIVE_CARDS = {
   S3: {
-    FRIENDLY: function FriendlyS3() {
-      return (
-        <>
-          <CardLink id='S3' /> comes back in hand
-        </>
-      )
-    },
-    UNFRIENDLY: function UnfriendlyS3() {
-      return (
-        <>
-          <CardLink id='S3' /> doesn’t come back to hand
-        </>
-      )
-    },
+    FRIENDLY: () => <><CardLink id='S3' /> comes back in hand</>,
+    UNFRIENDLY: () => <><CardLink id='S3' /> doesn’t come back to hand</>,
+    REGULAR: () => <>{parseInt(FRIENDLY_CHANCES.S3 * 100)}% chance per turn that <CardLink id='S3' /> comes back in hand</>
   },
   I29: {
-    FRIENDLY: function FriendlyI29() {
-      return (
-        <>
-          <CardLink id='I29' /> comes back in hand
-        </>
-      )
-    },
-    UNFRIENDLY: function UnfriendlyI29() {
-      return (
-        <>
-          <CardLink id='I29' /> doesn’t come back to hand
-        </>
-      )
-    },
+    FRIENDLY: () => <><CardLink id='I29' /> comes back in hand</>,
+    UNFRIENDLY: () => <><CardLink id='I29' /> doesn’t come back to hand</>,
+    REGULAR: () => <>{parseInt(FRIENDLY_CHANCES.I29 * 100)}% chance per turn that <CardLink id='I29' /> comes back in hand</>
   },
   W9: {
-    FRIENDLY: function FriendlyW9() {
-      return (
-        <>
-          <CardLink id='W9' /> stays
-        </>
-      )
-    },
-    UNFRIENDLY: function UnfriendlyW9() {
-      return (
-        <>
-          <CardLink id='W9' /> gets destroyed
-        </>
-      )
-    },
+    FRIENDLY: () => <><CardLink id='W9' /> stays</>,
+    UNFRIENDLY: () => <><CardLink id='W9' /> gets destroyed</>,
+    REGULAR: () => <>{parseInt(FRIENDLY_CHANCES.W9 * 100)}% chance per turn that <CardLink id='W9' /> stays</>,
   },
   W16: {
-    FRIENDLY: function FriendlyW16() {
-      return (
-        <>
-          <CardLink id='W16' /> hits and stays on the board
-        </>
-      )
-    },
-    UNFRIENDLY: function UnfriendlyW16() {
-      return (
-        <>
-          <CardLink id='W16' /> dies
-        </>
-      )
-    },
+    FRIENDLY: () => <><CardLink id='W16' /> hits and stays on the board</>,
+    UNFRIENDLY: () => <><CardLink id='W16' /> dies</>,
+    REGULAR: () => <>{parseInt(FRIENDLY_CHANCES.W16 * 100)}% chance per turn that <CardLink id='W16' /> hits and stays on the board</>,
+  },
+  W33: {
+    FRIENDLY: () => <><CardLink id='W33' /> stays on the board</>,
+    UNFRIENDLY: () => <><CardLink id='W33' /> dies</>,
+    REGULAR: () => <>{parseInt(FRIENDLY_CHANCES.W33 * 100)}% chance per turn that <CardLink id='W33' /> stays on the board</>,
+  },
+  N77: {
+    FRIENDLY: () => <><CardLink id='N77' /> creates strong card copies</>,
+    UNFRIENDLY: () => <><CardLink id='N77' /> creates weak card copies</>,
+    REGULAR: () => <><CardLink id='N77' /> creates average card copies</>,
+  },
+  N38: {
+    FRIENDLY: () => <><CardLink id='N38' /> often create strong copies</>,
+    UNFRIENDLY: () => <>When <CardLink id='N38' /> manage to create a copy, it’s generally weak</>,
+    REGULAR: () => <><CardLink id='N38' /> sometimes create an average copy</>,
   },
 }
 
@@ -81,16 +53,13 @@ export default React.memo(function DryRunnerRNGField(props) {
     deckIds.includes(cardId)
   )
 
-  // Check if there is a freeze card in the deck to show RNG settings
+  // The RNG settings need to be displayed if:
+  // - Some RNG-sensitive cards are in the deck.
+  // - Some RNG-sensitive freeze-related cards are in the deck.
   const freezeCards = ['W2', 'W6', 'W11']
-  const freezeCard = deckIds.find(id => freezeCards.includes(id))
-  const harvestersInDeck = deckIds.includes('N38')
-  const rogueSheepInDeck = deckIds.includes('N77')
+  const hasFreezeCards = deckIds.find(id => freezeCards.includes(id))
 
-  if (
-    RNGSensitiveCards.length === 0 &&
-    !(freezeCard || harvestersInDeck || rogueSheepInDeck)
-  ) {
+  if (RNGSensitiveCards.length === 0 && !hasFreezeCards) {
     return null
   }
 
@@ -108,17 +77,7 @@ export default React.memo(function DryRunnerRNGField(props) {
       >
         Friendly
         <span className={css(styles.info)}>
-          {harvestersInDeck ? (
-            <span className={css(styles.infoInner)}>
-              <CardLink id='N38' /> often create strong copies
-            </span>
-          ) : null}
-          {rogueSheepInDeck ? (
-            <span className={css(styles.infoInner)}>
-              <CardLink id='N77' /> create strong card copies
-            </span>
-          ) : null}
-          {freezeCard ? (
+          {hasFreezeCards ? (
             <span className={css(styles.infoInner)}>
               Freeze cards manage to freeze many enemies
             </span>
@@ -141,18 +100,7 @@ export default React.memo(function DryRunnerRNGField(props) {
       >
         Unfriendly
         <span className={css(styles.info)}>
-          {harvestersInDeck ? (
-            <span className={css(styles.infoInner)}>
-              When <CardLink id='N38' /> manage to create a copy, it’s generally{' '}
-              weak
-            </span>
-          ) : null}
-          {rogueSheepInDeck ? (
-            <span className={css(styles.infoInner)}>
-              <CardLink id='N77' /> create weak card copies
-            </span>
-          ) : null}
-          {freezeCard ? (
+          {hasFreezeCards ? (
             <span className={css(styles.infoInner)}>
               Freeze cards do not manage to freeze many enemies
             </span>
@@ -176,25 +124,14 @@ export default React.memo(function DryRunnerRNGField(props) {
         Regular{' '}
         <span className={css(styles.info)}>
           <>
-            {harvestersInDeck ? (
-              <span className={css(styles.infoInner)}>
-                <CardLink id='N38' /> sometimes create an average copy
-              </span>
-            ) : null}
-            {rogueSheepInDeck ? (
-              <span className={css(styles.infoInner)}>
-                <CardLink id='N77' /> create average card copies
-              </span>
-            ) : null}
-            {freezeCard ? (
+            {hasFreezeCards ? (
               <span className={css(styles.infoInner)}>
                 Freeze cards manage to freeze a few enemies
               </span>
             ) : null}
             {RNGSensitiveCards.map(cardId => (
               <span key={cardId} className={css(styles.infoInner)}>
-                {parseInt(FRIENDLY_CHANCES[cardId] * 100)}% chance per turn that{' '}
-                {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
+                {RNG_SENSITIVE_CARDS[cardId].REGULAR()}
               </span>
             ))}
           </>
