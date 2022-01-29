@@ -29,7 +29,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
-          February bringing balance changes, 4 new Ancient cards, compensation
+          February bringing balance changes, 2 new Ancient cards, compensation
           and some exclusive offers!
         </p>
 
@@ -116,9 +116,10 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
 
         <CheapenedBrawl ratio={1 / 2} title='Cheapened Brawls'>
           <p>
-            The Brawl starting on February 3rd <strong>and</strong> the Brawl
-            starting on Fabruary 17th are going to be cheaper. All fight will
-            cost 50% of their original price.
+            The Brawl starting on February 3rd (as an apology){' '}
+            <strong>and</strong> the Brawl starting on Fabruary 17th (for
+            Valentine’s Day) are going to be cheaper. All fight will cost 50% of
+            their original price.
           </p>
         </CheapenedBrawl>
 
@@ -163,25 +164,31 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <Title id='new-cards'>New cards</Title>
 
         <p>
-          Four new Ancient cards will join the ranks of their respective
-          factions, all epic.
+          Four new epic Ancient cards will join the ranks of their respective
+          factions over the next 2 months. These 2 cards will be introduced in
+          February, then there will be 2 more in March.
         </p>
       </Page.Narrow>
 
       <Page.Embed>
-        <CardBuilderCardDisplay {...getInitialCardData('F31')} />
-        <CardBuilderCardDisplay {...getInitialCardData('I31')} />
-        <CardBuilderCardDisplay {...getInitialCardData('S31')} />
         <CardBuilderCardDisplay {...getInitialCardData('W33')} />
+        <CardBuilderCardDisplay {...getInitialCardData('S31')} />
       </Page.Embed>
 
       <Page.Narrow>
         <Spacing top='LARGEST'>
+          <Info icon='wand' title='Card Builder'>
+            <p>
+              A nice side-effect of these new cards being introduced is that the{' '}
+              <Link to='/card'>card builder</Link> now supports creating Ancient
+              cards of certain races, such as Ancient Frostling.
+            </p>
+          </Info>
+
           <p>
-            As usual, there will be 4 exclusive packs to collect early copies of
-            the new Ancient cards. They all cost $9.99 and bring 5 copies of the
-            given card + <Coins amount={750} /> and <Stones amount={5} />. They
-            will be available at the pace of one per week throughout February.
+            As usual, there will be exclusive packs to collect early copies of
+            the new Ancient cards. They all cost $9.99 and bring 3 copies of the
+            given card + <Coins amount={750} /> and <Stones amount={5} />.
           </p>
         </Spacing>
       </Page.Narrow>
@@ -190,38 +197,39 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_plague_monarchs.png'
-              alt='Plague Monarchs pack: 5 copies of Bounded Daemons + 750 coins + 5 fusion stones'
-              withAvif
-            />
-          </Row.Column>
-          <Row.Column>
-            <Image
-              extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_martyr_spongers.png'
-              alt='Martyr Spongers pack: 5 copies of Lost Psyches + 750 coins + 5 fusion stones'
-              withAvif
-            />
-          </Row.Column>
-        </Row>
-
-        <Row isDesktopOnly>
-          <Row.Column>
-            <Image
-              extend={{ marginTop: 0, marginBottom: 0 }}
-              src='/assets/images/releases/pack_absorbing_varmints.png'
-              alt='Absorbing Varmints pack: 5 copies of Erratic Neglects + 750 coins + 5 fusion stones'
-              withAvif
-            />
-          </Row.Column>
-          <Row.Column>
-            <Image
-              extend={{ marginTop: 0, marginBottom: 0 }}
+              extend={{ marginTop: 0 }}
               src='/assets/images/releases/pack_orgone_leechers.png'
-              alt='Orgone Leechers pack: 5 copies of Fragmented Essences + 750 coins + 5 fusion stones'
+              alt='Orgone Leechers pack: 5 copies of Orgone Leechers + 750 coins + 5 fusion stones'
               withAvif
             />
+            <p>
+              <CardLink id='W33' /> will be introduced on February 7th along
+              with its promotional pack, which can be purchased until February
+              13th.
+            </p>
+            <p>
+              <span className='Highlight'>Orgone Leechers Pack</span> ($9.99): 3
+              copies of <CardLink id='W33' />, <Coins amount={750} /> and{' '}
+              <Stones amount={5} />.
+            </p>
+          </Row.Column>
+          <Row.Column>
+            <Image
+              extend={{ marginTop: 0 }}
+              src='/assets/images/releases/pack_martyr_spongers.png'
+              alt='Martyr Spongers pack: 5 copies of Martyr Spongers + 750 coins + 5 fusion stones'
+              withAvif
+            />
+            <p>
+              <CardLink id='S31' /> will be introduced on February 21st along
+              with its promotional pack, which can be purchased until February
+              28th.
+            </p>
+            <p>
+              <span className='Highlight'>Martyr Spongers Pack</span> ($9.99): 3
+              copies of <CardLink id='S31' />, <Coins amount={750} /> and{' '}
+              <Stones amount={5} />.
+            </p>
           </Row.Column>
         </Row>
       </Page.Embed>
@@ -232,8 +240,8 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <p>
           Similar to what we did{' '}
           <Link to='/releases/12-2021'>back in December</Link> for{' '}
-          <CardLink id='N91' />, we will introduce 4 new Brawl modifiers for the
-          4 new cards. We think it’s a good way for you to be able to try, play
+          <CardLink id='N91' />, we will introduce 2 new Brawl modifiers for the
+          2 new cards. We think it’s a good way for you to be able to try, play
           with and enjoy newly added cards before you start collecting
         </p>
 
@@ -247,19 +255,11 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         <ul>
           <li>
             The Warrior Brawl starting on the February 10th will be for{' '}
-            <CardLink id='F31' />.
-          </li>
-          <li>
-            The Warrior Brawl starting on the February 17th will be for{' '}
-            <CardLink id='S31' />.
-          </li>
-          <li>
-            The Warrior Brawl starting on the February 24th will be for{' '}
             <CardLink id='W33' />.
           </li>
           <li>
-            The Warrior Brawl starting on the March 3rd will be for{' '}
-            <CardLink id='I31' />.
+            The Warrior Brawl starting on the February 24th will be for{' '}
+            <CardLink id='S31' />.
           </li>
         </ul>
 
@@ -339,27 +339,6 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
       <Page.Narrow>
         <Title id='qol-improvements'>Quality of life improvements</Title>
 
-        <p>
-          We are happy to introduce a handful of bug fixes as will interface
-          improvements in this release, starting with the friends notifications
-          toggle. When turned off, other players cannot send you invites.
-        </p>
-
-        <Row isDesktopOnly>
-          <Row.Column>
-            <Image
-              src='/assets/images/releases/GUI_friends_busy.png'
-              alt='Screenshot of the friends menu displaying a toggle on the top right corner for notifications, labeled “Busy” and “Online”, currently set to “Busy”'
-            />
-          </Row.Column>
-          <Row.Column>
-            <Image
-              src='/assets/images/releases/GUI_friends_not_busy.png'
-              alt='Screenshot of the friends menu displaying a toggle on the top right corner for notifications, labeled “Busy” and “Online”, currently set to “Online”'
-            />
-          </Row.Column>
-        </Row>
-
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -399,9 +378,10 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
               answer: (
                 <>
                   The balance changes will be deployed with the season reset as
-                  usual. The Valentine’s offer will be available between
-                  February 14th and February 20th. The first card will be
-                  released on February 7th, then a new one every week.
+                  usual. The 2 cards will be introduced on February 7th and
+                  February 21st. The Valentine’s offer will be available between
+                  February 14th and February 20th. The UI improvements will land
+                  on February 7th.
                 </>
               ),
             },

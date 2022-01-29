@@ -76,7 +76,7 @@ export default React.memo(function Card(props) {
           </span>
 
           <span className={css(styles.race)} data-testid='card-race'>
-            {props.race} {props.ancient && 'ancient'} {props.elder && 'elder'}{' '}
+            {props.ancient && 'ancient'} {props.race} {props.elder && 'elder'}{' '}
             {props.hero && 'hero'}
           </span>
         </div>
