@@ -16,7 +16,7 @@ const getIP = request =>
 async function applyRateLimit(request, response) {
   const limitPerWindow = 20
   const config = {
-    headers: true,
+    legacyHeaders: true,
     windowMs: 60 * 1000,
     keyGenerator: getIP,
   }
