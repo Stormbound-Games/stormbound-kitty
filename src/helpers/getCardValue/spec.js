@@ -1542,8 +1542,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue('W6', 5)
     expect(value1[0]).toEqual(5 / 5)
     expect(value1[1]).toEqual(5 / 5)
-    expect(value5[0]).toEqual(10 / 5)
-    expect(value5[1]).toEqual(10 / 5)
+    expect(value5[0]).toEqual(9 / 5)
+    expect(value5[1]).toEqual(9 / 5)
   })
 
   it('should return value for Mystwives', () => {
