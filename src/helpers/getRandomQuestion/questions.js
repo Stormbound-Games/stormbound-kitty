@@ -1278,12 +1278,6 @@ const questions = [
   },
 
   {
-    question: 'What are the odds of pulling Fusion Stones from a Mythic Tome?',
-    answer: '17.86%',
-    options: ['18.76%', '16.78%', '16.87%', '17.68%', '17.86%'],
-  },
-
-  {
     question: 'Which platform was *not* used to disclose one of the wild cats?',
     answer: 'Twitter',
     options: 'Stormbound-Kitty,Stormbound Wiki,YouTube,Discord,Twitch'.split(
