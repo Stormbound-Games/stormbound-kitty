@@ -6,12 +6,11 @@ import { getSequenceProbability } from '~/helpers/getDrawingProbability'
 import getDrawingSequences from '~/helpers/getDrawingSequences'
 import CARDS from '~/data/cards'
 import FUSION_STONES from '~/helpers/getRawCardData/fs'
+import random from '~/helpers/random'
 import { RARITIES } from '~/constants/game'
 
 const getRarityPool = (rarity, only = {}) =>
-  CARDS.filter(isCardMatchingCriteria({ ...only, rarity }))
-    .map(card => card.id)
-    .concat(FUSION_STONES.find(fs => fs.rarity === rarity).id)
+  CARDS.filter(isCardMatchingCriteria({ ...only, rarity })).map(card => card.id)
 
 const getDrawingPools = book =>
   Object.keys(RARITIES).reduce(
@@ -23,17 +22,8 @@ const getRandomCardId = pools => rarity => {
   const pool = pools[rarity]
   const draw = arrayRandom(pool)
 
-  // When drawing Fusion Stones, remove the possibility to draw further Fusion
-  // Stones (of any rarity) as there is a limit of one Fusion Stones’ draw per
-  // book.
-  if (draw.startsWith('R')) {
-    Object.keys(pools).forEach(rarity => {
-      pools[rarity] = pools[rarity].filter(id => !id.startsWith('R'))
-    })
-  } else {
-    // Remove the card from the pool so it cannot be drawn again.
-    pools[rarity] = pools[rarity].filter(id => id !== draw)
-  }
+  // Remove the card from the pool so it cannot be drawn again.
+  pools[rarity] = pools[rarity].filter(id => id !== draw)
 
   return draw
 }
@@ -71,11 +61,25 @@ const openBook = book => {
   const sequence = getRandomSequence(sequences)
   const pools = getDrawingPools(book)
   const draw = getRandomCardId(pools)
-
-  return sequence
+  const cards = sequence
     .map(rarityIndex => Object.keys(RARITIES)[rarityIndex])
     .map(draw)
     .map(id => getResolvedCardData({ id, level: 1 }))
+
+  const withFusionStones = Math.random() <= 0.1
+
+  // Confirmed in January 2022: there is roughly 10% chance of pulling Fusion
+  // Stones from a book, regardless of its type (the difference should be
+  // marginal enough for simulation purposes).
+  // If the book does contain fusion Fusion Stones, a random card from the book
+  // gets replaced with its Fusion Stones equivalent.
+  if (withFusionStones) {
+    const slotIndex = random(0, sequence.length - 1)
+    const rarity = sequence[slotIndex]
+    cards[slotIndex] = FUSION_STONES[rarity]
+  }
+
+  return cards
 }
 
 export default openBook

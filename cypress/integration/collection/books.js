@@ -15,13 +15,13 @@ describe('Collection — Books', () => {
   })
 
   it('should be possible to change book', () => {
-    cy.get(s.ODDS_RESULT)
+    cy.get(s.BOOK_NAME)
       .invoke('text')
       .then(result => {
         cy.get(s.BOOK_SELECT)
           .select('NOBLE')
 
-          .get(s.ODDS_RESULT)
+          .get(s.BOOK_NAME)
           .invoke('text')
           .should('not.equal', result)
       })

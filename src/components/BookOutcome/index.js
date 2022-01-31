@@ -42,19 +42,20 @@ export default React.memo(function BookOutcome(props) {
   const bookExpectations = EXPECTATIONS[props.target].getExpectations(
     BOOKS[props.book].only
   )
-  const chances = getDrawingProbability(
-    props.book,
-    props.isAdvancedMode ? expectations : bookExpectations
-  )
+  const chances =
+    // The odds of drawing fusion stones in *any* book are roughly of 1 in 10.
+    // This has nothing to do with the amount of cards or the rarity of cards
+    // or the type of cards.
+    props.target === 'FUSION_STONES'
+      ? 0.1
+      : getDrawingProbability(
+          props.book,
+          props.isAdvancedMode ? expectations : bookExpectations
+        )
 
   return (
     <Info icon='books' title='Outcome'>
-      {props.target === 'FUSION_STONES' && BOOKS[props.book].only ? (
-        <p>
-          It is not possible to compute the odds of pulling Fusion Stones in
-          this kind of book.
-        </p>
-      ) : props.isAdvancedMode && expectations.join('') === '0000' ? (
+      {props.isAdvancedMode && expectations.join('') === '0000' ? (
         <p>
           Define how many different cards you need of each rarity to get the
           odds of drawing at least one of them in a {bookName} book.
@@ -67,8 +68,11 @@ export default React.memo(function BookOutcome(props) {
       ) : (
         <>
           <p>
-            Opening a <strong className='Highlight'>{bookName}</strong> would
-            yield:
+            Opening a{' '}
+            <strong className='Highlight' data-testid='book-name'>
+              {bookName}
+            </strong>{' '}
+            would yield:
           </p>
           <ul
             className={css({
@@ -77,10 +81,11 @@ export default React.memo(function BookOutcome(props) {
             })}
           >
             <li>
+              {props.target === 'FUSION_STONES' && '~'}
               <strong className='Highlight' data-testid='odds-result'>
                 {(chances * 100).toFixed(2)}%
               </strong>{' '}
-              chances to draw {subject}
+              chance of drawing {subject}
             </li>
             <li>
               An average of{' '}

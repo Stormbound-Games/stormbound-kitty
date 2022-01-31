@@ -25,11 +25,11 @@ export default React.memo(function BookExplanation({ book }) {
         {draws > 1 ? 'cards' : 'card'} and potentially some Fusion stones. It
         cannot yield more than a single copy of a single card.
       </p>
-      <p>The chances to draw are as follow:</p>
+      <p>The chances of drawing are as follow:</p>
       <ul className={css({ margin: 0, paddingLeft: 'var(--s-base)' })}>
         {Object.keys(RARITIES).map((rarity, index) => (
           <li key={rarity}>
-            {(percentiles[index] * 100).toFixed(0)}% chance of pulling a{' '}
+            {(percentiles[index] * 100).toFixed(0)}% chance of drawing a{' '}
             {rarity} card
           </li>
         ))}

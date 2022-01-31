@@ -12,6 +12,7 @@ const selectors = {
 
   BOOK_SELECT: '[data-testid="book-select"]',
   TARGET_SELECT: '[data-testid="target-select"]',
+  BOOK_NAME: '[data-testid="book-name"]',
   ODDS_RESULT: '[data-testid="odds-result"]',
   AVERAGE_STONES: '[data-testid="average-stones"]',
 
