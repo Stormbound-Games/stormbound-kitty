@@ -3,6 +3,7 @@
   "chromeWebSecurity": false,
   "coverage": false,
   "defaultCommandTimeout": 10000,
+  "pageLoadTimeout": 90000,
   "env": {
     "coverage": false
   },
