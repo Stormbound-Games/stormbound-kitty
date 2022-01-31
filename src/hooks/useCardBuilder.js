@@ -31,6 +31,7 @@ const INITIAL_STATE = {
   rarity: 'common',
   faction: 'neutral',
   race: null,
+  ancient: false,
   elder: false,
   hero: false,
   type: 'unit',
