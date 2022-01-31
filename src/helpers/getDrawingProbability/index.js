@@ -33,10 +33,9 @@ export const getSequenceProbability = (book, expectations) => {
 }
 
 /**
- * Get the drawing probability of the given target in the given book type
+ * Get the drawing probability of the given exceptations in the given book type
  * @param {String} bookType - Type of book (e.g. `MYTHIC`)
  * @param {Number[]} expectations - Expectations as rarity array
- * @param {String} target - Expected outcome (e.g. `FUSION_STONES` or `EPIC`)
  * @return {Float} Probability between 0 and 1
  */
 const getDrawingProbability = (bookType, expectations) => {

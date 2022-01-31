@@ -6,7 +6,6 @@ import getEmbed from '~/helpers/getEmbed'
 import getBookName from '~/helpers/getBookName'
 
 const getEmbedFields = book => {
-  const stoneOdds = EXPECTATIONS.FUSION_STONES.getExpectations()
   const fields = []
 
   Object.keys(RARITIES).forEach(rarity => {
@@ -29,8 +28,8 @@ const getEmbedFields = book => {
   })
 
   fields.push({
-    name: `Fusion stones`,
-    value: (getDrawingProbability(book, stoneOdds) * 100).toFixed(2) + '%',
+    name: 'Fusion stones',
+    value: '~10%',
     inline: true,
   })
 
@@ -80,18 +79,13 @@ const bookodds = {
     const embed = getEmbed()
       .setTitle(`${this.label}: ${bookName}`)
       .setURL('https://stormbound-kitty.com/calculators/books')
-
     const intro = `A **${bookName}** has:`
-    const fsOdds =
-      getDrawingProbability(
-        bookType,
-        EXPECTATIONS.FUSION_STONES.getExpectations()
-      ) * 100
-    const fsLine = `- ${fsOdds.toFixed(2)}% chances to draw **Fusion stones**`
 
     if (target === 'FUSION_STONES') {
       embed.setTitle(embed.title + ' · Fusion stones')
-      embed.setDescription(`${intro.slice(0, -1)}${fsLine.slice(1)}.`)
+      embed.setDescription(
+        intro.slice(0, -1) + ` ~10% chance of drawing **Fusion stones**`
+      )
 
       return embed
     }
@@ -116,7 +110,7 @@ const bookodds = {
 
       embed.setTitle(embed.title + ' · ' + target.name)
       embed.setDescription(
-        `${intro.slice(0, -1)} ${odds.toFixed(2)}% chances to draw **${
+        `${intro.slice(0, -1)} ${odds.toFixed(2)}% chance of drawing **${
           target.name
         }**.`
       )

@@ -1,5 +1,4 @@
-import getDrawingProbability from '~/helpers/getDrawingProbability'
-import { EXPECTATIONS } from '~/constants/books'
+import { BOOKS } from '~/constants/books'
 
 const RARITY_STONES = {
   COMMON: 5,
@@ -8,16 +7,17 @@ const RARITY_STONES = {
   LEGENDARY: 50,
 }
 
-const getAverageStonesPerBook = bookType =>
-  Object.keys(RARITY_STONES).reduce(
-    (total, rarity) =>
-      total +
-      getDrawingProbability(
-        bookType,
-        EXPECTATIONS['SPECIFIC_' + rarity].getExpectations()
-      ) *
-        RARITY_STONES[rarity],
-    0
+const getAverageStonesPerBook = bookType => {
+  // There is roughly 10% chance to get fusion stones, regardless of the type of
+  // book. And the amount of fusion stones depends on the rarity of the card
+  // that gets replaced.
+  return (
+    BOOKS[bookType].percentiles
+      .map(
+        (percentile, index) => percentile * Object.values(RARITY_STONES)[index]
+      )
+      .reduce((a, b) => a + b, 0) * 0.1
   )
+}
 
 export default getAverageStonesPerBook
