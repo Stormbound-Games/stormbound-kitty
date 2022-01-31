@@ -1,35 +1,42 @@
 name: Continuous Integration
 
-on: [deployment_status]
+on:
+  pull_request:
+    branches: [main]
 
 jobs:
-  install:
-    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
+  setup:
+    name: Test Setup
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.16.0-chrome89-ff86
+    outputs:
+      preview_url: ${{ steps.wait_for_vercel_preview.outputs.url }}
+    steps:
+      - name: Wait for Vercel Preview
+        uses: patrickedqvist/wait-for-vercel-preview@master
+        id: wait_for_vercel_preview
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 120
+
+  unit_tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-
-      - name: Print URL
-        run: echo ${{ github.event.deployment_status.target_url }}
 
       - name: Install dependencies
         uses: cypress-io/github-action@v2
         with:
           runTests: false
 
-      - name: Report machine parameters
-        run: npx cypress info
-
       - name: Run unit tests
         run: npm test
 
-  tests:
-    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
-    needs: install
+  end_to_end_tests:
+    name: End-to-end Tests
+    needs: setup
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.16.0-chrome89-ff86
     strategy:
       fail-fast: false
       matrix:
