@@ -7,7 +7,6 @@ describe('Dry-runner — Set RNG', () => {
   ;[
     { name: 'Frozen Cores', id: 'W9', mana: 3 },
     { name: 'Dawnsparks', id: 'W16', mana: 4 },
-    { name: 'Orgone Leechers', id: 'W33', mana: -3 },
   ].forEach(({ name, id, mana }) => {
     it(`should only be possible to update mana from ${name} that have not been destroyed yet`, () => {
       cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)

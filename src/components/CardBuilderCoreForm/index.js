@@ -188,7 +188,6 @@ export default React.memo(function CardBuilderCoreForm(props) {
                       id='ancient'
                       checked={props.ancient}
                       onChange={event => props.setAncient(event.target.checked)}
-                      disabled={props.type !== 'unit'}
                       data-testid='cb-ancient-checkbox'
                     >
                       Ancient
