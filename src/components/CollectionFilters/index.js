@@ -55,6 +55,7 @@ export default React.memo(function CollectionFilters(props) {
                     onChange={event => props.setFaction(event.target.value)}
                     withNeutral
                     withAny
+                    withExtendedVersions
                     data-testid='faction-select'
                   />
                 </Row.Column>
