@@ -140,7 +140,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
 
             <p>
               <CardLink id='W21' /> could be replaced with <CardLink id='W24' />{' '}
-              to trade offence for defence and really bank on permanent health
+              to trade offence for defense and really bank on permanent health
               regeneration.
             </p>
           </Row.Column>

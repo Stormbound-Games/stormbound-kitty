@@ -11,7 +11,7 @@
     "mana": 1,
     "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "On death, *give 1/2/3/4/5* strength to a random surrounding *enemy* unit and *vitalize* it"
+    "ability": "On death, *give 1/2/3/4/5 strength* to a random *surrounding* enemy unit and *vitalize* it"
   },
   {
     "name": "Summon Militia",
@@ -25,7 +25,7 @@
     "mana": 1,
     "strength": null,
     "movement": null,
-    "ability": "Randomly *spawn* a Knight with *1/2/3/4/5* strength"
+    "ability": "Randomly *spawn* a Knight with *1/2/3/4/5 strength*"
   },
   {
     "name": "Gifted Recruits",
@@ -67,7 +67,7 @@
     "mana": 2,
     "strength": 1,
     "movement": 0,
-    "ability": "When played as the last card in your hand, *gain 5/6/7/8/10* strength"
+    "ability": "When played as the last card from your hand, *gain 5/6/7/8/10 strength*"
   },
   {
     "name": "Spare Dragonling",
@@ -81,7 +81,7 @@
     "mana": 2,
     "strength": 1,
     "movement": 1,
-    "ability": "On death, *give 3/4/5/6/7* strength to a random friendly Dragon"
+    "ability": "On death, *give 3/4/5/6/7 strength* to a random friendly Dragon"
   },
   {
     "name": "Brothers in Arms",
@@ -95,7 +95,7 @@
     "mana": 3,
     "strength": "3/3/4/4/6",
     "movement": 0,
-    "ability": "On play, *spawn* a *1/2/2/3/3* strength Knight on the tile behind"
+    "ability": "On play, *spawn* a *1/2/2/3/3 strength* Knight on the tile behind"
   },
   {
     "name": "Collector Mirz",
@@ -138,7 +138,7 @@
     "mana": 3,
     "strength": "2/3/3/4/4",
     "movement": 0,
-    "ability": "On play, deal *1/1/2/2/3 damage* to all non-Dragon units in front"
+    "ability": "On play, *deal 1/1/2/2/3 damage* to non-Dragon units in front"
   },
   {
     "name": "Felflares",
@@ -152,7 +152,7 @@
     "mana": 3,
     "strength": 2,
     "movement": 0,
-    "ability": "On play, deal *2/3/4/5/6 damage* to a random surrounding enemy"
+    "ability": "On play, *deal 2/3/4/5/6 damage* to a random *surrounding* enemy"
   },
   {
     "name": "First Mutineer",
@@ -208,7 +208,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Give 2/3/4/5/6* strength to a target friendly unit and vitalizes it"
+    "ability": "*Give 2/3/4/5/6 strength* to a target friendly unit and *vitalize* it"
   },
   {
     "name": "Westwind Sailors",
@@ -236,7 +236,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *destroy* all surrounding units with *1/1/2/2/3 /or/or/or/or /less/less/less/less strength*"
+    "ability": "On play, *destroy surrounding* units with *1/1/2/2/3 /or/or/or/or /less/less/less/less strength*"
   },
   {
     "name": "Beasts of Terror",
@@ -250,7 +250,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "When attacking a non-Dragon unit, deal *2/2/3/3/4 damage* to all other enemies with the same *unit type*"
+    "ability": "Before attacking a non-Dragon unit, *deal 2/2/3/3/4 damage* to other enemies with the same *unit type*"
   },
   {
     "name": "Cabin Girls",
@@ -278,7 +278,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, *give 2/2/3/3/4* strength to all friendly units in front"
+    "ability": "At the start of your turn, *give 2/2/3/3/4 strength* to friendly units in front"
   },
   {
     "name": "Execution",
@@ -292,7 +292,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "Deal *4/5/6/7/8 damage* to a target enemy unit or structure"
+    "ability": "*Deal 4/5/6/7/8 damage* to a target enemy unit or structure"
   },
   {
     "name": "Goldgrubbers",
@@ -320,7 +320,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "Randomly deal *2/3/4/5/6 damage* to one unit of each *unit type*"
+    "ability": "Randomly *deal 2/3/4/5/6 damage* to one unit of each *unit type*"
   },
   {
     "name": "Personal Servers",
@@ -334,7 +334,7 @@
     "mana": 3,
     "strength": "1/2/2/3/3",
     "movement": 1,
-    "ability": "On play, *give 2/2/3/3/4* strength to another random friendly unit"
+    "ability": "On play, *give 2/2/3/3/4 strength* to another random friendly unit"
   },
   {
     "name": "Siegebreakers",
@@ -348,7 +348,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "On play, deal *4/5/6/7/8 damage* to all surrounding enemy structures"
+    "ability": "On play, *deal 4/5/6/7/8 damage* to *surrounding* enemy structures"
   },
   {
     "name": "Snowmasons",
@@ -362,7 +362,7 @@
     "mana": 4,
     "strength": 2,
     "movement": 1,
-    "ability": "On death, *give 4/5/6/7/8* strength spread randomly among all surrounding friendly units"
+    "ability": "On death, *give 4/5/6/7/8 strength* spread randomly among *surrounding* friendly units"
   },
   {
     "name": "Terrific Slayers",
@@ -376,7 +376,7 @@
     "mana": 4,
     "strength": "2/3/4/5/6",
     "movement": 2,
-    "ability": "Before attacking a Dragon, deal *5/6/7/8/10 additional damage*"
+    "ability": "Before attacking a Dragon, *deal 5/6/7/8/10 additional damage*"
   },
   {
     "name": "Warfront Runners",
@@ -404,7 +404,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "Deal *1/2/2-3/3/4 damage* to all enemy units and structures"
+    "ability": "*Deal 1/2/2-3/3/4 damage* to enemy units and structures"
   },
   {
     "name": "Bluesail Raiders",
@@ -432,7 +432,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "Deal *5/6/7/8/10 damage* to all units bordering your base"
+    "ability": "*Deal 5/6/7/8/10 damage* to units *bordering* your base"
   },
   {
     "name": "Heroic Soldiers",
@@ -474,7 +474,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, randomly deal *4/5/6/7/8 damage* to the *most forward* enemy unit or structure"
+    "ability": "At the start of your turn, randomly *deal 4/5/6/7/8 damage* to the *most forward* enemy unit or structure"
   },
   {
     "name": "Ubass the Hunter",
@@ -488,7 +488,7 @@
     "mana": 5,
     "strength": "5/6/6/8/10",
     "movement": 0,
-    "ability": "On play, deal *1/1/2/2/3 damage* to a random enemy for each unique surrounding *primary unit type*",
+    "ability": "On play, *deal 1/1/2/2/3 damage* to a random enemy for each unique *surrounding primary unit type*",
     "hero": true
   },
   {
@@ -503,7 +503,7 @@
     "mana": 5,
     "strength": 6,
     "movement": 0,
-    "ability": "When played with at least *3* surrounding enemies, deal *2/3/4/5/6 damage* to each"
+    "ability": "When played with at least *3 surrounding* enemies, *deal 2/3/4/5/6 damage* to them"
   },
   {
     "name": "Boomstick Officers",
@@ -517,7 +517,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "On play, deal *4/5/6/7/8 damage* to the closest enemy behind"
+    "ability": "On play, *deal 4/5/6/7/8 damage* to the closest enemy behind"
   },
   {
     "name": "Harvesters of Souls",
@@ -531,7 +531,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "When attacking a weaker unit, add a *5/6/7/8/10 strength copy* of that card to your deck"
+    "ability": "Before attacking a weaker unit, add a *5/6/7/8/10 strength copy* of that card to your deck"
   },
   {
     "name": "Hearthguards",
@@ -545,7 +545,7 @@
     "mana": 6,
     "strength": "3/4/5/6/7",
     "movement": 2,
-    "ability": "When played bordering a friendly structure or base, *gain 3/4/5/6/7* strength"
+    "ability": "When played *bordering* a friendly structure or base, *gain 3/4/5/6/7 strength*"
   },
   {
     "name": "Kindred’s Grace",
@@ -559,7 +559,7 @@
     "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Give 7/8/8/10/12* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
+    "ability": "*Give 7/8/8/10/12 strength* to a target friendly unit and *2/2/3/4/5 strength* to other units of the same *unit type*"
   },
   {
     "name": "Lich Summoners",
@@ -573,7 +573,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After attacking, *spawn* a *3/4/5/6/7* strength Undead on the tile behind"
+    "ability": "After attacking, *spawn* a *3/4/5/6/7 strength* Undead on the tile behind"
   },
   {
     "name": "Lucky Charmers",
@@ -587,7 +587,7 @@
     "mana": 6,
     "strength": "4/5/5/6/7",
     "movement": 1,
-    "ability": "On play, *gain 3/3/4/5/6* strength for each Pirate in your hand"
+    "ability": "On play, *gain 3/3/4/5/6 strength* for each Pirate in your hand"
   },
   {
     "name": "Ludic Matriarchs",
@@ -601,7 +601,7 @@
     "mana": 6,
     "strength": "5/7/7/9/10",
     "movement": 0,
-    "ability": "When played bordering a friendly Dragon, *spawn 1/1/2/2/3* strength Dragons on all tiles bordering either"
+    "ability": "When played *bordering* a friendly Dragon, *spawn 1/1/2/2/3 strength* Dragons on tiles *bordering* either"
   },
   {
     "name": "Needle Blast",
@@ -615,7 +615,7 @@
     "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "Deal *2/2/3/3/4 damage* to *2/3/3/4/4* random enemies"
+    "ability": "*Deal 2/2/3/3/4 damage* to *2/3/3/4/4* random enemies"
   },
   {
     "name": "Powder Tower",
@@ -629,7 +629,7 @@
     "mana": 6,
     "strength": "3/4/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, this *explodes* and deals *2/2/3/3/4 damage* to all enemies"
+    "ability": "At the start of your turn, *explode* and *deal 2/2/3/3/4 damage* to enemies"
   },
   {
     "name": "Tegor the Vengeful",
@@ -643,7 +643,7 @@
     "mana": 6,
     "strength": "4/5/6/7/8",
     "movement": 2,
-    "ability": "On death, do a random effect: *give 6/7/8/10/12* strength, deal *5/6/7/8/10 damage* or *spawn* a *4/5/6/7/8* strength unit",
+    "ability": "On death, do a random effect: *give 6/7/8/10/12 strength*, *deal 5/6/7/8/10 damage* or *spawn* a *4/5/6/7/8 strength* unit",
     "hero": true
   },
   {
@@ -658,7 +658,7 @@
     "mana": 6,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "When attacking, deal *2/2/3/3/4 damage* to all surrounding enemy units and structures"
+    "ability": "Before attacking, *deal 2/2/3/3/4 damage* to *surrounding* enemy units and structures"
   },
   {
     "name": "Archdruid Earyn",
@@ -672,7 +672,7 @@
     "mana": 7,
     "strength": "7/9/11/12/15",
     "movement": 0,
-    "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards up to Earyn’s mana cost from your hand",
+    "ability": "On play, randomly *play 1/1/1/2/2* spell card/card/card/cards/cards costing up to her own mana cost",
     "hero": true
   },
   {
@@ -687,7 +687,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On death, *destroy* all units in front with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all tiles behind"
+    "ability": "On death, *destroy* units in front with *3/4/5/6/7 strength or less strength.* *Spawn 3/4/5/6/7 strength* Ravens on tiles behind"
   },
   {
     "name": "Call for Aid",
@@ -701,7 +701,7 @@
     "mana": 7,
     "strength": null,
     "movement": null,
-    "ability": "*Spawn 3/4/5/6/7* strength units on all tiles bordering a target friendly unit"
+    "ability": "*Spawn 3/4/5/6/7 strength* units on tiles *bordering* a target friendly unit"
   },
   {
     "name": "Dangerous Suitors",
@@ -715,7 +715,7 @@
     "mana": 6,
     "strength": "5/7/7/8/10",
     "movement": 1,
-    "ability": "On play, *gain 2/2/3/3/4* strength for every other Dragon on the board"
+    "ability": "On play, *gain 2/2/3/3/4 strength* for every other Dragon"
   },
   {
     "name": "Salty Outcasts",
@@ -743,7 +743,7 @@
     "mana": 7,
     "strength": "2/4/4/7/7",
     "movement": 1,
-    "ability": "On play, *gain 2/2/3/3/4* strength for every enemy unit on the board"
+    "ability": "On play, *gain 2/2/3/3/4 strength* for every enemy unit"
   },
   {
     "name": "Veterans of War",
@@ -771,7 +771,7 @@
     "mana": 7,
     "strength": "3/4/5/6/7",
     "movement": 2,
-    "ability": "Before attacking a unit or structure, deal *3/4/5/6/7 additional damage* to it"
+    "ability": "Before attacking a unit or structure, *deal 3/4/5/6/7 additional damage* to it"
   },
   {
     "name": "Temple Guardians",
@@ -785,7 +785,7 @@
     "mana": 8,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "When played on the tile in front of your temple structure or your base, *spawn 4/5/6/7/8* strength Knights on all of its bordering tiles"
+    "ability": "When played on the tile in front of a friendly *Temple structure or base*, *spawn 4/5/6/7/8 strength* Knights on its *bordering* tiles"
   },
   {
     "name": "Crazy Bombers",
@@ -799,7 +799,7 @@
     "mana": 8,
     "strength": "6/7/9/11/13",
     "movement": 1,
-    "ability": "On play, deal *7/8/10/12/15 damage* spread randomly among all surrounding enemies"
+    "ability": "On play, *deal 7/8/10/12/15 damage* spread randomly among *surrounding* enemies"
   },
   {
     "name": "Siren of the Seas",
@@ -828,7 +828,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *spawn 2/3/4/5/6* strength Knights in front of all surrounding enemy units",
+    "ability": "On play, *spawn 2/3/4/5/6 strength* Knights in front of *surrounding* enemy units",
     "hero": true
   },
   {
@@ -843,7 +843,7 @@
     "mana": 5,
     "strength": "6/7/8/10/12",
     "movement": 1,
-    "ability": "After attacking, *confuse all weaker* enemy units"
+    "ability": "After attacking, *confuse weaker* enemy units"
   },
   {
     "name": "Hair-Raising Cats",
@@ -857,7 +857,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, randomly *force a surrounding confused enemy unit to attack* a bordering enemy"
+    "ability": "On play, randomly *force* a *surrounding* confused enemy unit to attack a *bordering* enemy"
   },
   {
     "name": "Sweetcap Kittens",
@@ -871,7 +871,7 @@
     "mana": 2,
     "strength": "1/2/3/4/5",
     "movement": 0,
-    "ability": "On play, *confuse all enemy units* in front"
+    "ability": "On play, *confuse* enemy units in front"
   },
   {
     "name": "Unhealthy Hysteria",
@@ -885,7 +885,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Force the target enemy unit* with 4/5/6/7/8 or less strength to *attack* a random bordering enemy"
+    "ability": "*Force* the target enemy unit with *4/5/6/7/8 or less strength* to attack a random *bordering* enemy"
   },
   {
     "name": "Melodious Sisters",
@@ -899,7 +899,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength* as damage to all enemies bordering it"
+    "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength as damage* to enemies bordering it"
   },
   {
     "name": "Razor-Sharp Lynxes",
@@ -913,7 +913,7 @@
     "mana": 4,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "If played bordering an enemy *gain 2 strength* else *gain 1 speed*"
+    "ability": "If played *bordering* an enemy, *gain 2 strength* else *gain 1 speed*"
   },
   {
     "name": "Bigthrust Tigers",
@@ -941,7 +941,7 @@
     "mana": 2,
     "strength": "1/2/3/4/5",
     "movement": 0,
-    "ability": "If played with no surrounding enemies *gain 2 speed*, else with no bordering enemies *gain 1 speed*"
+    "ability": "If played with no *surrounding* enemies, *gain 2 speed*, else if played with no *bordering* enemies *gain 1 speed*"
   },
   {
     "name": "Twilight Prowlers",
@@ -955,7 +955,7 @@
     "mana": 6,
     "strength": "7/8/10/12/15",
     "movement": 0,
-    "ability": "When played bordering your base gain 3 speed"
+    "ability": "When played *bordering* your base, *gain 3 speed*"
   },
   {
     "name": "Laurus, King in Exile",
@@ -969,7 +969,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 4/5/6/7/8 or lower strength *to attack* it",
+    "ability": "Before attacking an enemy unit, *force bordering* enemy units with *4/5/6/7/8 or lower strength* to attack it",
     "hero": true
   },
   {
@@ -984,7 +984,7 @@
     "mana": 7,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "After surviving damage, randomly *give 4/5/6/7/9* strength to another friendly unit",
+    "ability": "After surviving damage, randomly *give 4/5/6/7/9 strength* to another friendly unit",
     "elder": true
   },
   {
@@ -1027,7 +1027,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "After surviving damage, deal *3/3/4/4/5 damage* spread randomly among enemy units on the board",
+    "ability": "After surviving damage, *deal 3/3/4/4/5 damage* spread randomly among enemy units",
     "elder": true
   },
   {
@@ -1042,7 +1042,7 @@
     "mana": 6,
     "strength": "7/8/9/11/13",
     "movement": 0,
-    "ability": "After surviving damage, spawn an Elder with *strength equal to this* on a random bordering tile",
+    "ability": "After surviving damage, *spawn* an Elder with the *same strength* on a random *bordering* tile",
     "elder": true
   },
   {
@@ -1057,7 +1057,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After surviving damage, *gain 2/2/3/3/4* strength for each stronger enemy unit on the board",
+    "ability": "After surviving damage, *gain 2/2/3/3/4 strength* for each stronger enemy unit",
     "elder": true
   },
   {
@@ -1072,7 +1072,7 @@
     "mana": 6,
     "strength": "5/6/7/9/11",
     "movement": 1,
-    "ability": "After surviving damage, increase the strength of all weaker friendly units to be equal to this",
+    "ability": "After surviving damage, *increase* the strength of weaker friendly units to match her own",
     "hero": true,
     "elder": true
   },
@@ -1088,7 +1088,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *draw 1/1/2/2/3* single-use non-pirate card copy/copy/copies/copies/copies from the enemy’s hand. If you have a pirate card in hand, reduce its/its/their/their/their mana cost by 1.",
+    "ability": "On play, *draw 1/1/2/2/3* single-use non-pirate card copy/copy/copies/copies/copies from the enemy’s hand. *Decrease* its/its/their/their/their mana cost by *1* if you have a pirate card in your hand",
     "hero": true
   },
   {
@@ -1103,7 +1103,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "On play, confuse up to *1/1/2/2/3* bordering enemy units and force it/it/them/them/them to move"
+    "ability": "On play, *confuse* up to *1/1/2/2/3* random *bordering* enemy units and *force* it/it/them/them/them to move"
   },
   {
     "name": "Excited Mousers",
@@ -1117,7 +1117,7 @@
     "mana": 5,
     "strength": "5/6/7/9/11",
     "movement": 0,
-    "ability": "On play confuse the same number of surrounding enemies, as there are friendly units on the board"
+    "ability": "On play, *confuse* as many *surrounding* enemies as there are friendly units"
   },
   {
     "name": "Stoic Protectors",
@@ -1131,7 +1131,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "Before moving, disable the ability of 1/2/2/3/4 surrounding enemy unit/units/units/units/units",
+    "ability": "Before moving, *disable* the ability of *1/2/2/3/4 surrounding* enemy unit/units/units/units/units",
     "ancient": true
   },
   {
@@ -1146,7 +1146,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "At the start of your turn remove *1/1/1/2/2 strength* from the stronger base and *give it* to the weaker one"
+    "ability": "At the start of your turn, *remove 1/1/1/2/2 strength* from the stronger base and *give* it to the weaker one"
   },
   {
     "name": "Flameless Lizards",
@@ -1174,7 +1174,7 @@
     "mana": 5,
     "strength": "3/4/5/6/7",
     "movement": 2,
-    "ability": "On play, move fixedly forward"
+    "ability": "On play, *move fixedly forward*"
   },
   {
     "name": "Eternal Ethereals",
@@ -1203,7 +1203,7 @@
     "mana": 3,
     "strength": "2/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, give (or remove) fixedly forward movement to the leftmost unit card in your hand, then destroy the weakest confused unit"
+    "ability": "At the start of your turn, *give* (or *remove*) *fixedly forward* movement to the leftmost unit card in your hand, then *destroy* the weakest confused unit"
   },
   {
     "name": "Sparkly Kitties",
@@ -1217,7 +1217,7 @@
     "mana": 2,
     "strength": "2/3/4/5/6",
     "movement": 0,
-    "ability": "On play, confuse itself then gain 2 speed"
+    "ability": "On play, *confuse* itself then *gain 2 speed*"
   },
   {
     "name": "Bounded Daemons",
@@ -1231,7 +1231,7 @@
     "mana": 4,
     "strength": "2/3/3/4/5",
     "movement": 0,
-    "ability": "Before moving, *spawn* a unit with *2/2/3/3/4* strength on both sides",
+    "ability": "Before moving, *spawn* a unit with *2/2/3/3/4 strength* on both sides",
     "ancient": true
   },
   {
@@ -1261,7 +1261,7 @@
     "mana": 1,
     "strength": "1/2/3/4/5",
     "movement": 0,
-    "ability": "Before moving, get a random status effect",
+    "ability": "Before moving, get a random *status effect*",
     "ancient": true
   },
   {
@@ -1276,7 +1276,7 @@
     "mana": 2,
     "strength": "2/3/4/5/6",
     "movement": 0,
-    "ability": "Before moving, *split* its strength equally into a unit on both sides. Cannot split again for this movement.",
+    "ability": "Before moving, *split* itself into a unit on both sides and cannot split again this turn",
     "ancient": true
   },
   {
@@ -1291,7 +1291,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 0,
-    "ability": "On play, *deal 1/2/2/3/3* damage to a random friendly non-legendary unit on the side, then deal the same damage to the first enemy in front"
+    "ability": "On play, *deal 1/2/2/3/3* damage to a random friendly non-Hero unit on the side, then deal the *same damage* to the first enemy in front"
   },
   {
     "name": "Destructobots",
@@ -1305,7 +1305,7 @@
     "mana": 2,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "On play, deal *1 damage* to another friendly unit or structure"
+    "ability": "On play, *deal 1 damage* to another friendly unit or structure"
   },
   {
     "name": "Doctor Mia",
@@ -1319,7 +1319,7 @@
     "mana": 2,
     "strength": "2/3/4/4/5",
     "movement": 0,
-    "ability": "On play, *trigger* the ability of all *bordering/surrounding/surrounding// * friendly structures",
+    "ability": "On play, *trigger* the ability of *bordering/surrounding/surrounding// * friendly structures",
     "hero": true
   },
   {
@@ -1334,7 +1334,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Give 2/3/4/5/6* strength to all friendly units *surrounding* a friendly structure"
+    "ability": "*Give 2/3/4/5/6 strength* to friendly units *surrounding* a friendly structure"
   },
   {
     "name": "Ozone Purifiers",
@@ -1348,7 +1348,7 @@
     "mana": 2,
     "strength": "1/2/3/4/5",
     "movement": 0,
-    "ability": "On play, *push* a random bordering enemy unit away"
+    "ability": "On play, *push* a random *bordering* enemy unit away"
   },
   {
     "name": "Unstable Build",
@@ -1362,7 +1362,7 @@
     "mana": 2,
     "strength": "5/6/7/8/9",
     "movement": null,
-    "ability": "At the start of your turn, deal *3 damage* to itself"
+    "ability": "At the start of your turn, *deal 3 damage* to itself"
   },
   {
     "name": "Finite Loopers",
@@ -1376,7 +1376,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "On death, *spawn* a *1/1/2/2/3* strength Construct on a random bordering tile"
+    "ability": "On death, *spawn* a *1/1/2/2/3 strength* Construct on a random *bordering* tile"
   },
   {
     "name": "Greengale Serpents",
@@ -1390,7 +1390,7 @@
     "mana": 3,
     "strength": "1/2/2/3/3",
     "movement": 2,
-    "ability": "Before attacking a unit, *gives 1/1/2/2/3 strength* to itself and a surrounding friendly Dragon"
+    "ability": "Before attacking a unit, *give 1/1/2/2/3 strength* to itself and a *surrounding* friendly Dragon"
   },
   {
     "name": "Linked Golems",
@@ -1404,7 +1404,7 @@
     "mana": 3,
     "strength": "2/2/3/3/3",
     "movement": 1,
-    "ability": "When played bordering a friendly Construct, *both gain 1/2/2/3/4* strength"
+    "ability": "When played *bordering* a friendly Construct, *both gain 1/2/2/3/4 strength*"
   },
   {
     "name": "Sound Drivers",
@@ -1418,7 +1418,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *push* forward the friendly unit on the tile in front"
+    "ability": "On play, *push* a friendly unit on the tile in front away"
   },
   {
     "name": "Upgrade Point",
@@ -1432,7 +1432,7 @@
     "mana": 3,
     "strength": "4/5/5/6/8",
     "movement": null,
-    "ability": "At the start of your turn, *give 2/2/3/4/5* strength to all surrounding friendly Constructs"
+    "ability": "At the start of your turn, *give 2/2/3/4/5 strength* to *surrounding* friendly Constructs"
   },
   {
     "name": "Boosting Elixir",
@@ -1446,7 +1446,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "*Give 3/4/5/5/6* strength to a target friendly unit and a random friendly unit *bordering/bordering/bordering/surrounding/surrounding* it"
+    "ability": "*Give 3/4/5/5/6 strength* to a target friendly unit and a random friendly unit *bordering/bordering/bordering/surrounding/surrounding* it"
   },
   {
     "name": "Chaotic Pupil",
@@ -1460,7 +1460,7 @@
     "mana": 5,
     "strength": 1,
     "movement": 2,
-    "ability": "On death, deal *3/4/5/6/7 damage* to a random bordering enemy"
+    "ability": "On death, *deal 3/4/5/6/7 damage* to a random *bordering* enemy"
   },
   {
     "name": "Embers of Chaos",
@@ -1474,7 +1474,7 @@
     "mana": 4,
     "strength": 1,
     "movement": 1,
-    "ability": "When this dies bordering the enemy base, randomly *spawn* a *6/7/8/10/12* strength Dragon at the enemy base"
+    "ability": "When dying *bordering* the enemy base, randomly *spawn* a *6/7/8/10/12 strength* Dragon at the enemy base"
   },
   {
     "name": "Mech Workshop",
@@ -1488,7 +1488,7 @@
     "mana": 4,
     "strength": "3/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, *spawn* a *2/3/4/5/6* strength Construct on the tile in front"
+    "ability": "At the start of your turn, *spawn* a *2/3/4/5/6 strength* Construct on the tile in front"
   },
   {
     "name": "Overchargers",
@@ -1502,7 +1502,7 @@
     "mana": 4,
     "strength": "2/3/3/4/5",
     "movement": 1,
-    "ability": "On play, deal *1/1/2/2/3 damage* to the first enemy in front"
+    "ability": "On play, *deal 1/1/2/2/3 damage* to the first enemy in front"
   },
   {
     "name": "Debug Loggers",
@@ -1516,7 +1516,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "After attacking, *give 2/2/3/4/5* strength to itself and a random surrounding friendly unit"
+    "ability": "After attacking, *give 2/2/3/4/5 strength* to itself and a random *surrounding* friendly unit"
   },
   {
     "name": "Eloth the Ignited",
@@ -1530,7 +1530,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal *3/4/5/6/7 damage* to it. If pushed enemy dies, move forward",
+    "ability": "On play, *fly* to the first enemy unit in front, *push* it away and *deal 3/4/5/6/7 damage*. Move forward if it died",
     "hero": true
   },
   {
@@ -1545,7 +1545,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "*Push* back all enemy units in a target unit’s column and deal *4/5/6/7/8 damage* to them"
+    "ability": "*Push* enemy units in a target unit’s column away and *deal 4/5/6/7/8 damage* to them"
   },
   {
     "name": "Siege Assembly",
@@ -1559,7 +1559,7 @@
     "mana": 5,
     "strength": "3/4/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, deal *3/3/4/5/6 damage* to the first enemy in front"
+    "ability": "At the start of your turn, *deal 3/3/4/5/6 damage* to the first enemy in front"
   },
   {
     "name": "Windmakers",
@@ -1573,7 +1573,7 @@
     "mana": 4,
     "strength": 2,
     "movement": 2,
-    "ability": "Before attacking a stronger unit, *push* it away and deal *3/4/5/6/7 damage* to it"
+    "ability": "Before attacking a stronger unit, *push* it away and *deal 3/4/5/6/7 damage* to it"
   },
   {
     "name": "Delegators",
@@ -1601,7 +1601,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/10* strength",
+    "ability": "When dying not *bordering* any base, randomly *respawn* at your base with *5/6/7/8/10 strength*",
     "hero": true
   },
   {
@@ -1616,7 +1616,7 @@
     "mana": 6,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "On play, *pull* enemy units to you. Then deal *3/4/5/6/7 damage* to all bordering enemy units."
+    "ability": "On play, *pull* enemy units towards itself. Then *deal 3/4/5/6/7 damage* to *bordering* enemy units"
   },
   {
     "name": "Mechanical Workers",
@@ -1630,7 +1630,7 @@
     "mana": 6,
     "strength": "5/6/7/8/9",
     "movement": 1,
-    "ability": "On play, on the tile behind *build* a *3/3/4/5/6* strength workshop which *spawn 2/3/4/5/6* strength Constructs each turn"
+    "ability": "On play, *build* a *3/3/4/5/6 strength* workshop on the tile behind, which *spawns 2/3/4/5/6* strength Constructs each turn"
   },
   {
     "name": "Agents in Charge",
@@ -1672,7 +1672,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "After surviving damage, set strength to 2/3/4/5/6",
+    "ability": "After surviving damage, *set strength to 2/3/4/5/6*",
     "elder": true
   },
   {
@@ -1702,7 +1702,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy the older copy. Otherwise, return to the hand."
+    "ability": "When played with a friendly copy on the board, *teleport 2/3/4/6/8 surrounding* units from it and *destroy* it. Otherwise, *return* this card to your hand"
   },
   {
     "name": "Function Wilds",
@@ -1716,7 +1716,7 @@
     "mana": 3,
     "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "On play, *vitalize* itself and 1/1/2/2/2 surrounding friendly unit/unit/units/units/units"
+    "ability": "On play, *vitalize* itself and *1/1/2/2/2 surrounding* friendly unit/unit/units/units/units"
   },
   {
     "name": "Brood Sages",
@@ -1730,7 +1730,7 @@
     "mana": 2,
     "strength": "2/3/3/4/5",
     "movement": 0,
-    "ability": "On play, for each surrounding poisoned unit *spawn* a *1* strength Toad on *2/2/3/3/4 tiles* bordering it"
+    "ability": "On play, *spawn* a *1 strength* Toad on *2/2/3/3/4 tiles* bordering each *surrounding* poisoned unit"
   },
   {
     "name": "Copperskin Ranger",
@@ -1758,7 +1758,7 @@
     "mana": 2,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "On death, *spawn* a *1* strength Raven on a random bordering tile to fight for the *enemy*"
+    "ability": "On death, *spawn* a *1 strength enemy* Raven on a random *bordering* tile"
   },
   {
     "name": "Toxic Sacrifice",
@@ -1772,7 +1772,7 @@
     "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target friendly unit. Deal *2/3/4/5/6 damage* to all surrounding units and *poison* them."
+    "ability": "*Destroy* a target friendly unit. *Deal 2/3/4/5/6 damage* to *surrounding* units and *poison* them"
   },
   {
     "name": "Crimson Sentry",
@@ -1786,7 +1786,7 @@
     "mana": 3,
     "strength": 1,
     "movement": 2,
-    "ability": "On death, deal *1/2/3/4/5 damage* to all bordering units and *poison* them"
+    "ability": "On death, *deal 1/2/3/4/5 damage* to *bordering* units and *poison* them"
   },
   {
     "name": "Harpies of the Hunt",
@@ -1828,7 +1828,7 @@
     "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Spawn* a *1* strength Toad on *3/4/4-5/5/6* random tiles"
+    "ability": "*Spawn* a *1 strength* Toad on *3/4/4-5/5/6* random tiles"
   },
   {
     "name": "Wandering Wyrms",
@@ -1842,7 +1842,7 @@
     "mana": 3,
     "strength": 3,
     "movement": 0,
-    "ability": "When played bordering a friendly Dragon, deal *3/4/5/6/7 damage* to the strongest enemy unit"
+    "ability": "When played *bordering* a friendly Dragon, *deal 3/4/5/6/7 damage* to the strongest enemy unit"
   },
   {
     "name": "Azure Hatcher",
@@ -1856,7 +1856,7 @@
     "mana": 4,
     "strength": 1,
     "movement": 2,
-    "ability": "On death, *spawn 1* strength Toads on *2/3/4/5/6* random surrounding tiles"
+    "ability": "On death, *spawn 1 strength* Toads on *2/3/4/5/6* random *surrounding* tiles"
   },
   {
     "name": "Marked as Prey",
@@ -1870,7 +1870,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "Deal *5/6/7/8/10 damage* to a target poisoned unit. If that kills it, *spawn* a *5/6/7/8/10* strength Raven there."
+    "ability": "*Deal 5/6/7/8/10 damage* to a target poisoned unit. If that kills it, *spawn* a *5/6/7/8/10 strength* Raven there"
   },
   {
     "name": "Tode the Elevated",
@@ -1884,7 +1884,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 1,
-    "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 2/3/4/5/6* strength",
+    "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 2/3/4/5/6 strength*",
     "hero": true
   },
   {
@@ -1913,7 +1913,7 @@
     "mana": 4,
     "strength": "2/3/3/4/5",
     "movement": 1,
-    "ability": "On play, *drain 1/1/2/2/3* strength from all bordering units"
+    "ability": "On play, *drain 1/1/2/2/3 strength* from *bordering* units"
   },
   {
     "name": "Amberhides",
@@ -1927,7 +1927,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "On play, *drain 4/5/6/7/8* strength from a random surrounding poisoned unit"
+    "ability": "On play, *drain 4/5/6/7/8 strength* from a random *surrounding* poisoned unit"
   },
   {
     "name": "Feral Shamans",
@@ -1941,7 +1941,7 @@
     "mana": 5,
     "strength": "1/1/2/2/3",
     "movement": 1,
-    "ability": "Before attacking a stronger unit, *drain 3/4/4/5/6* strength from it"
+    "ability": "Before attacking a stronger unit, *drain 3/4/4/5/6 strength* from it"
   },
   {
     "name": "Obsidian Butchers",
@@ -1955,7 +1955,7 @@
     "mana": 5,
     "strength": "2/3/4/5/6",
     "movement": 2,
-    "ability": "On play, *drain* the strength from all *1* strength units"
+    "ability": "On play, *drain* the strength from *1 strength* units"
   },
   {
     "name": "Soulcrushers",
@@ -1969,7 +1969,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "Before attacking a weaker unit, *destroy* it instantly"
+    "ability": "Before attacking a weaker unit, *destroy* it"
   },
   {
     "name": "Sunbeam Serpents",
@@ -1997,7 +1997,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *convert* all bordering enemy units with *3/4/5/6/7 or less strength* to fight for you"
+    "ability": "On play, *convert bordering* enemy units with *3/4/5/6/7 or less strength*"
   },
   {
     "name": "Broodmother Qordia",
@@ -2011,7 +2011,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "On play, *spawn 3* Nests on random surrounding tiles which will *hatch 3/4/5/6/7* strength Dragons",
+    "ability": "On play, *spawn 3* Nests on random *surrounding* tiles which will *hatch 3/4/5/6/7 strength* Dragons",
     "hero": true
   },
   {
@@ -2026,7 +2026,7 @@
     "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Convert* a target enemy unit with *7/9/11/14/17 or less strength* to fight for you"
+    "ability": "*Convert* a target enemy unit with *7/9/11/14/17 or less strength*"
   },
   {
     "name": "High Priestess Klaxi",
@@ -2040,7 +2040,7 @@
     "mana": 8,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *destroy* all units with the lowest strength and *spawn 5/6/7/8/10* strength Ravens there",
+    "ability": "On play, *destroy* units with the lowest strength and *spawn 5/6/7/8/10 strength* Ravens there",
     "hero": true
   },
   {
@@ -2055,7 +2055,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *convert* a random bordering enemy unit with *2/3/4/5/6 or less strength* to fight for you"
+    "ability": "On play, *convert* a random *bordering* enemy unit with *2/3/4/5/6 or less strength*"
   },
   {
     "name": "Limelimbs",
@@ -2097,7 +2097,7 @@
     "mana": 3,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "After surviving damage, convert itself to fight for the enemy",
+    "ability": "After surviving damage, *convert* itself",
     "elder": true
   },
   {
@@ -2127,7 +2127,7 @@
     "mana": 3,
     "strength": "2/3/4/5/6",
     "movement": 0,
-    "ability": "At the end of your turn, *remember* the state of surrounding friendly units and structures. At the start of your turn, *restore 1/2/2/3/3* of them to that state."
+    "ability": "At the end of your turn, *remember* the state of *surrounding* friendly units and structures. At the start of your turn, *restore 1/2/2/3/3* of them"
   },
   {
     "name": "Soap Cleanse",
@@ -2141,7 +2141,7 @@
     "mana": 1,
     "strength": null,
     "movement": null,
-    "ability": "*Restore* up to 3/4/5/6/7 initial strength of all friendly poisoned units and *vitalize* them"
+    "ability": "*Restore* up to *3/4/5/6/7 initial strength* of friendly poisoned units and *vitalize* them"
   },
   {
     "name": "Doppelbocks",
@@ -2155,7 +2155,7 @@
     "mana": 2,
     "strength": "1/2/2/3/3",
     "movement": 0,
-    "ability": "On play, *spawn* a *1/1/2/2/3* strength Satyr on the tile in front"
+    "ability": "On play, *spawn* a *1/1/2/2/3 strength* Satyr on the tile in front"
   },
   {
     "name": "Restless Goats",
@@ -2169,7 +2169,7 @@
     "mana": 2,
     "strength": "1/2/3/4/5",
     "movement": 2,
-    "ability": "On death, deal *2 damage* to your base"
+    "ability": "On death, *deal 2 damage* to your base"
   },
   {
     "name": "Counselor Ahmi",
@@ -2183,7 +2183,7 @@
     "mana": 3,
     "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "If played with no surrounding units, return the copy of this card to your hand with +1 strength",
+    "ability": "When played with no *surrounding* units, *return* this card back to your hand with *1 more strength*",
     "hero": true
   },
   {
@@ -2198,7 +2198,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On death, randomly *spawn* a *3/4/6/7/8* strength Dragon on a tile bordering a friendly Dragon"
+    "ability": "On death, randomly *spawn* a *3/4/6/7/8 strength* Dragon on a tile *bordering* a friendly Dragon"
   },
   {
     "name": "Faun Companions",
@@ -2212,7 +2212,7 @@
     "mana": 3,
     "strength": "1/1/2/2/3",
     "movement": 1,
-    "ability": "On play, *give 3/4/4/5/6 strength* to a random bordering friendly Satyr"
+    "ability": "On play, *give 3/4/4/5/6 strength* to a random *bordering* friendly Satyr"
   },
   {
     "name": "Forgotten Souls",
@@ -2226,7 +2226,7 @@
     "mana": 3,
     "strength": "1/2/2/3/3",
     "movement": 1,
-    "ability": "On play, *command a/a/all/all/all random/random/// bordering/bordering/bordering/bordering/surrounding* friendly unit/unit/units/units/units forward"
+    "ability": "On play, *command a/a/// random/random/// bordering/bordering/bordering/bordering/surrounding* friendly unit/unit/units/units/units forward"
   },
   {
     "name": "Moonlit Aerie",
@@ -2240,7 +2240,7 @@
     "mana": 3,
     "strength": "3/4/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, *give 1/1/2/2/3* strength to all friendly Satyrs"
+    "ability": "At the start of your turn, *give 1/1/2/2/3 strength* to friendly Satyrs"
   },
   {
     "name": "Shady Ghoul",
@@ -2254,7 +2254,7 @@
     "mana": 3,
     "strength": 1,
     "movement": 2,
-    "ability": "On death, *spawn* a *1/2/3/4/5* strength Satyr on a random bordering tile"
+    "ability": "On death, *spawn* a *1/2/3/4/5 strength* Satyr on a random *bordering* tile"
   },
   {
     "name": "Swarmcallers",
@@ -2268,7 +2268,7 @@
     "mana": 3,
     "strength": "1/2/2/3/3",
     "movement": 1,
-    "ability": "On play, *gain 2/2/3/3/4* strength for each bordering friendly Satyr"
+    "ability": "On play, *gain 2/2/3/3/4 strength* for each *bordering* friendly Satyr"
   },
   {
     "name": "Broken Truce",
@@ -2282,7 +2282,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Spread spare damage randomly among surrounding units and structures. Deal *3 damage* to your base."
+    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. *Deal* spare damage randomly among *surrounding* units and structures. *Deal 3 damage* to your base"
   },
   {
     "name": "Devastators",
@@ -2296,7 +2296,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "When attacking a structure or base, deal *3/3/4/5/6 additional damage* to it"
+    "ability": "Before attacking a structure or base, *deal 3/3/4/5/6 additional damage* to it"
   },
   {
     "name": "Draconic Roamers",
@@ -2310,7 +2310,7 @@
     "mana": 4,
     "strength": "2/3/3/4/4",
     "movement": 2,
-    "ability": "When attacking a unit, *spawn* a *1/1/2/2/3* strength Dragon on a random tile bordering that unit"
+    "ability": "Before attacking a unit, *spawn* a *1/1/2/2/3 strength* Dragon on a random tile *bordering* that unit"
   },
   {
     "name": "Mischiefs",
@@ -2324,7 +2324,7 @@
     "mana": 4,
     "strength": "2/3/4/4/5",
     "movement": 1,
-    "ability": "On play, deal *1/1/1/2/2 damage* to the enemy base"
+    "ability": "On play, *deal 1/1/1/2/2 damage* to the enemy base"
   },
   {
     "name": "Pan Heralds",
@@ -2338,7 +2338,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 0,
-    "ability": "On play, *give 1/1/2/2/3* strength to all surrounding friendly units"
+    "ability": "On play, *give 1/1/2/2/3 strength* to *surrounding* friendly units"
   },
   {
     "name": "Dark Harvest",
@@ -2352,7 +2352,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "Deal *2/3/4/5/6 damage* to all enemies surrounding a friendly unit"
+    "ability": "*Deal 2/3/4/5/6 damage* to enemies *surrounding* a friendly unit"
   },
   {
     "name": "Dreadfauns",
@@ -2366,7 +2366,7 @@
     "mana": 5,
     "strength": "3/4/4/5/6",
     "movement": 0,
-    "ability": "On play, *spawn 2* Satyrs with *2/2/3/3/4* strength on random bordering tiles"
+    "ability": "On play, *spawn 2* Satyrs with *2/2/3/3/4 strength* on random *bordering* tiles"
   },
   {
     "name": "Grim Couriers",
@@ -2394,7 +2394,7 @@
     "mana": 5,
     "strength": "4/6/6/8/8",
     "movement": null,
-    "ability": "At the start of your turn, deal *2/2/3/3/4 damage* to the enemy base"
+    "ability": "At the start of your turn, *deal 2/2/3/3/4 damage* to the enemy base"
   },
   {
     "name": "Xuri, Lord of Life",
@@ -2408,7 +2408,7 @@
     "mana": 5,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed and vitalize them.",
+    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7 strength* to friendly units passed and *vitalize* them",
     "hero": true
   },
   {
@@ -2423,7 +2423,7 @@
     "mana": 7,
     "strength": null,
     "movement": null,
-    "ability": "*Give 1/2/3/4/5* strength to a target friendly unit. *Command* all friendly units in its row forward."
+    "ability": "*Give 1/2/3/4/5 strength* to a target friendly unit. *Command* friendly units in its row forward"
   },
   {
     "name": "Queen of Herds",
@@ -2452,7 +2452,7 @@
     "mana": 6,
     "strength": "3/4/5/5/6",
     "movement": 3,
-    "ability": "Before attacking, deal *1/1/1/2/2 damage* to the enemy base"
+    "ability": "Before attacking, *deal 1/1/1/2/2 damage* to the enemy base"
   },
   {
     "name": "Lasting Remains",
@@ -2480,7 +2480,7 @@
     "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Spawn* a *3/4/5/6/7* strength Satyr on a random tile in your furthest row"
+    "ability": "*Spawn* a *3/4/5/6/7 strength* Satyr on a random tile in your furthest row"
   },
   {
     "name": "Mindless Horde",
@@ -2522,7 +2522,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "After surviving damage, *command* all friendly units with equal or less strength forward",
+    "ability": "After surviving damage, *command* friendly units with *equal or less strength* forward",
     "elder": true
   },
   {
@@ -2537,7 +2537,7 @@
     "mana": 6,
     "strength": "6/7/9/11/14",
     "movement": 0,
-    "ability": "After surviving damage, randomly *give strength to 2* other friendly units equal to the damage received",
+    "ability": "After surviving damage, randomly *give strength* to *2* other friendly units equal to the damage received",
     "elder": true
   },
   {
@@ -2552,7 +2552,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "At the start of your turn, deconfuse and give *1* additional move to all friendly units in front"
+    "ability": "At the start of your turn, *deconfuse* and give *1 additional move* to friendly units in front"
   },
   {
     "name": "Diehards",
@@ -2580,7 +2580,7 @@
     "mana": 6,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "Before moving deal *1/1/1/2/2 damage* to 1/2/2/3/3 other *friendly* ancient units, then deal the same amount of damage *to enemy’s base*",
+    "ability": "Before moving *deal 1/1/1/2/2 damage* to *1/2/2/3/3* other *friendly* ancient units, then deal the same amount of damage *to the enemy base*",
     "ancient": true
   },
   {
@@ -2595,7 +2595,7 @@
     "mana": 1,
     "strength": null,
     "movement": null,
-    "ability": "Freeze a target enemy unit. If it is already frozen, deal *8/10/12/15/18* damage to it instead"
+    "ability": "*Freeze* a target enemy unit. If it is already frozen, *deal 8/10/12/15/18 damage* to it instead"
   },
   {
     "name": "Frosthexers",
@@ -2609,7 +2609,7 @@
     "mana": 2,
     "strength": "1/2/3/4/5",
     "movement": 0,
-    "ability": "On play, *freeze* all bordering enemy units"
+    "ability": "On play, *freeze bordering* enemy units"
   },
   {
     "name": "The Hearth",
@@ -2623,7 +2623,7 @@
     "mana": 3,
     "strength": "3/4/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, *give 2/2/3/3/4* strength to another friendly unit or structure"
+    "ability": "At the start of your turn, *give 2/2/3/3/4 strength* to another friendly unit or structure"
   },
   {
     "name": "Wisp Cloud",
@@ -2637,7 +2637,7 @@
     "mana": 3,
     "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "Before attacking a frozen enemy, deal *4/5/6/7/8 damage* to all surrounding frozen enemies"
+    "ability": "Before attacking a frozen enemy, *deal 4/5/6/7/8 damage* to *surrounding* frozen enemies"
   },
   {
     "name": "Yowling Weavers",
@@ -2651,7 +2651,7 @@
     "mana": 3,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "When attacking, randomly *destroy* a friendly non-Dragon unit"
+    "ability": "Before attacking, randomly *destroy* a friendly non-Dragon unit"
   },
   {
     "name": "Moment’s Peace",
@@ -2665,7 +2665,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "*Give 5/6/7/8/9* strength to a target friendly unit or structure. *Freeze* all surrounding enemy units."
+    "ability": "*Give 5/6/7/8/9 strength* to a target friendly unit or structure. *Freeze surrounding* enemy units"
   },
   {
     "name": "Mystwives",
@@ -2679,7 +2679,7 @@
     "mana": 4,
     "strength": 3,
     "movement": 1,
-    "ability": "When played bordering a stronger friendly unit, *gain 4/5/6/7/8* strength"
+    "ability": "When played *bordering* a stronger friendly unit, *gain 4/5/6/7/8 strength"
   },
   {
     "name": "Spellbinder Zhevana",
@@ -2693,7 +2693,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 0,
-    "ability": "On play, *destroy* all frozen units in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed.",
+    "ability": "On play, *destroy* frozen units in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed",
     "hero": true
   },
   {
@@ -2708,7 +2708,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, gain *2 mana*"
+    "ability": "At the start of your turn, *gain 2 mana*"
   },
   {
     "name": "Lady Rime",
@@ -2722,7 +2722,7 @@
     "mana": 6,
     "strength": "5/7/7/8/10",
     "movement": 1,
-    "ability": "On play, *spend* your remaining mana and *gain 2/2/3/4/5* strength for each",
+    "ability": "On play, *spend* your remaining mana and *gain 2/2/3/4/5 strength* for each",
     "hero": true
   },
   {
@@ -2737,7 +2737,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "*Freeze* all enemy units with *4/5/6/7/8* or less strength. Destroy those that were already frozen."
+    "ability": "*Destroy* frozen enemy units with *4/5/6/7/8 or less strength* and *freeze* the others"
   },
   {
     "name": "Rimelings",
@@ -2751,7 +2751,7 @@
     "mana": 5,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "On play, gain *3 mana*"
+    "ability": "On play, *gain 3 mana*"
   },
   {
     "name": "Rockworkers",
@@ -2765,7 +2765,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": 0,
-    "ability": "On play, *build* a *4/5/6/7/8* strength Fort on a random bordering tile"
+    "ability": "On play, *build* a *4/5/6/7/8 strength* Fort on a random *bordering* tile"
   },
   {
     "name": "Blessed with Brawn",
@@ -2779,7 +2779,7 @@
     "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Give 8/10/12/15/18* strength to a target friendly unit or structure with *4/5/6/7/8* or less strength"
+    "ability": "*Give 8/10/12/15/18 strength* to a target friendly unit or structure with *4/5/6/7/8 or less strength*"
   },
   {
     "name": "Broken Earth Drakes",
@@ -2793,7 +2793,7 @@
     "mana": 6,
     "strength": 2,
     "movement": 1,
-    "ability": "When this dies not bordering any base, deal *3/4/5/6/7 damage* to all non-Dragon units"
+    "ability": "When dying not *bordering* any base, *deal 3/4/5/6/7 damage* to non-Dragon units"
   },
   {
     "name": "Dawnsparks",
@@ -2807,7 +2807,7 @@
     "mana": 6,
     "strength": "8/10/12/15/18",
     "movement": 0,
-    "ability": "When attacking, gain *4 mana*"
+    "ability": "Before attacking, *gain 4 mana*"
   },
   {
     "name": "Wolfcloaks",
@@ -2821,7 +2821,7 @@
     "mana": 6,
     "strength": "7/8/9/11/13",
     "movement": 2,
-    "ability": "On play, *lose 1* strength for every other friendly unit on the board"
+    "ability": "On play, *lose 1 strength* for every other friendly unit"
   },
   {
     "name": "Fleshmenders",
@@ -2835,7 +2835,7 @@
     "mana": 7,
     "strength": "5/6/7/8/9",
     "movement": 2,
-    "ability": "On play, *give 6/7/8/10/12* strength to a random bordering friendly unit or structure"
+    "ability": "On play, *give 6/7/8/10/12 strength* to a random *bordering* friendly unit or structure"
   },
   {
     "name": "Gift of the Wise",
@@ -2849,7 +2849,7 @@
     "mana": 9,
     "strength": null,
     "movement": null,
-    "ability": "Gain *11/12/13/14/15 mana*"
+    "ability": "*Gain 11/12/13/14/15 mana*"
   },
   {
     "name": "Calming Spirits",
@@ -2877,7 +2877,7 @@
     "mana": 8,
     "strength": "8/10/12/15/18",
     "movement": 0,
-    "ability": "On play, for every *4/4/3/3/2 remaining mana* deal *1 damage* to all enemies in front"
+    "ability": "On play, for every *4/4/3/3/2 remaining mana* *deal 1 damage* to enemies in front"
   },
   {
     "name": "Chillbeards",
@@ -2891,7 +2891,7 @@
     "mana": 9,
     "strength": "4/5/6/7/8",
     "movement": 2,
-    "ability": "Before attacking a unit or structure, *gain 3/4/5/6/7* strength"
+    "ability": "Before attacking a unit or structure, *gain 3/4/5/6/7 strength*"
   },
   {
     "name": "Olf the Hammer",
@@ -2905,7 +2905,7 @@
     "mana": 9,
     "strength": "6/7/8/10/12",
     "movement": 2,
-    "ability": "When played bordering your base, *give* it *3/3/4/5/6* strength",
+    "ability": "When played *bordering* your base, *give* it *3/3/4/5/6 strength*",
     "hero": true
   },
   {
@@ -2920,7 +2920,7 @@
     "mana": 4,
     "strength": "4/5/7/8/10",
     "movement": null,
-    "ability": "At the start of your turn, remove *1/1-2/1-2/2/2 strength* from itself and *give it* to your base"
+    "ability": "At the start of your turn, *remove 1/1-2/1-2/2/2 strength* from itself and *give* it to your base"
   },
   {
     "name": "Iced Droplings",
@@ -2962,7 +2962,7 @@
     "mana": 7,
     "strength": "5/6/7/9/11",
     "movement": 1,
-    "ability": "After surviving damage, gain 3/3/3/4/4 strength",
+    "ability": "After surviving damage, *gain 3/3/3/4/4 strength*",
     "elder": true
   },
   {
@@ -2977,7 +2977,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "After surviving damage, *destroy* all enemy units in front",
+    "ability": "After surviving damage, *destroy* enemy units in front",
     "elder": true
   },
   {
@@ -2992,7 +2992,7 @@
     "mana": 3,
     "strength": "2/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, *vitalize 1/2/2/3/3* friendly unit/units/units/units/units, then spawn a *1 strength* copy of itself on the tile behind"
+    "ability": "At the start of your turn, *vitalize 1/2/2/3/3* friendly unit/units/units/units/units, then *spawn* a *1 strength* copy of itself on the tile behind"
   },
   {
     "name": "Glacier Palace",
@@ -3006,7 +3006,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, randomly freeze the most forward enemy unit"
+    "ability": "At the start of your turn, randomly *freeze* the most forward enemy unit"
   },
   {
     "name": "Iceflakes",
@@ -3020,7 +3020,7 @@
     "mana": 2,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, freeze itself"
+    "ability": "On play, *freeze* itself"
   },
   {
     "name": "Blizzard Bombs",
@@ -3034,7 +3034,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "On death, *freeze* all surrounding units"
+    "ability": "On death, *freeze* surrounding units"
   },
   {
     "name": "Orgone Leechers",
@@ -3048,7 +3048,7 @@
     "mana": 3,
     "strength": "6/7/8/9/11",
     "movement": 1,
-    "ability": "Before moving, *reduce mana* by 3, then freeze an enemy in the tile in front. Decrease mana reduction by 1 for each other *friendly* ancient on the board.",
+    "ability": "Before moving, *lose 3 mana* and *freeze* an enemy in the tile in front. *Decrease* the loss by *1* for each other *friendly* Ancient",
     "ancient": true
   },
   {
@@ -3229,7 +3229,7 @@
     "mana": 0,
     "strength": 1,
     "movement": 1,
-    "ability": null
+    "ability": "At the start of your turn, hatch and *spawn* a *3/4/5/6/7 strength* Dragon here"
   },
   {
     "token": true,
