@@ -33,7 +33,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.isequal": "^4.5.0",
     "module-alias": "^2.2.2",
-    "next": "^12.0.9",
+    "next": "^12.0.10",
     "node-fetch": "^2.6.7",
     "random-weighted-choice": "^0.1.4",
     "react": "^17.0.2",
@@ -63,7 +63,7 @@
   ],
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.11.0",
-    "cypress": "^9.3.1",
+    "cypress": "^9.4.1",
     "diff": "^5.0.0",
     "eslint": "^8.8.0",
     "eslint-config-next": "^12.0.9",
@@ -72,7 +72,7 @@
     "jest": "^27.4.7",
     "lint-staged": "^12.3.2",
     "mathjax-node": "^2.1.1",
-    "next-sitemap": "^2.1.6",
+    "next-sitemap": "^2.1.9",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "svg2png": "^4.1.1"
