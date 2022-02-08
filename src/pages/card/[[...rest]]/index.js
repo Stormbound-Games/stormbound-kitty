@@ -10,14 +10,16 @@ import CARDS from '~/data/cards'
 import CHANGELOG from '~/data/changelog'
 import SWCC from '~/data/swcc'
 
+const isContest = id => contest => contest.winner && contest.winner.id === id
+
 const getContest = id => {
-  const contest = SWCC.flat().find(
-    contest => contest.winner && contest.winner.id === id
-  )
+  const seasonIndex = SWCC.findIndex(season => season.find(isContest(id)))
 
-  if (!contest) return null
+  if (seasonIndex === -1) return null
 
-  contest.season = parseDate(contest.date) > parseDate(SWCC[1][0].date) ? 2 : 1
+  const contest = SWCC[seasonIndex].find(isContest)
+
+  contest.season = SWCC.length - seasonIndex
 
   return contest
 }
