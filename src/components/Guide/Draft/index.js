@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import Guide from '~/components/Guide'
 import Image from '~/components/Image'
+import Info from '~/components/Info'
 import Only from '~/components/Only'
 import {
   Coins,
@@ -55,6 +56,17 @@ export default React.memo(function GuideDraft(props) {
           <Link href='#replacing-cards'>Replacing cards</Link>
         </li>
       </TableOfContents>
+
+      <Info icon='compass' title='Brewed Sages Guide'>
+        <p>
+          The <Link to='/brewed-sages'>Brewed Sages</Link> have released{' '}
+          <Link href='https://docs.google.com/spreadsheets/d/1hzDmUxjgvzB_WFQhaKWrpUmCm4Zc-2TqGfWdIJzJrkQ/edit#gid=2083419482'>
+            their own guide
+          </Link>{' '}
+          for the Draft mode, which I recommend you check out as it gives good
+          tips!
+        </p>
+      </Info>
 
       <Title id='synopsis'>Synopsis</Title>
 
