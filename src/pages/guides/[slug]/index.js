@@ -75,6 +75,9 @@ const GUIDE_COMPONENTS = {
   DECK_BUILDING: dynamic(() => import('~/components/Guide/DeckBuilding'), {
     loading: Loader,
   }),
+  DRAFT: dynamic(() => import('~/components/Guide/Draft'), {
+    loading: Loader,
+  }),
   DRAWING_MECHANICS: dynamic(
     () => import('~/components/Guide/DrawingMechanics'),
     {

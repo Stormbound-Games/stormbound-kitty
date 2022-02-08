@@ -70,6 +70,20 @@
     "date": "07/2020"
   },
   {
+    "id": "DRAFT",
+    "name": "Draft Guide",
+    "authors": [
+      "Kitty"
+    ],
+    "excerpt": "In this beginner’s guide, Kitty explains how the Draft mode works, why you should care, and what are the common strategies to make the most of your coins.",
+    "slug": "draft",
+    "faction": "neutral",
+    "cardId": "N76",
+    "background": "/assets/images/wallpapers/lite/wp-d-3.png",
+    "category": "ESSENTIALS",
+    "date": "02/2022"
+  },
+  {
     "id": "BRAWL_AFTERSHOCK",
     "name": "Aftershock",
     "authors": [
@@ -95,8 +109,7 @@
     "cardId": "I22",
     "background": "/assets/images/banners/environment_ironclad.png",
     "category": "BRAWL_MODE",
-    "date": "10/2020",
-    "skipNav": true
+    "date": "10/2020"
   },
   {
     "id": "BRAWL_FREEDOM_FIGHT",
@@ -211,7 +224,8 @@
     "cardId": "N8",
     "background": "/assets/images/wallpapers/lite/wp-d-7.png",
     "category": "ESSENTIALS",
-    "date": "05/2020"
+    "date": "05/2020",
+    "skipNav": true
   },
   {
     "id": "MANA_CURVE",
@@ -329,8 +343,7 @@
     "cardId": "N1",
     "background": "/assets/images/banners/environment_neutral.png",
     "category": "PLAYSTYLE",
-    "date": "10/2020",
-    "skipNav": true
+    "date": "10/2020"
   },
   {
     "id": "LEGENDARIES_LEVEL_1",
