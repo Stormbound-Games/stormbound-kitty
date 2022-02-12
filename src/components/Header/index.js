@@ -97,7 +97,12 @@ const useNavigation = (navigation = []) => {
       return { ...column, items: [feed, ...items].filter(Boolean) }
     })
 
-    return { ...category, label: name, isNew: isUnseen, items }
+    return {
+      ...category,
+      label: name || 'Your Content',
+      isNew: isUnseen,
+      items,
+    }
   })
 }
 
