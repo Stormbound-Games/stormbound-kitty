@@ -14,20 +14,6 @@
     "date": "06/2020"
   },
   {
-    "id": "INTRO_TO_EQUALS",
-    "name": "Intro to Equals",
-    "authors": [
-      "Derk"
-    ],
-    "excerpt": "In this short introduction to Equals mode, Derk goes through what to expect, the main difference with ranked, and some tips and tricks to perform.",
-    "slug": "equals-intro",
-    "faction": "neutral",
-    "cardId": "F21",
-    "background": "/assets/images/banners/environment_neutral.png",
-    "category": "ESSENTIALS",
-    "date": "04/2021"
-  },
-  {
     "id": "COMPLETE",
     "name": "Complete Guide",
     "authors": [
@@ -42,8 +28,36 @@
     "date": "04/2019"
   },
   {
+    "id": "DECK_BUILDING",
+    "name": "Deck Building",
+    "authors": [
+      "Zemeu"
+    ],
+    "excerpt": "In this primer guide to building efficient decks, Zemeu goes through fundamental concepts such as mana curve, need for cheap units, and winning strategies. If you’re looking to making your own deck, you’re at the right place.",
+    "slug": "deck",
+    "faction": "shadowfen",
+    "cardId": "N48",
+    "background": "/assets/images/wallpapers/lite/wp-d-6.png",
+    "category": "ESSENTIALS",
+    "date": "04/2019"
+  },
+  {
+    "id": "INTRO_TO_EQUALS",
+    "name": "Intro to Equals",
+    "authors": [
+      "Derk"
+    ],
+    "excerpt": "In this short introduction to Equals mode, Derk goes through what to expect, the main difference with ranked, and some tips and tricks to perform.",
+    "slug": "equals",
+    "faction": "neutral",
+    "cardId": "F21",
+    "background": "/assets/images/banners/environment_neutral.png",
+    "category": "ESSENTIALS",
+    "date": "04/2021"
+  },
+  {
     "id": "STRUCTURES",
-    "name": "Structures Guide",
+    "name": "Guide to Structures",
     "authors": [
       "redsnake_25"
     ],
@@ -57,7 +71,7 @@
   },
   {
     "id": "BRAWL",
-    "name": "Brawl Guide",
+    "name": "Intro to Brawl",
     "authors": [
       "Kitty"
     ],
@@ -71,7 +85,7 @@
   },
   {
     "id": "DRAFT",
-    "name": "Draft Guide",
+    "name": "Intro to Draft",
     "authors": [
       "Kitty"
     ],
@@ -185,20 +199,6 @@
     "skipNav": true
   },
   {
-    "id": "DECK_BUILDING",
-    "name": "Deck Building",
-    "authors": [
-      "Zemeu"
-    ],
-    "excerpt": "In this primer guide to building efficient decks, Zemeu goes through fundamental concepts such as mana curve, need for cheap units, and winning strategies. If you’re looking to making your own deck, you’re at the right place.",
-    "slug": "deck",
-    "faction": "shadowfen",
-    "cardId": "N48",
-    "background": "/assets/images/wallpapers/lite/wp-d-6.png",
-    "category": "ESSENTIALS",
-    "date": "04/2019"
-  },
-  {
     "id": "DRAWING_MECHANICS",
     "name": "Drawing Mechanics",
     "authors": [
@@ -214,7 +214,7 @@
   },
   {
     "id": "RESOURCES",
-    "name": "Resources",
+    "name": "About Resources",
     "authors": [
       "Roman"
     ],
@@ -243,7 +243,7 @@
   },
   {
     "id": "TRIGGERS",
-    "name": "Triggers",
+    "name": "About Triggers",
     "authors": [
       "Kitty",
       "Derk"

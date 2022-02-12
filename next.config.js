@@ -8,6 +8,11 @@ module.exports = {
         destination: '/deck/featured',
         permanent: true,
       },
+      {
+        source: '/guides/equals-intro',
+        destination: '/guides/equals',
+        permanent: true,
+      },
       { source: '/rr', destination: '/guides/reckless-rush', permanent: true },
       { source: '/guides', destination: '/guides/essentials', permanent: true },
       { source: '/guides/lexicon', destination: '/lexicon', permanent: true },
