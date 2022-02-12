@@ -175,7 +175,26 @@ export default React.memo(function IncomeCalculator(props) {
             their help in designing and making this simulator possible.
           </p>
 
-          <Info icon='compass' title='Resources Guide'>
+          <Info
+            icon='warning'
+            title='Disclaimer'
+            spacing={{ vertical: 'BASE' }}
+          >
+            <p>
+              This calculator does not take into consideration{' '}
+              <Link to='/guides/brawl#what-are-victory-bonuses'>
+                victory bonuses from the Brawl
+              </Link>{' '}
+              or <Link to='/guides/draft#rewards'>rewards from Draft mode</Link>
+              .
+            </p>
+          </Info>
+
+          <Info
+            icon='compass'
+            title='Resources Guide'
+            spacing={{ vertical: 'BASE' }}
+          >
             <p>
               To learn about the best way to spend resources based on your
               play-style, <Link to='/members/roman'>Roman</Link> has authored a
