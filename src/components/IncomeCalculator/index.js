@@ -4,6 +4,7 @@ import Link from '~/components/Link'
 import Checkbox from '~/components/Checkbox'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
+import Label from '~/components/Label'
 import LeagueSelect from '~/components/LeagueSelect'
 import NumberInput from '~/components/NumberInput'
 import Only from '~/components/Only'
@@ -24,6 +25,7 @@ import {
   Rubies,
   Stones,
 } from '~/components/Resource'
+import capitalize from '~/helpers/capitalize'
 import clamp from '~/helpers/clamp'
 import getActivityRewards from '~/helpers/getActivityRewards'
 import getBookName from '~/helpers/getBookName'
@@ -212,7 +214,7 @@ export default React.memo(function IncomeCalculator(props) {
           <Title>Configuration</Title>
 
           <h3 className={css(styles.title, { marginTop: 0 })}>Setup</h3>
-          <Row withNarrowGutter isDesktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Game setup'
@@ -224,26 +226,15 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='MOBILE_WITH_ADS'>Mobile with ads</option>
                 <option value='STEAM_OR_WEB'>Steam or web version</option>
               </Select>
+              <Spacing top='SMALL'>
+                <PremiumPassCheckbox
+                  checked={withPremiumPass}
+                  onChange={event => setWithPremiumPass(event.target.checked)}
+                />
+              </Spacing>
             </Row.Column>
             <Row.Column>
-              <Select
-                label='Convert rubies to'
-                id='rubies-conversion'
-                value={rubiesConversion}
-                onChange={event => setRubiesConversion(event.target.value)}
-              >
-                <option value='NONE'>Nothing</option>
-                {Object.keys(BOOKS).map(bookType => (
-                  <option value={bookType} key={bookType}>
-                    {getBookName(bookType, true)}
-                  </option>
-                ))}
-                <option value='CARD_SHOP'>Card Shop Epics</option>
-              </Select>
-            </Row.Column>
-          </Row>
-          <Row withNarrowGutter isDesktopOnly>
-            <Row.Column>
+              <Label>Quests & Rewards</Label>
               <Checkbox
                 id='with-daily-quests'
                 checked={withDailyQuests}
@@ -258,8 +249,6 @@ export default React.memo(function IncomeCalculator(props) {
               >
                 Prefer tier-3 quest to be fusion stones
               </Checkbox>
-            </Row.Column>
-            <Row.Column>
               <Checkbox
                 id='with-daily-humble'
                 checked={withDailyHumble}
@@ -267,16 +256,12 @@ export default React.memo(function IncomeCalculator(props) {
               >
                 Open daily Humble book
               </Checkbox>
-              <PremiumPassCheckbox
-                checked={withPremiumPass}
-                onChange={event => setWithPremiumPass(event.target.checked)}
-              />
             </Row.Column>
           </Row>
 
           <h3 className={css(styles.title)}>Progress</h3>
 
-          <Row withNarrowGutter isDesktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <LeagueSelect
                 label='Monthly league'
@@ -301,7 +286,7 @@ export default React.memo(function IncomeCalculator(props) {
               </Select>
             </Row.Column>
           </Row>
-          <Row withNarrowGutter isDesktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Heroes Position'
@@ -332,7 +317,7 @@ export default React.memo(function IncomeCalculator(props) {
 
           <h3 className={css(styles.title)}>Brawl</h3>
 
-          <Row withNarrowGutter isDesktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Casual milestone'
@@ -365,7 +350,7 @@ export default React.memo(function IncomeCalculator(props) {
             </Row.Column>
           </Row>
 
-          <Row withNarrowGutter isDesktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Ultimate milestone'
@@ -409,7 +394,7 @@ export default React.memo(function IncomeCalculator(props) {
 
           <h3 className={css(styles.title)}>Draft</h3>
 
-          <Row withNarrowGutter isDesktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <NumberInput
                 label='Weekly sessions'
@@ -435,33 +420,50 @@ export default React.memo(function IncomeCalculator(props) {
           <Spacing top='LARGE'>
             <Title>{period.toLowerCase()} Income</Title>
 
-            <p
-              style={{
-                '--length': period.length,
-                '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
-              }}
-            >
-              On a{' '}
-              <Select
-                hideLabel
-                label='Period'
-                id='period'
-                value={period}
-                onChange={event => setPeriod(event.target.value)}
-                extend={styles.period}
-              >
-                {PERIODS.map(period => (
-                  <option key={period} value={period}>
-                    {period.toLowerCase()}
-                  </option>
-                ))}
-              </Select>
-              basis, and given your current play style, you would collect the
-              following resources:
-            </p>
-
             <Row isDesktopOnly>
               <Row.Column>
+                <Row>
+                  <Row.Column>
+                    <Select
+                      label='Period'
+                      id='period'
+                      value={period}
+                      onChange={event => setPeriod(event.target.value)}
+                    >
+                      {PERIODS.map(period => (
+                        <option key={period} value={period}>
+                          {capitalize(period.toLowerCase())}
+                        </option>
+                      ))}
+                    </Select>
+                  </Row.Column>
+                </Row>
+                <Row>
+                  <Row.Column>
+                    <Select
+                      label='Convert rubies to'
+                      id='rubies-conversion'
+                      value={rubiesConversion}
+                      onChange={event =>
+                        setRubiesConversion(event.target.value)
+                      }
+                    >
+                      <option value='NONE'>Nothing</option>
+                      {Object.keys(BOOKS).map(bookType => (
+                        <option value={bookType} key={bookType}>
+                          {getBookName(bookType, true)}
+                        </option>
+                      ))}
+                      <option value='CARD_SHOP'>Card Shop Epics</option>
+                    </Select>
+                  </Row.Column>
+                </Row>
+              </Row.Column>
+              <Row.Column>
+                <p>
+                  On a {period.toLowerCase()} basis, and given your current play
+                  style, you would collect the following resources:
+                </p>
                 <ul className={css(styles.outcome)}>
                   <li>
                     <Coins amount={parseFloat(income.coins.toFixed(2))} />
@@ -473,8 +475,7 @@ export default React.memo(function IncomeCalculator(props) {
                     <Stones amount={parseFloat(income.stones.toFixed(2))} />
                   </li>
                 </ul>
-              </Row.Column>
-              <Row.Column>
+                <p>As well as:</p>
                 <ul className={css(styles.outcome)}>
                   <li>
                     <Common amount={Number(income.cards[0].toFixed(2))} />
