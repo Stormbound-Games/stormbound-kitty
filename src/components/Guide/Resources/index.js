@@ -96,7 +96,7 @@ export default React.memo(function GuideResources(props) {
         <ResourceIcon resource='COIN' /> Coins
       </h3>
 
-      <p>Coins are available through 5 different means:</p>
+      <p>Coins are available through several different means:</p>
       <ul>
         <li>
           Tier 1 and 3 daily missions (<Coins amount={100} /> for tier 1 +{' '}
@@ -125,6 +125,9 @@ export default React.memo(function GuideResources(props) {
         </li>
         <li>Victory bonuses in the Brawl.</li>
         <li>
+          Tier 3, 5 and 6 rewards in Draft, or all tiers with the Premium Pass.
+        </li>
+        <li>
           Duplicate copies above level 5 (<Coins amount={15} />,{' '}
           <Coins amount={30} />, <Coins amount={70} /> or <Coins amount={150} />{' '}
           depending on the rarity of the card).
@@ -136,7 +139,7 @@ export default React.memo(function GuideResources(props) {
         <ResourceIcon resource='RUBY' /> Rubies
       </h3>
 
-      <p>Rubies are available through 4 different means:</p>
+      <p>Rubies are available through several different means:</p>
       <ul>
         <li>
           Tier 2 daily missions (<Rubies amount={5} />
@@ -169,7 +172,7 @@ export default React.memo(function GuideResources(props) {
         <ResourceIcon resource='STONE' /> Fusion Stones
       </h3>
 
-      <p>Fusion Stones are available through 4 different means:</p>
+      <p>Fusion Stones are available through several different means:</p>
       <ul>
         <li>
           Tier 3 daily missions (<Stones amount={2} />, where the odds of having
@@ -195,6 +198,9 @@ export default React.memo(function GuideResources(props) {
           for Top 500).
         </li>
         <li>Victory bonuses in the Brawl.</li>
+        <li>
+          Tier 1 through 6 rewards in Draft, or all tiers with the Premium Pass.
+        </li>
         <li>
           <Link to='/calculators/books'>Sometimes in books</Link>.
         </li>
