@@ -7,10 +7,24 @@ import TagsSelect from '~/components/TagsSelect'
 import serialization from '~/helpers/serialization'
 import getRawCardData from '~/helpers/getRawCardData'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
+import { convertToSkId } from '~/helpers/convertDeckId'
 
 const isValidCard = card => Boolean(getRawCardData(card.id).id)
-const validateDeckId = id =>
-  id && serialization.deck.deserialize(getDeckIDFromURL(id)).every(isValidCard)
+const validateDeckId = id => {
+  if (!id) return false
+
+  // This is not an incredibly elegant check to determine whether the id is a
+  // SBID or SKID. The thing is, SBIDs are technically valid base64 since they
+  // operate within the same character set. However, SBIDs are always lowercase
+  // and the chances of a SBID having 0 uppercase are pretty much null, so this
+  // is Good Enough™. Anyway, if it’s a SBID, convert it to a SKID and call the
+  // function again to check if it’s valid.
+  if (/[=+/]/.test(id) || /[A-Z]/.test(id)) {
+    return validateDeckId(convertToSkId(id))
+  }
+
+  return serialization.deck.deserialize(getDeckIDFromURL(id)).every(isValidCard)
+}
 
 export default React.memo(function YourDeckForm(props) {
   const [deckID, setDeckID] = React.useState(props.id)
@@ -26,7 +40,6 @@ export default React.memo(function YourDeckForm(props) {
             required
             id='id'
             data-testid='deck-id-input'
-            minLength={3 * 12}
             autoComplete='off'
             value={deckID}
             onChange={event => setDeckID(event.target.value)}
