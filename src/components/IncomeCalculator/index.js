@@ -24,11 +24,12 @@ import {
   Rubies,
   Stones,
 } from '~/components/Resource'
-import capitalize from '~/helpers/capitalize'
+import clamp from '~/helpers/clamp'
 import getActivityRewards from '~/helpers/getActivityRewards'
 import getBookName from '~/helpers/getBookName'
 import getBrawlRewards from '~/helpers/getBrawlRewards'
 import getClimbingRewards from '~/helpers/getClimbingRewards'
+import getDraftRewards from '~/helpers/getDraftRewards'
 import getHeroesLeagueRewards from '~/helpers/getHeroesLeagueRewards'
 import getLeagueChestRewards from '~/helpers/getLeagueChestRewards'
 import getResourceLabel from '~/helpers/getResourceLabel'
@@ -74,6 +75,20 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
     income.add(climbingRewards)
   }
 
+  if (settings.draftSessions > 0) {
+    const sessions = clamp(settings.draftSessions, 0, 3)
+    const wins = clamp(settings.draftWins, 0, 6)
+    const draftRewards = getDraftRewards(
+      sessions,
+      wins,
+      settings.withPremiumPass
+    )
+    // We consider that 1 entry card a week gets collected via watching an ad,
+    // and the other ones are paid for 600 coins a piece.
+    draftRewards.coins -= Math.max((sessions - 1) * 600, 0)
+    income.add(draftRewards)
+  }
+
   const brawlRewards = getBrawlRewards({
     casual: settings.casualMilestone || -1,
     warrior: settings.warriorMilestone || -1,
@@ -112,6 +127,8 @@ export default React.memo(function IncomeCalculator(props) {
   const [warriorMilestone, setWarriorMilestone] = React.useState('')
   const [ultimateMilestone, setUltimateMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
+  const [draftSessions, setDraftSessions] = React.useState(0)
+  const [draftWins, setDraftWins] = React.useState(0)
   const [heroesPosition, setHeroesPosition] = React.useState('NOT_RANKED')
   const [rubiesConversion, setRubiesConversion] = React.useState('NONE')
   const [preferTier3Stones, setPreferTier3Stones] = React.useState(false)
@@ -132,6 +149,8 @@ export default React.memo(function IncomeCalculator(props) {
       withDailyHumble,
       withDailyQuests,
       withPremiumPass,
+      draftSessions,
+      draftWins,
     },
     period,
     rubiesConversion
@@ -176,21 +195,6 @@ export default React.memo(function IncomeCalculator(props) {
           </p>
 
           <Info
-            icon='warning'
-            title='Disclaimer'
-            spacing={{ vertical: 'BASE' }}
-          >
-            <p>
-              This calculator does not take into consideration{' '}
-              <Link to='/guides/brawl#what-are-victory-bonuses'>
-                victory bonuses from the Brawl
-              </Link>{' '}
-              or <Link to='/guides/draft#rewards'>rewards from Draft mode</Link>
-              .
-            </p>
-          </Info>
-
-          <Info
             icon='compass'
             title='Resources Guide'
             spacing={{ vertical: 'BASE' }}
@@ -204,8 +208,10 @@ export default React.memo(function IncomeCalculator(props) {
             </p>
           </Info>
         </Row.Column>
-        <Row.Column width='1/3'>
+        <Row.Column width='2/3'>
           <Title>Configuration</Title>
+
+          <h3 className={css(styles.title, { marginTop: 0 })}>Setup</h3>
           <Row withNarrowGutter isDesktopOnly>
             <Row.Column>
               <Select
@@ -220,17 +226,56 @@ export default React.memo(function IncomeCalculator(props) {
               </Select>
             </Row.Column>
             <Row.Column>
-              <NumberInput
-                label='Daily wins'
-                id='wins'
-                name='wins'
-                value={wins}
-                onChange={setWins}
-                min={0}
-                max={maxWins}
+              <Select
+                label='Convert rubies to'
+                id='rubies-conversion'
+                value={rubiesConversion}
+                onChange={event => setRubiesConversion(event.target.value)}
+              >
+                <option value='NONE'>Nothing</option>
+                {Object.keys(BOOKS).map(bookType => (
+                  <option value={bookType} key={bookType}>
+                    {getBookName(bookType, true)}
+                  </option>
+                ))}
+                <option value='CARD_SHOP'>Card Shop Epics</option>
+              </Select>
+            </Row.Column>
+          </Row>
+          <Row withNarrowGutter isDesktopOnly>
+            <Row.Column>
+              <Checkbox
+                id='with-daily-quests'
+                checked={withDailyQuests}
+                onChange={event => setWithDailyQuests(event.target.checked)}
+              >
+                Complete daily quests
+              </Checkbox>
+              <Checkbox
+                id='prefer-tier3-stones'
+                checked={preferTier3Stones}
+                onChange={event => setPreferTier3Stones(event.target.checked)}
+              >
+                Prefer tier-3 quest to be fusion stones
+              </Checkbox>
+            </Row.Column>
+            <Row.Column>
+              <Checkbox
+                id='with-daily-humble'
+                checked={withDailyHumble}
+                onChange={event => setWithDailyHumble(event.target.checked)}
+              >
+                Open daily Humble book
+              </Checkbox>
+              <PremiumPassCheckbox
+                checked={withPremiumPass}
+                onChange={event => setWithPremiumPass(event.target.checked)}
               />
             </Row.Column>
           </Row>
+
+          <h3 className={css(styles.title)}>Progress</h3>
+
           <Row withNarrowGutter isDesktopOnly>
             <Row.Column>
               <LeagueSelect
@@ -256,6 +301,37 @@ export default React.memo(function IncomeCalculator(props) {
               </Select>
             </Row.Column>
           </Row>
+          <Row withNarrowGutter isDesktopOnly>
+            <Row.Column>
+              <Select
+                label='Heroes Position'
+                id='heroes-position'
+                value={heroesPosition}
+                disabled={league !== 'HEROES'}
+                onChange={event => setHeroesPosition(event.target.value)}
+              >
+                <option value='NOT_RANKED'>Not within top 500</option>
+                <option value='TOP_500'>Top 500</option>
+                <option value='TOP_100'>Top 100</option>
+                <option value='TOP_10'>Top 10</option>
+                <option value='TOP_1'>Top 1</option>
+              </Select>
+            </Row.Column>
+            <Row.Column>
+              <NumberInput
+                label='Daily wins'
+                id='wins'
+                name='wins'
+                value={wins}
+                onChange={setWins}
+                min={0}
+                max={maxWins}
+              />
+            </Row.Column>
+          </Row>
+
+          <h3 className={css(styles.title)}>Brawl</h3>
+
           <Row withNarrowGutter isDesktopOnly>
             <Row.Column>
               <Select
@@ -288,6 +364,7 @@ export default React.memo(function IncomeCalculator(props) {
               </Select>
             </Row.Column>
           </Row>
+
           <Row withNarrowGutter isDesktopOnly>
             <Row.Column>
               <Select
@@ -315,73 +392,56 @@ export default React.memo(function IncomeCalculator(props) {
               />
             </Row.Column>
           </Row>
+
+          <Info
+            icon='warning'
+            title='Disclaimer'
+            spacing={{ vertical: 'BASE' }}
+          >
+            <p>
+              This calculator does not take into consideration{' '}
+              <Link to='/guides/brawl#what-are-victory-bonuses'>
+                victory bonuses from the Brawl
+              </Link>
+              .
+            </p>
+          </Info>
+
+          <h3 className={css(styles.title)}>Draft</h3>
+
           <Row withNarrowGutter isDesktopOnly>
             <Row.Column>
-              <Select
-                label='Heroes Position'
-                id='heroes-position'
-                value={heroesPosition}
-                disabled={league !== 'HEROES'}
-                onChange={event => setHeroesPosition(event.target.value)}
-              >
-                <option value='NOT_RANKED'>Not within top 500</option>
-                <option value='TOP_500'>Top 500</option>
-                <option value='TOP_100'>Top 100</option>
-                <option value='TOP_10'>Top 10</option>
-                <option value='TOP_1'>Top 1</option>
-              </Select>
+              <NumberInput
+                label='Weekly sessions'
+                id='draft-sessions'
+                value={draftSessions}
+                onChange={setDraftSessions}
+                min={0}
+                max={3}
+              />
             </Row.Column>
             <Row.Column>
-              <Select
-                label='Convert rubies to'
-                id='rubies-conversion'
-                value={rubiesConversion}
-                onChange={event => setRubiesConversion(event.target.value)}
-              >
-                <option value='NONE'>Nothing</option>
-                {Object.keys(BOOKS).map(bookType => (
-                  <option value={bookType} key={bookType}>
-                    {getBookName(bookType, true)}
-                  </option>
-                ))}
-                <option value='CARD_SHOP'>Card Shop Epics</option>
-              </Select>
+              <NumberInput
+                label='Average wins per session'
+                id='draft-wins'
+                value={draftWins}
+                onChange={setDraftWins}
+                min={0}
+                max={6}
+              />
             </Row.Column>
           </Row>
-          <Checkbox
-            id='with-daily-quests'
-            checked={withDailyQuests}
-            onChange={event => setWithDailyQuests(event.target.checked)}
-          >
-            Complete daily quests
-          </Checkbox>
-          <Checkbox
-            id='prefer-tier3-stones'
-            checked={preferTier3Stones}
-            onChange={event => setPreferTier3Stones(event.target.checked)}
-          >
-            Prefer tier-3 quest to be fusion stones
-          </Checkbox>
-          <Checkbox
-            id='with-daily-humble'
-            checked={withDailyHumble}
-            onChange={event => setWithDailyHumble(event.target.checked)}
-          >
-            Open daily Humble book
-          </Checkbox>
-          <PremiumPassCheckbox
-            checked={withPremiumPass}
-            onChange={event => setWithPremiumPass(event.target.checked)}
-          />
-        </Row.Column>
-        <Row.Column width='1/3'>
-          <div>
-            <Title
-              extend={{
+
+          <Spacing top='LARGE'>
+            <Title>{period.toLowerCase()} Income</Title>
+
+            <p
+              style={{
                 '--length': period.length,
                 '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
               }}
             >
+              On a{' '}
               <Select
                 hideLabel
                 label='Period'
@@ -392,46 +452,46 @@ export default React.memo(function IncomeCalculator(props) {
               >
                 {PERIODS.map(period => (
                   <option key={period} value={period}>
-                    {capitalize(period.toLowerCase())}
+                    {period.toLowerCase()}
                   </option>
                 ))}
               </Select>
-              Income
-            </Title>
-
-            <p>
-              On a {period.toLowerCase()} basis, and given your current play
-              style, you would collect the following resources:
+              basis, and given your current play style, you would collect the
+              following resources:
             </p>
 
-            <ul className={css(styles.outcome)}>
-              <li>
-                <Coins amount={parseFloat(income.coins.toFixed(2))} />
-              </li>
-              <li>
-                <Rubies amount={parseFloat(income.rubies.toFixed(2))} />
-              </li>
-              <li>
-                <Stones amount={parseFloat(income.stones.toFixed(2))} />
-              </li>
-            </ul>
-
-            <p>As well as:</p>
-            <ul className={css(styles.outcome)}>
-              <li>
-                <Common amount={Number(income.cards[0].toFixed(2))} />
-              </li>
-              <li>
-                <Rare amount={Number(income.cards[1].toFixed(2))} />
-              </li>
-              <li>
-                <Epic amount={Number(income.cards[2].toFixed(2))} />
-              </li>
-              <li>
-                <Legendary amount={Number(income.cards[3].toFixed(2))} />
-              </li>
-            </ul>
-          </div>
+            <Row isDesktopOnly>
+              <Row.Column>
+                <ul className={css(styles.outcome)}>
+                  <li>
+                    <Coins amount={parseFloat(income.coins.toFixed(2))} />
+                  </li>
+                  <li>
+                    <Rubies amount={parseFloat(income.rubies.toFixed(2))} />
+                  </li>
+                  <li>
+                    <Stones amount={parseFloat(income.stones.toFixed(2))} />
+                  </li>
+                </ul>
+              </Row.Column>
+              <Row.Column>
+                <ul className={css(styles.outcome)}>
+                  <li>
+                    <Common amount={Number(income.cards[0].toFixed(2))} />
+                  </li>
+                  <li>
+                    <Rare amount={Number(income.cards[1].toFixed(2))} />
+                  </li>
+                  <li>
+                    <Epic amount={Number(income.cards[2].toFixed(2))} />
+                  </li>
+                  <li>
+                    <Legendary amount={Number(income.cards[3].toFixed(2))} />
+                  </li>
+                </ul>
+              </Row.Column>
+            </Row>
+          </Spacing>
         </Row.Column>
       </Row>
     </Page>
