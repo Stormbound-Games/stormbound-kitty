@@ -156,6 +156,11 @@ export default React.memo(function GuideBeginner(props) {
           This includes during the enemy’s turn either through enemy units
           attacking the Elder or through Force Attack (see below).
         </li>
+        <li>
+          <strong className='Highlight'>Before moving</strong>—only Ancients
+          have these abilities. They trigger before the unit moves at the
+          beginning of the turn.
+        </li>
       </ul>
 
       <p>
@@ -223,7 +228,7 @@ export default React.memo(function GuideBeginner(props) {
         turn.
       </p>
       <p>
-        <strong className='Highlight'>Disable</strong>: disabling a card’s
+        <strong className='Highlight'>Disability</strong>: disabling a card’s
         ability means removing it. It lasts until the card dies or gets
         destroyed, essentially making it a “vanilla” card up til then.
       </p>
@@ -274,7 +279,7 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        <strong className='Highlight'>Gain mana</strong>: A Winter
+        <strong className='Highlight'>Gaining mana</strong>: A Winter
         Pact-exclusive mechanic, the card gives its owner a certain amount of
         mana when a condition is met. For <CardLink id='W12' />, the card is
         played and then the player is given back 3 of the 5 mana. This does not
@@ -293,7 +298,7 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        <strong className='Highlight'>Spawn other units</strong>: Cards that
+        <strong className='Highlight'>Spawning other units</strong>: Cards that
         “randomly spawn” units or structures and don’t specify a location do so
         only inside your frontline and can’t advance your frontline, like{' '}
         <CardLink id='F8' />, <CardLink id='N2' />, <CardLink id='N46' />. Other
@@ -303,13 +308,13 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        <strong className='Highlight'>Fly forward</strong>:{' '}
+        <strong className='Highlight'>Flying forward</strong>:{' '}
         <CardLink id='I17' /> and <CardLink id='S19' />, can pass over friendly
         and enemy units and structures depending on where they’re played.
       </p>
 
       <p>
-        <strong className='Highlight'>Reduce a unit’s strength</strong>:{' '}
+        <strong className='Highlight'>Reducing a unit’s strength</strong>:{' '}
         <CardLink id='N58' /> and <CardLink id='N9' /> damage don’t trigger
         elder abilities.
       </p>
@@ -321,7 +326,18 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        <strong className='Highlight'>Force attack</strong>:{' '}
+        <strong className='Highlight'>Teleporting</strong>: cards like{' '}
+        <CardLink id='N88' /> and <CardLink id='I29' /> have the ability to move
+        from one tile to another although they might not be bordering.
+      </p>
+
+      <p>
+        <strong className='Highlight'>Splitting</strong>: <CardLink id='N90' />{' '}
+        can split itself into two units.
+      </p>
+
+      <p>
+        <strong className='Highlight'>Forcing attack</strong>:{' '}
         <CardLink id='N63' /> and <CardLink id='N61' /> force a target unit to
         attack a random bordering enemy, which can be behind them (and therefore
         can be the enemy base). <CardLink id='N69' /> has a similar ability.
