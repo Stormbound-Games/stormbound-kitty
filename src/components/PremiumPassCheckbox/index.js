@@ -19,13 +19,16 @@ export default React.memo(function PremiumPassCheckbox({
         checked={props.checked}
       >
         Premium Pass
+        {withExplanation && (
+          <>
+            {' '}
+            <span className={css({ marginTop: '-0.35em' })}>
+              (extra coins per win, <Coins amount={700} /> cap, 10% extra Brawl
+              discount
+            </span>
+          </>
+        )}
       </Checkbox>
-      {withExplanation && (
-        <span className={css({ marginTop: '-0.35em' })}>
-          (extra coins per win, <Coins amount={700} /> cap, 10% extra Brawl
-          discount
-        </span>
-      )}
     </>
   )
 })
