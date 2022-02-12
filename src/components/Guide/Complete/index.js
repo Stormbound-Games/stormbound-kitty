@@ -261,7 +261,9 @@ export default React.memo(function GuideComplete(props) {
 
       <h3 id='the-golden-rule'>The Golden Rule</h3>
 
-      <Notice>They who spends their mana shall win the game.”</Notice>
+      <Notice spacing={{ vertical: 'LARGE' }}>
+        “They who spends their mana shall win the game.”
+      </Notice>
 
       <p>
         The most important thing of all is to use all your mana each turn. You
