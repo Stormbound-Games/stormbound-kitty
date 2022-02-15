@@ -62,7 +62,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@cypress/webpack-preprocessor": "^5.11.0",
+    "@cypress/webpack-preprocessor": "^5.11.1",
     "cypress": "^9.4.1",
     "diff": "^5.0.0",
     "eslint": "^8.8.0",
