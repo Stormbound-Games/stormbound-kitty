@@ -2,6 +2,12 @@
   {
     "date": "01/03/2022",
     "description": "Added to the game",
+    "id": "F31",
+    "type": "INFO"
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Added to the game",
     "id": "I31",
     "type": "INFO"
   },

@@ -2159,6 +2159,21 @@
     "ability": "*Restore* up to 3/4/5/6/7 initial strength of all friendly poisoned units and *vitalize* them"
   },
   {
+    "name": "Plague Monarchs",
+    "id": "F31",
+    "sid": "ua12",
+    "type": "unit",
+    "faction": "shadowfen",
+    "race": "toad",
+    "rarity": "epic",
+    "image": "plague_monarchs.png",
+    "mana": 5,
+    "strength": "3/3/4/4/5",
+    "movement": 1,
+    "ability": "Before moving, make all *friendly* ancients on the board *drain 1/2/2/3/3* strength from a surrounding enemy poisoned unit",
+    "ancient": true
+  },
+  {
     "name": "Doppelbocks",
     "id": "S1",
     "sid": "u211",
