@@ -2,6 +2,15 @@
   {
     "date": "01/03/2022",
     "description": "Strength increased by 1",
+    "id": "N79",
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/7/9/11"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Strength increased by 1",
     "id": "N77",
     "type": "BUFF",
     "from": {
