@@ -785,7 +785,7 @@
     "mana": 8,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "When played on the tile in front of your temple structure or your base, *spawn 4/5/6/7/8* strength Knights on all of its bordering tiles"
+    "ability": "When played on the tile in front or the sides of your temple structure or your base, *spawn 4/5/6/7/8* strength Knights on all of its bordering tiles"
   },
   {
     "name": "Crazy Bombers",
