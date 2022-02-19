@@ -1086,7 +1086,7 @@
     "rarity": "legendary",
     "image": "rogue_sheep.png",
     "mana": 4,
-    "strength": "3/4/5/6/7",
+    "strength": "4/5/6/7/9",
     "movement": 0,
     "ability": "On play, *draw 1/1/2/2/3* single-use non-pirate card copy/copy/copies/copies/copies from the enemy’s hand. If you have a pirate card in hand, reduce its/its/their/their/their mana cost by 1.",
     "hero": true
