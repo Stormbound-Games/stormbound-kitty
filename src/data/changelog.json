@@ -1,6 +1,15 @@
 [
   {
     "date": "01/03/2022",
+    "description": "Ability made surrounding",
+    "id": "N64",
+    "type": "BUFF",
+    "from": {
+      "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength* as damage to all enemies bordering it"
+    }
+  },
+  {
+    "date": "01/03/2022",
     "description": "Ability made to also trigger on the sides",
     "id": "N56",
     "type": "BUFF",
