@@ -1,6 +1,15 @@
 [
   {
     "date": "01/03/2022",
+    "description": "Strength decreased by 1",
+    "id": "N60",
+    "type": "NERF",
+    "from": {
+      "strength": "6/7/8/10/12"
+    }
+  },
+  {
+    "date": "01/03/2022",
     "description": "Strength increased by 1",
     "id": "N79",
     "type": "BUFF",

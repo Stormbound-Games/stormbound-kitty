@@ -841,7 +841,7 @@
     "rarity": "rare",
     "image": "fluffy_badboxers.png",
     "mana": 5,
-    "strength": "6/7/8/10/12",
+    "strength": "5/6/7/8/10",
     "movement": 1,
     "ability": "After attacking, *confuse all weaker* enemy units"
   },
