@@ -1,6 +1,15 @@
 [
   {
     "date": "01/03/2022",
+    "description": "Strength increased by 1",
+    "id": "I30",
+    "type": "BUFF",
+    "from": {
+      "strength": "1/2/3/4/5"
+    }
+  },
+  {
+    "date": "01/03/2022",
     "description": "Added to the game",
     "id": "F31",
     "type": "INFO"
