@@ -3,16 +3,17 @@ import DECKS from '~/data/decks'
 import GUIDES from '~/data/guides'
 import PUZZLES from '~/data/puzzles'
 import RELEASES from '~/data/releases'
-import STORIES from '~/data/stories'
 import SWCC from '~/data/swcc'
 import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getMembersList from '~/helpers/getMembersList'
+import getStories from '~/api/stories/getStories'
 
-const getSearchIndex = (withEverything = true) => {
+const getSearchIndex = async (withEverything = true) => {
+  const stories = await getStories()
   const CONTESTS = SWCC.flat().filter(contest => !!contest.winner)
-  const MEMBERS = getMembersList().map(entry => entry.member)
+  const MEMBERS = await getMembersList().map(entry => entry.member)
   const links = []
   const limit = withEverything ? Infinity : 1
 
@@ -340,7 +341,7 @@ const getSearchIndex = (withEverything = true) => {
       })
     })
 
-  STORIES.slice(0, limit).forEach(story => {
+  stories.slice(0, limit).forEach(story => {
     links.push({
       label: story.title,
       path: `/stories/${story.id}`,

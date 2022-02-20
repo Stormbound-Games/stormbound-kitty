@@ -24,4 +24,3 @@ cypress/screenshots
 coverage
 public/sitemap.xml
 public/assets/images/formulas/*.png
-src/data/stories.json

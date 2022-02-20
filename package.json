@@ -49,12 +49,11 @@
   },
   "scripts": {
     "start": "next dev",
-    "build:cra": "npm run stories && next build && next-sitemap",
+    "build:cra": "next build && next-sitemap",
     "test": "jest --forceExit",
-    "stories": "node -r esm bin/stories.js",
     "bot": "node -r esm bot/cli.js",
     "bot:dev": "nodemon -x \"node -r esm\" bot/cli.js --watch src",
-    "prepare": "husky install && node cypress/support/apply-patches.js && npm run stories"
+    "prepare": "husky install && node cypress/support/apply-patches.js"
   },
   "browserslist": [
     ">0.2%",

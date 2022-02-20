@@ -30,7 +30,7 @@ const member = {
     }
 
     const id = message.toLowerCase()
-    const { count, details, displayName, roles } = getMemberContent(id)
+    const { count, details, displayName, roles } = await getMemberContent(id)
     const embed = getEmbed()
       .setTitle(`${this.label}: ${displayName}`)
       .setURL(BASE_URL + `/members/${id}`)

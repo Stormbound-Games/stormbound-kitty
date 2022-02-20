@@ -1,14 +1,8 @@
-import fs from 'fs'
-import path from 'path'
 import getStoriesForSearch from '~/helpers/getStoriesForSearch'
 import getEmbed from '~/helpers/getEmbed'
 import getRawCardData from '~/helpers/getRawCardData'
 import arrayRandom from '~/helpers/arrayRandom'
-
-const dir = path.join(process.cwd(), 'src', 'data', 'stories')
-const STORIES = fs
-  .readdirSync(dir)
-  .map(fileName => require('~/data/stories/' + fileName))
+import getStories from '~/api/stories/getStories'
 
 const getEmbedForStory = (label, story) => {
   return getEmbed()
@@ -32,12 +26,16 @@ const story = {
         `Link a random story published on Stormbound-Kitty. It optionally accepts a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name to find an associated story. For instance, \`!${this.command} mia\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
+    const stories = await getStories()
+
     if (message === 'random' || message === '') {
-      return getEmbedForStory(this.label, arrayRandom(STORIES))
+      return getEmbedForStory(this.label, arrayRandom(stories))
     }
 
-    return getEmbedForStory(this.label, getStoriesForSearch(message)[0])
+    const results = await getStoriesForSearch(message)
+
+    return getEmbedForStory(this.label, results[0])
   },
 }
 
