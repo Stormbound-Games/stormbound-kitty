@@ -219,6 +219,26 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
           </Row.Column>
         </Row>
 
+        <p>
+          Another small but highly requested feature: being able to buy several
+          books at once. This is now possible with the new multi-buy feature!
+        </p>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/GUI_multi_buy.png'
+              alt='Screenshot of the shop screen displaying plus and minus buttons on both sides of the buttons to purchase books, in order to buy several at once'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/GUI_multi_buy_dialog.png'
+              alt='Screenshot of a book purchasing dialog displaying plus and minus buttons to update the quantity, and the total amount on the main button to purchase'
+            />
+          </Row.Column>
+        </Row>
+
         <FAQSection
           id='faq'
           title='FAQ'
