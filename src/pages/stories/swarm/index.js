@@ -1,13 +1,13 @@
 import React from 'react'
 import StoryCategory from '~/components/StoryCategory'
 import Layout from '~/components/Layout'
-import STORIES from '~/data/stories'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getNavigation from '~/helpers/getNavigation'
+import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
 
 export async function getStaticProps() {
   const category = 'swarm'
-  const stories = STORIES.filter(story => story.category === category)
+  const stories = await getStoriesFromCategory(category)
 
   return {
     props: {
