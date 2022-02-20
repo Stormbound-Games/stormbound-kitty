@@ -18,7 +18,7 @@ const MISC_ROLES = [
   'SWCC',
   'BS squad',
   'Artist',
-  'Toad Gamer',
+  'Toad-Gamer',
 ]
 const ROLES = [...LEAGUE_ROLES, ...FACTION_ROLES, ...MISC_ROLES]
 
