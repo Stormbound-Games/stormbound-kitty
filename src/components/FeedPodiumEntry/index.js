@@ -9,15 +9,9 @@ export default React.memo(function FeedPodiumEntry(props) {
   const { css } = useFela()
   const { podium, decks, user } = props
   const isAtIndex = index =>
-    podium[index]
-      ? Array.isArray(podium[index])
-        ? podium[index].map(u => u.toLowerCase()).includes(user)
-        : podium[index].toLowerCase() === user
-      : false
+    podium[index]?.map(u => u.toLowerCase()).includes(user) ?? false
   const index = [0, 1, 2].map(isAtIndex).indexOf(true)
-  const name = Array.isArray(podium[index])
-    ? podium[index].find(u => u.toLowerCase() === user)
-    : podium[index]
+  const name = podium[index].find(u => u.toLowerCase() === user)
   const emoji = ['🥇', '🥈', '🥉'][index]
   const label = ['gold', 'silver', 'bronze'][index]
   const deck =
@@ -25,7 +19,7 @@ export default React.memo(function FeedPodiumEntry(props) {
   return (
     <FeedEntry icon='trophy' date={props.date}>
       {name} has won
-      {Array.isArray(props.podium[index]) ? (
+      {props.podium[index].length > 1 ? (
         <>
           , alongside{' '}
           <MemberList

@@ -4,8 +4,9 @@ import artwork from './artwork'
 import puzzle from './puzzle'
 import story from './story'
 import channel from './channel'
+import tournament from './tournament'
 
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([artwork, channel, puzzle, story]),
+  types: schemaTypes.concat([artwork, channel, puzzle, story, tournament]),
 })
