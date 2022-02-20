@@ -1,6 +1,5 @@
 import isKATMember from '~/helpers/isKATMember'
 import ARTWORKS from '~/data/artworks'
-import CHANNELS from '~/data/channels'
 import DECKS from '~/data/decks'
 import DONATIONS from '~/data/donations'
 import EVENTS from '~/data/events'
@@ -11,6 +10,7 @@ import SWCC from '~/data/swcc'
 import TOURNAMENTS from '~/data/tournaments'
 import UPDATES from '~/data/updates'
 import getStories from '~/api/stories/getStories'
+import getChannels from '~/api/channels/getChannels'
 
 const sortAlphabetically = (a, b) =>
   b.member.toLowerCase() > a.member.toLowerCase()
@@ -22,12 +22,13 @@ const sortAlphabetically = (a, b) =>
 const getMembersList = async () => {
   const members = {}
   const stories = await getStories()
+  const channels = await getChannels()
 
   ARTWORKS.forEach(artwork => {
     members[artwork.author] = members[artwork.author] || []
     members[artwork.author].push('ARTWORK')
   })
-  CHANNELS.forEach(channel => {
+  channels.forEach(channel => {
     members[channel.author] = members[channel.author] || []
     members[channel.author].push('CHANNEL')
   })
