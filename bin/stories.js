@@ -1,24 +1,12 @@
-const fs = require('fs')
-const path = require('path')
+require('module-alias').addAlias('~', __dirname + '/../src')
 
-const removeJsonExtension = fileName => fileName.replace('.json', '')
+const fs = require('fs/promises')
+const getStories = require('~/api/stories/getStories').default
 
-const getFileData = dir => fileName => {
-  const story = require(path.resolve(dir + '/' + fileName))
+;(async () => {
+  const stories = await getStories()
+  const payload = JSON.stringify(stories)
+  const path = './src/data/stories.json'
 
-  return {
-    ...story,
-    id: removeJsonExtension(fileName),
-    content: story.content.slice(0, 150) + '…',
-  }
-}
-
-const extract = (dir, out) => {
-  const isJson = fileName => fileName.endsWith('.json')
-  const files = fs.readdirSync(path.resolve(dir)).filter(isJson)
-  const data = files.map(getFileData(dir))
-
-  fs.writeFileSync(path.resolve(out), JSON.stringify(data), 'utf8')
-}
-
-extract('./src/data/stories', './src/data/stories.json')
+  await fs.writeFile(path, payload, 'utf8')
+})()
