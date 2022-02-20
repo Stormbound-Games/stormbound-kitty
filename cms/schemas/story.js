@@ -7,7 +7,7 @@ const isJSON = value => {
   }
 }
 
-export default {
+const story = {
   title: 'Story',
   name: 'story',
   type: 'document',
@@ -84,3 +84,5 @@ export default {
     },
   ],
 }
+
+export default story
