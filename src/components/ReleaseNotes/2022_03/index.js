@@ -29,8 +29,8 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early March
-          bringing balance changes, 2 new Ancient cards, compensation and some
-          exclusive offers!
+          bringing balance changes, 2 new Ancient cards, QoL improvements, and
+          some exclusive offers!
         </p>
 
         <TableOfContents>
