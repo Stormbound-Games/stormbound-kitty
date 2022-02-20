@@ -1,6 +1,9 @@
 module.exports = {
   poweredByHeader: false,
   reactStrictMode: true,
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
   async redirects() {
     return [
       {

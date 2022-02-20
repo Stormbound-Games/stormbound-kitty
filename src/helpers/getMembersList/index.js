@@ -1,5 +1,4 @@
 import isKATMember from '~/helpers/isKATMember'
-import ARTWORKS from '~/data/artworks'
 import DECKS from '~/data/decks'
 import DONATIONS from '~/data/donations'
 import EVENTS from '~/data/events'
@@ -8,6 +7,7 @@ import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import TOURNAMENTS from '~/data/tournaments'
 import UPDATES from '~/data/updates'
+import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getStories from '~/api/stories/getStories'
@@ -21,11 +21,12 @@ const sortAlphabetically = (a, b) =>
 
 const getMembersList = async () => {
   const members = {}
+  const artworks = await getArtworks()
   const channels = await getChannels()
   const puzzles = await getPuzzles()
   const stories = await getStories()
 
-  ARTWORKS.forEach(artwork => {
+  artworks.forEach(artwork => {
     members[artwork.author] = members[artwork.author] || []
     members[artwork.author].push('ARTWORK')
   })

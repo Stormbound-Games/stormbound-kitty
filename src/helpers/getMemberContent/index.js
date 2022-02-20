@@ -6,12 +6,12 @@ import UPDATES from '~/data/updates'
 import DONATIONS from '~/data/donations'
 import GUIDES from '~/data/guides'
 import TOURNAMENTS from '~/data/tournaments'
-import ARTWORKS from '~/data/artworks'
 import EVENTS from '~/data/events'
 import RELEASES from '~/data/releases'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import getChannel from '~/api/channels/getChannel'
+import getArtworksFromAuthor from '~/api/artworks/getArtworksFromAuthor'
 import getPuzzlesFromAuthor from '~/api/puzzles/getPuzzlesFromAuthor'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 
@@ -48,11 +48,6 @@ const getUserPodiums = id =>
       .includes(id)
   ).map(formatEntryWithDate)
 
-const getUserArtworks = id =>
-  ARTWORKS.filter(artwork => artwork.author.toLowerCase() === id).map(
-    formatEntryWithDate
-  )
-
 const getUserCards = id =>
   SWCC.flat()
     .filter(
@@ -85,13 +80,13 @@ const addType = type => entry => ({ ...entry, type })
 
 const getMemberContent = async id => {
   const channel = await getChannel(id)
+  const artworks = (await getArtworksFromAuthor(id)).map(formatEntryWithDate)
   const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
   const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
   const decks = getUserDecks(id)
   const guides = getUserGuides(id)
   const hosts = getUserHosts(id)
   const podiums = getUserPodiums(id)
-  const artworks = getUserArtworks(id)
   const cards = getUserCards(id)
   const updates = getUserUpdates(id)
   const donations = getUserDonations(id)

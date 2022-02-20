@@ -1,6 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 import arrayRandom from '~/helpers/arrayRandom'
-import ARTWORKS from '~/data/artworks'
+import getArworks from '~/api/artworks/getArworks'
 
 const fanart = {
   command: 'fanart',
@@ -13,9 +13,10 @@ const fanart = {
         `Get a random fan-art from the community. For instance, \`!${this.command}\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
+    const artworks = await getArworks()
     const embed = getEmbed()
-    const { image, author, date } = arrayRandom(ARTWORKS)
+    const { image, author, date } = arrayRandom(artworks)
 
     embed
       .setTitle(`${this.label}`)
