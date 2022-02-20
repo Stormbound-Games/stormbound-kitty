@@ -3,18 +3,12 @@ import StoryCategory from '~/components/StoryCategory'
 import Layout from '~/components/Layout'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getNavigation from '~/helpers/getNavigation'
+import sortSaga from '~/helpers/sortSaga'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
 
 export async function getStaticProps() {
   const category = 'march-of-fauns'
-  const stories = (await getStoriesFromCategory(category))
-    .filter(story => story.category === category)
-    .sort((a, b) => {
-      const indexA = parseInt(a.title, 10)
-      const indexB = parseInt(b.title, 10)
-
-      return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
-    })
+  const stories = (await getStoriesFromCategory(category)).sort(sortSaga)
 
   return {
     props: {
