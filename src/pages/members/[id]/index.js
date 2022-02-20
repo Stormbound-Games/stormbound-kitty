@@ -7,7 +7,7 @@ import getNavigation from '~/helpers/getNavigation'
 import useMemberName from '~/hooks/useMemberName'
 
 export async function getStaticPaths() {
-  const paths = getMembersList().map(({ member }) => ({
+  const paths = (await getMembersList()).map(({ member }) => ({
     params: { id: member.toLowerCase() },
   }))
 
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const id = context.params.id.toLowerCase()
   const { channel, count, content, details, displayName, roles } =
-    getMemberContent(id)
+    await getMemberContent(id)
 
   // This is a bit of a hack, in case there is a link to a member page that is
   // missing the ID and gets serialized as `undefined`.

@@ -1,0 +1,29 @@
+name: Backup
+on:
+  schedule:
+    - cron: '0 10 * * 1'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Install Sanity
+        run: npx @sanity/cli install
+        working-directory: cms
+
+      - name: Export data
+        run: npx @sanity/cli dataset export production production.tar.gz --overwrite
+        working-directory: cms
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_BACKUP_TOKEN_PRODUCTION }}
+          SANITY_STUDIO_API_PROJECT_ID: 5hlpazgd
+
+      - name: Store artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-dataset
+          path: cms/production.tar.gz
+          retention-days: 7

@@ -5,7 +5,7 @@ import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
-  const members = getMembersList()
+  const members = await getMembersList()
   const navigation = getNavigation()
 
   return { props: { navigation, members } }

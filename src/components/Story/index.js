@@ -28,7 +28,7 @@ export default React.memo(function Story(props) {
         title={story.title}
         author={story.author}
         image={'/assets/images/cards/' + getRawCardData(story.cardId).image}
-        description={getExcerpt(story.content.replace('---', ''), 160)}
+        description={story.excerpt}
         background={STORY_CATEGORIES[story.category].background}
         meta={getReadingTime(story.content)}
         action={{

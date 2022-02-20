@@ -1,0 +1,23 @@
+name: CMS
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Install Sanity
+        run: npx @sanity/cli install
+        working-directory: cms
+
+      - name: Deploy live studio
+        run: npx @sanity/cli deploy
+        working-directory: cms
+        env:
+          SANITY_STUDIO_API_PROJECT_ID: 5hlpazgd
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN_PRODUCTION }}

@@ -2,7 +2,9 @@ import React from 'react'
 import Story from '~/components/Story'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
-import getStories from '~/helpers/getStories'
+import getStory from '~/api/stories/getStory'
+import getStories from '~/api/stories/getStories'
+import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
 export async function getStaticPaths() {
@@ -14,14 +16,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { slug } = context.params
-  const stories = await getStories()
-  const currentStory = stories.find(story => story.slug === slug)
-  const { category } = currentStory
-  const moreStories = stories.filter(story => {
-    if (story.title === currentStory.title) return false
-    if (currentStory.saga) return story.saga === currentStory.saga
-    return story.author === currentStory.author
-  })
+  const currentStory = await getStory(slug)
+  const moreStories = (await getStoriesFromAuthor(currentStory.author)).filter(
+    story => (currentStory.saga ? story.saga === currentStory.saga : true)
+  )
 
   if (currentStory.saga) {
     moreStories.sort((a, b) => {
@@ -31,6 +29,7 @@ export async function getStaticProps(context) {
       return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
     })
   }
+  const { category } = currentStory
 
   return {
     props: {

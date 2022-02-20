@@ -5,7 +5,6 @@ import DECKS from '~/data/decks'
 import UPDATES from '~/data/updates'
 import DONATIONS from '~/data/donations'
 import GUIDES from '~/data/guides'
-import STORIES from '~/data/stories'
 import TOURNAMENTS from '~/data/tournaments'
 import ARTWORKS from '~/data/artworks'
 import PUZZLES from '~/data/puzzles'
@@ -14,6 +13,7 @@ import RELEASES from '~/data/releases'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import CHANNELS from '~/data/channels'
+import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 
 const formatEntryWithDate = entry => ({
   ...entry,
@@ -22,11 +22,6 @@ const formatEntryWithDate = entry => ({
 
 const getUserChannel = id =>
   CHANNELS.find(channel => channel.author.toLowerCase() === id) || null
-
-const getUserStories = id =>
-  STORIES.filter(story => story.date && story.author.toLowerCase() === id).map(
-    formatEntryWithDate
-  )
 
 const getUserDecks = id =>
   DECKS.filter(deck => deck.author.toLowerCase() === id).map(
@@ -96,9 +91,9 @@ const getUserEvents = id =>
 
 const addType = type => entry => ({ ...entry, type })
 
-const getMemberContent = id => {
+const getMemberContent = async id => {
+  const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
   const channel = getUserChannel(id)
-  const stories = getUserStories(id)
   const decks = getUserDecks(id)
   const guides = getUserGuides(id)
   const hosts = getUserHosts(id)
