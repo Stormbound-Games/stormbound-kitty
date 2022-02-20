@@ -1,11 +1,16 @@
 import React from 'react'
 import Videos from '~/components/Videos'
 import Layout from '~/components/Layout'
-import CHANNELS from '~/data/channels'
+import getChannels from '~/api/channels/getChannels'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
-  return { props: { channels: CHANNELS, navigation: getNavigation() } }
+  return {
+    props: {
+      channels: await getChannels(),
+      navigation: getNavigation(),
+    },
+  }
 }
 
 const VideosPage = ({ navigation, ...props }) => (

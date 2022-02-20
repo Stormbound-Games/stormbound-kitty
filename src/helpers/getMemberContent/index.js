@@ -12,16 +12,13 @@ import EVENTS from '~/data/events'
 import RELEASES from '~/data/releases'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
-import CHANNELS from '~/data/channels'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
+import getChannel from '~/api/channels/getChannel'
 
 const formatEntryWithDate = entry => ({
   ...entry,
   date: entry.date ? parseDate(entry.date).valueOf() : entry.date,
 })
-
-const getUserChannel = id =>
-  CHANNELS.find(channel => channel.author.toLowerCase() === id) || null
 
 const getUserDecks = id =>
   DECKS.filter(deck => deck.author.toLowerCase() === id).map(
@@ -93,7 +90,7 @@ const addType = type => entry => ({ ...entry, type })
 
 const getMemberContent = async id => {
   const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
-  const channel = getUserChannel(id)
+  const channel = await getChannel(id)
   const decks = getUserDecks(id)
   const guides = getUserGuides(id)
   const hosts = getUserHosts(id)
