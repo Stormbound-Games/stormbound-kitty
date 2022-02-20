@@ -176,7 +176,7 @@ const race = {
 const imageWrapper = ({ rarity }) => ({
   width: `calc(100% - ${HORIZONTAL_SPACING} * 2)`,
   margin: 'auto',
-  height: '45%' /* 1 */,
+  height: '42%' /* 1 */,
 
   ...(rarity === 'legendary'
     ? {
