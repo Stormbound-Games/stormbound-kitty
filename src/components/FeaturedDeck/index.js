@@ -58,7 +58,7 @@ const Author = React.memo(function Author(props) {
   const { author, noLink } = props
 
   if (!author) return null
-  if (noLink) return ' by' + author
+  if (noLink) return <> by {author}</>
 
   return (
     <>

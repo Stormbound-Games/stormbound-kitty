@@ -22,6 +22,7 @@ const getDeckAuthor = (podium, decks, index) => {
   }
 
   if (Array.isArray(podium[index])) {
+    if (podium[index].length === 1) return podium[index]
     return <MemberList members={podium[index]} />
   }
 
