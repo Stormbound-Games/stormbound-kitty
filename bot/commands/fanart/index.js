@@ -1,6 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 import arrayRandom from '~/helpers/arrayRandom'
-import getArworks from '~/api/artworks/getArworks'
+import getArtworks from '~/api/artworks/getArtworks'
 
 const fanart = {
   command: 'fanart',
@@ -14,7 +14,7 @@ const fanart = {
       )
   },
   handler: async function (message) {
-    const artworks = await getArworks()
+    const artworks = await getArtworks()
     const embed = getEmbed()
     const { image, author, date } = arrayRandom(artworks)
 
