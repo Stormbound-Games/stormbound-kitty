@@ -14,7 +14,7 @@ export default React.memo(function FeedCardEntry(props) {
   const cardData = getCardData(props.winner.id)
 
   return (
-    <FeedEntry icon='wand' date={props.date}>
+    <FeedEntry icon='hammer' date={props.date}>
       {props.winner.author} has won the 🥇{' '}
       <Link to='/card/contest'>Stormbound Weekly Card Contest</Link> (week #
       {props.id}, themed <span className='Highlight'>{props.name}</span>) with a

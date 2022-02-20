@@ -60,7 +60,7 @@ const BattleSim = ({ navigation, ...props }) => {
 
   return (
     <Layout
-      active={['TOOLS', 'BUILDERS', 'BATTLE_SIM']}
+      active={['TOOLS', 'SIMULATORS', 'BATTLE_SIM']}
       navigation={navigation}
     >
       <BattleSimState {...props} navigator={navigator}>

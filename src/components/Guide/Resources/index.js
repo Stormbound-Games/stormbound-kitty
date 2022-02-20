@@ -78,7 +78,7 @@ export default React.memo(function GuideResources(props) {
         </li>
       </TableOfContents>
 
-      <Info icon='wand' title='Income calculator'>
+      <Info icon='equalizer' title='Income calculator'>
         <p>
           Find a handy <Link to='/calculators/income'>income calculator</Link> (
           <span className='Highlight'>

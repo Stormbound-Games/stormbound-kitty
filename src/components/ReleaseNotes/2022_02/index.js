@@ -177,7 +177,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
 
       <Page.Narrow>
         <Spacing top='LARGEST'>
-          <Info icon='wand' title='Card Builder'>
+          <Info icon='hammer' title='Card Builder'>
             <p>
               A nice side-effect of these new cards being introduced is that the{' '}
               <Link to='/card'>card builder</Link> now supports creating Ancient

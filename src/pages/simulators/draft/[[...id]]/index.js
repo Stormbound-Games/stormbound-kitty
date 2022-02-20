@@ -1,9 +1,10 @@
 import React from 'react'
-import BookOpeningSimulator from '~/components/BookOpeningSimulator'
+import DraftSimulator from '~/components/DraftSimulator'
 import Layout from '~/components/Layout'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getNavigation from '~/helpers/getNavigation'
+import getDeckAdvice from '~/helpers/getDeckAdvice'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }
@@ -15,20 +16,21 @@ export async function getStaticProps(context) {
 
   try {
     const cards = serialization.cards.deserialize(id).map(getResolvedCardData)
+    const advice = cards.length === 12 ? await getDeckAdvice(cards) : []
 
-    return { props: { navigation, cards } }
+    return { props: { navigation, cards, advice } }
   } catch (error) {
-    return { props: { navigation, cards: [] } }
+    return { props: { navigation, cards: [], advice: [] } }
   }
 }
 
-const BookOpeningSimulatorPage = ({ navigation, ...props }) => (
+const DraftSimulatorPage = ({ navigation, ...props }) => (
   <Layout
-    active={['TOOLS', 'SIMULATORS', 'BOOK_SIMULATOR']}
+    active={['TOOLS', 'SIMULATORS', 'DRAFT_SIMULATOR']}
     navigation={navigation}
   >
-    <BookOpeningSimulator {...props} />
+    <DraftSimulator {...props} />
   </Layout>
 )
 
-export default BookOpeningSimulatorPage
+export default DraftSimulatorPage

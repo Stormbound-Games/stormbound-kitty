@@ -10,7 +10,7 @@ export default React.memo(function FeedSWCCEntry(props) {
   const verb = authors.length === 1 ? 'has' : 'have'
 
   return (
-    <FeedEntry icon='wand' date={props.date}>
+    <FeedEntry icon='hammer' date={props.date}>
       {toSentence(authors)} {verb} started a new season of the{' '}
       <Link to='/card/contest'>Stormbound Weekly Card Contest</Link> (SWCC for
       short).

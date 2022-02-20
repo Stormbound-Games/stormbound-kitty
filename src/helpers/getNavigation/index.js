@@ -118,12 +118,19 @@ const getNavigation = () => {
         {
           id: 'BUILDERS',
           title: 'Builders',
-          icon: 'wand',
+          icon: 'hammer',
           items: [
             { label: 'Card Builder', to: '/card', id: 'CARD_BUILDER' },
             { label: 'Deck Builder', to: '/deck', id: 'DECK_BUILDER' },
             { label: 'List Builder', to: '/list', id: 'LIST_BUILDER' },
             { label: 'Quest Builder', to: '/quest', id: 'QUEST_BUILDER' },
+          ],
+        },
+        {
+          id: 'SIMULATORS',
+          title: 'Simulators',
+          icon: 'wand',
+          items: [
             {
               label: 'Battle Simulator',
               to: '/simulators/battle',
@@ -133,6 +140,11 @@ const getNavigation = () => {
               label: 'Book Simulator',
               to: '/simulators/books',
               id: 'BOOK_SIMULATOR',
+            },
+            {
+              label: 'Draft Simulator',
+              to: '/simulators/draft',
+              id: 'DRAFT_SIMULATOR',
             },
           ],
         },

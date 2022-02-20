@@ -37,7 +37,7 @@ export default React.memo(function CardBuilderApp(props) {
       )}
 
       {cardData.hasSingleLevel && (
-        <Notice icon='wand'>
+        <Notice icon='hammer'>
           This card was created before it was possible to define all 5 levels,
           or without consideration for leveling, therefore only the level{' '}
           {props.level} is relevant.

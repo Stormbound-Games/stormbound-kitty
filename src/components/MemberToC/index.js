@@ -33,7 +33,7 @@ export default React.memo(function MemberToC(props) {
         {props.podiums.length === 1 ? 'podium' : 'podiums'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='wand' /> {props.cards.length} won{' '}
+        <Icon extend={styles.icon} icon='hammer' /> {props.cards.length} won{' '}
         {props.cards.length === 1 ? 'card contest' : 'card contests'}
       </li>
       <li className={css(styles.item)}>
