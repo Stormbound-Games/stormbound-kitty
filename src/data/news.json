@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Draft Simulator",
+    "description": "There is now a Draft simulator to create draft decks following the same rules as the game’s.",
+    "link": "/simulators/draft"
+  },
+  {
     "intro": "Draft Guide",
     "description": "The introduction to the Draft mode has move to its own guide to be easier to find.",
     "link": "/guides/draft"
