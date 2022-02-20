@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from 'next/image'
+import Image from '~/components/Image'
 import Link from '~/components/Link'
 import Masonry from 'react-masonry-css'
 import Page from '~/components/Page'
@@ -45,15 +45,13 @@ export default React.memo(function FanArt(props) {
             const [width, height] = entry.dimensions.split('x').map(Number)
             const displayWidth = 400
             const displayHeight = Math.round((displayWidth / width) * height)
+            const dimensions = '&w=' + displayWidth + '&h=' + displayHeight
 
             return (
               <figure className={css(styles.art)} key={entry.image}>
                 <Image
-                  src={'/assets/images/art/' + entry.image}
+                  src={entry.image + dimensions}
                   alt={'Artwork by ' + entry.author}
-                  layout='intrinsic'
-                  width={displayWidth}
-                  height={displayHeight}
                 />
                 <figcaption className={css(styles.caption)}>
                   Artwork by{' '}
