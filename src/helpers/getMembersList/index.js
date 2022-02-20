@@ -5,12 +5,12 @@ import EVENTS from '~/data/events'
 import GUIDES from '~/data/guides'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
-import TOURNAMENTS from '~/data/tournaments'
 import UPDATES from '~/data/updates'
 import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getStories from '~/api/stories/getStories'
+import getTournaments from '~/api/tournaments/getTournaments'
 
 const sortAlphabetically = (a, b) =>
   b.member.toLowerCase() > a.member.toLowerCase()
@@ -25,6 +25,7 @@ const getMembersList = async () => {
   const channels = await getChannels()
   const puzzles = await getPuzzles()
   const stories = await getStories()
+  const tournaments = await getTournaments()
 
   artworks.forEach(artwork => {
     members[artwork.author] = members[artwork.author] || []
@@ -72,7 +73,7 @@ const getMembersList = async () => {
       members[week.winner.author] = members[week.winner.author] || []
       members[week.winner.author].push('CONTEST')
     })
-  TOURNAMENTS.forEach(tournament => {
+  tournaments.forEach(tournament => {
     tournament.hosts.forEach(host => {
       members[host] = members[host] || []
       members[host].push('HOST')
