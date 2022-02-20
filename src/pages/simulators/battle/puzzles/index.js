@@ -1,11 +1,11 @@
 import React from 'react'
 import BattleSimPuzzles from '~/components/BattleSimPuzzles'
 import Layout from '~/components/Layout'
-import PUZZLES from '~/data/puzzles'
+import getPuzzles from '~/api/puzzles/getPuzzles'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
-  return { props: { navigation: getNavigation(), puzzles: PUZZLES } }
+  return { props: { navigation: getNavigation(), puzzles: await getPuzzles() } }
 }
 
 const BattleSimPuzzlesPage = ({ navigation, ...props }) => (
