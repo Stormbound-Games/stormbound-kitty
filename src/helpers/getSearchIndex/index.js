@@ -13,7 +13,7 @@ import getStories from '~/api/stories/getStories'
 const getSearchIndex = async (withEverything = true) => {
   const stories = await getStories()
   const CONTESTS = SWCC.flat().filter(contest => !!contest.winner)
-  const MEMBERS = await getMembersList().map(entry => entry.member)
+  const MEMBERS = (await getMembersList()).map(entry => entry.member)
   const links = []
   const limit = withEverything ? Infinity : 1
 

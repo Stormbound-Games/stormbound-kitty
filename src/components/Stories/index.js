@@ -18,7 +18,7 @@ const getStoryTeaser = story => {
   const id =
     story.id ||
     window.btoa(encodeURIComponent(story.title + '-' + story.author))
-  const excerpt = getExcerpt(story.content, 150)
+  const excerpt = story.excerpt || getExcerpt(story.content, 150)
   const meta = <StoryAuthor {...story} />
 
   return {

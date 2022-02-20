@@ -21,7 +21,7 @@ const sortAlphabetically = (a, b) =>
 
 const getMembersList = async () => {
   const members = {}
-  const STORIES = await getStories()
+  const stories = await getStories()
 
   ARTWORKS.forEach(artwork => {
     members[artwork.author] = members[artwork.author] || []
@@ -59,7 +59,7 @@ const getMembersList = async () => {
     members[puzzle.author] = members[puzzle.author] || []
     members[puzzle.author].push('PUZZLE')
   })
-  STORIES.forEach(story => {
+  stories.forEach(story => {
     members[story.author] = members[story.author] || []
     members[story.author].push('STORY')
   })

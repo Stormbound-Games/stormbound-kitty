@@ -7,7 +7,7 @@ import getNavigation from '~/helpers/getNavigation'
 import useMemberName from '~/hooks/useMemberName'
 
 export async function getStaticPaths() {
-  const paths = await getMembersList().map(({ member }) => ({
+  const paths = (await getMembersList()).map(({ member }) => ({
     params: { id: member.toLowerCase() },
   }))
 

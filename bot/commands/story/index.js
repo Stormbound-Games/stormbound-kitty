@@ -12,7 +12,7 @@ const getEmbedForStory = (label, story) => {
       { name: 'Author', value: story.author, inline: true },
       { name: 'Card', value: getRawCardData(story.cardId).name, inline: true }
     )
-    .setDescription(story.content.replace(/\n/g, ' '))
+    .setDescription(story.excerpt.replace(/\n/g, ' '))
 }
 
 const story = {
@@ -27,10 +27,11 @@ const story = {
       )
   },
   handler: async function (message) {
-    const stories = await getStories()
-
     if (message === 'random' || message === '') {
-      return getEmbedForStory(this.label, arrayRandom(stories))
+      const stories = await getStories()
+      const story = arrayRandom(stories)
+
+      return getEmbedForStory(this.label, story)
     }
 
     const results = await getStoriesForSearch(message)

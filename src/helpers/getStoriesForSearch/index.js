@@ -1,18 +1,10 @@
-import Fuse from 'fuse.js'
 import searchCards from '~/helpers/searchCards'
-import getStories from '~/api/stories/getStories'
+import searchStories from '~/api/stories/searchStories'
 
 const getStoriesForSearch = async search => {
   if (search.length < 2) return []
 
-  const registry = await getStories()
-  const searcher = new Fuse(registry, {
-    keys: [
-      { name: 'title', weight: 0.7 },
-      { name: 'author', weight: 0.3 },
-    ],
-  })
-  const results = searcher.search(search).map(result => result.item)
+  const results = await searchStories(search)
 
   if (results.length > 0) return results
 
