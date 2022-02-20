@@ -1,10 +1,12 @@
+import getExcerpt from '~/helpers/getExcerpt'
+
 const clean = story => {
   const [year, month, day] = story.date.split('-')
 
   story.id = story.slug.current
   story.slug = story.slug.current
   story.date = month + '/' + year
-  story.excerpt = story.content.slice(0, 150) + '…'
+  story.excerpt = getExcerpt(story.content, 150)
 
   delete story._createdAt
   delete story._updatedAt

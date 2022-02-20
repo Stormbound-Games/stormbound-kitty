@@ -18,7 +18,6 @@ const getStoryTeaser = story => {
   const id =
     story.id ||
     window.btoa(encodeURIComponent(story.title + '-' + story.author))
-  const excerpt = story.excerpt || getExcerpt(story.content, 150)
   const meta = <StoryAuthor {...story} />
 
   return {
@@ -28,7 +27,7 @@ const getStoryTeaser = story => {
       ...story.card,
     },
     meta: meta,
-    excerpt: excerpt,
+    excerpt: story.excerpt,
     to: `/stories/${story.slug || id}`,
   }
 }
