@@ -38,3 +38,5 @@ For the bot to work properly on a Discord server, it requires:
 ## Acknowledgements
 
 [![Powered by Vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=stormbound&utm_campaign=oss)
+
+[![Powered by Sanity](https://stormbound-kitty.com/assets/images/sanity-logo.png)](https://www.sanity.io/)
