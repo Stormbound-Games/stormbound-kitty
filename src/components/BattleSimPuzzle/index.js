@@ -13,7 +13,7 @@ export const getCardForPuzzle = puzzle => ({
   mana: puzzle.difficulty,
   rarity: 'common',
   faction: 'neutral',
-  image: 'https://stormbound-kitty.com' + puzzle.image,
+  image: puzzle.image + '?w=300&auto=format',
   ability: puzzle.restrictions
     .map(restriction => RESTRICTIONS[restriction].name)
     .join(', '),

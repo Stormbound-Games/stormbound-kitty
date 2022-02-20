@@ -4,13 +4,17 @@ import BattleSimState from '~/components/BattleSimState'
 import Layout from '~/components/Layout'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import getNavigation from '~/helpers/getNavigation'
+import getPuzzles from '~/api/puzzles/getPuzzles'
+import getPuzzle from '~/api/puzzles/getPuzzle'
 import useNavigator from '~/hooks/useNavigator'
-import PUZZLES from '~/data/puzzles'
 
 export async function getStaticPaths() {
-  const paths = PUZZLES.map(puzzle => ({
-    params: { rest: [puzzle.board, 'display'] },
-  })).concat([{ params: { rest: [] } }])
+  const puzzles = await getPuzzles()
+  const paths = puzzles
+    .map(puzzle => ({
+      params: { rest: [puzzle.board, 'display'] },
+    }))
+    .concat([{ params: { rest: [] } }])
 
   return { paths, fallback: 'blocking' }
 }
@@ -45,7 +49,7 @@ export async function getStaticProps(context) {
         simId: id,
         sim: getInitialBattleData(id),
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
-        puzzle: PUZZLES.find(puzzle => puzzle.board === id) || null,
+        puzzle: await getPuzzle(id),
       },
     }
   } catch (error) {

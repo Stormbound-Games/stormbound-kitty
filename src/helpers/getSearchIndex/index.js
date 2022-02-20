@@ -1,7 +1,6 @@
 import CARDS from '~/data/cards'
 import DECKS from '~/data/decks'
 import GUIDES from '~/data/guides'
-import PUZZLES from '~/data/puzzles'
 import RELEASES from '~/data/releases'
 import SWCC from '~/data/swcc'
 import { BRAWLS } from '~/constants/brawl'
@@ -9,9 +8,11 @@ import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getMembersList from '~/helpers/getMembersList'
 import getStories from '~/api/stories/getStories'
+import getPuzzles from '~/api/puzzles/getPuzzles'
 
 const getSearchIndex = async (withEverything = true) => {
   const stories = await getStories()
+  const puzzles = await getPuzzles()
   const CONTESTS = SWCC.flat().filter(contest => !!contest.winner)
   const MEMBERS = (await getMembersList()).map(entry => entry.member)
   const links = []
@@ -299,7 +300,7 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Tools', 'Simulators'],
   })
 
-  PUZZLES.slice(0, limit).forEach(puzzle => {
+  puzzles.slice(0, limit).forEach(puzzle => {
     links.push({
       label: puzzle.name,
       path: `/simulators/battle/${puzzle.board}/display`,
