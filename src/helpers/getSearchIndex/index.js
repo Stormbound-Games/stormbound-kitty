@@ -295,7 +295,7 @@ const getSearchIndex = (withEverything = true) => {
   links.push({
     label: 'Battle Simulator',
     path: '/simulators/battle',
-    breadcrumbs: ['Tools', 'Builders'],
+    breadcrumbs: ['Tools', 'Simulators'],
   })
 
   PUZZLES.slice(0, limit).forEach(puzzle => {
@@ -315,7 +315,13 @@ const getSearchIndex = (withEverything = true) => {
   links.push({
     label: 'Books Simulator',
     path: '/simulators/books',
-    breadcrumbs: ['Tools', 'Builders'],
+    breadcrumbs: ['Tools', 'Simulators'],
+  })
+
+  links.push({
+    label: 'Draft Simulator',
+    path: '/simulators/draft',
+    breadcrumbs: ['Tools', 'Simulators'],
   })
 
   links.push({
