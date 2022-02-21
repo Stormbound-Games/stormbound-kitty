@@ -22,11 +22,10 @@ const getTextFromTree = tree => {
     text += tree
   } else if (Array.isArray(tree)) {
     text += tree.map(getTextFromTree).join('')
-  } else if (tree.props.children) {
-    text += getTextFromTree(tree.props.children)
-  } else if (tree.props.id) {
-    const card = getRawCardData(tree.props.id)
-    if (card) text += card.name
+  } else if (tree.children) {
+    text += getTextFromTree(tree.children)
+  } else if (tree.text) {
+    text += tree.text
   }
 
   return text
@@ -34,8 +33,7 @@ const getTextFromTree = tree => {
 
 const getFAQData = data => {
   const formattedEntries = data
-    .map(category => category.entries)
-    .reduce((a, b) => a.concat(b), [])
+    .flatMap(category => category.entries)
     .map(entry => {
       const answer = getTextFromTree(entry.answer)
       if (!answer) return null

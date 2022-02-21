@@ -5,6 +5,7 @@ import channel from './channel'
 import deck from './deck'
 import donation from './donation'
 import event from './event'
+import faq from './faq'
 import podcast from './podcast'
 import puzzle from './puzzle'
 import story from './story'
@@ -19,6 +20,7 @@ export default createSchema({
     deck,
     donation,
     event,
+    faq,
     podcast,
     puzzle,
     story,

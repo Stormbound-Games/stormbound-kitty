@@ -6,6 +6,7 @@
     "node": "14.x"
   },
   "dependencies": {
+    "@portabletext/react": "^1.0.3",
     "@reach/tooltip": "^0.16.2",
     "@sanity/client": "^3.1.0",
     "abort-controller": "^3.0.0",
