@@ -59,6 +59,16 @@ const swcc = {
     },
     { title: 'Weeks', name: 'weeks', type: 'array', of: [week] },
   ],
+  preview: {
+    select: {
+      number: 'number',
+    },
+    prepare({ number }) {
+      return {
+        title: 'SWCC season ' + number,
+      }
+    },
+  },
 }
 
 export default swcc
