@@ -1,11 +1,16 @@
 import React from 'react'
 import BrewedSages from '~/components/BrewedSages'
 import Layout from '~/components/Layout'
-import PODCASTS from '~/data/podcasts'
+import getPodcasts from '~/api/podcasts/getPodcasts'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
-  return { props: { navigation: getNavigation(), episodes: PODCASTS } }
+  return {
+    props: {
+      navigation: getNavigation(),
+      episodes: await getPodcasts(),
+    },
+  }
 }
 
 const BrewedSagesPage = ({ navigation, ...props }) => (

@@ -3,13 +3,13 @@ import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
 import UPDATES from '~/data/updates'
 import GUIDES from '~/data/guides'
-import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import getChannel from '~/api/channels/getChannel'
 import getArtworksFromAuthor from '~/api/artworks/getArtworksFromAuthor'
 import getDecksFromAuthor from '~/api/decks/getDecksFromAuthor'
 import getDonationsFromAuthor from '~/api/donations/getDonationsFromAuthor'
 import getEventsFromAuthor from '~/api/events/getEventsFromAuthor'
+import getPodcastsFromAuthor from '~/api/podcasts/getPodcastsFromAuthor'
 import getPuzzlesFromAuthor from '~/api/puzzles/getPuzzlesFromAuthor'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import getTournamentsFromAuthor from '~/api/tournaments/getTournamentsFromAuthor'
@@ -23,11 +23,6 @@ const formatEntryWithDate = entry => ({
 const getUserGuides = id =>
   GUIDES.filter(guide =>
     guide.authors.map(host => host.toLowerCase()).includes(id)
-  ).map(formatEntryWithDate)
-
-const getUserPodcasts = id =>
-  PODCASTS.filter(episode =>
-    episode.hosts.map(host => host.toLocaleLowerCase()).includes(id)
   ).map(formatEntryWithDate)
 
 const getUserCards = id =>
@@ -55,13 +50,13 @@ const getMemberContent = async id => {
   const donations = (await getDonationsFromAuthor(id)).map(formatEntryWithDate)
   const events = (await getEventsFromAuthor(id)).map(formatEntryWithDate)
   const hosts = (await getTournamentsFromAuthor(id)).map(formatEntryWithDate)
+  const podcasts = (await getPodcastsFromAuthor(id)).map(formatEntryWithDate)
   const podiums = (await getTournamentsWithAuthor(id)).map(formatEntryWithDate)
   const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
   const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
   const guides = getUserGuides(id)
   const cards = getUserCards(id)
   const updates = getUserUpdates(id)
-  const podcasts = getUserPodcasts(id)
 
   const content = [
     ...stories.map(addType('STORY')),
