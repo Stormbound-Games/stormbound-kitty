@@ -6,7 +6,9 @@
 // out of the box. So we need to transpile the configuration via Babel (and add
 // module aliases), only to be able to import the `getSearchIndex()` function.
 // What. A. Pain.
-require('@babel/register')
+require('@babel/register')({
+  plugins: ['@babel/plugin-transform-modules-commonjs'],
+})
 require('module-alias/register')
 
 module.exports = require('./main').default
