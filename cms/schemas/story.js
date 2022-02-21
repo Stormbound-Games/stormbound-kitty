@@ -68,6 +68,27 @@ const story = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      author: 'author',
+      title: 'title',
+      date: 'date',
+    },
+    prepare({ author, title, date }) {
+      const formatter = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'long',
+      })
+      const parts = formatter.formatToParts(new Date(date))
+      const month = parts[0].value
+      const year = parts[2].value
+
+      return {
+        title: title,
+        subtitle: 'By ' + author + ' in ' + month + ' ' + year,
+      }
+    },
+  },
 }
 
 export default story
