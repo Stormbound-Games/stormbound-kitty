@@ -1,11 +1,11 @@
 import isKATMember from '~/helpers/isKATMember'
-import DECKS from '~/data/decks'
 import GUIDES from '~/data/guides'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import UPDATES from '~/data/updates'
 import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
+import getDecks from '~/api/decks/getDecks'
 import getDonations from '~/api/donations/getDonations'
 import getEvents from '~/api/events/getEvents'
 import getPuzzles from '~/api/puzzles/getPuzzles'
@@ -23,6 +23,7 @@ const getMembersList = async () => {
   const members = {}
   const artworks = await getArtworks()
   const channels = await getChannels()
+  const decks = await getDecks()
   const donations = await getDonations()
   const events = await getEvents()
   const puzzles = await getPuzzles()
@@ -37,7 +38,7 @@ const getMembersList = async () => {
     members[channel.author] = members[channel.author] || []
     members[channel.author].push('CHANNEL')
   })
-  DECKS.forEach(deck => {
+  decks.forEach(deck => {
     members[deck.author] = members[deck.author] || []
     members[deck.author].push('DECK')
   })

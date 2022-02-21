@@ -1,9 +1,7 @@
-import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortByMana from '~/helpers/sortByMana'
 
-const getDeckBuilderMetaTags = (deck, defaultTitle = 'Deck') => {
-  const suggestedDeck = isSuggestedDeck(deck)
+const getDeckBuilderMetaTags = (deck, suggestedDeck, defaultTitle = 'Deck') => {
   const metaTags = { title: defaultTitle }
 
   if (suggestedDeck) {

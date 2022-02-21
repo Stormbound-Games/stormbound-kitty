@@ -7,7 +7,7 @@ import {
 } from '~/constants/game'
 import { BRAWLS } from '~/constants/brawl'
 import CARDS from '~/data/cards'
-import DECKS from '~/data/decks'
+import SWCC from '~/data/swcc'
 import arrayRandom from '~/helpers/arrayRandom'
 import capitalize from '~/helpers/capitalize'
 import getRawCardData from '~/helpers/getRawCardData'
@@ -36,6 +36,9 @@ const cardsPerFaction = Object.keys(FACTIONS)
   .filter(faction => faction !== 'neutral')
   .map(faction => CARDS.filter(card => card.faction === faction).length)
 const maxCardsPerFaction = Math.max(...cardsPerFaction)
+const authors = SWCC.flat()
+  .map(week => week.winner.author)
+  .filter(unique)
 
 const questions = [
   {
@@ -85,13 +88,13 @@ const questions = [
     question:
       'Who won the first drawing-based contest hosted in the Discord server?',
     answer: 'YoungestMammal',
-    options: DECKS.map(story => story.author).filter(unique),
+    options: authors,
   },
 
   {
     question: 'With whom did Kepp first started hosting tournaments?',
     answer: 'Derpyologist',
-    options: DECKS.map(deck => deck.author).filter(unique),
+    options: authors,
   },
 
   {
@@ -777,18 +780,6 @@ const questions = [
   },
 
   {
-    question: 'What is the name of the Shadowfen premade deck?',
-    answer: 'Counter Deck',
-    options: DECKS.map(deck => deck.name + ' Deck'),
-  },
-
-  {
-    question: 'What is the name of the Ironclad premade deck?',
-    answer: 'Operator’s Deck',
-    options: DECKS.map(deck => deck.name + ' Deck'),
-  },
-
-  {
     question: 'In which field does Mia *not* have a doctorate?',
     answer: 'Engineering',
     options: ['Science', 'Arts', 'Ministry', 'Education'],
@@ -1035,22 +1026,17 @@ const questions = [
     ],
   },
 
-  () => {
-    const authors = DECKS.map(deck => deck.author).filter(unique)
-
-    return {
-      question:
-        'Which two people have the most Stormbound championship titles?',
-      answer: 'HanooSt and Helios',
-      options: Array.from({ length: 20 }, () => {
-        const randomAuthor = arrayRandom(authors)
-        return [
-          randomAuthor,
-          arrayRandom(authors.filter(deck => deck.author !== randomAuthor)),
-        ].join(' and ')
-      }),
-    }
-  },
+  () => ({
+    question: 'Which two people have the most Stormbound championship titles?',
+    answer: 'HanooSt and Helios',
+    options: Array.from({ length: 20 }, () => {
+      const randomAuthor = arrayRandom(authors)
+      return [
+        randomAuthor,
+        arrayRandom(authors.filter(deck => deck.author !== randomAuthor)),
+      ].join(' and ')
+    }),
+  }),
 
   {
     question:
@@ -1208,9 +1194,7 @@ const questions = [
     question:
       'Who did Shades beat in the finals of a DGL Stormbound tournament?',
     answer: 'Emkaem',
-    options: DECKS.filter(deck => deck.author !== 'Shades')
-      .filter(unique)
-      .map(deck => deck.author),
+    options: authors.filter(deck => deck.author !== 'Shades'),
   },
 
   {

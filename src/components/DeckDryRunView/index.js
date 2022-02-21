@@ -26,7 +26,7 @@ export default React.memo(function DeckDryRunView(props) {
 
   // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
   React.useEffect(() => {
-    const preset = getDeckPresets(props.deck)
+    const preset = getDeckPresets(props.suggestedDeck)
 
     if (preset.modifier.includes('MANA')) {
       const brawlLabel = BRAWL_INDEX[preset.modifier].label
@@ -38,7 +38,7 @@ export default React.memo(function DeckDryRunView(props) {
       setEqualsMode(preset.equals)
       sendNotification('Tournament deck found. Loaded in equals mode.')
     }
-  }, [sendNotification, props.deck])
+  }, [sendNotification, props.suggestedDeck])
 
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)

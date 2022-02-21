@@ -6,10 +6,12 @@ import getLiveTierList from '~/helpers/getLiveTierList'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
+  const tierList = await getLiveTierList()
+
   return {
     props: {
       navigation: getNavigation(),
-      list: getInitialListData(getLiveTierList()),
+      list: getInitialListData(tierList),
     },
   }
 }

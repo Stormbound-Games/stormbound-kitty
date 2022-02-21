@@ -24,7 +24,6 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 import indexArray from '~/helpers/indexArray'
 import modifyDeck from '~/helpers/modifyDeck'
 import serialization from '~/helpers/serialization'
@@ -45,14 +44,12 @@ const adjustCardToCollection =
     return missing ? null : { id, level }
   }
 
-const useModifiedDeck = deck => {
-  const matchedDeck = isSuggestedDeck(deck)
-
+const useModifiedDeck = (deck, suggestedDeck) => {
   // In case the deck is in fact a suggested deck, and a brawl deck at that, it
   // should be adjusted to reflect the brawl modifier. This is especially
   // important for mana brawls in order to display the correct card mana cost.
-  if (matchedDeck) {
-    const brawl = matchedDeck.tags.find(tag =>
+  if (suggestedDeck) {
+    const brawl = suggestedDeck.tags.find(tag =>
       Object.keys(BRAWL_INDEX).includes(tag)
     )
     if (brawl) return modifyDeck(deck, brawl)
@@ -61,10 +58,10 @@ const useModifiedDeck = deck => {
   return deck
 }
 
-const useArticleProps = deck => {
+const useArticleProps = (deck, suggestedDeck) => {
   // Retrieve whether the given deck is one of the suggested decks, in which
   // case we can display more information on screen.
-  const matchedDeck = isSuggestedDeck(deck) || {}
+  const matchedDeck = suggestedDeck || {}
   const id = serialization.deck.serialize(deck)
   const { decks, addDeck, removeDeck, toggleUnseen } =
     React.useContext(PersonalDecksContext)
@@ -209,11 +206,14 @@ export default React.memo(function DeckEditorView(props) {
     })
   )
 
-  const deck = useModifiedDeck(props.deck)
-  const articleProps = useArticleProps(deck)
+  const deck = useModifiedDeck(props.deck, props.suggestedDeck)
+  const articleProps = useArticleProps(deck, props.suggestedDeck)
 
   return (
-    <Page {...articleProps} {...getDeckBuilderMetaTags(deck, 'Deck Builder')}>
+    <Page
+      {...articleProps}
+      {...getDeckBuilderMetaTags(deck, props.suggestedDeck, 'Deck Builder')}
+    >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>Deck</Title>

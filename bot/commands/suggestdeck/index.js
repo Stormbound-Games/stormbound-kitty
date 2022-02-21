@@ -1,9 +1,9 @@
-import DECKS from '~/data/decks'
 import arrayRandom from '~/helpers/arrayRandom'
 import capitalize from '~/helpers/capitalize'
 import getEmbed from '~/helpers/getEmbed'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import serialization from '~/helpers/serialization'
+import getDecks from '~/api/decks/getDecks'
 import { TAGS } from '~/constants/deck'
 import { parseMessage } from '../decks'
 
@@ -18,7 +18,8 @@ const suggestdeck = {
         `Suggest a deck matching the given search criteria. It optionally accepts a faction, tags and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp hl\` or \`!${this.command} brawl kg\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
+    const decks = await getDecks()
     const { params, ignored } = parseMessage(message.toLowerCase())
     const embed = getEmbed().setTitle(`${this.label}`)
 
@@ -27,7 +28,7 @@ const suggestdeck = {
         // If the tags are not provided, assume the expectation is to have a
         // deck that works and is competitive under normal circumstances (so
         // ranking and Diamond) and therefore discard any Brawl/Equals deck.
-        DECKS.filter(
+        decks.filter(
           deck => !deck.tags.includes('BRAWL') && !deck.tags.includes('EQUALS')
         )
       )
@@ -51,7 +52,7 @@ const suggestdeck = {
       return embed
     }
 
-    const results = DECKS.filter(deck => {
+    const results = decks.filter(deck => {
       if (params.faction && getFactionFromDeckID(deck.id) !== params.faction) {
         return false
       }

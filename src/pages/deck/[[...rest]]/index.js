@@ -3,18 +3,21 @@ import DeckEditorView from '~/components/DeckEditorView'
 import DeckDetailView from '~/components/DeckDetailView'
 import DeckDryRunView from '~/components/DeckDryRunView'
 import Layout from '~/components/Layout'
+import getDeck from '~/api/decks/getDeck'
+import getDecks from '~/api/decks/getDecks'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import getNavigation from '~/helpers/getNavigation'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
-import DECKS from '~/data/decks'
 
 export async function getStaticPaths() {
-  const paths = DECKS.map(deck => [
-    { params: { rest: [deck.id] } },
-    { params: { rest: [deck.id, 'detail'] } },
-  ])
+  const decks = await getDecks()
+  const paths = decks
+    .map(deck => [
+      { params: { rest: [deck.id] } },
+      { params: { rest: [deck.id, 'detail'] } },
+    ])
     .flat()
     .concat([{ params: { rest: [] } }])
 
@@ -30,6 +33,7 @@ export async function getStaticProps(context) {
     deck: [],
     advice: [],
     view: 'EDITOR',
+    suggestedDeck: null,
   }
 
   try {
@@ -51,9 +55,17 @@ export async function getStaticProps(context) {
     const advice = view === 'detail' ? await getDeckAdvice(resolvedDeck) : []
     const resolvedView =
       view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
+    const suggestedDeck = await getDeck(id)
 
     return {
-      props: { navigation, id, deck, advice, view: resolvedView },
+      props: {
+        navigation,
+        id,
+        deck,
+        advice,
+        view: resolvedView,
+        suggestedDeck,
+      },
     }
   } catch (error) {
     return { props: DEFAULT_PROPS }
