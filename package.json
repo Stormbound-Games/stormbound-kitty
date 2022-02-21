@@ -81,5 +81,8 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "_moduleAliases": {
+    "~": "./src/"
   }
 }

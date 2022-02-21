@@ -4,6 +4,7 @@ import artwork from './artwork'
 import channel from './channel'
 import donation from './donation'
 import event from './event'
+import podcast from './podcast'
 import puzzle from './puzzle'
 import story from './story'
 import tournament from './tournament'
@@ -15,6 +16,7 @@ export default createSchema({
     channel,
     donation,
     event,
+    podcast,
     puzzle,
     story,
     tournament,

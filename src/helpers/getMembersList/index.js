@@ -1,13 +1,13 @@
 import isKATMember from '~/helpers/isKATMember'
 import DECKS from '~/data/decks'
 import GUIDES from '~/data/guides'
-import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import UPDATES from '~/data/updates'
 import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
 import getDonations from '~/api/donations/getDonations'
 import getEvents from '~/api/events/getEvents'
+import getPodcasts from '~/api/podcasts/getPodcasts'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getStories from '~/api/stories/getStories'
 import getTournaments from '~/api/tournaments/getTournaments'
@@ -25,6 +25,7 @@ const getMembersList = async () => {
   const channels = await getChannels()
   const donations = await getDonations()
   const events = await getEvents()
+  const podcasts = await getPodcasts()
   const puzzles = await getPuzzles()
   const stories = await getStories()
   const tournaments = await getTournaments()
@@ -55,7 +56,7 @@ const getMembersList = async () => {
       members[author].push('GUIDE')
     })
   })
-  PODCASTS.forEach(podcast => {
+  podcasts.forEach(podcast => {
     podcast.hosts.forEach(host => {
       members[host] = members[host] || []
       members[host].push('PODCAST')

@@ -44,7 +44,7 @@ export default React.memo(function BrewedSages(props) {
       <Page.Narrow>
         <p>
           The Brewed Sages is the first Stormbound podcast, by{' '}
-          <Link to='/members/freeloader'>Freeloader</Link>{' '}
+          <Link to='/members/freeloader'>Freeloader</Link>,{' '}
           <Link to='/members/subaiku'>Subaiku</Link>, and{' '}
           <Link to='/members/thomaspetree'>ThomasPetree</Link>. They gather
           around the mic on a regular basis to discuss everything Stormbound.
