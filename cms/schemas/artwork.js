@@ -1,14 +1,11 @@
+import member from './types/member'
+
 const channels = {
   title: 'Artwork',
   name: 'artwork',
   type: 'document',
   fields: [
-    {
-      title: 'Author',
-      name: 'author',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
+    member,
     {
       title: 'Date',
       name: 'date',

@@ -1,3 +1,5 @@
+import member from './types/member'
+
 const tournament = {
   title: 'Tournament',
   name: 'tournament',
@@ -25,7 +27,7 @@ const tournament = {
       title: 'Hosts',
       name: 'hosts',
       type: 'array',
-      of: [{ type: 'string', validation: Rule => Rule.required() }],
+      of: [member],
       validation: Rule => Rule.required(),
     },
     {
@@ -42,12 +44,7 @@ const tournament = {
               title: 'Players',
               name: 'players',
               type: 'array',
-              of: [
-                {
-                  type: 'string',
-                  validation: Rule => Rule.required(),
-                },
-              ],
+              of: [member],
             },
           ],
           validation: Rule => Rule.required(),

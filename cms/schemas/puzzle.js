@@ -1,3 +1,5 @@
+import member from './types/member'
+
 const puzzle = {
   title: 'Puzzle',
   name: 'puzzle',
@@ -32,12 +34,7 @@ const puzzle = {
       validation: Rule => Rule.required(),
       options: { list: [1, 2, 3] },
     },
-    {
-      title: 'Author',
-      name: 'author',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
+    member,
     {
       title: 'Board ID',
       name: 'board',
