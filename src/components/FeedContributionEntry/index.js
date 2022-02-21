@@ -2,7 +2,7 @@ import React from 'react'
 import FeedEntry from '~/components/FeedEntry'
 import Link from '~/components/Link'
 
-export default React.memo(function FeedUpdateEntry(props) {
+export default React.memo(function FeedContributionEntry(props) {
   return (
     <FeedEntry icon='hammer' date={props.date}>
       {props.displayName} has kindly contributed to the code of the site

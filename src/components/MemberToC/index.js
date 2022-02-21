@@ -5,7 +5,7 @@ import styles from './styles'
 
 export default React.memo(function MemberToC(props) {
   const { css } = useFela()
-  const codeUpdatesCount = props.updates.reduce(
+  const codeContributions = props.contributions.reduce(
     (acc, { entries }) => acc + entries.length,
     0
   )
@@ -53,8 +53,8 @@ export default React.memo(function MemberToC(props) {
         miscellaneous {props.events.length === 1 ? 'event' : 'events'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='hammer' /> {codeUpdatesCount}{' '}
-        {codeUpdatesCount === 1 ? 'code update' : 'code updates'}
+        <Icon extend={styles.icon} icon='hammer' /> {codeContributions}{' '}
+        {codeContributions === 1 ? 'code contribution' : 'code contributions'}
       </li>
       <li className={css(styles.item)}>
         <Icon extend={styles.icon} icon='heart' /> {props.donations.length}{' '}

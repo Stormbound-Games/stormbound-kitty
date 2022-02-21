@@ -1,5 +1,5 @@
-const isKATMember = ({ member = '', donations = [], updates = [] }) => {
-  const isKAT = donations.length > 0 || updates.length > 0
+const isKATMember = ({ member = '', donations = [], contributions = [] }) => {
+  const isKAT = donations.length > 0 || contributions.length > 0
   const isSuperKAT = donations.length > 1
   const roles = { isKAT, isSuperKAT }
 
