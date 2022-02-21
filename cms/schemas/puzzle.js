@@ -72,6 +72,27 @@ const puzzle = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      author: 'author',
+      name: 'name',
+      date: 'date',
+    },
+    prepare({ author, name, date }) {
+      const formatter = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'long',
+      })
+      const parts = formatter.formatToParts(new Date(date))
+      const month = parts[0].value
+      const year = parts[2].value
+
+      return {
+        title: name,
+        subtitle: 'By ' + author + ' in ' + month + ' ' + year,
+      }
+    },
+  },
 }
 
 export default puzzle
