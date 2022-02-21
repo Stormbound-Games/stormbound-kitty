@@ -1,4 +1,4 @@
-require('module-alias').addAlias('~', __dirname + '/src')
+require('module-alias/register')
 
 const decks = require('~/data/decks')
 const { TAGS } = require('~/constants/deck')
