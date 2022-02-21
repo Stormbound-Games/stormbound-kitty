@@ -1,13 +1,13 @@
 import capitalize from '~/helpers/capitalize'
 import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
-import DECKS from '~/data/decks'
 import UPDATES from '~/data/updates'
 import GUIDES from '~/data/guides'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import getChannel from '~/api/channels/getChannel'
 import getArtworksFromAuthor from '~/api/artworks/getArtworksFromAuthor'
+import getDecksFromAuthor from '~/api/decks/getDecksFromAuthor'
 import getDonationsFromAuthor from '~/api/donations/getDonationsFromAuthor'
 import getEventsFromAuthor from '~/api/events/getEventsFromAuthor'
 import getPuzzlesFromAuthor from '~/api/puzzles/getPuzzlesFromAuthor'
@@ -19,11 +19,6 @@ const formatEntryWithDate = entry => ({
   ...entry,
   date: entry.date ? parseDate(entry.date).valueOf() : entry.date,
 })
-
-const getUserDecks = id =>
-  DECKS.filter(deck => deck.author.toLowerCase() === id).map(
-    formatEntryWithDate
-  )
 
 const getUserGuides = id =>
   GUIDES.filter(guide =>
@@ -56,13 +51,13 @@ const addType = type => entry => ({ ...entry, type })
 const getMemberContent = async id => {
   const channel = await getChannel(id)
   const artworks = (await getArtworksFromAuthor(id)).map(formatEntryWithDate)
+  const decks = (await getDecksFromAuthor(id)).map(formatEntryWithDate)
   const donations = (await getDonationsFromAuthor(id)).map(formatEntryWithDate)
   const events = (await getEventsFromAuthor(id)).map(formatEntryWithDate)
   const hosts = (await getTournamentsFromAuthor(id)).map(formatEntryWithDate)
   const podiums = (await getTournamentsWithAuthor(id)).map(formatEntryWithDate)
   const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
   const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
-  const decks = getUserDecks(id)
   const guides = getUserGuides(id)
   const cards = getUserCards(id)
   const updates = getUserUpdates(id)

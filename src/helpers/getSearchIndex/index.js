@@ -1,5 +1,4 @@
 import CARDS from '~/data/cards'
-import DECKS from '~/data/decks'
 import GUIDES from '~/data/guides'
 import RELEASES from '~/data/releases'
 import SWCC from '~/data/swcc'
@@ -7,10 +6,12 @@ import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getMembersList from '~/helpers/getMembersList'
+import getDecks from '~/api/decks/getDecks'
 import getStories from '~/api/stories/getStories'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 
 const getSearchIndex = async (withEverything = true) => {
+  const decks = await getDecks()
   const stories = await getStories()
   const puzzles = await getPuzzles()
   const CONTESTS = SWCC.flat().filter(contest => !!contest.winner)
@@ -139,7 +140,7 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Tools', 'Builders'],
   })
 
-  DECKS.slice(0, limit).forEach(deck => {
+  decks.slice(0, limit).forEach(deck => {
     links.push({
       label: deck.name,
       path: `/deck/${deck.id}/detail`,

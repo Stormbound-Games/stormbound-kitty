@@ -1,7 +1,7 @@
 import React from 'react'
 import FeaturedDecks from '~/components/FeaturedDecks'
 import Layout from '~/components/Layout'
-import DECKS from '~/data/decks'
+import getDecks from '~/api/decks/getDecks'
 import getNavigation from '~/helpers/getNavigation'
 
 // This page uses server-side rendering instead of static rendering because it
@@ -11,7 +11,7 @@ import getNavigation from '~/helpers/getNavigation'
 // embeds look alright.
 export async function getServerSideProps() {
   return {
-    props: { navigation: getNavigation(), decks: DECKS },
+    props: { navigation: getNavigation(), decks: await getDecks() },
   }
 }
 

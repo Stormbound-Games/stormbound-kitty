@@ -1,14 +1,21 @@
-import DECKS from '~/data/decks'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import indexArray from '~/helpers/indexArray'
+import getDecks from '~/api/decks/getDecks'
 import { TAGS } from '~/constants/deck'
 import command from './'
 const suggestdeck = command.handler.bind(command)
 
-const DECKS_INDEX = indexArray(DECKS)
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 
 describe('Bot — !suggestdeck', () => {
+  let DECKS_INDEX = null
+
+  beforeAll(() => {
+    return getDecks().then(decks => {
+      DECKS_INDEX = indexArray(decks)
+    })
+  })
+
   it('should return a suggested deck for an empty search', () => {
     expect(suggestdeck('').url).toContain(BASE_URL)
   })

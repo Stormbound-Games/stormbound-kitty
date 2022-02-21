@@ -2,6 +2,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import artwork from './artwork'
 import channel from './channel'
+import deck from './deck'
 import donation from './donation'
 import event from './event'
 import puzzle from './puzzle'
@@ -13,6 +14,7 @@ export default createSchema({
   types: schemaTypes.concat([
     artwork,
     channel,
+    deck,
     donation,
     event,
     puzzle,

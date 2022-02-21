@@ -13,27 +13,26 @@ import { TAGS } from '~/constants/deck'
 import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
 import modifyDeck from '~/helpers/modifyDeck'
 import getDeckPresets from '~/helpers/getDeckPresets'
-import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 import toSentence from '~/helpers/toSentence'
 import useNavigator from '~/hooks/useNavigator'
 import { BRAWL_INDEX } from '~/constants/brawl'
 
-const getDefaultBrawlModifier = deck => {
-  const presets = getDeckPresets(deck)
+const getDefaultBrawlModifier = suggestedDeck => {
+  const { modifier } = getDeckPresets(suggestedDeck)
 
-  return presets.modifier.includes('MANA') ? presets.modifier : 'NONE'
+  return modifier.includes('MANA') ? modifier : 'NONE'
 }
 
 export default React.memo(function DeckDetailView(props) {
   const { notify } = React.useContext(NotificationContext)
   const navigator = useNavigator()
-  const defaultModifier = getDefaultBrawlModifier(props.deck)
+  const defaultModifier = getDefaultBrawlModifier(props.suggestedDeck)
   const [modifier, setModifier] = React.useState(defaultModifier)
   const deck = React.useMemo(
     () => modifyDeck(props.deck, modifier),
     [modifier, props.deck]
   )
-  const suggestedDeck = isSuggestedDeck(props.deck) || {}
+  const suggestedDeck = props.suggestedDeck || {}
   const sendNotification = React.useCallback(
     message => notify({ icon: 'stack', children: message }),
     [notify]
@@ -49,7 +48,11 @@ export default React.memo(function DeckDetailView(props) {
   return (
     <Page
       title={suggestedDeck.name || 'Deck details'}
-      {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')}
+      {...getDeckBuilderMetaTags(
+        props.deck,
+        props.suggestedDeck,
+        'Deck Insights'
+      )}
       author={suggestedDeck.author}
       meta={
         suggestedDeck.tags

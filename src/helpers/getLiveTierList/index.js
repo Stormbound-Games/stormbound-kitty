@@ -1,10 +1,11 @@
 import CARDS from '~/data/cards'
-import DECKS from '~/data/decks'
 import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import { getLongFaction } from '~/helpers/encoding'
+import getDecks from '~/api/decks/getDecks'
 
-const getLiveTierList = () => {
+const getLiveTierList = async () => {
+  const decks = await getDecks()
   // Amount of decks of each type (computed in a single loop for performance)
   const COUNTS = {
     neutral: 0,
@@ -31,7 +32,7 @@ const getLiveTierList = () => {
 
   // Go through each deck, and for each one increment the amount of decks of
   // this faction by 1 and go through the cards and mark them as found
-  DECKS.forEach(({ id, tags }) => {
+  decks.forEach(({ id, tags }) => {
     // Do not take Brawl and Tournament decks into account as they would be
     // incorrectly skewing the popularity of cards
     if (tags.includes('BRAWL') || tags.includes('EQUALS')) return
