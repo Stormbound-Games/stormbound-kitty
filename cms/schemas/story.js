@@ -1,13 +1,5 @@
 import member from './types/member'
-
-const isJSON = value => {
-  try {
-    JSON.parse(value)
-    return true
-  } catch {
-    return false
-  }
-}
+import json from './types/json'
 
 const story = {
   title: 'Story',
@@ -60,11 +52,7 @@ const story = {
     {
       title: 'Card data',
       name: 'card',
-      type: 'string',
-      validation: Rule =>
-        Rule.custom(value =>
-          value ? isJSON(value) || 'Card data must be valid JSON.' : true
-        ),
+      ...json,
     },
     {
       title: 'Date',
