@@ -18,6 +18,26 @@ const channels = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      author: 'author',
+      date: 'date',
+    },
+    prepare({ author, date }) {
+      const formatter = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'long',
+      })
+      const parts = formatter.formatToParts(new Date(date))
+      const month = parts[0].value
+      const year = parts[2].value
+
+      return {
+        title: author,
+        subtitle: month + ' ' + year,
+      }
+    },
+  },
 }
 
 export default channels
