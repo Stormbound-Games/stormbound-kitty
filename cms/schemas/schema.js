@@ -8,6 +8,7 @@ import event from './event'
 import podcast from './podcast'
 import puzzle from './puzzle'
 import story from './story'
+import swcc from './swcc'
 import tournament from './tournament'
 
 export default createSchema({
@@ -21,6 +22,7 @@ export default createSchema({
     podcast,
     puzzle,
     story,
+    swcc,
     tournament,
   ]),
 })

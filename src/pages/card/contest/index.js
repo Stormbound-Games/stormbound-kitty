@@ -1,11 +1,16 @@
 import React from 'react'
 import CardBuilderContest from '~/components/CardBuilderContest'
 import Layout from '~/components/Layout'
-import SWCC from '~/data/swcc'
+import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
-  return { props: { navigation: getNavigation(), seasons: SWCC } }
+  return {
+    props: {
+      navigation: getNavigation(),
+      seasons: await getSWCCSeasons(),
+    },
+  }
 }
 
 const CardContestPage = ({ navigation, ...props }) => (

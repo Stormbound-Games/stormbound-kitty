@@ -3,7 +3,6 @@ import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
 import UPDATES from '~/data/updates'
 import GUIDES from '~/data/guides'
-import SWCC from '~/data/swcc'
 import getChannel from '~/api/channels/getChannel'
 import getArtworksFromAuthor from '~/api/artworks/getArtworksFromAuthor'
 import getDecksFromAuthor from '~/api/decks/getDecksFromAuthor'
@@ -12,6 +11,7 @@ import getEventsFromAuthor from '~/api/events/getEventsFromAuthor'
 import getPodcastsFromAuthor from '~/api/podcasts/getPodcastsFromAuthor'
 import getPuzzlesFromAuthor from '~/api/puzzles/getPuzzlesFromAuthor'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
+import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
 import getTournamentsFromAuthor from '~/api/tournaments/getTournamentsFromAuthor'
 import getTournamentsWithAuthor from '~/api/tournaments/getTournamentsWithAuthor'
 
@@ -25,17 +25,6 @@ const getUserGuides = id =>
     guide.authors.map(host => host.toLowerCase()).includes(id)
   ).map(formatEntryWithDate)
 
-const getUserCards = id =>
-  SWCC.flat()
-    .filter(
-      contest => contest.winner && contest.winner.author.toLowerCase() === id
-    )
-    .map(entry => {
-      const [day, month, year] = entry.date.split('/').map(Number)
-
-      return { ...entry, date: new Date(year, month - 1, day).valueOf() }
-    })
-
 const getUserUpdates = id =>
   UPDATES.filter(update => update.author.toLowerCase() === id).map(
     formatEntryWithDate
@@ -46,6 +35,7 @@ const addType = type => entry => ({ ...entry, type })
 const getMemberContent = async id => {
   const channel = await getChannel(id)
   const artworks = (await getArtworksFromAuthor(id)).map(formatEntryWithDate)
+  const cards = (await getSWCCFromAuthor(id)).map(formatEntryWithDate)
   const decks = (await getDecksFromAuthor(id)).map(formatEntryWithDate)
   const donations = (await getDonationsFromAuthor(id)).map(formatEntryWithDate)
   const events = (await getEventsFromAuthor(id)).map(formatEntryWithDate)
@@ -55,7 +45,6 @@ const getMemberContent = async id => {
   const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
   const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
   const guides = getUserGuides(id)
-  const cards = getUserCards(id)
   const updates = getUserUpdates(id)
 
   const content = [

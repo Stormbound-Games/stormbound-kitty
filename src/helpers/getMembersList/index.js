@@ -1,6 +1,5 @@
 import isKATMember from '~/helpers/isKATMember'
 import GUIDES from '~/data/guides'
-import SWCC from '~/data/swcc'
 import UPDATES from '~/data/updates'
 import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
@@ -10,6 +9,7 @@ import getEvents from '~/api/events/getEvents'
 import getPodcasts from '~/api/podcasts/getPodcasts'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getStories from '~/api/stories/getStories'
+import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getTournaments from '~/api/tournaments/getTournaments'
 
 const sortAlphabetically = (a, b) =>
@@ -29,6 +29,7 @@ const getMembersList = async () => {
   const podcasts = await getPodcasts()
   const puzzles = await getPuzzles()
   const stories = await getStories()
+  const swcc = await getSWCCSeasons()
   const tournaments = await getTournaments()
 
   artworks.forEach(artwork => {
@@ -71,12 +72,10 @@ const getMembersList = async () => {
     members[story.author] = members[story.author] || []
     members[story.author].push('STORY')
   })
-  SWCC.flat()
-    .filter(week => week.winner)
-    .forEach(week => {
-      members[week.winner.author] = members[week.winner.author] || []
-      members[week.winner.author].push('CONTEST')
-    })
+  swcc.flat().forEach(week => {
+    members[week.winner.author] = members[week.winner.author] || []
+    members[week.winner.author].push('CONTEST')
+  })
   tournaments.forEach(tournament => {
     tournament.hosts.forEach(host => {
       members[host] = members[host] || []

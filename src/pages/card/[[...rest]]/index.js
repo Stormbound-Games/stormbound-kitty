@@ -8,21 +8,7 @@ import isCardOfficial from '~/helpers/isCardOfficial'
 import parseDate from '~/helpers/parseDate'
 import CARDS from '~/data/cards'
 import CHANGELOG from '~/data/changelog'
-import SWCC from '~/data/swcc'
-
-const isContest = id => contest => contest.winner && contest.winner.id === id
-
-const getContest = id => {
-  const seasonIndex = SWCC.findIndex(season => season.find(isContest(id)))
-
-  if (seasonIndex === -1) return null
-
-  const contest = SWCC[seasonIndex].find(isContest)
-
-  contest.season = SWCC.length - seasonIndex
-
-  return contest
-}
+import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
 
 const getChangelog = id => {
   if (!isCardOfficial(id)) return []
@@ -85,7 +71,7 @@ export async function getStaticProps(context) {
         navigation,
         cardId: id,
         card: getInitialCardData(id),
-        contest: getContest(id),
+        contest: await getSWCCFromCard(id),
         versionId,
         versions,
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
