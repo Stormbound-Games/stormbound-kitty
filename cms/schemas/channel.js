@@ -21,7 +21,7 @@ const channels = {
     {
       title: 'Description',
       name: 'description',
-      type: 'string',
+      type: 'text',
       validation: Rule => Rule.required(),
     },
   ],
