@@ -2,7 +2,7 @@ import member from './types/member'
 import date from './types/date'
 
 const podcast = {
-  title: 'Podcast episodes',
+  title: 'Podcast episode',
   name: 'podcast',
   type: 'document',
   fields: [
