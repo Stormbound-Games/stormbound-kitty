@@ -17,7 +17,7 @@ const writeFile = (path, content) =>
 const configuration = (on, config) => {
   // Retrieve the path registry for the route tests and write it as a fixture
   // file so it can be statically imported.
-  return getSearchIndex()
+  return getSearchIndex(false)
     .then(registry => {
       const filePath = path.resolve('cypress', 'fixtures', 'registry.json')
       const payload = JSON.stringify(registry, null, 2)
