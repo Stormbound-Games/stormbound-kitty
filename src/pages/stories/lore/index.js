@@ -5,9 +5,9 @@ import { STORY_CATEGORIES } from '~/constants/stories'
 import getNavigation from '~/helpers/getNavigation'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   const category = 'lore'
-  const stories = await getStoriesFromCategory(category)
+  const stories = await getStoriesFromCategory({ category, isPreview })
 
   return {
     props: {

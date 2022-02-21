@@ -16,10 +16,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { slug } = context.params
+  const isPreview = context.preview || false
   const id = slug.toUpperCase().replace(/-/g, '_')
   const brawl = BRAWL_INDEX[id]
   const guide = GUIDES.find(guide => guide.name === brawl.title) || null
-  const recommendedDecks = await getDecksWithTag(id)
+  const recommendedDecks = await getDecksWithTag({ tag: id, isPreview })
   const recommendedDeck = recommendedDecks[0] || null
 
   if (!brawl) {

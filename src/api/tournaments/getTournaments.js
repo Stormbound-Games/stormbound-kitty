@@ -1,10 +1,10 @@
 import { getEntries } from '~/helpers/sanity'
 import clean from './clean'
 
-const getTournaments = async () => {
+const getTournaments = async ({ isPreview } = {}) => {
   const tournaments = await getEntries({
     conditions: ['_type == "tournament"'],
-    options: { order: 'date asc' },
+    options: { order: 'date asc', isPreview },
   })
 
   return tournaments.map(clean)

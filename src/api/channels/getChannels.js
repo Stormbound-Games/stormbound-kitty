@@ -1,10 +1,10 @@
 import { getEntries } from '~/helpers/sanity'
 import clean from './clean'
 
-const getChannels = async () => {
+const getChannels = async ({ isPreview } = {}) => {
   const channels = await getEntries({
     conditions: ['_type == "channel"'],
-    options: { order: 'author asc' },
+    options: { order: 'author asc', isPreview },
   })
 
   return channels.map(clean)

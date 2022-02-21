@@ -9,9 +9,12 @@ import getNavigation from '~/helpers/getNavigation'
 // server. This matters both to avoid decks flashing when JavaScript mounts but
 // also because the meta tags are based on the query parameters so the Discord
 // embeds look alright.
-export async function getServerSideProps() {
+export async function getServerSideProps({ preview: isPreview = false }) {
   return {
-    props: { navigation: getNavigation(), decks: await getDecks() },
+    props: {
+      navigation: getNavigation(),
+      decks: await getDecks({ isPreview }),
+    },
   }
 }
 

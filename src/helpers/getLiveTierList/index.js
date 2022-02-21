@@ -4,8 +4,8 @@ import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import { getLongFaction } from '~/helpers/encoding'
 import getDecks from '~/api/decks/getDecks'
 
-const getLiveTierList = async () => {
-  const decks = await getDecks()
+const getLiveTierList = async ({ isPreview } = {}) => {
+  const decks = await getDecks({ isPreview })
   // Amount of decks of each type (computed in a single loop for performance)
   const COUNTS = {
     neutral: 0,

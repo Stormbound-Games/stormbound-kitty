@@ -26,6 +26,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const params = context.params.rest || []
+  const isPreview = context.preview || false
   const navigation = getNavigation()
   const DEFAULT_PROPS = {
     navigation,
@@ -55,7 +56,7 @@ export async function getStaticProps(context) {
     const advice = view === 'detail' ? await getDeckAdvice(resolvedDeck) : []
     const resolvedView =
       view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
-    const suggestedDeck = await getDeck(id)
+    const suggestedDeck = await getDeck({ id, isPreview })
 
     return {
       props: {
@@ -68,6 +69,7 @@ export async function getStaticProps(context) {
       },
     }
   } catch (error) {
+    console.log(error)
     return { props: DEFAULT_PROPS }
   }
 }
@@ -79,6 +81,7 @@ const COMPONENTS = {
 }
 
 const DeckBuilderPage = ({ navigation, ...props }) => {
+  console.log(props.view)
   const Component = COMPONENTS[props.view]
   const state = useDeckBuilder(props)
 

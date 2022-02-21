@@ -4,7 +4,7 @@ import searchStories from '~/api/stories/searchStories'
 const getStoriesForSearch = async search => {
   if (search.length < 2) return []
 
-  const results = await searchStories(search)
+  const results = await searchStories({ term: search })
 
   if (results.length > 0) return results
 
