@@ -89,6 +89,26 @@ const tournament = {
       type: 'string',
     },
   ],
+  preview: {
+    select: {
+      name: 'name',
+      date: 'date',
+    },
+    prepare({ name, date }) {
+      const formatter = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'long',
+      })
+      const parts = formatter.formatToParts(new Date(date))
+      const month = parts[0].value
+      const year = parts[2].value
+
+      return {
+        title: name,
+        subtitle: month + ' ' + year,
+      }
+    },
+  },
 }
 
 export default tournament
