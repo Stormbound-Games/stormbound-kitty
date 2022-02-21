@@ -7,7 +7,7 @@ const getPuzzle = async board => {
     params: { board },
   })
 
-  return clean(puzzle)
+  return puzzle ? clean(puzzle) : null
 }
 
 export default getPuzzle

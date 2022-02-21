@@ -7,7 +7,7 @@ const getStory = async slug => {
     params: { slug },
   })
 
-  return clean(story)
+  return story ? clean(story) : null
 }
 
 export default getStory
