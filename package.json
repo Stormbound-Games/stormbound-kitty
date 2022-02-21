@@ -61,6 +61,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@babel/register": "^7.17.0",
     "@cypress/webpack-preprocessor": "^5.11.1",
     "cypress": "^9.5.0",
     "diff": "^5.0.0",
@@ -81,5 +83,8 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "_moduleAliases": {
+    "~": "./src/"
   }
 }

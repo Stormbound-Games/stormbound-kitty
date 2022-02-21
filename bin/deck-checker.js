@@ -1,4 +1,4 @@
-require('module-alias').addAlias('~', __dirname + '/src')
+require('module-alias/register')
 
 const { TAGS } = require('~/constants/deck')
 const parseDate = require('~/helpers/parseDate').default

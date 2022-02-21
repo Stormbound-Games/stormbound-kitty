@@ -24,3 +24,4 @@ cypress/screenshots
 coverage
 public/sitemap.xml
 public/assets/images/formulas/*.png
+cypress/fixtures/registry.json

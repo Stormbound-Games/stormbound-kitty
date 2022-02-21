@@ -1,15 +1,9 @@
-import getSearchIndex from '~/helpers/getSearchIndex'
+import links from '../../fixtures/registry'
 
 describe('Routes', () => {
-  before(() => {
-    cy.wrap(null)
-      .then(() => getSearchIndex(false))
-      .as('links')
-  })
-
-  it('should test routes', () => {
-    cy.get('@links').each(link =>
+  links.forEach(link => {
+    it(`${link.label} (${link.path})`, () => {
       cy.visit(link.path).get('h1', { log: false }).should('exist')
-    )
+    })
   })
 })
