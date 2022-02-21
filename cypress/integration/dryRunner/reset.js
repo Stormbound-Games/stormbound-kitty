@@ -50,7 +50,7 @@ describe('Dry-runner — Reset', () => {
 
   it('should not reset the RNG setting', () => {
     cy.drSetRNG('UNFRIENDLY')
-      .drReset({ modifier: 'SPELL_MANA' })
+      .drReset({ modifier: 'STRUCTURE_MANA' })
 
       .get(s.RNG_INPUT)
       .filter(`[value="UNFRIENDLY"]`)
