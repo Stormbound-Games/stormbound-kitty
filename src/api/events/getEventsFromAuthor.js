@@ -1,11 +1,14 @@
-import getEvents from './getEvents'
+import { getEntries } from '~/helpers/sanity'
+import clean from './clean'
 
 const getEventsFromAuthor = async author => {
-  const events = await getEvents()
+  const events = await getEntries({
+    conditions: ['_type == "event"', 'count(authors[lower(@) == $author]) > 0'],
+    params: { author },
+    options: { order: 'date desc' },
+  })
 
-  return events.filter(event =>
-    event.authors.map(memver => memver.toLowerCase()).includes(author)
-  )
+  return events.map(clean)
 }
 
 export default getEventsFromAuthor

@@ -1,14 +1,17 @@
-import getTournaments from './getTournaments'
+import { getEntries } from '~/helpers/sanity'
+import clean from './clean'
 
 const getTournamentsWithAuthor = async author => {
-  const tournaments = await getTournaments()
+  const tournaments = await getEntries({
+    conditions: [
+      '_type == "tournament"',
+      'count(podium[].players[lower(@) == $author]) > 0',
+    ],
+    params: { author },
+    options: { order: 'date asc' },
+  })
 
-  return tournaments.filter(tournament =>
-    tournament.podium
-      .flat()
-      .map(winner => winner.toLowerCase())
-      .includes(author)
-  )
+  return tournaments.map(clean)
 }
 
 export default getTournamentsWithAuthor
