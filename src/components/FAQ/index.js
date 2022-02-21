@@ -54,7 +54,6 @@ export default React.memo(function FrequentlyAskedQuestions(props) {
         {props.data.map((category, index) => (
           <Spacing
             bottom={index !== props.data.length - 1 ? 'LARGEST' : 'NONE'}
-            id={category.id}
             key={category.id}
           >
             <FAQSection {...category} />
