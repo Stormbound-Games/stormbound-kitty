@@ -73,7 +73,7 @@ const deck = {
       ],
       validation: Rule => Rule.required().min(1),
     },
-    { ...date, title: 'Nerf date', name: 'nerfed' },
+    { ...date, title: 'Nerf date', name: 'nerfed', validation: undefined },
   ],
 }
 
