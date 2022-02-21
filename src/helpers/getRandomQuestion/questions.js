@@ -7,7 +7,6 @@ import {
 } from '~/constants/game'
 import { BRAWLS } from '~/constants/brawl'
 import CARDS from '~/data/cards'
-import SWCC from '~/data/swcc'
 import arrayRandom from '~/helpers/arrayRandom'
 import capitalize from '~/helpers/capitalize'
 import getRawCardData from '~/helpers/getRawCardData'
@@ -36,9 +35,6 @@ const cardsPerFaction = Object.keys(FACTIONS)
   .filter(faction => faction !== 'neutral')
   .map(faction => CARDS.filter(card => card.faction === faction).length)
 const maxCardsPerFaction = Math.max(...cardsPerFaction)
-const authors = SWCC.flat()
-  .map(week => week.winner.author)
-  .filter(unique)
 
 const questions = [
   {
@@ -82,19 +78,6 @@ const questions = [
       'Deck builder,Card builder,List builder,Collection manager,Deck dry-runner,Puzzles,Stories,Guides'.split(
         ','
       ),
-  },
-
-  {
-    question:
-      'Who won the first drawing-based contest hosted in the Discord server?',
-    answer: 'YoungestMammal',
-    options: authors,
-  },
-
-  {
-    question: 'With whom did Kepp first started hosting tournaments?',
-    answer: 'Derpyologist',
-    options: authors,
   },
 
   {
@@ -1026,18 +1009,6 @@ const questions = [
     ],
   },
 
-  () => ({
-    question: 'Which two people have the most Stormbound championship titles?',
-    answer: 'HanooSt and Helios',
-    options: Array.from({ length: 20 }, () => {
-      const randomAuthor = arrayRandom(authors)
-      return [
-        randomAuthor,
-        arrayRandom(authors.filter(deck => deck.author !== randomAuthor)),
-      ].join(' and ')
-    }),
-  }),
-
   {
     question:
       'What is the maximum amount of strength Sharpfist Exiles can gain at Level 5, *not* counting its base strength?',
@@ -1188,13 +1159,6 @@ const questions = [
       RARITY_COPIES.rare.copies.reduce((a, b) => a + b, 0),
       5
     ),
-  },
-
-  {
-    question:
-      'Who did Shades beat in the finals of a DGL Stormbound tournament?',
-    answer: 'Emkaem',
-    options: authors.filter(deck => deck.author !== 'Shades'),
   },
 
   {
