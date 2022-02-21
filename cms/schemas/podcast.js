@@ -39,6 +39,26 @@ const podcast = {
       validation: Rule => Rule.required().max(250),
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      date: 'date',
+    },
+    prepare({ title, date }) {
+      const formatter = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'long',
+      })
+      const parts = formatter.formatToParts(new Date(date))
+      const month = parts[0].value
+      const year = parts[2].value
+
+      return {
+        title: title,
+        subtitle: month + ' ' + year,
+      }
+    },
+  },
 }
 
 export default podcast
