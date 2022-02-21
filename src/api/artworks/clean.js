@@ -1,5 +1,5 @@
 const clean = artwork => {
-  const [year, month] = artwork.date.split('-')
+  const [year, month] = artwork.date.split(/[-/]/g)
   const { dimensions } = artwork.image.asset.metadata
 
   artwork.date = month + '/' + year

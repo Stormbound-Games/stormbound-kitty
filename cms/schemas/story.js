@@ -70,7 +70,7 @@ const story = {
       title: 'Date',
       name: 'date',
       type: 'date',
-      options: { dateFormat: 'MM-YYYY' },
+      options: { dateFormat: 'MM/YYYY' },
       validation: Rule => Rule.required(),
     },
     {

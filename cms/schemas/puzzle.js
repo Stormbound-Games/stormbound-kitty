@@ -1,4 +1,5 @@
 import member from './types/member'
+import date from './types/date'
 
 const puzzle = {
   title: 'Puzzle',
@@ -63,13 +64,7 @@ const puzzle = {
         },
       ],
     },
-    {
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      options: { dateFormat: 'MM/YYYY' },
-      validation: Rule => Rule.required(),
-    },
+    date,
     {
       title: 'Image',
       name: 'image',

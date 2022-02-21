@@ -1,7 +1,7 @@
 import getExcerpt from '~/helpers/getExcerpt'
 
 const clean = story => {
-  const [year, month, day] = story.date.split('-')
+  const [year, month] = story.date.split(/[-/]/g)
 
   story.id = story.slug.current
   story.slug = story.slug.current

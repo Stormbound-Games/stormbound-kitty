@@ -1,5 +1,5 @@
 const clean = tournament => {
-  const [year, month] = tournament.date.split('-')
+  const [year, month] = tournament.date.split(/[-/]/g)
 
   tournament.date = month + '/' + year
   tournament.podium = tournament.podium.map(step => step.players)

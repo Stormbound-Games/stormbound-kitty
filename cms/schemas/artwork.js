@@ -1,4 +1,5 @@
 import member from './types/member'
+import date from './types/date'
 
 const channels = {
   title: 'Artwork',
@@ -6,13 +7,7 @@ const channels = {
   type: 'document',
   fields: [
     member,
-    {
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      options: { dateFormat: 'MM/YYYY' },
-      validation: Rule => Rule.required(),
-    },
+    date,
     {
       title: 'Image',
       name: 'image',

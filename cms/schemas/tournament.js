@@ -1,4 +1,5 @@
 import member from './types/member'
+import date from './types/date'
 
 const tournament = {
   title: 'Tournament',
@@ -81,13 +82,7 @@ const tournament = {
         },
       ],
     },
-    {
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      options: { dateFormat: 'MM/YYYY' },
-      validation: Rule => Rule.required(),
-    },
+    date,
     {
       title: 'Description',
       name: 'description',
