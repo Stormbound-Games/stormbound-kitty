@@ -1,3 +1,6 @@
+import member from './types/member'
+import date from './types/date'
+
 const tournament = {
   title: 'Tournament',
   name: 'tournament',
@@ -25,7 +28,7 @@ const tournament = {
       title: 'Hosts',
       name: 'hosts',
       type: 'array',
-      of: [{ type: 'string', validation: Rule => Rule.required() }],
+      of: [member],
       validation: Rule => Rule.required(),
     },
     {
@@ -42,12 +45,7 @@ const tournament = {
               title: 'Players',
               name: 'players',
               type: 'array',
-              of: [
-                {
-                  type: 'string',
-                  validation: Rule => Rule.required(),
-                },
-              ],
+              of: [member],
             },
           ],
           validation: Rule => Rule.required(),
@@ -84,13 +82,7 @@ const tournament = {
         },
       ],
     },
-    {
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      options: { dateFormat: 'MM/YYYY' },
-      validation: Rule => Rule.required(),
-    },
+    date,
     {
       title: 'Description',
       name: 'description',

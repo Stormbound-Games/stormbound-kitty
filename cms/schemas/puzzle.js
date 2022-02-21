@@ -1,3 +1,6 @@
+import member from './types/member'
+import date from './types/date'
+
 const puzzle = {
   title: 'Puzzle',
   name: 'puzzle',
@@ -32,12 +35,7 @@ const puzzle = {
       validation: Rule => Rule.required(),
       options: { list: [1, 2, 3] },
     },
-    {
-      title: 'Author',
-      name: 'author',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
+    member,
     {
       title: 'Board ID',
       name: 'board',
@@ -66,13 +64,7 @@ const puzzle = {
         },
       ],
     },
-    {
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      options: { dateFormat: 'MM/YYYY' },
-      validation: Rule => Rule.required(),
-    },
+    date,
     {
       title: 'Image',
       name: 'image',

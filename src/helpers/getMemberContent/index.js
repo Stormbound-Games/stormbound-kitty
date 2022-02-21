@@ -3,7 +3,6 @@ import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
 import DECKS from '~/data/decks'
 import UPDATES from '~/data/updates'
-import DONATIONS from '~/data/donations'
 import GUIDES from '~/data/guides'
 import EVENTS from '~/data/events'
 import RELEASES from '~/data/releases'
@@ -11,6 +10,7 @@ import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
 import getChannel from '~/api/channels/getChannel'
 import getArtworksFromAuthor from '~/api/artworks/getArtworksFromAuthor'
+import getDonationsFromAuthor from '~/api/donations/getDonationsFromAuthor'
 import getPuzzlesFromAuthor from '~/api/puzzles/getPuzzlesFromAuthor'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import getTournamentsFromAuthor from '~/api/tournaments/getTournamentsFromAuthor'
@@ -47,11 +47,6 @@ const getUserCards = id =>
       return { ...entry, date: new Date(year, month - 1, day).valueOf() }
     })
 
-const getUserDonations = id =>
-  DONATIONS.filter(donation => donation.author.toLowerCase() === id).map(
-    formatEntryWithDate
-  )
-
 const getUserUpdates = id =>
   UPDATES.filter(update => update.author.toLowerCase() === id).map(
     formatEntryWithDate
@@ -69,6 +64,7 @@ const addType = type => entry => ({ ...entry, type })
 const getMemberContent = async id => {
   const channel = await getChannel(id)
   const artworks = (await getArtworksFromAuthor(id)).map(formatEntryWithDate)
+  const donations = (await getDonationsFromAuthor(id)).map(formatEntryWithDate)
   const hosts = (await getTournamentsFromAuthor(id)).map(formatEntryWithDate)
   const podiums = (await getTournamentsWithAuthor(id)).map(formatEntryWithDate)
   const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
@@ -77,7 +73,6 @@ const getMemberContent = async id => {
   const guides = getUserGuides(id)
   const cards = getUserCards(id)
   const updates = getUserUpdates(id)
-  const donations = getUserDonations(id)
   const events = getUserEvents(id)
   const podcasts = getUserPodcasts(id)
 

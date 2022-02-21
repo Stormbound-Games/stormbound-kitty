@@ -1,3 +1,5 @@
+import member from './types/member'
+
 const isJSON = value => {
   try {
     JSON.parse(value)
@@ -25,12 +27,7 @@ const story = {
       options: { source: 'title' },
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'Author',
-      name: 'author',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
+    member,
     {
       title: 'Card ID',
       name: 'cardId',
@@ -73,7 +70,7 @@ const story = {
       title: 'Date',
       name: 'date',
       type: 'date',
-      options: { dateFormat: 'MM-YYYY' },
+      options: { dateFormat: 'MM/YYYY' },
       validation: Rule => Rule.required(),
     },
     {

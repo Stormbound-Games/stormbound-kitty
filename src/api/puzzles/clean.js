@@ -1,5 +1,5 @@
 const clean = puzzle => {
-  const [year, month, day] = puzzle.date.split('-')
+  const [year, month] = puzzle.date.split(/[-/]/g)
 
   puzzle.date = month + '/' + year
   puzzle.restrictions = puzzle.restrictions || []
