@@ -24,6 +24,26 @@ const event = {
     date,
     { title: 'Event data', name: 'data', ...json },
   ],
+  preview: {
+    select: {
+      type: 'type',
+      date: 'date',
+    },
+    prepare({ type, date }) {
+      const formatter = new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'long',
+      })
+      const parts = formatter.formatToParts(new Date(date))
+      const month = parts[0].value
+      const year = parts[2].value
+
+      return {
+        title: type,
+        subtitle: month + ' ' + year,
+      }
+    },
+  },
 }
 
 export default event
