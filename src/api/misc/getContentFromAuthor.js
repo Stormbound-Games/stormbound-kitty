@@ -1,4 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
+import GUIDES from '~/data/guides'
 import cleanArtwork from '~/api/artworks/clean'
 import cleanChannel from '~/api/channels/clean'
 import cleanContribution from '~/api/contributions/clean'
@@ -12,12 +13,7 @@ import cleanSwcc from '~/api/swcc/clean'
 import cleanTournament from '~/api/tournaments/clean'
 import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
 import getTournamentsWithAuthor from '~/api/tournaments/getTournamentsWithAuthor'
-
-const groupBy = (xs, key) =>
-  xs.reduce((rv, x) => {
-    ;(rv[x[key]] = rv[x[key]] || []).push(x)
-    return rv
-  }, {})
+import groupBy from '~/helpers/groupBy'
 
 const cleaners = {
   artwork: cleanArtwork,
@@ -51,25 +47,30 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
     options: { order: 'date desc', isPreview },
   })
 
-  const groupedEntries = groupBy(entries, '_type')
+  const content = groupBy(entries, '_type')
 
-  for (let type in groupedEntries) {
+  for (let type in content) {
     // Skip guides until they are handled via Sanity in the app.
-    if (type === 'guide') continue
-    // Clean every entry based on its type.
-    groupedEntries[type].forEach(cleaners[type])
+    if (type === 'guide') {
+      content.guide = GUIDES.filter(guide =>
+        guide.authors.map(author => author.toLowerCase()).includes(author)
+      )
+    } else {
+      // Clean every entry based on its type.
+      content[type].forEach(cleaners[type])
+    }
   }
 
   // Handle the tournament podiums and SWCC wins.
-  groupedEntries.podium = await getTournamentsWithAuthor({ author, isPreview })
-  groupedEntries.swcc = await getSWCCFromAuthor({ author, isPreview })
+  content.podium = await getTournamentsWithAuthor({ author, isPreview })
+  content.swcc = await getSWCCFromAuthor({ author, isPreview })
 
   // Restore the potential YouTube channel as an object.
-  if (groupedEntries.channel) {
-    groupedEntries.channel = groupedEntries.channel[0]
+  if (content.channel) {
+    content.channel = content.channel[0]
   }
 
-  return groupedEntries
+  return content
 }
 
 export default getContentFromAuthor

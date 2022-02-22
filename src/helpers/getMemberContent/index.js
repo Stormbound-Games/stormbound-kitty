@@ -1,18 +1,12 @@
 import capitalize from '~/helpers/capitalize'
 import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
-import GUIDES from '~/data/guides'
 import getContentFromAuthor from '~/api/misc/getContentFromAuthor'
 
-const formatEntryWithDate = entry => ({
+const parseEntryDate = entry => ({
   ...entry,
   date: entry.date ? parseDate(entry.date).valueOf() : entry.date,
 })
-
-const getUserGuides = id =>
-  GUIDES.filter(guide =>
-    guide.authors.map(host => host.toLowerCase()).includes(id)
-  )
 
 const addType = type => entry => ({ ...entry, type })
 
@@ -25,13 +19,13 @@ const getMemberContent = async ({ id, isPreview } = {}) => {
     deck: decks = [],
     donation: donations = [],
     event: events = [],
+    guide: guides = [],
     podcast: podcasts = [],
     tournament: hosts = [],
     podium: podiums = [],
     puzzle: puzzles = [],
     story: stories = [],
   } = await getContentFromAuthor({ author: id, isPreview })
-  const guides = getUserGuides(id)
 
   const content = [
     ...stories.map(addType('STORY')),
@@ -47,10 +41,11 @@ const getMemberContent = async ({ id, isPreview } = {}) => {
     ...podcasts.map(addType('PODCAST')),
     ...events,
   ]
-    .map(formatEntryWithDate)
+    .map(parseEntryDate)
     .sort((a, b) => b.date - a.date)
 
   const findDisplayName = author => author.toLowerCase() === id
+
   // This is incredibly ugly, but this is kind of the only way to find the
   // correct capitalisation since it cannot be retrieved from the URL parameter
   // unfortunately.
