@@ -1,4 +1,6 @@
 const formatDate = date => {
+  if (!date) return null
+
   const formatter = new Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'long',

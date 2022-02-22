@@ -33,8 +33,8 @@ const news = {
     },
     prepare({ intro, link }) {
       return {
-        title: intro,
-        subtitle: link,
+        title: intro || 'Missing intro',
+        subtitle: link || 'Missing link',
       }
     },
   },

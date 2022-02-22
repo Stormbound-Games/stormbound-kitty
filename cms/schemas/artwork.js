@@ -28,8 +28,8 @@ const channels = {
     },
     prepare({ author, date, image }) {
       return {
-        title: author,
-        subtitle: formatDate(date),
+        title: author || 'Missing member',
+        subtitle: formatDate(date) || 'Missing date',
         media: image,
       }
     },

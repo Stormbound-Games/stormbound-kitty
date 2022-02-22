@@ -1,4 +1,4 @@
-import cards from '../../../src/data/cards.json'
+import cards from '~/data/cards'
 
 const cardId = {
   title: 'Card ID',

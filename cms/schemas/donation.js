@@ -14,8 +14,8 @@ const donation = {
     },
     prepare({ author, date }) {
       return {
-        title: author,
-        subtitle: formatDate(date),
+        title: author || 'Missing member',
+        subtitle: formatDate(date) || 'Missing date',
       }
     },
   },

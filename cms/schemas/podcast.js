@@ -49,8 +49,8 @@ const podcast = {
     },
     prepare({ title, date }) {
       return {
-        title: title,
-        subtitle: formatDate(date),
+        title: title || 'Missing title',
+        subtitle: formatDate(date) || 'Missing date',
         media: (
           <img
             src='https://stormbound-kitty.com/assets/images/cards/brewed_sages.png'

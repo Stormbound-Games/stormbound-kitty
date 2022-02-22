@@ -4,10 +4,8 @@ import date from './types/date'
 import json from './types/json'
 import cardId from './types/cardId'
 import formatDate from './helpers/formatDate'
-import cards from '../../src/data/cards.json'
-import { STORY_CATEGORIES } from '../../src/constants/stories'
-
-const getCardData = id => cards.find(card => card.id === id)
+import getRawCardData from '~/helpers/getRawCardData'
+import { STORY_CATEGORIES } from '~/constants/stories'
 
 const story = {
   title: 'Story',
@@ -77,12 +75,16 @@ const story = {
       cardId: 'cardId',
     },
     prepare({ author, title, date, cardId }) {
-      const card = getCardData(cardId)
+      const card = getRawCardData(cardId)
 
       return {
-        title: title,
-        subtitle: 'By ' + author + ' in ' + formatDate(date),
-        media: card ? (
+        title: title || 'Missing title',
+        subtitle:
+          'By ' +
+          (author || 'missing member') +
+          ' in ' +
+          (formatDate(date) || 'missing date'),
+        media: card.image ? (
           <img
             src={
               'https://stormbound-kitty.com/assets/images/cards/' + card.image

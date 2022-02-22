@@ -1,7 +1,7 @@
 import member from './types/member'
 import date from './types/date'
 import formatDate from './helpers/formatDate'
-import { CATEGORIES, RESTRICTIONS } from '../../src/constants/puzzles'
+import { CATEGORIES, RESTRICTIONS } from '~/constants/puzzles'
 
 const puzzle = {
   title: 'Puzzle',
@@ -79,8 +79,12 @@ const puzzle = {
     },
     prepare({ author, name, date, image }) {
       return {
-        title: name,
-        subtitle: 'By ' + author + ' in ' + formatDate(date),
+        title: name || 'Missing name',
+        subtitle:
+          'By ' +
+          (author || 'missing member') +
+          ' in ' +
+          (formatDate(date) || 'missing date'),
         media: image,
       }
     },

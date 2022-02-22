@@ -38,8 +38,8 @@ const event = {
     },
     prepare({ type, date }) {
       return {
-        title: type,
-        subtitle: formatDate(date),
+        title: type || 'Missing type',
+        subtitle: formatDate(date) || 'Missing date',
       }
     },
   },

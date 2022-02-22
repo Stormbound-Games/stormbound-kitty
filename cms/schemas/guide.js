@@ -2,7 +2,7 @@ import member from './types/member'
 import date from './types/date'
 import cardId from './types/cardId'
 import formatDate from './helpers/formatDate'
-import { CATEGORIES } from '../../src/constants/guides'
+import { CATEGORIES } from '~/constants/guides'
 
 const guide = {
   title: 'Guide',
@@ -89,8 +89,8 @@ const guide = {
     },
     prepare({ name, date, background }) {
       return {
-        title: name,
-        subtitle: formatDate(date),
+        title: name || 'Missing name',
+        subtitle: formatDate(date) || 'Missing date',
         media: background,
       }
     },

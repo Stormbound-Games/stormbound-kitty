@@ -71,7 +71,7 @@ const swcc = {
     },
     prepare({ number }) {
       return {
-        title: 'SWCC season ' + number,
+        title: number ? 'SWCC season ' + number : 'SWCC season',
       }
     },
   },

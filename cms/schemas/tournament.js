@@ -95,8 +95,8 @@ const tournament = {
     },
     prepare({ name, date }) {
       return {
-        title: name,
-        subtitle: formatDate(date),
+        title: name || 'Missing name',
+        subtitle: formatDate(date) || 'Missing date',
       }
     },
   },
