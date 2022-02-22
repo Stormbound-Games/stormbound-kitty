@@ -4,7 +4,7 @@ import clean from './clean'
 const getDecks = async ({ isPreview } = {}) => {
   const ecks = await getEntries({
     conditions: ['_type == "deck"'],
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return ecks.map(clean)

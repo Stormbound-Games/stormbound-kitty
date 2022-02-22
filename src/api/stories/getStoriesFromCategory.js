@@ -5,7 +5,7 @@ const getStoriesFromCategory = async ({ category, isPreview } = {}) => {
   const stories = await getEntries({
     conditions: ['_type == "story"', 'category == $category'],
     params: { category },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return stories.map(clean)

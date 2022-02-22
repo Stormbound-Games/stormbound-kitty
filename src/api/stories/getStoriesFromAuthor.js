@@ -5,7 +5,7 @@ const getStoriesFromAuthor = async ({ author, isPreview } = {}) => {
   const stories = await getEntries({
     conditions: ['_type == "story"', 'author match $author'],
     params: { author },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return stories.map(clean)

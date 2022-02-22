@@ -5,7 +5,7 @@ const getArtworks = async ({ isPreview } = {}) => {
   const artworks = await getEntries({
     conditions: ['_type == "artwork"'],
     fields: `..., image { asset -> { ... } }`,
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return artworks.map(clean)

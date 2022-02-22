@@ -32,7 +32,7 @@ export default React.memo(function TournamentHallOfFame(props) {
 
       <Title>Tournaments</Title>
       <Spacing top='LARGE' bottom='LARGEST'>
-        {props.tournaments.reverse().map(tournament => (
+        {props.tournaments.map(tournament => (
           <Spacing key={tournament.name} bottom='LARGE'>
             <Row isDesktopOnly>
               <Row.Column>

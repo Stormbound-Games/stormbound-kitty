@@ -5,7 +5,7 @@ const getDecksWithTag = async ({ tag, isPreview } = {}) => {
   const decks = await getEntries({
     conditions: ['_type == "deck"', '$tag in tags'],
     params: { tag },
-    options: { isPreview },
+    options: { order: 'date asc', isPreview },
   })
 
   return decks.map(clean)

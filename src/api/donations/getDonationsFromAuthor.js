@@ -5,7 +5,7 @@ const getDonationsFromAuthor = async ({ author, isPreview } = {}) => {
   const donations = await getEntries({
     conditions: ['_type == "donation"', 'author match $author'],
     params: { author },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return donations.map(clean)

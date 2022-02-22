@@ -6,7 +6,7 @@ const getArtworksFromAuthor = async ({ author, isPreview } = {}) => {
     conditions: ['_type == "artwork"', 'author match $author'],
     fields: `..., image { asset -> { ... } }`,
     params: { author },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return artworks.map(clean)

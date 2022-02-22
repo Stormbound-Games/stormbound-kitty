@@ -5,7 +5,7 @@ const getPuzzlesFromAuthor = async ({ author, isPreview }) => {
   const puzzles = await getEntries({
     conditions: ['_type == "puzzle"', 'author match $author'],
     params: { author },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return puzzles.map(clean)

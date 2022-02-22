@@ -5,7 +5,7 @@ const getContributionsFromAuthor = async ({ author, isPreview } = {}) => {
   const contributions = await getEntries({
     conditions: ['_type == "contribution"', 'author match $author'],
     params: { author },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return contributions.map(clean)

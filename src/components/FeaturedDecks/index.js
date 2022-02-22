@@ -105,11 +105,6 @@ export default React.memo(function FeaturedDecks(props) {
   const decks = React.useMemo(
     () =>
       props.decks
-        .slice(0)
-        // New decks are added at the end of the JSON file, but should be
-        // displayed first, therefore we reverse the array before filtering and
-        // sorting it.
-        .reverse()
         .filter(matchesFaction)
         .filter(matchesTags)
         .filter(matchesAuthor)

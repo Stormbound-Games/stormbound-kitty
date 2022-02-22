@@ -20,17 +20,14 @@ const CARD = {
 
 export default React.memo(function BrewedSages(props) {
   const { css } = useFela()
-  const items = props.episodes
-    .slice(0)
-    .reverse()
-    .map((entry, index) => ({
-      ...entry,
-      card: {
-        ...CARD,
-        mana: props.episodes.length - index,
-        ability: entry.excerpt,
-      },
-    }))
+  const items = props.episodes.map((entry, index) => ({
+    ...entry,
+    card: {
+      ...CARD,
+      mana: props.episodes.length - index,
+      ability: entry.excerpt,
+    },
+  }))
 
   return (
     <Page

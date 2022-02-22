@@ -8,7 +8,7 @@ const searchStories = async ({ term, isPreview } = {}) => {
       'title match $term || content match $term',
     ],
     params: { term },
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return stories.map(clean)

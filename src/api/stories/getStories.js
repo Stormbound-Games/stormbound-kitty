@@ -4,7 +4,7 @@ import clean from './clean'
 const getStories = async ({ isPreview } = {}) => {
   const stories = await getEntries({
     conditions: ['_type == "story"'],
-    options: { isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return stories.map(clean)

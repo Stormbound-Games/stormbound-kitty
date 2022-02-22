@@ -8,7 +8,7 @@ const getTournamentsWithAuthor = async ({ author, isPreview } = {}) => {
       'count(podium[].players[lower(@) == $author]) > 0',
     ],
     params: { author },
-    options: { order: 'date asc', isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return tournaments.map(clean)

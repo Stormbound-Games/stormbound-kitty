@@ -8,7 +8,7 @@ const getTournamentsFromAuthor = async ({ author, isPreview } = {}) => {
       'count(hosts[lower(@) == $author]) > 0',
     ],
     params: { author },
-    options: { order: 'date asc', isPreview },
+    options: { order: 'date desc', isPreview },
   })
 
   return tournaments.map(clean)
