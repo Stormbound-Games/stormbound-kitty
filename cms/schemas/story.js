@@ -5,6 +5,7 @@ import json from './types/json'
 import cardId from './types/cardId'
 import formatDate from './helpers/formatDate'
 import cards from '../../src/data/cards.json'
+import { STORY_CATEGORIES } from '../../src/constants/stories'
 
 const getCardData = id => cards.find(card => card.id === id)
 
@@ -39,16 +40,10 @@ const story = {
       name: 'category',
       type: 'string',
       options: {
-        list: [
-          { title: 'Lore', value: 'lore' },
-          { title: 'Neutral', value: 'neutral' },
-          { title: 'Ironclad', value: 'ironclad' },
-          { title: 'Swarm', value: 'swarm' },
-          { title: 'Winter', value: 'winter' },
-          { title: 'Shadowfen', value: 'shadowfen' },
-          { title: 'Eastern Heat', value: 'eastern-heat' },
-          { title: 'March of Fauns', value: 'march-of-fauns' },
-        ],
+        list: Object.entries(STORY_CATEGORIES).map(([category, data]) => ({
+          title: data.shortName,
+          value: category,
+        })),
       },
       validation: Rule => Rule.required(),
     },

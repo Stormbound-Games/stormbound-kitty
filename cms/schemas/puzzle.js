@@ -1,6 +1,7 @@
 import member from './types/member'
 import date from './types/date'
 import formatDate from './helpers/formatDate'
+import { CATEGORIES, RESTRICTIONS } from '../../src/constants/puzzles'
 
 const puzzle = {
   title: 'Puzzle',
@@ -19,14 +20,10 @@ const puzzle = {
       type: 'string',
       validation: Rule => Rule.required(),
       options: {
-        list: [
-          { title: 'Lethal', value: 'LETHAL' },
-          { title: 'Survive', value: 'SURVIVE' },
-          { title: 'Baselock', value: 'BASELOCK' },
-          { title: 'Board clear', value: 'BOARDCLEAR' },
-          { title: 'VIP', value: 'VIP' },
-          { title: 'Target', value: 'TARGET' },
-        ],
+        list: Object.entries(CATEGORIES).map(([category, description]) => ({
+          title: description,
+          value: category,
+        })),
       },
     },
     {
@@ -53,16 +50,10 @@ const puzzle = {
         {
           type: 'string',
           options: {
-            list: [
-              { title: 'Level 1', value: 'LEVEL_1' },
-              { title: 'Level 5', value: 'LEVEL_5' },
-              { title: 'Friendly RNG', value: 'RNG_FRIENDLY' },
-              { title: 'Anti RNG', value: 'ANTI_RNG' },
-              { title: 'Preset', value: 'PRESET' },
-              { title: 'Detailed', value: 'DETAILED' },
-              { title: 'Faction', value: 'FACTION' },
-              { title: 'Custom Board', value: 'CUSTOM_BOARD' },
-            ],
+            list: Object.entries(RESTRICTIONS).map(([restriction, data]) => ({
+              title: data.name,
+              value: restriction,
+            })),
           },
         },
       ],

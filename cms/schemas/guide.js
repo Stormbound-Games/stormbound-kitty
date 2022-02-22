@@ -2,6 +2,7 @@ import member from './types/member'
 import date from './types/date'
 import cardId from './types/cardId'
 import formatDate from './helpers/formatDate'
+import { CATEGORIES } from '../../src/constants/guides'
 
 const guide = {
   title: 'Guide',
@@ -39,7 +40,12 @@ const guide = {
       title: 'Category',
       name: 'category',
       type: 'string',
-      options: { list: ['ESSENTIALS', 'PLAYSTYLE', 'BRAWL_MODE', 'IN_DEPTH'] },
+      options: {
+        list: Object.entries(CATEGORIES).map(([category, data]) => ({
+          title: data.name.short,
+          value: category,
+        })),
+      },
       validation: Rule => Rule.required().uppercase(),
     },
     date,
