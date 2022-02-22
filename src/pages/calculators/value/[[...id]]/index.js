@@ -1,19 +1,12 @@
 import React from 'react'
-import path from 'path'
 import ValueCalculator from '~/components/ValueCalculator'
 import Layout from '~/components/Layout'
 import getCardValue from '~/helpers/getCardValue'
-import generateFormulaImage from '~/helpers/generateFormulaImage'
 import getNavigation from '~/helpers/getNavigation'
 import serialization from '~/helpers/serialization'
 import CARDS from '~/data/cards'
 
 export async function getStaticPaths() {
-  const formula = `v(c) = s / m * f`
-  const filePath = path.resolve('./public/assets/images/formulas/value.png')
-
-  await generateFormulaImage(formula, filePath)
-
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }
 }
 
