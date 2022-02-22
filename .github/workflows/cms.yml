@@ -21,3 +21,4 @@ jobs:
         env:
           SANITY_STUDIO_API_PROJECT_ID: 5hlpazgd
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_TOKEN_PRODUCTION }}
+          SANITY_STUDIO_PREVIEW_TOKEN: ${{ secrets.SANITY_STUDIO_PREVIEW_TOKEN }}

@@ -34,6 +34,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const params = context.params.rest || []
+  const isPreview = context.preview || false
   const navigation = getNavigation()
   const DEFAULT_PROPS = {
     navigation,
@@ -71,7 +72,7 @@ export async function getStaticProps(context) {
         navigation,
         cardId: id,
         card: getInitialCardData(id),
-        contest: await getSWCCFromCard(id),
+        contest: await getSWCCFromCard({ id, isPreview }),
         versionId,
         versions,
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',

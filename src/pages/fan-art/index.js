@@ -5,11 +5,11 @@ import shuffle from '~/helpers/shuffle'
 import getArtworks from '~/api/artworks/getArtworks'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: getNavigation(),
-      artworks: shuffle(await getArtworks()),
+      artworks: shuffle(await getArtworks({ isPreview })),
     },
   }
 }

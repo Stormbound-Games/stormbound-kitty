@@ -27,21 +27,41 @@ const getUserGuides = id =>
 
 const addType = type => entry => ({ ...entry, type })
 
-const getMemberContent = async id => {
-  const channel = await getChannel(id)
-  const artworks = (await getArtworksFromAuthor(id)).map(formatEntryWithDate)
-  const cards = (await getSWCCFromAuthor(id)).map(formatEntryWithDate)
-  const contributions = (await getContributionsFromAuthor(id)).map(
+const getMemberContent = async ({ id, isPreview } = {}) => {
+  const channel = await getChannel({ author: id, isPreview })
+  const artworks = (await getArtworksFromAuthor({ author: id, isPreview })).map(
     formatEntryWithDate
   )
-  const decks = (await getDecksFromAuthor(id)).map(formatEntryWithDate)
-  const donations = (await getDonationsFromAuthor(id)).map(formatEntryWithDate)
-  const events = (await getEventsFromAuthor(id)).map(formatEntryWithDate)
-  const hosts = (await getTournamentsFromAuthor(id)).map(formatEntryWithDate)
-  const podcasts = (await getPodcastsFromAuthor(id)).map(formatEntryWithDate)
-  const podiums = (await getTournamentsWithAuthor(id)).map(formatEntryWithDate)
-  const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
-  const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
+  const cards = (await getSWCCFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
+  const contributions = (
+    await getContributionsFromAuthor({ author: id, isPreview })
+  ).map(formatEntryWithDate)
+  const decks = (await getDecksFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
+  const donations = (
+    await getDonationsFromAuthor({ author: id, isPreview })
+  ).map(formatEntryWithDate)
+  const events = (await getEventsFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
+  const hosts = (await getTournamentsFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
+  const podcasts = (await getPodcastsFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
+  const podiums = (
+    await getTournamentsWithAuthor({ author: id, isPreview })
+  ).map(formatEntryWithDate)
+  const puzzles = (await getPuzzlesFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
+  const stories = (await getStoriesFromAuthor({ author: id, isPreview })).map(
+    formatEntryWithDate
+  )
   const guides = getUserGuides(id)
 
   const content = [

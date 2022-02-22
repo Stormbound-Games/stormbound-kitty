@@ -4,10 +4,10 @@ import Layout from '~/components/Layout'
 import getTournaments from '~/api/tournaments/getTournaments'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      tournaments: await getTournaments(),
+      tournaments: await getTournaments({ isPreview }),
       navigation: getNavigation(),
     },
   }

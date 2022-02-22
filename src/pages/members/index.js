@@ -4,8 +4,8 @@ import Layout from '~/components/Layout'
 import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
-  const members = await getMembersList()
+export async function getStaticProps({ preview: isPreview = false }) {
+  const members = await getMembersList({ isPreview })
   const navigation = getNavigation()
 
   return { props: { navigation, members } }

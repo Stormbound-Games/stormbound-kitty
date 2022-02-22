@@ -4,8 +4,13 @@ import Layout from '~/components/Layout'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
-  return { props: { navigation: getNavigation(), puzzles: await getPuzzles() } }
+export async function getStaticProps({ preview: isPreview = false }) {
+  return {
+    props: {
+      navigation: getNavigation(),
+      puzzles: await getPuzzles({ isPreview }),
+    },
+  }
 }
 
 const BattleSimPuzzlesPage = ({ navigation, ...props }) => (

@@ -4,11 +4,11 @@ import Layout from '~/components/Layout'
 import getPodcasts from '~/api/podcasts/getPodcasts'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: getNavigation(),
-      episodes: await getPodcasts(),
+      episodes: await getPodcasts({ isPreview }),
     },
   }
 }

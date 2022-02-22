@@ -4,10 +4,10 @@ import Layout from '~/components/Layout'
 import getChannels from '~/api/channels/getChannels'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      channels: await getChannels(),
+      channels: await getChannels({ isPreview }),
       navigation: getNavigation(),
     },
   }

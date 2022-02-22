@@ -5,8 +5,8 @@ import getInitialListData from '~/helpers/getInitialListData'
 import getLiveTierList from '~/helpers/getLiveTierList'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
-  const tierList = await getLiveTierList()
+export async function getStaticProps({ preview: isPreview = false }) {
+  const tierList = await getLiveTierList({ isPreview })
 
   return {
     props: {

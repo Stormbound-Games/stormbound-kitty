@@ -6,9 +6,11 @@ import getNavigation from '~/helpers/getNavigation'
 import sortSaga from '~/helpers/sortSaga'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   const category = 'march-of-fauns'
-  const stories = (await getStoriesFromCategory(category)).sort(sortSaga)
+  const stories = (await getStoriesFromCategory({ category, isPreview })).sort(
+    sortSaga
+  )
 
   return {
     props: {

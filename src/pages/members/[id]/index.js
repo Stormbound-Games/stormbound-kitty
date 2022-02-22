@@ -16,8 +16,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const id = context.params.id.toLowerCase()
+  const isPreview = context.preview || false
   const { channel, count, content, details, displayName, roles } =
-    await getMemberContent(id)
+    await getMemberContent({ id, isPreview })
 
   // This is a bit of a hack, in case there is a link to a member page that is
   // missing the ID and gets serialized as `undefined`.

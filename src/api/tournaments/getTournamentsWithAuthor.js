@@ -1,14 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
 import clean from './clean'
 
-const getTournamentsWithAuthor = async author => {
+const getTournamentsWithAuthor = async ({ author, isPreview } = {}) => {
   const tournaments = await getEntries({
     conditions: [
       '_type == "tournament"',
       'count(podium[].players[lower(@) == $author]) > 0',
     ],
     params: { author },
-    options: { order: 'date asc' },
+    options: { order: 'date asc', isPreview },
   })
 
   return tournaments.map(clean)

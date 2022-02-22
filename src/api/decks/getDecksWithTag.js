@@ -1,10 +1,11 @@
 import { getEntries } from '~/helpers/sanity'
 import clean from './clean'
 
-const getDecksWithTag = async tag => {
+const getDecksWithTag = async ({ tag, isPreview } = {}) => {
   const decks = await getEntries({
     conditions: ['_type == "deck"', '$tag in tags'],
     params: { tag },
+    options: { isPreview },
   })
 
   return decks.map(clean)

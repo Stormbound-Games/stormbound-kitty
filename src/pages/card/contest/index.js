@@ -4,11 +4,11 @@ import Layout from '~/components/Layout'
 import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: getNavigation(),
-      seasons: await getSWCCSeasons(),
+      seasons: await getSWCCSeasons({ isPreview }),
     },
   }
 }

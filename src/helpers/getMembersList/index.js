@@ -19,19 +19,19 @@ const sortAlphabetically = (a, b) =>
     ? +1
     : 0
 
-const getMembersList = async () => {
+const getMembersList = async ({ isPreview } = {}) => {
   const members = {}
-  const artworks = await getArtworks()
-  const channels = await getChannels()
-  const contributions = await getContributions()
-  const decks = await getDecks()
-  const donations = await getDonations()
-  const events = await getEvents()
-  const podcasts = await getPodcasts()
-  const puzzles = await getPuzzles()
-  const stories = await getStories()
-  const swcc = await getSWCCSeasons()
-  const tournaments = await getTournaments()
+  const artworks = await getArtworks({ isPreview })
+  const channels = await getChannels({ isPreview })
+  const contributions = await getContributions({ isPreview })
+  const decks = await getDecks({ isPreview })
+  const donations = await getDonations({ isPreview })
+  const events = await getEvents({ isPreview })
+  const podcasts = await getPodcasts({ isPreview })
+  const puzzles = await getPuzzles({ isPreview })
+  const stories = await getStories({ isPreview })
+  const swcc = await getSWCCSeasons({ isPreview })
+  const tournaments = await getTournaments({ isPreview })
 
   artworks.forEach(artwork => {
     members[artwork.author] = members[artwork.author] || []

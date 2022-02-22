@@ -8,8 +8,8 @@ import getPuzzles from '~/api/puzzles/getPuzzles'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import useNavigator from '~/hooks/useNavigator'
 
-export async function getStaticPaths() {
-  const puzzles = await getPuzzles()
+export async function getStaticPaths({ preview: isPreview = false }) {
+  const puzzles = await getPuzzles({ isPreview })
   const paths = puzzles
     .map(puzzle => ({
       params: { rest: [puzzle.board, 'display'] },
@@ -21,6 +21,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const navigation = getNavigation()
+  const isPreview = context.preview || false
   const params = context.params.rest || []
   const DEFAULT_PROPS = {
     navigation,
@@ -49,7 +50,7 @@ export async function getStaticProps(context) {
         simId: id,
         sim: getInitialBattleData(id),
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
-        puzzle: await getPuzzle(id),
+        puzzle: await getPuzzle({ id, isPreview }),
       },
     }
   } catch (error) {

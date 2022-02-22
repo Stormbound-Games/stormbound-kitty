@@ -7,8 +7,8 @@ import getStories from '~/api/stories/getStories'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
-export async function getStaticPaths() {
-  const stories = await getStories()
+export async function getStaticPaths({ preview: isPreview = false }) {
+  const stories = await getStories({ isPreview })
   const paths = stories.map(story => ({ params: { slug: story.slug } }))
 
   return { paths, fallback: false }
@@ -16,9 +16,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { slug } = context.params
-  const currentStory = await getStory(slug)
-  const moreStories = (await getStoriesFromAuthor(currentStory.author)).filter(
-    story => (currentStory.saga ? story.saga === currentStory.saga : true)
+  const isPreview = context.preview || false
+  const currentStory = await getStory({ slug, isPreview })
+  const moreStories = (
+    await getStoriesFromAuthor({ author: currentStory.author, isPreview })
+  ).filter(story =>
+    currentStory.saga ? story.saga === currentStory.saga : true
   )
 
   if (currentStory.saga) {
