@@ -32,10 +32,8 @@ export async function getStaticPaths() {
   return { paths, fallback: 'blocking' }
 }
 
-export async function getStaticProps(context) {
-  const params = context.params.rest || []
-  const isPreview = context.preview || false
-  const navigation = getNavigation()
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
     cardId: null,
@@ -47,7 +45,7 @@ export async function getStaticProps(context) {
   }
 
   try {
-    const [id, display, versionId = null] = params
+    const [id, display, versionId = null] = params.rest || []
     const versions = getChangelog(id)
 
     if (

@@ -15,7 +15,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   })
   const contributors = [...new Set(contributions.map(getAuthor))]
 
-  return { props: { navigation: getNavigation(), contributors, donators } }
+  return {
+    props: {
+      navigation: await getNavigation({ isPreview }),
+      contributors,
+      donators,
+    },
+  }
 }
 
 const AboutPage = ({ navigation, ...props }) => (

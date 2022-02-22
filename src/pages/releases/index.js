@@ -4,8 +4,13 @@ import Layout from '~/components/Layout'
 import RELEASES from '~/data/releases'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
-  return { props: { navigation: getNavigation(), releases: RELEASES } }
+export async function getStaticProps({ preview: isPreview = false }) {
+  return {
+    props: {
+      navigation: await getNavigation({ isPreview }),
+      releases: RELEASES,
+    },
+  }
 }
 
 const ReleasesPage = ({ navigation, ...props }) => (

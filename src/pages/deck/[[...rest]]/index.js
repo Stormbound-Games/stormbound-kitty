@@ -24,10 +24,8 @@ export async function getStaticPaths() {
   return { paths, fallback: 'blocking' }
 }
 
-export async function getStaticProps(context) {
-  const params = context.params.rest || []
-  const isPreview = context.preview || false
-  const navigation = getNavigation()
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
     id: null,
@@ -38,7 +36,7 @@ export async function getStaticProps(context) {
   }
 
   try {
-    const [id, view] = params
+    const [id, view] = params.rest || []
 
     if (
       ['dry-run', 'detail'].includes(id) ||

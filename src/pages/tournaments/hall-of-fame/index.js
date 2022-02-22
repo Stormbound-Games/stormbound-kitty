@@ -8,7 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       tournaments: await getTournaments({ isPreview }),
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
     },
   }
 }

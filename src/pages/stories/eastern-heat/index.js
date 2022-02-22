@@ -16,7 +16,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
     props: {
       stories,
       category: { ...STORY_CATEGORIES[category], id: category },
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
     },
   }
 }

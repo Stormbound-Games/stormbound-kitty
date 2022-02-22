@@ -14,10 +14,8 @@ export async function getStaticPaths({ preview: isPreview = false }) {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context) {
-  const { slug } = context.params
-  const isPreview = context.preview || false
-  const currentStory = await getStory({ slug, isPreview })
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const currentStory = await getStory({ slug: params.slug, isPreview })
   const moreStories = (
     await getStoriesFromAuthor({ author: currentStory.author, isPreview })
   ).filter(story =>
@@ -39,7 +37,7 @@ export async function getStaticProps(context) {
       active: ['STORIES', STORY_CATEGORIES[category].category, category],
       story: currentStory,
       moreStories: moreStories.slice(0, 3),
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
     },
   }
 }

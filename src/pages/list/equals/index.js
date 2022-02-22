@@ -6,10 +6,10 @@ import getInitialListData from '~/helpers/getInitialListData'
 import getNavigation from '~/helpers/getNavigation'
 import { EQUALS_TIER_LIST } from '~/constants/list'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       date: EQUALS_TIER_LIST.date,
       list: getInitialListData(EQUALS_TIER_LIST.value),
       release:

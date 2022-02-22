@@ -7,7 +7,7 @@ import getNavigation from '~/helpers/getNavigation'
 export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       seasons: await getSWCCSeasons({ isPreview }),
     },
   }

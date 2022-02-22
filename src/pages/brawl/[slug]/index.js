@@ -14,10 +14,8 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context) {
-  const { slug } = context.params
-  const isPreview = context.preview || false
-  const id = slug.toUpperCase().replace(/-/g, '_')
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const id = params.slug.toUpperCase().replace(/-/g, '_')
   const brawl = BRAWL_INDEX[id]
   const guide = await getGuide({ name: brawl.title, isPreview })
   const recommendedDecks = await getDecksWithTag({ tag: id, isPreview })
@@ -28,7 +26,13 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { navigation: getNavigation(), id, brawl, guide, recommendedDeck },
+    props: {
+      navigation: await getNavigation({ isPreview }),
+      id,
+      brawl,
+      guide,
+      recommendedDeck,
+    },
   }
 }
 

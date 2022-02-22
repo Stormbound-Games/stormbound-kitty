@@ -147,7 +147,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       ...guide,
     },
   }

@@ -1,8 +1,10 @@
-import GUIDES from '~/data/guides'
+import getGuides from '~/api/guides/getGuides'
 import { CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
-const getNavigation = () => {
+const getNavigation = async () => {
+  const guides = await getGuides()
+
   return [
     {
       id: 'HOME',
@@ -85,7 +87,7 @@ const getNavigation = () => {
       icon: 'compass',
       label: 'Guides',
       items: Object.keys(CATEGORIES).map(category => {
-        const catGuides = GUIDES.filter(guide => guide.category === category)
+        const catGuides = guides.filter(guide => guide.category === category)
         const shownGuides = catGuides.filter(guide => !guide.skipNav)
         const items = shownGuides.map(guide => ({
           label: guide.name,

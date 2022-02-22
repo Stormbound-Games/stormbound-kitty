@@ -6,7 +6,7 @@ import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const members = await getMembersList({ isPreview })
-  const navigation = getNavigation()
+  const navigation = await getNavigation({ isPreview })
 
   return { props: { navigation, members } }
 }

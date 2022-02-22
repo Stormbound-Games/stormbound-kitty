@@ -14,9 +14,8 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context) {
-  const id = context.params.id.toLowerCase()
-  const isPreview = context.preview || false
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const id = params.id.toLowerCase()
   const { channel, count, content, details, displayName, roles } =
     await getMemberContent({ id, isPreview })
 
@@ -28,7 +27,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       id,
       channel,
       content,

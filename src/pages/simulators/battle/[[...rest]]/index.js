@@ -19,10 +19,8 @@ export async function getStaticPaths({ preview: isPreview = false }) {
   return { paths, fallback: 'blocking' }
 }
 
-export async function getStaticProps(context) {
-  const navigation = getNavigation()
-  const isPreview = context.preview || false
-  const params = context.params.rest || []
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
     simId: null,
@@ -32,7 +30,7 @@ export async function getStaticProps(context) {
   }
 
   try {
-    const [id, display] = params
+    const [id, display] = params.rest || []
 
     if (display && display !== 'display') {
       return { notFound: true }
