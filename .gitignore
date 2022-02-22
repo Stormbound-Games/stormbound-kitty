@@ -23,5 +23,4 @@ cypress/screenshots
 .nyc_output
 coverage
 public/sitemap.xml
-public/assets/images/formulas/*.png
 cypress/fixtures/registry.json
