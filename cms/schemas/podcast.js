@@ -1,3 +1,4 @@
+import React from 'react'
 import member from './types/member'
 import date from './types/date'
 import formatDate from './helpers/formatDate'
@@ -37,7 +38,7 @@ const podcast = {
     {
       title: 'Excerpt',
       name: 'excerpt',
-      type: 'string',
+      type: 'text',
       validation: Rule => Rule.required().max(250),
     },
   ],
@@ -50,6 +51,12 @@ const podcast = {
       return {
         title: title,
         subtitle: formatDate(date),
+        media: (
+          <img
+            src='https://stormbound-kitty.com/assets/images/cards/brewed_sages.png'
+            alt=''
+          />
+        ),
       }
     },
   },

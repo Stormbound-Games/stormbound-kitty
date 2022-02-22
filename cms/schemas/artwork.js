@@ -13,6 +13,7 @@ const channels = {
       title: 'Image',
       name: 'image',
       type: 'image',
+      description: 'A high-quality image (the CDN will do the optimization).',
       options: {
         accept: ['image/jpeg', 'image/png', 'image/gif'],
       },

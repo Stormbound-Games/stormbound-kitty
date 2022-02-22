@@ -10,6 +10,7 @@ const channels = {
       title: 'Link',
       name: 'href',
       type: 'url',
+      description: 'The URL of the person’s channel on YouTube.',
       validation: Rule => Rule.required(),
     },
     {

@@ -21,7 +21,6 @@ const deck = {
       title: 'Tags',
       name: 'tags',
       type: 'array',
-      options: { sortable: false },
       of: [
         {
           type: 'string',

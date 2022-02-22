@@ -32,7 +32,8 @@ const story = {
     {
       title: 'Card data',
       name: 'card',
-      description: 'Additional JSON blob to override the card data with.',
+      description:
+        'Additional JSON blob to override the card data with (handy for sagas).',
       ...json,
     },
     {

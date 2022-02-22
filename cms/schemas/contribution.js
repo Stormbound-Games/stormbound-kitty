@@ -15,7 +15,12 @@ const contribution = {
       type: 'array',
       description:
         'The numbers of the pull-requests that were open by that person during that month.',
-      of: [{ type: 'number', validation: Rule => Rule.required() }],
+      of: [
+        {
+          type: 'number',
+          validation: Rule => Rule.required().positive().min(1),
+        },
+      ],
       validation: Rule => Rule.min(1),
     },
   ],
