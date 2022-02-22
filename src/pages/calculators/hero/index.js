@@ -5,7 +5,7 @@ import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
 import generateFormulaImage from '~/helpers/generateFormulaImage'
 
-export async function getStaticProps({ preview: isPreview } = {}) {
+export async function getStaticProps({ preview: isPreview = false }) {
   const formula = `S'_A = S_A + K * (W - \\frac{1}{1+10^{(S_B-S_A)/400}})`
   const filePath = path.resolve('./public/assets/images/formulas/hero.png')
 

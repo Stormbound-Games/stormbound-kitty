@@ -5,7 +5,7 @@ import { CATEGORIES } from '~/constants/guides'
 import getGuidesFromCategory from '~/api/guides/getGuidesFromCategory'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps({ preview: isPreview } = {}) {
+export async function getStaticProps({ preview: isPreview = false }) {
   const category = 'ESSENTIALS'
   const guides = await getGuidesFromCategory({ category, isPreview })
 

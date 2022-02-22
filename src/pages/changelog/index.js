@@ -4,7 +4,7 @@ import Layout from '~/components/Layout'
 import CHANGELOG from '~/data/changelog'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps({ preview: isPreview } = {}) {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: await getNavigation({ isPreview }),

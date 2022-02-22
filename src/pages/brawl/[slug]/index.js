@@ -14,9 +14,8 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context) {
-  const { slug } = context.params
-  const isPreview = context.preview || false
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const { slug } = params
   const id = slug.toUpperCase().replace(/-/g, '_')
   const brawl = BRAWL_INDEX[id]
   const guide = await getGuide({ name: brawl.title, isPreview })

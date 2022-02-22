@@ -7,7 +7,7 @@ import getNavigation from '~/helpers/getNavigation'
 
 const asCollectionItem = card => ({ id: card.id, level: 5, copies: 0 })
 
-export async function getStaticProps({ preview: isPreview } = {}) {
+export async function getStaticProps({ preview: isPreview = false }) {
   const cards = CARDS.filter(card => !card.token)
   const maxCollectionCost = getCollectionCost(cards.map(asCollectionItem))
 

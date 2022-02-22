@@ -17,9 +17,8 @@ export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }
 }
 
-export async function getStaticProps(context) {
-  const isPreview = context.preview || false
-  const [id] = context.params.id || []
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const [id] = params.id || []
   const defaultCard = { id: null, level: 1 }
   const navigation = await getNavigation({ isPreview })
   const disabledOptions = CARDS.map(card => card.id).filter(

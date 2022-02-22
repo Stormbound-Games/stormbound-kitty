@@ -14,9 +14,8 @@ export async function getStaticPaths({ preview: isPreview = false }) {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps(context) {
-  const { slug } = context.params
-  const isPreview = context.preview || false
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const { slug } = params
   const currentStory = await getStory({ slug, isPreview })
   const moreStories = (
     await getStoriesFromAuthor({ author: currentStory.author, isPreview })

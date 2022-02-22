@@ -3,7 +3,7 @@ import FanKitBackgrounds from '~/components/FanKitBackgrounds'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps({ preview: isPreview } = {}) {
+export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { navigation: await getNavigation({ isPreview }) } }
 }
 
