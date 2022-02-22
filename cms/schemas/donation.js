@@ -1,5 +1,6 @@
 import member from './types/member'
 import date from './types/date'
+import formatDate from './helpers/formatDate'
 
 const donation = {
   title: 'Donation',
@@ -12,17 +13,9 @@ const donation = {
       date: 'date',
     },
     prepare({ author, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
         title: author,
-        subtitle: month + ' ' + year,
+        subtitle: formatDate(date),
       }
     },
   },

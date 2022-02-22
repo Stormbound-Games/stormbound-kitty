@@ -1,5 +1,7 @@
 import member from './types/member'
 import date from './types/date'
+import deckId from './types/deckId'
+import formatDate from './helpers/formatDate'
 
 const deck = {
   title: 'Deck',
@@ -12,13 +14,7 @@ const deck = {
       type: 'string',
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'ID',
-      name: 'id',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
-
+    { ...deckId, name: 'id' },
     member,
     date,
     {
@@ -83,17 +79,9 @@ const deck = {
       date: 'date',
     },
     prepare({ name, author, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
         title: name,
-        subtitle: 'By ' + author + ' in ' + month + ' ' + year,
+        subtitle: 'By ' + author + ' in ' + formatDate(date),
       }
     },
   },

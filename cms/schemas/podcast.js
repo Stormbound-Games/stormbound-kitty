@@ -1,5 +1,6 @@
 import member from './types/member'
 import date from './types/date'
+import formatDate from './helpers/formatDate'
 
 const podcast = {
   title: 'Podcast episode',
@@ -30,6 +31,7 @@ const podcast = {
       title: 'Link',
       name: 'href',
       type: 'url',
+      description: 'Typically a link to podbean.',
       validation: Rule => Rule.required(),
     },
     {
@@ -45,17 +47,9 @@ const podcast = {
       date: 'date',
     },
     prepare({ title, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
         title: title,
-        subtitle: month + ' ' + year,
+        subtitle: formatDate(date),
       }
     },
   },

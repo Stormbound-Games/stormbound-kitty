@@ -1,6 +1,7 @@
 import member from './types/member'
 import date from './types/date'
 import json from './types/json'
+import formatDate from './helpers/formatDate'
 
 const event = {
   title: 'Event',
@@ -22,7 +23,13 @@ const event = {
       validation: Rule => Rule.min(1),
     },
     date,
-    { title: 'Event data', name: 'data', ...json },
+    {
+      title: 'Event data',
+      name: 'data',
+      description:
+        'Some additional JSON payload that will be provided to the relevant feed component.',
+      ...json,
+    },
   ],
   preview: {
     select: {
@@ -30,17 +37,9 @@ const event = {
       date: 'date',
     },
     prepare({ type, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
         title: type,
-        subtitle: month + ' ' + year,
+        subtitle: formatDate(date),
       }
     },
   },

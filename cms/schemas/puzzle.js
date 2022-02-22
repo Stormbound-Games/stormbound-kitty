@@ -1,5 +1,6 @@
 import member from './types/member'
 import date from './types/date'
+import formatDate from './helpers/formatDate'
 
 const puzzle = {
   title: 'Puzzle',
@@ -40,6 +41,8 @@ const puzzle = {
       title: 'Board ID',
       name: 'board',
       type: 'string',
+      description:
+        'The ID of a battle sim as displayed in the URL (minus the domain name and the path).',
       validation: Rule => Rule.required(),
     },
     {
@@ -69,6 +72,10 @@ const puzzle = {
       title: 'Image',
       name: 'image',
       type: 'image',
+      description: 'An image of the board, cut right around its edges.',
+      options: {
+        accept: ['image/jpeg', 'image/png', 'image/gif'],
+      },
       validation: Rule => Rule.required(),
     },
   ],
@@ -77,19 +84,13 @@ const puzzle = {
       author: 'author',
       name: 'name',
       date: 'date',
+      image: 'image',
     },
-    prepare({ author, name, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
+    prepare({ author, name, date, image }) {
       return {
         title: name,
-        subtitle: 'By ' + author + ' in ' + month + ' ' + year,
+        subtitle: 'By ' + author + ' in ' + formatDate(date),
+        media: image,
       }
     },
   },

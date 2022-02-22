@@ -1,5 +1,7 @@
 import member from './types/member'
 import date from './types/date'
+import cardId from './types/cardId'
+import formatDate from './helpers/formatDate'
 
 const guide = {
   title: 'Guide',
@@ -18,7 +20,13 @@ const guide = {
       description:
         'The identifier is used to map this guide’s metadata to the actual content.',
       type: 'string',
-      validation: Rule => Rule.required().uppercase(),
+      validation: Rule =>
+        Rule.required()
+          .uppercase()
+          .custom(
+            string =>
+              !string.includes(' ') || 'Identifier cannot contain spaces.'
+          ),
     },
     {
       title: 'Slug',
@@ -42,25 +50,16 @@ const guide = {
       of: [member],
       validation: Rule => Rule.min(1),
     },
-    {
-      title: 'Faction',
-      name: 'faction',
-      type: 'string',
-      options: {
-        list: ['neutral', 'ironclad', 'shadowfen', 'winter', 'swarm'],
-      },
-      validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Card ID',
-      name: 'cardId',
-      type: 'string',
-      validation: Rule => Rule.required().uppercase(),
-    },
+    cardId,
     {
       title: 'Banner',
       name: 'background',
       type: 'image',
+      description:
+        'A landscape image that will be displayed at the top of the guide behind the title (typically 5:1).',
+      options: {
+        accept: ['image/jpeg', 'image/png', 'image/gif'],
+      },
     },
     {
       title: 'Excerpt',
@@ -76,6 +75,20 @@ const guide = {
       initialValue: false,
     },
   ],
+  preview: {
+    select: {
+      name: 'name',
+      date: 'date',
+      background: 'background',
+    },
+    prepare({ name, date, background }) {
+      return {
+        title: name,
+        subtitle: formatDate(date),
+        media: background,
+      }
+    },
+  },
 }
 
 export default guide

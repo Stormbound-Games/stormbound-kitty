@@ -1,5 +1,6 @@
 import member from './types/member'
 import date from './types/date'
+import formatDate from './helpers/formatDate'
 
 const channels = {
   title: 'Artwork',
@@ -22,19 +23,13 @@ const channels = {
     select: {
       author: 'author',
       date: 'date',
+      image: 'image',
     },
-    prepare({ author, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
+    prepare({ author, date, image }) {
       return {
         title: author,
-        subtitle: month + ' ' + year,
+        subtitle: formatDate(date),
+        media: image,
       }
     },
   },

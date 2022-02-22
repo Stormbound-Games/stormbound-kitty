@@ -1,5 +1,7 @@
 import member from './types/member'
 import date from './types/date'
+import deckId from './types/deckId'
+import formatDate from './helpers/formatDate'
 
 const tournament = {
   title: 'Tournament',
@@ -24,6 +26,12 @@ const tournament = {
       },
       validation: Rule => Rule.required(),
     },
+    date,
+    {
+      title: 'Description',
+      name: 'description',
+      type: 'string',
+    },
     {
       title: 'Hosts',
       name: 'hosts',
@@ -34,6 +42,8 @@ const tournament = {
     {
       title: 'Podium',
       name: 'podium',
+      description:
+        'The gold, silver and bronze places respectively (either individuals or teams).',
       type: 'array',
       of: [
         {
@@ -61,12 +71,7 @@ const tournament = {
         {
           type: 'object',
           fields: [
-            {
-              title: 'Deck ID',
-              name: 'id',
-              type: 'string',
-              validation: Rule => Rule.required(),
-            },
+            { ...deckId, name: 'id' },
             {
               title: 'Name',
               name: 'name',
@@ -76,17 +81,11 @@ const tournament = {
               title: 'Authors',
               name: 'authors',
               type: 'array',
-              of: [{ type: 'string', validation: Rule => Rule.required() }],
+              of: [member],
             },
           ],
         },
       ],
-    },
-    date,
-    {
-      title: 'Description',
-      name: 'description',
-      type: 'string',
     },
   ],
   preview: {
@@ -95,17 +94,9 @@ const tournament = {
       date: 'date',
     },
     prepare({ name, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
         title: name,
-        subtitle: month + ' ' + year,
+        subtitle: formatDate(date),
       }
     },
   },
