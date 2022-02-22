@@ -89,10 +89,13 @@ export const getStaticPaths = () => {
   }
 }
 
-export const getStaticProps = ({ params }) => {
+export const getStaticProps = async ({
+  params,
+  preview: isPreview = false,
+}) => {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       ...(RELEASES.find(release => release.slug === params.slug) || null),
     },
   }

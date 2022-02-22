@@ -20,9 +20,9 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 }
 
 export async function getStaticProps(context) {
-  const navigation = getNavigation()
   const isPreview = context.preview || false
   const params = context.params.rest || []
+  const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
     simId: null,

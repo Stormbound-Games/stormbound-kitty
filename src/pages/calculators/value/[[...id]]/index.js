@@ -18,9 +18,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const navigation = getNavigation()
+  const isPreview = context.preview || false
   const [id] = context.params.id || []
   const defaultCard = { id: null, level: 1 }
+  const navigation = await getNavigation({ isPreview })
   const disabledOptions = CARDS.map(card => card.id).filter(
     id => !getCardValue(id)
   )

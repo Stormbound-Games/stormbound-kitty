@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic'
 import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import Loader from '~/components/Loader'
-import GUIDES from '~/data/guides'
+import getGuide from '~/api/guides/getGuide'
+import getGuides from '~/api/guides/getGuides'
 import getNavigation from '~/helpers/getNavigation'
 import generateFormulaImage from '~/helpers/generateFormulaImage'
 
@@ -134,14 +135,16 @@ const GUIDE_COMPONENTS = {
   }),
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths = async () => {
+  const guides = await getGuides()
+
   return {
-    paths: GUIDES.map(release => ({ params: { slug: release.slug } })),
+    paths: guides.map(release => ({ params: { slug: release.slug } })),
     fallback: false,
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview: isPreview = false }) {
   if (params.slug === 'drawing') {
     await generateFormulaImage(
       'f(w) = ⌊ w × 1.6 + 1',
@@ -149,10 +152,12 @@ export async function getStaticProps({ params }) {
     )
   }
 
+  const guide = await getGuide({ slug: params.slug, isPreview })
+
   return {
     props: {
-      navigation: getNavigation(),
-      ...GUIDES.find(release => release.slug === params.slug),
+      navigation: await getNavigation({ isPreview }),
+      ...guide,
     },
   }
 }

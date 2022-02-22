@@ -15,8 +15,7 @@ const useFileExtension = ({ fileType, withAvif, withoutWebp }) => {
   return fileType
 }
 
-export default React.memo(function HeaderBanner(props) {
-  const { css } = useFela()
+const useCoverImage = props => {
   const fileType = props.background?.split('.').pop() ?? 'jpg'
   const ext = useFileExtension({
     // The `DEFAULT_BANNER` image has an AVIF version ready, so if there is no
@@ -26,7 +25,18 @@ export default React.memo(function HeaderBanner(props) {
     withoutWebp: props.withoutWebp,
     fileType: fileType,
   })
-  const background = (props.background || DEFAULT_BANNER).replace(fileType, ext)
+
+  // Coming from the CDN, no optimization needed.
+  if (props.background && props.background.startsWith('https://')) {
+    return props.background
+  }
+
+  return (props.background || DEFAULT_BANNER).replace(fileType, ext)
+}
+
+export default React.memo(function HeaderBanner(props) {
+  const { css } = useFela()
+  const background = useCoverImage(props)
 
   return (
     <Spacing bottom={['BASE', 'LARGEST']}>

@@ -39,7 +39,7 @@ export async function getStaticProps(context) {
       active: ['STORIES', STORY_CATEGORIES[category].category, category],
       story: currentStory,
       moreStories: moreStories.slice(0, 3),
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
     },
   }
 }

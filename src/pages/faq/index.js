@@ -7,7 +7,7 @@ import getFAQ from '~/api/faq/getFAQ'
 export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       data: await getFAQ({ isPreview }),
     },
   }

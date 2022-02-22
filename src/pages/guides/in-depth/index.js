@@ -2,16 +2,16 @@ import React from 'react'
 import Guides from '~/components/Guides'
 import Layout from '~/components/Layout'
 import { CATEGORIES } from '~/constants/guides'
-import GUIDES from '~/data/guides'
+import getGuidesFromCategory from '~/api/guides/getGuidesFromCategory'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview } = {}) {
   const category = 'IN_DEPTH'
-  const guides = GUIDES.filter(guide => guide.category === category)
+  const guides = await getGuidesFromCategory({ category, isPreview })
 
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       guides,
       category: { ...CATEGORIES[category], id: category },
     },

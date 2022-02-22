@@ -12,7 +12,7 @@ import getNavigation from '~/helpers/getNavigation'
 export async function getServerSideProps({ preview: isPreview = false }) {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       decks: await getDecks({ isPreview }),
     },
   }

@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const params = context.params.rest || []
   const isPreview = context.preview || false
-  const navigation = getNavigation()
+  const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
     id: null,

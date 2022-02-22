@@ -10,8 +10,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const navigation = getNavigation()
+  const isPreview = context.preview || false
   const [id] = context.params.id || []
+  const navigation = await getNavigation({ isPreview })
 
   try {
     const cards = serialization.cards.deserialize(id).map(getResolvedCardData)

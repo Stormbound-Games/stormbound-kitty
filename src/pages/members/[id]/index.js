@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       id,
       channel,
       content,

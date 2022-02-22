@@ -1,17 +1,18 @@
 import CARDS from '~/data/cards'
-import GUIDES from '~/data/guides'
 import RELEASES from '~/data/releases'
 import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getMembersList from '~/helpers/getMembersList'
 import getDecks from '~/api/decks/getDecks'
+import getGuides from '~/api/guides/getGuides'
 import getStories from '~/api/stories/getStories'
 import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 
 const getSearchIndex = async (withEverything = true) => {
   const decks = await getDecks()
+  const guides = await getGuides()
   const stories = await getStories()
   const puzzles = await getPuzzles()
   const contests = (await getSWCCSeasons()).flat()
@@ -222,7 +223,7 @@ const getSearchIndex = async (withEverything = true) => {
     })
 
   // Always test all guides because they are all different.
-  GUIDES.forEach(guide => {
+  guides.forEach(guide => {
     links.push({
       label: guide.name,
       path: '/guides/' + guide.slug,
