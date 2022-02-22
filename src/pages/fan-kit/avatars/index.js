@@ -3,8 +3,8 @@ import FanKitAvatars from '~/components/FanKitAvatars'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
-  return { props: { navigation: getNavigation() } }
+export async function getStaticProps({ preview: isPreview = false }) {
+  return { props: { navigation: await getNavigation({ isPreview }) } }
 }
 
 const FanKitAvatarsPage = ({ navigation, ...props }) => (

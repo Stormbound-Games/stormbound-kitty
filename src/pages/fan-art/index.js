@@ -8,7 +8,7 @@ import getNavigation from '~/helpers/getNavigation'
 export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       artworks: shuffle(await getArtworks({ isPreview })),
     },
   }

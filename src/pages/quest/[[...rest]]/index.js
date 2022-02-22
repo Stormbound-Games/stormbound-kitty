@@ -8,11 +8,11 @@ export async function getStaticPaths() {
   return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
-export async function getStaticProps(context) {
-  const navigation = getNavigation()
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const navigation = await getNavigation({ isPreview })
 
   try {
-    const [id] = context.params.rest || []
+    const [id] = params.rest || []
 
     if (!id) {
       return { props: { navigation, quest: {}, id: null } }

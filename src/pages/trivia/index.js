@@ -4,10 +4,10 @@ import Layout from '~/components/Layout'
 import QUESTIONS from '~/helpers/getRandomQuestion/questions'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      navigation: getNavigation(),
+      navigation: await getNavigation({ isPreview }),
       questions: QUESTIONS.map(question =>
         typeof question === 'function' ? question() : question
       ),

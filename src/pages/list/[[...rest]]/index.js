@@ -10,9 +10,8 @@ export async function getStaticPaths() {
   return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
-export async function getStaticProps(context) {
-  const navigation = getNavigation()
-  const params = context.params.rest || []
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
     tiers: DEFAULT_LIST,
@@ -21,7 +20,7 @@ export async function getStaticProps(context) {
   }
 
   try {
-    const [id, display] = params
+    const [id, display] = params.rest || []
 
     if (display && display !== 'display') {
       return { notFound: true }

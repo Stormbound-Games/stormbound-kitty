@@ -4,11 +4,11 @@ import Layout from '~/components/Layout'
 import getNews from '~/api/news/getNews'
 import getNavigation from '~/helpers/getNavigation'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
-      news: await getNews(),
-      navigation: getNavigation(),
+      news: await getNews({ isPreview }),
+      navigation: await getNavigation({ isPreview }),
     },
   }
 }
