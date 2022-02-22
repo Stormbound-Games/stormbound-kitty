@@ -1,4 +1,5 @@
 module.exports = {
+  staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
   images: {

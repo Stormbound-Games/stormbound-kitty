@@ -69,7 +69,6 @@ export async function getStaticProps(context) {
       },
     }
   } catch (error) {
-    console.log(error)
     return { props: DEFAULT_PROPS }
   }
 }
@@ -81,7 +80,6 @@ const COMPONENTS = {
 }
 
 const DeckBuilderPage = ({ navigation, ...props }) => {
-  console.log(props.view)
   const Component = COMPONENTS[props.view]
   const state = useDeckBuilder(props)
 
