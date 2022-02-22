@@ -1,11 +1,11 @@
 import { getEntries } from '~/helpers/sanity'
-import GUIDES from '~/data/guides'
 import cleanArtwork from '~/api/artworks/clean'
 import cleanChannel from '~/api/channels/clean'
 import cleanContribution from '~/api/contributions/clean'
 import cleanDeck from '~/api/decks/clean'
 import cleanDonation from '~/api/donations/clean'
 import cleanEvent from '~/api/events/clean'
+import cleanGuide from '~/api/guides/clean'
 import cleanPodcast from '~/api/podcasts/clean'
 import cleanPuzzle from '~/api/puzzles/clean'
 import cleanStory from '~/api/stories/clean'
@@ -22,6 +22,7 @@ const cleaners = {
   deck: cleanDeck,
   donation: cleanDonation,
   event: cleanEvent,
+  guide: cleanGuide,
   podcast: cleanPodcast,
   puzzle: cleanPuzzle,
   story: cleanStory,
@@ -50,15 +51,8 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
   const content = groupBy(entries, '_type')
 
   for (let type in content) {
-    // Skip guides until they are handled via Sanity in the app.
-    if (type === 'guide') {
-      content.guide = GUIDES.filter(guide =>
-        guide.authors.map(author => author.toLowerCase()).includes(author)
-      )
-    } else {
-      // Clean every entry based on its type.
-      content[type].forEach(cleaners[type])
-    }
+    // Clean every entry based on its type.
+    content[type].forEach(cleaners[type])
   }
 
   // Handle the tournament podiums and SWCC wins.

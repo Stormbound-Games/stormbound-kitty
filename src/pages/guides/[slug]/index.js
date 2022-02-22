@@ -3,7 +3,8 @@ import dynamic from 'next/dynamic'
 import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import Loader from '~/components/Loader'
-import GUIDES from '~/data/guides'
+import getGuide from '~/api/guides/getGuide'
+import getGuides from '~/api/guides/getGuides'
 import getNavigation from '~/helpers/getNavigation'
 
 const GUIDE_COMPONENTS = {
@@ -132,18 +133,22 @@ const GUIDE_COMPONENTS = {
   }),
 }
 
-export const getStaticPaths = () => {
+export async function getStaticPaths() {
+  const guides = await getGuides()
+
   return {
-    paths: GUIDES.map(release => ({ params: { slug: release.slug } })),
+    paths: guides.map(guide => ({ params: { slug: guide.slug } })),
     fallback: false,
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview: isPreview = false }) {
+  const guide = await getGuide({ slug: params.slug, isPreview })
+
   return {
     props: {
       navigation: getNavigation(),
-      ...GUIDES.find(release => release.slug === params.slug),
+      ...guide,
     },
   }
 }
