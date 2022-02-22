@@ -1,9 +1,8 @@
-import getGuides from '~/api/guides/getGuides'
 import { CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
-const getNavigation = async ({ isPreview } = {}) => {
-  const guides = await getGuides({ isPreview })
+const getNavigation = async () => {
+  const guides = []
 
   return [
     {
