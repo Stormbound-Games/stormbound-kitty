@@ -1,7 +1,12 @@
 import { getEntry } from '~/helpers/sanity'
 import clean from './clean'
 
-const getGuide = async ({ id = null, slug = null, name = null }) => {
+const getGuide = async ({
+  id = null,
+  slug = null,
+  name = null,
+  isPreview,
+} = {}) => {
   const guide = await getEntry({
     conditions: [
       '_type == "guide"',
@@ -9,6 +14,7 @@ const getGuide = async ({ id = null, slug = null, name = null }) => {
     ],
     fields: `..., background { asset -> { ... } }`,
     params: { id, slug, name },
+    options: { isPreview },
   })
 
   return guide ? clean(guide) : null
