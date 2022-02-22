@@ -4,11 +4,11 @@ import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
 import getFAQ from '~/api/faq/getFAQ'
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: getNavigation(),
-      data: await getFAQ(),
+      data: await getFAQ({ isPreview }),
     },
   }
 }
