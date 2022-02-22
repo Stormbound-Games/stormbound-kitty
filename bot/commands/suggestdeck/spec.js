@@ -14,7 +14,6 @@ describe.skip('Bot — !suggestdeck', () => {
   beforeAll(() => {
     return getDecks().then(decks => {
       DECKS_INDEX = indexArray(decks)
-      console.log(DECKS_INDEX)
     })
   })
 

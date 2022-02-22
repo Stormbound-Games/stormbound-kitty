@@ -41,7 +41,6 @@ export const getEntry = async ({
   })
 
   if (options.isPreview) {
-    console.log('Preview')
     const entries = await previewClient.fetch(query, params)
 
     return entries.find(isDraftEntry) || entries.find(isPublishedEntry)
