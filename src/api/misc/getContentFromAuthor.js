@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import GUIDES from '~/data/guides'
 import cleanArtwork from '~/api/artworks/clean'
 import cleanChannel from '~/api/channels/clean'
 import cleanContribution from '~/api/contributions/clean'
