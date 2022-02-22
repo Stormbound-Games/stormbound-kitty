@@ -1,8 +1,8 @@
 import isKATMember from '~/helpers/isKATMember'
 import GUIDES from '~/data/guides'
-import UPDATES from '~/data/updates'
 import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
+import getContributions from '~/api/contributions/getContributions'
 import getDecks from '~/api/decks/getDecks'
 import getDonations from '~/api/donations/getDonations'
 import getEvents from '~/api/events/getEvents'
@@ -23,6 +23,7 @@ const getMembersList = async () => {
   const members = {}
   const artworks = await getArtworks()
   const channels = await getChannels()
+  const contributions = await getContributions()
   const decks = await getDecks()
   const donations = await getDonations()
   const events = await getEvents()
@@ -86,10 +87,10 @@ const getMembersList = async () => {
       members[member].push('PODIUM')
     })
   })
-  UPDATES.forEach(update => {
-    members[update.author] = members[update.author] || []
-    update.entries.forEach(() => {
-      members[update.author].push('UPDATE')
+  contributions.forEach(contribution => {
+    members[contribution.author] = members[contribution.author] || []
+    contribution.entries.forEach(() => {
+      members[contribution.author].push('CONTRIBUTION')
     })
   })
 
@@ -99,14 +100,14 @@ const getMembersList = async () => {
       // list of members, but having a channel shouldn’t be counted as a
       // contribution per se.
       const entries = members[member].filter(entry => entry !== 'CHANNEL')
-      const updates = entries.filter(entry => entry === 'UPDATE')
+      const contributions = entries.filter(entry => entry === 'CONTRIBUTION')
       const donations = entries.filter(entry => entry === 'DONATION')
 
       return acc.concat({
         types: entries,
         member,
         count: entries.length,
-        roles: isKATMember({ member, updates, donations }),
+        roles: isKATMember({ member, contributions, donations }),
       })
     }, [])
     .sort(sortAlphabetically)

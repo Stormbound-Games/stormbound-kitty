@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 const COMPONENTS = {
   ART: dynamic(() => import('~/components/FeedArtEntry')),
   CARD: dynamic(() => import('~/components/FeedCardEntry')),
-  UPDATE: dynamic(() => import('~/components/FeedUpdateEntry')),
+  CONTRIBUTION: dynamic(() => import('~/components/FeedContributionEntry')),
   DECK: dynamic(() => import('~/components/FeedDeckEntry')),
   DONATION: dynamic(() => import('~/components/FeedDonationEntry')),
   GUIDE: dynamic(() => import('~/components/FeedGuideEntry')),

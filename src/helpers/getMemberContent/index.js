@@ -1,10 +1,10 @@
 import capitalize from '~/helpers/capitalize'
 import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
-import UPDATES from '~/data/updates'
 import GUIDES from '~/data/guides'
 import getChannel from '~/api/channels/getChannel'
 import getArtworksFromAuthor from '~/api/artworks/getArtworksFromAuthor'
+import getContributionsFromAuthor from '~/api/contributions/getContributionsFromAuthor'
 import getDecksFromAuthor from '~/api/decks/getDecksFromAuthor'
 import getDonationsFromAuthor from '~/api/donations/getDonationsFromAuthor'
 import getEventsFromAuthor from '~/api/events/getEventsFromAuthor'
@@ -25,17 +25,15 @@ const getUserGuides = id =>
     guide.authors.map(host => host.toLowerCase()).includes(id)
   ).map(formatEntryWithDate)
 
-const getUserUpdates = id =>
-  UPDATES.filter(update => update.author.toLowerCase() === id).map(
-    formatEntryWithDate
-  )
-
 const addType = type => entry => ({ ...entry, type })
 
 const getMemberContent = async id => {
   const channel = await getChannel(id)
   const artworks = (await getArtworksFromAuthor(id)).map(formatEntryWithDate)
   const cards = (await getSWCCFromAuthor(id)).map(formatEntryWithDate)
+  const contributions = (await getContributionsFromAuthor(id)).map(
+    formatEntryWithDate
+  )
   const decks = (await getDecksFromAuthor(id)).map(formatEntryWithDate)
   const donations = (await getDonationsFromAuthor(id)).map(formatEntryWithDate)
   const events = (await getEventsFromAuthor(id)).map(formatEntryWithDate)
@@ -45,7 +43,6 @@ const getMemberContent = async id => {
   const puzzles = (await getPuzzlesFromAuthor(id)).map(formatEntryWithDate)
   const stories = (await getStoriesFromAuthor(id)).map(formatEntryWithDate)
   const guides = getUserGuides(id)
-  const updates = getUserUpdates(id)
 
   const content = [
     ...stories.map(addType('STORY')),
@@ -56,7 +53,7 @@ const getMemberContent = async id => {
     ...artworks.map(addType('ART')),
     ...puzzles.map(addType('PUZZLE')),
     ...cards.map(addType('CARD')),
-    ...updates.map(addType('UPDATE')),
+    ...contributions.map(addType('CONTRIBUTION')),
     ...donations.map(addType('DONATION')),
     ...podcasts.map(addType('PODCAST')),
     ...events,
@@ -76,14 +73,15 @@ const getMemberContent = async id => {
       )[0] || capitalize(id)
 
   // The count is not quite the length of the `content` array as some entries
-  // such as code updates can hold multiple updates (e.g. one per PR).
+  // such as code contributions can hold multiple contributions (e.g. one per
+  // PR).
   const count = content.reduce(
     (acc, item) => acc + (item.entries ? item.entries.length : 1),
     0
   )
 
   return {
-    roles: isKATMember({ member: id, donations, updates }),
+    roles: isKATMember({ member: id, donations, contributions }),
     channel,
     displayName,
     content,
@@ -91,7 +89,7 @@ const getMemberContent = async id => {
     details: {
       artworks,
       cards,
-      updates,
+      contributions,
       decks,
       donations,
       events,

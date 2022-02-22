@@ -75,7 +75,7 @@ export default React.memo(function Member(props) {
             </Info>
           )}
 
-          {details.updates.length > 0 && (
+          {details.contributions.length > 0 && (
             <Info icon='hammer' title='Technical contributor'>
               <p>
                 {isCurrentUser ? 'You are' : <>{displayName} is</>} one of the

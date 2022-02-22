@@ -27,8 +27,8 @@ const getLabel = (count, type) => {
       return count === 1 ? 'puzzle' : 'puzzles'
     case 'STORY':
       return count === 1 ? 'story' : 'stories'
-    case 'UPDATE':
-      return count === 1 ? 'code update' : 'code updates'
+    case 'CONTRIBUTION':
+      return count === 1 ? 'code contribution' : 'code contributions'
     case '*':
     default:
       return count === 1 ? 'contribution' : 'contributions'

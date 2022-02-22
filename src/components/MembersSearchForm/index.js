@@ -38,7 +38,7 @@ const MembersSearchForm = props => {
           <option value='PODIUM'>Podiums</option>
           <option value='PUZZLE'>Puzzles</option>
           <option value='STORY'>Stories</option>
-          <option value='UPDATE'>Code Updates</option>
+          <option value='CONTRIBUTION'>Code Contributions</option>
         </Select>
       </Row.Column>
     </Row>

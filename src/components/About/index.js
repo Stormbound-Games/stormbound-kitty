@@ -166,7 +166,7 @@ export default React.memo(function About(props) {
           <p>
             Additionally, special thanks to the following contributors for
             issuing code updates, whether small or large:{' '}
-            <MemberList members={props.collaborators} />.
+            <MemberList members={props.contributors} />.
           </p>
 
           <p>
