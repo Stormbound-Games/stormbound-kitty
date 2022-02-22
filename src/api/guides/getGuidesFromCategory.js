@@ -1,14 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
 import clean from './clean'
 
-const getGuidesFromAuthor = async ({ author, isPreview } = {}) => {
+const getGuidesFromCategory = async ({ category, isPreview } = {}) => {
   const guides = await getEntries({
-    conditions: ['_type == "guide"', 'count(authors[lower(@) == $author]) > 0'],
-    params: { author },
+    conditions: ['_type == "guide"', 'category == $category'],
+    params: { category },
     options: { order: 'date desc', isPreview },
   })
 
   return guides.map(clean)
 }
 
-export default getGuidesFromAuthor
+export default getGuidesFromCategory
