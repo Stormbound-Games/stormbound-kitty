@@ -1,11 +1,11 @@
 import isKATMember from '~/helpers/isKATMember'
-import GUIDES from '~/data/guides'
 import getArtworks from '~/api/artworks/getArtworks'
 import getChannels from '~/api/channels/getChannels'
 import getContributions from '~/api/contributions/getContributions'
 import getDecks from '~/api/decks/getDecks'
 import getDonations from '~/api/donations/getDonations'
 import getEvents from '~/api/events/getEvents'
+import getGuides from '~/api/guides/getGuides'
 import getPodcasts from '~/api/podcasts/getPodcasts'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getStories from '~/api/stories/getStories'
@@ -27,6 +27,7 @@ const getMembersList = async ({ isPreview } = {}) => {
   const decks = await getDecks({ isPreview })
   const donations = await getDonations({ isPreview })
   const events = await getEvents({ isPreview })
+  const guides = await getGuides({ isPreview })
   const podcasts = await getPodcasts({ isPreview })
   const puzzles = await getPuzzles({ isPreview })
   const stories = await getStories({ isPreview })
@@ -53,7 +54,7 @@ const getMembersList = async ({ isPreview } = {}) => {
     members[event.author] = members[event.author] || []
     members[event.author].push('EVENT')
   })
-  GUIDES.forEach(guide => {
+  guides.forEach(guide => {
     guide.authors.forEach(author => {
       members[author] = members[author] || []
       members[author].push('GUIDE')

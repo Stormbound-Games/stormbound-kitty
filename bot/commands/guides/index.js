@@ -1,5 +1,5 @@
-import GUIDES from '~/data/guides'
 import getEmbed from '~/helpers/getEmbed'
+import getGuides from '~/api/guides/getGuides'
 import { CATEGORIES } from '~/constants/guides'
 
 const guides = {
@@ -11,8 +11,9 @@ const guides = {
       .setURL('https://stormbound-kitty.com/guides')
       .setDescription('List all existing guides from Stormbound-Kitty.')
   },
-  handler: function (message) {
-    const match = GUIDES.find(guide =>
+  handler: async function (message) {
+    const guides = await getGuides()
+    const match = guides.find(guide =>
       guide.name.toLowerCase().includes(message)
     )
 
@@ -28,7 +29,8 @@ const guides = {
         .setDescription(
           Object.keys(CATEGORIES).reduce((desc, category) => {
             desc += '\n\n**' + CATEGORIES[category].name.long + '**\n'
-            desc += GUIDES.filter(guide => guide.category === category)
+            desc += guides
+              .filter(guide => guide.category === category)
               .map(
                 guide =>
                   guide.name +

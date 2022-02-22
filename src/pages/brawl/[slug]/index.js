@@ -2,7 +2,7 @@ import React from 'react'
 import BrawlPage from '~/components/BrawlPage'
 import Layout from '~/components/Layout'
 import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
-import GUIDES from '~/data/guides'
+import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
 import getNavigation from '~/helpers/getNavigation'
 
@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
   const isPreview = context.preview || false
   const id = slug.toUpperCase().replace(/-/g, '_')
   const brawl = BRAWL_INDEX[id]
-  const guide = GUIDES.find(guide => guide.name === brawl.title) || null
+  const guide = await getGuide({ name: brawl.title, isPreview })
   const recommendedDecks = await getDecksWithTag({ tag: id, isPreview })
   const recommendedDeck = recommendedDecks[0] || null
 

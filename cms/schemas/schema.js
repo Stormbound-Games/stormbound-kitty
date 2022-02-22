@@ -7,6 +7,7 @@ import deck from './deck'
 import donation from './donation'
 import event from './event'
 import faq from './faq'
+import guide from './guide'
 import news from './news'
 import podcast from './podcast'
 import puzzle from './puzzle'
@@ -24,6 +25,7 @@ export default createSchema({
     donation,
     event,
     faq,
+    guide,
     news,
     podcast,
     puzzle,
