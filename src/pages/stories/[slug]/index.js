@@ -7,8 +7,8 @@ import getStories from '~/api/stories/getStories'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
-export async function getStaticPaths({ preview: isPreview = false }) {
-  const stories = await getStories({ isPreview })
+export async function getStaticPaths() {
+  const stories = await getStories()
   const paths = stories.map(story => ({ params: { slug: story.slug } }))
 
   return { paths, fallback: false }
