@@ -66,6 +66,11 @@ module.exports = {
         destination: '/simulators/battle/:id*',
         permanent: true,
       },
+      {
+        source: '/fan-kit/wallpapers',
+        destination: '/fan-kit/wallpapers/desktop',
+        permanent: true,
+      },
     ]
   },
   async headers() {
