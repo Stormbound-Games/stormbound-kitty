@@ -20,6 +20,7 @@ import battleSim from './richText/battleSim'
 import cardLink from './richText/cardLink'
 import info from './richText/info'
 import link from './richText/link'
+import tableOfContents from './richText/tableOfContents'
 
 export default createSchema({
   name: 'default',
@@ -47,5 +48,6 @@ export default createSchema({
     cardLink,
     info,
     link,
+    tableOfContents,
   ]),
 })

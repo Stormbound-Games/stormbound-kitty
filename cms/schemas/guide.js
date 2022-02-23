@@ -101,6 +101,7 @@ const guide = {
         },
         { type: 'info' },
         { type: 'battleSim' },
+        { type: 'tableOfContents' },
       ],
     },
   ],
