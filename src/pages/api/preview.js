@@ -1,5 +1,6 @@
 import applyRateLimit from '~/helpers/applyRateLimit'
 import getDeck from '~/api/decks/getDeck'
+import getGuide from '~/api/guides/getGuide'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import getStory from '~/api/stories/getStory'
 
@@ -47,6 +48,12 @@ const getRedirectUrl = async params => {
       const deck = await getDeck(params)
 
       return deck ? `/deck/${deck.id}/detail` : null
+    }
+
+    case 'guide': {
+      const guide = await getGuide(params)
+
+      return guide ? `/guides/${guide.slug}` : null
     }
 
     default:
