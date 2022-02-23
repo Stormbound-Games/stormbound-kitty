@@ -196,7 +196,7 @@ export default React.memo(function BookOpeningSimulator(props) {
     <Page
       title='Book Simulator'
       description='Recreate the thrill of opening books by playing with this simulator, opening the books of your choice!'
-      background='/assets/images/wallpapers/lite/wp-d-6.png'
+      background='https://cdn.sanity.io/images/5hlpazgd/production/ce4ef835e274c9696c34c75a8ebd908d60d482b5-1920x1080.png?auto=format&w=1200'
     >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>

@@ -231,7 +231,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
       <Page.Embed>
         <Image
-          src='/assets/images/wallpapers/lite/wp-d-8.png'
+          src='https://cdn.sanity.io/images/5hlpazgd/production/176767c10756b7944310d408273d3c58dc610b0b-1920x617.png?&auto=format&w=1200'
           alt='Showcase of all books in the game'
         />
       </Page.Embed>

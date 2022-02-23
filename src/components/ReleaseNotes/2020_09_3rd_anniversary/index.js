@@ -200,7 +200,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
       <Page.Embed>
         <Image
           extend={{ margin: 'auto' }}
-          src='/assets/images/wallpapers/lite/wp-d-3.png'
+          src='https://cdn.sanity.io/images/5hlpazgd/production/956987cec4057771037db8e77411abbf30a44228-1920x1080.png?auto=format&w=1200'
           alt='Stormbound Wallpaper'
           withAvif
         />
