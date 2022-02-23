@@ -1,77 +1,127 @@
 import React from 'react'
+import speakingurl from 'speakingurl'
 import { PortableText } from '@portabletext/react'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
+import Info from '~/components/Info'
 import Link from '~/components/Link'
-import Spacing from '~/components/Spacing'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
 
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L57-L58
-const Block = props => {
-  if (props.children.every(node => !node)) {
-    return null
+const RichTextContext = React.createContext({ ast: {} })
+
+const marks = {
+  strong: props => <strong>{props.children}</strong>,
+  code: props => <code>{props.children}</code>,
+  link: ({ value, children }) => (
+    <Link
+      {...{
+        [value.href.startsWith('http') ? 'href' : 'to']: value.href,
+      }}
+    >
+      {children}
+    </Link>
+  ),
+  cardLink: ({ value, children }) => (
+    <CardLink id={value.cardId || value.id}>{children}</CardLink>
+  ),
+  // Text should not be underlined if it’s not a link.
+  underline: props => props.children,
+}
+
+const getText = props =>
+  props.children
+    .map(node => (typeof node === 'string' ? node : node.text || ''))
+    .join('')
+
+const findHeadings = (ast, deep = false) => {
+  return ast.reduce((acc, node) => {
+    if (node.style === 'h2') {
+      const text = getText(node)
+      const id = speakingurl(text)
+      acc.push({ _key: node._key, text, id, subtitles: [] })
+    } else if (deep && node.style === 'h3' && acc.length) {
+      const parent = acc.pop()
+      const text = getText(node)
+      const id = speakingurl(text)
+      parent.subtitles.push({ _key: node._key, text, id })
+      acc.push(parent)
+    } else if (node.children) acc.push(...findHeadings(node.children))
+    return acc
+  }, [])
+}
+
+const asHeading = Component =>
+  function Heading(props) {
+    if (!props.children) return null
+
+    const text = getText(props)
+    const id = speakingurl(text)
+
+    return <Component id={id}>{props.children}</Component>
   }
 
-  return (
-    <Spacing as='p' bottom='LARGE' extend={{ whiteSpace: 'pre-line' }}>
-      {props.children}
-    </Spacing>
-  )
+const block = {
+  normal: props => (props.children ? <p>{props.children}</p> : null),
+  h2: asHeading(Title),
+  h3: asHeading('h3'),
 }
 
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L39-L40
-const List = props => {
-  const Element = props.value.listItem === 'bullet' ? 'ul' : 'ol'
-  return <Element>{props.children}</Element>
+const ToCItem = props => (
+  <li>
+    <Link href={'#' + props.id}>{props.text}</Link>
+    {props.children}
+  </li>
+)
+
+const types = {
+  info: props => (
+    <Info icon={props.value.icon} title={props.value.title}>
+      <BlocksRenderer value={props.value.content} />
+    </Info>
+  ),
+  battleSim: props => (
+    <BattleSimEmbed id={props.value.board}>
+      <BlocksRenderer value={props.value.caption} />
+    </BattleSimEmbed>
+  ),
+  tableOfContents: function Toc(props) {
+    const { ast } = React.useContext(RichTextContext)
+    const headings = findHeadings(ast, props.value.deep)
+
+    return (
+      <TableOfContents>
+        {headings.map(heading => (
+          <ToCItem key={heading._key} {...heading}>
+            {heading.subtitles ? (
+              <ol style={{ marginTop: 'var(--s-smaller)' }}>
+                {heading.subtitles.map(subtitle => (
+                  <ToCItem key={subtitle._key} {...subtitle} />
+                ))}
+              </ol>
+            ) : null}
+          </ToCItem>
+        ))}
+      </TableOfContents>
+    )
+  },
 }
-
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L45-L46
-const ListItem = props => {
-  return (
-    <Spacing as='li' bottom='SMALL'>
-      {props.children}
-    </Spacing>
-  )
-}
-
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L88
-const LinkBlock = props => {
-  const prop = props.value.href.startsWith('http') ? 'href' : 'to'
-  const linkProp = { [prop]: props.value.href }
-
-  return <Link {...linkProp}>{props.children}</Link>
-}
-
-const CardLinkBlock = props => {
-  return (
-    <CardLink id={props.value.id}>
-      {props.children.length === 1 && props.children[0] === props.value.id
-        ? undefined
-        : props.children}
-    </CardLink>
-  )
-}
-
-const Strong = props => <strong>{props.children}</strong>
-const Code = props => <code>{props.children}</code>
 
 const components = {
-  types: {
-    block: Block,
-  },
-  marks: {
-    strong: Strong,
-    code: Code,
-    link: LinkBlock,
-    cardLink: CardLinkBlock,
-    // Text should not be underlined if it’s not a link.
-    underline: props => props.children,
-  },
-  list: List,
-  listItem: ListItem,
+  types,
+  block,
+  marks,
+  list: { bullet: 'ul', number: 'ol' },
+  listItem: { bullet: 'li', number: 'li' },
   empty: null,
 }
 
 const BlocksRenderer = props => (
-  <PortableText value={props.value} components={components} />
+  // The table of contents block needs to have access to the AST in order to
+  // find all the headings.
+  <RichTextContext.Provider value={{ ast: props.value }}>
+    <PortableText value={props.value} components={components} />
+  </RichTextContext.Provider>
 )
 
 export default React.memo(BlocksRenderer)

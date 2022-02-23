@@ -16,10 +16,16 @@ import story from './story'
 import swcc from './swcc'
 import tournament from './tournament'
 import wallpaper from './wallpaper'
+import battleSim from './richText/battleSim'
+import cardLink from './richText/cardLink'
+import info from './richText/info'
+import link from './richText/link'
+import tableOfContents from './richText/tableOfContents'
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
+    // Documents
     artwork,
     avatar,
     channel,
@@ -36,5 +42,12 @@ export default createSchema({
     swcc,
     tournament,
     wallpaper,
+
+    // Rich text editor modules
+    battleSim,
+    cardLink,
+    info,
+    link,
+    tableOfContents,
   ]),
 })

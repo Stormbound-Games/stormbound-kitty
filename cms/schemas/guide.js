@@ -2,6 +2,8 @@ import member from './types/member'
 import date from './types/date'
 import cardId from './types/cardId'
 import formatDate from './helpers/formatDate'
+import cardLink from './richText/cardLink'
+import link from './richText/link'
 import { CATEGORIES } from '~/constants/guides'
 
 const guide = {
@@ -79,6 +81,28 @@ const guide = {
       type: 'boolean',
       description: 'Whether the guide should not appear in the navigation.',
       initialValue: false,
+    },
+    {
+      title: 'Content',
+      name: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'Heading 2', value: 'h2' },
+            { title: 'Heading 3', value: 'h3' },
+          ],
+          marks: {
+            decorators: [{ title: 'Strong', value: 'strong' }],
+            annotations: [link, cardLink],
+          },
+        },
+        { type: 'info' },
+        { type: 'battleSim' },
+        { type: 'tableOfContents' },
+      ],
     },
   ],
   orderings: [

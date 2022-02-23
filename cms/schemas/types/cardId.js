@@ -5,7 +5,9 @@ const cardId = {
   name: 'cardId',
   type: 'string',
   options: {
-    list: cards.map(card => ({ title: card.name, value: card.id })),
+    list: cards
+      .map(card => ({ title: card.name, value: card.id }))
+      .sort((a, b) => a.title.localeCompare(b.title)),
   },
   validation: Rule => Rule.required().uppercase(),
 }

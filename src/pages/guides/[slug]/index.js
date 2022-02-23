@@ -1,5 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import BlocksRenderer from '~/components/BlocksRenderer'
 import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import Loader from '~/components/Loader'
@@ -162,7 +163,11 @@ const GuidePage = ({ navigation, ...props }) => {
       navigation={navigation}
     >
       <Guide {...props}>
-        <Component />
+        {props.content ? (
+          <BlocksRenderer value={props.content} />
+        ) : (
+          <Component />
+        )}
       </Guide>
     </Layout>
   )
