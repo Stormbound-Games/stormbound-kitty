@@ -25,6 +25,9 @@ const getRedirectUrl = async params => {
     case 'tournament':
       return '/tournaments/hall-of-fame'
 
+    case 'avatars':
+      return '/fan-kit/avatars'
+
     case 'wallpaper':
       return '/fan-kit/wallpapers'
 
