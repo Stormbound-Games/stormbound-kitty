@@ -2,9 +2,15 @@ import React from 'react'
 import FanKitAvatars from '~/components/FanKitAvatars'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
+import getAvatars from '~/api/avatars/getAvatars'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  return { props: { navigation: await getNavigation({ isPreview }) } }
+  return {
+    props: {
+      navigation: await getNavigation({ isPreview }),
+      avatars: await getAvatars({ isPreview }),
+    },
+  }
 }
 
 const FanKitAvatarsPage = ({ navigation, ...props }) => (

@@ -11,79 +11,18 @@ import indexArray from '~/helpers/indexArray'
 import useLazyLoad from '~/hooks/useLazyLoad'
 import useViewportSize from '~/hooks/useViewportSize'
 
-const AVATARS = [
-  'F12',
-  'F15',
-  'I2',
-  'I25',
-  'N12',
-  'N14',
-  'N27',
-  'N30',
-  'N33',
-  'N42',
-  'N48',
-  'N55',
-  'N58',
-  'N59',
-  'N66',
-  'N69',
-  'N77',
-  'N80',
-  'S1',
-  'S16',
-  'S5',
-  'W23',
-  'aqua_robot',
-  'draconic_humanoid',
-  'druidess',
-  'elder',
-  'elf',
-  'dog_pilot',
-  'gold_flower',
-  'human',
-  'icicle_flower',
-  'kitty',
-  'knight',
-  'minion_christmas',
-  'officer',
-  'pirate',
-  'pirate_parrot',
-  'punk_rodent',
-  'purple_flower',
-  'queen_of_hearts',
-  'red_beard',
-  'rose',
-  'valentine_woman',
-  'valentine_man',
-  'valentine_heart_monarch',
-  'minion_christmas_nobg',
-  'valentine_woman_nobg',
-  'valentine_man_nobg',
-  'valentine_heart_monarch_nobg',
-]
-
-const avatars = AVATARS.map(avatar => ({
-  name:
-    getRawCardData(avatar)?.name ??
-    avatar.split(/_/g).map(capitalize).join(' '),
-  id: avatar,
-  image: '/assets/images/avatars/' + avatar + '.png',
-}))
-
-const AVATARS_INDEX = indexArray(avatars)
-
 export default React.memo(function FanKitAvatars(props) {
   const { viewportWidth } = useViewportSize()
   const columns = viewportWidth >= 700 ? 8 : 2
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
+  const AVATARS_INDEX = indexArray(props.avatars, '_id')
   const activeAvatar = AVATARS_INDEX[active]
   const {
     loading,
     items: displayedItems,
     ref,
-  } = useLazyLoad(avatars, columns * 2)
+  } = useLazyLoad(props.avatars, columns * 2)
   const items = chunk(displayedItems, columns)
 
   React.useEffect(() => {
@@ -102,7 +41,7 @@ export default React.memo(function FanKitAvatars(props) {
       <FanKitDownloadDialog
         displayImage={false}
         name={activeAvatar ? activeAvatar.name : undefined}
-        image={activeAvatar ? activeAvatar.image : undefined}
+        image={activeAvatar ? activeAvatar.image.asset.url : undefined}
         dialogRef={instance => {
           dialogRef.current = instance
 
@@ -123,11 +62,15 @@ export default React.memo(function FanKitAvatars(props) {
               {row[index] && (
                 <FanKitItem
                   {...row[index]}
+                  id={row[index]._id}
+                  image={row[index].image.asset.url + '?auto=format&w=114'}
                   key={row[index].id}
                   setActive={setActive}
                   width={114}
-                  height={138}
-                  lazy
+                  height={Math.round(
+                    row[index].image.asset.metadata.dimensions.height *
+                      (114 / row[index].image.asset.metadata.dimensions.width)
+                  )}
                   withAvif={false}
                   withoutWebp={true}
                 />
