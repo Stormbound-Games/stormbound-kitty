@@ -99,6 +99,7 @@ const guide = {
             annotations: [link, cardLink],
           },
         },
+        { type: 'imagery' },
         { type: 'info' },
         { type: 'battleSim' },
         { type: 'tableOfContents' },

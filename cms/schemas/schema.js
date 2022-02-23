@@ -18,6 +18,7 @@ import tournament from './tournament'
 import wallpaper from './wallpaper'
 import battleSim from './richText/battleSim'
 import cardLink from './richText/cardLink'
+import imagery from './richText/imagery'
 import info from './richText/info'
 import link from './richText/link'
 import tableOfContents from './richText/tableOfContents'
@@ -46,6 +47,7 @@ export default createSchema({
     // Rich text editor modules
     battleSim,
     cardLink,
+    imagery,
     info,
     link,
     tableOfContents,
