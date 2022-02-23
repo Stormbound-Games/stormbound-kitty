@@ -10,16 +10,41 @@ import useIsMounted from '~/hooks/useIsMounted'
 import styles from './styles'
 
 const POSITIONS = {
-  dragon: [['3.25%'], ['66.3%']],
-  feline: [['2.15%'], ['68%']],
-  ironclad: [['4.8%'], ['65%']],
-  neutral: [['4.45%'], ['66.3%']],
-  shadowfen: [['4.8%'], ['66%']],
+  dragon: [
+    ['3.25%'],
+    ['66.3%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/212113ed8bc22759c6bb9edd1bdf9980c09107b6-3840x2160.png?auto=format&w=1200',
+  ],
+  feline: [
+    ['2.15%'],
+    ['68%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/4c7078106c7ddd3f2c4cb82df0ab565b7de9a319-3840x2160.png?auto=format&w=1200',
+  ],
+  ironclad: [
+    ['4.8%'],
+    ['65%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/526791551e9c04a215e45ca395f4904827f7b5d9-3840x2160.png?auto=format&w=1200',
+  ],
+  neutral: [
+    ['4.45%'],
+    ['66.3%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/91d572092d6a3894ff42ecf110ab8dac7d7ebcb7-3840x2160.png?auto=format&w=1200',
+  ],
+  shadowfen: [
+    ['4.8%'],
+    ['66%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/040737271b6ef070b2b6bf860bf8db83aa72c56f-3840x2160.png?auto=format&w=1200',
+  ],
   swarm: [
     ['5.5%', '-40%'],
     ['67.3%', '-75%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/39d33f182abe88217541a0a3a845ad7cf1210647-3840x2160.png?auto=format&w=1200',
   ],
-  winter: [['5.75%'], ['66.3%']],
+  winter: [
+    ['5.75%'],
+    ['66.3%'],
+    'https://cdn.sanity.io/images/5hlpazgd/production/c92f154cc3ef467482f5acb358da2e9edb088dad-3840x2160.png?auto=format&w=1200',
+  ],
 }
 
 export default React.memo(function BattleSimBoardDesktop(props) {
@@ -28,14 +53,14 @@ export default React.memo(function BattleSimBoardDesktop(props) {
   const { supportsAvif, supportsWebp } = React.useContext(ImageSupportContext)
   const ext = supportsAvif ? 'avif' : supportsWebp ? 'webp' : 'png'
   const environment = props.environment || 'swarm'
-  const [redHealth, blueHealth] = POSITIONS[environment]
+  const [redHealth, blueHealth, background] = POSITIONS[environment]
 
   return (
     <div
       className={css(styles.root)}
       data-testid='board'
       style={{
-        backgroundImage: `url('https://stormbound-kitty.com/assets/images/backgrounds/lite/${environment}.${ext}')`,
+        backgroundImage: `url("${background}")`,
         '--red-health-y': redHealth[0],
         '--red-health-x': redHealth[1],
         '--blue-health-y': blueHealth[0],

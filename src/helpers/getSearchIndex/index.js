@@ -186,12 +186,6 @@ const getSearchIndex = async (withEverything = true) => {
   })
 
   links.push({
-    label: 'Fan-Kit Backgrounds',
-    path: '/fan-kit/backgrounds',
-    breadcrumbs: ['Official', 'Information'],
-  })
-
-  links.push({
     label: 'Fan-Kit Books',
     path: '/fan-kit/books',
     breadcrumbs: ['Official', 'Information'],
@@ -204,8 +198,14 @@ const getSearchIndex = async (withEverything = true) => {
   })
 
   links.push({
-    label: 'Fan-Kit Wallpapers',
-    path: '/fan-kit/wallpapers',
+    label: 'Fan-Kit Desktop Wallpapers',
+    path: '/fan-kit/wallpapers/desktop',
+    breadcrumbs: ['Official', 'Information'],
+  })
+
+  links.push({
+    label: 'Fan-Kit Mobile Wallpapers',
+    path: '/fan-kit/wallpapers/mobile',
     breadcrumbs: ['Official', 'Information'],
   })
 

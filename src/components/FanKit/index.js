@@ -29,19 +29,19 @@ const ITEMS = [
   },
   {
     meta: 'Official content',
-    cardId: 'N21',
-    title: 'Wallpapers',
-    to: '/fan-kit/wallpapers',
+    cardId: 'N84',
+    title: 'Desktop Wallpapers',
+    to: '/fan-kit/wallpapers/desktop',
     excerpt:
-      'Find all high definition wallpapers that can be used as background for both desktop and mobile devices.',
+      'Find all high definition wallpapers that can be used as background for desktop computers.',
   },
   {
     meta: 'Official content',
-    cardId: 'N84',
-    title: 'Game backgrounds',
-    to: '/fan-kit/backgrounds',
+    cardId: 'N21',
+    title: 'Mobile Wallpapers',
+    to: '/fan-kit/wallpapers/mobile',
     excerpt:
-      'Find all the desktop in-game backgrounds which can be used for tools like the battle sim.',
+      'Find all high definition wallpapers that can be used as background for mobile devices.',
   },
   {
     meta: 'Community-made',
