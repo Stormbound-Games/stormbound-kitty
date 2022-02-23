@@ -16,6 +16,7 @@ import TableOfContents from '~/components/TableOfContents'
 import { Coins, Rubies, Stones } from '~/components/Resource'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
+import { BOOKS } from '~/constants/books'
 
 export default React.memo(function ReleaseNotesNovember2021(props) {
   return (
@@ -281,35 +282,35 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-satyr.png'
+                src={BOOKS.SATYR.image + '?auto=format&w=250'}
                 alt='New Book of Satyrs'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-undead.png'
+                src={BOOKS.UNDEAD.image + '?auto=format&w=250'}
                 alt='New Book of Undead'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-toad.png'
+                src={BOOKS.TOAD.image + '?auto=format&w=250'}
                 alt='New Book of Toads'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-raven.png'
+                src={BOOKS.RAVEN.image + '?auto=format&w=250'}
                 alt='New Book of Ravens'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-dwarf.png'
+                src={BOOKS.DWARF.image + '?auto=format&w=250'}
                 alt='New Book of Dwarves'
                 withAvif
               />
@@ -318,35 +319,35 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-frostling.png'
+                src={BOOKS.FROSTLING.image + '?auto=format&w=250'}
                 alt='New Book of Frostlings'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-construct.png'
+                src={BOOKS.CONSTRUCT.image + '?auto=format&w=250'}
                 alt='New Book of Constructs'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-rodent.png'
+                src={BOOKS.RODENT.image + '?auto=format&w=250'}
                 alt='New Book of Rodents'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-temple.png'
+                src={BOOKS.TEMPLE.image + '?auto=format&w=250'}
                 alt='New Book of Temples'
                 withAvif
               />
             </Row.Column>
             <Row.Column width='1/5'>
               <Image
-                src='/assets/images/books/book-knight.png'
+                src={BOOKS.KNIGHT.image + '?auto=format&w=250'}
                 alt='New Book of Knights'
                 withAvif
               />
@@ -358,14 +359,14 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-satyr.png'
+                src={BOOKS.SATYR.image + '?auto=format&w=250'}
                 alt='New Book of Satyrs'
                 withAvif
               />
             </Row.Column>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-undead.png'
+                src={BOOKS.UNDEAD.image + '?auto=format&w=250'}
                 alt='New Book of Undead'
                 withAvif
               />
@@ -374,14 +375,14 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-toad.png'
+                src={BOOKS.TOAD.image + '?auto=format&w=250'}
                 alt='New Book of Toads'
                 withAvif
               />
             </Row.Column>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-raven.png'
+                src={BOOKS.RAVEN.image + '?auto=format&w=250'}
                 alt='New Book of Ravens'
                 withAvif
               />
@@ -390,14 +391,14 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-dwarf.png'
+                src={BOOKS.DWARF.image + '?auto=format&w=250'}
                 alt='New Book of Dwarves'
                 withAvif
               />
             </Row.Column>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-frostling.png'
+                src={BOOKS.FROSTLING.image + '?auto=format&w=250'}
                 alt='New Book of Frostlings'
                 withAvif
               />
@@ -406,14 +407,14 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-construct.png'
+                src={BOOKS.CONSTRUCT.image + '?auto=format&w=250'}
                 alt='New Book of Constructs'
                 withAvif
               />
             </Row.Column>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-rodent.png'
+                src={BOOKS.RODENT.image + '?auto=format&w=250'}
                 alt='New Book of Rodents'
                 withAvif
               />
@@ -422,14 +423,14 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           <Row>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-temple.png'
+                src={BOOKS.TEMPLE.image + '?auto=format&w=250'}
                 alt='New Book of Temples'
                 withAvif
               />
             </Row.Column>
             <Row.Column>
               <Image
-                src='/assets/images/books/book-knight.png'
+                src={BOOKS.KNIGHT.image + '?auto=format&w=250'}
                 alt='New Book of Knights'
                 withAvif
               />

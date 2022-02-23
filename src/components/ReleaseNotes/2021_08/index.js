@@ -17,6 +17,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import useViewportSize from '~/hooks/useViewportSize'
+import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
 export default React.memo(function ReleaseNotesAugust2021(props) {
@@ -489,25 +490,25 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <Row>
           <Row.Column width='1/4'>
             <Image
-              src='/assets/images/books/book-magic.png'
+              src={BOOKS.MAGIC.image + '?auto=format&w=300'}
               alt='Book of Magic'
             />
           </Row.Column>
           <Row.Column width='1/4'>
             <Image
-              src='/assets/images/books/book-structure.png'
+              src={BOOKS.STRUCTURE.image + '?auto=format&w=300'}
               alt='Book of Structures'
             />
           </Row.Column>
           <Row.Column width='1/4'>
             <Image
-              src='/assets/images/books/book-chaos.png'
+              src={BOOKS.CHAOS.image + '?auto=format&w=300'}
               alt='Book of Chaos'
             />
           </Row.Column>
           <Row.Column width='1/4'>
             <Image
-              src='/assets/images/books/book-legends.png'
+              src={BOOKS.LEGENDS.image + '?auto=format&w=300'}
               alt='Book of Legends'
             />
           </Row.Column>

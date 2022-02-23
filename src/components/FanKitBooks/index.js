@@ -13,10 +13,7 @@ import useLazyLoad from '~/hooks/useLazyLoad'
 const books = Object.keys(BOOKS).map(bookType => ({
   name: getBookName(bookType),
   id: bookType,
-  image:
-    '/assets/images/books/book-' +
-    bookType.toLowerCase().replace(/_/g, '-') +
-    '.png',
+  image: BOOKS[bookType].image + '?auto=format&w=300',
 }))
 
 const BOOKS_INDEX = indexArray(books)
