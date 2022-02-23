@@ -21,6 +21,7 @@ if (!path.startsWith('/')) {
   process.exit(1)
 }
 
+console.log('Revalidating', domain + path)
 fetch(domain + '/api/revalidate', {
   method: 'POST',
   body: JSON.stringify({ path }),
@@ -29,5 +30,10 @@ fetch(domain + '/api/revalidate', {
     Authorization: 'bearer ' + NEXT_REVALIDATION_TOKEN,
   },
 })
-  .then(response => console.log('Path revalidated.'))
+  .then(response => {
+    if (response.status >= 400) {
+      throw new Error(response.status + ' ' + response.statusText)
+    }
+    console.log('Path revalidated', domain + path)
+  })
   .catch(error => console.error(error))
