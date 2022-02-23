@@ -42,6 +42,16 @@ const podcast = {
       validation: Rule => Rule.required().max(250),
     },
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [
+        { field: 'date', direction: 'desc' },
+        { field: '_createdAt', direction: 'desc' },
+      ],
+    },
+  ],
   preview: {
     select: {
       title: 'title',

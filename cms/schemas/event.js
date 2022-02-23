@@ -31,6 +31,13 @@ const event = {
       ...json,
     },
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       type: 'type',

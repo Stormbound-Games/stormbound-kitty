@@ -81,6 +81,13 @@ const guide = {
       initialValue: false,
     },
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       name: 'name',

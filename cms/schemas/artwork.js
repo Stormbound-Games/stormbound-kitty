@@ -20,6 +20,13 @@ const channels = {
       validation: Rule => Rule.required(),
     },
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       author: 'author',

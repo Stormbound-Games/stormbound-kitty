@@ -24,6 +24,13 @@ const contribution = {
       validation: Rule => Rule.min(1),
     },
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       author: 'author',

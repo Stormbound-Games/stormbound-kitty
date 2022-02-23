@@ -38,6 +38,13 @@ const deck = {
     },
     { ...date, title: 'Nerf date', name: 'nerfed', validation: undefined },
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       name: 'name',

@@ -7,6 +7,13 @@ const donation = {
   name: 'donation',
   type: 'document',
   fields: [member, date],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
+  ],
   preview: {
     select: {
       author: 'author',
