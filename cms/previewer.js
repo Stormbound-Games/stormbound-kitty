@@ -2,6 +2,10 @@ import querystring from 'querystring'
 
 const PREVIEW_PATH = '/api/preview'
 const PREVIEW_TOKEN = process.env.SANITY_STUDIO_PREVIEW_TOKEN
+const PREVIEW_DOMAIN =
+  process.env.SANITY_ACTIVE_ENV === 'production'
+    ? 'https://stormbound-kitty.com'
+    : 'http://localhost:3000'
 
 export default function getPreviewURL(document) {
   if (!PREVIEW_TOKEN) {
@@ -11,7 +15,7 @@ export default function getPreviewURL(document) {
   }
 
   const goTo = args =>
-    'https://stormbound-kitty.com' +
+    PREVIEW_DOMAIN +
     PREVIEW_PATH +
     '?' +
     querystring.stringify({
