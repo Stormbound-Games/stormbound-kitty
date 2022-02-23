@@ -25,6 +25,9 @@ const getRedirectUrl = async params => {
     case 'tournament':
       return '/tournaments/hall-of-fame'
 
+    case 'wallpaper':
+      return '/fan-kit/wallpapers'
+
     case 'puzzle': {
       const puzzle = await getPuzzle(params)
 
