@@ -1,3 +1,6 @@
+import cardLink from './richText/cardLink'
+import link from './richText/link'
+
 const question = {
   title: 'FAQ Question',
   name: 'question',
@@ -32,34 +35,7 @@ const question = {
               { title: 'Strong', value: 'strong' },
               { title: 'Code', value: 'code' },
             ],
-            annotations: [
-              {
-                title: 'Link',
-                name: 'link',
-                type: 'object',
-                fields: [
-                  {
-                    title: 'Path or URL',
-                    name: 'href',
-                    type: 'string',
-                    validation: Rule => Rule.required(),
-                  },
-                ],
-              },
-              {
-                title: 'Card link',
-                name: 'cardLink',
-                type: 'object',
-                fields: [
-                  {
-                    title: 'Card ID',
-                    name: 'id',
-                    type: 'string',
-                    validation: Rule => Rule.required(),
-                  },
-                ],
-              },
-            ],
+            annotations: [link, cardLink],
           },
         },
       ],

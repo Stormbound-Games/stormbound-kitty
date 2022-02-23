@@ -1,72 +1,56 @@
 import React from 'react'
 import { PortableText } from '@portabletext/react'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
+import Info from '~/components/Info'
 import Link from '~/components/Link'
-import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
 
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L57-L58
-const Block = props => {
-  if (props.children.every(node => !node)) {
-    return null
-  }
-
-  return (
-    <Spacing as='p' bottom='LARGE' extend={{ whiteSpace: 'pre-line' }}>
-      {props.children}
-    </Spacing>
-  )
+const marks = {
+  strong: props => <strong>{props.children}</strong>,
+  code: props => <code>{props.children}</code>,
+  link: ({ value, children }) => (
+    <Link
+      {...{
+        [value.href.startsWith('http') ? 'href' : 'to']: value.href,
+      }}
+    >
+      {children}
+    </Link>
+  ),
+  cardLink: ({ value, children }) => (
+    <CardLink id={value.cardId || value.id}>{children}</CardLink>
+  ),
+  // Text should not be underlined if it’s not a link.
+  underline: props => props.children,
 }
 
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L39-L40
-const List = props => {
-  const Element = props.value.listItem === 'bullet' ? 'ul' : 'ol'
-  return <Element>{props.children}</Element>
+const block = {
+  normal: 'p',
+  // @TODO: add anchor.
+  h2: Title,
+  h3: 'h3',
 }
 
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L45-L46
-const ListItem = props => {
-  return (
-    <Spacing as='li' bottom='SMALL'>
-      {props.children}
-    </Spacing>
-  )
+const types = {
+  info: props => (
+    <Info icon={props.value.icon} title={props.value.title}>
+      <BlocksRenderer value={props.value.content} />
+    </Info>
+  ),
+  battleSim: props => (
+    <BattleSimEmbed id={props.value.board}>
+      <BlocksRenderer value={props.value.caption} />
+    </BattleSimEmbed>
+  ),
 }
-
-// See: https://github.com/sanity-io/block-content-to-hyperscript/blob/d9d5adac36d50c0c012f7bb4099fb6f3fa67b382/src/serializers.js#L88
-const LinkBlock = props => {
-  const prop = props.value.href.startsWith('http') ? 'href' : 'to'
-  const linkProp = { [prop]: props.value.href }
-
-  return <Link {...linkProp}>{props.children}</Link>
-}
-
-const CardLinkBlock = props => {
-  return (
-    <CardLink id={props.value.id}>
-      {props.children.length === 1 && props.children[0] === props.value.id
-        ? undefined
-        : props.children}
-    </CardLink>
-  )
-}
-
-const Strong = props => <strong>{props.children}</strong>
-const Code = props => <code>{props.children}</code>
 
 const components = {
-  types: {
-    block: Block,
-  },
-  marks: {
-    strong: Strong,
-    code: Code,
-    link: LinkBlock,
-    cardLink: CardLinkBlock,
-    // Text should not be underlined if it’s not a link.
-    underline: props => props.children,
-  },
-  list: List,
-  listItem: ListItem,
+  types,
+  block,
+  marks,
+  list: { bullet: 'ul', number: 'ol' },
+  listItem: { bullet: 'li', number: 'li' },
   empty: null,
 }
 
