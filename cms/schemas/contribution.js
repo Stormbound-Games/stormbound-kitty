@@ -1,5 +1,6 @@
 import member from './types/member'
 import date from './types/date'
+import formatDate from './helpers/formatDate'
 
 const contribution = {
   title: 'Code contribution',
@@ -12,7 +13,14 @@ const contribution = {
       title: 'Pull-request numbers',
       name: 'entries',
       type: 'array',
-      of: [{ type: 'number', validation: Rule => Rule.required() }],
+      description:
+        'The numbers of the pull-requests that were open by that person during that month.',
+      of: [
+        {
+          type: 'number',
+          validation: Rule => Rule.required().positive().min(1),
+        },
+      ],
       validation: Rule => Rule.min(1),
     },
   ],
@@ -22,17 +30,9 @@ const contribution = {
       date: 'date',
     },
     prepare({ author, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
-        title: author,
-        subtitle: month + ' ' + year,
+        title: author || 'Missing member',
+        subtitle: formatDate(date) || 'Missing date',
       }
     },
   },

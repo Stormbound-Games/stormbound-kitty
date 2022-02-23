@@ -1,5 +1,7 @@
+import React from 'react'
 import member from './types/member'
 import date from './types/date'
+import formatDate from './helpers/formatDate'
 
 const podcast = {
   title: 'Podcast episode',
@@ -30,12 +32,13 @@ const podcast = {
       title: 'Link',
       name: 'href',
       type: 'url',
+      description: 'Typically a link to podbean.',
       validation: Rule => Rule.required(),
     },
     {
       title: 'Excerpt',
       name: 'excerpt',
-      type: 'string',
+      type: 'text',
       validation: Rule => Rule.required().max(250),
     },
   ],
@@ -45,17 +48,15 @@ const podcast = {
       date: 'date',
     },
     prepare({ title, date }) {
-      const formatter = new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'long',
-      })
-      const parts = formatter.formatToParts(new Date(date))
-      const month = parts[0].value
-      const year = parts[2].value
-
       return {
-        title: title,
-        subtitle: month + ' ' + year,
+        title: title || 'Missing title',
+        subtitle: formatDate(date) || 'Missing date',
+        media: (
+          <img
+            src='https://stormbound-kitty.com/assets/images/cards/brewed_sages.png'
+            alt=''
+          />
+        ),
       }
     },
   },

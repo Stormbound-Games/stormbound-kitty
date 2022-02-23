@@ -6,10 +6,10 @@ const week = {
   type: 'object',
   fields: [
     {
-      title: 'Id',
+      title: 'Week number',
       name: 'id',
       type: 'number',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required().positive().min(1),
     },
     {
       title: 'Name',
@@ -52,12 +52,18 @@ const swcc = {
   type: 'document',
   fields: [
     {
-      title: 'Number',
+      title: 'Season number',
       name: 'number',
       type: 'number',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required().positive().min(1),
     },
-    { title: 'Weeks', name: 'weeks', type: 'array', of: [week] },
+    {
+      title: 'Weeks',
+      name: 'weeks',
+      type: 'array',
+      of: [week],
+      validation: Rule => Rule.required().min(1),
+    },
   ],
   preview: {
     select: {
@@ -65,7 +71,7 @@ const swcc = {
     },
     prepare({ number }) {
       return {
-        title: 'SWCC season ' + number,
+        title: number ? 'SWCC season ' + number : 'SWCC season',
       }
     },
   },

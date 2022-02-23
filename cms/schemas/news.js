@@ -19,9 +19,25 @@ const news = {
       title: 'Link',
       name: 'link',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: Rule =>
+        Rule.required().custom(
+          value =>
+            value.startsWith('/') || 'Should be a path starting with a slash.'
+        ),
     },
   ],
+  preview: {
+    select: {
+      intro: 'intro',
+      link: 'link',
+    },
+    prepare({ intro, link }) {
+      return {
+        title: intro || 'Missing intro',
+        subtitle: link || 'Missing link',
+      }
+    },
+  },
 }
 
 export default news
