@@ -26,6 +26,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getBookName from '~/helpers/getBookName'
 import getInitialCardData from '~/helpers/getInitialCardData'
+import { BOOKS } from '~/constants/books'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   const { css } = useFela()
@@ -156,31 +157,31 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <Row isDesktopOnly>
           <Row.Column width='1/5'>
             <Image
-              src='/assets/images/books/book-pirate.png'
+              src={BOOKS.PIRATE.image + '?auto=format&w=250'}
               alt={getBookName('PIRATE')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
-              src='/assets/images/books/book-feline.png'
+              src={BOOKS.FELINE.image + '?auto=format&w=250'}
               alt={getBookName('FELINE')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
-              src='/assets/images/books/book-elder.png'
+              src={BOOKS.ELDER.image + '?auto=format&w=250'}
               alt={getBookName('ELDER')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
-              src='/assets/images/books/book-dragon.png'
+              src={BOOKS.DRAGON.image + '?auto=format&w=250'}
               alt={getBookName('DRAGON')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
-              src='/assets/images/books/book-archdragon.png'
+              src={BOOKS.ARCHDRAGON.image + '?auto=format&w=250'}
               alt={getBookName('ARCHDRAGON')}
             />
           </Row.Column>

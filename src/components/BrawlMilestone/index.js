@@ -8,6 +8,7 @@ import ResourceIcon from '~/components/ResourceIcon'
 import capitalize from '~/helpers/capitalize'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
+import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
@@ -17,11 +18,13 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
     case 'HUMBLE_BOOK':
     case 'CLASSIC_BOOK':
     case 'NOBLE_BOOK': {
-      const bookType = props.reward.replace('_BOOK', '').toLowerCase()
+      const bookType = props.reward.replace('_BOOK', '')
+      const book = BOOKS[bookType]
+
       return (
         <Image
-          src={`/assets/images/books/book-${bookType}.png`}
-          alt={`${capitalize(bookType)} book`}
+          src={book.image + '?auto=format&w=200'}
+          alt={`${capitalize(bookType.toLowerCase())} book`}
           extend={styles.bookImage}
           withAvif
         />
