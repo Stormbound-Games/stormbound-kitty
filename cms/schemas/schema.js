@@ -14,6 +14,7 @@ import puzzle from './puzzle'
 import story from './story'
 import swcc from './swcc'
 import tournament from './tournament'
+import wallpaper from './wallpaper'
 
 export default createSchema({
   name: 'default',
@@ -32,5 +33,6 @@ export default createSchema({
     story,
     swcc,
     tournament,
+    wallpaper,
   ]),
 })
