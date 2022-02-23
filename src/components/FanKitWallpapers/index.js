@@ -6,26 +6,38 @@ import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
 import indexArray from '~/helpers/indexArray'
 
-const resolveAsset = idPrefix => (wallpaper, index) => ({
-  name: `Stormbound ${idPrefix.toLowerCase()} wallpaper ${index + 1}`,
-  id: idPrefix + '_WALLPAPER_' + index,
-  image: '/assets/images/wallpapers/lite/' + wallpaper + '.png',
-})
+const DESKTOP_WIDTH = 550
+const MOBILE_WIDTH = 350
 
-const desktopWallpapers = Array.from(
-  { length: 8 },
-  (_, i) => 'wp-d-' + (i + 1)
-).map(resolveAsset('DESKTOP'))
-const mobileWallpapers = Array.from(
-  { length: 10 },
-  (_, i) => 'wp-m-' + (i + 1)
-).map(resolveAsset('MOBILE'))
+const resolveAsset = (wallpaper, index) => {
+  const width = wallpaper.device === 'DESKTOP' ? DESKTOP_WIDTH : MOBILE_WIDTH
+  const { dimensions } = wallpaper.image.asset.metadata
 
-const WALLPAPERS_INDEX = indexArray([...desktopWallpapers, ...mobileWallpapers])
+  return {
+    name: `Stormbound ${wallpaper.device.toLowerCase()} wallpaper ${index + 1}`,
+    id: wallpaper.device + '_WALLPAPER_' + index,
+    image: wallpaper.image.asset.url,
+    aspectRatio: dimensions.aspectRatio,
+    width: width,
+    height: Math.round(dimensions.height * (width / dimensions.width)),
+    withoutWebp: true,
+    query: '?auto=format&w=' + width,
+  }
+}
 
 export default React.memo(function FanKitWallpapers(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
+  const desktopWallpapers = props.wallpapers
+    .filter(wp => wp.device === 'DESKTOP')
+    .map(resolveAsset)
+  const mobileWallpapers = props.wallpapers
+    .filter(wp => wp.device === 'MOBILE')
+    .map(resolveAsset)
+  const WALLPAPERS_INDEX = indexArray([
+    ...desktopWallpapers,
+    ...mobileWallpapers,
+  ])
   const activeWallpaper = WALLPAPERS_INDEX[active]
 
   React.useEffect(() => {
@@ -44,11 +56,7 @@ export default React.memo(function FanKitWallpapers(props) {
       <FanKitDownloadDialog
         displayImage={false}
         name={activeWallpaper ? activeWallpaper.name : undefined}
-        image={
-          activeWallpaper
-            ? activeWallpaper.image.replace('/lite/', '/full/')
-            : undefined
-        }
+        image={activeWallpaper ? activeWallpaper.image : undefined}
         dialogRef={instance => {
           dialogRef.current = instance
 
@@ -65,10 +73,8 @@ export default React.memo(function FanKitWallpapers(props) {
             {row[0] && (
               <FanKitItem
                 {...row[0]}
+                image={row[0].image + row[0].query}
                 setActive={setActive}
-                width={575}
-                height={323}
-                withAvif
               />
             )}
           </Row.Column>
@@ -76,10 +82,8 @@ export default React.memo(function FanKitWallpapers(props) {
             {row[1] && (
               <FanKitItem
                 {...row[1]}
+                image={row[1].image + row[1].query}
                 setActive={setActive}
-                width={575}
-                height={323}
-                withAvif
               />
             )}
           </Row.Column>
@@ -92,11 +96,8 @@ export default React.memo(function FanKitWallpapers(props) {
             {row[0] && (
               <FanKitItem
                 {...row[0]}
+                image={row[0].image + row[0].query}
                 setActive={setActive}
-                withAvif
-                width={378}
-                height={673}
-                lazy
               />
             )}
           </Row.Column>
@@ -104,11 +105,8 @@ export default React.memo(function FanKitWallpapers(props) {
             {row[1] && (
               <FanKitItem
                 {...row[1]}
+                image={row[1].image + row[1].query}
                 setActive={setActive}
-                withAvif
-                width={378}
-                height={673}
-                lazy
               />
             )}
           </Row.Column>
@@ -116,11 +114,8 @@ export default React.memo(function FanKitWallpapers(props) {
             {row[2] && (
               <FanKitItem
                 {...row[2]}
+                image={row[2].image + row[2].query}
                 setActive={setActive}
-                withAvif
-                width={378}
-                height={673}
-                lazy
               />
             )}
           </Row.Column>
