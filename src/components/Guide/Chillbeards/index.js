@@ -1,9 +1,9 @@
 import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
-import Guide from '~/components/Guide'
 import CardLink from '~/components/CardLink'
 import Link from '~/components/Link'
+import PageEmbed from '~/components/PageEmbed'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
@@ -45,9 +45,9 @@ export default React.memo(function GuideChillbeards(props) {
         </li>
       </TableOfContents>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <CardBuilderCardDisplay {...getInitialCardData('W22')} />
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='be-mindful-of-mana'>1. Be mindful of mana</Title>
       <p>

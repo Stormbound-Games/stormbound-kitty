@@ -1,16 +1,13 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import HorizontalRule from '~/components/HorizontalRule'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
 import Notice from '~/components/Notice'
 import Only from '~/components/Only'
-import Spacing from '~/components/Spacing'
 import getExcerpt from '~/helpers/getExcerpt'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
 import { CATEGORIES } from '~/constants/guides'
-import styles from './styles'
 
 export const GuideRenderingContext = React.createContext({
   isWithinGuide: false,
@@ -61,20 +58,6 @@ const Guide = React.memo(function Guide(props) {
         .
       </Notice>
     </>
-  )
-})
-
-// Guides have a narrow width by default, imposed by the `Page.Narrow`
-// wrapper, but it is sometimes necessary to display something across the full
-// width of the container. For that, the `Guide.FullWidth` sub-component
-// can be used.
-Guide.FullWidth = React.memo(function FullWidth(props) {
-  const { css } = useFela()
-
-  return (
-    <div className={css(styles.fullWidth)}>
-      <Spacing vertical={['LARGE', 'LARGER']}>{props.children}</Spacing>
-    </div>
   )
 })
 

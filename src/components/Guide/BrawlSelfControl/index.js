@@ -2,10 +2,10 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import FeaturedDeck from '~/components/FeaturedDeck'
-import Guide from '~/components/Guide'
 import BrawlGuideDisclaimer from '~/components/BrawlGuideDisclaimer'
 import Info from '~/components/Info'
 import Notice from '~/components/Notice'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
@@ -52,7 +52,7 @@ export default React.memo(function GuideSelfControl(props) {
 
       <Title>Possible Decks</Title>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
@@ -115,7 +115,7 @@ export default React.memo(function GuideSelfControl(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='cards'>Cards</Title>
 

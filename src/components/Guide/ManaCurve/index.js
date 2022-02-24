@@ -2,10 +2,10 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import DeckStatsChart from '~/components/DeckStatsChart'
-import Guide from '~/components/Guide'
 import HorizontalRule from '~/components/HorizontalRule'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
@@ -101,7 +101,7 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Title id='anatomy-of-the-graph'>Anatomy of the graph</Title>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Graph id='5xn1n2i1n3n6i5n13i7n18i13i20n39' />{' '}
@@ -136,7 +136,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <h3>The mana line</h3>
 
@@ -167,7 +167,7 @@ export default React.memo(function GuideManaCurve(props) {
         translates into better board control or speed.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -191,9 +191,9 @@ export default React.memo(function GuideManaCurve(props) {
             <Graph id='3xn1n2s1n3s24s2n67s6n15s8n63s11' />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Graph id='1xf2n62n19f24n21n22n41n25n69n44n72n54' />
@@ -214,7 +214,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <h3>The cards line</h3>
 
@@ -244,7 +244,7 @@ export default React.memo(function GuideManaCurve(props) {
         for board control and speed.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -268,9 +268,9 @@ export default React.memo(function GuideManaCurve(props) {
             <Graph id='3xn1s1n3n23n4n13s8n63n16s13n39n46' />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Graph id='5xn1n2w2n3n4n14n18w13w16w15w19n58' />
@@ -292,7 +292,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <HorizontalRule />
 
@@ -318,7 +318,7 @@ export default React.memo(function GuideManaCurve(props) {
         early mana line making for a less random early game.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Graph
@@ -333,7 +333,7 @@ export default React.memo(function GuideManaCurve(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='other-considerations'>Other considerations</Title>
 
@@ -392,7 +392,7 @@ export default React.memo(function GuideManaCurve(props) {
         for very interesting graphs which are interesting to look at.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Graph
@@ -419,9 +419,9 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -444,7 +444,7 @@ export default React.memo(function GuideManaCurve(props) {
             <Graph id='5xn1n2f3n3f8f4n67n9n15f10n40n76' modifier='SPELL_MANA' />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='how-it-works'>How it works</Title>
 

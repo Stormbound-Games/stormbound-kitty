@@ -5,9 +5,9 @@ import CardLink from '~/components/CardLink'
 import DeckStatsChart from '~/components/DeckStatsChart'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import Info from '~/components/Info'
-import Guide from '~/components/Guide'
 import Link from '~/components/Link'
 import Notice from '~/components/Notice'
+import PageEmbed from '~/components/PageEmbed'
 import { Stones } from '~/components/Resource'
 import Row from '~/components/Row'
 import Sparkles from '~/components/Sparkles'
@@ -84,7 +84,7 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
       </TableOfContents>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Title id='the-decks'>The Decks</Title>
 
         <Row isDesktopOnly spacing={{ bottom: 'LARGE' }}>
@@ -176,9 +176,9 @@ export default React.memo(function GuideRecklessRush(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -203,7 +203,7 @@ export default React.memo(function GuideRecklessRush(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         Additionally, I’d like to quickly point out that this deck is amazing

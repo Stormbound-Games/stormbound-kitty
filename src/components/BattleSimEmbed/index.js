@@ -2,7 +2,8 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import BattleSimApp from '~/components/BattleSimApp'
 import BattleSimState from '~/components/BattleSimState'
-import Guide, { GuideRenderingContext } from '~/components/Guide'
+import { GuideRenderingContext } from '~/components/Guide'
+import PageEmbed from '~/components/PageEmbed'
 import Spacing from '~/components/Spacing'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import styles from './styles'
@@ -10,7 +11,7 @@ import styles from './styles'
 const BattleSimEmbed = props => {
   const { css } = useFela()
   const { isWithinGuide } = React.useContext(GuideRenderingContext)
-  const Container = isWithinGuide ? Guide.FullWidth : React.Fragment
+  const Container = isWithinGuide ? PageEmbed : React.Fragment
 
   return (
     <Container>

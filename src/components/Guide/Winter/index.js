@@ -2,9 +2,9 @@ import React from 'react'
 import Link from '~/components/Link'
 import CardLink from '~/components/CardLink'
 import FeaturedDeck from '~/components/FeaturedDeck'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import Notice from '~/components/Notice'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
@@ -161,7 +161,7 @@ export default React.memo(function GuideWinter(props) {
         </li>
       </ul>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
@@ -192,7 +192,7 @@ export default React.memo(function GuideWinter(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='how-to-use'>How to use</Title>
       <p>

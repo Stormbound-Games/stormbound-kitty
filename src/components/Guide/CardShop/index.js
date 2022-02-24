@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from '~/components/Link'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import { Coins, Rubies } from '~/components/Resource'
 import Title from '~/components/Title'

@@ -1,4 +1,4 @@
-const fullWidth = {
+const embed = {
   position: 'relative',
   marginTop: 'var(--s-large)',
   marginBottom: 'var(--s-large)',
@@ -11,6 +11,6 @@ const fullWidth = {
   },
 }
 
-const styles = { fullWidth }
+const styles = { embed }
 
 export default styles

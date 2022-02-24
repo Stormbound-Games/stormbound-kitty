@@ -4,9 +4,9 @@ import Link from '~/components/Link'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import DeckStatsChart from '~/components/DeckStatsChart'
 import FeaturedDeck from '~/components/FeaturedDeck'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Table from '~/components/Table'
@@ -78,7 +78,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         deck, but that’s for another day.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
@@ -111,9 +111,9 @@ export default React.memo(function GuideD1SFCommons(props) {
             </ul>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -135,7 +135,7 @@ export default React.memo(function GuideD1SFCommons(props) {
             <Graph id={DECK_ID} />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='the-cards'>The cards</Title>
 
@@ -254,7 +254,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </Only.Mobile>
 
       <Only.Desktop>
-        <Guide.FullWidth>
+        <PageEmbed>
           <Table>
             <thead>
               <tr>
@@ -310,7 +310,7 @@ export default React.memo(function GuideD1SFCommons(props) {
               </tr>
             </tbody>
           </Table>
-        </Guide.FullWidth>
+        </PageEmbed>
       </Only.Desktop>
 
       <p>

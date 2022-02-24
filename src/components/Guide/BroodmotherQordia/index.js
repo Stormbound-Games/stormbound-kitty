@@ -2,9 +2,9 @@ import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import Card from '~/components/Card'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
-import Guide from '~/components/Guide'
 import Notice from '~/components/Notice'
 import Row from '~/components/Row'
+import PageEmbed from '~/components/PageEmbed'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
@@ -20,9 +20,9 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         value.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <CardBuilderCardDisplay {...getInitialCardData('F21')} />
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='eggs'>It’s all in the eggs</Title>
 

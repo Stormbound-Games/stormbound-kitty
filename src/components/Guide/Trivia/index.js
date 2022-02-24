@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from '~/components/Link'
-import Guide from '~/components/Guide'
 import Image from '~/components/Image'
 import Notice from '~/components/Notice'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
@@ -289,7 +289,7 @@ export default React.memo(function GuideTrivia(props) {
         Stormbound islands).
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -323,7 +323,7 @@ export default React.memo(function GuideTrivia(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Row isDesktopOnly>
         <Row.Column>

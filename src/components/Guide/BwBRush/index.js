@@ -4,8 +4,8 @@ import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import DeckStatsChart from '~/components/DeckStatsChart'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import Info from '~/components/Info'
-import Guide from '~/components/Guide'
 import Link from '~/components/Link'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
@@ -60,7 +60,7 @@ export default React.memo(function GuideBwBRush(props) {
         power like other similar-style decks.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <p>
@@ -82,7 +82,7 @@ export default React.memo(function GuideBwBRush(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Info icon='info' title='Disclaimer'>
         Due to some cards in the deck, it is desirable to have the level of all
@@ -90,7 +90,7 @@ export default React.memo(function GuideBwBRush(props) {
         modify it the way you want.
       </Info>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <h3 id='zhevana-variant' align='center'>
           Zhevana Variant
         </h3>
@@ -113,7 +113,7 @@ export default React.memo(function GuideBwBRush(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         Classic and main deck variation for me, suitable for those with{' '}
@@ -129,7 +129,7 @@ export default React.memo(function GuideBwBRush(props) {
         all for some reason.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <h3 align='center'>Felflares Variant</h3>
         <Row isDesktopOnly>
           <Row.Column>
@@ -150,7 +150,7 @@ export default React.memo(function GuideBwBRush(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         Even less, but still the same aggressive deck, suitable for players
@@ -172,9 +172,9 @@ export default React.memo(function GuideBwBRush(props) {
         rely on when playing. I’ll tell you everything about them now:
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <CardBuilderCardDisplay {...getInitialCardData('W14')} />
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <h3>
         <CardLink id='W14' />

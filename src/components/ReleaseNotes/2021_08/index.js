@@ -6,10 +6,10 @@ import CardLink from '~/components/CardLink'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import CheapenedBrawl from '~/components/CheapenedBrawl'
 import FAQSection from '~/components/FAQSection'
-import Guide from '~/components/Guide'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import { Coins, Crowns, Rubies, Stones, Legendary } from '~/components/Resource'
 import ResourceIcon from '~/components/ResourceIcon'
@@ -23,7 +23,7 @@ import styles from './styles'
 export default React.memo(function ReleaseNotesAugust2021(props) {
   const { css } = useFela()
   const { viewportWidth } = useViewportSize()
-  const CardsContainer = viewportWidth >= 700 ? Guide.FullWidth : React.Fragment
+  const CardsContainer = viewportWidth >= 700 ? PageEmbed : React.Fragment
 
   return (
     <>
@@ -180,7 +180,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           Sheepyard Pack available, as well as a Rogue Sheep pack.
         </p>
 
-        <Guide.FullWidth>
+        <PageEmbed>
           <Row isDesktopOnly>
             <Row.Column width='1/3'>
               <Image
@@ -262,7 +262,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               </ul>
             </Row.Column>
           </Row>
-        </Guide.FullWidth>
+        </PageEmbed>
 
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
 

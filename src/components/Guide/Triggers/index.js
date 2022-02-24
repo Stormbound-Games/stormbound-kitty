@@ -1,8 +1,8 @@
 import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import Card from '~/components/Card'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
@@ -29,7 +29,7 @@ export default React.memo(function GuideDrawing(props) {
         the unit dies.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Row>
@@ -52,7 +52,7 @@ export default React.memo(function GuideDrawing(props) {
             </Row>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Info icon='sword' title='Attacking bases and DTE'>
         <p>
@@ -248,7 +248,7 @@ export default React.memo(function GuideDrawing(props) {
         short).
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Row>
@@ -271,7 +271,7 @@ export default React.memo(function GuideDrawing(props) {
             </Row>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         For the most part, their resolution pattern is pretty straightforward,

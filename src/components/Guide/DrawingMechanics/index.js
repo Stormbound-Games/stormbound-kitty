@@ -4,9 +4,9 @@ import Image from 'next/image'
 import Link from '~/components/Link'
 import Card from '~/components/Card'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
@@ -149,9 +149,9 @@ export default React.memo(function GuideDrawing(props) {
         deserves having a closer look at how exactly it works.{' '}
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <CardBuilderCardDisplay {...getInitialCardData('S21')} />
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         First of all, Queen of Herds <span className='Highlight'>does not</span>{' '}
@@ -179,7 +179,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Only.Desktop>
-        <Guide.FullWidth>
+        <PageEmbed>
           <Row>
             <Row.Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N12', level: 1 })} />
@@ -194,7 +194,7 @@ export default React.memo(function GuideDrawing(props) {
               <Card {...getResolvedCardData({ id: 'N33', level: 5 })} />
             </Row.Column>
           </Row>
-        </Guide.FullWidth>
+        </PageEmbed>
       </Only.Desktop>
 
       <ul>

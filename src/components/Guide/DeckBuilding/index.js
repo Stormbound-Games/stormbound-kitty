@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from '~/components/Card'
-import Guide from '~/components/Guide'
 import HorizontalRule from '~/components/HorizontalRule'
 import Link from '~/components/Link'
 import Notice from '~/components/Notice'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
@@ -84,7 +84,7 @@ export default React.memo(function GuideDeck(props) {
         than playing a big one.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Row>
@@ -107,7 +107,7 @@ export default React.memo(function GuideDeck(props) {
             </Row>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='win-conditions'>Win Conditions</Title>
 
@@ -190,7 +190,7 @@ export default React.memo(function GuideDeck(props) {
         <CardLink id='W4' />…
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <Row>
@@ -235,7 +235,7 @@ export default React.memo(function GuideDeck(props) {
             </Row>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         Some are less obvious, but still extraordinarily useful: for instance{' '}

@@ -5,11 +5,11 @@ import BrawlDifficultySelect from '~/components/BrawlDifficultySelect'
 import BrawlMilestones from '~/components/BrawlMilestones'
 import BrawlProvider from '~/components/BrawlProvider'
 import Footnotes, { Footnote } from '~/components/Footnotes'
-import Guide from '~/components/Guide'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
 import { Crowns, Coins } from '~/components/Resource'
+import PageEmbed from '~/components/PageEmbed'
 import ResourceIcon from '~/components/ResourceIcon'
 import Row from '~/components/Row'
 import Table from '~/components/Table'
@@ -137,7 +137,7 @@ export default React.memo(function GuideBrawl(props) {
       />
 
       <Only.Desktop>
-        <Guide.FullWidth>
+        <PageEmbed>
           <Table>
             <thead>
               <tr>
@@ -160,7 +160,7 @@ export default React.memo(function GuideBrawl(props) {
               ))}
             </tbody>
           </Table>
-        </Guide.FullWidth>
+        </PageEmbed>
       </Only.Desktop>
 
       <Only.Mobile>
@@ -269,7 +269,7 @@ export default React.memo(function GuideBrawl(props) {
 
       <p>Find below the existing modifiers:</p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <ul className={css({ columns: '16em', columnGap: '2em' })}>
           {BRAWLS.map(brawl => (
             <li key={brawl.cardId} style={{ textIndent: 0, paddingLeft: 0 }}>
@@ -277,7 +277,7 @@ export default React.memo(function GuideBrawl(props) {
             </li>
           ))}
         </ul>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         A good way to practice Brawl and try decks outside of the event itself

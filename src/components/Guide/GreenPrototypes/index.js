@@ -2,7 +2,7 @@ import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Notice from '~/components/Notice'
-import Guide from '~/components/Guide'
+import PageEmbed from '~/components/PageEmbed'
 import CardLink from '~/components/CardLink'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
@@ -16,9 +16,9 @@ export default React.memo(function GuideGreenPrototypes(props) {
         strength to the enemy? That just doesn’t make sense.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <CardBuilderCardDisplay {...getInitialCardData('N1')} />
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         When I started out, I wasn’t on the Discord or on Reddit or the forums.

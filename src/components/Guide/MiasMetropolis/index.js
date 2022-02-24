@@ -2,8 +2,8 @@ import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
 import FeaturedDeck from '~/components/FeaturedDeck'
-import Guide from '~/components/Guide'
 import Link from '~/components/Link'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
@@ -66,7 +66,7 @@ export default React.memo(function GuideMiasMetropolis(props) {
         differences.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
@@ -89,9 +89,9 @@ export default React.memo(function GuideMiasMetropolis(props) {
             </p>
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row>
           <Row.Column>
             <h3>Rush Variation</h3>
@@ -116,7 +116,7 @@ export default React.memo(function GuideMiasMetropolis(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='core-cards'>Core Cards</Title>
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from '~/components/Link'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
-import Guide from '~/components/Guide'
 import CardLink from '~/components/CardLink'
+import PageEmbed from '~/components/PageEmbed'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
@@ -36,9 +36,9 @@ export default React.memo(function GuideTerrificSlayers(props) {
         </li>
       </TableOfContents>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <CardBuilderCardDisplay {...getInitialCardData('N27')} />
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='what-the-deck'>What the deck?</Title>
       <p>

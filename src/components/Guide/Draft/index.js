@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import Guide from '~/components/Guide'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
@@ -13,6 +12,7 @@ import {
   Epic,
   Legendary,
 } from '~/components/Resource'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Table from '~/components/Table'
@@ -92,7 +92,7 @@ export default React.memo(function GuideDraft(props) {
         ever comes first, leading to sessions lasting between 3 and 8 matches.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column width='1/3'>
             <Image
@@ -116,7 +116,7 @@ export default React.memo(function GuideDraft(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='terminology'>Terminology</Title>
 
@@ -387,7 +387,7 @@ export default React.memo(function GuideDraft(props) {
         doesn’t offer 3 neutral or 3 faction cards.
       </p>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column width='1/3'>
             <Image
@@ -411,7 +411,7 @@ export default React.memo(function GuideDraft(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <Title id='leveling-up-cards'>Leveling up cards</Title>
 

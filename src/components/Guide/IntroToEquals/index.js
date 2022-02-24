@@ -2,9 +2,9 @@ import React from 'react'
 import Link from '~/components/Link'
 import CardLink from '~/components/CardLink'
 import FeaturedDeck from '~/components/FeaturedDeck'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import Notice from '~/components/Notice'
+import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
@@ -107,7 +107,7 @@ export default React.memo(function GuideEqualsIntro(props) {
         </p>
       </Info>
 
-      <Guide.FullWidth>
+      <PageEmbed>
         <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
@@ -148,7 +148,7 @@ export default React.memo(function GuideEqualsIntro(props) {
             />
           </Row.Column>
         </Row>
-      </Guide.FullWidth>
+      </PageEmbed>
 
       <p>
         As you can see, decks generally have only 2 or 3 cards that cost 2 mana
