@@ -250,7 +250,7 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
                 <>
                   The balance changes will be deployed with the season reset as
                   usual. The 2 cards will be introduced on March 7th and March
-                  21st. The UI improvements will land on March 7th.
+                  21st. The UI improvements will land some time during March.
                 </>
               ),
             },
