@@ -1,4 +1,5 @@
 import getBlock from './block'
+import image from './image'
 
 const column = {
   title: 'Column',
@@ -9,7 +10,7 @@ const column = {
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [getBlock({ withHeadings: true }), { type: 'info' }],
+      of: [getBlock({ withHeadings: true }), image, { type: 'info' }],
       validation: Rule => Rule.required(),
     },
   ],

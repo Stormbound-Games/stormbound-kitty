@@ -4,6 +4,7 @@ import CardLink from '~/components/CardLink'
 import Link from '~/components/Link'
 import BlockBattleSim from '~/components/BlockBattleSim'
 import BlockColumns from '~/components/BlockColumns'
+import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
 import asHeading from '~/components/BlockHeading'
@@ -31,13 +32,22 @@ const marks = {
 }
 
 const block = {
-  normal: props => (props.children ? <p>{props.children}</p> : null),
+  normal: ({ children }) => {
+    if (
+      Array.isArray(children) &&
+      (children.length === 0 || children.every(child => !child))
+    )
+      return null
+
+    return children ? <p>{children}</p> : null
+  },
   h2: asHeading(Title),
   h3: asHeading('h3'),
 }
 
 const types = {
   columns: BlockColumns,
+  image: BlockImage,
   info: BlockInfo,
   battleSim: BlockBattleSim,
   tableOfContents: BlockTableOfContents,
@@ -47,8 +57,14 @@ const COMPONENTS = {
   types,
   block,
   marks,
-  list: { bullet: 'ul', number: 'ol' },
-  listItem: { bullet: 'li', number: 'li' },
+  list: {
+    bullet: ({ children }) => <ul>{children}</ul>,
+    number: ({ children }) => <ol>{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li>{children}</li>,
+    number: ({ children }) => <li>{children}</li>,
+  },
   empty: null,
 }
 

@@ -1,6 +1,8 @@
+import json from './types/json'
 import member from './types/member'
 import date from './types/date'
 import cardId from './types/cardId'
+import image from './types/image'
 import getBlock from './types/block'
 import formatDate from './helpers/formatDate'
 import { CATEGORIES } from '~/constants/guides'
@@ -87,6 +89,7 @@ const guide = {
       type: 'array',
       of: [
         getBlock({ withHeadings: true }),
+        image,
         { type: 'columns' },
         { type: 'info' },
         { type: 'battleSim' },
