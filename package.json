@@ -9,6 +9,7 @@
     "@portabletext/react": "^1.0.3",
     "@reach/tooltip": "^0.16.2",
     "@sanity/client": "^3.1.0",
+    "@sanity/image-url": "^1.0.1",
     "abort-controller": "^3.0.0",
     "canvas": "^2.8.0",
     "copy-to-clipboard": "^3.3.1",
