@@ -87,6 +87,7 @@ const guide = {
       type: 'array',
       of: [
         getBlock({ withHeadings: true }),
+        { type: 'columns' },
         { type: 'info' },
         { type: 'battleSim' },
         { type: 'tableOfContents' },

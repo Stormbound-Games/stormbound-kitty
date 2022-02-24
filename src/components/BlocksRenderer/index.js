@@ -3,8 +3,10 @@ import speakingurl from 'speakingurl'
 import { PortableText } from '@portabletext/react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
+import PageEmbed from '~/components/PageEmbed'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
+import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 
@@ -75,6 +77,22 @@ const ToCItem = props => (
 )
 
 const types = {
+  columns: ({ value }) => {
+    const columns = value.columns
+    const Container = columns.length === 2 ? React.Fragment : PageEmbed
+
+    return (
+      <Container>
+        <Row isDesktopOnly>
+          {columns.map(column => (
+            <Row.Column width={'1/' + columns.length} key={column._key}>
+              <BlocksRenderer value={column.content} components={components} />
+            </Row.Column>
+          ))}
+        </Row>
+      </Container>
+    )
+  },
   info: props => (
     <Info icon={props.value.icon} title={props.value.title}>
       <BlocksRenderer value={props.value.content} />
