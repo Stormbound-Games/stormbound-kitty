@@ -19,6 +19,7 @@ import wallpaper from './wallpaper'
 import battleSim from './types/battleSim'
 import columns from './types/columns'
 import card from './types/card'
+import deckEmbed from './types/deck'
 import info from './types/info'
 import tableOfContents from './types/tableOfContents'
 
@@ -46,6 +47,7 @@ export default createSchema({
     // Rich text editor modules
     battleSim,
     card,
+    deckEmbed,
     columns,
     info,
     tableOfContents,

@@ -5,6 +5,7 @@ import Link from '~/components/Link'
 import BlockBattleSim from '~/components/BlockBattleSim'
 import BlockCard from '~/components/BlockCard'
 import BlockColumns from '~/components/BlockColumns'
+import BlockDeck from '~/components/BlockDeck'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
@@ -55,6 +56,7 @@ const types = {
   columns: BlockColumns,
   image: BlockImage,
   info: BlockInfo,
+  deckEmbed: BlockDeck,
   battleSim: BlockBattleSim,
   tableOfContents: BlockTableOfContents,
 }

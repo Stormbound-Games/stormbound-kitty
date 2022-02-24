@@ -14,6 +14,7 @@ const column = {
         getBlock({ withHeadings: true }),
         image,
         { type: 'info' },
+        { type: 'deckEmbed' },
         { type: 'card' },
       ],
       validation: Rule => Rule.required(),
@@ -32,6 +33,14 @@ const columns = {
       type: 'array',
       of: [column],
       validation: Rule => Rule.min(2).max(5),
+    },
+    {
+      title: 'Wide',
+      name: 'wide',
+      description: 'Expand the 2 columns to be wider than the container.',
+      type: 'boolean',
+      initialValue: false,
+      hidden: ({ document }) => document.columns.length !== 2,
     },
   ],
 }

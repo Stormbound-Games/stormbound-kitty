@@ -4,8 +4,8 @@ import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
 
 export default React.memo(function BlockColumns({ value }) {
-  const columns = value.columns
-  const Container = columns.length === 2 ? React.Fragment : PageEmbed
+  const { columns, wide } = value
+  const Container = columns.length !== 2 || wide ? PageEmbed : React.Fragment
 
   return (
     <Container>

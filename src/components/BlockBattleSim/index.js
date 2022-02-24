@@ -5,7 +5,9 @@ import BlocksRenderer from '~/components/BlocksRenderer'
 export default React.memo(function BlockBattleSim(props) {
   return (
     <BattleSimEmbed id={props.value.board}>
-      <BlocksRenderer value={props.value.caption} />
+      {props.value.caption ? (
+        <BlocksRenderer value={props.value.caption} />
+      ) : null}
     </BattleSimEmbed>
   )
 })
