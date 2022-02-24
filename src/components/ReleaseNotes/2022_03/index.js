@@ -140,12 +140,12 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
               withAvif
             />
             <p>
-              <CardLink id='W33' /> will be introduced on March 7th along with
+              <CardLink id='I31' /> will be introduced on March 7th along with
               its promotional pack, which can be purchased until March 13th.
             </p>
             <p>
               <span className='Highlight'>Absorbing Varmints Pack</span>{' '}
-              ($9.99): 3 copies of <CardLink id='W33' />, <Coins amount={750} />{' '}
+              ($9.99): 3 copies of <CardLink id='I31' />, <Coins amount={750} />{' '}
               and <Stones amount={5} />.
             </p>
           </Row.Column>
@@ -157,12 +157,12 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
               withAvif
             />
             <p>
-              <CardLink id='S31' /> will be introduced on March 21st along with
+              <CardLink id='F31' /> will be introduced on March 21st along with
               its promotional pack, which can be purchased until March 28th.
             </p>
             <p>
               <span className='Highlight'>Plague Monarchs Pack</span> ($9.99): 3
-              copies of <CardLink id='S31' />, <Coins amount={750} /> and{' '}
+              copies of <CardLink id='F31' />, <Coins amount={750} /> and{' '}
               <Stones amount={5} />.
             </p>
           </Row.Column>
