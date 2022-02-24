@@ -3,6 +3,7 @@ import { PortableText } from '@portabletext/react'
 import CardLink from '~/components/CardLink'
 import Link from '~/components/Link'
 import BlockBattleSim from '~/components/BlockBattleSim'
+import BlockCard from '~/components/BlockCard'
 import BlockColumns from '~/components/BlockColumns'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
@@ -11,7 +12,10 @@ import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
 import Title from '~/components/Title'
 
-export const RichTextContext = React.createContext({ ast: {} })
+export const RichTextContext = React.createContext({
+  ast: {},
+  isInColumn: false,
+})
 
 const marks = {
   strong: props => <strong>{props.children}</strong>,
@@ -47,6 +51,7 @@ const block = {
 }
 
 const types = {
+  card: BlockCard,
   columns: BlockColumns,
   image: BlockImage,
   info: BlockInfo,
@@ -73,7 +78,9 @@ export default React.memo(function BlocksRenderer(props) {
   // The table of contents block needs to have access to the AST in order to
   // find all the headings.
   return (
-    <RichTextContext.Provider value={{ ast: props.value }}>
+    <RichTextContext.Provider
+      value={{ ast: props.value, isInColumn: props.isInColumn || false }}
+    >
       <PortableText value={props.value} components={COMPONENTS} />
     </RichTextContext.Provider>
   )

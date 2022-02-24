@@ -10,7 +10,12 @@ const column = {
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [getBlock({ withHeadings: true }), image, { type: 'info' }],
+      of: [
+        getBlock({ withHeadings: true }),
+        image,
+        { type: 'info' },
+        { type: 'card' },
+      ],
       validation: Rule => Rule.required(),
     },
   ],

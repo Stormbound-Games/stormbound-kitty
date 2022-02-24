@@ -17,10 +17,9 @@ import swcc from './swcc'
 import tournament from './tournament'
 import wallpaper from './wallpaper'
 import battleSim from './types/battleSim'
-import cardLink from './types/cardLink'
 import columns from './types/columns'
+import card from './types/card'
 import info from './types/info'
-import link from './types/link'
 import tableOfContents from './types/tableOfContents'
 
 export default createSchema({
@@ -46,10 +45,9 @@ export default createSchema({
 
     // Rich text editor modules
     battleSim,
-    cardLink,
+    card,
     columns,
     info,
-    link,
     tableOfContents,
   ]),
 })

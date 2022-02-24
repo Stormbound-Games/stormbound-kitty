@@ -12,7 +12,7 @@ export default React.memo(function BlockColumns({ value }) {
       <Row isDesktopOnly>
         {columns.map(column => (
           <Row.Column width={'1/' + columns.length} key={column._key}>
-            <BlocksRenderer value={column.content} />
+            <BlocksRenderer value={column.content} isInColumn />
           </Row.Column>
         ))}
       </Row>
