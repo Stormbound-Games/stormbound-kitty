@@ -7,6 +7,7 @@ import BlockColumns from '~/components/BlockColumns'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
+import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
 import Title from '~/components/Title'
 
@@ -39,7 +40,7 @@ const block = {
     )
       return null
 
-    return children ? <p>{children}</p> : null
+    return children ? <Embellish as='p'>{children}</Embellish> : null
   },
   h2: asHeading(Title),
   h3: asHeading('h3'),
@@ -62,8 +63,8 @@ const COMPONENTS = {
     number: ({ children }) => <ol>{children}</ol>,
   },
   listItem: {
-    bullet: ({ children }) => <li>{children}</li>,
-    number: ({ children }) => <li>{children}</li>,
+    bullet: ({ children }) => <Embellish as='li'>{children}</Embellish>,
+    number: ({ children }) => <Embellish as='li'>{children}</Embellish>,
   },
   empty: null,
 }
