@@ -1,3 +1,4 @@
+import { MdBookmark } from 'react-icons/md'
 import member from './types/member'
 import date from './types/date'
 import deckId from './types/deckId'
@@ -8,6 +9,7 @@ const deck = {
   title: 'Deck',
   name: 'deck',
   type: 'document',
+  icon: MdBookmark,
   fields: [
     {
       title: 'Name',

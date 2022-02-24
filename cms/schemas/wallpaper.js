@@ -1,7 +1,10 @@
+import { MdWallpaper } from 'react-icons/md'
+
 const wallpaper = {
   title: 'Wallpaper',
   name: 'wallpaper',
   type: 'document',
+  icon: MdWallpaper,
   fields: [
     {
       title: 'Type',

@@ -23,6 +23,7 @@
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
+    "react-icons": "^4.3.1",
     "sanity-plugin-media-library": "^2.0.2",
     "styled-components": "^5.2.0"
   },

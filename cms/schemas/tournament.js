@@ -1,3 +1,4 @@
+import { MdAutoAwesome } from 'react-icons/md'
 import member from './types/member'
 import date from './types/date'
 import deckId from './types/deckId'
@@ -7,6 +8,7 @@ const tournament = {
   title: 'Tournament',
   name: 'tournament',
   type: 'document',
+  icon: MdAutoAwesome,
   fields: [
     {
       title: 'Name',

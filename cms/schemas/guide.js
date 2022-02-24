@@ -1,4 +1,4 @@
-import json from './types/json'
+import { MdExplore } from 'react-icons/md'
 import member from './types/member'
 import date from './types/date'
 import cardId from './types/cardId'
@@ -11,6 +11,7 @@ const guide = {
   title: 'Guide',
   name: 'guide',
   type: 'document',
+  icon: MdExplore,
   fields: [
     {
       title: 'Title',

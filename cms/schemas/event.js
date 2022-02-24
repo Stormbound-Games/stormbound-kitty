@@ -1,3 +1,4 @@
+import { MdEvent } from 'react-icons/md'
 import member from './types/member'
 import date from './types/date'
 import json from './types/json'
@@ -7,6 +8,7 @@ const event = {
   title: 'Event',
   name: 'event',
   type: 'document',
+  icon: MdEvent,
   fields: [
     {
       title: 'Type',

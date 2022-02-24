@@ -1,3 +1,4 @@
+import { MdExtension } from 'react-icons/md'
 import member from './types/member'
 import date from './types/date'
 import formatDate from './helpers/formatDate'
@@ -7,6 +8,7 @@ const puzzle = {
   title: 'Puzzle',
   name: 'puzzle',
   type: 'document',
+  icon: MdExtension,
   fields: [
     {
       title: 'Name',

@@ -1,3 +1,4 @@
+import { MdPodcasts } from 'react-icons/md'
 import React from 'react'
 import member from './types/member'
 import date from './types/date'
@@ -7,6 +8,7 @@ const podcast = {
   title: 'Podcast episode',
   name: 'podcast',
   type: 'document',
+  icon: MdPodcasts,
   fields: [
     {
       title: 'Title',

@@ -1,9 +1,11 @@
+import { MdQuestionAnswer } from 'react-icons/md'
 import getBlock from './types/block'
 
 const question = {
   title: 'FAQ Question',
   name: 'question',
   type: 'document',
+  icon: MdQuestionAnswer,
   fields: [
     {
       title: 'Question',

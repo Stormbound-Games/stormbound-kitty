@@ -1,3 +1,4 @@
+import { MdAutoFixNormal } from 'react-icons/md'
 import member from './types/member'
 
 const week = {
@@ -50,6 +51,7 @@ const swcc = {
   title: 'SWCC Season',
   name: 'swcc',
   type: 'document',
+  icon: MdAutoFixNormal,
   fields: [
     {
       title: 'Season number',

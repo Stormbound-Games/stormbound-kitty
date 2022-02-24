@@ -1,3 +1,4 @@
+import { MdCode } from 'react-icons/md'
 import member from './types/member'
 import date from './types/date'
 import formatDate from './helpers/formatDate'
@@ -6,6 +7,7 @@ const contribution = {
   title: 'Code contribution',
   name: 'contribution',
   type: 'document',
+  icon: MdCode,
   fields: [
     member,
     date,

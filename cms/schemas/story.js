@@ -1,3 +1,4 @@
+import { MdEditNote } from 'react-icons/md'
 import React from 'react'
 import member from './types/member'
 import date from './types/date'
@@ -11,6 +12,7 @@ const story = {
   title: 'Story',
   name: 'story',
   type: 'document',
+  icon: MdEditNote,
   fields: [
     {
       title: 'Title',

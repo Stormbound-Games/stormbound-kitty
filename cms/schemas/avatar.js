@@ -1,7 +1,10 @@
+import { MdFace } from 'react-icons/md'
+
 const avatar = {
   title: 'Avatar',
   name: 'avatar',
   type: 'document',
+  icon: MdFace,
   fields: [
     {
       title: 'Name',
