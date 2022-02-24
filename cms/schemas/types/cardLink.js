@@ -1,4 +1,4 @@
-import cardId from '../types/cardId'
+import cardId from './cardId'
 
 const cardLink = {
   title: 'Card link',

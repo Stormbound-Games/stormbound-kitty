@@ -1,5 +1,4 @@
-import cardLink from './cardLink'
-import link from './link'
+import getBlock from './block'
 
 const info = {
   title: 'Info',
@@ -22,16 +21,7 @@ const info = {
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
-          marks: {
-            decorators: [{ title: 'Strong', value: 'strong' }],
-            annotations: [link, cardLink],
-          },
-        },
-      ],
+      of: [getBlock()],
     },
   ],
 }

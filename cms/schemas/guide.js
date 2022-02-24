@@ -1,9 +1,8 @@
 import member from './types/member'
 import date from './types/date'
 import cardId from './types/cardId'
+import getBlock from './types/block'
 import formatDate from './helpers/formatDate'
-import cardLink from './richText/cardLink'
-import link from './richText/link'
 import { CATEGORIES } from '~/constants/guides'
 
 const guide = {
@@ -87,18 +86,7 @@ const guide = {
       name: 'content',
       type: 'array',
       of: [
-        {
-          type: 'block',
-          styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'Heading 2', value: 'h2' },
-            { title: 'Heading 3', value: 'h3' },
-          ],
-          marks: {
-            decorators: [{ title: 'Strong', value: 'strong' }],
-            annotations: [link, cardLink],
-          },
-        },
+        getBlock({ withHeadings: true }),
         { type: 'info' },
         { type: 'battleSim' },
         { type: 'tableOfContents' },

@@ -1,5 +1,4 @@
-import cardLink from './richText/cardLink'
-import link from './richText/link'
+import getBlock from './types/block'
 
 const question = {
   title: 'FAQ Question',
@@ -26,19 +25,7 @@ const question = {
       title: 'Answer',
       name: 'answer',
       type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
-          marks: {
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Code', value: 'code' },
-            ],
-            annotations: [link, cardLink],
-          },
-        },
-      ],
+      of: [getBlock()],
     },
   ],
 }

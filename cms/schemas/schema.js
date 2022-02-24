@@ -16,11 +16,11 @@ import story from './story'
 import swcc from './swcc'
 import tournament from './tournament'
 import wallpaper from './wallpaper'
-import battleSim from './richText/battleSim'
-import cardLink from './richText/cardLink'
-import info from './richText/info'
-import link from './richText/link'
-import tableOfContents from './richText/tableOfContents'
+import battleSim from './types/battleSim'
+import cardLink from './types/cardLink'
+import info from './types/info'
+import link from './types/link'
+import tableOfContents from './types/tableOfContents'
 
 export default createSchema({
   name: 'default',
