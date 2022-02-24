@@ -19,31 +19,31 @@ const iconify = input => {
   ))
 
   output = replaceInString(output, /(\d+)\srare\scards?/g, (match, index) => (
-    <Rare amount={match} key={index} />
+    <Rare amount={+match} key={index} />
   ))
 
   output = replaceInString(output, /(\d+)\sepic\scards?/g, (match, index) => (
-    <Epic amount={match} key={index} />
+    <Epic amount={+match} key={index} />
   ))
 
   output = replaceInString(
     output,
     /(\d+)\slegendary\scards?/g,
-    (match, index) => <Legendary amount={match} key={index} />
+    (match, index) => <Legendary amount={+match} key={index} />
   )
 
   output = replaceInString(output, /(\d+)\scoins?/g, (match, index) => (
-    <Coins amount={match} key={index} />
+    <Coins amount={+match} key={index} />
   ))
 
-  output = replaceInString(output, /(\d+)\srub(y|ies)/g, (match, index) => (
-    <Rubies amount={match} key={index} />
+  output = replaceInString(output, /(\d+)\srub(?:y|ies)/g, (match, index) => (
+    <Rubies amount={+match} key={index} />
   ))
 
   output = replaceInString(
     output,
     /(\d+)\sfusion\sstones?/g,
-    (match, index) => <Stones amount={match} key={index} />
+    (match, index) => <Stones amount={+match} key={index} />
   )
 
   output = replaceInString(output, /(\d+)\scrowns?/g, (match, index) => (
