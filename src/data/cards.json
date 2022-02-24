@@ -899,7 +899,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength* as damage to all enemies surrounding it"
+    "ability": "Before attacking a confused unit, *deal up* to *5/6/7/8/9 of its strength* as damage to all enemies surrounding it"
   },
   {
     "name": "Razor-Sharp Lynxes",

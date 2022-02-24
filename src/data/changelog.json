@@ -1,7 +1,7 @@
 [
   {
     "date": "01/03/2022",
-    "description": "Ability made surrounding",
+    "description": "Ability damage increased by 1 and made surrounding",
     "id": "N64",
     "type": "BUFF",
     "from": {

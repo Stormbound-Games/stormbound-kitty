@@ -72,8 +72,9 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
 
         <ul>
           <li>
-            <CardLink id='N64' />’ ability will now deal damage to the units
-            surrounding the target instead of bordering it.
+            <CardLink id='N64' />’ ability will now deal 5/6/7/8/9 (up from
+            4/5/6/7/8) to the units surrounding the target (instead of bordering
+            it).
           </li>
           <li>
             <CardLink id='N56' />’ ability now also triggers when played on the

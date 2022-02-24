@@ -576,9 +576,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N64', 1)
     const value5 = getCardValue('N64', 5)
     expect(value1[0]).toEqual((4 / 4) * 1)
-    expect(value1[1]).toEqual(((4 + 4) / 4) * 1)
+    expect(value1[1]).toEqual(((4 + 5) / 4) * 1)
     expect(value5[0]).toEqual((8 / 4) * 1)
-    expect(value5[1]).toEqual(((8 + 8) / 4) * 1)
+    expect(value5[1]).toEqual(((8 + 9) / 4) * 1)
   })
 
   it('should return value for Razor-Sharp Lynxes', () => {
