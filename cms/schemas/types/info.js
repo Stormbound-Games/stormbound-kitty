@@ -15,7 +15,7 @@ const info = {
       title: 'Icon',
       name: 'icon',
       type: 'string',
-      options: { list: ['sword', 'stack'] },
+      options: { list: ['compass', 'sword', 'stack'] },
     },
     {
       title: 'Content',
