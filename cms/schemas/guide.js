@@ -96,6 +96,7 @@ const guide = {
         { type: 'tableOfContents' },
         { type: 'card' },
         { type: 'battleSim' },
+        { type: 'table' },
       ],
     },
   ],

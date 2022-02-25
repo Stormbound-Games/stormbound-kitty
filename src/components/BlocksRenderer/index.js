@@ -9,6 +9,7 @@ import BlockDeck from '~/components/BlockDeck'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
 import BlockManaGraph from '~/components/BlockManaGraph'
+import BlockTable from '~/components/BlockTable'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
 import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
@@ -60,6 +61,7 @@ const types = {
   image: BlockImage,
   info: BlockInfo,
   manaGraph: BlockManaGraph,
+  table: BlockTable,
   tableOfContents: BlockTableOfContents,
 }
 

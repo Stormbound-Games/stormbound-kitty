@@ -9050,6 +9050,11 @@ sanity-plugin-media-library@^2.0.2:
     "@sanity/ui" "^0.36.10"
     styled-components "^5.3.1"
 
+sanity-plugin-table@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/sanity-plugin-table/-/sanity-plugin-table-2.3.0.tgz#432bf3d626b6678f38fecc7a09488603403a6ddb"
+  integrity sha512-5aTTjL7Bpyc52MqWg+d/Gk8qDy3XuyQ0IT23qFCXXYolhPNIQQSOUVgKHMWdXgTC5OvcnXhTMCh5oRBCXXtbOw==
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"

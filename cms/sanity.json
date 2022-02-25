@@ -13,7 +13,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/production-preview",
-    "media-library"
+    "media-library",
+    "table"
   ],
   "env": {
     "development": {
