@@ -1,3 +1,13 @@
+const BLOCK_NAMES = {
+  battleSim: 'Battle Sim',
+  card: 'Card',
+  deck: 'Deck',
+  image: 'Image',
+  manaGraph: 'Mana Graph',
+  tableOfContents: 'Table of Contents',
+  tierList: 'Tier List',
+}
+
 function blocksToText(blocks, opts = {}) {
   const options = { nonTextBehavior: 'remove', ...opts }
 
@@ -6,7 +16,7 @@ function blocksToText(blocks, opts = {}) {
       if (block._type !== 'block' || !block.children) {
         return options.nonTextBehavior === 'remove'
           ? ''
-          : `[${block._type} block]`
+          : `[${BLOCK_NAMES[block._type] || block._type} module]`
       }
 
       return block.children.map(child => child.text).join('')

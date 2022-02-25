@@ -1,16 +1,18 @@
 import React from 'react'
-import { MdOutlineViewColumn } from 'react-icons/md'
+import { MdOutlineViewColumn, MdOutlineViewArray } from 'react-icons/md'
 import getBlock from './block'
 import image from './image'
 import info from './info'
 import deckEmbed from './deck'
 import card from './card'
 import manaGraph from './manaGraph'
+import blocksToText from '../helpers/blocksToText'
 
 const column = {
   title: 'Column',
   name: 'column',
   type: 'object',
+  icon: MdOutlineViewArray,
   fields: [
     {
       title: 'Content',
@@ -27,6 +29,16 @@ const column = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: { content: 'content' },
+    prepare({ content }) {
+      return {
+        title: 'Column',
+        subtitle: blocksToText(content, { nonTextBehavior: 'preserve' }),
+        media: <MdOutlineViewArray />,
+      }
+    },
+  },
 }
 
 const columns = {
