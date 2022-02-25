@@ -24,6 +24,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       navigation: await getNavigation({ isPreview }),
       ...guide,
     },
+    revalidate: 60 * 60 * 24,
   }
 }
 

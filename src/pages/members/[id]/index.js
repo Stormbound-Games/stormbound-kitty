@@ -36,6 +36,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       displayName,
       roles,
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

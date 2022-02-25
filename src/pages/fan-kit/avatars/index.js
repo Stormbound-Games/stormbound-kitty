@@ -10,6 +10,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       navigation: await getNavigation({ isPreview }),
       avatars: await getAvatars({ isPreview }),
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

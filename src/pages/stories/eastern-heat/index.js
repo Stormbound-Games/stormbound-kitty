@@ -18,6 +18,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       category: { ...STORY_CATEGORIES[category], id: category },
       navigation: await getNavigation({ isPreview }),
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 
