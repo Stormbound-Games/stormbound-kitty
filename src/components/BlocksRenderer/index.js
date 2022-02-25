@@ -9,11 +9,13 @@ import BlockDeck from '~/components/BlockDeck'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
 import BlockManaGraph from '~/components/BlockManaGraph'
+import BlockNotice from '~/components/BlockNotice'
 import BlockTable from '~/components/BlockTable'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
 import BlockTierList from '~/components/BlockTierList'
 import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
+import Notice from '~/components/Notice'
 import Sparkles from '~/components/Sparkles'
 import Title from '~/components/Title'
 
@@ -52,6 +54,7 @@ const block = {
 
     return children ? <Embellish as='p'>{children}</Embellish> : null
   },
+  notice: BlockNotice,
   h2: asHeading(Title),
   h3: asHeading('h3'),
 }

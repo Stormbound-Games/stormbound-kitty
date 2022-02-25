@@ -95,7 +95,7 @@ const guide = {
       name: 'content',
       type: 'array',
       of: [
-        getBlock({ withHeadings: true }),
+        getBlock({ withHeadings: true, withNotice: true }),
         image,
         columns,
         info,
