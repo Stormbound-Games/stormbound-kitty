@@ -16,14 +16,6 @@ import story from './story'
 import swcc from './swcc'
 import tournament from './tournament'
 import wallpaper from './wallpaper'
-import battleSim from './types/battleSim'
-import columns from './types/columns'
-import card from './types/card'
-import deckEmbed from './types/deck'
-import info from './types/info'
-import manaGraph from './types/manaGraph'
-import tableOfContents from './types/tableOfContents'
-import tierList from './types/tierList'
 
 export default createSchema({
   name: 'default',
@@ -45,15 +37,5 @@ export default createSchema({
     tournament,
     wallpaper,
     channel,
-
-    // Rich text editor modules
-    battleSim,
-    card,
-    deckEmbed,
-    columns,
-    info,
-    manaGraph,
-    tableOfContents,
-    tierList,
   ]),
 })

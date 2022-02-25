@@ -1,5 +1,5 @@
-import member from './member'
-import date from './date'
+import React from 'react'
+import { MdAutoGraph } from 'react-icons/md'
 import deckId from './deckId'
 import { BRAWLS } from '~/constants/brawl'
 
@@ -7,6 +7,7 @@ const deck = {
   title: 'Mana graph',
   name: 'manaGraph',
   type: 'object',
+  icon: MdAutoGraph,
   fields: [
     deckId,
     {
@@ -26,6 +27,16 @@ const deck = {
       initialValue: false,
     },
   ],
+  preview: {
+    select: { deckId: 'deckId' },
+    prepare({ deckId }) {
+      return {
+        title: 'Mana graph',
+        subtitle: deckId,
+        media: <MdAutoGraph />,
+      }
+    },
+  },
 }
 
 export default deck

@@ -1,5 +1,11 @@
+import React from 'react'
+import { MdOutlineViewColumn } from 'react-icons/md'
 import getBlock from './block'
 import image from './image'
+import info from './info'
+import deckEmbed from './deck'
+import card from './card'
+import manaGraph from './manaGraph'
 
 const column = {
   title: 'Column',
@@ -13,10 +19,10 @@ const column = {
       of: [
         getBlock({ withHeadings: true }),
         image,
-        { type: 'info' },
-        { type: 'deckEmbed' },
-        { type: 'card' },
-        { type: 'manaGraph' },
+        info,
+        deckEmbed,
+        card,
+        manaGraph,
       ],
       validation: Rule => Rule.required(),
     },
@@ -27,6 +33,7 @@ const columns = {
   title: 'Columns',
   name: 'columns',
   type: 'object',
+  icon: MdOutlineViewColumn,
   fields: [
     {
       title: 'Columns',
@@ -44,6 +51,20 @@ const columns = {
       hidden: ({ document }) => document.columns.length !== 2,
     },
   ],
+  preview: {
+    select: { columns: 'columns', wide: 'wide' },
+    prepare({ columns, wide }) {
+      return {
+        title: 'Columns',
+        subtitle:
+          columns.length +
+          ' column' +
+          (columns.length === 1 ? '' : 's') +
+          (wide ? ' in wide mode' : ' in narrow mode'),
+        media: <MdOutlineViewColumn />,
+      }
+    },
+  },
 }
 
 export default columns

@@ -5,6 +5,12 @@ import cardId from './types/cardId'
 import image from './types/image'
 import getBlock from './types/block'
 import formatDate from './helpers/formatDate'
+import battleSim from './types/battleSim'
+import columns from './types/columns'
+import card from './types/card'
+import info from './types/info'
+import tableOfContents from './types/tableOfContents'
+import tierList from './types/tierList'
 import { CATEGORIES } from '~/constants/guides'
 
 const guide = {
@@ -91,13 +97,13 @@ const guide = {
       of: [
         getBlock({ withHeadings: true }),
         image,
-        { type: 'columns' },
-        { type: 'info' },
-        { type: 'tableOfContents' },
-        { type: 'card' },
-        { type: 'battleSim' },
+        columns,
+        info,
+        tableOfContents,
+        card,
+        battleSim,
         { type: 'table' },
-        { type: 'tierList' },
+        tierList,
       ],
     },
   ],

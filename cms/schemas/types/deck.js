@@ -1,3 +1,5 @@
+import React from 'react'
+import { MdAutoAwesomeMotion } from 'react-icons/md'
 import member from './member'
 import date from './date'
 import deckId from './deckId'
@@ -9,6 +11,7 @@ const deck = {
   // should have been called `featuredDeck`…).
   name: 'deckEmbed',
   type: 'object',
+  icon: MdAutoAwesomeMotion,
   fields: [
     {
       title: 'Name',
@@ -38,6 +41,16 @@ const deck = {
       validation: Rule => Rule.required().min(1),
     },
   ],
+  preview: {
+    select: { id: 'id', name: 'name' },
+    prepare({ id, name }) {
+      return {
+        title: `Deck ${name ? `(${name})` : ''}`,
+        subtitle: id,
+        media: <MdAutoAwesomeMotion />,
+      }
+    },
+  },
 }
 
 export default deck

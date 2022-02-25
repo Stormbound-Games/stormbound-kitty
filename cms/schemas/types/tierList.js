@@ -1,7 +1,11 @@
+import React from 'react'
+import { MdOutlineViewModule } from 'react-icons/md'
+
 const tierList = {
   title: 'Tier list',
   name: 'tierList',
   type: 'object',
+  icon: MdOutlineViewModule,
   fields: [
     {
       title: 'List ID',
@@ -12,6 +16,16 @@ const tierList = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: { id: 'id' },
+    prepare({ id }) {
+      return {
+        title: 'Tier list',
+        subtitle: id,
+        media: <MdOutlineViewModule />,
+      }
+    },
+  },
 }
 
 export default tierList

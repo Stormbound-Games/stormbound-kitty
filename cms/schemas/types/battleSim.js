@@ -1,3 +1,5 @@
+import React from 'react'
+import { MdGridOn } from 'react-icons/md'
 import cardLink from './cardLink'
 import link from './link'
 
@@ -5,6 +7,7 @@ const battleSimEmbed = {
   title: 'Battle Sim',
   name: 'battleSim',
   type: 'object',
+  icon: MdGridOn,
   fields: [
     {
       title: 'Board ID',
@@ -47,6 +50,16 @@ const battleSimEmbed = {
       },
     },
   ],
+  preview: {
+    select: { board: 'board' },
+    prepare({ board }) {
+      return {
+        title: 'Battle Sim',
+        subtitle: board,
+        media: <MdGridOn />,
+      }
+    },
+  },
 }
 
 export default battleSimEmbed
