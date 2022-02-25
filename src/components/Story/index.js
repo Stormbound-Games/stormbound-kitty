@@ -6,13 +6,10 @@ import HorizontalRule from '~/components/HorizontalRule'
 import Notice from '~/components/Notice'
 import Only from '~/components/Only'
 import Link from '~/components/Link'
-import MicroMarkdown from '~/components/MicroMarkdown'
 import Stories from '~/components/Stories'
 import Title from '~/components/Title'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getRawCardData from '~/helpers/getRawCardData'
-import getExcerpt from '~/helpers/getExcerpt'
-import getReadingTime from '~/helpers/getReadingTime'
 
 export default React.memo(function Story(props) {
   const [ref, inView] = useInView()
@@ -21,11 +18,6 @@ export default React.memo(function Story(props) {
   return (
     <>
       <Page
-        extend={
-          story.type === 'poem'
-            ? { textAlign: 'center', fontSize: '120%' }
-            : undefined
-        }
         title={story.title}
         author={story.author}
         image={'/assets/images/cards/' + getRawCardData(story.cardId).image}
@@ -38,14 +30,10 @@ export default React.memo(function Story(props) {
         }}
         withAvif
         isEditorialContent
-        withDropCap={story.type !== 'poem'}
+        withDropCap
       >
         <Page.Narrow>
-          {typeof story.content === 'string' ? (
-            <MicroMarkdown content={story.content} />
-          ) : (
-            <BlocksRenderer value={story.content} />
-          )}
+          <BlocksRenderer value={story.content} />
         </Page.Narrow>
       </Page>
 
