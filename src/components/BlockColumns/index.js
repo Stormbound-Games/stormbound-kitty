@@ -5,7 +5,7 @@ import Row from '~/components/Row'
 
 export default React.memo(function BlockColumns({ value }) {
   const { columns, wide } = value
-  const Container = columns.length !== 2 || wide ? PageEmbed : React.Fragment
+  const Container = wide ? PageEmbed : React.Fragment
 
   return (
     <Container>
