@@ -41,7 +41,7 @@ const getRedirectUrl = async params => {
     case 'story': {
       const story = await getStory(params)
 
-      return story ? `/${story.slug}` : null
+      return story ? `/stories/${story.slug}` : null
     }
 
     case 'deck': {
