@@ -2,6 +2,7 @@ import React from 'react'
 import PageEmbed from '~/components/PageEmbed'
 import Only from '~/components/Only'
 import Table from '~/components/Table'
+import iconify from '~/helpers/iconify'
 
 export default React.memo(function BlockTable(props) {
   const [head, ...rows] = props.value.rows
@@ -23,7 +24,7 @@ export default React.memo(function BlockTable(props) {
               <tr key={index}>
                 {row.cells.map((cell, index) => {
                   const Component = isBiDirectional && index === 0 ? 'th' : 'td'
-                  return <Component key={cell}>{cell}</Component>
+                  return <Component key={cell}>{iconify(cell)}</Component>
                 })}
               </tr>
             ))}
