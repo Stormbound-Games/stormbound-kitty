@@ -22,6 +22,16 @@ const image = {
         'JSON blob of styles to extend the image with. Use carefully.',
     },
   ],
+  preview: {
+    select: { alt: 'alt', asset: 'asset' },
+    prepare({ alt, asset }) {
+      return {
+        title: 'Image',
+        subtitle: alt,
+        media: asset,
+      }
+    },
+  },
 }
 
 export default image
