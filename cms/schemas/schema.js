@@ -21,6 +21,7 @@ import columns from './types/columns'
 import card from './types/card'
 import deckEmbed from './types/deck'
 import info from './types/info'
+import manaGraph from './types/manaGraph'
 import tableOfContents from './types/tableOfContents'
 
 export default createSchema({
@@ -50,6 +51,7 @@ export default createSchema({
     deckEmbed,
     columns,
     info,
+    manaGraph,
     tableOfContents,
   ]),
 })

@@ -8,6 +8,7 @@ import BlockColumns from '~/components/BlockColumns'
 import BlockDeck from '~/components/BlockDeck'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
+import BlockManaGraph from '~/components/BlockManaGraph'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
 import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
@@ -52,12 +53,13 @@ const block = {
 }
 
 const types = {
+  battleSim: BlockBattleSim,
   card: BlockCard,
   columns: BlockColumns,
+  deckEmbed: BlockDeck,
   image: BlockImage,
   info: BlockInfo,
-  deckEmbed: BlockDeck,
-  battleSim: BlockBattleSim,
+  manaGraph: BlockManaGraph,
   tableOfContents: BlockTableOfContents,
 }
 

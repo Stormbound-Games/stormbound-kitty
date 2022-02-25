@@ -16,6 +16,7 @@ const column = {
         { type: 'info' },
         { type: 'deckEmbed' },
         { type: 'card' },
+        { type: 'manaGraph' },
       ],
       validation: Rule => Rule.required(),
     },
