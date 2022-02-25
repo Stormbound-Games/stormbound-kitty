@@ -8,6 +8,10 @@ const clean = guide => {
     guide.background = guide.background.asset.url + '?auto=format'
   }
 
+  if (typeof guide.ratio === 'number') {
+    guide.ratio = guide.ratio + '%'
+  }
+
   delete guide._createdAt
   delete guide._updatedAt
   delete guide._id

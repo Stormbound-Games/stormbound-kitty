@@ -111,6 +111,14 @@ const guide = {
         accept: ['image/jpeg', 'image/png', 'image/gif'],
       },
     },
+    {
+      title: 'Banner format',
+      name: 'ratio',
+      type: 'number',
+      description:
+        'The ratio in % between the width and the height of the banner area (e.g. 50% means height = width / 2). Defaults to 20%.',
+      validation: Rule => Rule.min(20).max(60),
+    },
   ],
   orderings: [
     {
