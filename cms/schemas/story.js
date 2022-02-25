@@ -65,7 +65,7 @@ const story = {
       title: 'Content',
       name: 'body',
       type: 'array',
-      of: [getBlock()],
+      of: [getBlock({ witHeadings: true })],
       validation: Rule => Rule.required(),
     },
     {
