@@ -1,10 +1,6 @@
-import getGuides from '~/api/guides/getGuides'
-import { CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
 const getNavigation = async () => {
-  const guides = await getGuides()
-
   return [
     {
       id: 'HOME',
@@ -86,31 +82,123 @@ const getNavigation = async () => {
       id: 'GUIDES',
       icon: 'compass',
       label: 'Guides',
-      items: Object.keys(CATEGORIES).map(category => {
-        const catGuides = guides.filter(guide => guide.category === category)
-        const shownGuides = catGuides.filter(guide => !guide.skipNav)
-        const items = shownGuides.map(guide => ({
-          label: guide.name,
-          to: '/guides/' + guide.slug,
-          id: guide.id,
-        }))
-
-        if (catGuides.length !== shownGuides.length) {
-          items.push({
-            label: `More ${CATEGORIES[category].name.short} guides`,
-            to: '/guides/' + CATEGORIES[category].slug,
-            id: category,
-          })
-        }
-
-        return {
-          id: category,
-          title: CATEGORIES[category].name.long,
-          icon: CATEGORIES[category].icon,
-          to: '/guides/' + CATEGORIES[category].slug,
-          items,
-        }
-      }),
+      items: [
+        {
+          id: 'ESSENTIALS',
+          title: 'Essential Guides',
+          icon: 'shield',
+          to: '/guides/essentials',
+          items: [
+            {
+              label: 'Beginner’s Guide',
+              to: '/guides/beginner',
+              id: 'BEGINNER',
+            },
+            { label: 'Complete Guide', to: '/guides/complete', id: 'COMPLETE' },
+            { label: 'Intro to Draft', to: '/guides/draft', id: 'DRAFT' },
+            {
+              label: 'Intro to Equals',
+              to: '/guides/equals',
+              id: 'INTRO_TO_EQUALS',
+            },
+            { label: 'Deck Building', to: '/guides/deck', id: 'DECK_BUILDING' },
+            {
+              label: 'More essential guides',
+              to: '/guides/essentials',
+              id: 'ESSENTIALS',
+            },
+          ],
+        },
+        {
+          id: 'PLAYSTYLE',
+          title: 'Playstyle Guides',
+          icon: 'power',
+          to: '/guides/playstyle',
+          items: [
+            {
+              label: 'Guide to Structures',
+              to: '/guides/structures',
+              id: 'STRUCTURES',
+            },
+            {
+              label: 'Reckless Rush',
+              to: '/guides/reckless-rush',
+              id: 'RECKLESS_RUSH',
+            },
+            {
+              label: 'Mia’s Metropolis',
+              to: '/guides/mias-metropolis',
+              id: 'MIAS_METROPOLIS',
+            },
+            { label: 'BwB Rush', to: '/guides/bwb-rush', id: 'BWB_RUSH' },
+            {
+              label: 'Legendaries level 1',
+              to: '/guides/legendaries',
+              id: 'LEGENDARIES_LEVEL_1',
+            },
+            {
+              label: 'More playstyle guides',
+              to: '/guides/playstyle',
+              id: 'PLAYSTYLE',
+            },
+          ],
+        },
+        {
+          id: 'BRAWL_MODE',
+          title: 'Brawl Guides',
+          icon: 'crown',
+          to: '/guides/brawl-mode',
+          items: [
+            { label: 'Intro to Brawl', to: '/guides/brawl', id: 'BRAWL' },
+            {
+              label: 'Self-Control',
+              to: '/guides/self-control',
+              id: 'BRAWL_SELF_CONTROL',
+            },
+            {
+              label: 'Eye of the Tempest',
+              to: '/guides/eye-of-the-tempest',
+              id: 'BRAWL_EYE_OF_THE_TEMPEST',
+            },
+            {
+              label: 'Freedom Fight',
+              to: '/guides/freedom-fight',
+              id: 'BRAWL_FREEDOM_FIGHT',
+            },
+            {
+              label: 'Noble Coalition',
+              to: '/guides/noble-coalition',
+              id: 'BRAWL_NOBLE_COALITION',
+            },
+            {
+              label: 'More Brawl guides',
+              to: '/guides/brawl-mode',
+              id: 'BRAWL_MODE',
+            },
+          ],
+        },
+        {
+          id: 'IN_DEPTH',
+          title: 'In-depth Guides',
+          icon: 'target',
+          to: '/guides/in-depth',
+          items: [
+            { label: 'About Triggers', to: '/guides/triggers', id: 'TRIGGERS' },
+            {
+              label: 'Drawing Mechanics',
+              to: '/guides/drawing',
+              id: 'DRAWING_MECHANICS',
+            },
+            {
+              label: 'Mana Curve Analysis',
+              to: '/guides/mana-curve',
+              id: 'MANA_CURVE',
+            },
+            { label: 'Card Shop', to: '/guides/card-shop', id: 'CARD_SHOP' },
+            { label: 'Stormbound Trivia', to: '/guides/trivia', id: 'TRIVIA' },
+          ],
+        },
+      ],
     },
     {
       id: 'TOOLS',
