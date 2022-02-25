@@ -68,14 +68,6 @@ const story = {
       of: [getBlock({ withHeadings: true, withNotice: true })],
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'Content (legacy)',
-      name: 'content',
-      type: 'text',
-      description:
-        'Wrapping text with asterisks (*) will emphasize it, and triple dashes (---) will render horizontal separators.',
-      validation: Rule => Rule.required(),
-    },
   ],
   orderings: [
     {
