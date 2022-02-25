@@ -97,6 +97,7 @@ const guide = {
         { type: 'card' },
         { type: 'battleSim' },
         { type: 'table' },
+        { type: 'tierList' },
       ],
     },
   ],

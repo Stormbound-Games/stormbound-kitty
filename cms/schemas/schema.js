@@ -23,6 +23,7 @@ import deckEmbed from './types/deck'
 import info from './types/info'
 import manaGraph from './types/manaGraph'
 import tableOfContents from './types/tableOfContents'
+import tierList from './types/tierList'
 
 export default createSchema({
   name: 'default',
@@ -53,5 +54,6 @@ export default createSchema({
     info,
     manaGraph,
     tableOfContents,
+    tierList,
   ]),
 })

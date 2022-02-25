@@ -11,6 +11,7 @@ import BlockInfo from '~/components/BlockInfo'
 import BlockManaGraph from '~/components/BlockManaGraph'
 import BlockTable from '~/components/BlockTable'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
+import BlockTierList from '~/components/BlockTierList'
 import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
 import Title from '~/components/Title'
@@ -63,6 +64,7 @@ const types = {
   manaGraph: BlockManaGraph,
   table: BlockTable,
   tableOfContents: BlockTableOfContents,
+  tierList: BlockTierList,
 }
 
 const COMPONENTS = {
