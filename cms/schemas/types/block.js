@@ -1,5 +1,10 @@
+import React from 'react'
 import link from './link'
 import cardLink from './cardLink'
+
+const Sparkly = props => (
+  <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
+)
 
 const getBlock = ({ withHeadings = false } = {}) => ({
   type: 'block',
@@ -12,6 +17,14 @@ const getBlock = ({ withHeadings = false } = {}) => ({
     decorators: [
       { title: 'Strong', value: 'strong' },
       { title: 'Code', value: 'code' },
+      {
+        title: 'Sparkles',
+        value: 'sparkles',
+        blockEditor: {
+          icon: () => '✨',
+          render: Sparkly,
+        },
+      },
     ],
     annotations: [link, cardLink],
   },
