@@ -16,10 +16,7 @@ const deckId = {
         try {
           const deck = serialization.deck.deserialize(string)
 
-          return (
-            (deck.length === 12 && deck.every(isValidCard)) ||
-            'Invalid deck ID.'
-          )
+          return deck.every(isValidCard) || 'Invalid deck ID.'
         } catch {
           return 'Invalid deck ID.'
         }
