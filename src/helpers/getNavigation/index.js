@@ -378,9 +378,9 @@ const getNavigation = async () => {
               id: 'BREWED_SAGES',
             },
             {
-              label: 'Videos',
+              label: 'YouTube Channels',
               to: '/videos',
-              id: 'VIDEOS',
+              id: 'YOUTUBE_CHANNELS',
             },
           ],
         },

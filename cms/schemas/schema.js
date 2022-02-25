@@ -30,7 +30,6 @@ export default createSchema({
     // Documents
     artwork,
     avatar,
-    channel,
     contribution,
     deck,
     donation,
@@ -44,6 +43,7 @@ export default createSchema({
     swcc,
     tournament,
     wallpaper,
+    channel,
 
     // Rich text editor modules
     battleSim,

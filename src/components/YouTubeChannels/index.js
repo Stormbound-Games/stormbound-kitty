@@ -9,12 +9,12 @@ import Spacing from '~/components/Spacing'
 import chunk from '~/helpers/chunk'
 import styles from './styles'
 
-export default React.memo(function Videos(props) {
+export default React.memo(function YouTubeChannels(props) {
   const { css } = useFela()
 
   return (
     <Page
-      title='Videos'
+      title='YouTube Channels'
       description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
       isEditorialContent
     >

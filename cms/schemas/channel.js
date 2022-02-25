@@ -2,7 +2,7 @@ import { MdPlayCircleOutline } from 'react-icons/md'
 import member from './types/member'
 
 const channels = {
-  title: 'Channel',
+  title: 'YouTube Channel',
   name: 'channel',
   type: 'document',
   icon: MdPlayCircleOutline,

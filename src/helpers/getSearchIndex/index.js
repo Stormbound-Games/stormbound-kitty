@@ -365,7 +365,7 @@ const getSearchIndex = async (withEverything = true) => {
   })
 
   links.push({
-    label: 'Videos',
+    label: 'YouTube Channels',
     path: '/videos',
     breadcrumbs: ['Community', 'Discover'],
   })
