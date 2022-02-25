@@ -1,5 +1,6 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
+import BlocksRenderer from '~/components/BlocksRenderer'
 import Page from '~/components/Page'
 import HorizontalRule from '~/components/HorizontalRule'
 import Notice from '~/components/Notice'
@@ -30,7 +31,7 @@ export default React.memo(function Story(props) {
         image={'/assets/images/cards/' + getRawCardData(story.cardId).image}
         description={story.excerpt}
         background={STORY_CATEGORIES[story.category].background}
-        meta={getReadingTime(story.content)}
+        meta={story.readingTime}
         action={{
           to: '/stories/' + story.category,
           children: 'Back to stories',
@@ -40,7 +41,11 @@ export default React.memo(function Story(props) {
         withDropCap={story.type !== 'poem'}
       >
         <Page.Narrow>
-          <MicroMarkdown content={story.content} />
+          {typeof story.content === 'string' ? (
+            <MicroMarkdown content={story.content} />
+          ) : (
+            <BlocksRenderer value={story.content} />
+          )}
         </Page.Narrow>
       </Page>
 

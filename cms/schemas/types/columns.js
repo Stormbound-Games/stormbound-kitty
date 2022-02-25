@@ -6,7 +6,7 @@ import info from './info'
 import deckEmbed from './deck'
 import card from './card'
 import manaGraph from './manaGraph'
-import blocksToText from '../helpers/blocksToText'
+import blocksToText from '~/helpers/blocksToText'
 
 const column = {
   title: 'Column',

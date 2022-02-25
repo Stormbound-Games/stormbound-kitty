@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdInfoOutline } from 'react-icons/md'
 import getBlock from './block'
-import blocksToText from '../helpers/blocksToText'
+import blocksToText from '~/helpers/blocksToText'
 
 const ICONS =
   'arrow-up,arrow-down,arrow-left,arrow-right,books,bullhorn,compass,crown,equalizer,eye,fire,gift,hammer,heart,info,pencil,quill,search,stack,star,super-star,sword,trophy,user,warning'.split(

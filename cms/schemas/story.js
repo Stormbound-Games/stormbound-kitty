@@ -4,6 +4,7 @@ import member from './types/member'
 import date from './types/date'
 import json from './types/json'
 import cardId from './types/cardId'
+import getBlock from './types/block'
 import formatDate from './helpers/formatDate'
 import getRawCardData from '~/helpers/getRawCardData'
 import { STORY_CATEGORIES } from '~/constants/stories'
@@ -62,6 +63,13 @@ const story = {
     date,
     {
       title: 'Content',
+      name: 'body',
+      type: 'array',
+      of: [getBlock()],
+      validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Content (legacy)',
       name: 'content',
       type: 'text',
       description:
