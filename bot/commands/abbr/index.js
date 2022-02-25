@@ -12,7 +12,7 @@ const abbr = {
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/guides/lexicon')
+      .setURL('https://stormbound-kitty.com/lexicon')
       .setDescription(
         `Get the meaning of a card or popular abbreviation (regardless of casing). For instance, \`!${this.command} rof\` or \`!${this.command} AoE\`.`
       )
@@ -26,7 +26,7 @@ const abbr = {
 
     embed
       .setTitle(`${this.label}: “${message}”`)
-      .setURL('https://stormbound-kitty.com/guides/lexicon')
+      .setURL('https://stormbound-kitty.com/lexicon')
       .setDescription(
         `“${message}” might mean ${toSentence(matches.map(quotify), 'or')}.`
       )
