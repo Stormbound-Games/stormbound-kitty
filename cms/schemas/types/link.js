@@ -7,7 +7,11 @@ const link = {
       title: 'Path or URL',
       name: 'href',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: Rule =>
+        Rule.required().custom(value => {
+          if (value && value.includes('localhost')) return 'Invalid local link.'
+          return true
+        }),
     },
   ],
 }
