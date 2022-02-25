@@ -36,13 +36,13 @@ const battleSimEmbed = {
       description: 'The theme of the battle sim board.',
       options: {
         list: [
-          'dragon',
-          'feline',
-          'ironclad',
           'neutral',
+          'ironclad',
           'shadowfen',
           'swarm',
           'winter',
+          'dragon',
+          'feline',
         ],
       },
     },
