@@ -15,6 +15,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       stories,
       category: { ...STORY_CATEGORIES[category], id: category },
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

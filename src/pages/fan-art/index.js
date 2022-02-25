@@ -11,6 +11,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       navigation: await getNavigation({ isPreview }),
       artworks: shuffle(await getArtworks({ isPreview })),
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

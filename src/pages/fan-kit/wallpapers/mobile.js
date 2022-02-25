@@ -10,6 +10,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       navigation: await getNavigation({ isPreview }),
       wallpapers: await getWallpapersFromType({ type: 'MOBILE', isPreview }),
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

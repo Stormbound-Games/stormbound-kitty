@@ -8,7 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const members = await getMembersList({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
-  return { props: { navigation, members } }
+  return { props: { navigation, members }, revalidate: 60 * 60 * 24 * 7 }
 }
 
 const MembersPage = ({ navigation, ...props }) => (

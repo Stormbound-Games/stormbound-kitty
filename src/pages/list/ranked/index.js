@@ -13,6 +13,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       navigation: await getNavigation({ isPreview }),
       list: getInitialListData(tierList),
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

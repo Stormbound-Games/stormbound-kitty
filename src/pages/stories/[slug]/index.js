@@ -39,6 +39,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       moreStories: moreStories.slice(0, 3),
       navigation: await getNavigation({ isPreview }),
     },
+    revalidate: 60 * 60 * 24 * 7,
   }
 }
 
