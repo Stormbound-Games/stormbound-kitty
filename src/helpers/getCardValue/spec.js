@@ -539,10 +539,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Fluffy Badboxers', () => {
     const value1 = getCardValue('N60', 1)
     const value5 = getCardValue('N60', 5)
-    expect(value1[0]).toEqual((6 / 5) * 1)
-    expect(value1[1]).toEqual((6 / 5) * 1)
-    expect(value5[0]).toEqual((12 / 5) * 1)
-    expect(value5[1]).toEqual((12 / 5) * 1)
+    expect(value1[0]).toEqual((5 / 5) * 1)
+    expect(value1[1]).toEqual((5 / 5) * 1)
+    expect(value5[0]).toEqual((10 / 5) * 1)
+    expect(value5[1]).toEqual((10 / 5) * 1)
   })
 
   it('should return value for Hair-Raising Cats', () => {
@@ -576,9 +576,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N64', 1)
     const value5 = getCardValue('N64', 5)
     expect(value1[0]).toEqual((4 / 4) * 1)
-    expect(value1[1]).toEqual(((4 + 4) / 4) * 1)
+    expect(value1[1]).toEqual(((4 + 5) / 4) * 1)
     expect(value5[0]).toEqual((8 / 4) * 1)
-    expect(value5[1]).toEqual(((8 + 8) / 4) * 1)
+    expect(value5[1]).toEqual(((8 + 9) / 4) * 1)
   })
 
   it('should return value for Razor-Sharp Lynxes', () => {
@@ -703,10 +703,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Excited Mouser', () => {
     const value1 = getCardValue('N79', 1)
     const value5 = getCardValue('N79', 5)
-    expect(value1[0]).toEqual((5 / 5) * 0.5)
-    expect(value1[1]).toEqual((5 / 5) * 0.5)
-    expect(value5[0]).toEqual((11 / 5) * 0.5)
-    expect(value5[1]).toEqual((11 / 5) * 0.5)
+    expect(value1[0]).toEqual((6 / 5) * 0.5)
+    expect(value1[1]).toEqual((6 / 5) * 0.5)
+    expect(value5[0]).toEqual((12 / 5) * 0.5)
+    expect(value5[1]).toEqual((12 / 5) * 0.5)
   })
 
   it('should return value for Flameless Lizards', () => {

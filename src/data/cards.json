@@ -785,7 +785,7 @@
     "mana": 8,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "When played on the tile in front of your temple structure or your base, *spawn 4/5/6/7/8* strength Knights on all of its bordering tiles"
+    "ability": "When played on the tile in front or the sides of your temple structure or your base, *spawn 4/5/6/7/8* strength Knights on all of its bordering tiles"
   },
   {
     "name": "Crazy Bombers",
@@ -841,7 +841,7 @@
     "rarity": "rare",
     "image": "fluffy_badboxers.png",
     "mana": 5,
-    "strength": "6/7/8/10/12",
+    "strength": "5/6/7/8/10",
     "movement": 1,
     "ability": "After attacking, *confuse all weaker* enemy units"
   },
@@ -899,7 +899,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength* as damage to all enemies bordering it"
+    "ability": "Before attacking a confused unit, *deal up* to *5/6/7/8/9 of its strength* as damage to all enemies surrounding it"
   },
   {
     "name": "Razor-Sharp Lynxes",
@@ -1086,7 +1086,7 @@
     "rarity": "legendary",
     "image": "rogue_sheep.png",
     "mana": 4,
-    "strength": "3/4/5/6/7",
+    "strength": "4/5/6/7/9",
     "movement": 0,
     "ability": "On play, *draw 1/1/2/2/3* single-use non-pirate card copy/copy/copies/copies/copies from the enemy’s hand. If you have a pirate card in hand, reduce its/its/their/their/their mana cost by 1.",
     "hero": true
@@ -1115,7 +1115,7 @@
     "rarity": "rare",
     "image": "excited_mousers.png",
     "mana": 5,
-    "strength": "5/6/7/9/11",
+    "strength": "6/7/8/10/12",
     "movement": 0,
     "ability": "On play confuse the same number of surrounding enemies, as there are friendly units on the board"
   },
@@ -1714,9 +1714,24 @@
     "rarity": "rare",
     "image": "function_wilds.png",
     "mana": 3,
-    "strength": "1/2/3/4/5",
+    "strength": "2/3/4/5/6",
     "movement": 1,
     "ability": "On play, *vitalize* itself and 1/1/2/2/2 surrounding friendly unit/unit/units/units/units"
+  },
+  {
+    "name": "Absorbing Varmints",
+    "id": "I31",
+    "sid": "ua14",
+    "type": "unit",
+    "faction": "ironclad",
+    "race": "rodent",
+    "rarity": "epic",
+    "image": "absorbing_varmints.png",
+    "mana": 4,
+    "strength": "3/4/5/6/7",
+    "movement": 1,
+    "ability": "Before moving, make all *friendly* ancients on the board pull enemy units from behind, then *deal 1/2/2/3/3* damage to all pulled units",
+    "ancient": true
   },
   {
     "name": "Brood Sages",
@@ -2142,6 +2157,21 @@
     "strength": null,
     "movement": null,
     "ability": "*Restore* up to 3/4/5/6/7 initial strength of all friendly poisoned units and *vitalize* them"
+  },
+  {
+    "name": "Plague Monarchs",
+    "id": "F31",
+    "sid": "ua12",
+    "type": "unit",
+    "faction": "shadowfen",
+    "race": "toad",
+    "rarity": "epic",
+    "image": "plague_monarchs.png",
+    "mana": 5,
+    "strength": "3/3/4/4/5",
+    "movement": 1,
+    "ability": "Before moving, make all *friendly* ancients on the board *drain 1/2/2/3/3* strength from a surrounding enemy poisoned unit",
+    "ancient": true
   },
   {
     "name": "Doppelbocks",

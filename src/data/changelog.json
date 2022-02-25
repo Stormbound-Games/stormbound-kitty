@@ -1,5 +1,71 @@
 [
   {
+    "date": "01/03/2022",
+    "description": "Ability damage increased by 1 and made surrounding",
+    "id": "N64",
+    "type": "BUFF",
+    "from": {
+      "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength* as damage to all enemies bordering it"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Ability made to also trigger on the sides",
+    "id": "N56",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played on the tile in front of your temple structure or your base, *spawn 4/5/6/7/8* strength Knights on all of its bordering tiles"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Strength decreased by 1",
+    "id": "N60",
+    "type": "NERF",
+    "from": {
+      "strength": "6/7/8/10/12"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Strength increased by 1",
+    "id": "N79",
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/7/9/11"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Strength increased by 1",
+    "id": "N77",
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Strength increased by 1",
+    "id": "I30",
+    "type": "BUFF",
+    "from": {
+      "strength": "1/2/3/4/5"
+    }
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Added to the game",
+    "id": "F31",
+    "type": "INFO"
+  },
+  {
+    "date": "01/03/2022",
+    "description": "Added to the game",
+    "id": "I31",
+    "type": "INFO"
+  },
+  {
     "date": "01/02/2022",
     "description": "Added to the game",
     "id": "W33",
