@@ -18,6 +18,13 @@ const guide = {
   name: 'guide',
   type: 'document',
   icon: MdExplore,
+  fieldsets: [
+    {
+      name: 'metadata',
+      title: 'Metadata',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     {
       title: 'Title',
@@ -26,8 +33,17 @@ const guide = {
       validation: Rule => Rule.required(),
     },
     {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: { source: 'title' },
+      fieldset: 'metadata',
+      validation: Rule => Rule.required(),
+    },
+    {
       title: 'Identifier',
       name: 'id',
+      fieldset: 'metadata',
       description:
         'The identifier is used to map this guide’s metadata to the actual content.',
       type: 'string',
@@ -40,16 +56,10 @@ const guide = {
           ),
     },
     {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: { source: 'title' },
-      validation: Rule => Rule.required(),
-    },
-    {
       title: 'Category',
       name: 'category',
       type: 'string',
+      fieldset: 'metadata',
       options: {
         list: Object.entries(CATEGORIES).map(([category, data]) => ({
           title: data.name.short,
@@ -58,37 +68,22 @@ const guide = {
       },
       validation: Rule => Rule.required().uppercase(),
     },
-    date,
+    { ...date, fieldset: 'metadata' },
     {
       title: 'Authors',
       name: 'authors',
       type: 'array',
+      fieldset: 'metadata',
       of: [member],
       validation: Rule => Rule.min(1),
     },
-    cardId,
-    {
-      title: 'Banner',
-      name: 'background',
-      type: 'image',
-      description:
-        'A landscape image that will be displayed at the top of the guide behind the title (typically 5:1).',
-      options: {
-        accept: ['image/jpeg', 'image/png', 'image/gif'],
-      },
-    },
+    { ...cardId, fieldset: 'metadata' },
     {
       title: 'Excerpt',
       name: 'excerpt',
       type: 'string',
+      fieldset: 'metadata',
       validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Skip navigation',
-      name: 'skipNav',
-      type: 'boolean',
-      description: 'Whether the guide should not appear in the navigation.',
-      initialValue: false,
     },
     {
       title: 'Content',
@@ -105,6 +100,16 @@ const guide = {
         { type: 'table' },
         tierList,
       ],
+    },
+    {
+      title: 'Banner',
+      name: 'background',
+      type: 'image',
+      description:
+        'A landscape image that will be displayed at the top of the guide behind the title (typically 5:1).',
+      options: {
+        accept: ['image/jpeg', 'image/png', 'image/gif'],
+      },
     },
   ],
   orderings: [
