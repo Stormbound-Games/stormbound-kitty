@@ -29,6 +29,8 @@ export default function getPreviewURL(document) {
       return goTo({ id: document.id })
     case 'puzzle':
       return goTo({ id: document.board })
+    case 'release':
+      return goTo({ slug: document.slug?.current })
     case 'story':
       return goTo({ slug: document.slug?.current })
     case 'guide':

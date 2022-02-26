@@ -2,6 +2,7 @@ import applyRateLimit from '~/helpers/applyRateLimit'
 import getDeck from '~/api/decks/getDeck'
 import getGuide from '~/api/guides/getGuide'
 import getPuzzle from '~/api/puzzles/getPuzzle'
+import getRelease from '~/api/releases/getRelease'
 import getStory from '~/api/stories/getStory'
 
 const PREVIEW_MODE_DURATION = 60 * 60
@@ -36,6 +37,12 @@ const getRedirectUrl = async params => {
       const puzzle = await getPuzzle(params)
 
       return puzzle ? `/simulators/battle/${puzzle.id}` : null
+    }
+
+    case 'release': {
+      const release = await getRelease(params)
+
+      return release ? `/releases/${release.slug}` : null
     }
 
     case 'story': {
