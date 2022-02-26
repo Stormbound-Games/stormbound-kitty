@@ -92,14 +92,16 @@ const release = {
         accept: ['image/jpeg', 'image/png', 'image/gif'],
       },
       validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Banner format',
-      name: 'ratio',
-      type: 'number',
-      description:
-        'The ratio in % between the width and the height of the banner area (e.g. 50% means height = width / 2). Defaults to 20%.',
-      validation: Rule => Rule.min(20).max(60),
+      fields: [
+        {
+          title: 'Banner format',
+          name: 'ratio',
+          type: 'number',
+          description:
+            'The ratio in % between the width and the height of the banner area (e.g. 50% means height = width / 2). Defaults to 20%.',
+          validation: Rule => Rule.min(20).max(60),
+        },
+      ],
     },
   ],
   orderings: [

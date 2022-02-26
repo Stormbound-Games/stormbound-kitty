@@ -12,7 +12,7 @@ const getGuide = async ({
       '_type == "guide"',
       '(id == $id || slug.current == $slug || name == $name)',
     ],
-    fields: `..., background { asset -> { ... } }`,
+    fields: `..., background { ratio, asset -> { url } }`,
     params: { id, slug, name },
     options: { isPreview },
   })
