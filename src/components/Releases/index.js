@@ -7,7 +7,7 @@ import Teasers from '~/components/Teasers'
 export default React.memo(function Releases(props) {
   const items = props.releases.map(release => ({
     ...release,
-    title: release.name,
+    title: release.title,
     to: `/releases/${release.slug}`,
   }))
 

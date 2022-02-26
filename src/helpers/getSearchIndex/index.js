@@ -290,7 +290,7 @@ const getSearchIndex = async (withEverything = true) => {
   // Always test all releases because they are all different.
   RELEASES.forEach(release => {
     links.push({
-      label: release.name,
+      label: release.title,
       path: '/releases/' + release.slug,
       breadcrumbs: ['Official', 'Updates'],
     })
