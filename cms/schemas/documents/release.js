@@ -14,7 +14,7 @@ import tableOfContents from '../richText/tableOfContents'
 import { formatDate } from '~/helpers/formatDate'
 
 const release = {
-  title: 'Release Notes',
+  title: 'Release notes',
   name: 'release',
   type: 'document',
   icon: MdOutlineNewReleases,
