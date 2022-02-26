@@ -25,7 +25,7 @@ const fanart = {
         { name: 'author', value: author, inline: true },
         { name: 'date', value: date, inline: true },
       ])
-      .setImage('https://stormbound-kitty.com/assets/images/art/' + image)
+      .setImage(image)
 
     return embed
   },
