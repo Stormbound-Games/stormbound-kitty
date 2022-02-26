@@ -5,7 +5,8 @@ import Only from '~/components/Only'
 import Spacing from '~/components/Spacing'
 import styles from './styles'
 
-const DEFAULT_BANNER = '/assets/images/banners/default_banner.jpg'
+const DEFAULT_BANNER =
+  'https://cdn.sanity.io/images/5hlpazgd/production/420b74535722f3b2fc260fe253e48bf73b0789bf-1200x300.jpg?auto=format&w=1200'
 
 const useFileExtension = ({ fileType, withAvif, withoutWebp }) => {
   const { supportsWebp, supportsAvif } = React.useContext(ImageSupportContext)
