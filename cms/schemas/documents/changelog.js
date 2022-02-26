@@ -84,21 +84,22 @@ const changelog = {
   preview: {
     select: {
       id: 'id',
-      description: 'description',
       type: 'type',
       date: 'date',
     },
-    prepare({ id, description, type, date }) {
-      const { name } = getRawCardData(id)
+    prepare({ id, type, date }) {
+      const { name, image } = getRawCardData(id)
 
       return {
-        title:
-          (name || 'Missing card') +
-          ' in ' +
-          (formatDate(date) || 'missing date') +
-          (type ? ` (${type})` : ''),
-        subtitle: description,
-        media: <MdOutlineCompareArrows />,
+        title: name || 'Missing card',
+        subtitle:
+          (formatDate(date) || 'Missing date') + (type ? ` (${type})` : ''),
+        media: image ? (
+          <img
+            src={'https://stormbound-kitty.com/assets/images/cards/' + image}
+            alt=''
+          />
+        ) : null,
       }
     },
   },
