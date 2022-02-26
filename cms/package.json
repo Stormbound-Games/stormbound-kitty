@@ -13,6 +13,7 @@
   "dependencies": {
     "@sanity/base": "^2.27.0",
     "@sanity/core": "^2.27.0",
+    "@sanity/dashboard": "^2.27.1",
     "@sanity/default-layout": "^2.27.0",
     "@sanity/default-login": "^2.27.0",
     "@sanity/desk-tool": "^2.27.0",
@@ -24,6 +25,7 @@
     "react": "^17.0",
     "react-dom": "^17.0",
     "react-icons": "^4.3.1",
+    "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-media-library": "^2.0.2",
     "sanity-plugin-table": "^2.3.0",
     "styled-components": "^5.2.0"

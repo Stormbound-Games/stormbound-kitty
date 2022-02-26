@@ -14,7 +14,9 @@
     "@sanity/desk-tool",
     "@sanity/production-preview",
     "media-library",
-    "table"
+    "table",
+    "@sanity/dashboard",
+    "dashboard-widget-document-list"
   ],
   "env": {
     "development": {
@@ -31,6 +33,10 @@
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
       "path": "./previewer.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboard.js"
     }
   ]
 }
