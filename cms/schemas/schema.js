@@ -12,6 +12,7 @@ import guide from './guide'
 import news from './news'
 import podcast from './podcast'
 import puzzle from './puzzle'
+import release from './release'
 import story from './story'
 import swcc from './swcc'
 import tournament from './tournament'
@@ -32,6 +33,7 @@ export default createSchema({
     news,
     podcast,
     puzzle,
+    release,
     story,
     swcc,
     tournament,

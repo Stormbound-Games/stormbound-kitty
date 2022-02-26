@@ -1,5 +1,4 @@
 import CARDS from '~/data/cards'
-import RELEASES from '~/data/releases'
 import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
@@ -9,12 +8,14 @@ import getGuides from '~/api/guides/getGuides'
 import getStories from '~/api/stories/getStories'
 import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getPuzzles from '~/api/puzzles/getPuzzles'
+import getReleases from '~/api/releases/getReleases'
 
 const getSearchIndex = async (withEverything = true) => {
   const decks = await getDecks()
   const guides = await getGuides()
   const stories = await getStories()
   const puzzles = await getPuzzles()
+  const releases = await getReleases()
   const contests = (await getSWCCSeasons()).flat()
   const MEMBERS = (await getMembersList()).map(entry => entry.member)
   const links = []
@@ -288,7 +289,7 @@ const getSearchIndex = async (withEverything = true) => {
   })
 
   // Always test all releases because they are all different.
-  RELEASES.forEach(release => {
+  releases.forEach(release => {
     links.push({
       label: release.title,
       path: '/releases/' + release.slug,
