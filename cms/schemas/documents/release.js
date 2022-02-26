@@ -1,12 +1,13 @@
 import { MdOutlineNewReleases } from 'react-icons/md'
 import cardId from '../types/cardId'
 import date from '../types/date'
-import image from '../richText/image'
 import getBlock from '../richText/block'
 import battleSim from '../richText/battleSim'
+import cheapenedBrawl from '../richText/cheapenedBrawl'
 import columns from '../richText/columns'
 import card from '../richText/card'
 import faq from '../richText/faq'
+import image from '../richText/image'
 import info from '../richText/info'
 import tableOfContents from '../richText/tableOfContents'
 import { formatDate } from '~/helpers/formatDate'
@@ -74,6 +75,7 @@ const release = {
         tableOfContents,
         card,
         faq,
+        cheapenedBrawl,
         { type: 'table' },
         battleSim,
       ],

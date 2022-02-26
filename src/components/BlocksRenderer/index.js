@@ -4,6 +4,7 @@ import CardLink from '~/components/CardLink'
 import Link from '~/components/Link'
 import BlockBattleSim from '~/components/BlockBattleSim'
 import BlockCard from '~/components/BlockCard'
+import BlockCheapenedBrawl from '~/components/BlockCheapenedBrawl'
 import BlockColumns from '~/components/BlockColumns'
 import BlockDeck from '~/components/BlockDeck'
 import BlockFAQ from '~/components/BlockFAQ'
@@ -63,6 +64,7 @@ const block = {
 const types = {
   battleSim: BlockBattleSim,
   card: BlockCard,
+  cheapenedBrawl: BlockCheapenedBrawl,
   columns: BlockColumns,
   deckEmbed: BlockDeck,
   faq: BlockFAQ,
