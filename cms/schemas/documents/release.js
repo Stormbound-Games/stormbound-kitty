@@ -6,6 +6,7 @@ import getBlock from '../richText/block'
 import battleSim from '../richText/battleSim'
 import columns from '../richText/columns'
 import card from '../richText/card'
+import faq from '../richText/faq'
 import info from '../richText/info'
 import tableOfContents from '../richText/tableOfContents'
 import { formatDate } from '~/helpers/formatDate'
@@ -72,8 +73,9 @@ const release = {
         info,
         tableOfContents,
         card,
-        battleSim,
+        faq,
         { type: 'table' },
+        battleSim,
       ],
     },
     {

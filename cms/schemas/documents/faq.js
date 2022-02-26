@@ -1,7 +1,7 @@
 import { MdQuestionAnswer } from 'react-icons/md'
 import getBlock from '../richText/block'
 
-const question = {
+export const question = {
   title: 'FAQ Question',
   name: 'question',
   type: 'document',
@@ -18,8 +18,13 @@ const question = {
       name: 'id',
       type: 'slug',
       options: {
-        source: (doc, { parent }) =>
-          doc.entries.find(entry => entry._key === parent._key).question,
+        source: (doc, { parent }) => {
+          return (
+            parent.question ??
+            doc.entries?.find(entry => entry._key === parent._key).question ??
+            null
+          )
+        },
       },
       validation: Rule => Rule.required(),
     },
