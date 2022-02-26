@@ -60,7 +60,6 @@ const columns = {
       description: 'Expand the 2 columns to be wider than the container.',
       type: 'boolean',
       initialValue: false,
-      hidden: ({ document }) => document.columns.length !== 2,
     },
   ],
   preview: {
