@@ -1323,6 +1323,18 @@
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
+"@sanity/dashboard@^2.27.1":
+  version "2.27.1"
+  resolved "https://registry.npmjs.org/@sanity/dashboard/-/dashboard-2.27.1.tgz#f9772298114987d500e08ed5e98a3778702732fc"
+  integrity sha512-cXI3/yZQPZYnCIg27Y8xxW3oQcn1GcQTAodUrImSPZ9r/vOghIb8mE+2baPqhRuUaAcdUBS6D30MlDGWxWg6Og==
+  dependencies:
+    "@sanity/icons" "^1.2.1"
+    "@sanity/image-url" "^1.0.1"
+    "@sanity/types" "2.27.0"
+    "@sanity/ui" "^0.37.2"
+    lodash "^4.17.15"
+    rxjs "^6.5.3"
+
 "@sanity/data-aspects@2.27.0":
   version "2.27.0"
   resolved "https://registry.npmjs.org/@sanity/data-aspects/-/data-aspects-2.27.0.tgz#34c8f44765f97f38b47a2d0be45bf49e2cf4b2e1"
@@ -9040,6 +9052,15 @@ sanity-diff-patch@^1.0.9:
   integrity sha512-J5YeuM/S7rLTp51iqUunwzz7Rf68K/jCDGKtNCj6Wzcfgf9CH+0GtPlvf2DFsg0QQhYYZ72FOVn6skmoLjMCdw==
   dependencies:
     diff-match-patch "^1.0.5"
+
+sanity-plugin-dashboard-widget-document-list@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.npmjs.org/sanity-plugin-dashboard-widget-document-list/-/sanity-plugin-dashboard-widget-document-list-0.0.13.tgz#a2839d82d3ce3ee3d08735877cc13f3ad890de7a"
+  integrity sha512-nePwppkIZ7deU05O+tHqh+tdJ5uCD9bVn/Q/XB1s6z0e93JMGJ5eZAggqPTmCH9GRETUAFthhS5GE4idTQwAfA==
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    rxjs "^6.0.0"
 
 sanity-plugin-media-library@^2.0.2:
   version "2.0.2"
