@@ -27,12 +27,13 @@ const useCoverImage = props => {
     fileType: fileType,
   })
 
-  // Coming from the CDN, no optimization needed.
-  if (props.background && props.background.startsWith('https://')) {
-    return props.background
+  if (props.background) {
+    // Coming from the CDN, no optimization needed.
+    if (props.background.startsWith('https://')) return props.background
+    return props.background.replace(fileType, ext)
   }
 
-  return (props.background || DEFAULT_BANNER).replace(fileType, ext)
+  return DEFAULT_BANNER
 }
 
 export default React.memo(function HeaderBanner(props) {
