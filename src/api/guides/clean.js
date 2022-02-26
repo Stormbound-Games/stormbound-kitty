@@ -5,11 +5,10 @@ const clean = guide => {
   guide.slug = guide.slug.current
 
   if (guide.background) {
+    if (typeof guide.background.ratio === 'number') {
+      guide.ratio = guide.background.ratio + '%'
+    }
     guide.background = guide.background.asset.url + '?auto=format'
-  }
-
-  if (typeof guide.ratio === 'number') {
-    guide.ratio = guide.ratio + '%'
   }
 
   delete guide._createdAt

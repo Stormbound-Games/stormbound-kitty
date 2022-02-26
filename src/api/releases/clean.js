@@ -5,11 +5,10 @@ const clean = release => {
   release.slug = release.slug.current
 
   if (release.background) {
+    if (typeof release.background.ratio === 'number') {
+      release.ratio = release.background.ratio + '%'
+    }
     release.background = release.background.asset.url + '?auto=format'
-  }
-
-  if (typeof release.ratio === 'number') {
-    release.ratio = release.ratio + '%'
   }
 
   delete release._createdAt
