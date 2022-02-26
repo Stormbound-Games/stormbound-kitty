@@ -1,7 +1,35 @@
-import sanityClient from 'part:@sanity/base/client'
+require('module-alias/register')
+require('dotenv').config()
 
-const client = sanityClient.withConfig({ apiVersion: '2021-08-21' })
+const sanityClient = require('@sanity/client')
+const releases = require('~/data/releases')
+const client = sanityClient({
+  projectId: '5hlpazgd',
+  dataset: 'production',
+  apiVersion: '2022-02-01',
+  token: process.env.SANITY_TOKEN,
+  useCdn: true,
+})
 
+releases.forEach(release => {
+  const [month, year] = release.date.split('/')
+  const doc = {
+    _type: 'release',
+    title: release.title,
+    slug: { current: release.slug },
+    excerpt: release.excerpt,
+    date: year + '-' + month + '-01',
+    id: release.id,
+    cardId: release.cardId,
+    ratio: parseInt(release.ratio, 10),
+  }
+
+  client.create(doc).then(res => {
+    console.log(`Document was created, document ID is ${res._id}`)
+  })
+})
+
+/*
 const fetchDocuments = () =>
   client.fetch(`*[_type == 'story'][0...100] {_id, _rev, name}`)
 
@@ -41,3 +69,4 @@ migrateNextBatch().catch(err => {
   console.error(err)
   process.exit(1)
 })
+*/

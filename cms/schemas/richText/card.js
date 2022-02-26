@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdPadding } from 'react-icons/md'
-import cardId from './cardId'
+import cardId from '../types/cardId'
 import getRawCardData from '~/helpers/getRawCardData'
 
 const card = {

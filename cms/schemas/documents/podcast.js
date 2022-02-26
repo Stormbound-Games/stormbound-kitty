@@ -1,8 +1,8 @@
 import { MdPodcasts } from 'react-icons/md'
 import React from 'react'
-import member from './types/member'
-import date from './types/date'
-import formatDate from './helpers/formatDate'
+import member from '../types/member'
+import date from '../types/date'
+import { formatDate } from '~/helpers/formatDate'
 
 const podcast = {
   title: 'Podcast episode',

@@ -1,8 +1,8 @@
 import React from 'react'
 import { MdAutoAwesomeMotion } from 'react-icons/md'
-import member from './member'
-import date from './date'
-import deckId from './deckId'
+import member from '../types/member'
+import date from '../types/date'
+import deckId from '../types/deckId'
 import { TAGS } from '~/constants/deck'
 
 const deck = {

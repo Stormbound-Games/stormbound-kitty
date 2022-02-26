@@ -1,5 +1,5 @@
 import { MdOutlineImage } from 'react-icons/md'
-import json from './json'
+import json from '../types/json'
 
 const image = {
   title: 'Image',

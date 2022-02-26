@@ -1,9 +1,9 @@
 import { MdBookmark } from 'react-icons/md'
-import member from './types/member'
-import date from './types/date'
-import deckId from './types/deckId'
-import formatDate from './helpers/formatDate'
+import member from '../types/member'
+import date from '../types/date'
+import deckId from '../types/deckId'
 import { TAGS } from '~/constants/deck'
+import { formatDate } from '~/helpers/formatDate'
 
 const deck = {
   title: 'Deck',

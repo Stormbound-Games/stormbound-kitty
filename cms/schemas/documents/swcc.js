@@ -1,5 +1,5 @@
 import { MdAutoFixNormal } from 'react-icons/md'
-import member from './types/member'
+import member from '../types/member'
 
 const week = {
   title: 'SWCC week',

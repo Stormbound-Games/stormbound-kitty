@@ -1,6 +1,9 @@
 import getOrdinalSuffix from '~/helpers/getOrdinalSuffix'
 
 export const formatPreciseDate = date => {
+  if (!date) return null
+  if (!(date instanceof Date)) date = new Date(date)
+
   const formatter = new Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'short',
@@ -15,6 +18,9 @@ export const formatPreciseDate = date => {
 }
 
 export const formatDate = date => {
+  if (!date) return null
+  if (!(date instanceof Date)) date = new Date(date)
+
   const formatter = new Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'long',

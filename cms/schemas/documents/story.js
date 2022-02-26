@@ -1,13 +1,13 @@
 import { MdEditNote } from 'react-icons/md'
 import React from 'react'
-import member from './types/member'
-import date from './types/date'
-import json from './types/json'
-import cardId from './types/cardId'
-import getBlock from './types/block'
-import formatDate from './helpers/formatDate'
+import member from '../types/member'
+import date from '../types/date'
+import json from '../types/json'
+import cardId from '../types/cardId'
+import getBlock from '../richText/block'
 import getRawCardData from '~/helpers/getRawCardData'
 import { STORY_CATEGORIES } from '~/constants/stories'
+import { formatDate } from '~/helpers/formatDate'
 
 const story = {
   title: 'Story',

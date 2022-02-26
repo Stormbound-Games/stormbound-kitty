@@ -1,27 +1,26 @@
 import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
-import artwork from './artwork'
-import avatar from './avatar'
-import channel from './channel'
-import contribution from './contribution'
-import deck from './deck'
-import donation from './donation'
-import event from './event'
-import faq from './faq'
-import guide from './guide'
-import news from './news'
-import podcast from './podcast'
-import puzzle from './puzzle'
-import release from './release'
-import story from './story'
-import swcc from './swcc'
-import tournament from './tournament'
-import wallpaper from './wallpaper'
+import artwork from './documents/artwork'
+import avatar from './documents/avatar'
+import channel from './documents/channel'
+import contribution from './documents/contribution'
+import deck from './documents/deck'
+import donation from './documents/donation'
+import event from './documents/event'
+import faq from './documents/faq'
+import guide from './documents/guide'
+import news from './documents/news'
+import podcast from './documents/podcast'
+import puzzle from './documents/puzzle'
+import release from './documents/release'
+import story from './documents/story'
+import swcc from './documents/swcc'
+import tournament from './documents/tournament'
+import wallpaper from './documents/wallpaper'
 
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
-    // Documents
     artwork,
     avatar,
     contribution,

@@ -1,5 +1,5 @@
 import { MdPlayCircleOutline } from 'react-icons/md'
-import member from './types/member'
+import member from '../types/member'
 
 const channels = {
   title: 'YouTube Channel',

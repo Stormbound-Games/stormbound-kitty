@@ -1,5 +1,5 @@
 import { MdQuestionAnswer } from 'react-icons/md'
-import getBlock from './types/block'
+import getBlock from '../richText/block'
 
 const question = {
   title: 'FAQ Question',

@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdAutoGraph } from 'react-icons/md'
-import deckId from './deckId'
+import deckId from '../types/deckId'
 import { BRAWLS } from '~/constants/brawl'
 
 const deck = {

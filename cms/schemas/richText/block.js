@@ -1,6 +1,6 @@
 import React from 'react'
-import link from './link'
-import cardLink from './cardLink'
+import cardLink from '../types/cardLink'
+import link from '../types/link'
 
 const Sparkly = props => (
   <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>

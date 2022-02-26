@@ -1,8 +1,8 @@
 import { MdEvent } from 'react-icons/md'
-import member from './types/member'
-import date from './types/date'
-import json from './types/json'
-import formatDate from './helpers/formatDate'
+import member from '../types/member'
+import date from '../types/date'
+import json from '../types/json'
+import { formatDate } from '~/helpers/formatDate'
 
 const event = {
   title: 'Event',

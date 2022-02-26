@@ -1,7 +1,7 @@
 import { MdOutlineNewReleases } from 'react-icons/md'
-import cardId from './types/cardId'
-import date from './types/date'
-import formatDate from './helpers/formatDate'
+import cardId from '../types/cardId'
+import date from '../types/date'
+import { formatDate } from '~/helpers/formatDate'
 
 const release = {
   title: 'Release Notes',

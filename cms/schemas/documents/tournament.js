@@ -1,8 +1,8 @@
 import { MdAutoAwesome } from 'react-icons/md'
-import member from './types/member'
-import date from './types/date'
-import deckId from './types/deckId'
-import formatDate from './helpers/formatDate'
+import member from '../types/member'
+import date from '../types/date'
+import deckId from '../types/deckId'
+import { formatDate } from '~/helpers/formatDate'
 
 const tournament = {
   title: 'Tournament',

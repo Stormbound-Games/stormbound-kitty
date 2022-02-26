@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdGridOn } from 'react-icons/md'
-import cardLink from './cardLink'
-import link from './link'
+import cardLink from '../types/cardLink'
+import link from '../types/link'
 
 const battleSimEmbed = {
   title: 'Battle Sim',
