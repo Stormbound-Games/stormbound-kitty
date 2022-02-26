@@ -1,7 +1,7 @@
 import cards from '~/data/cards'
 
 const cardId = {
-  title: 'Card ID',
+  title: 'Card',
   name: 'cardId',
   type: 'string',
   options: {

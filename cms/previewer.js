@@ -25,6 +25,8 @@ export default function getPreviewURL(document) {
     })
 
   switch (document._type) {
+    case 'changelog':
+      return goTo({ id: document.id })
     case 'deck':
       return goTo({ id: document.id })
     case 'puzzle':

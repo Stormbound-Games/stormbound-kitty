@@ -1,14 +1,14 @@
 import React from 'react'
 import CardChangelog from '~/components/CardChangelog'
 import Layout from '~/components/Layout'
-import CHANGELOG from '~/data/changelog'
+import getChanges from '~/api/changes/getChanges'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: await getNavigation({ isPreview }),
-      changelog: CHANGELOG,
+      changelog: await getChanges({ isPreview }),
     },
   }
 }
