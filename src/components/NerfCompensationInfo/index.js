@@ -69,9 +69,9 @@ export default React.memo(function NerfCompensationInfo(props) {
       <p>
         As usual, some compensation in the form of coins and fusion stones will
         be provided to owners of{' '}
-        {ids ? toSentence(names, 'and') : 'nerfed cards'}, proportional to the
-        level and rarity of the card. Find below the compensation values for
-        each rarity and level.
+        {ids.length ? toSentence(names, 'and') : 'nerfed cards'}, proportional
+        to the level and rarity of the card. Find below the compensation values
+        for each rarity and level.
       </p>
       <ul
         className={css({
