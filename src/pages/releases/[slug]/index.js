@@ -4,7 +4,8 @@ import Layout from '~/components/Layout'
 import Loader from '~/components/Loader'
 import ReleaseNotes from '~/components/ReleaseNotes'
 import getNavigation from '~/helpers/getNavigation'
-import RELEASES from '~/data/releases'
+import getRelease from '~/api/releases/getRelease'
+import getReleases from '~/api/releases/getReleases'
 
 const RELEASE_COMPONENTS = {
   '2022_03': dynamic(() => import('~/components/ReleaseNotes/2022_03'), {
@@ -34,7 +35,7 @@ const RELEASE_COMPONENTS = {
   '2021_07': dynamic(() => import('~/components/ReleaseNotes/2021_07'), {
     loading: Loader,
   }),
-  '2021_06_Brawl': dynamic(
+  '2021_06_BRAWL': dynamic(
     () => import('~/components/ReleaseNotes/2021_06_Brawl'),
     { loading: Loader }
   ),
@@ -53,14 +54,14 @@ const RELEASE_COMPONENTS = {
   '2021_02': dynamic(() => import('~/components/ReleaseNotes/2021_02'), {
     loading: Loader,
   }),
-  '2021_01_iOS': dynamic(
+  '2021_01_IOS': dynamic(
     () => import('~/components/ReleaseNotes/2021_01_iOS'),
     { loading: Loader }
   ),
   '2021_01': dynamic(() => import('~/components/ReleaseNotes/2021_01'), {
     loading: Loader,
   }),
-  '2020_12_end_of_year': dynamic(
+  '2020_12_END_OF_YEAR': dynamic(
     () => import('~/components/ReleaseNotes/2020_12_end_of_year'),
     { loading: Loader }
   ),
@@ -73,7 +74,7 @@ const RELEASE_COMPONENTS = {
   '2020_10': dynamic(() => import('~/components/ReleaseNotes/2020_10'), {
     loading: Loader,
   }),
-  '2020_09_3rd_anniversary': dynamic(
+  '2020_09_3RD_ANNIVERSARY': dynamic(
     () => import('~/components/ReleaseNotes/2020_09_3rd_anniversary'),
     { loading: Loader }
   ),
@@ -85,18 +86,22 @@ const RELEASE_COMPONENTS = {
   }),
 }
 
-export const getStaticPaths = () => {
+export async function getStaticPaths() {
+  const releases = await getReleases()
+
   return {
-    paths: RELEASES.map(release => ({ params: { slug: release.slug } })),
+    paths: releases.map(release => ({ params: { slug: release.slug } })),
     fallback: false,
   }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const release = await getRelease({ slug: params.slug, isPreview })
+
   return {
     props: {
       navigation: await getNavigation({ isPreview }),
-      ...(RELEASES.find(release => release.slug === params.slug) || null),
+      ...release,
     },
   }
 }

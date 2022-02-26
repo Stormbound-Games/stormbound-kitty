@@ -333,9 +333,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           board, so the ⅓ chance to move to the left are effectively
           redistributed to the right side.
         </p>
-      </Page.Narrow>
 
-      <Page.Embed>
         <div className={css({ position: 'relative' })}>
           <Checkbox
             checked={withConfusionFix}
@@ -350,9 +348,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             id='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
           />
         </div>
-      </Page.Embed>
 
-      <Page.Narrow>
         <p>
           Sheepyard also allowed me to announce that the next update will
           introduce two extra ways to induce confusion. They are planning on

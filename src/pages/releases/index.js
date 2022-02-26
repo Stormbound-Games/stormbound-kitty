@@ -1,14 +1,14 @@
 import React from 'react'
 import Releases from '~/components/Releases'
 import Layout from '~/components/Layout'
-import RELEASES from '~/data/releases'
+import getReleases from '~/api/releases/getReleases'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       navigation: await getNavigation({ isPreview }),
-      releases: RELEASES,
+      releases: await getReleases({ isPreview }),
     },
   }
 }

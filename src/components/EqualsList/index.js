@@ -54,7 +54,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
             {release ? (
               <>
                 following the{' '}
-                <Link to={'/releases/' + release.slug}>{release.name}</Link>{' '}
+                <Link to={'/releases/' + release.slug}>{release.title}</Link>{' '}
               </>
             ) : null}
             in <span className='Highlight'>{formatDate(lastUpdate)}</span>.
