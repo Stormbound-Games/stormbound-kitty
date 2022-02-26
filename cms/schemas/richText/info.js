@@ -35,7 +35,7 @@ const info = {
   ],
   preview: {
     select: { title: 'title', content: 'content' },
-    prepare({ title, content }) {
+    prepare({ title, content = [] }) {
       return {
         title,
         subtitle: blocksToText(content),
