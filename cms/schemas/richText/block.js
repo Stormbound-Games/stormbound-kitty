@@ -38,6 +38,7 @@ const getBlock = ({ withHeadings = false, withNotice = false } = {}) => ({
           render: Sparkly,
         },
       },
+      { title: 'Strike', value: 'strike-through' },
     ],
     annotations: [link, cardLink],
   },

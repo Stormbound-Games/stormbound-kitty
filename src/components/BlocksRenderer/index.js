@@ -18,8 +18,8 @@ import BlockTableOfContents from '~/components/BlockTableOfContents'
 import BlockTierList from '~/components/BlockTierList'
 import Embellish from '~/components/Embellish'
 import asHeading from '~/components/BlockHeading'
-import Notice from '~/components/Notice'
 import Sparkles from '~/components/Sparkles'
+import Strikethrough from '~/components/Strikethrough'
 import Title from '~/components/Title'
 
 export const RichTextContext = React.createContext({
@@ -30,6 +30,7 @@ export const RichTextContext = React.createContext({
 const marks = {
   strong: props => <strong>{props.children}</strong>,
   code: props => <code>{props.children}</code>,
+  'strike-through': props => <Strikethrough>{props.children}</Strikethrough>,
   sparkles: props => <Sparkles>{props.children}</Sparkles>,
   link: ({ value, children }) => (
     <Link
