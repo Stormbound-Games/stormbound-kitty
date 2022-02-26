@@ -427,13 +427,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </p>
         </Info>
 
-        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
-          <p>
-            To apologize for the server issues during the last discounted Brawl,
-            we decided to make the Brawl starting on February 25th cheaper as
-            well: all matches will cost two thirds of their original price!
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          To apologize for the server issues during the last discounted Brawl,
+          we decided to make the Brawl starting on February 25th cheaper as
+          well: all matches will cost two thirds of their original price!
+        </p>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY' />
 
         <Title id='ui-improvements'>UI improvements</Title>
 

@@ -160,14 +160,14 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           Heroic and Classic) will yield 8!
         </p>
 
-        <CheapenedBrawl ratio={0.5}>
-          <p>
-            Similar to previous events, the Brawl starting on September 16th
-            (and only that one) is going to be cheaper. All fights will be 50%
-            off. Owners of the Premium Pass will also have their usual discount
-            applied, leading to a 60% reduction.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to previous events, the Brawl starting on September 16th (and
+          only that one) is going to be cheaper. All fights will be 50% off.
+          Owners of the Premium Pass will also have their usual discount
+          applied, leading to a 60% reduction.
+        </p>
+        <CheapenedBrawl ratio={0.5} />
 
         <Title id='exclusive-offers'>Exclusive offers</Title>
 

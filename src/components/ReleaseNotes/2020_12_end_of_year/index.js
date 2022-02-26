@@ -120,16 +120,16 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           </p>
         </Info>
 
-        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
-          <p>
-            Similar to{' '}
-            <Link to='/releases/11-2020#cheapened-braawl'>
-              what happened in November
-            </Link>
-            , the Brawl starting on December 24th (and only that one) is going
-            to be cheaper. All fight will cost 50% of their original price.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to{' '}
+          <Link to='/releases/11-2020#cheapened-braawl'>
+            what happened in November
+          </Link>
+          , the Brawl starting on December 24th (and only that one) is going to
+          be cheaper. All fight will cost 50% of their original price.
+        </p>
+        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY' />
 
         <Title id='daily-check-in-calendar'>Daily check-in calendar</Title>
 

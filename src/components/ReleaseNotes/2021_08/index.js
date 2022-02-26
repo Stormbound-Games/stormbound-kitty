@@ -439,23 +439,23 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </p>
         </Info>
 
-        <CheapenedBrawl ratio={0.9}>
-          <p>
-            Similar to previous events, the Brawl starting on July 29th (and
-            only that one) is going to be cheaper. All fights will be 10% off.
-            Owners of the Premium Pass will also have their usual discount
-            applied, leading to a 20% reduction.
-          </p>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to previous events, the Brawl starting on July 29th (and only
+          that one) is going to be cheaper. All fights will be 10% off. Owners
+          of the Premium Pass will also have their usual discount applied,
+          leading to a 20% reduction.
+        </p>
 
-          <Info icon='gift' title='Compensation'>
-            <p>
-              Additionally, to apologize for the recent sub-par experience with
-              the Brawl, every player logging at least once into the game before
-              the end of 29th of July will be rewarded with{' '}
-              <Coins amount={500} />.
-            </p>
-          </Info>
-        </CheapenedBrawl>
+        <Info icon='gift' title='Compensation'>
+          <p>
+            Additionally, to apologize for the recent sub-par experience with
+            the Brawl, every player logging at least once into the game before
+            the end of 29th of July will be rewarded with <Coins amount={500} />
+            .
+          </p>
+        </Info>
+        <CheapenedBrawl ratio={0.9} />
 
         <Title id='books-update'>Books update</Title>
 

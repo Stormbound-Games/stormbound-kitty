@@ -187,14 +187,14 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           alt='4 ancients card pack: 3 copies of Fragmented Essences, 3 copies of Erratic Neglects, 3 copies of Lost Psyches, 3 copies of Bounded Daemons, 10 Fusion Stones and 1000 coins'
         />
 
-        <CheapenedBrawl ratio={0.5}>
-          <p>
-            Similar to previous events, the Brawl starting on October 28th (and
-            only that one) is going to be cheaper. All fights will be 50% off.
-            Owners of the Premium Pass will also have their usual discount
-            applied, leading to a 60% reduction.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to previous events, the Brawl starting on October 28th (and
+          only that one) is going to be cheaper. All fights will be 50% off.
+          Owners of the Premium Pass will also have their usual discount
+          applied, leading to a 60% reduction.
+        </p>
+        <CheapenedBrawl ratio={0.5} />
 
         <Title id='brawl-modifiers'>Brawl modifiers</Title>
 

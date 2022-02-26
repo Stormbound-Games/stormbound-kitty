@@ -114,14 +114,14 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           </li>
         </ul>
 
-        <CheapenedBrawl ratio={1 / 2} title='Cheapened Brawls'>
-          <p>
-            The Brawl starting on February 3rd (as an apology){' '}
-            <strong>and</strong> the Brawl starting on Fabruary 17th (for
-            Valentine’s Day) are going to be cheaper. All fight will cost 50% of
-            their original price.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          The Brawl starting on February 3rd (as an apology){' '}
+          <strong>and</strong> the Brawl starting on Fabruary 17th (for
+          Valentine’s Day) are going to be cheaper. All fight will cost 50% of
+          their original price.
+        </p>
+        <CheapenedBrawl ratio={1 / 2} />
 
         <Title id='balance-changes'>Balance changes</Title>
 

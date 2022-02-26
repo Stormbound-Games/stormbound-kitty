@@ -33,19 +33,19 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           upon login.
         </p>
 
-        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
-          <p>
-            All matches for the{' '}
-            <Link to='/brawl/feline-strength'>
-              Brawl following the 18th of September
-            </Link>{' '}
-            will{' '}
-            <span className='Highlight'>
-              cost a third of their original price
-            </span>{' '}
-            (rounded to the closest multiple of 5).
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          All matches for the{' '}
+          <Link to='/brawl/feline-strength'>
+            Brawl following the 18th of September
+          </Link>{' '}
+          will{' '}
+          <span className='Highlight'>
+            cost a third of their original price
+          </span>{' '}
+          (rounded to the closest multiple of 5).
+        </p>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY' />
       </>
 
       <>

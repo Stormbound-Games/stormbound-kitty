@@ -1,8 +1,5 @@
 import React from 'react'
 import { MdMoneyOff } from 'react-icons/md'
-import getBlock from './block'
-import info from './info'
-import blocksToText from '~/helpers/blocksToText'
 
 const cheapenedBrawl = {
   title: 'Cheapened Brawl',
@@ -19,21 +16,6 @@ const cheapenedBrawl = {
       value: Rule => Rule.required().min(0.1).max(0.9),
     },
     {
-      title: 'Section content',
-      name: 'content',
-      type: 'array',
-      of: [getBlock(), info],
-      description: 'Content of the section (defaults to “Cheapened Brawl”).',
-      validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Section title',
-      name: 'title',
-      type: 'string',
-      description:
-        'Optional title of the section (defaults to “Cheapened Brawl”).',
-    },
-    {
       title: 'Legacy Brawl',
       name: 'legacy',
       type: 'boolean',
@@ -43,13 +25,11 @@ const cheapenedBrawl = {
     },
   ],
   preview: {
-    select: { title: 'title', content: 'content', ratio: 'ratio' },
-    prepare({ title, content = [], ratio }) {
+    select: { ratio: 'ratio', legacy: 'legacy' },
+    prepare({ ratio, legacy }) {
       return {
-        title: `${title || 'Cheapened Brawl'} ${
-          ratio ? `(${ratio * 100}% of normal price)` : ''
-        }`,
-        subtitle: blocksToText(content),
+        title: `Cheapened Brawl ${legacy ? '(legacy)' : ''}`,
+        subtitle: ratio ? `(${ratio * 100}% of normal price)` : '',
         media: <MdMoneyOff />,
       }
     },

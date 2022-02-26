@@ -4,7 +4,6 @@ import Info from '~/components/Info'
 import Only from '~/components/Only'
 import Table from '~/components/Table'
 import Tabs from '~/components/Tabs'
-import Title from '~/components/Title'
 import { Crowns, Coins } from '~/components/Resource'
 import { BRAWL_MILESTONES } from '~/constants/brawl'
 import getMilestoneCost from '~/helpers/getMilestoneCost'
@@ -40,19 +39,9 @@ const BrawlTable = props => (
   </Table>
 )
 
-export default React.memo(function CheapenedBrawl({
-  ratio = 1,
-  children,
-  difficulty,
-  id = 'cheapened-brawl',
-  title = 'Cheapened Brawl',
-}) {
+export default React.memo(function CheapenedBrawl({ ratio = 1, difficulty }) {
   return (
     <>
-      <Title id={id}>{title}</Title>
-
-      {children}
-
       <Only.Desktop>
         <p>Here are the adjusted values for every milestone:</p>
 

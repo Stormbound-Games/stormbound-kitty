@@ -198,16 +198,16 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           We have a few other improvement ideas if needed.
         </p>
 
-        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
-          <p>
-            Similar to{' '}
-            <Link to='/releases/11-2020#cheapened-braawl'>
-              what happened in November
-            </Link>
-            , the Brawl starting on April 1st (and only that one) is going to be
-            cheaper. All fight will cost 50% of their original price.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to{' '}
+          <Link to='/releases/11-2020#cheapened-braawl'>
+            what happened in November
+          </Link>
+          , the Brawl starting on April 1st (and only that one) is going to be
+          cheaper. All fight will cost 50% of their original price.
+        </p>
+        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY' />
 
         <Title id='exclusive-offers'>Exclusive offers</Title>
 

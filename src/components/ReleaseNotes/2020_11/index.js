@@ -157,14 +157,14 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       </Page.Embed>
 
       <>
-        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
-          <p>
-            Similar to what happened for the{' '}
-            <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the
-            Brawl starting on November 5th (and only that one) is going to be
-            cheaper. All fight will cost 50% of their original price.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to what happened for the{' '}
+          <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the
+          Brawl starting on November 5th (and only that one) is going to be
+          cheaper. All fight will cost 50% of their original price.
+        </p>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY' />
 
         <Title id='exclusive-promotions'>Exclusive promotions</Title>
 

@@ -378,21 +378,21 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           the event.
         </p>
 
-        <CheapenedBrawl ratio={0.5} title='Cheapened and special Brawl'>
-          <p>
-            Similar to previous events, the Brawl starting on Christmas 23rd
-            (and only that one) is going to be cheaper. All fights will be 50%
-            off. Owners of the Premium Pass will also have their usual discount
-            applied, leading to a 60% reduction.
-          </p>
+        <Title id='cheapened-brawl'>Cheapened and special Brawl</Title>
+        <p>
+          Similar to previous events, the Brawl starting on Christmas 23rd (and
+          only that one) is going to be cheaper. All fights will be 50% off.
+          Owners of the Premium Pass will also have their usual discount
+          applied, leading to a 60% reduction.
+        </p>
 
-          <p>
-            Something quite unique about this Brawl will be the introduction of
-            a new modifier (in all difficulties). A 0-mana cost level 1 (unless
-            owned and leveled) <CardLink id='N91' /> card will be added to
-            everyone’s deck (thus causing all decks to have 13 cards).
-          </p>
-        </CheapenedBrawl>
+        <p>
+          Something quite unique about this Brawl will be the introduction of a
+          new modifier (in all difficulties). A 0-mana cost level 1 (unless
+          owned and leveled) <CardLink id='N91' /> card will be added to
+          everyone’s deck (thus causing all decks to have 13 cards).
+        </p>
+        <CheapenedBrawl ratio={0.5} />
 
         <FAQSection
           id='faq'

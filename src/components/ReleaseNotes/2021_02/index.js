@@ -116,14 +116,14 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           fleshing out advanced player profiles!
         </p>
 
-        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
-          <p>
-            Similar to what happened in{' '}
-            <Link to='/releases/11-2020'>November</Link>, the Brawl starting on
-            February 11th (and only that one) is going to be cheaper. All fight
-            will cost two thirds of their original price.
-          </p>
-        </CheapenedBrawl>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+        <p>
+          Similar to what happened in{' '}
+          <Link to='/releases/11-2020'>November</Link>, the Brawl starting on
+          February 11th (and only that one) is going to be cheaper. All fight
+          will cost two thirds of their original price.
+        </p>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY' />
 
         <Title id='daily-check-in-calendar'>Daily check-in calendar</Title>
 
