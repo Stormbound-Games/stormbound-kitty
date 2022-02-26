@@ -1,6 +1,13 @@
 import { MdOutlineNewReleases } from 'react-icons/md'
 import cardId from '../types/cardId'
 import date from '../types/date'
+import image from '../richText/image'
+import getBlock from '../richText/block'
+import battleSim from '../richText/battleSim'
+import columns from '../richText/columns'
+import card from '../richText/card'
+import info from '../richText/info'
+import tableOfContents from '../richText/tableOfContents'
 import { formatDate } from '~/helpers/formatDate'
 
 const release = {
@@ -8,6 +15,13 @@ const release = {
   name: 'release',
   type: 'document',
   icon: MdOutlineNewReleases,
+  fieldsets: [
+    {
+      name: 'metadata',
+      title: 'Metadata',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     {
       title: 'Title',
@@ -20,21 +34,16 @@ const release = {
       name: 'slug',
       type: 'slug',
       options: { source: 'title' },
+      fieldset: 'metadata',
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'Excerpt',
-      name: 'excerpt',
-      type: 'string',
-      validation: Rule => Rule.required(),
-    },
-    date,
     {
       title: 'Identifier',
       name: 'id',
       description:
         'The identifier is used to map this release’s metadata to the actual content.',
       type: 'string',
+      fieldset: 'metadata',
       validation: Rule =>
         Rule.required()
           .uppercase()
@@ -43,7 +52,30 @@ const release = {
               !string.includes(' ') || 'Identifier cannot contain spaces.'
           ),
     },
-    cardId,
+    { ...date, fieldset: 'metadata' },
+    { ...cardId, fieldset: 'metadata' },
+    {
+      title: 'Excerpt',
+      name: 'excerpt',
+      type: 'string',
+      fieldset: 'metadata',
+      validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Content',
+      name: 'content',
+      type: 'array',
+      of: [
+        getBlock({ withHeadings: true, withNotice: true }),
+        image,
+        columns,
+        info,
+        tableOfContents,
+        card,
+        battleSim,
+        { type: 'table' },
+      ],
+    },
     {
       title: 'Banner',
       name: 'background',

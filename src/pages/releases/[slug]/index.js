@@ -1,5 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import BlocksRenderer from '~/components/BlocksRenderer'
 import Layout from '~/components/Layout'
 import Loader from '~/components/Loader'
 import ReleaseNotes from '~/components/ReleaseNotes'
@@ -113,7 +114,11 @@ const ReleasePage = ({ navigation, ...props }) => {
   return (
     <Layout active={['GAME', 'UPDATES', props.id]} navigation={navigation}>
       <ReleaseNotes {...props}>
-        <Component />
+        {props.content ? (
+          <BlocksRenderer value={props.content} />
+        ) : (
+          <Component />
+        )}
       </ReleaseNotes>
     </Layout>
   )
