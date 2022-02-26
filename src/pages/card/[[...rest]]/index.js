@@ -5,28 +5,25 @@ import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getNavigation from '~/helpers/getNavigation'
 import isCardOfficial from '~/helpers/isCardOfficial'
-import parseDate from '~/helpers/parseDate'
 import CARDS from '~/data/cards'
-import CHANGELOG from '~/data/changelog'
 import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
-
-const getChangelog = id => {
-  if (!isCardOfficial(id)) return []
-
-  return CHANGELOG.filter(change => change.id === id)
-    .map(change => ({ ...change, timestamp: parseDate(change.date).valueOf() }))
-    .sort((a, b) => b.timestamp - a.timestamp)
-}
+import getChangesFromCard from '~/api/changes/getChangesFromCard'
+import getChanges from '~/api/changes/getChanges'
 
 export async function getStaticPaths() {
-  const paths = CARDS.filter(card => !card.token)
-    .map(card => card.id)
-    .map(id =>
-      getChangelog(id).map(change => ({
-        params: { rest: [id, 'display', String(change.timestamp)] },
-      }))
+  const cards = CARDS.filter(card => !card.token)
+  const changes = await getChanges()
+  const paths = cards
+    .flatMap(card =>
+      changes
+        .filter(change => change.id === card.id)
+        .map(change => ({
+          params: { rest: [change.id, 'display', String(change.timestamp)] },
+        }))
+        .concat({
+          params: { rest: [card.id, 'display'] },
+        })
     )
-    .flat()
     .concat([{ params: { rest: [] } }])
 
   return { paths, fallback: 'blocking' }
@@ -46,7 +43,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   try {
     const [id, display, versionId = null] = params.rest || []
-    const versions = getChangelog(id)
+    const versions = await getChangesFromCard({ id, isPreview })
 
     if (
       // Invalid view keyword

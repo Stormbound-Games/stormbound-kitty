@@ -1,7 +1,7 @@
-import CHANGELOG from '~/data/changelog'
 import getEmbed from '~/helpers/getEmbed'
 import searchCards from '~/helpers/searchCards'
 import parseDate from '~/helpers/parseDate'
+import getChangesFromCard from '~/api/changes/getChangesFromCard'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
 const groupByDate = (acc, change) => {
@@ -23,7 +23,7 @@ const changelog = {
         `List the changes applied to a card over time. It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name and picks the first result. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
     const [card] = searchCards(message)
 
     // If no card was found with the given search, look no further.
@@ -33,7 +33,7 @@ const changelog = {
       .setTitle(`${this.label}: ${card.name}`)
       .setURL(`https://stormbound-kitty.com/card/${card.id}/display`)
 
-    const cardChanges = CHANGELOG.filter(change => change.id === card.id)
+    const cardChanges = await getChangesFromCard({ id: card.id })
     const changesByDate = cardChanges.reduce(groupByDate, {})
     const hasChanges = Object.keys(changesByDate).length > 0
 

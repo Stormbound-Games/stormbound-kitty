@@ -1,4 +1,5 @@
 import applyRateLimit from '~/helpers/applyRateLimit'
+import getRawCardData from '~/helpers/getRawCardData'
 import getDeck from '~/api/decks/getDeck'
 import getGuide from '~/api/guides/getGuide'
 import getPuzzle from '~/api/puzzles/getPuzzle'
@@ -32,6 +33,12 @@ const getRedirectUrl = async params => {
 
     case 'wallpaper':
       return '/fan-kit/wallpapers'
+
+    case 'changelog': {
+      const { id } = getRawCardData(params.id)
+
+      return id ? `/card/${id}/display` : null
+    }
 
     case 'puzzle': {
       const puzzle = await getPuzzle(params)
