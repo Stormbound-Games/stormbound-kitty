@@ -15,6 +15,20 @@ const image = {
       validation: Rule => Rule.required(),
     },
     {
+      title: 'Wide',
+      name: 'wide',
+      description: 'Only relevant when used outside of a column.',
+      type: 'boolean',
+      initialValue: false,
+      hidden: ({ document, parent }) => {
+        const key = parent._key
+        const blocks = document.content || []
+        const isTopLevelImage = blocks.find(item => item._key === key)
+
+        return !isTopLevelImage
+      },
+    },
+    {
       ...json,
       title: 'Styles',
       name: 'extend',
