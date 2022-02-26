@@ -204,7 +204,7 @@ export default React.memo(function HeroScoreCalculator(props) {
 
           <div className={css(styles.container)}>
             <Image
-              src='/assets/images/releases/rank_hero.png'
+              src='/assets/images/rank_hero.png'
               alt='Heroes League banner iconography'
               withoutWebp
               width={364}
