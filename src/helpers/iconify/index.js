@@ -8,6 +8,7 @@ import {
   Rubies,
   Stones,
   Crowns,
+  HeroCrowns,
 } from '~/components/Resource'
 import replaceInString from '~/helpers/replaceInString'
 
@@ -48,6 +49,10 @@ const iconify = input => {
 
   output = replaceInString(output, /(\d+)\scrowns?/g, (match, index) => (
     <Crowns amount={match} key={index} />
+  ))
+
+  output = replaceInString(output, /(\d+)\shero\scrowns?/g, (match, index) => (
+    <HeroCrowns amount={match} key={index} />
   ))
 
   return output
