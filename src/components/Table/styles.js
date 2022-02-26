@@ -74,6 +74,8 @@ const table = ({ isZebra }) => ({
         color: 'var(--beige)',
         width: '50%',
         whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
         display: 'inline-block',
         content: 'attr(data-label)',
         paddingRight: '1ch',
