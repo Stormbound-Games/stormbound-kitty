@@ -3,20 +3,24 @@ import Trivia from '~/components/Trivia'
 import Layout from '~/components/Layout'
 import QUESTIONS from '~/helpers/getRandomQuestion/questions'
 import getNavigation from '~/helpers/getNavigation'
+import CARDS from '~/data/cards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  return {
-    props: {
-      navigation: await getNavigation({ isPreview }),
-      questions: QUESTIONS.map(question =>
-        typeof question === 'function' ? question() : question
-      ),
-    },
-  }
+  const cards = CARDS
+  const navigation = await getNavigation({ isPreview })
+  const questions = QUESTIONS.map(question =>
+    typeof question === 'function' ? question() : question
+  )
+
+  return { props: { cards, navigation, questions } }
 }
 
-const TriviaPage = ({ navigation, ...props }) => (
-  <Layout active={['COMMUNITY', 'CONTESTS', 'TRIVIA']} navigation={navigation}>
+const TriviaPage = ({ navigation, cards, ...props }) => (
+  <Layout
+    active={['COMMUNITY', 'CONTESTS', 'TRIVIA']}
+    navigation={navigation}
+    cards={cards}
+  >
     <Trivia {...props} />
   </Layout>
 )

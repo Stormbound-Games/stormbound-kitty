@@ -4,22 +4,26 @@ import Layout from '~/components/Layout'
 import { CATEGORIES } from '~/constants/guides'
 import getGuidesFromCategory from '~/api/guides/getGuidesFromCategory'
 import getNavigation from '~/helpers/getNavigation'
+import CARDS from '~/data/cards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const category = 'ESSENTIALS'
-  const guides = await getGuidesFromCategory({ category, isPreview })
+  const name = 'ESSENTIALS'
+  const cards = CARDS
+  const category = { ...CATEGORIES[name], id: name }
+  const guides = await getGuidesFromCategory({ category: name, isPreview })
+  const navigation = await getNavigation({ isPreview })
 
   return {
-    props: {
-      navigation: await getNavigation({ isPreview }),
-      guides,
-      category: { ...CATEGORIES[category], id: category },
-    },
+    props: { cards, category, guides, navigation },
   }
 }
 
-const GuidesPage = ({ navigation, ...props }) => (
-  <Layout active={['GUIDES', props.category.id]} navigation={navigation}>
+const GuidesPage = ({ navigation, cards, ...props }) => (
+  <Layout
+    active={['GUIDES', props.category.id]}
+    navigation={navigation}
+    cards={cards}
+  >
     <Guides {...props} />
   </Layout>
 )

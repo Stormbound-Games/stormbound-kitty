@@ -33,6 +33,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
     navigation,
+    cards: CARDS,
     cardId: null,
     card: {},
     contest: null,
@@ -80,10 +81,11 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const CardBuilderPage = ({ navigation, ...props }) => (
+const CardBuilderPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']}
     navigation={navigation}
+    cards={cards}
   >
     {props.mode === 'DISPLAY' ? (
       <CardBuilderApp {...props} />

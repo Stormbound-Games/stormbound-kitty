@@ -5,17 +5,21 @@ import CARDS from '~/data/cards'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps({ preview: isPreview = false }) {
+  const cards = CARDS
+  const navigation = await getNavigation({ isPreview })
+
   return {
-    props: { navigation: await getNavigation({ isPreview }), cards: CARDS },
+    props: { cards, navigation },
   }
 }
 
-const CardStatsPage = ({ navigation, ...props }) => (
+const CardStatsPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['GAME', 'INFORMATION', 'CARD_STATS']}
     navigation={navigation}
+    cards={cards}
   >
-    <CardsStats {...props} />
+    <CardsStats {...props} cards={cards} />
   </Layout>
 )
 

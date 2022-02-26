@@ -3,18 +3,22 @@ import BattleSimPuzzles from '~/components/BattleSimPuzzles'
 import Layout from '~/components/Layout'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getNavigation from '~/helpers/getNavigation'
+import CARDS from '~/data/cards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  return {
-    props: {
-      navigation: await getNavigation({ isPreview }),
-      puzzles: await getPuzzles({ isPreview }),
-    },
-  }
+  const cards = CARDS
+  const navigation = await getNavigation({ isPreview })
+  const puzzles = await getPuzzles({ isPreview })
+
+  return { props: { cards, navigation, puzzles } }
 }
 
-const BattleSimPuzzlesPage = ({ navigation, ...props }) => (
-  <Layout active={['COMMUNITY', 'CONTESTS', 'PUZZLES']} navigation={navigation}>
+const BattleSimPuzzlesPage = ({ navigation, cards, ...props }) => (
+  <Layout
+    active={['COMMUNITY', 'CONTESTS', 'PUZZLES']}
+    navigation={navigation}
+    cards={cards}
+  >
     <BattleSimPuzzles {...props} />
   </Layout>
 )

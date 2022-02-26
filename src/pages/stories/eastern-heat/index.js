@@ -5,27 +5,28 @@ import { STORY_CATEGORIES } from '~/constants/stories'
 import getNavigation from '~/helpers/getNavigation'
 import sortSaga from '~/helpers/sortSaga'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
+import CARDS from '~/data/cards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const category = 'eastern-heat'
-  const stories = (await getStoriesFromCategory({ category, isPreview })).sort(
-    sortSaga
-  )
+  const name = 'eastern-heat'
+  const cards = CARDS
+  const stories = (
+    await getStoriesFromCategory({ category: name, isPreview })
+  ).sort(sortSaga)
+  const navigation = await getNavigation({ isPreview })
+  const category = { ...STORY_CATEGORIES[name], id: name }
 
   return {
-    props: {
-      stories,
-      category: { ...STORY_CATEGORIES[category], id: category },
-      navigation: await getNavigation({ isPreview }),
-    },
+    props: { cards, category, navigation, stories },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const StoriesPage = ({ navigation, ...props }) => (
+const StoriesPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['STORIES', 'SAGAS', props.category.id]}
     navigation={navigation}
+    cards={cards}
   >
     <StoryCategory {...props} />
   </Layout>

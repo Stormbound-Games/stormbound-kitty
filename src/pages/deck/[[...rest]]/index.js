@@ -10,6 +10,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import getNavigation from '~/helpers/getNavigation'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
+import CARDS from '~/data/cards'
 
 export async function getStaticPaths() {
   const decks = await getDecks()
@@ -27,6 +28,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
+    cards: CARDS,
     navigation,
     id: null,
     deck: [],
@@ -77,7 +79,7 @@ const COMPONENTS = {
   EDITOR: DeckEditorView,
 }
 
-const DeckBuilderPage = ({ navigation, ...props }) => {
+const DeckBuilderPage = ({ navigation, cards, ...props }) => {
   const Component = COMPONENTS[props.view]
   const state = useDeckBuilder(props)
 
@@ -85,6 +87,7 @@ const DeckBuilderPage = ({ navigation, ...props }) => {
     <Layout
       active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
       navigation={navigation}
+      cards={cards}
     >
       <Component {...state} advice={props.advice} />
     </Layout>

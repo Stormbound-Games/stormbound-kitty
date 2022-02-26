@@ -3,18 +3,22 @@ import Releases from '~/components/Releases'
 import Layout from '~/components/Layout'
 import getReleases from '~/api/releases/getReleases'
 import getNavigation from '~/helpers/getNavigation'
+import CARDS from '~/data/cards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  return {
-    props: {
-      navigation: await getNavigation({ isPreview }),
-      releases: await getReleases({ isPreview }),
-    },
-  }
+  const cards = CARDS
+  const navigation = await getNavigation({ isPreview })
+  const releases = await getReleases({ isPreview })
+
+  return { props: { cards, navigation, releases } }
 }
 
-const ReleasesPage = ({ navigation, ...props }) => (
-  <Layout active={['GAME', 'UPDATES', 'RELEASES']} navigation={navigation}>
+const ReleasesPage = ({ navigation, cards, ...props }) => (
+  <Layout
+    active={['GAME', 'UPDATES', 'RELEASES']}
+    navigation={navigation}
+    cards={cards}
+  >
     <Releases {...props} />
   </Layout>
 )

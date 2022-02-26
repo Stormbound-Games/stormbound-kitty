@@ -5,6 +5,7 @@ import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
 import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
 import getNavigation from '~/helpers/getNavigation'
+import CARDS from '~/data/cards'
 
 export async function getStaticPaths() {
   const paths = BRAWLS.map(brawl => ({
@@ -25,9 +26,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
+  const navigation = await getNavigation({ isPreview })
+  const cards = CARDS
+
   return {
     props: {
-      navigation: await getNavigation({ isPreview }),
+      cards,
+      navigation,
       id,
       brawl,
       guide,
@@ -36,10 +41,11 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const BrawlTrackerPage = ({ navigation, ...props }) => (
+const BrawlTrackerPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER']}
     navigation={navigation}
+    cards={cards}
   >
     <BrawlPage {...props} />
   </Layout>

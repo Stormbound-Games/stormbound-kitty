@@ -22,6 +22,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     const cards = serialization.cards.deserialize(id)
     return {
       props: {
+        allCards: CARDS,
         navigation,
         cards: [cards[0] || defaultCard, cards[1] || defaultCard],
         disabledOptions,
@@ -29,15 +30,21 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     }
   } catch (error) {
     return {
-      props: { navigation, cards: [defaultCard, defaultCard], disabledOptions },
+      props: {
+        allCards: CARDS,
+        navigation,
+        cards: [defaultCard, defaultCard],
+        disabledOptions,
+      },
     }
   }
 }
 
-const ValueCalculatorPage = ({ navigation, ...props }) => (
+const ValueCalculatorPage = ({ navigation, allCards, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'VALUE_CALCULATOR']}
     navigation={navigation}
+    cards={allCards}
   >
     <ValueCalculator {...props} />
   </Layout>

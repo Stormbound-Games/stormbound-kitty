@@ -9,6 +9,7 @@ import Link from '~/components/Link'
 import Loader from '~/components/Loader'
 import styles from './styles'
 
+const CardsContext = React.createContext([])
 const SearchDialog = dynamic(() => import('~/components/SearchDialog'), {
   ssr: false,
 })
@@ -19,32 +20,34 @@ export default React.memo(function Layout(props) {
   const searchDialog = React.useRef(null)
 
   return (
-    <div className={css(styles.layout)}>
-      <EyeCatcher id='082021'>
-        {setIsVisible => (
-          <>
-            Hello! ✨ If you like Stormbound-Kitty, I could use{' '}
-            <Link to='/about' onClick={() => setIsVisible(false)}>
-              your help
-            </Link>{' '}
-            with the site if you’d like to contribute (financially or
-            otherwise)!
-          </>
-        )}
-      </EyeCatcher>
-      <Header
-        navigation={props.navigation}
-        active={props.active}
-        openSearch={() => searchDialog.current.show()}
-      />
+    <CardsContext.Provider value={props.cards || []}>
+      <div className={css(styles.layout)}>
+        <EyeCatcher id='082021'>
+          {setIsVisible => (
+            <>
+              Hello! ✨ If you like Stormbound-Kitty, I could use{' '}
+              <Link to='/about' onClick={() => setIsVisible(false)}>
+                your help
+              </Link>{' '}
+              with the site if you’d like to contribute (financially or
+              otherwise)!
+            </>
+          )}
+        </EyeCatcher>
+        <Header
+          navigation={props.navigation}
+          active={props.active}
+          openSearch={() => searchDialog.current.show()}
+        />
 
-      <main className={css(styles.body)}>
-        {router.isFallback ? <Loader /> : props.children}
-      </main>
+        <main className={css(styles.body)}>
+          {router.isFallback ? <Loader /> : props.children}
+        </main>
 
-      <Footer />
+        <Footer />
 
-      <SearchDialog dialogRef={searchDialog} />
-    </div>
+        <SearchDialog dialogRef={searchDialog} />
+      </div>
+    </CardsContext.Provider>
   )
 })

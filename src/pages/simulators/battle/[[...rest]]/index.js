@@ -7,6 +7,7 @@ import getNavigation from '~/helpers/getNavigation'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import useNavigator from '~/hooks/useNavigator'
+import CARDS from '~/data/cards'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
   const puzzles = await getPuzzles({ isPreview })
@@ -22,6 +23,7 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
+    cards: CARDS,
     navigation,
     simId: null,
     sim: getInitialBattleData(),
@@ -44,6 +46,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
     return {
       props: {
+        cards: CARDS,
         navigation,
         simId: id,
         sim: getInitialBattleData(id),
@@ -58,13 +61,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const BattleSim = ({ navigation, ...props }) => {
+const BattleSim = ({ navigation, cards, ...props }) => {
   const navigator = useNavigator()
 
   return (
     <Layout
       active={['TOOLS', 'SIMULATORS', 'BATTLE_SIM']}
       navigation={navigation}
+      cards={cards}
     >
       <BattleSimState {...props} navigator={navigator}>
         {state => <BattleSimPage {...state} {...props} />}

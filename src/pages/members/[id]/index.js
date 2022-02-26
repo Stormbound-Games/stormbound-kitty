@@ -5,6 +5,7 @@ import getMemberContent from '~/helpers/getMemberContent'
 import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
 import useMemberName from '~/hooks/useMemberName'
+import CARDS from '~/data/cards'
 
 export async function getStaticPaths() {
   const paths = (await getMembersList()).map(({ member }) => ({
@@ -27,6 +28,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
+      cards: CARDS,
       navigation: await getNavigation({ isPreview }),
       id,
       channel,
@@ -40,7 +42,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const MemberPage = ({ navigation, ...props }) => {
+const MemberPage = ({ navigation, cards, ...props }) => {
   const [name] = useMemberName()
   const active =
     name?.toLowerCase() === props.id
@@ -48,7 +50,7 @@ const MemberPage = ({ navigation, ...props }) => {
       : ['COMMUNITY', 'DISCOVER', 'MEMBERS']
 
   return (
-    <Layout active={active} navigation={navigation}>
+    <Layout active={active} navigation={navigation} cards={cards}>
       <Member memberId={props.id} {...props} />
     </Layout>
   )
