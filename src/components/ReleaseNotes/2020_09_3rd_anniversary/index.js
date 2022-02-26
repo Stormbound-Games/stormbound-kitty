@@ -1,18 +1,14 @@
 import React from 'react'
+import CheapenedBrawl from '~/components/CheapenedBrawl'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Notice from '~/components/Notice'
-import Only from '~/components/Only'
 import ResourceIcon from '~/components/ResourceIcon'
 import { Legendary, Coins, Crowns, Stones, Rubies } from '~/components/Resource'
 import Row from '~/components/Row'
-import Table from '~/components/Table'
 import Title from '~/components/Title'
-import { BRAWL_MILESTONES } from '~/constants/brawl'
-import getMilestoneCost from '~/helpers/getMilestoneCost'
-import getResourceLabel from '~/helpers/getResourceLabel'
 
 export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
@@ -37,66 +33,22 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           upon login.
         </p>
 
-        <Title id='brawl'>Brawl</Title>
-
-        <p>
-          All matches for the{' '}
-          <Link to='/brawl/feline-strength'>
-            Brawl following the 18th of September
-          </Link>{' '}
-          will{' '}
-          <span className='Highlight'>
-            cost a third of their original price
-          </span>{' '}
-          (rounded to the closest multiple of 5).
-          <Only.Desktop>
-            {' '}
-            Here are the adjust values for every milestone:
-          </Only.Desktop>
-        </p>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
+          <p>
+            All matches for the{' '}
+            <Link to='/brawl/feline-strength'>
+              Brawl following the 18th of September
+            </Link>{' '}
+            will{' '}
+            <span className='Highlight'>
+              cost a third of their original price
+            </span>{' '}
+            (rounded to the closest multiple of 5).
+          </p>
+        </CheapenedBrawl>
       </>
 
-      <Only.Desktop>
-        <Page.Embed>
-          <Table>
-            <thead>
-              <tr>
-                <th>Required crowns</th>
-                <th>Cost per match</th>
-                <th>Reward once reached</th>
-              </tr>
-            </thead>
-            <tbody>
-              {BRAWL_MILESTONES.LEGACY.map(milestone => {
-                const cost = getMilestoneCost(milestone, 1 / 3)
-
-                return (
-                  <tr key={milestone.crowns}>
-                    <td>
-                      <Crowns amount={milestone.crowns} />
-                    </td>
-                    <td>
-                      <Coins amount={cost} /> ({-1 * (milestone.cost - cost)})
-                    </td>
-                    <td>{getResourceLabel(milestone, true)}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </Table>
-        </Page.Embed>
-      </Only.Desktop>
-
       <>
-        <Info icon='crown' title='Oeni’s Gazette'>
-          <p>
-            Be sure to read{' '}
-            <Link to='/guides/noble-coalition'>Oeni’s Gazette</Link> to learn
-            more about the Noble Coalition Brawl, especially in regard to this
-            anniversary event.
-          </p>
-        </Info>
-
         <Title>Boosted books</Title>
 
         <p>
