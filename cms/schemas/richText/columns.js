@@ -65,7 +65,7 @@ const columns = {
   ],
   preview: {
     select: { columns: 'columns', wide: 'wide' },
-    prepare({ columns, wide }) {
+    prepare({ columns = [], wide }) {
       return {
         title: 'Columns',
         subtitle:
