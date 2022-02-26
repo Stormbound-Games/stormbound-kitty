@@ -30,9 +30,10 @@ import { BOOKS } from '~/constants/books'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   const { css } = useFela()
+
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           March, bringing balance changes, new cards, new avatars, some UI
@@ -102,24 +103,24 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <span className={css({ color: 'var(--legendary)' })}>legendary</span>{' '}
           Ironclad structure with an interesting teleportation mechanic.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('I29')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           On March 19th, the very first common dragon card will be
           introduced—Flameless Lizards.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N82')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           As usual, two exclusive packs will be available for 7 days starting
           from their respective release date:
@@ -135,7 +136,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             as well as <Stones amount={5} /> and <Coins amount={750} />.
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -188,7 +189,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           Five new books will make their entrance in the next update: a Pirate
           book, a Feline book, an Elder book and a Dragon book, each containing
@@ -228,7 +229,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             available on Discord through the <code>!bookodds</code> command.
           </p>
         </Info>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Image
@@ -237,7 +238,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='heroes-league'>Heroes League</Title>
 
         <p>
@@ -471,9 +472,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             </p>
           </Row.Column>
         </Row>
-      </Page.Narrow>
+      </>
 
-      <Page.Narrow>
+      <>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -512,7 +513,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

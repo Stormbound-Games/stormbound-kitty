@@ -26,7 +26,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesMarch2022(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early March
           bringing balance changes, 2 new Ancient cards, QoL improvements, and
@@ -106,14 +106,14 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
           As promised last month, here are the last 2 of the 4 new epic Ancient
           cards.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('I31')} />
         <CardBuilderCardDisplay {...getInitialCardData('F31')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Spacing top='LARGEST'>
           <Info icon='wand' title='Card Builder'>
             <p>
@@ -129,7 +129,7 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
             given card + <Coins amount={750} /> and <Stones amount={5} />.
           </p>
         </Spacing>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -170,7 +170,7 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='new-brawls'>New Brawls</Title>
 
         <p>
@@ -257,7 +257,7 @@ export default React.memo(function ReleaseNotesMarch2022(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

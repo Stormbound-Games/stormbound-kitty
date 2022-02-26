@@ -49,7 +49,7 @@ const BrawlTable = ({ data }) => (
 export default React.memo(function ReleaseNotesBrawl2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           On June 17th, a Stormbound update will be released to revamp the Brawl
           system. It’s not a complete overhaul, but it should make the Brawl
@@ -245,7 +245,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

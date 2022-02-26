@@ -18,7 +18,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           The long awaited “Friendly Matches update” from Sheepyard is finally
           here, and it brings a lot of new things on the table. As always, I’m
@@ -58,13 +58,13 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           <CardLink id='N79' /> (which will only be available from October 15th
           onwards).
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N78')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Row isDesktopOnly>
           <Row.Column>
             <Image
@@ -82,26 +82,26 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             </p>
           </Row.Column>
         </Row>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N79')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           Additionally, a new card{' '}
           <span className='Highlight'>from a new race</span> makes its entrance:
           Stoic Protectors, an ancient card bringing a whole new mechanic into
           the landscape (which will come out 2 weeks after Excited Mouser).
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N80')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='balance-changes'>Balance Changes</Title>
 
         <p>
@@ -191,7 +191,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           Not all these settings are available to all players. They get unlocked
           as one progresses throughout the game.
         </p>
-      </Page.Narrow>
+      </>
 
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
@@ -218,7 +218,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
         </Row.Column>
       </Row>
 
-      <Page.Narrow>
+      <>
         <Title id='social-panel'>Social panel</Title>
 
         <Row isDesktopOnly>
@@ -326,7 +326,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

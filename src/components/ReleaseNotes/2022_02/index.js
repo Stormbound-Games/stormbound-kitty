@@ -26,7 +26,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesFebruary2022(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           February bringing balance changes, 2 new Ancient cards, compensation
@@ -168,14 +168,14 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           factions over the next 2 months. These 2 cards will be introduced in
           February, then there will be 2 more in March.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('W33')} />
         <CardBuilderCardDisplay {...getInitialCardData('S31')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Spacing top='LARGEST'>
           <Info icon='hammer' title='Card Builder'>
             <p>
@@ -191,7 +191,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
             given card + <Coins amount={750} /> and <Stones amount={5} />.
           </p>
         </Spacing>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -234,7 +234,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='new-brawls'>New Brawls</Title>
 
         <p>
@@ -306,7 +306,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
           Valentine exclusive packs will be available from February 14th (9AM
           CET) until Feburary 20th (end of day) so be sure to jump on them!
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -336,7 +336,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='qol-improvements'>Quality of life improvements</Title>
 
         <Row isDesktopOnly>
@@ -387,7 +387,7 @@ export default React.memo(function ReleaseNotesFebruary2022(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

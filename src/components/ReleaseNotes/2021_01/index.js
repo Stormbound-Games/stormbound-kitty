@@ -9,19 +9,19 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesTempleOfFocus(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           On January 17th, a new card will make its entrance! It’s a structure
           from Swarm of the East, it’s epic, and it’s a bit of a new mechanic
           while still making sense in the context of the overall faction!
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('S29')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           Additionally, there will be a promotion pack to put your hands on this
           sweet new card. It costs $9.99, grants 3 copies of{' '}
@@ -37,7 +37,7 @@ export default React.memo(function ReleaseNotesTempleOfFocus(props) {
           height={280}
           lazy
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

@@ -21,7 +21,7 @@ import { BOOKS } from '~/constants/books'
 export default React.memo(function ReleaseNotesNovember2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           November, bringing balance changes, new cards, new books, some
@@ -148,7 +148,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         <p>
           Throughout November, four new cards will be released, one per faction.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <h3>Released on November 8th</h3>
@@ -161,7 +161,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         <CardBuilderCardDisplay {...getInitialCardData('W32')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Spacing top='LARGEST'>
           <p>
             As usual, there will be 4 exclusive packs to collect early copies of
@@ -170,7 +170,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
             available at the pace of one per week throughout November.
           </p>
         </Spacing>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -212,9 +212,9 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='deck-import-export'>Deck import/export</Title>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -264,7 +264,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='new-books'>New books</Title>
 
         <p>
@@ -275,7 +275,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
           Temples for <Rubies amount={60} />, containing 3 cards with 35% / 30%
           / 20% / 15%.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Only.Desktop>
@@ -439,7 +439,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
         </Only.Mobile>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='black-friday-offers'>Black Friday offers</Title>
 
         <p>
@@ -523,7 +523,7 @@ export default React.memo(function ReleaseNotesNovember2021(props) {
             </Link>
           </p>
         </Footnotes>
-      </Page.Narrow>
+      </>
     </>
   )
 })

@@ -25,7 +25,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           February, bringing balance changes (and a well-deserved confusion
@@ -94,13 +94,13 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           On February 8th, a new temple card will be introduced: the Temple of
           Heart. Look how pretty it is! 💖
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N81')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Title id='player-profiles'>Player profiles</Title>
         <p>
           A brand new feature is coming with this release:{' '}
@@ -160,7 +160,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           Valentine exclusive packs will be available from February 8th (9AM
           CET) until Feburary 14th (end of day) so be sure to jump on them!
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -201,7 +201,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -220,7 +220,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

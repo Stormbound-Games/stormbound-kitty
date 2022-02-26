@@ -26,7 +26,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early May,
           bringing balance changes, new cards, a new Premium pass, some UI
@@ -97,14 +97,14 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           Two new cards are joining the Winterpact faction, one rare structure
           and one common unit—both with freeze dynamics!
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('W31')} />
         <CardBuilderCardDisplay {...getInitialCardData('W30')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Row isDesktopOnly extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
@@ -265,7 +265,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             </Link>
           </p>
         </Footnotes>
-      </Page.Narrow>
+      </>
     </>
   )
 })

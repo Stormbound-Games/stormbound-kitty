@@ -9,7 +9,7 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           On the 1st of September, a small balance patch will{' '}
           <span className={css({ color: 'var(--light-shadowfen)' })}>
@@ -92,7 +92,7 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
           4/5/6/7/8), and its ability is 1/1-2/1-2/2/2 (instead of 1 at every
           level).
         </p>
-      </Page.Narrow>
+      </>
     </>
   )
 })

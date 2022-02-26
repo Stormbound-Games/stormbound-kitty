@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import PageEmbed from '~/components/PageEmbed'
 import PageHeaderMeta from '~/components/PageHeaderMeta'
 import HeaderBanner from '~/components/HeaderBanner'
 import PageMeta from '~/components/PageMeta'
@@ -64,7 +65,7 @@ Page.Narrow = React.memo(function Narrow(props) {
 })
 
 Page.Embed = React.memo(function Embed(props) {
-  return <Spacing vertical={['LARGE', 'LARGER']}>{props.children}</Spacing>
+  return <PageEmbed>{props.children}</PageEmbed>
 })
 
 export default Page

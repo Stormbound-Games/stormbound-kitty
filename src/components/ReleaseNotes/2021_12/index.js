@@ -25,7 +25,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesDecember2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           December bringing balance changes, a new card, some generous offers
@@ -131,13 +131,13 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
           The day before Christmas (December 23rd), a new card will be released.
           It will join the few common cards with the ability to do chip damage!
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N91')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Spacing top='LARGEST'>
           <p>
             As usual, there will be an exclusive pack to collect early copies of
@@ -290,7 +290,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
             <Coins amount={6500} /> + <Rubies amount={650} />
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -315,7 +315,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>And two new exclusive packs will be introduced!</p>
         <ul>
           <li>
@@ -329,7 +329,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
             many times as desired!
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -348,7 +348,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           The special avatar from the Christmas Pack will be this Christmas
           Minion, which will be unavailable past the event. If you want it or
@@ -412,7 +412,7 @@ export default React.memo(function ReleaseNotesDecember2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

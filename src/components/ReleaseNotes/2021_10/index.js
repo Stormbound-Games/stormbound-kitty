@@ -17,7 +17,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesOctober2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           October, bringing balance changes, new ancient cards, some generous
@@ -118,7 +118,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
           mechanics in the <Link to='#faq'>FAQ</Link> at the end of these
           release notes.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N87')} />
@@ -127,7 +127,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
         <CardBuilderCardDisplay {...getInitialCardData('N90')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Spacing top='LARGEST'>
           <p>
             As usual, there will be 4 exclusive packs to collect early copies of
@@ -136,7 +136,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
             pace of one per week throughout October.
           </p>
         </Spacing>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -174,7 +174,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           And if you would like some copies of all of the new Ancient cards and
           some fusion stones, you could consider the $19.99 exclusive pack
@@ -472,7 +472,7 @@ export default React.memo(function ReleaseNotesOctober2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

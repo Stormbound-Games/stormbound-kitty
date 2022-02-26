@@ -25,7 +25,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesApril2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           April, bringing balance changes, new cards, new avatars, some UI
@@ -103,13 +103,13 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           Yet another temple will make its entrance in April, the Temple of
           Life, a new rare structure from Winterpact.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('W29')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Row isDesktopOnly extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
@@ -231,7 +231,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <Rubies amount={650} /> and <Coins amount={6500} />
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -261,7 +261,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           On top of that, all rubies offer will grant additional rubies between
           April 1st and April 5th (end of day), respectively +5%, +10%, +15%,
@@ -363,7 +363,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

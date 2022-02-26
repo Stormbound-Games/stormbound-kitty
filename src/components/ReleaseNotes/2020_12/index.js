@@ -23,7 +23,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           It’s almost holiday season already, and Sheepyard is gifting us of a
           small release with balance changes, exclusive offer and an Advent
@@ -111,7 +111,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           <span className='Highlight'>and</span> the premium reward for every
           single day you log in.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Image
@@ -120,7 +120,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           This is the total value for the Advent calendar, free and premium
           respectively (including free rewards within the premium one):{' '}
@@ -211,7 +211,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
             </Link>
           </p>
         </Footnotes>
-      </Page.Narrow>
+      </>
     </>
   )
 })

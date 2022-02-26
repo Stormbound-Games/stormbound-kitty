@@ -27,7 +27,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           August, bringing balance changes, a new card, and some further Brawl
@@ -166,13 +166,13 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           name might suggest, it plays with the flow of the game, restoring
           friendly units and structures to the state from the previous turn.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('F29')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           As usual, there will be an exclusive pack to quickly get access to the
           new card, for a week after its release date. To celebrate Sheepyard’s
@@ -668,7 +668,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

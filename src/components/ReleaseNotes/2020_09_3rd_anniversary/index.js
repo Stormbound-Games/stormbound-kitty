@@ -17,7 +17,7 @@ import getResourceLabel from '~/helpers/getResourceLabel'
 export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           On September 18th, Stormbound is turning 3 years old. That’s
           incredible that a prototype issued from a game-jam turned into the
@@ -54,7 +54,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             Here are the adjust values for every milestone:
           </Only.Desktop>
         </p>
-      </Page.Narrow>
+      </>
 
       <Only.Desktop>
         <Page.Embed>
@@ -87,7 +87,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
         </Page.Embed>
       </Only.Desktop>
 
-      <Page.Narrow>
+      <>
         <Info icon='crown' title='Oeni’s Gazette'>
           <p>
             Be sure to read{' '}
@@ -140,7 +140,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             <Coins amount={5000} /> + <Stones amount={50} />
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -177,7 +177,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           Additionally, <ResourceIcon resource='RUBY' /> rubies and{' '}
           <ResourceIcon resource='COIN' /> coins offers in the shop will yield
@@ -195,7 +195,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           in the <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy
           them!
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Image

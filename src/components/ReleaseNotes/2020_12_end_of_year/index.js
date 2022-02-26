@@ -30,7 +30,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           It’s almost the end of the year already (and what a year it’s been,
           honestly…), and Sheepyard is gifting us with a small release with
@@ -183,7 +183,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             <Coins amount={6500} /> + <Rubies amount={650} />
           </li>
         </ul>
-      </Page.Narrow>
+      </>
       <Page.Embed>
         <Row isDesktopOnly>
           <Row.Column width='1/3'>
@@ -206,7 +206,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           </Row.Column>
         </Row>
       </Page.Embed>
-      <Page.Narrow>
+      <>
         <p>
           On top of that, <span className='Highlight'>all books</span> will
           yield an extra card until the end of the Christmas event (end of day
@@ -257,7 +257,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

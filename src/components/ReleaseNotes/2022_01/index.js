@@ -30,7 +30,7 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
   const { css } = useFela()
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           January bringing balance changes, and the long awaited draft mode!
@@ -132,7 +132,7 @@ export default React.memo(function ReleaseNotesJanuary2022(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

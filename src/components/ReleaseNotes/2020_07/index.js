@@ -52,7 +52,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Back in April, Paladin Studios announced they would hand over
           Stormbound to a Polish game development studio called{' '}
@@ -133,7 +133,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           3 quest will either grant coins (6 out of 10 quests) or fusion stones
           (4 out of 10 quests).
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -167,7 +167,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Info title='Daily coin cap'>
           <p>
             To compensate the fact that quests overall grant less coins than
@@ -191,13 +191,13 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           src='/assets/images/releases/banner_rogue_sheep.png'
           alt='New Rogue Sheep card'
         />
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           <CardLink id='N77' /> will be available shortly (a few days following
           the release) through crafting and{' '}
@@ -399,7 +399,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           mode whatsoever. Additionally, the CPU health has also been similarly
           adjusted when facing bots.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Title id='ui-improvements'>UI improvements</Title>
@@ -448,7 +448,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -504,7 +504,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           </li>
           <li>More options when it comes to friendly matches.</li>
         </ul>
-      </Page.Narrow>
+      </>
     </>
   )
 })

@@ -25,7 +25,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early June,
           bringing balance changes, new cards, some economy changes, bug fixes
@@ -123,12 +123,12 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           Two new cards are joining the neutral faction! First, we have a new
           ancient card with impressive speed.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N84')} />
       </Page.Embed>
-      <Page.Narrow>
+      <>
         <p>
           Then, we have rare construct which introduces “fixed movement”.
           Essentially, this means it will not honor the usual attack resolution
@@ -140,12 +140,12 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           While it is somewhat similar to self-commanding as of today, it will
           be expanded in the near future into a more unique mechanic.
         </p>
-      </Page.Narrow>
+      </>
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N83')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <Info icon='stack' title='Rarity icons'>
           <p>
             As you can see, the rarity icons have been revisited to also reflect
@@ -398,7 +398,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

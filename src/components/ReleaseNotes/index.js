@@ -16,7 +16,7 @@ export default React.memo(function ReleaseNotes(props) {
       isEditorialContent
       withDropCap
     >
-      {props.children}
+      <Page.Narrow>{props.children}</Page.Narrow>
     </Page>
   )
 })

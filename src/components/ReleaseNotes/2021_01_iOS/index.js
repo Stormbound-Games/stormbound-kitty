@@ -5,7 +5,7 @@ import Info from '~/components/Info'
 export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Important notice for{' '}
           <strong className='Highlight'>iOS guest players!</strong> If you do
@@ -40,7 +40,7 @@ export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
             pandemic. Do the right thing. 🙏
           </p>
         </Info>
-      </Page.Narrow>
+      </>
     </>
   )
 })

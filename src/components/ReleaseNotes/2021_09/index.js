@@ -18,7 +18,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesSeptember2021(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           September, bringing balance changes, a new card, and a lot of generous
@@ -120,13 +120,13 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           Stormbound-Kitty. Thank you to the team, and thank you to the
           incredible Stormbound community.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N86')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           The reason the card is marked as having 0 movement only to gain it on
           play is to avoid a confusing (no pun intended) movement tooltip
@@ -192,7 +192,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           alt='For $4.99: 1 Mythic Tome + 100 Coins; For $19.99: 4 Mythic Tome + 4 Heroic Tomes + 500 coins; For $49.99: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins; For $99.99: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
           withAvif
         />
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly isWideGutter>
@@ -251,7 +251,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <p>
           On top of that,{' '}
           <span className='Highlight'>
@@ -286,7 +286,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             and rewards to better prepare from week to the next.
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
@@ -318,7 +318,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </Row.Column>
       </Row>
 
-      <Page.Narrow>
+      <>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -337,7 +337,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })

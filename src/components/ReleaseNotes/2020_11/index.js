@@ -16,7 +16,7 @@ import CheapenedBrawl from '~/components/CheapenedBrawl'
 export default React.memo(function ReleaseNotesNovember2020(props) {
   return (
     <>
-      <Page.Narrow>
+      <>
         <p>
           It’s spooky season, and Sheepyard is releasing a small update. The
           situation with Apple has been resolved and the Halloween event can
@@ -150,13 +150,13 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           peculiar property makes Stoic Protectors another pretty effective
           counter to elders.
         </p>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N80')} />
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             Similar to what happened for the{' '}
@@ -194,7 +194,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             November 1st and November 15th.
           </li>
         </ul>
-      </Page.Narrow>
+      </>
 
       <Page.Embed>
         <Row isDesktopOnly>
@@ -213,7 +213,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         </Row>
       </Page.Embed>
 
-      <Page.Narrow>
+      <>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -246,7 +246,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             },
           ]}
         />
-      </Page.Narrow>
+      </>
     </>
   )
 })
