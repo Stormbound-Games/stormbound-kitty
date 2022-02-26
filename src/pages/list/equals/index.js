@@ -15,7 +15,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       navigation: await getNavigation({ isPreview }),
       date: EQUALS_TIER_LIST.date,
       list: getInitialListData(EQUALS_TIER_LIST.value),
-      release,
+      release: release ? { title: release.title, slug: release.slug } : null,
     },
   }
 }
