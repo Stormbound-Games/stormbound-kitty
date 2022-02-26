@@ -8,7 +8,7 @@ export default React.memo(function FAQSection(props) {
       <Title id={props.id}>{props.title}</Title>
       <dl>
         {props.entries.map(entry => (
-          <FAQEntry key={entry.id} {...entry} />
+          <FAQEntry key={entry.question} {...entry} />
         ))}
       </dl>
     </>
