@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Page from '~/components/Page'
 import CardLink from '~/components/CardLink'
 import FAQSection from '~/components/FAQSection'
@@ -18,9 +17,6 @@ import getCalendarValue from '~/helpers/getCalendarValue'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesDecember2020(props) {
-  const { css } = useFela()
-  const [isTableExpanded, expandTable] = React.useState(false)
-
   return (
     <>
       <>
