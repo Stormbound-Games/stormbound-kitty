@@ -9,6 +9,7 @@ import card from '../richText/card'
 import faq from '../richText/faq'
 import image from '../richText/image'
 import info from '../richText/info'
+import nerfCompensation from '../richText/nerfCompensation'
 import tableOfContents from '../richText/tableOfContents'
 import { formatDate } from '~/helpers/formatDate'
 
@@ -75,6 +76,7 @@ const release = {
         tableOfContents,
         card,
         faq,
+        nerfCompensation,
         cheapenedBrawl,
         { type: 'table' },
         battleSim,

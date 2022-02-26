@@ -11,6 +11,7 @@ import BlockFAQ from '~/components/BlockFAQ'
 import BlockImage from '~/components/BlockImage'
 import BlockInfo from '~/components/BlockInfo'
 import BlockManaGraph from '~/components/BlockManaGraph'
+import BlockNerfCompensation from '~/components/BlockNerfCompensation'
 import BlockNotice from '~/components/BlockNotice'
 import BlockTable from '~/components/BlockTable'
 import BlockTableOfContents from '~/components/BlockTableOfContents'
@@ -71,6 +72,7 @@ const types = {
   image: BlockImage,
   info: BlockInfo,
   manaGraph: BlockManaGraph,
+  nerfCompensation: BlockNerfCompensation,
   table: BlockTable,
   tableOfContents: BlockTableOfContents,
   tierList: BlockTierList,
