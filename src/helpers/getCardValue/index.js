@@ -10,12 +10,18 @@ const MOVEMENT = [0.5, 1, 1.5, 1.75, 2]
 const parseAbility = (ability, index = 0) =>
   ability.match(/(\d+)/g).map(Number)[index]
 
-const getCardValue = (id, level = 1) => {
-  const MAX_STRENGTH = getResolvedCardData({ id: 'I26', level }).strength
-  const { strength, mana, ability, type, movement } = getResolvedCardData({
-    id,
+const getCardValue = (cardsIndex, id, level = 1) => {
+  const MAX_STRENGTH = getResolvedCardData(cardsIndex, {
+    id: 'I26',
     level,
-  })
+  }).strength
+  const { strength, mana, ability, type, movement } = getResolvedCardData(
+    cardsIndex,
+    {
+      id,
+      level,
+    }
+  )
   const speed = MOVEMENT[movement || 0] || 1
 
   if (UNVALUED_CARDS.includes(id)) {
@@ -427,9 +433,9 @@ const getCardValue = (id, level = 1) => {
       ]
     }
     case 'S21': /* Queen of Herds */ {
-      const PanHeralds = getResolvedCardData({ id: 'S14', level })
+      const PanHeralds = getResolvedCardData(cardsIndex, { id: 'S14', level })
       const buff = parseAbility(PanHeralds.ability)
-      const Dreadfauns = getResolvedCardData({ id: 'S16', level })
+      const Dreadfauns = getResolvedCardData(cardsIndex, { id: 'S16', level })
       const [spawns, value] = Dreadfauns.ability.match(/(\d+)/g).map(Number)
       const limit = parseAbility(ability)
       const PanHeraldsValue = PanHeralds.strength + 8 * buff

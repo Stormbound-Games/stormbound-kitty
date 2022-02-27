@@ -4,17 +4,20 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardMatchingCriteria from '~/helpers/isCardMatchingCriteria'
 import { getSequenceProbability } from '~/helpers/getDrawingProbability'
 import getDrawingSequences from '~/helpers/getDrawingSequences'
-import CARDS from '~/data/cards'
 import FUSION_STONES from '~/helpers/getRawCardData/fs'
 import random from '~/helpers/random'
+import indexArray from '~/helpers/indexArray'
 import { RARITIES } from '~/constants/game'
 
-const getRarityPool = (rarity, only = {}) =>
-  CARDS.filter(isCardMatchingCriteria({ ...only, rarity })).map(card => card.id)
+const getRarityPool = (cards, rarity, only = {}) =>
+  cards.filter(isCardMatchingCriteria({ ...only, rarity })).map(card => card.id)
 
-const getDrawingPools = book =>
+const getDrawingPools = (cards, book) =>
   Object.keys(RARITIES).reduce(
-    (acc, rarity) => ({ ...acc, [rarity]: getRarityPool(rarity, book.only) }),
+    (acc, rarity) => ({
+      ...acc,
+      [rarity]: getRarityPool(cards, rarity, book.only),
+    }),
     {}
   )
 
@@ -30,14 +33,14 @@ const getRandomCardId = pools => rarity => {
 
 const cache = new Map()
 
-const getSequences = book => {
+const getSequences = (cards, book) => {
   const key = `${book.draws}.${book.percentiles.join('')}`
 
   if (cache.has(key)) {
     return cache.get(key)
   }
 
-  const getProbability = getSequenceProbability(book, [1, 1, 1, 1])
+  const getProbability = getSequenceProbability(cards, book, [1, 1, 1, 1])
   const sequences = getDrawingSequences(book.draws)
     .map(sequence => ({
       id: sequence.join(','),
@@ -56,15 +59,19 @@ const getSequences = book => {
 
 const getRandomSequence = sequences => rwc(sequences).split(',').map(Number)
 
-const openBook = book => {
-  const sequences = getSequences(book)
+const openBook = (cards, book) => {
+  const cardsIndex = {
+    ...indexArray(cards),
+    ...FUSION_STONES.reduce((acc, fs) => ({ ...acc, [fs.id]: fs })),
+  }
+  const sequences = getSequences(cards, book)
   const sequence = getRandomSequence(sequences)
-  const pools = getDrawingPools(book)
+  const pools = getDrawingPools(cards, book)
   const draw = getRandomCardId(pools)
-  const cards = sequence
+  const bookCards = sequence
     .map(rarityIndex => Object.keys(RARITIES)[rarityIndex])
     .map(draw)
-    .map(id => getResolvedCardData({ id, level: 1 }))
+    .map(id => getResolvedCardData(cardsIndex, { id, level: 1 }))
 
   const withFusionStones = Math.random() <= 0.1
 
@@ -76,10 +83,10 @@ const openBook = book => {
   if (withFusionStones) {
     const slotIndex = random(0, sequence.length - 1)
     const rarity = sequence[slotIndex]
-    cards[slotIndex] = FUSION_STONES[rarity]
+    bookCards[slotIndex] = FUSION_STONES[rarity]
   }
 
-  return cards
+  return bookCards
 }
 
 export default openBook

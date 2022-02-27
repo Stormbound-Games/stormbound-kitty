@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CTA from '~/components/CTA'
 import Dialog from '~/components/Dialog'
 import Icon from '~/components/Icon'
@@ -8,6 +9,7 @@ import { convertToSkId } from '~/helpers/convertDeckId'
 import serialization from '~/helpers/serialization'
 
 export default React.memo(function RandomDeckButton(props) {
+  const { cardsIndexBySid } = React.useContext(CardsContext)
   const dialog = React.useRef(null)
   const { defineDeck } = props
   const [deckId, setDeckId] = React.useState('')
@@ -15,15 +17,15 @@ export default React.memo(function RandomDeckButton(props) {
 
   const loadDeck = React.useCallback(() => {
     try {
-      const skId = convertToSkId(deckId)
-      const deck = serialization.deck.deserialize(skId)
+      const skId = convertToSkId(cardsIndexBySid, deckId)
+      const deck = serialization.deck.deserialize(cardsIndexBySid, skId)
 
       defineDeck(deck)
     } catch (error) {
       console.error(error)
       setHasFailed(true)
     }
-  }, [defineDeck, deckId])
+  }, [cardsIndexBySid, defineDeck, deckId])
 
   return (
     <>

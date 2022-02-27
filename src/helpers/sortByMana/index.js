@@ -1,15 +1,15 @@
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 
-const sortByMana = (a, b) => {
+const sortByMana = cardsIndex => (a, b) => {
   if (!a) return +1
   if (!b) return -1
 
-  const cardA = getResolvedCardData({
+  const cardA = getResolvedCardData(cardsIndex, {
     token: a.token,
     id: a.id,
     level: a.level,
   })
-  const cardB = getResolvedCardData({
+  const cardB = getResolvedCardData(cardsIndex, {
     token: b.token,
     id: b.id,
     level: b.level,

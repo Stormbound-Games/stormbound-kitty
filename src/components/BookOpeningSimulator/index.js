@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
+import { CardsContext } from '~/components/CardsProvider'
 import Page from '~/components/Page'
 import Card from '~/components/Card'
 import CTA from '~/components/CTA'
-import Icon from '~/components/Icon'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Notice from '~/components/Notice'
@@ -17,7 +17,6 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import openBook from '~/helpers/openBook'
 import getBookName from '~/helpers/getBookName'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import useViewportSize from '~/hooks/useViewportSize'
 import useNavigator from '~/hooks/useNavigator'
@@ -143,15 +142,16 @@ const CustomBookFields = ({
 }
 
 export default React.memo(function BookOpeningSimulator(props) {
+  const { cards } = React.useContext(CardsContext)
   const { css } = useFela()
   const navigator = useNavigator()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')
-  const [cards, setCards] = React.useState(props.cards || [])
+  const [deck, setDeck] = React.useState(props.deck || [])
   const [amount, setAmount] = React.useState(1)
   const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
-  const id = serialization.cards.serialize(cards)
+  const id = serialization.cards.serialize(deck)
 
   const isFormValid = React.useMemo(
     () =>
@@ -163,7 +163,7 @@ export default React.memo(function BookOpeningSimulator(props) {
 
   const reset = React.useCallback(() => {
     setBookType('')
-    setCards([])
+    setDeck([])
     setAmount(1)
     setExpectations([25, 25, 25, 25])
   }, [])
@@ -180,9 +180,9 @@ export default React.memo(function BookOpeningSimulator(props) {
               percentiles: expectations.map(expectation => expectation / 100),
             }
 
-      setCards(openBook(book))
+      setDeck(openBook(cards, book))
     },
-    [bookType, expectations, amount]
+    [cards, bookType, expectations, amount]
   )
 
   React.useEffect(() => {
@@ -256,11 +256,11 @@ export default React.memo(function BookOpeningSimulator(props) {
                   label='Reset'
                   confirm='Are you sure you want to reset the book?'
                   reset={reset}
-                  disabled={cards.length === 0}
+                  disabled={deck.length === 0}
                 />
               </Row.Column>
               <Row.Column>
-                <ShareButton disabled={cards.length === 0} />
+                <ShareButton disabled={deck.length === 0} />
               </Row.Column>
             </Row>
           </form>
@@ -276,7 +276,7 @@ export default React.memo(function BookOpeningSimulator(props) {
         <Row.Column width='2/3'>
           <Title>Your book contains…</Title>
 
-          {cards.length ? (
+          {deck.length ? (
             <div
               ref={container}
               style={{
@@ -284,7 +284,7 @@ export default React.memo(function BookOpeningSimulator(props) {
               }}
             >
               <motion.ul className={css(styles.list)}>
-                {cards.map((card, index) => (
+                {deck.map((card, index) => (
                   <motion.li
                     className={css(styles.item)}
                     id={'card-' + card.id}

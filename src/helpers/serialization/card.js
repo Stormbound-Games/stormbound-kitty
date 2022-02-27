@@ -1,4 +1,3 @@
-import getRawCardData from '~/helpers/getRawCardData'
 import resolveAbility from '~/helpers/resolveAbility'
 import {
   getLongFaction,
@@ -45,7 +44,7 @@ const resolveStrength = (value, cardType) => {
   return { values: chunks, display: value }
 }
 
-export const deserializeCard = string => {
+export const deserializeCard = (cardsIndex, string) => {
   const chunks = string.split(';')
   const card = {}
 
@@ -66,7 +65,7 @@ export const deserializeCard = string => {
   // If the serialized image data is the ID of an existing card, set the ID in
   // `imageCardId` key; otherwise set it in `imageURL` key; then and delete
   // image.
-  if (getRawCardData(chunks[8]).image) {
+  if (cardsIndex[chunks[8]]?.image) {
     card.imageCardId = chunks[8]
   } else {
     card.imageURL = decodeURIComponent(chunks[8])
@@ -115,7 +114,8 @@ const serializeCard = formState =>
 
 const card = {
   serialize: card => base64Encode(serializeCard(card)),
-  deserialize: hash => deserializeCard(base64Decode(hash)),
+  deserialize: (cardsIndex, hash) =>
+    deserializeCard(cardsIndex, base64Decode(hash)),
 }
 
 export default card

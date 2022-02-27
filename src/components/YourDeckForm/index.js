@@ -1,16 +1,15 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CTA from '~/components/CTA'
 import Input from '~/components/Input'
 import Link from '~/components/Link'
 import Row from '~/components/Row'
 import TagsSelect from '~/components/TagsSelect'
 import serialization from '~/helpers/serialization'
-import getRawCardData from '~/helpers/getRawCardData'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 import { convertToSkId } from '~/helpers/convertDeckId'
 
-const isValidCard = card => Boolean(getRawCardData(card.id).id)
-const validateDeckId = id => {
+const validateDeckId = (cardsIndex, cardsIndexBySid, id) => {
   if (!id) return false
 
   // In case the given string is a URL, trim everything but the ID.
@@ -23,15 +22,18 @@ const validateDeckId = id => {
   // is Good Enough™. Anyway, if it’s a SBID, convert it to a SKID and call the
   // function again to check if it’s valid.
   if (/[=+]/.test(id) || /[A-Z]/.test(id)) {
-    return validateDeckId(convertToSkId(id))
+    return validateDeckId(convertToSkId(cardsIndexBySid, id))
   }
 
-  return serialization.deck.deserialize(id).every(isValidCard)
+  return serialization.deck
+    .deserialize(cardsIndexBySid, id)
+    .every(card => card.id in cardsIndex)
 }
 
 export default React.memo(function YourDeckForm(props) {
+  const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const [deckID, setDeckID] = React.useState(props.id)
-  const isIdValid = validateDeckId(deckID)
+  const isIdValid = validateDeckId(cardsIndex, cardsIndexBySid, deckID)
   const [tags, updateTags] = React.useState(props.tags || [])
 
   return (

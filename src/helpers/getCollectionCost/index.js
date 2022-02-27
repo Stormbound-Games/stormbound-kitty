@@ -3,10 +3,10 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 const sum = (a, b) => a + b
 
-export const getCardCost = card => {
+export const getCardCost = (cardsIndex, card) => {
   // If the card is missing, it has no value.
   if (card.missing) return 0
-  const { rarity } = getResolvedCardData(card)
+  const { rarity } = getResolvedCardData(cardsIndex, card)
   const {
     copies: levelCopies,
     stonesForMissing: craftingCost,

@@ -1,5 +1,6 @@
 import getChannelId from '~/helpers/getChannelId'
 import getEmbed from '~/helpers/getEmbed'
+import getCards from '~/api/cards/getCards'
 import Trivia from './Trivia'
 
 const cache = new Map()
@@ -29,14 +30,15 @@ const trivia = {
         { name: 'Display your score', value: '`!trivia score`', inline: true }
       )
   },
-  handler: function (message, client, messageObject) {
+  handler: async function (message, client, messageObject) {
+    const cards = await getCards()
     const channelId = getChannelId(messageObject, this)
     const guildId = messageObject.channel.guild.id
 
     if (!channelId) return
 
     if (!cache.has(guildId)) {
-      cache.set(guildId, new Trivia({ guildId }))
+      cache.set(guildId, new Trivia({ cards, guildId }))
     }
 
     const trivia = cache.get(guildId)

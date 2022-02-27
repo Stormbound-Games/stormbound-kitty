@@ -1,10 +1,9 @@
 import toSentence from '~/helpers/toSentence'
-import getRawCardData from '~/helpers/getRawCardData'
 
 const getDragons = cards => cards.filter(card => card.race === 'dragon')
 export const DRAGON_CONSUMERS = ['N6', 'N43', 'N51', 'F9', 'F19', 'S4']
 
-export default cards => {
+const advice = (cards, modifier, cardsIndex) => {
   const hasCard = id => cards.map(card => card.id).includes(id)
   const hasAny = ids => ids.some(hasCard)
   const dragons = getDragons(cards)
@@ -16,7 +15,7 @@ export default cards => {
 
   const consumerNames = toSentence(
     DRAGON_CONSUMERS.filter(hasCard)
-      .map(getRawCardData)
+      .map(id => cardsIndex[id])
       .map(card => card.name),
     'and'
   )
@@ -27,3 +26,5 @@ export default cards => {
     highlight: dragons,
   }
 }
+
+export default advice

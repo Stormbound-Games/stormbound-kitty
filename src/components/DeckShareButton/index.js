@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import copy from 'copy-to-clipboard'
+import { CardsContext } from '~/components/CardsProvider'
 import CTA from '~/components/CTA'
 import DiamondButton from '~/components/DiamondButton'
-import Icon from '~/components/Icon'
 import Input from '~/components/Input'
 import ShareDialog from '~/components/ShareDialog'
 import Spacing from '~/components/Spacing'
@@ -36,7 +36,8 @@ const exportAsImage = () => {
 
 export default React.memo(function DeckShareButton(props) {
   const { css } = useFela()
-  const sbId = convertToSbId(props.deck)
+  const { cardsIndex } = React.useContext(CardsContext)
+  const sbId = convertToSbId(cardsIndex, props.deck)
   const [hasCopied, setHasCopied] = React.useState(false)
   const copyToClipboard = React.useCallback(() => {
     if (copy(sbId)) {

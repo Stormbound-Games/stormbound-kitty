@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CardSelect from '~/components/CardSelect'
 import FanKitDownloadDialog from '~/components/FanKitDownloadDialog'
 import FanKitItem from '~/components/FanKitItem'
@@ -7,17 +8,17 @@ import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
 import sortCards from '~/helpers/sortCards'
-import getRawCardData from '~/helpers/getRawCardData'
 import useLazyLoad from '~/hooks/useLazyLoad'
 
 export default React.memo(function FanKitCards(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const [search, setSearch] = React.useState(null)
   const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const activeCard = getRawCardData(active)
+  const activeCard = cardsIndex[active] || {}
   const assets = search
-    ? [getRawCardData(search)]
+    ? [cardsIndex[search]].filter(Boolean)
     : props.cards.slice(0).sort(sortCards())
   const {
     loading,

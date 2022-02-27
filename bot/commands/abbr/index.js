@@ -1,8 +1,7 @@
 import getAbbreviations from '~/helpers/getAbbreviations'
 import toSentence from '~/helpers/toSentence'
 import getEmbed from '~/helpers/getEmbed'
-
-const ABBREVIATIONS = getAbbreviations('LOWERCASE')
+import getCards from '~/api/cards/getCards'
 
 const quotify = value => `“${value}”`
 
@@ -17,8 +16,10 @@ const abbr = {
         `Get the meaning of a card or popular abbreviation (regardless of casing). For instance, \`!${this.command} rof\` or \`!${this.command} AoE\`.`
       )
   },
-  handler: function (message) {
-    const matches = ABBREVIATIONS[message.toLowerCase()]
+  handler: async function (message) {
+    const cards = await getCards()
+    const abbreviations = getAbbreviations(cards, 'LOWERCASE')
+    const matches = abbreviations[message.toLowerCase()]
 
     if (!matches) return
 

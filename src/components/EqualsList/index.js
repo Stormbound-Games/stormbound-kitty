@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
@@ -7,19 +8,19 @@ import ListBuilderTierList from '~/components/ListBuilderTierList'
 import ListBuilderToc from '~/components/ListBuilderToc'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
-import getRawCardData from '~/helpers/getRawCardData'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function ListBuilderDisplayView(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const isMounted = useIsMounted()
   const [faction, setFaction] = React.useState('*')
   const tiers = props.list
     .map(tier => ({
       name: tier.name,
       cards: tier.cards.filter(id => {
-        const card = getRawCardData(id)
+        const card = cardsIndex[id]
         if (faction === 'NOT_NEUTRAL' && card.faction === 'neutral')
           return false
         if (faction === 'NEUTRAL' && card.faction !== 'neutral') return false

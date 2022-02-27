@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
+import CardsProvider from '~/components/CardsProvider'
 import CollectionProvider from '~/components/CollectionProvider'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import NotificationProvider from '~/components/NotificationProvider'
@@ -40,11 +41,13 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <ErrorBoundary>
           <ImageSupportProvider>
             <NotificationProvider>
-              <CollectionProvider>
-                <PersonalDecksProvider>
-                  <Component {...pageProps} />
-                </PersonalDecksProvider>
-              </CollectionProvider>
+              <CardsProvider cards={pageProps.cards}>
+                <CollectionProvider>
+                  <PersonalDecksProvider>
+                    <Component {...pageProps} />
+                  </PersonalDecksProvider>
+                </CollectionProvider>
+              </CardsProvider>
             </NotificationProvider>
           </ImageSupportProvider>
         </ErrorBoundary>

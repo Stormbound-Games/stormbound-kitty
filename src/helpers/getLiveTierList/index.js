@@ -1,10 +1,11 @@
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import { getLongFaction } from '~/helpers/encoding'
 import getDecks from '~/api/decks/getDecks'
 
 const getLiveTierList = async ({ isPreview } = {}) => {
+  const cards = await getCards({ isPreview })
   const decks = await getDecks({ isPreview })
   // Amount of decks of each type (computed in a single loop for performance)
   const COUNTS = {
@@ -65,7 +66,7 @@ const getLiveTierList = async ({ isPreview } = {}) => {
   tiers = tiers.filter(({ cards }) => cards.length > 0)
 
   // Add an extra tier at the end with all cards that have not been found in any deck
-  const unusedCards = CARDS.filter(card => !found[card.id]).map(card => card.id)
+  const unusedCards = cards.filter(card => !found[card.id]).map(card => card.id)
 
   if (unusedCards.length > 0) {
     tiers.push({ name: 'Unused', cards: unusedCards })

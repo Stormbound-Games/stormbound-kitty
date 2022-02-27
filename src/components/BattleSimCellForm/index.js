@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { DEFAULT_CELL } from '~/constants/battle'
+import { CardsContext } from '~/components/CardsProvider'
 import CardSelect from '~/components/CardSelect'
 import Checkbox from '~/components/Checkbox'
 import CTA from '~/components/CTA'
@@ -10,7 +11,6 @@ import Radio from '~/components/Radio'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
-import getRawCardData from '~/helpers/getRawCardData'
 import unfoldValue from '~/helpers/unfoldValue'
 import styles from './styles'
 
@@ -19,6 +19,7 @@ const getActiveCellCard = ({ board, activeCell }) =>
 
 export default React.memo(function BattleSimCellForm(props) {
   const { css } = useFela()
+  const { cardsIndex } = React.useContext(CardsContext)
   const activeCellCard = getActiveCellCard(props)
   const { setCardSelectValue } = props
   const [strength, setStrength] = React.useState(activeCellCard.strength || 1)
@@ -62,17 +63,17 @@ export default React.memo(function BattleSimCellForm(props) {
   React.useEffect(() => {
     // When changing the value of the card select, unset poisoned and frozen
     // checkboxes if the selected card is a structure
-    if (getRawCardData(card).type === 'structure') {
+    if (cardsIndex[card].type === 'structure') {
       setPoisoned(false)
       setVitalized(false)
       setFrozen(false)
       setConfused(false)
       setDisabled(false)
     }
-  }, [card])
+  }, [cardsIndex, card])
 
   const updateStrengthField = (card, level) => {
-    const resolvedCard = getRawCardData(card)
+    const resolvedCard = cardsIndex[card]
     const strength = unfoldValue(resolvedCard.strength)[+level - 1]
     if (resolvedCard.id) setStrength(strength)
     else setStrength(1)
@@ -185,7 +186,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='poisoned'
-              disabled={getRawCardData(card).type === 'structure'}
+              disabled={cardsIndex[card].type === 'structure'}
               checked={poisoned}
               onChange={event => {
                 setPoisoned(event.target.checked)
@@ -198,7 +199,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='vitalized'
-              disabled={getRawCardData(card).type === 'structure'}
+              disabled={cardsIndex[card].type === 'structure'}
               checked={vitalized}
               onChange={event => {
                 setVitalized(event.target.checked)
@@ -211,7 +212,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='frozen'
-              disabled={getRawCardData(card).type === 'structure'}
+              disabled={cardsIndex[card].type === 'structure'}
               checked={frozen}
               onChange={event => setFrozen(event.target.checked)}
               data-testid='cell-frozen-checkbox'
@@ -221,7 +222,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='confused'
-              disabled={getRawCardData(card).type === 'structure'}
+              disabled={cardsIndex[card].type === 'structure'}
               checked={confused}
               onChange={event => setConfused(event.target.checked)}
               data-testid='cell-confused-checkbox'
@@ -231,7 +232,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='disabled'
-              disabled={getRawCardData(card).type === 'structure'}
+              disabled={cardsIndex[card].type === 'structure'}
               checked={disabled}
               onChange={event => setDisabled(event.target.checked)}
               data-testid='cell-disabled-checkbox'
@@ -256,7 +257,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <CTA type='submit' disabled={!card} data-testid='cell-form-btn'>
               {activeCellCard.card.id
                 ? 'Update ' + activeCellCard.card.type
-                : 'Add ' + (getRawCardData(card).type || '')}
+                : 'Add ' + (cardsIndex[card].type || '')}
             </CTA>
           ) : null}
         </Row.Column>

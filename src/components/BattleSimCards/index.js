@@ -5,6 +5,7 @@ import CTA from '~/components/CTA'
 import BlankButton from '~/components/BlankButton'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import indexArray from '~/helpers/indexArray'
+
 import styles from './styles'
 
 export default React.memo(function BattleSimCards(props) {
@@ -28,7 +29,7 @@ export default React.memo(function BattleSimCards(props) {
 
         {[0, 1, 2, 3].map(index => {
           const cardId = props.hand[index]
-          const card = getResolvedCardData(cardsIndex[cardId])
+          const card = getResolvedCardData(cardsIndex, cardsIndex[cardId])
           const buttonLabel =
             !card && props.canDrawCard
               ? 'Draw card'

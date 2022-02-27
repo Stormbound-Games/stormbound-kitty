@@ -1,8 +1,7 @@
 import sortCards from '~/helpers/sortCards'
-import CARDS from '~/data/cards'
 
-const getCardsByFaction = () =>
-  CARDS.reduce((acc, card) => {
+const getCardsByFaction = cards =>
+  cards.reduce((acc, card) => {
     const group = card.token ? 'tokens' : card.faction
 
     if (typeof acc[group] === 'undefined') {

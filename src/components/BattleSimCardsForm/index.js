@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { DEFAULT_CARD } from '~/constants/deck'
+import { CardsContext } from '~/components/CardsProvider'
 import DiamondButton from '~/components/DiamondButton'
 import CardSelect from '~/components/CardSelect'
 import DeckImport from '~/components/BattleSimDeckImport'
@@ -9,10 +10,10 @@ import Link from '~/components/Link'
 import NumberInput from '~/components/NumberInput'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
-import getRawCardData from '~/helpers/getRawCardData'
 import styles from './styles'
 
 const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
 
   return (
@@ -45,7 +46,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
         <Row.Column width='1/3'>
           <Row withNarrowGutter>
             <Row.Column>
-              {getRawCardData(props.cards[index].id).token ? (
+              {cardsIndex[props.cards[index].id].token ? (
                 <NumberInput
                   hideLabel
                   label={`Slot #${index + 1}’s level`}
@@ -61,7 +62,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
                 <Select
                   hideLabel
                   label={`Slot #${index + 1}’s level`}
-                  disabled={getRawCardData(props.cards[index].id).token}
+                  disabled={cardsIndex[props.cards[index].id].token}
                   id={`card-${index}-level`}
                   value={Math.min(props.cards[index].level, 5) || 1}
                   onChange={event =>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import Deck from '~/components/Deck'
 import DiamondButton from '~/components/DiamondButton'
@@ -11,7 +12,6 @@ import Tags from '~/components/Tags'
 import TooltipedIcon from '~/components/TooltipedIcon'
 import serialization from '~/helpers/serialization'
 import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
-import getRawCardData from '~/helpers/getRawCardData'
 import resolveCollection from '~/helpers/resolveCollection'
 import modifyDeck from '~/helpers/modifyDeck'
 import parseDate from '~/helpers/parseDate'
@@ -20,11 +20,12 @@ import useSpacing from '~/hooks/useSpacing'
 import styles from './styles'
 
 const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
+  const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const { hasDefaultCollection, collection } =
     React.useContext(CollectionContext)
-  const deserializedDeck = serialization.deck.deserialize(id)
+  const deserializedDeck = serialization.deck.deserialize(cardsIndexBySid, id)
   const modifiedDeck = brawl
-    ? modifyDeck(deserializedDeck, brawl)
+    ? modifyDeck(cardsIndex, deserializedDeck, brawl)
     : deserializedDeck
 
   if (hasDefaultCollection || tags.includes('EQUALS') || staticLevels) {
@@ -34,7 +35,7 @@ const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
     return { deck: modifiedDeck, id, distance: null }
   }
 
-  const resolvedCollection = resolveCollection(collection)
+  const resolvedCollection = resolveCollection(collection, cardsIndex)
   const deck = modifiedDeck.map(card => {
     // It is technically possible for the card not to be found in the collection
     // at all if it was added as a new card in a separate branch, stored in
@@ -69,6 +70,7 @@ const Author = React.memo(function Author(props) {
 })
 
 export default React.memo(function FeaturedDeck(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
   const { id, deck, distance } = useAdjustedDeck(props)
   const actions = props.actions || []
@@ -85,7 +87,7 @@ export default React.memo(function FeaturedDeck(props) {
       />
 
       <div className={css(styles.rarityBar)}>
-        <RarityBar deck={deck.map(card => getRawCardData(card.id))} />
+        <RarityBar deck={deck.map(card => cardsIndex[card.id])} />
       </div>
 
       <div className={css(styles.info)}>

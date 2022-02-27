@@ -3,10 +3,10 @@ import CardBuilderContest from '~/components/CardBuilderContest'
 import Layout from '~/components/Layout'
 import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getNavigation from '~/helpers/getNavigation'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const seasons = await getSWCCSeasons({ isPreview })
 
@@ -20,7 +20,6 @@ const CardContestPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['COMMUNITY', 'CONTESTS', 'CARD_CONTEST']}
     navigation={navigation}
-    cards={cards}
   >
     <CardBuilderContest {...props} />
   </Layout>

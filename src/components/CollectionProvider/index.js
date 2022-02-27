@@ -1,10 +1,9 @@
 import React from 'react'
 import { NotificationContext } from '~/components/NotificationProvider'
-import CARDS from '~/data/cards'
+import { CardsContext } from '~/components/CardsProvider'
 import indexArray from '~/helpers/indexArray'
 
 export const CollectionContext = React.createContext([])
-const cardsWithoutTokens = CARDS.filter(card => !card.token)
 
 // Note that it is important not to check the status (whether missing or not) in
 // that condition because due to a bug introduced when Rogue Sheep was added to
@@ -13,7 +12,7 @@ const cardsWithoutTokens = CARDS.filter(card => !card.token)
 const isDefaultCollection = collection =>
   collection.every(card => card.level === 1 && card.copies === 0)
 
-const normaliseCard = card => ({
+const normalizeCard = card => ({
   id: card.id,
   level: +card.level || 1,
   missing: !!card.missing,
@@ -21,12 +20,11 @@ const normaliseCard = card => ({
 })
 
 const normaliseCollection = collection =>
-  collection.filter(card => !card.token).map(normaliseCard)
+  collection.filter(card => !card.token).map(normalizeCard)
 
-const DEFAULT_COLLECTION = normaliseCollection(CARDS)
 const STORAGE_KEY = 'sk.collection'
 
-const getInitialCollectionData = () => {
+const getInitialCollectionData = cardsWithoutTokens => {
   try {
     const MISSING_CARD_PROPS = { level: 1, missing: true, copies: 0 }
     const collection = JSON.parse(localStorage.getItem(STORAGE_KEY))
@@ -45,16 +43,21 @@ const getInitialCollectionData = () => {
       card => index[card.id] || { ...MISSING_CARD_PROPS, id: card.id }
     )
   } catch {
-    return DEFAULT_COLLECTION
+    return cardsWithoutTokens.map(normalizeCard)
   }
 }
 
 export default React.memo(function CollectionProvider(props) {
-  // Since there is no server-side rendering, we can read from local storage
-  // to populate the state with the correct value right away. This saves from
-  // having to wait for the mount to update the data, leading to a flash of
-  // unknown data before mounting.
-  const [collection, setCollection] = React.useState(DEFAULT_COLLECTION)
+  const { cards } = React.useContext(CardsContext)
+  const cardsWithoutTokens = React.useMemo(
+    () => cards.filter(card => !card.token),
+    [cards]
+  )
+  const defaultCollection = React.useMemo(
+    () => cardsWithoutTokens.map(normalizeCard),
+    [cardsWithoutTokens]
+  )
+  const [collection, setCollection] = React.useState(defaultCollection)
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
     message => sendNotification({ icon: 'books', children: message }),
@@ -62,14 +65,14 @@ export default React.memo(function CollectionProvider(props) {
   )
 
   React.useEffect(() => {
-    const collection = getInitialCollectionData()
+    const collection = getInitialCollectionData(cardsWithoutTokens)
 
     setCollection(collection)
 
     if (!isDefaultCollection(collection)) {
       notify('Locally saved collection found and loaded.')
     }
-  }, [notify])
+  }, [notify, cardsWithoutTokens])
 
   React.useEffect(() => {
     // If the collection is the default one, remove it from the local storage as
@@ -90,7 +93,7 @@ export default React.memo(function CollectionProvider(props) {
       )
     ) {
       notify('Local collection cleared and reseted to the default one.')
-      setCollection(DEFAULT_COLLECTION)
+      setCollection(defaultCollection)
     }
   }
 

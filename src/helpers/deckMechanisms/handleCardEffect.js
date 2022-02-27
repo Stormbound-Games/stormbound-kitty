@@ -216,7 +216,9 @@ const handleCardEffect = (state, card, mode, HoS) => {
 
     // Collector Mirz
     case 'N8': {
-      state.deck.push(getCollectorMirzToken(state.deck, card.level))
+      state.deck.push(
+        getCollectorMirzToken(state.cardsIndex, state.deck, card.level)
+      )
       break
     }
 

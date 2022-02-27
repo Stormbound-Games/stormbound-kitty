@@ -3,7 +3,7 @@ import FeaturedDecks from '~/components/FeaturedDecks'
 import Layout from '~/components/Layout'
 import getDecks from '~/api/decks/getDecks'
 import getNavigation from '~/helpers/getNavigation'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 // This page uses server-side rendering instead of static rendering because it
 // receives query parameters (for filtering) that need to be handled on the
@@ -11,7 +11,7 @@ import CARDS from '~/data/cards'
 // also because the meta tags are based on the query parameters so the Discord
 // embeds look alright.
 export async function getServerSideProps({ preview: isPreview = false }) {
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const decks = await getDecks({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
@@ -22,7 +22,6 @@ const FeaturedDecksPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['COMMUNITY', 'META', 'FEATURED_DECKS']}
     navigation={navigation}
-    cards={cards}
   >
     <FeaturedDecks {...props} />
   </Layout>

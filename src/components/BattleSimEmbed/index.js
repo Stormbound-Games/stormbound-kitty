@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import BattleSimApp from '~/components/BattleSimApp'
 import BattleSimState from '~/components/BattleSimState'
 import PageEmbed from '~/components/PageEmbed'
@@ -9,6 +10,7 @@ import styles from './styles'
 
 const BattleSimEmbed = props => {
   const { css } = useFela()
+  const { cardsIndex } = React.useContext(CardsContext)
 
   return (
     <PageEmbed>
@@ -16,7 +18,8 @@ const BattleSimEmbed = props => {
         environment={props.environment}
         simId={props.id}
         mode='DISPLAY'
-        sim={getInitialBattleData(props.id)}
+        sim={getInitialBattleData(cardsIndex, props.id)}
+        cardsIndex={cardsIndex}
       >
         {state => <BattleSimApp withoutGestures {...state} />}
       </BattleSimState>

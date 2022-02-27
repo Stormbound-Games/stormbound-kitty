@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import CardChangeFeed from '~/components/CardChangeFeed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
@@ -11,18 +12,18 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
-import isCardOfficial from '~/helpers/isCardOfficial'
 import usePageProps from './usePageProps'
 import useVersionedCardData from './useVersionedCardData'
 
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
+  const { cardsIndex } = React.useContext(CardsContext)
   const { cardId } = props
   const versionId = Number(props.versionId)
-  const isOfficial = isCardOfficial(cardId)
+  const isOfficial = cardId in cardsIndex
   const cardData = useVersionedCardData(props, versionId)
   const pageProps = usePageProps(props, versionId)
-  const metaTags = getCardBuilderMetaTags(cardData, versionId)
+  const metaTags = getCardBuilderMetaTags(cardsIndex, cardData, versionId)
 
   return (
     <Page {...pageProps} {...metaTags}>

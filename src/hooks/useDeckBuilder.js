@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import sortByMana from '~/helpers/sortByMana'
@@ -21,6 +22,7 @@ const useDeckBuilderPath = (deck, view) => {
 }
 
 const useDeckBuilder = props => {
+  const { cardsIndex } = React.useContext(CardsContext)
   const navigator = useNavigator()
   const [highlightedCards, setHighlightedCards] = React.useState([])
   const [deck, setDeck] = React.useState(props.deck || [])
@@ -37,10 +39,10 @@ const useDeckBuilder = props => {
           setDeck(deck.map(card => (card.id === id ? { id, level } : card)))
         }
       } else if (deck.length < 12) {
-        setDeck([...deck, { id, level }].sort(sortByMana))
+        setDeck([...deck, { id, level }].sort(sortByMana(cardsIndex)))
       }
     },
-    [deck]
+    [cardsIndex, deck]
   )
 
   const removeCardFromDeck = React.useCallback(

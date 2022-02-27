@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
@@ -9,29 +10,30 @@ import { Coins, Stones } from '~/components/Resource'
 import getDrawingProbability from '~/helpers/getDrawingProbability'
 import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '~/helpers/getExpectedCoinsPerBook'
-import getRawCardData from '~/helpers/getRawCardData'
 import getBookName from '~/helpers/getBookName'
 
 const useExpectedCoins = book => {
+  const { cards, cardsIndex } = React.useContext(CardsContext)
   const { hasDefaultCollection, collection } =
     React.useContext(CollectionContext)
   const collectionWithRarity = React.useMemo(
     () =>
       collection.map(card => {
-        card.rarity = getRawCardData(card.id).rarity
+        card.rarity = cardsIndex[card.id].rarity
         return card
       }),
-    [collection]
+    [collection, cardsIndex]
   )
 
   const expectedCoins = hasDefaultCollection
     ? 0
-    : getExpectedCoinsPerBook(collectionWithRarity, book)
+    : getExpectedCoinsPerBook(cards, collectionWithRarity, book)
 
   return expectedCoins
 }
 
 export default React.memo(function BookOutcome(props) {
+  const { cards } = React.useContext(CardsContext)
   const { css } = useFela()
   const bookName = getBookName(props.book)
   const expectedCoins = useExpectedCoins(props.book)
@@ -40,6 +42,7 @@ export default React.memo(function BookOutcome(props) {
     : EXPECTATIONS[props.target].label.toLowerCase()
   const expectations = props.expectations.map(a => a || 0)
   const bookExpectations = EXPECTATIONS[props.target].getExpectations(
+    cards,
     BOOKS[props.book].only
   )
   const chances =
@@ -49,6 +52,7 @@ export default React.memo(function BookOutcome(props) {
     props.target === 'FUSION_STONES'
       ? 0.1
       : getDrawingProbability(
+          cards,
           props.book,
           props.isAdvancedMode ? expectations : bookExpectations
         )

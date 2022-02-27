@@ -1,5 +1,6 @@
 import React from 'react'
 import querystring from 'querystring'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import BookmarkDeckButton from '~/components/BookmarkDeckButton'
 import Decks from '~/components/Decks'
@@ -15,7 +16,7 @@ import FeaturedDecksFilters from '~/components/FeaturedDecksFilters'
 import Title from '~/components/Title'
 import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
-import sortFeaturedDecks from '~/helpers/sortFeaturedDecks'
+import useFeaturedDecksSorting from '~/hooks/useFeaturedDecksSorting'
 import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import serialization from '~/helpers/serialization'
@@ -24,6 +25,7 @@ export default React.memo(function FeaturedDecks(props) {
   const query = useQueryParams()
   const navigator = useNavigator()
   const formRef = React.useRef(null)
+  const { cardsIndex } = React.useContext(CardsContext)
   const { collection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   const [tags, setTags] = React.useState(query.tags?.split(',') ?? [])
@@ -101,7 +103,7 @@ export default React.memo(function FeaturedDecks(props) {
     [including]
   )
 
-  const sortFn = sortFeaturedDecks({ hasDefaultCollection, collection }, order)
+  const sortFn = useFeaturedDecksSorting(order)
   const decks = React.useMemo(
     () =>
       props.decks
@@ -125,7 +127,7 @@ export default React.memo(function FeaturedDecks(props) {
   return (
     <Page
       title='Featured Decks'
-      description={getDeckSearchDescription(state)}
+      description={getDeckSearchDescription(state, cardsIndex)}
       meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
       action={{
         to: '/deck/collection',

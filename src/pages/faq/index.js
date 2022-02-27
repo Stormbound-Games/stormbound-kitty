@@ -3,10 +3,10 @@ import FAQ from '~/components/FAQ'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
 import getFAQ from '~/api/faq/getFAQ'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const data = await getFAQ({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
@@ -17,11 +17,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
 }
 
 const FAQPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['HOME', 'HOME', 'FAQ']}
-    navigation={navigation}
-    cards={cards}
-  >
+  <Layout active={['HOME', 'HOME', 'FAQ']} navigation={navigation}>
     <FAQ {...props} />
   </Layout>
 )

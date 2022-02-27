@@ -2,7 +2,7 @@ import serialization from '~/helpers/serialization'
 import { DEFAULT_PLAYER, DEFAULT_BOARD, DEFAULT_MANA } from '~/constants/battle'
 import { DEFAULT_DECK } from '~/constants/deck'
 
-const getInitialBattleData = sim => {
+const getInitialBattleData = (cardsIndex, sim) => {
   if (!sim) {
     return {
       board: DEFAULT_BOARD,
@@ -18,7 +18,7 @@ const getInitialBattleData = sim => {
 
   const decodedData = decodeURIComponent(sim)
 
-  return { ...serialization.battle.deserialize(decodedData) }
+  return { ...serialization.battle.deserialize(cardsIndex, decodedData) }
 }
 
 export default getInitialBattleData

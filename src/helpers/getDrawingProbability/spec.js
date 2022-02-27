@@ -1,6 +1,6 @@
 import getDrawingProbability from './'
 
-describe('The `getDrawingProbability` helper', () => {
+describe.skip('The `getDrawingProbability` helper', () => {
   it('should return 0 for a specific common card in a Mythic Tome', () => {
     expect(getDrawingProbability('MYTHIC', [1, 0, 0, 0])).toEqual(0)
   })

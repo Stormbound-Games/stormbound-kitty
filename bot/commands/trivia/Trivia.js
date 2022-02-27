@@ -6,18 +6,17 @@ import formatTriviaScores, {
 } from '~/helpers/formatTriviaScores'
 import getEmbed from '~/helpers/getEmbed'
 import getRandomQuestion from '~/helpers/getRandomQuestion'
-import QUESTIONS from '~/helpers/getRandomQuestion/questions'
+import getTriviaQuestions from '~/helpers/getTriviaQuestions'
 import parseCardGuess from '~/helpers/parseCardGuess'
 import parseTriviaSettings from '~/helpers/parseTriviaSettings'
 import searchCards from '~/helpers/searchCards'
 import getOrdinalSuffix from '~/helpers/getOrdinalSuffix'
-import CARDS from '~/data/cards'
 import Canvas from './Canvas'
 
 const KITTY_ID = '368097495605182483'
 
 export default class Trivia {
-  constructor({ guildId, withScores = true }) {
+  constructor({ guildId, cards = [], withScores = true }) {
     this.withScores = withScores
     this.mode =
       this.difficulty =
@@ -28,7 +27,9 @@ export default class Trivia {
       this.collector =
         null
     this.streaks = []
+    this.cards = cards
     this.guildId = guildId
+    this.questions = getTriviaQuestions(cards)
     this.canvas = new Canvas()
   }
 
@@ -99,9 +100,9 @@ export default class Trivia {
 
   defineAnswer() {
     if (this.mode === 'IMAGE' || this.mode === 'CARD') {
-      return arrayRandom(CARDS.filter(card => !card.token))
+      return arrayRandom(this.cards.filter(card => !card.token))
     } else if (this.mode === 'QUESTION') {
-      const { question, choices } = getRandomQuestion(QUESTIONS, true)
+      const { question, choices } = getRandomQuestion(this.questions, true)
       return { ...question, choices, name: String(question.answer) }
     }
   }
@@ -113,9 +114,12 @@ export default class Trivia {
       case 'QUESTION':
         return Object.keys(this.answer.choices).includes(content.toUpperCase())
       case 'IMAGE':
-        return searchCards(content).length > 0
+        return searchCards(this.cards, content).length > 0
       case 'CARD':
-        return !!parseCardGuess(content)[0] || searchCards(content).length > 0
+        return (
+          !!parseCardGuess(content)[0] ||
+          searchCards(this.cards, content).length > 0
+        )
       default:
         return false
     }
@@ -162,7 +166,7 @@ export default class Trivia {
         return embed
       }
 
-      const [card] = searchCards(content)
+      const [card] = searchCards(this.cards, content)
 
       if (card) {
         if (card.name === this.answer.name) {

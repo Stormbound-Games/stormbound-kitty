@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CTA from '~/components/CTA'
 import Input from '~/components/Input'
 import Deck from '~/components/Deck'
@@ -7,6 +8,7 @@ import serialization from '~/helpers/serialization'
 
 export default React.memo(function BattleSimDeckImport(props) {
   const dialog = React.useRef(null)
+  const { cardsIndexBySid } = React.useContext(CardsContext)
   const [deckURL, setDeckURL] = React.useState('')
   const [deck, setDeck] = React.useState([])
   const [hand, setHand] = React.useState([])
@@ -26,20 +28,23 @@ export default React.memo(function BattleSimDeckImport(props) {
     }
   }
 
-  const defineDeck = React.useCallback(event => {
-    const url = event.target.value
+  const defineDeck = React.useCallback(
+    event => {
+      const url = event.target.value
 
-    setDeckURL(url)
+      setDeckURL(url)
 
-    try {
-      const re = /\/deck\/([\w=%]+)(?:\/|$|\?)/i
-      const [, id] = decodeURIComponent(url).match(re)
-      setDeck(serialization.deck.deserialize(id))
-      setError(null)
-    } catch {
-      setError('Unfortunately this deck could not be imported.')
-    }
-  }, [])
+      try {
+        const re = /\/deck\/([\w=%]+)(?:\/|$|\?)/i
+        const [, id] = decodeURIComponent(url).match(re)
+        setDeck(serialization.deck.deserialize(cardsIndexBySid, id))
+        setError(null)
+      } catch {
+        setError('Unfortunately this deck could not be imported.')
+      }
+    },
+    [cardsIndexBySid]
+  )
 
   const importDeck = React.useCallback(() => {
     importDeckFromProps({ cards: deck, hand })

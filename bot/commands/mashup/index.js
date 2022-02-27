@@ -1,13 +1,13 @@
-import CARDS from '~/data/cards'
 import arrayRandom from '~/helpers/arrayRandom'
 import getEmbed from '~/helpers/getEmbed'
+import getCards from '~/api/cards/getCards'
 
-const [STARTS, ENDS, NAMES] = (() => {
+const getChunks = cards => {
   const starts = []
   const ends = []
   const names = []
 
-  CARDS.forEach(card => {
+  cards.forEach(card => {
     names.push(card.name)
     const [start, ...rest] = card.name.split(/\s+/g)
     if (card.token) return
@@ -20,14 +20,15 @@ const [STARTS, ENDS, NAMES] = (() => {
   })
 
   return [starts, ends, names]
-})()
+}
 
-const getRandomCardName = () => {
+const getRandomCardName = cards => {
+  const [STARTS, ENDS, NAMES] = getChunks(cards)
   const start = arrayRandom(STARTS)
   const end = arrayRandom(ENDS)
   const name = start + ' ' + end
 
-  return NAMES.includes(name) ? getRandomCardName() : name
+  return NAMES.includes(name) ? getRandomCardName(cards) : name
 }
 
 const mashup = {
@@ -42,7 +43,8 @@ const mashup = {
       )
   },
   handler: async function (message, client, messageObject) {
-    return getEmbed().setTitle(this.label + ': ' + getRandomCardName())
+    const cards = await getCards()
+    return getEmbed().setTitle(this.label + ': ' + getRandomCardName(cards))
   },
 }
 

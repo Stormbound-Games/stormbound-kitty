@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import Link from '~/components/Link'
 import Card from '~/components/Card'
 import Tooltip from '~/components/Tooltip'
@@ -7,7 +8,8 @@ import useViewportSize from '~/hooks/useViewportSize'
 
 export default React.memo(function CardLink(props) {
   const { viewportWidth } = useViewportSize()
-  const cardData = getResolvedCardData({
+  const { cardsIndex } = React.useContext(CardsContext)
+  const cardData = getResolvedCardData(cardsIndex, {
     id: props.id,
     level: props.level || 1,
   })

@@ -1,5 +1,3 @@
-import getRawCardData from '~/helpers/getRawCardData'
-
 /* Experience to reach fortress level… */
 const EXPERIENCE_TABLE = [
   /* 20 */ 8000, /* 19 */ 6000, /* 18 */ 4400, /* 17 */ 3000, /* 16 */ 1900,
@@ -14,14 +12,14 @@ const EXPERIENCE_MAP = {
   legendary: [5, 10, 25, 65, 150],
 }
 
-export const getExperience = collection =>
+export const getExperience = (collection, cardsIndex) =>
   collection.reduce((acc, card) => {
     const { level, missing, id } = card
 
     if (card.token || missing) return acc
 
     const sum = (a, b) => a + b
-    const { rarity } = getRawCardData(id)
+    const { rarity } = cardsIndex[id]
 
     return acc + EXPERIENCE_MAP[rarity].slice(0, level).reduce(sum, 0)
   }, 0)
@@ -37,9 +35,11 @@ export const computeProgress = experience => {
   return index === 0 ? 1 : (experience - level) / (nextLevel - level)
 }
 
-const getBaseHealth = collection => {
+const getBaseHealth = (collection, cardsIndex) => {
   const experience =
-    typeof collection === 'number' ? collection : getExperience(collection)
+    typeof collection === 'number'
+      ? collection
+      : getExperience(collection, cardsIndex)
 
   return {
     experience,

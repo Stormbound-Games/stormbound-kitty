@@ -3,11 +3,11 @@ import FanKitAvatars from '~/components/FanKitAvatars'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
 import getAvatars from '~/api/avatars/getAvatars'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const avatars = await getAvatars({ isPreview })
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
   return {
@@ -17,11 +17,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
 }
 
 const FanKitAvatarsPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['GAME', 'INFORMATION', 'FAN_KIT']}
-    navigation={navigation}
-    cards={cards}
-  >
+  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} navigation={navigation}>
     <FanKitAvatars {...props} />
   </Layout>
 )

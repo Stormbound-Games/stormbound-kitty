@@ -9,7 +9,6 @@ import {
   DEFAULT_BOARD,
 } from '~/constants/battle'
 import { DEFAULT_DECK } from '~/constants/deck'
-import getRawCardData from '~/helpers/getRawCardData'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import serialization from '~/helpers/serialization'
 import arrayRandom from '~/helpers/arrayRandom'
@@ -65,7 +64,7 @@ export default class BattleSimState extends React.Component {
         }
 
         return this.setState({
-          ...getInitialBattleData(last),
+          ...getInitialBattleData(this.props.cardsIndex, last),
           history,
           undo: true,
         })
@@ -297,7 +296,7 @@ export default class BattleSimState extends React.Component {
     event.preventDefault()
 
     const formData = serialize(event.target, { hash: true })
-    const card = getRawCardData(this.state.cardSelectValue)
+    const card = this.props.cardsIndex[this.state.cardSelectValue]
 
     this.updateActiveCell({
       strength: +formData.strength,

@@ -1,10 +1,15 @@
+import { CollectionContext } from '~/components/CollectionProvider'
+import { CardsContext } from '~/components/CardsProvider'
 import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import resolveCollection from '~/helpers/resolveCollection'
 
-const sortFeaturedDecks = ({ hasDefaultCollection, collection }, order) => {
+const useFeaturedDecksSorting = order => {
+  const { hasDefaultCollection, collection } =
+    React.useContext(CollectionContext)
+  const { cardsIndex } = React.useContext(CardsContext)
   const resolvedCollection = !hasDefaultCollection
-    ? resolveCollection(collection)
+    ? resolveCollection(collection, cardsIndex)
     : null
 
   switch (order) {
@@ -31,4 +36,4 @@ const sortFeaturedDecks = ({ hasDefaultCollection, collection }, order) => {
   }
 }
 
-export default sortFeaturedDecks
+export default useFeaturedDecksSorting

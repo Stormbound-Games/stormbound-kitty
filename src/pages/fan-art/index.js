@@ -4,11 +4,11 @@ import Layout from '~/components/Layout'
 import shuffle from '~/helpers/shuffle'
 import getArtworks from '~/api/artworks/getArtworks'
 import getNavigation from '~/helpers/getNavigation'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const artworks = shuffle(await getArtworks({ isPreview }))
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
   return {
@@ -18,11 +18,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
 }
 
 const FanArtPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'FAN_ART']}
-    navigation={navigation}
-    cards={cards}
-  >
+  <Layout active={['COMMUNITY', 'DISCOVER', 'FAN_ART']} navigation={navigation}>
     <FanArt {...props} />
   </Layout>
 )

@@ -3,6 +3,7 @@ import getEmbed from '~/helpers/getEmbed'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
+import getCards from '~/api/cards/getCards'
 
 const deckadvice = {
   command: 'deckadvice',
@@ -20,13 +21,18 @@ const deckadvice = {
 
     if (id.length === 0) return
 
+    const cards = await getCards()
+    const cardsIndex = indexArray(cards)
+    const cardsIndexBySid = indexArray(cards, 'sid')
     const embed = getEmbed()
       .setTitle(`${this.label}: ` + id)
       .setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
 
     try {
-      const cards = serialization.deck.deserialize(id).map(getResolvedCardData)
-      const advice = await getDeckAdvice(cards)
+      const cards = serialization.deck
+        .deserialize(cardsIndexBySid, id)
+        .map(card => getResolvedCardData(cardsIndex, card))
+      const advice = await getDeckAdvice(cardsIndex, cards)
 
       if (advice.length === 0) {
         embed.setDescription(

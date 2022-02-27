@@ -13,6 +13,7 @@ import {
   PieChart,
   Pie,
 } from 'recharts'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import Page from '~/components/Page'
 import Checkbox from '~/components/Checkbox'
@@ -21,7 +22,6 @@ import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import getRawCardData from '~/helpers/getRawCardData'
 import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
@@ -40,7 +40,8 @@ const COLORS = [
   '#7abec2',
 ]
 
-const getLevelData = collection => {
+const useLevelData = () => {
+  const { collection } = React.useContext(CollectionContext)
   const data = [1, 2, 3, 4, 5].map(level => ({
     name: 'Level ' + level,
     value: 0,
@@ -57,7 +58,9 @@ const getLevelData = collection => {
   return data.reverse()
 }
 
-const getFactionData = collection => {
+const useFactionData = ignoreNeutral => {
+  const { collection } = React.useContext(CollectionContext)
+  const { cardsIndex } = React.useContext(CardsContext)
   const data = {
     neutral: { name: 'Neutral', color: 'var(--beige)', value: 0 },
     swarm: { name: 'Swarm', color: 'var(--swarm)', value: 0 },
@@ -67,7 +70,7 @@ const getFactionData = collection => {
   }
 
   collection.forEach(card => {
-    const resolvedCard = getResolvedCardData(card)
+    const resolvedCard = getResolvedCardData(cardsIndex, card)
 
     // It is technically possible for the card not to be found in the collection
     // at all if it was added as a new card in a separate branch, stored in
@@ -75,14 +78,18 @@ const getFactionData = collection => {
     // database yet would cause the card not to be found in the collection. It
     // cannot happen in production unless cards ever get removed from the game.
     if (resolvedCard) {
-      data[resolvedCard.faction].value += getCardCost(resolvedCard)
+      data[resolvedCard.faction].value += getCardCost(cardsIndex, resolvedCard)
     }
   })
 
-  return Object.keys(data).map(faction => data[faction])
+  return Object.keys(data)
+    .map(faction => data[faction])
+    .slice(ignoreNeutral ? 1 : 0)
 }
 
-const getRarityData = collection => {
+const useRarityData = () => {
+  const { collection } = React.useContext(CollectionContext)
+  const { cardsIndex } = React.useContext(CardsContext)
   const data = {
     common: { name: 'Common', value: 0 },
     rare: { name: 'Rare', value: 0 },
@@ -91,7 +98,7 @@ const getRarityData = collection => {
   }
 
   collection.forEach(card => {
-    const resolvedCard = getResolvedCardData(card)
+    const resolvedCard = getResolvedCardData(cardsIndex, card)
 
     // It is technically possible for the card not to be found in the collection
     // at all if it was added as a new card in a separate branch, stored in
@@ -99,14 +106,16 @@ const getRarityData = collection => {
     // database yet would cause the card not to be found in the collection. It
     // cannot happen in production unless cards ever get removed from the game.
     if (resolvedCard) {
-      data[resolvedCard.rarity].value += getCardCost(resolvedCard)
+      data[resolvedCard.rarity].value += getCardCost(cardsIndex, resolvedCard)
     }
   })
 
   return Object.keys(data).map(rarity => data[rarity])
 }
 
-const getStatusData = collection => {
+const useStatusData = () => {
+  const { collection } = React.useContext(CollectionContext)
+  const { cardsIndex } = React.useContext(CardsContext)
   const data = {
     upgradable: { name: 'Upgradable', color: 'var(--upgradable)', value: 0 },
     notUpgradable: {
@@ -120,7 +129,7 @@ const getStatusData = collection => {
 
   collection.forEach(card => {
     if (card.missing) data.missing.value++
-    else if (isCardUpgradable(card)) data.upgradable.value++
+    else if (isCardUpgradable(cardsIndex, card)) data.upgradable.value++
     else if (card.level === 5) data.maxedOut.value++
     else data.notUpgradable.value++
   })
@@ -128,10 +137,9 @@ const getStatusData = collection => {
   return Object.keys(data).map(status => data[status])
 }
 
-const getTotalCopiesForCard = card => {
+const getTotalCopiesForCard = (card, rarity) => {
   if (card.missing) return 0
 
-  const { rarity } = getRawCardData(card.id)
   const maxCopies = RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
   const levelCopies = RARITY_COPIES[rarity].copies.reduce(
     (acc, copies, index) => (card.level < index + 2 ? acc : acc + copies),
@@ -141,13 +149,20 @@ const getTotalCopiesForCard = card => {
   return Math.min(maxCopies, levelCopies + card.copies)
 }
 
-const getCopiesData = collection => {
+const useCopiesData = () => {
+  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { collection } = React.useContext(CollectionContext)
+
   return Object.keys(RARITIES).map(rarity => {
     const owned = collection
-      .filter(card => getRawCardData(card.id).rarity === rarity)
-      .reduce((acc, card) => acc + getTotalCopiesForCard(card), 0)
+      .filter(card => cardsIndex[card.id].rarity === rarity)
+      .reduce(
+        (acc, card) =>
+          acc + getTotalCopiesForCard(card, cardsIndex[card.id].rarity),
+        0
+      )
     const total =
-      countCards({ rarity }, false) *
+      countCards(cards, { rarity }, false) *
       RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
 
     return {
@@ -158,11 +173,15 @@ const getCopiesData = collection => {
     }
   })
 }
-const getProgressData = collection => {
+
+const useProgressData = () => {
+  const { cardsIndex } = React.useContext(CardsContext)
+  const { collection } = React.useContext(CollectionContext)
+
   return Object.keys(RARITIES)
     .map(rarity => {
       return collection
-        .filter(card => getRawCardData(card.id).rarity === rarity)
+        .filter(card => cardsIndex[card.id].rarity === rarity)
         .reduce(
           (acc, card) => {
             acc[card.level === 5 ? 0 : 1].value++
@@ -190,30 +209,12 @@ export default React.memo(function CollectionStats(props) {
   const { css } = useFela()
   const { collection } = React.useContext(CollectionContext)
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
-  const levelData = React.useMemo(() => getLevelData(collection), [collection])
-  const rarityData = React.useMemo(
-    () => getRarityData(collection),
-    [collection]
-  )
-  const statusData = React.useMemo(
-    () => getStatusData(collection),
-    [collection]
-  )
-  const copiesData = React.useMemo(
-    () => getCopiesData(collection),
-    [collection]
-  )
-  const progressData = React.useMemo(
-    () => getProgressData(collection),
-    [collection]
-  )
-  const factionData = React.useMemo(
-    () =>
-      ignoreNeutral
-        ? getFactionData(collection).slice(1)
-        : getFactionData(collection),
-    [collection, ignoreNeutral]
-  )
+  const levelData = useLevelData()
+  const rarityData = useRarityData()
+  const statusData = useStatusData()
+  const copiesData = useCopiesData()
+  const progressData = useProgressData()
+  const factionData = useFactionData(ignoreNeutral)
 
   return (
     <Page

@@ -1,5 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
+import { CollectionContext } from '~/components/CollectionProvider'
 import Link from '~/components/Link'
 import Info from '~/components/Info'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
@@ -8,7 +10,6 @@ import { Coins, Stones } from '~/components/Resource'
 import countCards from '~/helpers/countCards'
 import getCollectionCost from '~/helpers/getCollectionCost'
 import getExtraAfterMax from '~/helpers/getExtraAfterMax'
-import getRawCardData from '~/helpers/getRawCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getBaseHealth from '~/helpers/getBaseHealth'
@@ -40,30 +41,42 @@ const getLevelStats = (cards, totalKnownCards) =>
       ''
     )
 
-const getAvailableCoins = collection =>
-  collection
-    // It is technically possible for the card not to be found in the collection
-    // at all if it was added as a new card in a separate branch, stored in
-    // local storage. Then, checking out a branch without this card in the
-    // database yet would cause the card not to be found in the collection. It
-    // cannot happen in production unless cards ever get removed from the game.
-    .filter(card => getRawCardData(card.id).id)
-    .map(card => getExtraAfterMax(getResolvedCardData(card)).coins)
-    .reduce(sum, 0)
+const useAvailableCoins = () => {
+  const { cardsIndex } = React.useContext(CardsContext)
+  const { collection } = React.useContext(CollectionContext)
 
-const getCopiesData = (collection, expectedCardLevel) => {
+  return (
+    collection
+      // It is technically possible for the card not to be found in the
+      // collection at all if it was added as a new card in a separate branch,
+      // stored in local storage. Then, checking out a branch without this card
+      // in the database yet would cause the card not to be found in the
+      // collection. It cannot happen in production unless cards ever get
+      // removed from the game.
+      .filter(card => cardsIndex[card.id].id)
+      .map(
+        card => getExtraAfterMax(getResolvedCardData(cardsIndex, card)).coins
+      )
+      .reduce(sum, 0)
+  )
+}
+
+const useCopiesData = expectedCardLevel => {
+  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { collection } = React.useContext(CollectionContext)
+
   return Object.keys(RARITY_COPIES).map(rarity => {
     const copiesForCardLevel = RARITY_COPIES[rarity].copies
       .slice(0, expectedCardLevel - 1)
       .reduce((a, b) => a + b, 1)
 
     const cardsFromRarity = collection.filter(
-      card => getRawCardData(card.id).rarity === rarity
+      card => cardsIndex[card.id].rarity === rarity
     )
 
     // Total amount of copies of this rarity needed to reach `cardLevel`
     const total =
-      countCards({ rarity }, false) *
+      countCards(cards, { rarity }, false) *
       RARITY_COPIES[rarity].copies
         .slice(0, expectedCardLevel - 1)
         .reduce((a, b) => a + b, 1)
@@ -104,22 +117,26 @@ const getCopiesData = (collection, expectedCardLevel) => {
   })
 }
 
-const getFortressAfterUpgrade = collection => {
+const getFortressAfterUpgrade = (collection, cardsIndex) => {
   const updateCard = card => {
-    if (!isCardUpgradable(card)) return card
+    if (!isCardUpgradable(cardsIndex, card)) return card
 
     return {
       ...card,
-      level: [5, 4, 3, 2].find(level => isLevelAvailable(card, level)),
+      level: [5, 4, 3, 2].find(level =>
+        isLevelAvailable(cardsIndex, card, level)
+      ),
     }
   }
 
-  return getBaseHealth(collection.map(updateCard))
+  return getBaseHealth(collection.map(updateCard), cardsIndex)
 }
 
-const useFortressDisplay = collection => {
-  const curr = getBaseHealth(collection)
-  const next = getFortressAfterUpgrade(collection)
+const useFortressDisplay = () => {
+  const { collection } = React.useContext(CollectionContext)
+  const { cardsIndex } = React.useContext(CardsContext)
+  const curr = getBaseHealth(collection, cardsIndex)
+  const next = getFortressAfterUpgrade(collection, cardsIndex)
 
   // If done with the fortress (level 20, progress 100%), simply return the
   // fortress level
@@ -159,46 +176,38 @@ const useFortressDisplay = collection => {
 }
 
 export default React.memo(function CollectionFigures(props) {
+  const { collection } = React.useContext(CollectionContext)
   const { css } = useFela()
   const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
   const ownedCards = React.useMemo(
-    () => getNonMissingCards(props.collection),
-    [props.collection]
+    () => getNonMissingCards(collection),
+    [collection]
   )
   const averageLevel = React.useMemo(
     () => getAverageLevel(ownedCards),
     [ownedCards]
   )
   const upgradableCards = React.useMemo(
-    () => getUpgradableCards(props.collection),
-    [props.collection]
+    () => getUpgradableCards(collection),
+    [collection]
   )
   const missingCards = React.useMemo(
-    () => getMissingCards(props.collection),
-    [props.collection]
+    () => getMissingCards(collection),
+    [collection]
   )
   const levelStats = React.useMemo(
-    () =>
-      getLevelStats(
-        props.collection,
-        props.collection.length - missingCards.length
-      ),
-    [missingCards.length, props.collection]
+    () => getLevelStats(collection, collection.length - missingCards.length),
+    [missingCards.length, collection]
   )
 
-  const extraAfterMax = React.useMemo(
-    () => getAvailableCoins(props.collection),
-    [props.collection]
-  )
+  const extraAfterMax = useAvailableCoins()
+
   const collectionCost = React.useMemo(
-    () => getCollectionCost(props.collection),
-    [props.collection]
+    () => getCollectionCost(collection),
+    [collection]
   )
-  const copiesData = React.useMemo(
-    () => getCopiesData(props.collection, expectedCardLevel),
-    [expectedCardLevel, props.collection]
-  )
-  const fortressDisplay = useFortressDisplay(props.collection)
+  const copiesData = useCopiesData(expectedCardLevel)
+  const fortressDisplay = useFortressDisplay()
 
   return (
     <>

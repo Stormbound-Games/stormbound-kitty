@@ -6,7 +6,7 @@ import getStory from '~/api/stories/getStory'
 import getStories from '~/api/stories/getStories'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import { STORY_CATEGORIES } from '~/constants/stories'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
   const stories = await getStories({ isPreview })
@@ -16,7 +16,7 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const story = await getStory({ slug: params.slug, isPreview })
   const moreStories = (
     await getStoriesFromAuthor({ author: story.author, isPreview })
@@ -47,7 +47,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 }
 
 const StoryPage = ({ active, navigation, cards, ...props }) => (
-  <Layout active={active} navigation={navigation} cards={cards}>
+  <Layout active={active} navigation={navigation}>
     <Story {...props} />
   </Layout>
 )

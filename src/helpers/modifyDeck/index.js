@@ -2,10 +2,10 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 const setToLevel1 = card => ({ ...card, level: card.token ? card.level : 1 })
 
-const modifyDeck = (deck, modifier, equalsMode) => {
+const modifyDeck = (cardsIndex, deck, modifier, equalsMode) => {
   const fullDeck = equalsMode
-    ? deck.map(setToLevel1).map(getResolvedCardData)
-    : deck.map(getResolvedCardData)
+    ? deck.map(setToLevel1).map(card => getResolvedCardData(cardsIndex, card))
+    : deck.map(card => getResolvedCardData(cardsIndex, card))
 
   switch (modifier) {
     case 'DWARF_MANA':

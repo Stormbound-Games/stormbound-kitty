@@ -28,7 +28,7 @@ const cycle = (state, card, opts) => {
 
       if (!isCycledCard) return deckCard
 
-      const leveled = getResolvedCardData({
+      const leveled = getResolvedCardData(state.cardsIndex, {
         id: card.id,
         level: card.level + 1,
       })

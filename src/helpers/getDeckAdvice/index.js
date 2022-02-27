@@ -70,8 +70,8 @@ const ADVICE = [
  * @param {String} modifier - Optional Brawl modifier
  * @return {Promise[]}
  */
-const getDeckAdvice = async (deck, modifier) => {
-  const promises = ADVICE.map(advice => advice(deck, modifier))
+const getDeckAdvice = async (cardsIndex, deck, modifier) => {
+  const promises = ADVICE.map(advice => advice(deck, modifier, cardsIndex))
   const advice = await Promise.all(promises)
 
   return advice.filter(Boolean)

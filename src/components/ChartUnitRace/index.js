@@ -7,12 +7,14 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
+import { CardsContext } from '~/components/CardsProvider'
 import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
 export default React.memo(function ChartUnitRace(props) {
+  const { cards } = React.useContext(CardsContext)
   const RACES = {
     frostling: 'var(--winter)',
     dwarf: 'var(--light-winter)',
@@ -29,7 +31,7 @@ export default React.memo(function ChartUnitRace(props) {
   }
   const data = Object.keys(RACES).map(race => ({
     name: capitalize(race),
-    value: countCards({ race }, false),
+    value: countCards(cards, { race }, false),
     color: RACES[race],
   }))
 

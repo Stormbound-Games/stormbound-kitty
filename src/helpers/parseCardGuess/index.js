@@ -1,8 +1,21 @@
 import { FACTIONS, RACES, RARITIES, TYPES } from '~/constants/game'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
-import getRawCardData from '~/helpers/getRawCardData'
 
-const SAMPLE_CARD = getRawCardData('N1')
+const SAMPLE_CARD = {
+  name: 'Green Prototypes',
+  id: 'N1',
+  sid: 'u007',
+  type: 'unit',
+  faction: 'neutral',
+  race: 'construct',
+  rarity: 'rare',
+  image: 'green_prototypes.png',
+  mana: 1,
+  strength: '1/2/3/4/5',
+  movement: 1,
+  ability:
+    'On death, *give 1/2/3/4/5* strength to a random surrounding *enemy* unit and *vitalize* it',
+}
 
 const parseCardGuess = message => {
   message = message.toLowerCase()

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FACTIONS } from '~/constants/game'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import CTA from '~/components/CTA'
 import Dialog from '~/components/Dialog'

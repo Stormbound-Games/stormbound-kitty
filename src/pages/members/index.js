@@ -3,10 +3,10 @@ import Members from '~/components/Members'
 import Layout from '~/components/Layout'
 import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const members = await getMembersList({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
@@ -14,11 +14,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
 }
 
 const MembersPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'MEMBERS']}
-    navigation={navigation}
-    cards={cards}
-  >
+  <Layout active={['COMMUNITY', 'DISCOVER', 'MEMBERS']} navigation={navigation}>
     <Members {...props} />
   </Layout>
 )

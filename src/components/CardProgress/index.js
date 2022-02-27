@@ -1,15 +1,16 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Image from '~/components/Image'
 import ProgressBar from '~/components/ProgressBar'
 import { RARITY_COPIES } from '~/constants/game'
-import getRawCardData from '~/helpers/getRawCardData'
 import styles from './styles'
 
 export default React.memo(function CardProgress(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { level, copies, missing } = props.card
   const { css } = useFela({ isStone: missing })
-  const { rarity } = getRawCardData(props.card.id)
+  const { rarity } = cardsIndex[props.card.id]
 
   // If the card is not found, there is no concept of card progress
   if (!rarity) {

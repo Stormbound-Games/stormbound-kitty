@@ -9,8 +9,9 @@ import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import getNavigation from '~/helpers/getNavigation'
+import indexArray from '~/helpers/indexArray'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   const decks = await getDecks()
@@ -26,9 +27,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
+  const cardsIndex = indexArray(cards)
   const DEFAULT_PROPS = {
-    cards: CARDS,
+    cards,
     navigation,
     id: null,
     deck: [],
@@ -52,8 +55,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     }
 
     const deck = getInitialDeckData(id)
-    const resolvedDeck = deck.map(getResolvedCardData)
-    const advice = view === 'detail' ? await getDeckAdvice(resolvedDeck) : []
+    const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
+    const advice =
+      view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []
     const resolvedView =
       view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
     const suggestedDeck = await getDeck({ id, isPreview })
@@ -87,7 +91,6 @@ const DeckBuilderPage = ({ navigation, cards, ...props }) => {
     <Layout
       active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
       navigation={navigation}
-      cards={cards}
     >
       <Component {...state} advice={props.advice} />
     </Layout>

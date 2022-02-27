@@ -1,6 +1,6 @@
-import CARDS from '~/data/cards'
 import arrayRandom from '~/helpers/arrayRandom'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
+import indexArray from '~/helpers/indexArray'
 import CONFUSION from '~/helpers/getDeckAdvice/advice/CONFUSION'
 import STRUCTURES from '~/helpers/getDeckAdvice/advice/STRUCTURES'
 import SPELLS from '~/helpers/getDeckAdvice/advice/SPELLS'
@@ -27,7 +27,7 @@ import UBASS_THE_HUNTER from '~/helpers/getDeckAdvice/advice/UBASS_THE_HUNTER'
 import SLOW_DECK from '~/helpers/getDeckAdvice/advice/SLOW_DECK'
 
 const DEFAULT_OPTIONS = {
-  availableCards: CARDS,
+  availableCards: [],
   faction: null,
   initialCards: [],
   maxEpicCards: 4,
@@ -128,6 +128,8 @@ const isMatchingFaction = faction => card =>
  * @param {Card[]} options.initialCards  - Cards to force into the deck
  */
 const getRandomDeck = (options = {}) => {
+  const cardsIndex = indexArray(options.availableCards)
+
   // Merge the given options with the default options.
   for (let option in DEFAULT_OPTIONS) {
     if (typeof options[option] === 'undefined') {
@@ -141,7 +143,7 @@ const getRandomDeck = (options = {}) => {
   // not conflict with the given faction.
   const deck = options.initialCards
     .map(card =>
-      getResolvedCardData({
+      getResolvedCardData(cardsIndex, {
         id: card.id,
         level: card.level || 1,
       })
@@ -157,7 +159,7 @@ const getRandomDeck = (options = {}) => {
   // as well as the token cards.
   const availableCards = options.availableCards
     .map(card =>
-      getResolvedCardData({
+      getResolvedCardData(cardsIndex, {
         id: card.id,
         level: card.level || 1,
       })

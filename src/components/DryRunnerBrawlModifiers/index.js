@@ -1,22 +1,23 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import Dialog from '~/components/Dialog'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
-import getRawCardData from '~/helpers/getRawCardData'
 import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
 
-const getDialogImage = modifier => {
+const getDialogImage = (cardsIndex, modifier) => {
   if (!modifier || modifier === 'NONE') {
     return '/assets/images/cards/execution.png'
   }
 
   return (
-    '/assets/images/cards/' + getRawCardData(BRAWL_INDEX[modifier].cardId).image
+    '/assets/images/cards/' + cardsIndex[BRAWL_INDEX[modifier].cardId].image
   )
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
   const dialogRef = React.useRef()
+  const { cardsIndex } = React.useContext(CardsContext)
   const [modifier, setModifier] = React.useState(props.modifier)
 
   return (
@@ -42,7 +43,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         id='brawl-modifier-dialog'
         title='Brawl mode'
         dialogRef={instance => (dialogRef.current = instance)}
-        image={getDialogImage(modifier)}
+        image={getDialogImage(cardsIndex, modifier)}
         close={() => dialogRef.current.hide()}
         ctaProps={{
           onClick: () => {

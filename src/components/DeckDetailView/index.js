@@ -8,6 +8,7 @@ import Link from '~/components/Link'
 import Row from '~/components/Row'
 import Stats from '~/components/DeckStats'
 import Title from '~/components/Title'
+import { CardsContext } from '~/components/CardsProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
 import { TAGS } from '~/constants/deck'
 import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
@@ -25,12 +26,13 @@ const getDefaultBrawlModifier = suggestedDeck => {
 
 export default React.memo(function DeckDetailView(props) {
   const { notify } = React.useContext(NotificationContext)
+  const { cardsIndex } = React.useContext(CardsContext)
   const navigator = useNavigator()
   const defaultModifier = getDefaultBrawlModifier(props.suggestedDeck)
   const [modifier, setModifier] = React.useState(defaultModifier)
   const deck = React.useMemo(
-    () => modifyDeck(props.deck, modifier),
-    [modifier, props.deck]
+    () => modifyDeck(cardsIndex, props.deck, modifier),
+    [cardsIndex, modifier, props.deck]
   )
   const suggestedDeck = props.suggestedDeck || {}
   const sendNotification = React.useCallback(
@@ -49,6 +51,7 @@ export default React.memo(function DeckDetailView(props) {
     <Page
       title={suggestedDeck.name || 'Deck details'}
       {...getDeckBuilderMetaTags(
+        cardsIndex,
         props.deck,
         props.suggestedDeck,
         'Deck Insights'

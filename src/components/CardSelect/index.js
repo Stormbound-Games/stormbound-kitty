@@ -1,18 +1,19 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import { CardsContext } from '~/components/CardsProvider'
 import Label from '~/components/Label'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import { FACTIONS } from '~/constants/game'
 import getCardsByFaction from '~/helpers/getCardsByFaction'
-import getRawCardData from '~/helpers/getRawCardData'
 import useSelectStyles from '~/hooks/useSelectStyles'
 
 const Select = dynamic(() => import('react-select'))
 
 const ORDER = [...Object.keys(FACTIONS), 'tokens']
-const cardsByFaction = getCardsByFaction()
 
 export default React.memo(function CardSelect(props) {
+  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const cardsByFaction = getCardsByFaction(cards)
   const styles = useSelectStyles({
     noBorder: props.noBorder,
     withClear: props.withClear,
@@ -37,7 +38,7 @@ export default React.memo(function CardSelect(props) {
         isClearable={props.withClear}
         value={{
           id: props.current,
-          label: getRawCardData(props.current).name || 'Pick a card',
+          label: cardsIndex[props.current].name || 'Pick a card',
         }}
         onChange={props.onChange}
         onFocus={props.onFocus}

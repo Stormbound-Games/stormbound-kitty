@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import Teasers from '~/components/Teasers'
 import Link from '~/components/Link'
 import getExcerpt from '~/helpers/getExcerpt'
@@ -14,7 +15,7 @@ const StoryAuthor = React.memo(function StoryAuthor(props) {
   )
 })
 
-const getStoryTeaser = story => {
+const getStoryTeaser = cardsIndex => story => {
   const id =
     story.id ||
     window.btoa(encodeURIComponent(story.title + '-' + story.author))
@@ -23,7 +24,7 @@ const getStoryTeaser = story => {
   return {
     ...story,
     card: {
-      ...getResolvedCardData({ id: story.cardId, level: 1 }),
+      ...getResolvedCardData(cardsIndex, { id: story.cardId, level: 1 }),
       ...story.card,
     },
     meta: meta,
@@ -33,5 +34,7 @@ const getStoryTeaser = story => {
 }
 
 export default React.memo(function Stories(props) {
-  return <Teasers items={props.stories.map(getStoryTeaser)} />
+  const { cardsIndex } = React.useContext(CardsContext)
+
+  return <Teasers items={props.stories.map(getStoryTeaser(cardsIndex))} />
 })

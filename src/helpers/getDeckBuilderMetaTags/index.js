@@ -1,7 +1,12 @@
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortByMana from '~/helpers/sortByMana'
 
-const getDeckBuilderMetaTags = (deck, suggestedDeck, defaultTitle = 'Deck') => {
+const getDeckBuilderMetaTags = (
+  cardsIndex,
+  deck,
+  suggestedDeck,
+  defaultTitle = 'Deck'
+) => {
   const metaTags = { title: defaultTitle }
 
   if (suggestedDeck) {
@@ -13,8 +18,8 @@ const getDeckBuilderMetaTags = (deck, suggestedDeck, defaultTitle = 'Deck') => {
   } else {
     metaTags.description = deck
       .slice(0)
-      .sort(sortByMana)
-      .map(getResolvedCardData)
+      .sort(sortByMana(cardsIndex))
+      .map(card => getResolvedCardData(cardsIndex, card))
       .map(card => `${card.mana} ${card.name} (${card.level})`)
       .join('\n')
   }

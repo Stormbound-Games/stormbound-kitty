@@ -9,6 +9,7 @@ import {
   YAxis,
   ZAxis,
 } from 'recharts'
+import { CardsContext } from '~/components/CardsProvider'
 import FactionSelect from '~/components/FactionSelect'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
@@ -17,9 +18,9 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartStrengthMana(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const [faction, setFaction] = React.useState('neutral')
   const [level, setLevel] = React.useState(5)
-
   const factions = faction.split(',')
   const mainFaction =
     factions.length > 1
@@ -35,8 +36,8 @@ export default React.memo(function ChartStrengthMana(props) {
             factions.includes(card.faction) &&
             card.type !== 'spell'
         )
-        .map(card => getResolvedCardData({ ...card, level })),
-    [props.cards, level, factions]
+        .map(card => getResolvedCardData(cardsIndex, { ...card, level })),
+    [props.cards, cardsIndex, level, factions]
   )
   const getFactionData = React.useCallback(
     faction => {

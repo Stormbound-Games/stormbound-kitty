@@ -1,7 +1,7 @@
-import CARDS from '~/data/cards'
 import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
+import getCards from '~/api/cards/getCards'
 import getMembersList from '~/helpers/getMembersList'
 import getDecks from '~/api/decks/getDecks'
 import getGuides from '~/api/guides/getGuides'
@@ -11,6 +11,7 @@ import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 
 const getSearchIndex = async (withEverything = true) => {
+  const cards = await getCards()
   const decks = await getDecks()
   const guides = await getGuides()
   const stories = await getStories()
@@ -90,7 +91,7 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Tools', 'Builders'],
   })
 
-  CARDS.slice(0, limit).forEach(card => {
+  cards.slice(0, limit).forEach(card => {
     links.push({
       label: card.name,
       path: `/card/${card.id}/display`,

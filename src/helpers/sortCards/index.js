@@ -17,9 +17,9 @@ export const sortByLockedCoins = (a, b) => {
   return sortNaturally()(a, b)
 }
 
-export const sortByValue = (a, b) => {
-  const costA = getCardCost(a)
-  const costB = getCardCost(b)
+export const sortByValue = cardsIndex => (a, b) => {
+  const costA = getCardCost(cardsIndex, a)
+  const costB = getCardCost(cardsIndex, b)
 
   // Put the missing cards at the end of the collection
   if (a.missing && !b.missing) return +1

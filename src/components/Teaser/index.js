@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Link from '~/components/Link'
 import Card from '~/components/Card'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
@@ -8,8 +9,11 @@ import styles from './styles'
 
 export default React.memo(function Teaser(props) {
   const isMounted = useIsMounted()
+  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela({ isLarge: props.large })
-  const card = props.card || getResolvedCardData({ level: 5, id: props.cardId })
+  const card =
+    props.card ||
+    getResolvedCardData(cardsIndex, { level: 5, id: props.cardId })
   const title = props.title
 
   return (

@@ -29,7 +29,8 @@ const getDefaultState = props => ({
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
   modifier: props.modifier,
-  opponentDeck: getOpponentDeck(props.modifier),
+  opponentDeck: getOpponentDeck(props.cards, props.modifier),
+  cardsIndex: props.cardsIndex,
 })
 
 const useDeckMechanisms = props => {

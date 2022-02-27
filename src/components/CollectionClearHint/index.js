@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
 import CTA from '~/components/CTA'
@@ -6,22 +7,24 @@ import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Only from '~/components/Only'
 import download from '~/helpers/download'
-import getRawCardData from '~/helpers/getRawCardData'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortCards from '~/helpers/sortCards'
 
-const formatCollectionAsCSV = cards => {
+const useSerializedContent = () => {
+  const { collection } = React.useContext(CollectionContext)
+  const { cardsIndex } = React.useContext(CardsContext)
+
   const headers = ['id', 'name', 'level', 'copies']
   const data = [
     headers,
-    ...cards
-      .map(getResolvedCardData)
+    ...collection
+      .map(card => getResolvedCardData(cardsIndex, card))
       .sort(sortCards({ withFaction: false }))
       .map(card => [
         card.id,
         // Make sure the name doesn’t contain a comma otherwise it might cause
         // an issue when deserialising the CSV
-        getRawCardData(card.id).name.replace(',', ''),
+        cardsIndex[card.id].name.replace(',', ''),
         // For people to open the CSV file in Excel, it’s better if it contains
         // *all* cards; missing ones are marked as level 0
         card.missing ? 0 : card.level,
@@ -33,12 +36,13 @@ const formatCollectionAsCSV = cards => {
 }
 
 export default React.memo(function CollectionClearHint(props) {
-  const { collection, resetCollection } = React.useContext(CollectionContext)
+  const { resetCollection } = React.useContext(CollectionContext)
   const { notify } = React.useContext(NotificationContext)
+  const content = useSerializedContent()
 
   const exportCollection = React.useCallback(() => {
     download({
-      content: formatCollectionAsCSV(collection),
+      content: content,
       fileName: 'stormbound_collection.csv',
       mimeType: 'text/csv;encoding:utf-8',
     })
@@ -46,7 +50,7 @@ export default React.memo(function CollectionClearHint(props) {
       icon: 'books',
       children: 'Your collection has been successfully exported.',
     })
-  }, [collection, notify])
+  }, [content, notify])
 
   return (
     <Only.CustomCollection>

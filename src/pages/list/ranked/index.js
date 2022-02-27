@@ -4,11 +4,11 @@ import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
 import getLiveTierList from '~/helpers/getLiveTierList'
 import getNavigation from '~/helpers/getNavigation'
-import CARDS from '~/data/cards'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const tierList = await getLiveTierList({ isPreview })
-  const cards = CARDS
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const list = getInitialListData(tierList)
 
@@ -19,11 +19,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
 }
 
 const RankedListPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['COMMUNITY', 'META', 'RANKED_LIST']}
-    navigation={navigation}
-    cards={cards}
-  >
+  <Layout active={['COMMUNITY', 'META', 'RANKED_LIST']} navigation={navigation}>
     <RankedList {...props} />
   </Layout>
 )

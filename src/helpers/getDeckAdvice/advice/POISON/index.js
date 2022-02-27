@@ -1,4 +1,3 @@
-import getRawCardData from '~/helpers/getRawCardData'
 import toSentence from '~/helpers/toSentence'
 
 const hasAny = (cards, ids) =>
@@ -7,7 +6,7 @@ const hasAny = (cards, ids) =>
 export const POISON_PROVIDERS = ['F2', 'F4', 'F5', 'F13']
 export const POISON_CONSUMERS = ['F1', 'F11', 'F15']
 
-export default cards => {
+const advice = (cards, modifier, cardsIndex) => {
   const hasPoisonProvider = hasAny(cards, POISON_PROVIDERS)
   const hasPoisonConsumer = hasAny(cards, POISON_CONSUMERS)
 
@@ -17,7 +16,7 @@ export default cards => {
   if (!hasPoisonConsumer || hasPoisonProvider) return null
 
   const cardNames = toSentence(
-    POISON_PROVIDERS.map(getRawCardData).map(card => card.name),
+    POISON_PROVIDERS.map(id => cardsIndex[id]).map(card => card.name),
     'and/or'
   )
 
@@ -27,3 +26,5 @@ export default cards => {
     highlight: ['F11', 'F15'],
   }
 }
+
+export default advice

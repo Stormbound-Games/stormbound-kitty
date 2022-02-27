@@ -12,6 +12,8 @@ import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
+
   switch (props.reward) {
     case 'MYTHIC_BOOK':
     case 'HEROIC_BOOK':
@@ -60,7 +62,7 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
     case 'LEGENDARY_CARD':
       return (
         <Card
-          {...getResolvedCardData({ id: props.cardId })}
+          {...getResolvedCardData(cardsIndex, { id: props.cardId })}
           level={1}
           extend={styles.card}
         />

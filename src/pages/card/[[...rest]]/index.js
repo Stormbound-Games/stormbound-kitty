@@ -4,14 +4,14 @@ import CardBuilderApp from '~/components/CardBuilderApp'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getNavigation from '~/helpers/getNavigation'
-import isCardOfficial from '~/helpers/isCardOfficial'
-import CARDS from '~/data/cards'
+import indexArray from '~/helpers/indexArray'
 import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
 import getChangesFromCard from '~/api/changes/getChangesFromCard'
 import getChanges from '~/api/changes/getChanges'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
-  const cards = CARDS.filter(card => !card.token)
+  const cards = (await getCards()).filter(card => !card.token)
   const changes = await getChanges()
   const paths = cards
     .flatMap(card =>
@@ -30,10 +30,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
+  const cardsIndex = indexArray(cards)
   const DEFAULT_PROPS = {
     navigation,
-    cards: CARDS,
+    cards,
     cardId: null,
     card: {},
     contest: null,
@@ -44,13 +46,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   try {
     const [id, display, versionId = null] = params.rest || []
-    const versions = await getChangesFromCard({ id, isPreview })
+    const versions =
+      id in cardsIndex ? await getChangesFromCard({ id, isPreview }) : []
 
     if (
       // Invalid view keyword
       (display && display !== 'display') ||
       // Version ID with a non-official card
-      (versionId && !isCardOfficial(id)) ||
+      (versionId && !(id in cardsIndex)) ||
       // Invalid version ID
       (versionId && !versions.some(v => String(v.timestamp) === versionId))
     ) {
@@ -67,8 +70,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       props: {
         navigation,
         cardId: id,
-        card: getInitialCardData(id),
-        contest: await getSWCCFromCard({ id, isPreview }),
+        card: getInitialCardData(cards, id),
+        contest:
+          id in cardsIndex ? null : await getSWCCFromCard({ id, isPreview }),
         versionId,
         versions,
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
@@ -85,7 +89,6 @@ const CardBuilderPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']}
     navigation={navigation}
-    cards={cards}
   >
     {props.mode === 'DISPLAY' ? (
       <CardBuilderApp {...props} />
