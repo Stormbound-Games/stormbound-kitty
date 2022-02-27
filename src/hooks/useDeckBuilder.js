@@ -22,7 +22,7 @@ const useDeckBuilderPath = (deck, view) => {
 }
 
 const useDeckBuilder = props => {
-  const { cardsIndex } = React.useContext(CardsContext)
+  const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const navigator = useNavigator()
   const [highlightedCards, setHighlightedCards] = React.useState([])
   const [deck, setDeck] = React.useState(props.deck || [])
@@ -54,8 +54,9 @@ const useDeckBuilder = props => {
   React.useEffect(() => navigator.replace(path), [path])
 
   React.useEffect(
-    () => setDeck(props.id ? getInitialDeckData(props.id) : []),
-    [props.id]
+    () =>
+      setDeck(props.id ? getInitialDeckData(cardsIndexBySid, props.id) : []),
+    [cardsIndexBySid, props.id]
   )
 
   return {

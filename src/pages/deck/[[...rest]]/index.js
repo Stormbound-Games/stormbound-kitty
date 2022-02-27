@@ -30,6 +30,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const cardsIndex = indexArray(cards)
+  const cardsIndexBySid = indexArray(cards, 'sid')
   const DEFAULT_PROPS = {
     cards,
     navigation,
@@ -54,7 +55,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       return { props: DEFAULT_PROPS }
     }
 
-    const deck = getInitialDeckData(id)
+    const deck = getInitialDeckData(cardsIndexBySid, id)
     const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
     const advice =
       view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []
@@ -64,6 +65,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
     return {
       props: {
+        cards,
         navigation,
         id,
         deck,

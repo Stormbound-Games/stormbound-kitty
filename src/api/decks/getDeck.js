@@ -1,6 +1,7 @@
 import { getEntry } from '~/helpers/sanity'
 import serialization from '~/helpers/serialization'
 import indexArray from '~/helpers/indexArray'
+import getCards from '~/api/cards/getCards'
 import clean from './clean'
 
 const getDeck = async ({ id, isPreview } = {}) => {
