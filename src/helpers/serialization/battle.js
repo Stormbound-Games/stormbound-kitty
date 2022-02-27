@@ -120,7 +120,7 @@ const serializeBattle = (board, players, settings, { cards, hand }) =>
     hand.join(','),
   ].join(';')
 
-const deserializeBattle = encodedString => {
+const deserializeBattle = (cardsIndex, encodedString) => {
   const string = decodeURIComponent(encodedString)
   const [
     board = '',
@@ -131,7 +131,7 @@ const deserializeBattle = encodedString => {
   ] = string.split(';')
 
   return {
-    board: deserializeBoard(board),
+    board: deserializeBoard(cardsIndex, board),
     players: deserializePlayers(players),
     cards: deserializeBattleSimCards(cards, 12),
     hand: deserializeHand(hand, cards),
@@ -141,7 +141,8 @@ const deserializeBattle = encodedString => {
 
 const battle = {
   serialize: (...chunks) => base64Encode(serializeBattle(...chunks)),
-  deserialize: hash => deserializeBattle(base64Decode(hash)),
+  deserialize: (cardsIndex, hash) =>
+    deserializeBattle(cardsIndex, base64Decode(hash)),
 }
 
 export default battle

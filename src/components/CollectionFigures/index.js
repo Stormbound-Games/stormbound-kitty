@@ -20,7 +20,8 @@ import styles from './styles'
 const sum = (a, b) => a + b
 const getAverageLevel = cards =>
   cards.map(card => card.level).reduce(sum, 0) / cards.length
-const getUpgradableCards = cards => cards.filter(isCardUpgradable)
+const getUpgradableCards = (cardsIndex, cards) =>
+  cards.filter(card => isCardUpgradable(cardsIndex, card))
 const getMissingCards = cards =>
   cards.filter(card => card.missing && !card.token)
 const getNonMissingCards = cards =>
@@ -176,6 +177,7 @@ const useFortressDisplay = () => {
 }
 
 export default React.memo(function CollectionFigures(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
   const { css } = useFela()
   const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
@@ -188,8 +190,8 @@ export default React.memo(function CollectionFigures(props) {
     [ownedCards]
   )
   const upgradableCards = React.useMemo(
-    () => getUpgradableCards(collection),
-    [collection]
+    () => getUpgradableCards(cardsIndex, collection),
+    [cardsIndex, collection]
   )
   const missingCards = React.useMemo(
     () => getMissingCards(collection),
@@ -203,8 +205,8 @@ export default React.memo(function CollectionFigures(props) {
   const extraAfterMax = useAvailableCoins()
 
   const collectionCost = React.useMemo(
-    () => getCollectionCost(collection),
-    [collection]
+    () => getCollectionCost(cardsIndex, collection),
+    [cardsIndex, collection]
   )
   const copiesData = useCopiesData(expectedCardLevel)
   const fortressDisplay = useFortressDisplay()

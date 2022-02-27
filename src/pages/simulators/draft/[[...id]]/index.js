@@ -6,6 +6,7 @@ import serialization from '~/helpers/serialization'
 import getNavigation from '~/helpers/getNavigation'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import indexArray from '~/helpers/indexArray'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }

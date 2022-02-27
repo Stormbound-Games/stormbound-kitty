@@ -10,7 +10,10 @@ import sortCards from '~/helpers/sortCards'
 import styles from './styles'
 
 const sortCollection = cardsIndex => (a, b) =>
-  sortCards()(getResolvedCardData(a), getResolvedCardData(b))
+  sortCards()(
+    getResolvedCardData(cardsIndex, a),
+    getResolvedCardData(cardsIndex, b)
+  )
 
 export default React.memo(function CardDisplayControls(props) {
   const { css } = useFela()

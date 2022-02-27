@@ -27,8 +27,8 @@ export default React.memo(function NavCardBuilder(props) {
               id='card-select'
               name='card-select'
               noBorder={viewportWidth >= 700}
-              current={cardsIndex[id].id}
-              withClear={Boolean(cardsIndex[id].id)}
+              current={cardsIndex[id]?.id}
+              withClear={Boolean(cardsIndex[id]?.id)}
               disabledOptions={id ? [id] : undefined}
               onChange={option =>
                 navigator.push(

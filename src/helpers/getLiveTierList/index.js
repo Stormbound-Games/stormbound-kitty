@@ -1,4 +1,5 @@
 import getCards from '~/api/cards/getCards'
+import indexArray from '~/helpers/indexArray'
 import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import { getLongFaction } from '~/helpers/encoding'
@@ -6,6 +7,7 @@ import getDecks from '~/api/decks/getDecks'
 
 const getLiveTierList = async ({ isPreview } = {}) => {
   const cards = await getCards({ isPreview })
+  const cardsIndexBySid = indexArray(cards, 'sid')
   const decks = await getDecks({ isPreview })
   // Amount of decks of each type (computed in a single loop for performance)
   const COUNTS = {
@@ -38,7 +40,7 @@ const getLiveTierList = async ({ isPreview } = {}) => {
     // incorrectly skewing the popularity of cards
     if (tags.includes('BRAWL') || tags.includes('EQUALS')) return
 
-    const deck = serialization.deck.deserialize(id)
+    const deck = serialization.deck.deserialize(cardsIndexBySid, id)
 
     COUNTS[getFactionFromDeckID(id)]++
     COUNTS.neutral++

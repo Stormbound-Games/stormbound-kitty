@@ -3,7 +3,7 @@ import indexArray from '~/helpers/indexArray'
 
 export const CardsContext = React.createContext({ cards: [], index: {} })
 
-export default React.memo(function CardsProvider({ children, cards }) {
+export default React.memo(function CardsProvider({ children, cards = [] }) {
   const cardsIndex = React.useMemo(() => indexArray(cards), [cards])
   const cardsIndexByName = React.useMemo(
     () => indexArray(cards, 'name'),

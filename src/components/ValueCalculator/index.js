@@ -51,7 +51,8 @@ const SlotSelect = React.memo(function SlotSelect(props) {
 
 const CardValue = React.memo(function CardValue(props) {
   const { css } = useFela()
-  const value = props.id && getCardValue(props.id, props.level)
+  const { cardsIndex } = React.useContext(CardsContext)
+  const value = props.id && getCardValue(cardsIndex, props.id, props.level)
 
   if (!value) {
     return (

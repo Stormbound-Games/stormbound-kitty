@@ -38,7 +38,7 @@ export default React.memo(function CardSelect(props) {
         isClearable={props.withClear}
         value={{
           id: props.current,
-          label: cardsIndex[props.current].name || 'Pick a card',
+          label: cardsIndex[props.current]?.name ?? 'Pick a card',
         }}
         onChange={props.onChange}
         onFocus={props.onFocus}

@@ -63,7 +63,7 @@ export default React.memo(function BattleSimCellForm(props) {
   React.useEffect(() => {
     // When changing the value of the card select, unset poisoned and frozen
     // checkboxes if the selected card is a structure
-    if (cardsIndex[card].type === 'structure') {
+    if (cardsIndex[card]?.type === 'structure') {
       setPoisoned(false)
       setVitalized(false)
       setFrozen(false)
@@ -74,9 +74,10 @@ export default React.memo(function BattleSimCellForm(props) {
 
   const updateStrengthField = (card, level) => {
     const resolvedCard = cardsIndex[card]
-    const strength = unfoldValue(resolvedCard.strength)[+level - 1]
-    if (resolvedCard.id) setStrength(strength)
-    else setStrength(1)
+    if (resolvedCard) {
+      const strength = unfoldValue(resolvedCard.strength)[+level - 1]
+      setStrength(strength)
+    } else setStrength(1)
   }
 
   return (
@@ -186,7 +187,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='poisoned'
-              disabled={cardsIndex[card].type === 'structure'}
+              disabled={cardsIndex[card]?.type === 'structure'}
               checked={poisoned}
               onChange={event => {
                 setPoisoned(event.target.checked)
@@ -199,7 +200,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='vitalized'
-              disabled={cardsIndex[card].type === 'structure'}
+              disabled={cardsIndex[card]?.type === 'structure'}
               checked={vitalized}
               onChange={event => {
                 setVitalized(event.target.checked)
@@ -212,7 +213,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='frozen'
-              disabled={cardsIndex[card].type === 'structure'}
+              disabled={cardsIndex[card]?.type === 'structure'}
               checked={frozen}
               onChange={event => setFrozen(event.target.checked)}
               data-testid='cell-frozen-checkbox'
@@ -222,7 +223,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='confused'
-              disabled={cardsIndex[card].type === 'structure'}
+              disabled={cardsIndex[card]?.type === 'structure'}
               checked={confused}
               onChange={event => setConfused(event.target.checked)}
               data-testid='cell-confused-checkbox'
@@ -232,7 +233,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <Checkbox
               extend={styles.checkbox}
               id='disabled'
-              disabled={cardsIndex[card].type === 'structure'}
+              disabled={cardsIndex[card]?.type === 'structure'}
               checked={disabled}
               onChange={event => setDisabled(event.target.checked)}
               data-testid='cell-disabled-checkbox'
@@ -257,7 +258,7 @@ export default React.memo(function BattleSimCellForm(props) {
             <CTA type='submit' disabled={!card} data-testid='cell-form-btn'>
               {activeCellCard.card.id
                 ? 'Update ' + activeCellCard.card.type
-                : 'Add ' + (cardsIndex[card].type || '')}
+                : 'Add ' + (cardsIndex[card]?.type ?? '')}
             </CTA>
           ) : null}
         </Row.Column>

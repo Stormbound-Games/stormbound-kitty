@@ -22,11 +22,12 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const allCards = await getCards({ isPreview })
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
-  const cardsIndex = indexArray(allCards)
+  const cardsIndex = indexArray(cards)
   const DEFAULT_PROPS = {
-    cards: allCards,
+    cards,
+    cardsIndex,
     navigation,
     simId: null,
     sim: getInitialBattleData(cardsIndex),
@@ -49,7 +50,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
     return {
       props: {
-        cards: allCards,
+        cards,
         cardsIndex,
         navigation,
         simId: id,

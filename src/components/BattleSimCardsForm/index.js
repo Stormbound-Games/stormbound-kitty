@@ -46,7 +46,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
         <Row.Column width='1/3'>
           <Row withNarrowGutter>
             <Row.Column>
-              {cardsIndex[props.cards[index].id].token ? (
+              {cardsIndex[props.cards[index].id]?.token ? (
                 <NumberInput
                   hideLabel
                   label={`Slot #${index + 1}’s level`}
@@ -62,7 +62,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
                 <Select
                   hideLabel
                   label={`Slot #${index + 1}’s level`}
-                  disabled={cardsIndex[props.cards[index].id].token}
+                  disabled={cardsIndex[props.cards[index].id]?.token}
                   id={`card-${index}-level`}
                   value={Math.min(props.cards[index].level, 5) || 1}
                   onChange={event =>

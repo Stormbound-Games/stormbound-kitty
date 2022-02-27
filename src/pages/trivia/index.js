@@ -2,6 +2,7 @@ import React from 'react'
 import Trivia from '~/components/Trivia'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
+import getTriviaQuestions from '~/helpers/getTriviaQuestions'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {

@@ -45,7 +45,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                     strength={props.strength.values[level]}
                     ability={props.ability.values[level]}
                     image={
-                      cardsIndex[props.imageCardId].image || props.imageURL
+                      cardsIndex[props.imageCardId]?.image ?? props.imageURL
                     }
                     missing={
                       cardInCollection.missing ||
@@ -72,7 +72,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
             mana={props.mana.values[activeLevel - 1]}
             strength={props.strength.values[activeLevel - 1]}
             ability={props.ability.values[activeLevel - 1]}
-            image={cardsIndex[props.imageCardId].image || props.imageURL}
+            image={cardsIndex[props.imageCardId]?.image ?? props.imageURL}
             level={activeLevel}
           />
 
