@@ -1,4 +1,4 @@
-import { CardsContext } from '~/helpers/CardsProvider'
+import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 
 const useVersionedCardData = (props, versionId) => {

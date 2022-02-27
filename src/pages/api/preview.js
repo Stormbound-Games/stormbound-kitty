@@ -1,5 +1,5 @@
 import applyRateLimit from '~/helpers/applyRateLimit'
-import getCard from '~/api/decks/getCard'
+import getCard from '~/api/cards/getCard'
 import getDeck from '~/api/decks/getDeck'
 import getGuide from '~/api/guides/getGuide'
 import getPuzzle from '~/api/puzzles/getPuzzle'
