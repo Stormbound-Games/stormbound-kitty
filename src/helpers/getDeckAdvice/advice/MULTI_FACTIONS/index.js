@@ -3,7 +3,7 @@ const getFactions = cards =>
     faction => faction !== 'neutral'
   )
 
-export default cards => {
+const advice = cards => {
   const factions = getFactions(cards)
 
   if (factions.length <= 1) return null
@@ -13,3 +13,5 @@ export default cards => {
     description: `This deck counts ${factions.length} factions, which is not technically permitted in Stormbound. This deck cannot be played in game.`,
   }
 }
+
+export default advice

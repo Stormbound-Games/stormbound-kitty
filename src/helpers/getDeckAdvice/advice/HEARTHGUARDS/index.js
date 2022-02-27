@@ -1,12 +1,16 @@
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 // Construction workers not considered for now; May be added later.
 const structureSpawningCardIds = new Set([
-  "W13",  // Rockworkers
+  'W13', // Rockworkers
 ])
-const getStructureSpawningCards = cards => cards.filter(c => structureSpawningCardIds.has(c.id))
+const getStructureSpawningCards = cards =>
+  cards.filter(c => structureSpawningCardIds.has(c.id))
 
-export default cards => {
-  const structures = [...getStructures(cards), ...getStructureSpawningCards(cards)]
+const advice = cards => {
+  const structures = [
+    ...getStructures(cards),
+    ...getStructureSpawningCards(cards),
+  ]
   const cheapStructures = structures.filter(card => card.mana <= 3)
   const cardIds = cards.map(card => card.id)
   const hasHearthguards = cardIds.includes('N39')
@@ -27,3 +31,5 @@ export default cards => {
     highlight: ['N39', ...structures],
   }
 }
+
+export default advice

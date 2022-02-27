@@ -17,13 +17,15 @@ describe('The `resolveDeckWeight` helper', () => {
   ]
   it('should add weight to all cards in the deck', () => {
     expect(
-      resolveDeckWeight(deck).every(card => typeof card.weight === 'number')
+      resolveDeckWeight(global.__CARDS_INDEX__, deck).every(
+        card => typeof card.weight === 'number'
+      )
     ).toEqual(true)
   })
 
   it('should match sequence given by Arano', () => {
     expect(
-      resolveDeckWeight(deck)
+      resolveDeckWeight(global.__CARDS_INDEX__, deck)
         .sort((a, b) => a.weight - b.weight)
         .map(card => card.weight)
     ).toEqual([0, 1, 2, 4, 7, 12, 20, 33, 53, 85, 137, 220])

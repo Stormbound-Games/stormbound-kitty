@@ -3,6 +3,7 @@ import getEmbed from '~/helpers/getEmbed'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
+import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
 
 const deckadvice = {

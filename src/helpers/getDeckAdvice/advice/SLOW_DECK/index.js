@@ -3,7 +3,7 @@ const getStaticCards = cards =>
     card => (card.movement || 0) < 1 && !['N66', 'N67', 'N68'].includes(card.id)
   )
 
-export default cards => {
+const advice = cards => {
   const staticCards = getStaticCards(cards)
 
   // Slow decks (decks which contain a lot of cards which do not move) can
@@ -18,3 +18,5 @@ export default cards => {
     highlight: staticCards,
   }
 }
+
+export default advice

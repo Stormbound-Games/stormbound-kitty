@@ -2,7 +2,7 @@ const getHeroes = cards => cards.filter(c => c.hero)
 const getElders = cards => cards.filter(c => c.elder)
 const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 
-export default cards => {
+const advice = cards => {
   const races = getRaces(cards)
   const heroes = getHeroes(cards)
   const elders = getElders(cards)
@@ -25,3 +25,5 @@ export default cards => {
     highlight: ['N35'],
   }
 }
+
+export default advice

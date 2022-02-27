@@ -1,6 +1,6 @@
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 
-export default cards => {
+const advice = cards => {
   const structures = getStructures(cards)
   const cardIds = cards.map(card => card.id)
   const hasDoctorMia = cardIds.includes('I2')
@@ -20,3 +20,5 @@ export default cards => {
     highlight: ['I2', ...structures],
   }
 }
+
+export default advice

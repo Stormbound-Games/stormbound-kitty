@@ -1,7 +1,7 @@
 const getPlayableSpells = (cards, maxManaCost = Infinity) =>
   cards.filter(c => c.type === 'spell' && c.mana <= maxManaCost)
 
-export default cards => {
+const advice = cards => {
   const archdruidEaryn = cards.find(card => card.id === 'N48')
   const spells = getPlayableSpells(
     cards,
@@ -21,3 +21,5 @@ export default cards => {
     highlight: ['N48', ...spells],
   }
 }
+
+export default advice

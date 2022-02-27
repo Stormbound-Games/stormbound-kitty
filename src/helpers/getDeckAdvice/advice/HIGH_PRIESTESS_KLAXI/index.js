@@ -1,7 +1,7 @@
 const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
-export default cards => {
+const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasHighPriestessKlaxi = cardIds.includes('F23')
   const hasRainOfFrogs = cardIds.includes('F8')
@@ -33,3 +33,5 @@ export default cards => {
     highlight: ['F23', 'F8', 'F10'],
   }
 }
+
+export default advice

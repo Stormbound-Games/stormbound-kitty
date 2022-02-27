@@ -3,14 +3,16 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 describe('The `modifyDeck` helper', () => {
   it('should resolve all cards in deck', () => {
-    expect(modifyDeck([{ id: 'N1' }])).toEqual([
-      getResolvedCardData({ id: 'N1' }),
+    expect(modifyDeck(global.__CARDS_INDEX__, [{ id: 'N1' }])).toEqual([
+      getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }),
     ])
   })
 
   it('should set all cards to level 1 in equals mode', () => {
-    expect(modifyDeck([{ id: 'N1', level: 2 }], null, true)).toEqual([
-      getResolvedCardData({ id: 'N1', level: 1 }),
+    expect(
+      modifyDeck(global.__CARDS_INDEX__, [{ id: 'N1', level: 2 }], null, true)
+    ).toEqual([
+      getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1', level: 1 }),
     ])
   })
   ;[
@@ -21,7 +23,7 @@ describe('The `modifyDeck` helper', () => {
     ['SPELL_MANA', 'N21', 2],
   ].forEach(([brawl, id, mana]) => {
     it(`should handle ${brawl} brawl`, () => {
-      const deck = modifyDeck([{ id }], brawl)
+      const deck = modifyDeck(global.__CARDS_INDEX__, [{ id }], brawl)
       expect(deck[0].mana).toEqual(mana)
       expect(deck[0].manaDecreased).toEqual(true)
     })

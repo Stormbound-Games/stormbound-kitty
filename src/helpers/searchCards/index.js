@@ -19,15 +19,11 @@ const searchCards = (cards, search) => {
 
   const cardFromID = cards.find(card => card.id == needle.toUpperCase())
 
-  if (cardFromID.id) return [cardFromID]
+  if (cardFromID) return [cardFromID]
 
   const abbreviations = getAbbreviations(cards, 'LOWERCASE')
   const matchAbbr = (abbreviations[needle.toLowerCase()] || [])
-    .map(definition => {
-      const card = cards.find(card => card.name === definition)
-
-      return card.id ? card : null
-    })
+    .map(definition => cards.find(card => card.name === definition))
     .filter(Boolean)
 
   if (matchAbbr.length) return matchAbbr

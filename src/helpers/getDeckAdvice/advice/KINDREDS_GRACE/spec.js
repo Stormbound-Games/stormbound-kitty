@@ -1,6 +1,5 @@
 import advice, { SPAWNS } from './'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getRawCardData from '~/helpers/getRawCardData'
 import serialization from '~/helpers/serialization'
 import modifyDeck from '~/helpers/modifyDeck'
 
@@ -15,9 +14,11 @@ const BASE_DECKS = {
 }
 
 const getCards = (id, modifier = 'NONE') =>
-  modifyDeck(serialization.deck.deserialize(id), modifier).map(
-    getResolvedCardData
-  )
+  modifyDeck(
+    global.__CARDS_INDEX__,
+    serialization.deck.deserialize(global.__CARDS_INDEX_BY_SID__, id),
+    modifier
+  ).map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
 describe('The `KINDREDS_GRACE` advice', () => {
   it('should be returned if too many races are represented', () => {
@@ -31,7 +32,7 @@ describe('The `KINDREDS_GRACE` advice', () => {
 
     it(
       'should not be returned if the deck contains ' +
-        getRawCardData(cardId).name,
+        global.__CARDS_INDEX__[cardId].name,
       () => {
         const cards = getCards(testDeck)
         expect(advice(cards)).toEqual(null)

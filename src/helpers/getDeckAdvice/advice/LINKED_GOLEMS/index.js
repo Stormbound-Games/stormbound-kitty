@@ -1,6 +1,6 @@
 const getConstructs = cards => cards.filter(c => c.race === 'construct')
 
-export default cards => {
+const advice = cards => {
   const hasLinkedGolems = cards.map(card => card.id).includes('I8')
   const constructs = getConstructs(cards)
 
@@ -15,3 +15,5 @@ export default cards => {
     highlight: constructs,
   }
 }
+
+export default advice

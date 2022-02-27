@@ -1,6 +1,6 @@
 const getPirates = cards => cards.filter(card => card.race === 'pirate')
 
-export default cards => {
+const advice = cards => {
   const hasCard = id => cards.map(card => card.id).includes(id)
   const pirates = getPirates(cards)
   const hasLuckyCharmers = hasCard('N42')
@@ -15,3 +15,5 @@ export default cards => {
     highlight: pirates,
   }
 }
+
+export default advice

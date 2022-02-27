@@ -1,4 +1,4 @@
-export default cards => {
+const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasUpgradePoint = cardIds.includes('I10')
   const hasEbonrock = cardIds.includes('N13')
@@ -15,3 +15,5 @@ export default cards => {
     highlight: ['N13'],
   }
 }
+
+export default advice

@@ -15,7 +15,7 @@ const getManaCurveIntersection = async (deck, modifier) => {
   return mana
 }
 
-export default async (cards, modifier) => {
+const advice = async (cards, modifier) => {
   const intersection = await getManaCurveIntersection(cards, modifier)
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
@@ -38,3 +38,5 @@ export default async (cards, modifier) => {
     description: `This deck’s mana curve appears to be a little high, making it likely to be overtaken by aggressive cheap decks. Consider balancing the cost of the cards a little more.`,
   }
 }
+
+export default advice

@@ -75,7 +75,7 @@ const getFinishers = cards =>
         HIGH_LEVEL_FINISHERS.includes(card.id))
   )
 
-export default cards => {
+const advice = cards => {
   const finishers = getFinishers(cards)
   const debatableFinishers = getDebatableFinishers(cards)
   const advice = { name: 'Lack of finisher' }
@@ -98,3 +98,5 @@ export default cards => {
 
   return advice
 }
+
+export default advice

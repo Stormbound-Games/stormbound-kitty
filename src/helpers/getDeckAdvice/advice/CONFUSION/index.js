@@ -1,7 +1,7 @@
 const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
-export default cards => {
+const advice = cards => {
   const hasConfusionProvider = hasAny(cards, ['N62', 'N60'])
   const hasConfusionConsumer = hasAny(cards, ['N61', 'N64'])
 
@@ -17,3 +17,5 @@ export default cards => {
     highlight: ['N61', 'N64'],
   }
 }
+
+export default advice
