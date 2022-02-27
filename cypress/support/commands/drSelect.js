@@ -1,5 +1,5 @@
 import s from '../../integration/dryRunner/selectors'
-import getRawCardData from '~/helpers/getRawCardData'
+import cardsIndex from '../../fixtures/cards'
 
 const select = (id, options = { log: true }) => {
   if (typeof id === 'number') {
@@ -14,7 +14,7 @@ const select = (id, options = { log: true }) => {
   }
 
   const { log } = options
-  const { name } = getRawCardData(id)
+  const { name } = cardsIndex[id]
 
   if (log) {
     Cypress.log({

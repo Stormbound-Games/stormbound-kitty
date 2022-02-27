@@ -1,11 +1,11 @@
 import s from '../../integration/dryRunner/selectors'
-import getRawCardData from '~/helpers/getRawCardData'
+import cardsIndex from '../../fixtures/cards'
 
 const drawHand = ids => {
   Cypress.log({
     name: `DRAW_HAND`,
     message: `Draw cards ${ids
-      .map(id => `‘${getRawCardData(id).name}’ (${id})`)
+      .map(id => `‘${cardsIndex[id].name}’ (${id})`)
       .join(', ')} as initial hand`,
     consoleProps: () => ({ ids }),
   })
