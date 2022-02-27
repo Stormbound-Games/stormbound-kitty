@@ -1,5 +1,5 @@
 import s from './selectors'
-import cardsIndex from '../../fixtures/cards'
+import { getCardData } from '../../utils'
 
 describe('Deck Builder — Random deck', () => {
   before(() => {
@@ -32,9 +32,9 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        const id = $card.attr('data-testid').replace('deck-slot', '').trim()
+        const id = $card.attr('data-testid').replace('deck-slot', '')
 
-        expect(cardsIndex[id].faction).to.satisfy(faction =>
+        expect(getCardData(id).faction).to.satisfy(faction =>
           ['winter', 'neutral'].includes(faction)
         )
       })
@@ -57,7 +57,7 @@ describe('Deck Builder — Random deck', () => {
           .map((_, card) =>
             card.getAttribute('data-testid').replace('deck-slot', '').trim()
           )
-          .map((_, id) => cardsIndex[id])
+          .map((_, id) => getCardData(id))
           .filter((_, card) => card.faction === 'winter')
 
         expect(winterCards.length).to.be.at.least(6)
@@ -75,7 +75,7 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        expect(cardsIndex[$card.attr('data-testid')].rarity).to.not.equal(
+        expect(getCardData($card.attr('data-testid')).rarity).to.not.equal(
           'epic'
         )
       })
@@ -92,7 +92,7 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        expect(cardsIndex[$card.attr('data-testid')].rarity).to.not.equal(
+        expect(getCardData($card.attr('data-testid')).rarity).to.not.equal(
           'legendary'
         )
       })

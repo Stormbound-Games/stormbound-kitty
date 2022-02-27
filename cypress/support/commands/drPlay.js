@@ -1,5 +1,5 @@
 import s from '../../integration/dryRunner/selectors'
-import cardsIndex from '../../fixtures/cards'
+import { getCardData } from '../../utils'
 
 const play = id => {
   if (typeof id === 'number') {
@@ -9,7 +9,7 @@ const play = id => {
       .then($card => cy.drPlay($card.attr('id')))
   }
 
-  const { name } = cardsIndex[id]
+  const { name } = getCardData(id)
 
   Cypress.log({
     name: 'PLAY',

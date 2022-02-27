@@ -1,11 +1,11 @@
 import s from '../../integration/dryRunner/selectors'
-import cardsIndex from '../../fixtures/cards'
+import { getCardData } from '../../utils'
 
 const drawHand = ids => {
   Cypress.log({
     name: `DRAW_HAND`,
     message: `Draw cards ${ids
-      .map(id => `‘${cardsIndex[id].name}’ (${id})`)
+      .map(id => `‘${getCardData(id).name}’ (${id})`)
       .join(', ')} as initial hand`,
     consoleProps: () => ({ ids }),
   })
@@ -14,6 +14,7 @@ const drawHand = ids => {
     if (!id.includes('_')) {
       id = id + '_0'
     }
+
     cy.get(s.DECK_CARD, { log: false })
       .filter('[data-testid*="' + id + '"]', { log: false })
       .find('button', { log: false })
