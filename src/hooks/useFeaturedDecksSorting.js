@@ -1,3 +1,4 @@
+import React from 'react'
 import { CollectionContext } from '~/components/CollectionProvider'
 import { CardsContext } from '~/components/CardsProvider'
 import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
