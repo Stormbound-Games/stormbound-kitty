@@ -46,14 +46,16 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   try {
     const [id, display, versionId = null] = params.rest || []
-    const versions =
-      id in cardsIndex ? await getChangesFromCard({ id, isPreview }) : []
+    const isOfficialCard = id in cardsIndex
+    const versions = isOfficialCard
+      ? await getChangesFromCard({ id, isPreview })
+      : []
 
     if (
       // Invalid view keyword
       (display && display !== 'display') ||
       // Version ID with a non-official card
-      (versionId && !(id in cardsIndex)) ||
+      (versionId && !isOfficialCard) ||
       // Invalid version ID
       (versionId && !versions.some(v => String(v.timestamp) === versionId))
     ) {
@@ -69,6 +71,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         navigation,
+        cards,
         cardId: id,
         card: getInitialCardData(cards, id),
         contest:
