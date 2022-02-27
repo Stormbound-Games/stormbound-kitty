@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Card from '~/components/Card'
 import CTA from '~/components/CTA'
 import BlankButton from '~/components/BlankButton'
@@ -9,9 +10,9 @@ import indexArray from '~/helpers/indexArray'
 import styles from './styles'
 
 export default React.memo(function BattleSimCards(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const [cycleMode, setCycleMode] = React.useState(false)
   const { css } = useFela({ isCycle: cycleMode })
-  const cardsIndex = React.useMemo(() => indexArray(props.cards), [props.cards])
 
   return (
     <>
