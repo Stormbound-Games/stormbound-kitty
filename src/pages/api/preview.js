@@ -34,6 +34,7 @@ const getRedirectUrl = async params => {
     case 'wallpaper':
       return '/fan-kit/wallpapers'
 
+    case 'card':
     case 'changelog': {
       const card = await getCard(params)
 
