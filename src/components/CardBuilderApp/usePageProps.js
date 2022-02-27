@@ -1,3 +1,4 @@
+import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import getWikiCardLink from '~/helpers/getWikiCardLink'
 import { formatPreciseDate } from '~/helpers/formatDate'
