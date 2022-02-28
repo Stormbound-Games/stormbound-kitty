@@ -41,9 +41,11 @@ const marks = {
       {children}
     </Link>
   ),
-  cardLink: ({ value, children }) => (
-    <CardLink id={value.cardId || value.id}>{children}</CardLink>
-  ),
+  cardLink: ({ value, children }) => {
+    const cardId = value.cardId || value.id
+
+    return cardId ? <CardLink id={cardId}>{children}</CardLink> : children
+  },
   // Text should not be underlined if it’s not a link.
   underline: props => props.children,
 }
