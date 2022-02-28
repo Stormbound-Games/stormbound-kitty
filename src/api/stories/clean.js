@@ -12,7 +12,7 @@ const clean = story => {
   story.content = story.body
   story.excerpt = getExcerpt(text, 150)
   story.readingTime = getReadingTime(text)
-  story.cardId = story.cardRef?.id ?? story.cardId
+  story.cardId = (story.cardRef ? story.cardRef.id : story.cardId) || null
 
   delete story._createdAt
   delete story._updatedAt
