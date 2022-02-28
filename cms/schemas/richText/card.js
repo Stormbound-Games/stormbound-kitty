@@ -8,7 +8,7 @@ const card = {
   type: 'object',
   icon: MdPadding,
   fields: [
-    { ...cardRef, weak: true },
+    cardRef,
     {
       title: 'Level',
       name: 'level',

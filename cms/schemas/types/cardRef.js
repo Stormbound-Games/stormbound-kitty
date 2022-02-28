@@ -4,6 +4,7 @@ const cardRef = {
   type: 'reference',
   to: [{ type: 'card' }],
   options: { disableNew: true },
+  weak: true,
   validation: Rule => Rule.required(),
 }
 
