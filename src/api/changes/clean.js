@@ -11,6 +11,7 @@ const clean = change => {
       }, {})
     : null
 
+  delete change.card
   delete change._createdAt
   delete change._updatedAt
   delete change._id

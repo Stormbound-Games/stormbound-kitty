@@ -14,6 +14,7 @@ const clean = story => {
   story.readingTime = getReadingTime(text)
   story.cardId = (story.cardRef ? story.cardRef.id : story.cardId) || null
 
+  delete story.cardRef
   delete story._createdAt
   delete story._updatedAt
   delete story._id

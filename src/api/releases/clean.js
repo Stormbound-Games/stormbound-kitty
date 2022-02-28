@@ -12,6 +12,7 @@ const clean = release => {
     release.background = release.background.asset.url || null
   }
 
+  delete release.card
   delete release._createdAt
   delete release._updatedAt
   delete release._id
