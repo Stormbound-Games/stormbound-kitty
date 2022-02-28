@@ -3,7 +3,7 @@ import getEmbed from '~/helpers/getEmbed'
 import arrayRandom from '~/helpers/arrayRandom'
 import indexArray from '~/helpers/indexArray'
 import getStories from '~/api/stories/getStories'
-import getCards from '~/api/stories/getCards'
+import getCards from '~/api/cards/getCards'
 
 const getEmbedForStory = (cardsIndex, label, story) => {
   return getEmbed()
@@ -38,7 +38,7 @@ const story = {
       return getEmbedForStory(cardsIndex, this.label, story)
     }
 
-    const results = await getStoriesForSearch(message)
+    const results = await getStoriesForSearch(cards, message)
 
     return getEmbedForStory(cardsIndex, this.label, results[0])
   },

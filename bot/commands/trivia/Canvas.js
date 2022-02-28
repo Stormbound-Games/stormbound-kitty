@@ -1,7 +1,6 @@
 import canvas from 'canvas'
 import Discord from 'discord.js'
 
-const BASE_URL = 'https://stormbound-kitty.com'
 const random = (min, max) => min + Math.random() * (max - min)
 
 export default class Canvas {
@@ -21,7 +20,7 @@ export default class Canvas {
   }
 
   loadImage(fileName) {
-    return canvas.loadImage(BASE_URL + '/assets/images/cards/' + fileName)
+    return canvas.loadImage(fileName)
   }
 
   getAttachment(fileName, multiplier = 1) {
