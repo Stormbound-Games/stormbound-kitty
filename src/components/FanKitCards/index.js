@@ -61,11 +61,7 @@ export default React.memo(function FanKitCards(props) {
 
       <FanKitDownloadDialog
         name={activeCard.name}
-        image={
-          activeCard.image
-            ? '/assets/images/cards/' + activeCard.image
-            : undefined
-        }
+        image={activeCard.image}
         dialogRef={instance => {
           dialogRef.current = instance
 
@@ -86,7 +82,7 @@ export default React.memo(function FanKitCards(props) {
               {row[index] && (
                 <FanKitItem
                   {...row[index]}
-                  image={'/assets/images/cards/' + row[index].image}
+                  image={row[index].image + '&w=280'}
                   key={row[index].id}
                   setActive={setActive}
                   width={280}

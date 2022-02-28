@@ -27,7 +27,7 @@ const ShareButton = ({ disabled }) => (
   <ShareDialog
     label='Share book'
     disabled={disabled}
-    image='/assets/images/cards/rogue_sheep.png'
+    image='https://cdn.sanity.io/images/5hlpazgd/production/7235227a710908d4e81d7f57439bdb4cc4fabbe7-512x512.png'
   >
     <p>
       Your book is automatically saved to the URL of the page as you open it.

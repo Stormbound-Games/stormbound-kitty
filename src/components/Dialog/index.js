@@ -14,7 +14,7 @@ export default React.memo(function Dialog(props) {
   const { css } = useFela({ withCTA: hasCTA })
   const image =
     typeof props.image === 'undefined'
-      ? '/assets/images/cards/lady_rime.png'
+      ? '/https://cdn.sanity.io/images/5hlpazgd/production/1c3030c89bb57cf4b49cbf0bf83d2acaa4a1a6fd-512x512.png'
       : props.image
   const hideHeader = false
   const allowScroll = false
@@ -75,9 +75,8 @@ export default React.memo(function Dialog(props) {
       {image !== null && (
         <Image
           extend={styles.image}
-          src={image}
+          src={image + '?auto=format&w=' + (props.imageWidth || 200)}
           alt=''
-          withAvif
           width={props.imageWidth || 200}
           height={props.imageHeight || 200}
           lazy

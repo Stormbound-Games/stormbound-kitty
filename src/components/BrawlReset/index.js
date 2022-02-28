@@ -40,7 +40,7 @@ export default React.memo(function BrawlReset(props) {
         dialogRef={instance => (dialog.current = instance)}
         title='Reset Brawl data'
         close={close}
-        image='/assets/images/cards/execution.png'
+        image='https://cdn.sanity.io/images/5hlpazgd/production/3886106424f6a20f584fa658760e7fe46bd35ab5-512x512.png'
         ctaProps={{
           type: 'button',
           onClick: () => {

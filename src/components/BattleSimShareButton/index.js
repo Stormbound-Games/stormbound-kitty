@@ -15,7 +15,7 @@ export default React.memo(function BattleSimShareButton(props) {
     <ShareDialog
       label='Share board'
       disabled={props.disabled}
-      image='/assets/images/cards/olf_the_hammer.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/77baae150df0e9784678c1147fd1fa0d0fcbb9ee-512x512.png'
       share={{ processURL }}
     >
       <p>

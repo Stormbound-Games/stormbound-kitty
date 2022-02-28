@@ -50,7 +50,7 @@ export default React.memo(function DeckShareButton(props) {
     <ShareDialog
       label='Share deck'
       disabled={props.disabled}
-      image='/assets/images/cards/archdruid_earyn.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
     >
       <p>
         Your deck is automatically saved to the URL of the page as you work on

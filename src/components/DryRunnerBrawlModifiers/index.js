@@ -7,12 +7,10 @@ import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
 
 const getDialogImage = (cardsIndex, modifier) => {
   if (!modifier || modifier === 'NONE') {
-    return '/assets/images/cards/execution.png'
+    return 'https://cdn.sanity.io/images/5hlpazgd/production/3886106424f6a20f584fa658760e7fe46bd35ab5-512x512.png'
   }
 
-  return (
-    '/assets/images/cards/' + cardsIndex[BRAWL_INDEX[modifier].cardId].image
-  )
+  return cardsIndex[BRAWL_INDEX[modifier].cardId].image
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {

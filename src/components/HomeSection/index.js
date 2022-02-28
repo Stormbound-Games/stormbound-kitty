@@ -31,9 +31,8 @@ export default React.memo(function HomeSection(props) {
               <Only.Desktop>
                 <Image
                   extend={styles.image}
-                  src={props.image}
+                  src={props.image + '?auto=format&w=' + 270}
                   alt={props.imageAlt || ''}
-                  withAvif
                   width={270}
                   height={270}
                   lazy

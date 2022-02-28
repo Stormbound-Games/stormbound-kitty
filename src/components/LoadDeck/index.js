@@ -40,7 +40,7 @@ export default React.memo(function RandomDeckButton(props) {
         id='load-deck-dialog'
         title='Load deck from the game'
         dialogRef={instance => (dialog.current = instance)}
-        image='/assets/images/cards/archdruid_earyn.png'
+        image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
         close={() => dialog.current.hide()}
         ctaProps={{
           onClick: loadDeck,

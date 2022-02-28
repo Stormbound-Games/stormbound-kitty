@@ -71,7 +71,7 @@ export default React.memo(function BattleSimDeckImport(props) {
         id='battle-sim-deck-import'
         title='Import a deck'
         dialogRef={registerDialog}
-        image='/assets/images/cards/olf_the_hammer.png'
+        image='https://cdn.sanity.io/images/5hlpazgd/production/77baae150df0e9784678c1147fd1fa0d0fcbb9ee-512x512.png'
         close={() => dialog.current.hide()}
         ctaProps={{
           onClick: importDeck,

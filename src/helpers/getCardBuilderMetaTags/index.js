@@ -33,7 +33,7 @@ const getCardBuilderMetaTags = (cardsIndex, state, versionId) => {
   if (state.imageURL) {
     metaTags.image = state.imageURL
   } else if (cardData) {
-    metaTags.image = '/assets/images/cards/' + cardData.image
+    metaTags.image = cardData.image
   }
 
   return metaTags

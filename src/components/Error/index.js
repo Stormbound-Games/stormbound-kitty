@@ -20,10 +20,9 @@ export default React.memo(function Error(props) {
 
         {!props.noImage && (
           <Image
-            src='/assets/images/cards/sparkly_kitties.png'
+            src='https://cdn.sanity.io/images/5hlpazgd/production/f675c9ec86b27088ee6433b53433a9a3fdd96803-512x512.png?auto=format&w=250'
             alt='Sparkly Kitties'
             extend={styles.image}
-            withAvif
             width={250}
             height={280}
             lazy

@@ -19,7 +19,7 @@ export default React.memo(function HarvestersDialog(props) {
       }}
       dialogRef={instance => (props.dialog.current = instance)}
       title='Choose the card to copy'
-      image='/assets/images/cards/harvesters_of_souls.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/8048600441cb8eccd9234e84292fc324802d0028-263x300.png'
     >
       <CardsGallery
         extend={{

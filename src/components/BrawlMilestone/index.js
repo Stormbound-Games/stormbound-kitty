@@ -29,7 +29,6 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
           src={book.image + '?auto=format&w=200'}
           alt={`${capitalize(bookType.toLowerCase())} book`}
           extend={styles.bookImage}
-          withAvif
         />
       )
     }

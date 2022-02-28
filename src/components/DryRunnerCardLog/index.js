@@ -40,11 +40,10 @@ export default React.memo(function DryRunnerCardLog(props) {
                 >
                   <Image
                     extend={styles.image}
-                    src={'/assets/images/cards/' + card.image}
+                    src={card.image + '&w=45'}
                     alt={card.name}
                     onClick={() => setZoomedCard(card)}
                     data-testid='card-log-image'
-                    withAvif
                     width={45}
                     height={45}
                     lazy
