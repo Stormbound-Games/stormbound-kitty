@@ -2,7 +2,7 @@ const getAverageManaCost = cards =>
   cards.map(card => card.mana).reduce((a, b) => a + b, 0) / cards.length
 const MANA_THRESHOLD = 3
 
-export default cards => {
+const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasNorthseaDog = cardIds.includes('N5')
   const hasFirstMutineer = cardIds.includes('N12')
@@ -33,3 +33,5 @@ export default cards => {
     highlight: ['N5'],
   }
 }
+
+export default advice

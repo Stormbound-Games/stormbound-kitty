@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import getRawCardData from '~/helpers/getRawCardData'
 
 const Script = props => (
   <Head>

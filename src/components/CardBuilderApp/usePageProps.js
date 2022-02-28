@@ -1,14 +1,16 @@
+import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import getWikiCardLink from '~/helpers/getWikiCardLink'
-import isCardOfficial from '~/helpers/isCardOfficial'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
 const usePageProps = (props, versionId) => {
+  const { cardsIndex } = React.useContext(CardsContext)
   const properties = {}
   const isEditing = props.mode === 'EDITOR'
   const { name, faction, type, race } = props.card
   const id = props.cardId
 
-  if (isCardOfficial(id)) {
+  if (id in cardsIndex) {
     const date = versionId ? 'Prior ' + formatPreciseDate(versionId) : null
     const wiki = getWikiCardLink(name)
 

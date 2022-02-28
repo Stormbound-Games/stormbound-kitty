@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import CardProgress from '~/components/CardProgress'
 import CTA from '~/components/CTA'
@@ -8,16 +9,20 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortCards from '~/helpers/sortCards'
 import styles from './styles'
 
-const sortCollection = (a, b) =>
-  sortCards()(getResolvedCardData(a), getResolvedCardData(b))
+const sortCollection = cardsIndex => (a, b) =>
+  sortCards()(
+    getResolvedCardData(cardsIndex, a),
+    getResolvedCardData(cardsIndex, b)
+  )
 
 export default React.memo(function CardDisplayControls(props) {
   const { css } = useFela()
   const { cardId } = props
+  const { cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
-    () => collection.sort(sortCollection),
-    [collection]
+    () => collection.sort(sortCollection(cardsIndex)),
+    [cardsIndex, collection]
   )
 
   const indexInCollection = orderedCollection.findIndex(

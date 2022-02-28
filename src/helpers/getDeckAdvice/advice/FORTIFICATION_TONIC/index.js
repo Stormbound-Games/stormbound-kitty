@@ -1,6 +1,6 @@
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 
-export default cards => {
+const advice = cards => {
   const structures = getStructures(cards)
   const cheapStructures = structures.filter(card => card.mana <= 3)
   const cardIds = cards.map(card => card.id)
@@ -17,3 +17,5 @@ export default cards => {
     highlight: ['I3', ...structures],
   }
 }
+
+export default advice

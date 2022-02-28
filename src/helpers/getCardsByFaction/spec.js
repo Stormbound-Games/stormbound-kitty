@@ -1,7 +1,7 @@
 import getCardsByFaction from './'
 
 describe('The `getCardsByFaction` helper', () => {
-  const output = getCardsByFaction()
+  const output = getCardsByFaction(global.__CARDS__)
 
   it('should return an object with factions as keys', () => {
     expect(output.swarm).not.toEqual(undefined)

@@ -33,7 +33,6 @@ export default React.memo(function HomeSection(props) {
                   extend={styles.image}
                   src={props.image}
                   alt={props.imageAlt || ''}
-                  withAvif
                   width={270}
                   height={270}
                   lazy

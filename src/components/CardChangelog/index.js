@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import CardChangelogForm from '~/components/CardChangelogForm'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
@@ -8,15 +9,13 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import FeedCardChange from '~/components/FeedCardChange'
 import sortCards from '~/helpers/sortCards'
-import getRawCardData from '~/helpers/getRawCardData'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
 import styles from './styles'
 
-const getCardName = id => getRawCardData(id).name
-
 export default React.memo(function CardChangelog(props) {
   const { css } = useFela()
+  const { cardsIndex } = React.useContext(CardsContext)
   const [sorting, setSorting] = React.useState('DATE')
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
@@ -77,7 +76,10 @@ export default React.memo(function CardChangelog(props) {
                   <ul className={css(styles.list)}>
                     {changesByDate[date]
                       .sort((a, b) =>
-                        sortCards()(getRawCardData(a.id), getRawCardData(b.id))
+                        sortCards()(
+                          cardsIndex[a.id].name,
+                          cardsIndex[b.id].name
+                        )
                       )
                       .map(change => (
                         <li
@@ -95,10 +97,12 @@ export default React.memo(function CardChangelog(props) {
                 </Spacing>
               ))
           : Object.keys(changesByCard)
-              .sort((a, b) => sortCards()(getRawCardData(a), getRawCardData(b)))
+              .sort((a, b) => sortCards()(cardsIndex[a], cardsIndex[b]))
               .map(id => (
                 <Spacing top='LARGER' key={id}>
-                  <Title className={css(styles.title)}>{getCardName(id)}</Title>
+                  <Title className={css(styles.title)}>
+                    {cardsIndex[id].name}
+                  </Title>
                   <ul className={css(styles.list)}>
                     {changesByCard[id].map(change => (
                       <li

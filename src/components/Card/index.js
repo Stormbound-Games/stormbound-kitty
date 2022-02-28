@@ -23,9 +23,7 @@ const useCardBackground = ({ missing, rarity, type, faction }) => {
 }
 
 export default React.memo(function Card(props) {
-  const { supportsWebp } = React.useContext(ImageSupportContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024, props.containerWidth)
-  const ext = supportsWebp ? 'webp' : 'png'
   const backgroundImage = useCardBackground(props)
   const level = clamp(props.level || 1, 1, 5)
   const styleProps = {
@@ -85,31 +83,20 @@ export default React.memo(function Card(props) {
           <div className={css(styles.imageWrapper)}>
             <Image
               alt={props.image ? props.name : ''}
-              src={
-                (props.image || '').startsWith('http') || !props.image
-                  ? props.image
-                  : '/assets/images/cards/' + props.image
-              }
+              src={props.image}
               extend={styles.image}
               data-testid='card-image'
               lazy
               width={props.image ? 300 : undefined}
               height={props.image ? 300 : undefined}
-              withAvif
             />
           </div>
         ) : (
           <span
             className={css(styles.missing)}
             style={{
-              maskImage: `url(/assets/images/cards/${props.image.replace(
-                '.png',
-                '.' + ext
-              )})`,
-              WebkitMaskImage: `url(/assets/images/cards/${props.image.replace(
-                '.png',
-                '.' + ext
-              )})`,
+              maskImage: `url("${props.image}?auto=format&w=300")`,
+              WebkitMaskImage: `url("${props.image}?auto=format&w=300")`,
             }}
           />
         )}

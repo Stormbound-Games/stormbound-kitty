@@ -1,5 +1,6 @@
 import React from 'react'
 import { FACTIONS } from '~/constants/game'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import CTA from '~/components/CTA'
 import Dialog from '~/components/Dialog'
@@ -9,6 +10,7 @@ import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import getRandomDeck from '~/helpers/getRandomDeck'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 import arrayRandom from '~/helpers/arrayRandom'
 
 const getRandomFaction = () =>
@@ -16,32 +18,37 @@ const getRandomFaction = () =>
 
 export default React.memo(function RandomDeckButton(props) {
   const dialog = React.useRef(null)
+  const { cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
   const [faction, setFaction] = React.useState('*')
   const [minFactionCards, setMinFactionCards] = React.useState(0)
   const [maxLegendaryCards, setMaxLegendaryCards] = React.useState('')
   const [maxEpicCards, setMaxEpicCards] = React.useState('')
   const { defineDeck } = props
+  const availableCards = collection.map(card =>
+    getResolvedCardData(cardsIndex, card)
+  )
 
   const generateDeck = React.useCallback(() => {
     const deck = getRandomDeck({
-      availableCards: collection,
+      availableCards,
       faction: faction === '*' ? getRandomFaction() : faction,
-      maxEpicCards: typeof maxEpicCards === 'number' ? maxEpicCards : undefined,
-      maxLegendaryCards:
-        typeof maxLegendaryCards === 'number' ? maxLegendaryCards : undefined,
+      maxEpicCards: !isNaN(+maxEpicCards) ? +maxEpicCards : undefined,
+      maxLegendaryCards: !isNaN(+maxLegendaryCards)
+        ? +maxLegendaryCards
+        : undefined,
       minFactionCards: minFactionCards,
     })
 
     defineDeck(deck)
     dialog.current.hide()
   }, [
+    availableCards,
     defineDeck,
     faction,
     minFactionCards,
     maxEpicCards,
     maxLegendaryCards,
-    collection,
   ])
 
   return (
@@ -64,7 +71,7 @@ export default React.memo(function RandomDeckButton(props) {
           </>
         }
         dialogRef={instance => (dialog.current = instance)}
-        image='/assets/images/cards/archdruid_earyn.png'
+        image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
         close={() => dialog.current.hide()}
         ctaProps={{
           onClick: generateDeck,
@@ -104,7 +111,7 @@ export default React.memo(function RandomDeckButton(props) {
               data-testid='random-max-epic-select'
               id='maxEpicCards'
               value={maxEpicCards}
-              onChange={event => setMaxEpicCards(+event.target.value || '')}
+              onChange={event => setMaxEpicCards(event.target.value)}
             >
               <option value=''>Any</option>
               <option value={0}>0</option>
@@ -124,9 +131,7 @@ export default React.memo(function RandomDeckButton(props) {
               data-testid='random-max-legendary-select'
               id='maxLegendaryCards'
               value={maxLegendaryCards}
-              onChange={event =>
-                setMaxLegendaryCards(+event.target.value || '')
-              }
+              onChange={event => setMaxLegendaryCards(event.target.value)}
             >
               <option value=''>Any</option>
               <option value={0}>0</option>

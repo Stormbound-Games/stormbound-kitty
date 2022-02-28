@@ -4,25 +4,31 @@ import Layout from '~/components/Layout'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getNavigation from '~/helpers/getNavigation'
+import indexArray from '~/helpers/indexArray'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const [id] = params.id || []
+  const cardsIndex = indexArray(cards)
 
   try {
-    const cards = serialization.cards.deserialize(id).map(getResolvedCardData)
+    const deck = serialization.cards
+      .deserialize(id)
+      .map(card => getResolvedCardData(cardsIndex, card))
 
-    return { props: { navigation, cards } }
+    return { props: { cards, navigation, deck } }
   } catch (error) {
-    return { props: { navigation, cards: [] } }
+    return { props: { cards, navigation, deck: [] } }
   }
 }
 
-const BookOpeningSimulatorPage = ({ navigation, ...props }) => (
+const BookOpeningSimulatorPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'SIMULATORS', 'BOOK_SIMULATOR']}
     navigation={navigation}

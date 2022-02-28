@@ -7,6 +7,8 @@ import getNavigation from '~/helpers/getNavigation'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import useNavigator from '~/hooks/useNavigator'
+import indexArray from '~/helpers/indexArray'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
   const puzzles = await getPuzzles({ isPreview })
@@ -20,11 +22,15 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
+  const cardsIndex = indexArray(cards)
   const DEFAULT_PROPS = {
+    cards,
+    cardsIndex,
     navigation,
     simId: null,
-    sim: getInitialBattleData(),
+    sim: getInitialBattleData(cardsIndex),
     mode: 'EDITOR',
     puzzle: null,
   }
@@ -44,9 +50,11 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
     return {
       props: {
+        cards,
+        cardsIndex,
         navigation,
         simId: id,
-        sim: getInitialBattleData(id),
+        sim: getInitialBattleData(cardsIndex, id),
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
         puzzle: await getPuzzle({ id, isPreview }),
       },
@@ -58,7 +66,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const BattleSim = ({ navigation, ...props }) => {
+const BattleSim = ({ navigation, cards, ...props }) => {
   const navigator = useNavigator()
 
   return (

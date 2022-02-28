@@ -1,21 +1,24 @@
 import React from 'react'
 import CardsStats from '~/components/CardsStats'
 import Layout from '~/components/Layout'
-import CARDS from '~/data/cards'
 import getNavigation from '~/helpers/getNavigation'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
+  const navigation = await getNavigation({ isPreview })
+
   return {
-    props: { navigation: await getNavigation({ isPreview }), cards: CARDS },
+    props: { cards, navigation },
   }
 }
 
-const CardStatsPage = ({ navigation, ...props }) => (
+const CardStatsPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['GAME', 'INFORMATION', 'CARD_STATS']}
     navigation={navigation}
   >
-    <CardsStats {...props} />
+    <CardsStats {...props} cards={cards} />
   </Layout>
 )
 

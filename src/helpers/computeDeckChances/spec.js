@@ -11,31 +11,42 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 describe('The `getEffectiveManaCost` helper', () => {
   it('should handle Gift of the Wise', () => {
     expect(
-      getEffectiveManaCost(8)(getResolvedCardData({ id: 'W19', level: 1 }))
+      getEffectiveManaCost(8)(
+        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W19', level: 1 })
+      )
     ).toEqual(9)
     expect(
-      getEffectiveManaCost(9)(getResolvedCardData({ id: 'W19', level: 1 }))
+      getEffectiveManaCost(9)(
+        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W19', level: 1 })
+      )
     ).toEqual(-2)
   })
 
   it('should handle Rimelings', () => {
     expect(
-      getEffectiveManaCost(4)(getResolvedCardData({ id: 'W12', level: 1 }))
+      getEffectiveManaCost(4)(
+        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W12', level: 1 })
+      )
     ).toEqual(5)
     expect(
-      getEffectiveManaCost(5)(getResolvedCardData({ id: 'W12', level: 1 }))
+      getEffectiveManaCost(5)(
+        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W12', level: 1 })
+      )
     ).toEqual(2)
   })
 
   it('should return mana cost otherwise', () => {
     expect(
-      getEffectiveManaCost(4)(getResolvedCardData({ id: 'N1', level: 1 }))
+      getEffectiveManaCost(4)(
+        getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1', level: 1 })
+      )
     ).toEqual(1)
   })
 })
 
 describe('The `getCycledHands` helper', () => {
   const deck = serialization.deck.deserialize(
+    global.__CARDS_INDEX_BY_SID__,
     '5n15n25w25n35n45n144n185w133w164w153w192n58'
   )
   const hand = deck.slice(0, 3).concat(deck.slice(-1))
@@ -54,8 +65,11 @@ describe('The `getCycledHands` helper', () => {
 
   it('should take effective mana in consideration when cycling', () => {
     const deck = serialization.deck
-      .deserialize('5n15n25w25n35n44n55n144n185w133w164w153w19')
-      .map(getResolvedCardData)
+      .deserialize(
+        global.__CARDS_INDEX_BY_SID__,
+        '5n15n25w25n35n44n55n144n185w133w164w153w19'
+      )
+      .map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
     const hand = deck.slice(0, 2).concat(deck.slice(-2))
     const hands = getCycledHands({ deck, hand, availableMana: 7 })
 
@@ -67,8 +81,11 @@ describe('The `getCycledHands` helper', () => {
 
 describe('The `canSpendAllMana` helper', () => {
   const deck = serialization.deck
-    .deserialize('5n15n25w25n35n45n144n185w133w164w153w192n58')
-    .map(getResolvedCardData)
+    .deserialize(
+      global.__CARDS_INDEX_BY_SID__,
+      '5n15n25w25n35n45n144n185w133w164w153w192n58'
+    )
+    .map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
   it('should return false if there is too much mana', () => {
     const hand = deck.slice(0, 4)
@@ -88,8 +105,11 @@ describe('The `canSpendAllMana` helper', () => {
 
 describe('The `canPlayAllCards` helper', () => {
   const deck = serialization.deck
-    .deserialize('5n15n25w25n35n45n144n185w133w164w153w192n58')
-    .map(getResolvedCardData)
+    .deserialize(
+      global.__CARDS_INDEX_BY_SID__,
+      '5n15n25w25n35n45n144n185w133w164w153w192n58'
+    )
+    .map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
   it('should return false if there is not enough mana', () => {
     const hand = deck.slice(0, 4)
@@ -104,8 +124,11 @@ describe('The `canPlayAllCards` helper', () => {
 
 describe('The `getHandCost` helper', () => {
   const deck = serialization.deck
-    .deserialize('5n15n25w25n35n44n55n144n185w133w164w153w19')
-    .map(getResolvedCardData)
+    .deserialize(
+      global.__CARDS_INDEX_BY_SID__,
+      '5n15n25w25n35n44n55n144n185w133w164w153w19'
+    )
+    .map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
   it('should return the cost of a full hand', () => {
     const hand = deck.slice(0, 4)

@@ -2,6 +2,8 @@ import getEmbed from '~/helpers/getEmbed'
 import clamp from '~/helpers/clamp'
 import getCardValue from '~/helpers/getCardValue'
 import searchCards from '~/helpers/searchCards'
+import indexArray from '~/helpers/indexArray'
+import getCards from '~/api/cards/getCards'
 
 const getLevel = message => {
   message = message.trim()
@@ -26,13 +28,15 @@ const cardvalue = {
         `Get the estimated value of a card for a single turn. It optionally accepts a level. For instance, \`!${this.command} rof\` or \`!${this.command} mia 4\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
+    const cards = await getCards()
+    const cardsIndex = indexArray(cards)
     const [level, search] = getLevel(message)
-    const [card] = searchCards(search)
+    const [card] = searchCards(cards, search)
 
     if (!card) return
 
-    const value = getCardValue(card.id, level)
+    const value = getCardValue(cardsIndex, card.id, level)
     const embed = getEmbed().setTitle(
       `${this.label}: ${card.name} (level ${level})`
     )

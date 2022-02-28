@@ -6,6 +6,7 @@ import getStory from '~/api/stories/getStory'
 import getStories from '~/api/stories/getStories'
 import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
 import { STORY_CATEGORIES } from '~/constants/stories'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
   const stories = await getStories({ isPreview })
@@ -15,14 +16,13 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const currentStory = await getStory({ slug: params.slug, isPreview })
+  const cards = await getCards({ isPreview })
+  const story = await getStory({ slug: params.slug, isPreview })
   const moreStories = (
-    await getStoriesFromAuthor({ author: currentStory.author, isPreview })
-  ).filter(story =>
-    currentStory.saga ? story.saga === currentStory.saga : true
-  )
+    await getStoriesFromAuthor({ author: story.author, isPreview })
+  ).filter(story => (story.saga ? story.saga === story.saga : true))
 
-  if (currentStory.saga) {
+  if (story.saga) {
     moreStories.sort((a, b) => {
       const indexA = parseInt(a.title, 10)
       const indexB = parseInt(b.title, 10)
@@ -30,20 +30,23 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
     })
   }
-  const { category } = currentStory
+  const { category } = story
+  const active = ['STORIES', STORY_CATEGORIES[category].category, category]
+  const navigation = await getNavigation({ isPreview })
 
   return {
     props: {
-      active: ['STORIES', STORY_CATEGORIES[category].category, category],
-      story: currentStory,
+      active,
+      cards,
       moreStories: moreStories.slice(0, 3),
-      navigation: await getNavigation({ isPreview }),
+      story,
+      navigation,
     },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const StoryPage = ({ active, navigation, ...props }) => (
+const StoryPage = ({ active, navigation, cards, ...props }) => (
   <Layout active={active} navigation={navigation}>
     <Story {...props} />
   </Layout>

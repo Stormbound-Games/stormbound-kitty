@@ -3,77 +3,61 @@ const bookodds = command.handler.bind(command)
 
 describe('Bot — !bookodds', () => {
   it('should return nothing for a missing term', () => {
-    expect(bookodds('')).toEqual(undefined)
+    return bookodds('').then(output => expect(output).toEqual(undefined))
   })
 
   it('should return nothing for a missing book', () => {
-    expect(bookodds('rare')).toEqual(undefined)
-    expect(bookodds('rof')).toEqual(undefined)
+    return bookodds('rare').then(output => expect(output).toEqual(undefined))
   })
 
   it('should return odds for fusion stones', () => {
-    expect(bookodds('mythic fs').description).toContain('Fusion stones')
-    expect(bookodds('classic fs').description).toContain('Fusion stones')
-    expect(bookodds('heroic fs').description).toContain('Fusion stones')
-    expect(bookodds('noble fs').description).toContain('Fusion stones')
-    expect(bookodds('humble fs').description).toContain('Fusion stones')
+    return Promise.all([
+      bookodds('mythic fs'),
+      bookodds('classic fs'),
+      bookodds('heroic fs'),
+      bookodds('noble fs'),
+      bookodds('humble fs'),
+    ]).then(outputs => {
+      expect(outputs[0].description).toContain('Fusion stones')
+      expect(outputs[1].description).toContain('Fusion stones')
+      expect(outputs[2].description).toContain('Fusion stones')
+      expect(outputs[3].description).toContain('Fusion stones')
+      expect(outputs[4].description).toContain('Fusion stones')
+    })
   })
 
   it('should return odds for a rarity', () => {
-    expect(
-      bookodds('mythic common')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Any common card')
-    expect(
-      bookodds('mythic common')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Specific common card')
-    expect(
-      bookodds('mythic rare')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Any rare card')
-    expect(
-      bookodds('mythic rare')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Specific rare card')
-    expect(
-      bookodds('mythic epic')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Any epic card')
-    expect(
-      bookodds('mythic epic')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Specific epic card')
-    expect(
-      bookodds('mythic legendary')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Any legendary card')
-    expect(
-      bookodds('mythic legendary')
-        .fields.map(field => field.name)
-        .join(' ')
-    ).toContain('Specific legendary card')
+    return bookodds('mythic common').then(output => {
+      const fields = output.fields.map(field => field.name).join(' ')
+
+      expect(fields).toContain('Any common card')
+      expect(fields).toContain('Specific common card')
+    })
   })
 
   it('should return odds for a specific card', () => {
-    expect(bookodds('mythic N1').title).toContain('Green Prototypes')
-    expect(bookodds('mythic gifted').title).toContain('Gifted Recruits')
-    expect(bookodds('mythic rof').title).toContain('Rain of Frogs')
-    expect(bookodds('mythic QoH').title).toContain('Queen of Herds')
+    return Promise.all([
+      bookodds('mythic N1'),
+      bookodds('mythic gifted'),
+      bookodds('mythic rof'),
+      bookodds('mythic QoH'),
+    ]).then(outputs => {
+      expect(outputs[0].title).toContain('Green Prototypes')
+      expect(outputs[1].title).toContain('Gifted Recruits')
+      expect(outputs[2].title).toContain('Rain of Frogs')
+      expect(outputs[3].title).toContain('Queen of Herds')
+    })
   })
 
   it('should ignore casing', () => {
-    expect(bookodds('MytHiC fS').title).toContain('Fusion stones')
+    return bookodds('MytHiC fS').then(output =>
+      expect(output.title).toContain('Fusion stones')
+    )
   })
 
   it('should ignore order', () => {
-    expect(bookodds('fs classic').title).toContain('Fusion stones')
+    return bookodds('fs classic').then(output =>
+      expect(output.title).toContain('Fusion stones')
+    )
   })
 })

@@ -1,9 +1,9 @@
-import CARDS from '~/data/cards'
 import { FACTIONS, RACES, RARITIES, TYPES } from '~/constants/game'
 import arrayRandom from '~/helpers/arrayRandom'
 import getEmbed from '~/helpers/getEmbed'
 import getIgnoredSearch from '~/helpers/getIgnoredSearch'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
+import getCards from '~/api/cards/getCards'
 
 const linkify = card => `https://stormbound-kitty.com/card/${card.id}/display`
 
@@ -65,23 +65,27 @@ const randomcard = {
         `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, type, race or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
+    const cards = await getCards()
+
     if (message.length === 0) {
-      return linkify(arrayRandom(CARDS))
+      return linkify(arrayRandom(cards))
     }
 
     const { filters, ignored } = parseMessage(message.toLowerCase())
 
     if (filters.length === 0) return
 
-    const results = CARDS.filter(card => !card.token).filter(card => {
-      for (const { key, method, value } of filters) {
-        if (method === 'INC' && card[key] !== value) return false
-        if (method === 'EXC' && card[key] === value) return false
-      }
+    const results = cards
+      .filter(card => !card.token)
+      .filter(card => {
+        for (const { key, method, value } of filters) {
+          if (method === 'INC' && card[key] !== value) return false
+          if (method === 'EXC' && card[key] === value) return false
+        }
 
-      return true
-    })
+        return true
+      })
 
     if (results.length === 0) return
 

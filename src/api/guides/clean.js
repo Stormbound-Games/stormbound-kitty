@@ -8,7 +8,7 @@ const clean = guide => {
     if (typeof guide.background.ratio === 'number') {
       guide.ratio = guide.background.ratio + '%'
     }
-    guide.background = guide.background.asset.url + '?auto=format'
+    guide.background = guide.background.asset.url || null
   }
 
   delete guide._createdAt

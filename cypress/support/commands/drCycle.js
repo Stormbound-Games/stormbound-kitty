@@ -1,5 +1,5 @@
 import s from '../../integration/dryRunner/selectors'
-import getRawCardData from '~/helpers/getRawCardData'
+import { getCardData } from '../../utils'
 
 const cycle = id => {
   if (typeof id === 'number') {
@@ -9,7 +9,7 @@ const cycle = id => {
       .then($card => cy.drCycle($card.attr('id')))
   }
 
-  const { name } = getRawCardData(id)
+  const { name } = getCardData(id)
 
   Cypress.log({
     name: 'CYCLE',

@@ -8,7 +8,7 @@ const clean = release => {
     if (typeof release.background.ratio === 'number') {
       release.ratio = release.background.ratio + '%'
     }
-    release.background = release.background.asset.url + '?auto=format'
+    release.background = release.background.asset.url || null
   }
 
   delete release._createdAt

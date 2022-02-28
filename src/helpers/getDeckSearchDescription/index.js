@@ -1,10 +1,9 @@
 import capitalize from '~/helpers/capitalize'
-import getRawCardData from '~/helpers/getRawCardData'
 import toSentence from '~/helpers/toSentence'
 import { TAGS } from '~/constants/deck'
 
-const getDeckSearchDescription = (state = {}) => {
-  const cardData = getRawCardData(state.including)
+const getDeckSearchDescription = (cardsIndex, state = {}) => {
+  const cardData = cardsIndex[state.including] || {}
   const tags = state.tags || []
   const author = state.author || '*'
 

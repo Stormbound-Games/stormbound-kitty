@@ -1,7 +1,6 @@
 import { RARITY_COPIES } from '~/constants/game'
-import getRawCardData from '~/helpers/getRawCardData'
 
-const isLevelAvailable = (card, level) => {
+const isLevelAvailable = (cardsIndex, card, level) => {
   // If the card is missing from the collection, it means there are 0 extra
   // copies which means no level can be highlighted. Similarly, if the card is
   // already level 5, we can short-circuit the function.
@@ -10,7 +9,7 @@ const isLevelAvailable = (card, level) => {
   // Begin with all levels not being available, either because they have been
   // reached already, or because we don’t know yet whether they can be.
   const isLevelAvailable = [false, false, false, false, false]
-  const { rarity } = getRawCardData(card.id)
+  const { rarity } = cardsIndex[card.id]
   let { copies } = card
 
   // Go from the current card level (from 1 to 4) to 5, and check if we have

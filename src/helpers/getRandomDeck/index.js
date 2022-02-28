@@ -1,6 +1,6 @@
-import CARDS from '~/data/cards'
 import arrayRandom from '~/helpers/arrayRandom'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
+import indexArray from '~/helpers/indexArray'
 import CONFUSION from '~/helpers/getDeckAdvice/advice/CONFUSION'
 import STRUCTURES from '~/helpers/getDeckAdvice/advice/STRUCTURES'
 import SPELLS from '~/helpers/getDeckAdvice/advice/SPELLS'
@@ -27,7 +27,7 @@ import UBASS_THE_HUNTER from '~/helpers/getDeckAdvice/advice/UBASS_THE_HUNTER'
 import SLOW_DECK from '~/helpers/getDeckAdvice/advice/SLOW_DECK'
 
 const DEFAULT_OPTIONS = {
-  availableCards: CARDS,
+  availableCards: [],
   faction: null,
   initialCards: [],
   maxEpicCards: 4,
@@ -35,9 +35,10 @@ const DEFAULT_OPTIONS = {
   minFactionCards: 3,
 }
 
-const isCausingWarning = advice => (deck, card) => {
-  return !advice(deck) && advice([...deck, card])
-}
+const isCausingWarning = advice => (deck, card, cardsIndex) =>
+  !advice(deck, 'NONE', cardsIndex) &&
+  advice([...deck, card], 'NONE', cardsIndex)
+
 const hasInefficientConfusion = isCausingWarning(CONFUSION)
 const hasInefficientFreeze = isCausingWarning(FREEZE)
 const hasInefficientDragons = isCausingWarning(DRAGONS)
@@ -63,7 +64,7 @@ const hasHighManaAverage = isCausingWarning(MANA_COST_AVERAGE)
 const hasSlowDeck = isCausingWarning(SLOW_DECK)
 const hasEbonrockIronclad = isCausingWarning(EBONROCK_IRONCLAD)
 
-const getRandomCard = (cards, deck, options) => {
+const getRandomCard = (cards, cardsIndex, deck, options) => {
   const card = arrayRandom(cards)
   const hasEnoughLegendaries =
     deck.filter(card => card.rarity === 'legendary').length >=
@@ -83,32 +84,32 @@ const getRandomCard = (cards, deck, options) => {
     (card.rarity === 'epic' && hasEnoughEpics) ||
     (card.rarity === 'legendary' && hasEnoughLegendaries) ||
     (card.faction === 'neutral' && hasEnoughNeutrals) ||
-    hasInefficientConfusion(deck, card) ||
-    hasTooManyStructures(deck, card) ||
-    hasTooManySpells(deck, card) ||
-    hasHighManaAverage(deck, card) ||
-    hasInefficientFreeze(deck, card) ||
-    hasInefficientPoison(deck, card) ||
-    hasInefficientSatyrs(deck, card) ||
-    hasInefficientDragons(deck, card) ||
-    hasInefficientLuckyCharmers(deck, card) ||
-    hasInefficientLinkedGolems(deck, card) ||
-    hasInefficientFortificationTonic(deck, card) ||
-    hasInefficientHearthguards(deck, card) ||
-    hasInefficientKlaxi(deck, card) ||
-    hasInefficientObsidianButchers(deck, card) ||
-    hasInefficientMia(deck, card) ||
-    hasInefficientEaryn(deck, card) ||
-    hasEbonrockIronclad(deck, card) ||
-    hasInefficientKindredsGrace(deck, card) ||
-    hasInefficientManaConsumer(deck, card) ||
-    hasInefficientNorthseaDog(deck, card) ||
-    hasInefficientQueenofHerds(deck, card) ||
-    hasInefficientZhevana(deck, card) ||
-    hasInefficientUbass(deck, card) ||
-    hasSlowDeck(deck, card)
+    hasInefficientConfusion(deck, card, cardsIndex) ||
+    hasTooManyStructures(deck, card, cardsIndex) ||
+    hasTooManySpells(deck, card, cardsIndex) ||
+    hasHighManaAverage(deck, card, cardsIndex) ||
+    hasInefficientFreeze(deck, card, cardsIndex) ||
+    hasInefficientPoison(deck, card, cardsIndex) ||
+    hasInefficientSatyrs(deck, card, cardsIndex) ||
+    hasInefficientDragons(deck, card, cardsIndex) ||
+    hasInefficientLuckyCharmers(deck, card, cardsIndex) ||
+    hasInefficientLinkedGolems(deck, card, cardsIndex) ||
+    hasInefficientFortificationTonic(deck, card, cardsIndex) ||
+    hasInefficientHearthguards(deck, card, cardsIndex) ||
+    hasInefficientKlaxi(deck, card, cardsIndex) ||
+    hasInefficientObsidianButchers(deck, card, cardsIndex) ||
+    hasInefficientMia(deck, card, cardsIndex) ||
+    hasInefficientEaryn(deck, card, cardsIndex) ||
+    hasEbonrockIronclad(deck, card, cardsIndex) ||
+    hasInefficientKindredsGrace(deck, card, cardsIndex) ||
+    hasInefficientManaConsumer(deck, card, cardsIndex) ||
+    hasInefficientNorthseaDog(deck, card, cardsIndex) ||
+    hasInefficientQueenofHerds(deck, card, cardsIndex) ||
+    hasInefficientZhevana(deck, card, cardsIndex) ||
+    hasInefficientUbass(deck, card, cardsIndex) ||
+    hasSlowDeck(deck, card, cardsIndex)
   ) {
-    return getRandomCard(cards, deck, options)
+    return getRandomCard(cards, cardsIndex, deck, options)
   }
 
   return card
@@ -128,6 +129,8 @@ const isMatchingFaction = faction => card =>
  * @param {Card[]} options.initialCards  - Cards to force into the deck
  */
 const getRandomDeck = (options = {}) => {
+  const cardsIndex = indexArray(options.availableCards)
+
   // Merge the given options with the default options.
   for (let option in DEFAULT_OPTIONS) {
     if (typeof options[option] === 'undefined') {
@@ -141,7 +144,7 @@ const getRandomDeck = (options = {}) => {
   // not conflict with the given faction.
   const deck = options.initialCards
     .map(card =>
-      getResolvedCardData({
+      getResolvedCardData(cardsIndex, {
         id: card.id,
         level: card.level || 1,
       })
@@ -152,12 +155,11 @@ const getRandomDeck = (options = {}) => {
   // amount of initial cards (after faction mismatches have been removed).
   const rounds = 12 - deck.length
 
-  // The available cards are the provided ones if any, otherwise the default
-  // card collection, minus all the cards that don’t match the provided faction,
-  // as well as the token cards.
+  // The available cards are the provided ones minus all the cards that don’t
+  // match the provided faction, as well as the token cards.
   const availableCards = options.availableCards
     .map(card =>
-      getResolvedCardData({
+      getResolvedCardData(cardsIndex, {
         id: card.id,
         level: card.level || 1,
       })
@@ -170,7 +172,7 @@ const getRandomDeck = (options = {}) => {
   // but we never know), we retry generating the deck from scratch.
   for (let i = 0; i < rounds; i += 1) {
     try {
-      deck.push(getRandomCard(availableCards, deck, options))
+      deck.push(getRandomCard(availableCards, cardsIndex, deck, options))
     } catch (error) {
       if (error instanceof RangeError) {
         return getRandomDeck(options)

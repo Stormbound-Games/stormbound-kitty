@@ -23,13 +23,14 @@ const getDefaultState = props => ({
   },
   turn: props.turn || 1,
   mana: DEFAULT_MANA + ((props.turn || 1) - 1),
-  deck: resolveDeckWeight(props.deck),
+  deck: resolveDeckWeight(props.cardsIndex, props.deck),
   playerOrder: 'FIRST',
   playedCards: [],
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
   modifier: props.modifier,
-  opponentDeck: getOpponentDeck(props.modifier),
+  opponentDeck: getOpponentDeck(props.cards, props.modifier),
+  cardsIndex: props.cardsIndex,
 })
 
 const useDeckMechanisms = props => {

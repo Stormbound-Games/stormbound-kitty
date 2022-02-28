@@ -1,25 +1,20 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-
-const sortByMana = (a, b) => {
+const sortByMana = cardsIndex => (a, b) => {
   if (!a) return +1
   if (!b) return -1
 
-  const cardA = getResolvedCardData({
-    token: a.token,
-    id: a.id,
-    level: a.level,
-  })
-  const cardB = getResolvedCardData({
-    token: b.token,
-    id: b.id,
-    level: b.level,
-  })
+  const cardA = cardsIndex[a.id]
+  const cardB = cardsIndex[b.id]
 
-  if (+cardA.mana > +cardB.mana) return +1
-  if (+cardA.mana < +cardB.mana) return -1
+  if (!cardA) return +1
+  if (!cardB) return -1
+
+  if (cardA.mana > cardB.mana) return +1
+  if (cardA.mana < cardB.mana) return -1
 
   if (cardA.name > cardB.name) return +1
   if (cardA.name < cardB.name) return -1
+
+  return 0
 }
 
 export default sortByMana

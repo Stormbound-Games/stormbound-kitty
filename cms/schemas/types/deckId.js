@@ -9,18 +9,7 @@ const deckId = {
   name: 'deckId',
   type: 'string',
   description: 'The Stormbound-Kitty ID of a deck (not the Stormbound one).',
-  validation: Rule =>
-    Rule.required()
-      .lowercase()
-      .custom(string => {
-        try {
-          const deck = serialization.deck.deserialize(string)
-
-          return deck.every(isValidCard) || 'Invalid deck ID.'
-        } catch {
-          return 'Invalid deck ID.'
-        }
-      }),
+  validation: Rule => Rule.required().lowercase(),
 }
 
 export default deckId

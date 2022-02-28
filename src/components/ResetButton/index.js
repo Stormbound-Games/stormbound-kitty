@@ -4,7 +4,9 @@ import Dialog from '~/components/Dialog'
 
 export default React.memo(function ResetButton(props) {
   const label = props.label || 'Reset'
-  const image = props.image || '/assets/images/cards/execution.png'
+  const image =
+    props.image ||
+    'https://cdn.sanity.io/images/5hlpazgd/production/3886106424f6a20f584fa658760e7fe46bd35ab5-512x512.png'
   const confirmText = props.confirm || 'Are you sure you would like to reset?'
 
   const dialog = React.useRef(null)

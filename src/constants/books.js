@@ -213,8 +213,8 @@ export const EXPECTATIONS = {
   },
   ANY_COMMON: {
     label: 'any common card',
-    getExpectations: criteria => [
-      countCards({ ...criteria, rarity: 'common' }, false),
+    getExpectations: (cards, criteria) => [
+      countCards(cards, { ...criteria, rarity: 'common' }, false),
       0,
       0,
       0,
@@ -222,29 +222,29 @@ export const EXPECTATIONS = {
   },
   ANY_RARE: {
     label: 'any rare card',
-    getExpectations: criteria => [
+    getExpectations: (cards, criteria) => [
       0,
-      countCards({ ...criteria, rarity: 'rare' }, false),
+      countCards(cards, { ...criteria, rarity: 'rare' }, false),
       0,
       0,
     ],
   },
   ANY_EPIC: {
     label: 'any epic card',
-    getExpectations: criteria => [
+    getExpectations: (cards, criteria) => [
       0,
       0,
-      countCards({ ...criteria, rarity: 'epic' }, false),
+      countCards(cards, { ...criteria, rarity: 'epic' }, false),
       0,
     ],
   },
   ANY_LEGENDARY: {
     label: 'any legendary card',
-    getExpectations: criteria => [
+    getExpectations: (cards, criteria) => [
       0,
       0,
       0,
-      countCards({ ...criteria, rarity: 'legendary' }, false),
+      countCards(cards, { ...criteria, rarity: 'legendary' }, false),
     ],
   },
 }

@@ -3,6 +3,7 @@ import searchCards from '~/helpers/searchCards'
 import parseDate from '~/helpers/parseDate'
 import getChangesFromCard from '~/api/changes/getChangesFromCard'
 import { formatPreciseDate } from '~/helpers/formatDate'
+import getCards from '~/api/cards/getCards'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -24,7 +25,8 @@ const changelog = {
       )
   },
   handler: async function (message) {
-    const [card] = searchCards(message)
+    const cards = await getCards()
+    const [card] = searchCards(cards, message)
 
     // If no card was found with the given search, look no further.
     if (!card) return

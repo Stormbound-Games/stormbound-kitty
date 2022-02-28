@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
 import serialization from '~/helpers/serialization'
 import uuid from '~/helpers/uuid'
@@ -11,8 +12,8 @@ const resolveTags = deck =>
   // Maintain backward compatibility with the old `category` key.
   deck.tags ? deck : { ...deck, tags: [deck.category], category: undefined }
 
-const getTagsFromId = id => {
-  const cards = serialization.deck.deserialize(id)
+const getTagsFromId = (cardsIndexBySid, id) => {
+  const cards = serialization.deck.deserialize(cardsIndexBySid, id)
   const average =
     cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
 
@@ -32,6 +33,7 @@ const getInitialDecks = () => {
 }
 
 export default React.memo(function PersonalDecksProvider(props) {
+  const { cardsIndexBySid } = React.useContext(CardsContext)
   const [decks, setDecks] = React.useState([])
   const [isUnseen, toggleUnseen] = React.useState(false)
   const { notify: sendNotification } = React.useContext(NotificationContext)
@@ -85,7 +87,7 @@ export default React.memo(function PersonalDecksProvider(props) {
         tags:
           deck.tags && deck.tags.length > 0
             ? deck.tags
-            : getTagsFromId(deck.id),
+            : getTagsFromId(cardsIndexBySid, deck.id),
       },
     ])
   }

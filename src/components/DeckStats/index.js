@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
@@ -31,7 +32,8 @@ const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 
 export default React.memo(function DeckStats(props) {
   const { css } = useFela()
-  const cards = props.deck.map(getResolvedCardData)
+  const { cardsIndex } = React.useContext(CardsContext)
+  const cards = props.deck.map(card => getResolvedCardData(cardsIndex, card))
   const averageMana = getAverageManaCost(cards)
   const averageSpeed = getAverageSpeed(cards)
   const averageLevel = getAverageLevel(cards)

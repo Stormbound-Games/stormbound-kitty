@@ -5,14 +5,17 @@ import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
 import getNavigation from '~/helpers/getNavigation'
 import { DEFAULT_LIST } from '~/constants/list'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const DEFAULT_PROPS = {
+    cards,
     navigation,
     tiers: DEFAULT_LIST,
     id: null,
@@ -34,6 +37,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
     return {
       props: {
+        cards,
         navigation,
         tiers,
         id,
@@ -45,7 +49,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const ListBuilderPage = ({ navigation, ...props }) => (
+const ListBuilderPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'LIST_BUILDER']}
     navigation={navigation}

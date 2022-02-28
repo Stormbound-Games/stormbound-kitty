@@ -9,7 +9,9 @@ import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import getNavigation from '~/helpers/getNavigation'
+import indexArray from '~/helpers/indexArray'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   const decks = await getDecks()
@@ -25,8 +27,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
+  const cardsIndex = indexArray(cards)
+  const cardsIndexBySid = indexArray(cards, 'sid')
   const DEFAULT_PROPS = {
+    cards,
     navigation,
     id: null,
     deck: [],
@@ -49,15 +55,17 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       return { props: DEFAULT_PROPS }
     }
 
-    const deck = getInitialDeckData(id)
-    const resolvedDeck = deck.map(getResolvedCardData)
-    const advice = view === 'detail' ? await getDeckAdvice(resolvedDeck) : []
+    const deck = getInitialDeckData(cardsIndexBySid, id)
+    const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
+    const advice =
+      view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []
     const resolvedView =
       view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
     const suggestedDeck = await getDeck({ id, isPreview })
 
     return {
       props: {
+        cards,
         navigation,
         id,
         deck,
@@ -77,7 +85,7 @@ const COMPONENTS = {
   EDITOR: DeckEditorView,
 }
 
-const DeckBuilderPage = ({ navigation, ...props }) => {
+const DeckBuilderPage = ({ navigation, cards, ...props }) => {
   const Component = COMPONENTS[props.view]
   const state = useDeckBuilder(props)
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Link from '~/components/Link'
 import FeedEntry from '~/components/FeedEntry'
 import Teaser from '~/components/Teaser'
@@ -10,8 +11,9 @@ import styles from './styles'
 
 export default React.memo(function FeedCardEntry(props) {
   const { css } = useFela()
-  const card = serialization.card.deserialize(props.winner.id)
-  const cardData = getCardData(props.winner.id)
+  const { cardsIndex } = React.useContext(CardsContext)
+  const card = serialization.card.deserialize(cardsIndex, props.winner.id)
+  const cardData = getCardData(cardsIndex, props.winner.id)
 
   return (
     <FeedEntry icon='hammer' date={props.date}>

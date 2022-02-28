@@ -67,7 +67,7 @@ export default React.memo(function Home(props) {
         <HomeSection
           color='var(--winter)'
           title='Battle for glory'
-          image='/assets/images/cards/olf_the_hammer.png'
+          image='https://cdn.sanity.io/images/5hlpazgd/production/77baae150df0e9784678c1147fd1fa0d0fcbb9ee-512x512.png'
           imageAlt='Olf the Hammer'
           actions={[
             { to: '/simulators/battle', children: 'Simulator' },
@@ -84,7 +84,7 @@ export default React.memo(function Home(props) {
         <HomeSection
           color='var(--swarm)'
           title='Practice your craft'
-          image='/assets/images/cards/archdruid_earyn.png'
+          image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
           imageAlt='Archdruid Earyn'
           actions={[
             { to: '/list', children: 'List builder' },
@@ -101,7 +101,7 @@ export default React.memo(function Home(props) {
         <HomeSection
           color='var(--shadowfen)'
           title='Listen to tales of the Elders'
-          image='/assets/images/cards/prime_oracle_bragda.png'
+          image='https://cdn.sanity.io/images/5hlpazgd/production/cac7068494b0992cf651f07018b3e4553cf6bc7a-277x300.png'
           imageAlt='Prime Oracle Bragda'
           actions={[
             { to: '/stories/eastern-heat', children: 'Eastern Heat' },

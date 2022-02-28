@@ -25,6 +25,7 @@ export default function getPreviewURL(document) {
     })
 
   switch (document._type) {
+    case 'card':
     case 'changelog':
       return goTo({ id: document.id })
     case 'deck':

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import BlankButton from '~/components/BlankButton'
 import Image from '~/components/Image'
@@ -58,12 +59,13 @@ const DeckSlot = React.memo(function DeckSlot(props) {
 
 const DeckSlotContent = React.memo(function DeckSlotContent(props) {
   const card = props.card
+  const { cardsIndex } = React.useContext(CardsContext)
   const { indexedCollection } = React.useContext(CollectionContext)
   const highlightedCards = props.highlightedCards || []
   const isUpgradable =
     props.showUpgrades &&
     !card.token &&
-    isCardUpgradable(indexedCollection[card.id])
+    isCardUpgradable(cardsIndex, indexedCollection[card.id])
   const isExcluded =
     highlightedCards.length > 0 && !highlightedCards.find(isCard(card))
   const { css } = useFela({
@@ -102,7 +104,8 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       <span className={css(styles.name)}>{card.name}</span>
       <Image
         extend={styles.image({ orientation: props.orientation })}
-        src={'/assets/images/cards/' + card.image}
+        // Passing a width manually as 24 looks super blurry.
+        src={card.image + '&w=50'}
         alt={card.name}
         width={24}
         height={24}
@@ -119,12 +122,15 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
 })
 
 export default React.memo(function Deck(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const orientation = props.orientation || 'vertical'
   const { css } = useFela({ orientation })
   const showEmptySlots =
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
-  const sort = props.sort || sortByMana
-  const slots = props.deck.map(getResolvedCardData).sort(sort)
+  const sort = props.sort || sortByMana(cardsIndex)
+  const slots = props.deck
+    .map(card => getResolvedCardData(cardsIndex, card))
+    .sort(sort)
   const { fontSize, ref } = useFluidSizing(0.03683665247, props.containerWidth)
 
   if (showEmptySlots && props.deck.length < 12) {

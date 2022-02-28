@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Card from '~/components/Card'
 import CardSelect from '~/components/CardSelect'
 import Page from '~/components/Page'
@@ -50,7 +51,8 @@ const SlotSelect = React.memo(function SlotSelect(props) {
 
 const CardValue = React.memo(function CardValue(props) {
   const { css } = useFela()
-  const value = props.id && getCardValue(props.id, props.level)
+  const { cardsIndex } = React.useContext(CardsContext)
+  const value = props.id && getCardValue(cardsIndex, props.id, props.level)
 
   if (!value) {
     return (
@@ -81,10 +83,11 @@ const CardValue = React.memo(function CardValue(props) {
 })
 
 export default React.memo(function ValueCalculator(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
   const navigator = useNavigator()
-  const [A, setA] = React.useState(props.cards[0])
-  const [B, setB] = React.useState(props.cards[1])
+  const [A, setA] = React.useState(props.deck[0])
+  const [B, setB] = React.useState(props.deck[1])
 
   React.useEffect(() => {
     navigator.replace(
@@ -175,7 +178,10 @@ export default React.memo(function ValueCalculator(props) {
             <>
               <CardValue {...A} />
               <div className={css(styles.cardHolder)}>
-                <Card {...getResolvedCardData(A)} containerWidth={220} />
+                <Card
+                  {...getResolvedCardData(cardsIndex, A)}
+                  containerWidth={220}
+                />
               </div>
             </>
           )}
@@ -203,7 +209,10 @@ export default React.memo(function ValueCalculator(props) {
             <>
               <CardValue {...B} />
               <div className={css(styles.cardHolder)}>
-                <Card {...getResolvedCardData(B)} containerWidth={220} />
+                <Card
+                  {...getResolvedCardData(cardsIndex, B)}
+                  containerWidth={220}
+                />
               </div>
             </>
           )}

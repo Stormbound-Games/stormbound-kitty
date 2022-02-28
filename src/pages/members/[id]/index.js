@@ -5,6 +5,7 @@ import getMemberContent from '~/helpers/getMemberContent'
 import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
 import useMemberName from '~/hooks/useMemberName'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   const paths = (await getMembersList()).map(({ member }) => ({
@@ -15,6 +16,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cards = await getCards({ isPreview })
   const id = params.id.toLowerCase()
   const { channel, count, content, details, displayName, roles } =
     await getMemberContent({ id, isPreview })
@@ -27,6 +29,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
+      cards,
       navigation: await getNavigation({ isPreview }),
       id,
       channel,
@@ -40,7 +43,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const MemberPage = ({ navigation, ...props }) => {
+const MemberPage = ({ navigation, cards, ...props }) => {
   const [name] = useMemberName()
   const active =
     name?.toLowerCase() === props.id

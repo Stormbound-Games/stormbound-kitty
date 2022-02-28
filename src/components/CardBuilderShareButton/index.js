@@ -22,7 +22,7 @@ export default React.memo(function CardBuilderShareButton(props) {
     <ShareDialog
       label='Share card'
       disabled={props.disabled}
-      image='/assets/images/cards/collector_mirz.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/d7567c8333cfa033713404794775bc0b939f5715-301x300.png'
       ctaLabel={
         'Copy ' +
         (mode === 'STATS' ? 'stats' : mode === 'LINK' ? 'link' : 'info')

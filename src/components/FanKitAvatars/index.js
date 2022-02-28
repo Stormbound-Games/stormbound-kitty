@@ -6,7 +6,6 @@ import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
 import capitalize from '~/helpers/capitalize'
-import getRawCardData from '~/helpers/getRawCardData'
 import indexArray from '~/helpers/indexArray'
 import useLazyLoad from '~/hooks/useLazyLoad'
 import useViewportSize from '~/hooks/useViewportSize'
@@ -63,7 +62,7 @@ export default React.memo(function FanKitAvatars(props) {
                 <FanKitItem
                   {...row[index]}
                   id={row[index]._id}
-                  image={row[index].image.asset.url + '?auto=format&w=114'}
+                  image={row[index].image.asset.url}
                   key={row[index].id}
                   setActive={setActive}
                   width={114}

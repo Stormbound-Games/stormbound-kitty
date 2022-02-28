@@ -2,7 +2,9 @@ import arrayRandom from '~/helpers/arrayRandom'
 import capitalize from '~/helpers/capitalize'
 import getEmbed from '~/helpers/getEmbed'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import indexArray from '~/helpers/indexArray'
 import serialization from '~/helpers/serialization'
+import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
 import { TAGS } from '~/constants/deck'
 import { parseMessage } from '../decks'
@@ -19,8 +21,10 @@ const suggestdeck = {
       )
   },
   handler: async function (message) {
+    const cards = await getCards()
     const decks = await getDecks()
-    const { params, ignored } = parseMessage(message.toLowerCase())
+    const cardsIndexBySid = indexArray(cards, 'sid')
+    const { params, ignored } = parseMessage(cards, message.toLowerCase())
     const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {
@@ -70,7 +74,7 @@ const suggestdeck = {
       if (
         params.including &&
         !serialization.deck
-          .deserialize(deck.id)
+          .deserialize(cardsIndexBySid, deck.id)
           .map(card => card.id)
           .includes(params.including)
       ) {

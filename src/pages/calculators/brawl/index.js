@@ -2,12 +2,16 @@ import React from 'react'
 import BrawlCalculator from '~/components/BrawlCalculator'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
+import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  return { props: { navigation: await getNavigation({ isPreview }) } }
+  const cards = await getCards({ isPreview })
+  const navigation = await getNavigation({ isPreview })
+
+  return { props: { cards, navigation } }
 }
 
-const BrawlCalculatorPage = ({ navigation, ...props }) => (
+const BrawlCalculatorPage = ({ navigation, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'BRAWL_CALCULATOR']}
     navigation={navigation}

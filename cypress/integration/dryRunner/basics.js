@@ -1,5 +1,6 @@
 import s from './selectors'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
+import cardsIndex from '../../fixtures/cards'
 
 const showsDrawingChance = value => {
   return /\(in hand\)/.test(value) || /\([\d.]+%\)/.test(value)
@@ -13,7 +14,7 @@ const unselectActiveCard = ($wrapper, index) => {
 
 const isMarkedAffordable = $card => {
   const id = $card.attr('id').split('_')[0]
-  const { mana } = getResolvedCardData({ id })
+  const { mana } = getResolvedCardData(cardsIndex, { id })
   const assert = mana <= 3 ? 'have.attr' : 'not.have.attr'
 
   cy.wrap($card).should(assert, 'data-affordable')

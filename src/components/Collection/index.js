@@ -3,6 +3,7 @@ import Link from '~/components/Link'
 import Page from '~/components/Page'
 import ActiveCardForm from '~/components/CollectionActiveCardForm'
 import CardsGallery from '~/components/CardsGallery'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import CollectionClearHint from '~/components/CollectionClearHint'
 import EmptySearch from '~/components/EmptySearch'
@@ -17,6 +18,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 
 export default React.memo(function Collection(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { collection, indexedCollection, updateCollection } =
     React.useContext(CollectionContext)
   const [activeCardId, setActiveCardId] = React.useState(null)
@@ -68,8 +70,8 @@ export default React.memo(function Collection(props) {
   )
 
   const canCardBeUpgraded = React.useCallback(
-    id => isCardUpgradable(indexedCollection[id]),
-    [indexedCollection]
+    id => isCardUpgradable(cardsIndex, indexedCollection[id]),
+    [cardsIndex, indexedCollection]
   )
 
   const isCardMissing = React.useCallback(
@@ -77,7 +79,10 @@ export default React.memo(function Collection(props) {
     [indexedCollection]
   )
 
-  const activeCard = getResolvedCardData(indexedCollection[activeCardId])
+  const activeCard = getResolvedCardData(
+    cardsIndex,
+    indexedCollection[activeCardId]
+  )
 
   return (
     <Page
@@ -136,7 +141,11 @@ export default React.memo(function Collection(props) {
         <Row.Column width='2/3'>
           <Title>Card Collection</Title>
 
-          <CardsFiltering cards={collection.map(getResolvedCardData)}>
+          <CardsFiltering
+            cards={collection.map(card =>
+              getResolvedCardData(cardsIndex, card)
+            )}
+          >
             {({ filters, actions, collection, cardsPerPage }) => (
               <>
                 <Filters {...filters} {...actions} />

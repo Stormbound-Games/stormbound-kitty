@@ -10,10 +10,10 @@ import getDrawingSequences from '~/helpers/getDrawingSequences'
  * @param {Number[]} sequence - Drawing sequence
  * @return {Float} Probability between 0 and 1
  */
-export const getSequenceProbability = (book, expectations) => {
+export const getSequenceProbability = (cards, book, expectations) => {
   const { draws, percentiles, only } = book
   const cardCounts = Object.keys(RARITIES).map(rarity =>
-    countCards({ ...only, rarity })
+    countCards(cards, { ...only, rarity })
   )
 
   return sequence => {
@@ -38,7 +38,7 @@ export const getSequenceProbability = (book, expectations) => {
  * @param {Number[]} expectations - Expectations as rarity array
  * @return {Float} Probability between 0 and 1
  */
-const getDrawingProbability = (bookType, expectations) => {
+const getDrawingProbability = (cards, bookType, expectations) => {
   const { draws, percentiles } = BOOKS[bookType]
 
   // If an expected card is from a rarity that cannot be found in the given book
@@ -59,7 +59,11 @@ const getDrawingProbability = (bookType, expectations) => {
     return 0
   }
 
-  const getProbability = getSequenceProbability(BOOKS[bookType], expectations)
+  const getProbability = getSequenceProbability(
+    cards,
+    BOOKS[bookType],
+    expectations
+  )
   const sequences = getDrawingSequences(draws)
 
   return 1 - sequences.map(getProbability).reduce((a, b) => a + b, 0)

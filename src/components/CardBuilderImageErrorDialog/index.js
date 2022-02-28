@@ -34,7 +34,7 @@ export default React.memo(function CardBuilderImageErrorDialog(props) {
       dialogRef={registerDialog}
       title='Cannot load image'
       close={close}
-      image='/assets/images/cards/collector_mirz.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/d7567c8333cfa033713404794775bc0b939f5715-301x300.png'
     >
       {isImgurPage ? (
         <p>

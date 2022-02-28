@@ -25,7 +25,7 @@ export default React.memo(function DryRunnerEqualsMode(props) {
         data-testid='equals-mode-dialog'
         title='Equals mode'
         dialogRef={instance => (dialogRef.current = instance)}
-        image='/assets/images/cards/execution.png'
+        image='https://cdn.sanity.io/images/5hlpazgd/production/3886106424f6a20f584fa658760e7fe46bd35ab5-512x512.png'
         close={() => dialogRef.current.hide()}
         ctaProps={{
           onClick: () => {

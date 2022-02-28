@@ -23,10 +23,9 @@ export default React.memo(function ListBuilderTierItem(props) {
         title={props.card.name}
       >
         <Image
-          src={'/assets/images/cards/' + props.card.image}
+          src={props.card.image}
           alt={props.card.name}
           extend={styles.image}
-          withAvif
           width={60}
           height={60}
           lazy
@@ -62,13 +61,12 @@ export default React.memo(function ListBuilderTierItem(props) {
       {shouldDisplayPlaceholderBefore && (
         <span className={css(styles.item({ isPlaceholder: true }))}>
           <Image
-            src={'/assets/images/cards/' + props.cards[props.dndSource].image}
+            src={props.cards[props.dndSource].image}
             alt={props.card.name}
             extend={styles.image}
             width={60}
             height={60}
             lazy
-            withAvif
           />
         </span>
       )}
@@ -90,23 +88,21 @@ export default React.memo(function ListBuilderTierItem(props) {
         title={'Remove ' + props.card.name + ' from list'}
       >
         <Image
-          src={'/assets/images/cards/' + props.card.image}
+          src={props.card.image}
           alt={props.card.name}
           extend={styles.image}
           width={60}
           height={60}
           lazy
-          withAvif
         />
       </BlankButton>
 
       {shouldDisplayPlaceholderAfter && (
         <span className={css(styles.item({ isPlaceholder: true }))}>
           <Image
-            src={'/assets/images/cards/' + props.cards[props.dndSource].image}
+            src={props.cards[props.dndSource].image}
             alt={props.card.name}
             extend={styles.image}
-            withAvif
             width={60}
             height={60}
             lazy

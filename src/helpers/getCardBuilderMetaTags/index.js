@@ -1,5 +1,4 @@
 import formatCardStats from '~/helpers/formatCardStats'
-import getRawCardData from '~/helpers/getRawCardData'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
 const isIncomplete = state => {
@@ -10,20 +9,20 @@ const isIncomplete = state => {
   return false
 }
 
-const getCardBuilderMetaTags = (state, versionId) => {
-  const cardData = getRawCardData(state.imageCardId)
+const getCardBuilderMetaTags = (cardsIndex, state, versionId) => {
+  const cardData = cardsIndex[state.imageCardId]
   const metaTags = {}
 
   // If the card is a past version of an official card, mention it in the page
   // title so it shows up in embeds, such as on Discord. Otherwise, nothing
   // indicates that the thumbnail and its stats are from a former version of the
   // card.
-  if (versionId && cardData.id) {
+  if (versionId && cardData) {
     metaTags.metaTitle =
       cardData.name + ' (prior ' + formatPreciseDate(new Date(versionId)) + ')'
   }
 
-  metaTags.title = state.name || cardData.name || 'Card Builder'
+  metaTags.title = state.name || cardData?.name || 'Card Builder'
 
   if (isIncomplete(state)) {
     metaTags.description = 'Create your own Stormbound card'
@@ -34,7 +33,7 @@ const getCardBuilderMetaTags = (state, versionId) => {
   if (state.imageURL) {
     metaTags.image = state.imageURL
   } else if (cardData) {
-    metaTags.image = '/assets/images/cards/' + cardData.image
+    metaTags.image = cardData.image
   }
 
   return metaTags

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Info from '~/components/Info'
 import ResourceIcon from '~/components/ResourceIcon'
 import { Coins, Stones } from '~/components/Resource'
 import { RARITIES } from '~/constants/game'
 import capitalize from '~/helpers/capitalize'
-import getRawCardData from '~/helpers/getRawCardData'
 import toSentence from '~/helpers/toSentence'
 
 const COMPENSATION = {
@@ -54,8 +54,9 @@ const LevelCompensation = ({ level, coins, stones }) => {
 
 export default React.memo(function NerfCompensationInfo(props) {
   const { css } = useFela()
+  const { cardsIndex } = React.useContext(CardsContext)
   const ids = props.ids || []
-  const cards = ids.length > 0 ? ids.map(getRawCardData) : []
+  const cards = ids.length > 0 ? ids.map(id => cardsIndex[id]) : []
   const rarities =
     ids.length > 0 ? cards.map(card => card.rarity) : Object.keys(RARITIES)
   const names = cards.map(card => card.name)

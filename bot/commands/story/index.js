@@ -1,16 +1,17 @@
 import getStoriesForSearch from '~/helpers/getStoriesForSearch'
 import getEmbed from '~/helpers/getEmbed'
-import getRawCardData from '~/helpers/getRawCardData'
 import arrayRandom from '~/helpers/arrayRandom'
+import indexArray from '~/helpers/indexArray'
 import getStories from '~/api/stories/getStories'
+import getCards from '~/api/cards/getCards'
 
-const getEmbedForStory = (label, story) => {
+const getEmbedForStory = (cardsIndex, label, story) => {
   return getEmbed()
     .setTitle(`${label}: ${story.title}`)
     .setURL('https://stormbound-kitty.com/stories/' + story.id)
     .addFields(
       { name: 'Author', value: story.author, inline: true },
-      { name: 'Card', value: getRawCardData(story.cardId).name, inline: true }
+      { name: 'Card', value: cardsIndex[story.cardId].name, inline: true }
     )
     .setDescription(story.excerpt.replace(/\n/g, ' '))
 }
@@ -27,16 +28,19 @@ const story = {
       )
   },
   handler: async function (message) {
+    const cards = await getCards()
+    const cardsIndex = indexArray(cards)
+
     if (message === 'random' || message === '') {
       const stories = await getStories()
       const story = arrayRandom(stories)
 
-      return getEmbedForStory(this.label, story)
+      return getEmbedForStory(cardsIndex, this.label, story)
     }
 
-    const results = await getStoriesForSearch(message)
+    const results = await getStoriesForSearch(cards, message)
 
-    return getEmbedForStory(this.label, results[0])
+    return getEmbedForStory(cardsIndex, this.label, results[0])
   },
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
+import { CardsContext } from '~/components/CardsProvider'
 import BlocksRenderer from '~/components/BlocksRenderer'
 import Page from '~/components/Page'
 import HorizontalRule from '~/components/HorizontalRule'
@@ -9,9 +10,9 @@ import Link from '~/components/Link'
 import Stories from '~/components/Stories'
 import Title from '~/components/Title'
 import { STORY_CATEGORIES } from '~/constants/stories'
-import getRawCardData from '~/helpers/getRawCardData'
 
 export default React.memo(function Story(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const [ref, inView] = useInView()
   const { story, moreStories } = props
 
@@ -20,7 +21,7 @@ export default React.memo(function Story(props) {
       <Page
         title={story.title}
         author={story.author}
-        image={'/assets/images/cards/' + getRawCardData(story.cardId).image}
+        image={cardsIndex[story.cardId].image}
         description={story.excerpt}
         background={STORY_CATEGORIES[story.category].background}
         meta={story.readingTime}

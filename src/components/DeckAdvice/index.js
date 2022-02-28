@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Title from '~/components/Title'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
@@ -16,11 +17,14 @@ const Advice = props => (
 )
 
 export default React.memo(function DeckAdvice(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const [advice, setAdvice] = React.useState(props.advice)
 
   React.useEffect(() => {
-    getDeckAdvice(props.deck, props.modifier).then(advice => setAdvice(advice))
-  }, [props.deck, props.modifier])
+    getDeckAdvice(cardsIndex, props.deck, props.modifier).then(advice =>
+      setAdvice(advice)
+    )
+  }, [cardsIndex, props.deck, props.modifier])
 
   return (
     <>

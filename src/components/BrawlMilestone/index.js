@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import { BrawlContext } from '~/components/BrawlProvider'
 import Card from '~/components/Card'
 import Image from '~/components/Image'
@@ -12,6 +13,8 @@ import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
+
   switch (props.reward) {
     case 'MYTHIC_BOOK':
     case 'HEROIC_BOOK':
@@ -23,10 +26,10 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
 
       return (
         <Image
-          src={book.image + '?auto=format&w=200'}
+          src={book.image}
           alt={`${capitalize(bookType.toLowerCase())} book`}
           extend={styles.bookImage}
-          withAvif
+          width={150}
         />
       )
     }
@@ -60,7 +63,7 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
     case 'LEGENDARY_CARD':
       return (
         <Card
-          {...getResolvedCardData({ id: props.cardId })}
+          {...getResolvedCardData(cardsIndex, { id: props.cardId })}
           level={1}
           extend={styles.card}
         />

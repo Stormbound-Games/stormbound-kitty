@@ -14,7 +14,7 @@ const serializeDeck = cards => {
  * @param {String} hash - Either base64 hash (old) or card string (new)
  * @return {Object[]} cards
  */
-const deserializeDeck = hash => {
+const deserializeDeck = (cardsIndexBySid, hash) => {
   try {
     const string = base64Decode(hash)
 
@@ -23,7 +23,7 @@ const deserializeDeck = hash => {
     // we pass the base64 hash, and not the decoded string, as `convertToSkId`
     // expects a base 64 value.
     if (/^\d((b|s|u|ud|ue|ut)\d+)+$/.test(string)) {
-      const deckId = convertToSkId(hash)
+      const deckId = convertToSkId(cardsIndexBySid, hash)
 
       return serialization.cards.deserialize(deckId)
     }

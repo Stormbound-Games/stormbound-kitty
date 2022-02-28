@@ -6,7 +6,7 @@ export default React.memo(function QuestBuilderShareButton(props) {
     <ShareDialog
       label='Share quest'
       disabled={props.disabled}
-      image='/assets/images/cards/siren_of_the_seas.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/5db4c3f8d328ebee249d79c9c48a8a45daa1f28c-512x512.png'
     >
       <p>
         Your quest is automatically saved to the URL of the page as you work on

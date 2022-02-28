@@ -6,6 +6,7 @@ import getEmbed from '~/helpers/getEmbed'
 import getRandomDeck from '~/helpers/getRandomDeck'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
 import serialization from '~/helpers/serialization'
+import getCards from '~/api/cards/getCards'
 
 const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
   faction => faction !== 'neutral'
@@ -25,7 +26,7 @@ const findFaction = message => {
   return []
 }
 
-export const parseMessage = message => {
+export const parseMessage = (allCards, message) => {
   // Find the faction of the deck (if any), as well as the term that describes
   // it; either a faction name (e.g. shadowfen), or an alias (e.g. sf).
   const [authored, resolved] = findFaction(message)
@@ -42,7 +43,7 @@ export const parseMessage = message => {
     // Make sure not to include a card twice. For instance, `herald, herald`
     // should include Pan Heralds and Herald’s Hymn, but not one of them twice.
     // Same goes for other cases, such as `dread, dread`.
-    const card = searchCards(part).find(
+    const card = searchCards(allCards, part).find(
       card => !cards.map(c => c.id).includes(card.id)
     )
     if (card) cards.push(card)
@@ -100,8 +101,9 @@ const randomdeck = {
         `Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
       )
   },
-  handler: function (message) {
-    const { faction, including, ignored } = parseMessage(message.toLowerCase())
+  handler: async function (message) {
+    const cards = await getCards()
+    const { faction, including } = parseMessage(cards, message.toLowerCase())
     const resolvedFaction = validateFaction(faction.resolved, including)
     const embed = getEmbed()
       .setTitle(`${this.label}`)
@@ -117,7 +119,11 @@ const randomdeck = {
     }
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
-    const deck = getRandomDeck({ initialCards, faction: resolvedFaction })
+    const deck = getRandomDeck({
+      availableCards: cards,
+      initialCards,
+      faction: resolvedFaction,
+    })
     const id = serialization.deck.serialize(deck)
 
     return 'https://stormbound-kitty.com/deck/' + id

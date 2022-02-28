@@ -7,6 +7,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
+import { CardsContext } from '~/components/CardsProvider'
 import Title from '~/components/Title'
 import { RARITIES } from '~/constants/game'
 import { TOOLTIP_STYLES } from '~/constants/stats'
@@ -14,9 +15,10 @@ import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
 export default React.memo(function ChartRarity(props) {
+  const { cards } = React.useContext(CardsContext)
   const data = Object.keys(RARITIES).map(rarity => ({
     name: capitalize(rarity),
-    value: countCards({ rarity }) - 1,
+    value: countCards(cards, { rarity }) - 1,
     color: `var(--${rarity})`,
   }))
 

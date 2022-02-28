@@ -1,9 +1,8 @@
-import getRawCardData from '~/helpers/getRawCardData'
 import unfoldValue from '~/helpers/unfoldValue'
 import resolveAbility from '~/helpers/resolveAbility'
 import isCardLevelResolved from '~/helpers/isCardLevelResolved'
 
-const getResolvedCardData = card => {
+const getResolvedCardData = (cardsIndex, card) => {
   const { id, level, copies, missing } = card || {}
 
   // If no `id` is given, return early
@@ -14,9 +13,9 @@ const getResolvedCardData = card => {
   const [displayId] = id.toUpperCase().split('_')
 
   // Find the card data from the given id, and return early if it wasn’t found
-  const cardData = getRawCardData(displayId)
+  const cardData = cardsIndex[displayId]
 
-  if (!cardData.id) {
+  if (!cardData) {
     return null
   }
 

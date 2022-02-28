@@ -1,13 +1,15 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import SubNav from '~/components/SubNav'
 import serialization from '~/helpers/serialization'
 import useQueryParams from '~/hooks/useQueryParams'
 
 export default React.memo(function NavDeckBuilder(props) {
   const { id } = useQueryParams()
+  const { cardsIndexBySid } = React.useContext(CardsContext)
   const deck = React.useMemo(
-    () => (id ? serialization.deck.deserialize(id) : []),
-    [id]
+    () => (id ? serialization.deck.deserialize(cardsIndexBySid, id) : []),
+    [cardsIndexBySid, id]
   )
   const hasBigEnoughDeck = deck.length === 12
 

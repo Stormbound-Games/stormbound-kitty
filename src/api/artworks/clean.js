@@ -4,7 +4,7 @@ const clean = artwork => {
 
   artwork.date = month + '/' + year
   artwork.dimensions = dimensions.width + 'x' + dimensions.height
-  artwork.image = artwork.image.asset.url + '?auto=format'
+  artwork.image = artwork.image.asset.url
 
   delete artwork._createdAt
   delete artwork._updatedAt

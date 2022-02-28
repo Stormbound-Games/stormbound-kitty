@@ -1,35 +1,29 @@
 import Fuse from 'fuse.js'
-import CARDS from '~/data/cards'
-import getRawCardData from '~/helpers/getRawCardData'
 import getAbbreviations from '~/helpers/getAbbreviations'
 
-const ABBREVIATIONS = getAbbreviations('LOWERCASE')
+const SEARCH_OPTIONS = {
+  keys: ['name'],
+  minMatchCharLength: 3,
+  threshold: 0.4,
+  ignoreFieldNorm: true,
+}
 
-export const searcher = new Fuse(
-  CARDS.filter(card => !card.token),
-  {
-    keys: ['name'],
-    minMatchCharLength: 3,
-    threshold: 0.4,
-    ignoreFieldNorm: true,
-  }
-)
-
-const searchCards = search => {
+const searchCards = (cards, search) => {
+  const searcher = new Fuse(
+    cards.filter(card => !card.token),
+    SEARCH_OPTIONS
+  )
   const needle = search.trim()
 
   if (needle.length < 2) return []
 
-  const cardFromID = getRawCardData(needle.toUpperCase())
+  const cardFromID = cards.find(card => card.id == needle.toUpperCase())
 
-  if (cardFromID.id) return [cardFromID]
+  if (cardFromID) return [cardFromID]
 
-  const matchAbbr = (ABBREVIATIONS[needle.toLowerCase()] || [])
-    .map(definition => {
-      const card = getRawCardData(definition, 'name')
-
-      return card.id ? card : null
-    })
+  const abbreviations = getAbbreviations(cards, 'LOWERCASE')
+  const matchAbbr = (abbreviations[needle.toLowerCase()] || [])
+    .map(definition => cards.find(card => card.name === definition))
     .filter(Boolean)
 
   if (matchAbbr.length) return matchAbbr

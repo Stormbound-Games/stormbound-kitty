@@ -19,7 +19,7 @@ export const SPAWNS = {
   F8: ['toad', 4], // Rain of Frogs
 }
 
-export default cards => {
+const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasKindredsGrace = cardIds.includes('N40')
 
@@ -51,3 +51,5 @@ export default cards => {
     highlight: ['N40'],
   }
 }
+
+export default advice

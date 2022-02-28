@@ -9,11 +9,6 @@ import modifyDeck from '~/helpers/modifyDeck'
 import shuffle from '~/helpers/shuffle'
 import isCard, { isNotCard } from '~/helpers/isCard'
 
-// Used to get Archdruid’s Earyn mana cost to know whether spells can be played
-// for free by her ability. The level would need to be adjusted accordingly and
-// dynamically if Earyn’s mana cost started varying per level.
-const ARCHDRUID_EARYN = getResolvedCardData({ id: 'N48', level: 1 })
-
 const getHarvestersOfSoulsCopiedCard = (state, pool, harvestersLevel) => {
   // The RNG for Harvesters of Souls is determined by first choosing a level for
   // the created copy and then creating the copy if the level is greater than 1
@@ -31,7 +26,7 @@ const getHarvestersOfSoulsCopiedCard = (state, pool, harvestersLevel) => {
   if (level <= 0 || pool.length === 0) return null
 
   const { id } = arrayRandom(pool)
-  const copiedCard = getResolvedCardData({ id, level })
+  const copiedCard = getResolvedCardData(state.cardsIndex, { id, level })
   const copiedCardStrength = [5, 6, 7, 8, 10][harvestersLevel - 1]
 
   copiedCard.weight = 0
@@ -75,7 +70,9 @@ export const getRogueSheepCardCopies = (state, level) => {
 
   return pool
     .slice(0, draws)
-    .map(card => getResolvedCardData({ id: card.id, level: copyLevel }))
+    .map(card =>
+      getResolvedCardData(state.cardsIndex, { id: card.id, level: copyLevel })
+    )
     .map(card => ({
       ...card,
       singleUse: true,
@@ -103,18 +100,23 @@ export const getHarvestersOfSoulsPossibleCards = (state, level) => {
     { cards: [], pool }
   )
 
-  return modifyDeck(acc.cards, state.modifier, state.equalsMode)
+  return modifyDeck(
+    state.cardsIndex,
+    acc.cards,
+    state.modifier,
+    state.equalsMode
+  )
 }
 
 export const isPlayableSpell = state => card => {
   const cardInDeck = state.deck.find(isCard(card))
 
-  return cardInDeck.type === 'spell' && cardInDeck.mana <= ARCHDRUID_EARYN.mana
+  return cardInDeck.type === 'spell' && cardInDeck.mana <= 7
 }
 
-export const getCollectorMirzToken = (deck, level) => {
+export const getCollectorMirzToken = (cardsIndex, deck, level) => {
   const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15])
-  const token = getResolvedCardData({ id })
+  const token = getResolvedCardData(cardsIndex, { id })
   token.level = [5, 6, 6, 8, 10][level - 1]
   token.weight = 0
   token.mana = 0

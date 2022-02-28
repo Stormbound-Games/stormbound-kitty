@@ -1,7 +1,7 @@
 const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
-export default cards => {
+const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasFreezeConsumer = cardIds.includes('W1') || cardIds.includes('W4')
   const hasFreezeProvider = hasAny(cards, ['W1', 'W2', 'W6', 'W11'])
@@ -18,3 +18,5 @@ export default cards => {
     highlight: ['W2', 'W11', 'W6'],
   }
 }
+
+export default advice

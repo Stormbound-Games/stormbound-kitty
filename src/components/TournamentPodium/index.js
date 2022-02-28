@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import Link from '~/components/Link'
 import MemberList from '~/components/MemberList'
 import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
-import getRawCardData from '~/helpers/getRawCardData'
 
 const POINT_VALUE = {
   TOURNAMENT: [9, 6, 3],
@@ -65,17 +65,19 @@ const getPointGroups = podium =>
     {}
   )
 
-const getCard = (index, name) => ({
+const getCard = (cardsIndex, index, name) => ({
   name,
   faction: ['swarm', 'neutral', 'ironclad'][index],
   level: index + 1,
   mana: index + 1,
   type: 'unit',
   race: ['Champion', 'Conqueror', 'Runner-up'][index],
-  image: getRawCardData(['N54', 'N32', 'N3'][index]).image,
+  image: cardsIndex[['N54', 'N32', 'N3'][index]].image,
 })
 
 const useTeasers = podium => {
+  const { cardsIndex } = React.useContext(CardsContext)
+
   return podium.slice(0, 3).map(({ user, medals, points }, index) => {
     const [nGold, sGold] = getMedalDetails(medals, 0)
     const [nSilver, sSilver] = getMedalDetails(medals, 1)
@@ -88,7 +90,7 @@ const useTeasers = podium => {
         </>
       ),
       meta: `With ${points} points`,
-      card: getCard(index, user),
+      card: getCard(cardsIndex, index, user),
       excerpt: (
         <>
           {user} has won {nGold} 🥇&nbsp;gold medal

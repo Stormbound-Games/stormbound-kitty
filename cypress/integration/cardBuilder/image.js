@@ -32,7 +32,10 @@ describe('Card Builder — Image', () => {
 
   it('should be reflected in all preview', () => {
     for (let i = 0; i < 5; i++)
-      assertCardImage(i, '/assets/images/cards/restless_goats.avif')
+      assertCardImage(
+        i,
+        'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300'
+      )
   })
 
   it('should be preserved upon reload', () => {
@@ -40,7 +43,10 @@ describe('Card Builder — Image', () => {
       .should('not.match', /\/card$/)
       .reload()
     for (let i = 0; i < 5; i++)
-      assertCardImage(i, '/assets/images/cards/restless_goats.avif')
+      assertCardImage(
+        i,
+        'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300'
+      )
   })
 
   it('should be possible to define a custom image', () => {

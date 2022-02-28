@@ -18,7 +18,6 @@ const resolveAsset = (wallpaper, index) => {
     width: 1200,
     height: Math.round(dimensions.height * (1200 / dimensions.width)),
     withoutWebp: true,
-    query: '?auto=format&w=' + 1200,
   }
 }
 
@@ -58,11 +57,7 @@ export default React.memo(function FanKitWallpapers(props) {
       />
       {items.map(item => (
         <Spacing bottom='BASE' key={item.id}>
-          <FanKitItem
-            {...item}
-            image={item.image + item.query}
-            setActive={setActive}
-          />
+          <FanKitItem {...item} setActive={setActive} />
         </Spacing>
       ))}
 

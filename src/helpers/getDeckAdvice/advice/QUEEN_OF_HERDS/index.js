@@ -1,6 +1,6 @@
 const getSatyrs = cards => cards.filter(card => card.race === 'satyr')
 
-export default cards => {
+const advice = cards => {
   const queenOfHerds = cards.find(card => card.id === 'S21')
   const satyrs = getSatyrs(cards)
 
@@ -13,3 +13,5 @@ export default cards => {
     highlight: ['S21', ...satyrs],
   }
 }
+
+export default advice

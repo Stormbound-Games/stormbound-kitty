@@ -15,7 +15,7 @@ export default React.memo(function ListBuilderShareButton(props) {
     <ShareDialog
       label='Share list'
       disabled={props.disabled}
-      image='/assets/images/cards/project_ph03-nix.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/75fe3608b1fb8b5a814addd5633268dde65aa978-512x512.png'
       share={{
         processURL,
         title: props.title,

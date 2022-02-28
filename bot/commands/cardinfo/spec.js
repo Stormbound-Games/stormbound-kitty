@@ -3,35 +3,33 @@ const cardinfo = command.handler.bind(command)
 
 describe('Bot — !cardinfo', () => {
   it('should return nothing for a missing term', () => {
-    expect(cardinfo('')).toEqual(undefined)
+    return cardinfo('').then(output => expect(output).toEqual(undefined))
   })
 
   it('should return nothing for a single letter term', () => {
-    expect(cardinfo('f')).toEqual(undefined)
+    return cardinfo('f').then(output => expect(output).toEqual(undefined))
   })
 
   it('should handle a Stormbound-Kitty ID', () => {
-    expect(cardinfo('N1')).toEqual(
-      'https://stormbound-kitty.com/card/N1/display'
+    return cardinfo('N1').then(output =>
+      expect(output).toEqual('https://stormbound-kitty.com/card/N1/display')
     )
   })
 
   it('should handle a known card abbreviation', () => {
-    expect(cardinfo('rof')).toEqual(
-      'https://stormbound-kitty.com/card/F8/display'
+    return cardinfo('rof').then(output =>
+      expect(output).toEqual('https://stormbound-kitty.com/card/F8/display')
     )
   })
 
   it('should handle a fuzzy search', () => {
-    expect(cardinfo('king')).toContain(
-      'https://stormbound-kitty.com/card/N69/display'
-    )
-    expect(cardinfo('king')).toContain(
-      'https://stormbound-kitty.com/card/N73/display'
-    )
+    return cardinfo('king').then(output => {
+      expect(output).toContain('https://stormbound-kitty.com/card/N69/display')
+      expect(output).toContain('https://stormbound-kitty.com/card/N73/display')
+    })
   })
 
   it('should return nothing for a no-match', () => {
-    expect(cardinfo('flksdjf')).toEqual(undefined)
+    return cardinfo('flksdjf').then(output => expect(output).toEqual(undefined))
   })
 })

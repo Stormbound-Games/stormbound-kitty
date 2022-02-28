@@ -2,7 +2,6 @@ import { DEFAULT_CELL } from '~/constants/battle'
 import { DEFAULT_CARD } from '~/constants/deck'
 import arrayPad from '~/helpers/arrayPad'
 import chunk from '~/helpers/chunk'
-import getRawCardData from '~/helpers/getRawCardData'
 import { base64Decode, base64Encode } from '~/helpers/base64'
 import { getShortFaction, getLongFaction } from '~/helpers/encoding'
 import serialization from './'
@@ -30,7 +29,7 @@ const serializeBoard = board =>
     )
     .join(',')
 
-const deserializeBoard = string => {
+const deserializeBoard = (cardsIndex, string) => {
   const cells = arrayPad(string.split(','), 20, '', +1).map(item => {
     if (!item) {
       return { ...DEFAULT_CELL }
@@ -52,7 +51,7 @@ const deserializeBoard = string => {
     return {
       strength: +strength,
       level: +level,
-      card: getRawCardData(id),
+      card: cardsIndex[id],
       player: player === 'R' ? 'RED' : 'BLUE',
       poisoned: poisoned === 'P',
       vitalized: vitalized === 'V',
@@ -121,7 +120,7 @@ const serializeBattle = (board, players, settings, { cards, hand }) =>
     hand.join(','),
   ].join(';')
 
-const deserializeBattle = encodedString => {
+const deserializeBattle = (cardsIndex, encodedString) => {
   const string = decodeURIComponent(encodedString)
   const [
     board = '',
@@ -132,7 +131,7 @@ const deserializeBattle = encodedString => {
   ] = string.split(';')
 
   return {
-    board: deserializeBoard(board),
+    board: deserializeBoard(cardsIndex, board),
     players: deserializePlayers(players),
     cards: deserializeBattleSimCards(cards, 12),
     hand: deserializeHand(hand, cards),
@@ -142,7 +141,8 @@ const deserializeBattle = encodedString => {
 
 const battle = {
   serialize: (...chunks) => base64Encode(serializeBattle(...chunks)),
-  deserialize: hash => deserializeBattle(base64Decode(hash)),
+  deserialize: (cardsIndex, hash) =>
+    deserializeBattle(cardsIndex, base64Decode(hash)),
 }
 
 export default battle

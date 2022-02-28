@@ -147,7 +147,7 @@ export default React.memo(function SearchDialog(props) {
       title='Search'
       dialogRef={registerDialog}
       close={() => props.dialogRef.current?.hide()}
-      image='/assets/images/cards/trekking_aldermen.png'
+      image='https://cdn.sanity.io/images/5hlpazgd/production/651e45679d864ebc514bbcd66757022ad8eee282-419x449.png'
       imageWidth={200}
       imageHeight={214}
     >

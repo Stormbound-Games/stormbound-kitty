@@ -1,5 +1,5 @@
 import s from './selectors'
-import getRawCardData from '~/helpers/getRawCardData'
+import { getCardData } from '../../utils'
 
 describe('Deck Builder — Random deck', () => {
   before(() => {
@@ -32,8 +32,8 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        const id = $card.attr('data-testid').replace('deck-slot', '').trim()
-        const card = getRawCardData(id)
+        const id = $card.attr('data-testid').replace('deck-slot', '')
+        const card = getCardData(id)
 
         expect(card.faction).to.satisfy(faction =>
           ['winter', 'neutral'].includes(faction)
@@ -54,12 +54,12 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.DECK_CARD)
       .then($cards => {
-        const cards = $cards
+        const winterCards = $cards
           .map((_, card) =>
-            card.getAttribute('data-testid').replace('deck-slot', '').trim()
+            card.getAttribute('data-testid').replace('deck-slot', '')
           )
-          .map((_, id) => getRawCardData(id))
-        const winterCards = cards.filter((_, card) => card.faction === 'winter')
+          .map((_, id) => getCardData(id))
+          .filter((_, card) => card.faction === 'winter')
 
         expect(winterCards.length).to.be.at.least(6)
       })
@@ -72,13 +72,15 @@ describe('Deck Builder — Random deck', () => {
       .should('be.visible')
       .get(s.RANDOM_MAX_EPIC_SELECT)
       .select('0')
+      .wait(1000)
       .get(s.RANDOM_DIALOG_CONFIRM)
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        expect(getRawCardData($card.attr('data-testid')).rarity).to.not.equal(
-          'epic'
-        )
+        const id = $card.attr('data-testid').replace('deck-slot', '')
+        const card = getCardData(id)
+
+        expect(card.rarity).to.not.equal('epic')
       })
   })
 
@@ -89,13 +91,15 @@ describe('Deck Builder — Random deck', () => {
       .should('be.visible')
       .get(s.RANDOM_MAX_LEGENDARY_SELECT)
       .select('0')
+      .wait(1000)
       .get(s.RANDOM_DIALOG_CONFIRM)
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        expect(getRawCardData($card.attr('data-testid')).rarity).to.not.equal(
-          'legendary'
-        )
+        const id = $card.attr('data-testid').replace('deck-slot', '')
+        const card = getCardData(id)
+
+        expect(card.rarity).to.not.equal('legendary')
       })
   })
 })

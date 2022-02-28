@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
 import Page from '~/components/Page'
@@ -45,6 +46,8 @@ const adjustCardToCollection =
   }
 
 const useModifiedDeck = (deck, suggestedDeck) => {
+  const { cardsIndex } = React.useContext(CardsContext)
+
   // In case the deck is in fact a suggested deck, and a brawl deck at that, it
   // should be adjusted to reflect the brawl modifier. This is especially
   // important for mana brawls in order to display the correct card mana cost.
@@ -52,7 +55,7 @@ const useModifiedDeck = (deck, suggestedDeck) => {
     const brawl = suggestedDeck.tags.find(tag =>
       Object.keys(BRAWL_INDEX).includes(tag)
     )
-    if (brawl) return modifyDeck(deck, brawl)
+    if (brawl) return modifyDeck(cardsIndex, deck, brawl)
   }
 
   return deck
@@ -112,6 +115,7 @@ const getStoredTooltipsSetting = () => {
 export default React.memo(function DeckEditorView(props) {
   const navigator = useNavigator()
   const deckId = serialization.deck.serialize(props.deck)
+  const { cardsIndex } = React.useContext(CardsContext)
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
@@ -200,7 +204,7 @@ export default React.memo(function DeckEditorView(props) {
   // a custom collection, and whether the levels should be the ones of the
   // collection.
   const cardCollection = collection.map(card =>
-    getResolvedCardData({
+    getResolvedCardData(cardsIndex, {
       ...card,
       level: cardLevel === 0 && !hasDefaultCollection ? card.level : cardLevel,
     })
@@ -212,7 +216,12 @@ export default React.memo(function DeckEditorView(props) {
   return (
     <Page
       {...articleProps}
-      {...getDeckBuilderMetaTags(deck, props.suggestedDeck, 'Deck Builder')}
+      {...getDeckBuilderMetaTags(
+        cardsIndex,
+        deck,
+        props.suggestedDeck,
+        'Deck Builder'
+      )}
     >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>

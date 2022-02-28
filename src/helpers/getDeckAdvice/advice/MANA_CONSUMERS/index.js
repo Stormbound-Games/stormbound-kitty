@@ -1,10 +1,9 @@
 import toSentence from '~/helpers/toSentence'
-import getRawCardData from '~/helpers/getRawCardData'
 
 const MANA_CONSUMERS = ['W10', 'W21']
 const MANA_PRODUCERS = ['W9', 'W19']
 
-export default cards => {
+const advice = (cards, modifier, cardsIndex) => {
   const hasCard = id => cards.map(card => card.id).includes(id)
   const hasAny = ids => ids.some(hasCard)
   const hasAll = ids => ids.every(hasCard)
@@ -18,14 +17,14 @@ export default cards => {
 
   const consumerNames = toSentence(
     MANA_CONSUMERS.filter(hasCard)
-      .map(getRawCardData)
+      .map(id => cardsIndex[id])
       .map(card => card.name),
     'and'
   )
 
   const producerNames = toSentence(
     MANA_PRODUCERS.filter(id => !cardIds.includes(id))
-      .map(getRawCardData)
+      .map(id => cardsIndex[id])
       .map(card => card.name),
     'and'
   )
@@ -36,3 +35,5 @@ export default cards => {
     highlight: MANA_CONSUMERS,
   }
 }
+
+export default advice

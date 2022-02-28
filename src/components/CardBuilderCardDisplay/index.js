@@ -1,17 +1,18 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { CollectionContext } from '~/components/CollectionProvider'
+import { CardsContext } from '~/components/CardsProvider'
 import Card from '~/components/Card'
 import CTA from '~/components/CTA'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
-import getRawCardData from '~/helpers/getRawCardData'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
 import styles from './styles'
 
 export default React.memo(function CardBuilderCardDisplay(props) {
   const { css } = useFela()
+  const { cardsIndex } = React.useContext(CardsContext)
   const cardId = props.id
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
   const { hasDefaultCollection, indexedCollection } =
@@ -44,13 +45,17 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                     strength={props.strength.values[level]}
                     ability={props.ability.values[level]}
                     image={
-                      getRawCardData(props.imageCardId).image || props.imageURL
+                      cardsIndex[props.imageCardId]?.image ?? props.imageURL
                     }
                     missing={
                       cardInCollection.missing ||
                       level + 1 > cardInCollection.level
                     }
-                    upgradable={isLevelAvailable(cardInCollection, level + 1)}
+                    upgradable={isLevelAvailable(
+                      cardsIndex,
+                      cardInCollection,
+                      level + 1
+                    )}
                     level={level + 1}
                   />
                 </div>
@@ -67,7 +72,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
             mana={props.mana.values[activeLevel - 1]}
             strength={props.strength.values[activeLevel - 1]}
             ability={props.ability.values[activeLevel - 1]}
-            image={getRawCardData(props.imageCardId).image || props.imageURL}
+            image={cardsIndex[props.imageCardId]?.image ?? props.imageURL}
             level={activeLevel}
           />
 

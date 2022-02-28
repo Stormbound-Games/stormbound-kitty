@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import CardsGallery from '~/components/CardsGallery'
 import Deck from '~/components/Deck'
 import DeckAdvice from '~/components/DeckAdvice'
@@ -14,7 +15,6 @@ import Row from '~/components/Row'
 import ShareButton from '~/components/DeckShareButton'
 import Title from '~/components/Title'
 import { Common, Rare, Epic, Legendary } from '~/components/Resource'
-import cards from '~/data/cards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getOrdinalSuffix from '~/helpers/getOrdinalSuffix'
 import shuffle from '~/helpers/shuffle'
@@ -22,7 +22,7 @@ import serialization from '~/helpers/serialization'
 import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
-const ROLLS = [
+const useRolls = cards => [
   state => {
     const legendaries = shuffle(
       cards.filter(
@@ -123,34 +123,40 @@ const ROLLS = [
 ]
 
 const useOptions = deck => {
+  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const rolls = useRolls(cards)
+
   if (deck.length === 12) return []
 
   const { faction } = deck.find(card => card.faction !== 'neutral') ?? {}
-  const getPool = ROLLS[deck.length]
+  const getPool = rolls[deck.length]
   const pool = shuffle(getPool({ deck, faction }).slice(0))
   const options = pool.slice(0, 3)
-  const cards = options.map(card =>
-    getResolvedCardData({ id: card.id, level: 1 })
-  )
 
-  return cards
+  return options.map(card =>
+    getResolvedCardData(cardsIndex, { id: card.id, level: 1 })
+  )
 }
 
 export default React.memo(function DraftSimulator(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const navigator = useNavigator()
-  const { css } = useFela({ cards: props.cards })
-  const options = useOptions(props.cards)
+  const { css } = useFela({ cards: props.deck })
+  const options = useOptions(props.deck)
   const [highlightedCards, setHighlightedCards] = React.useState([])
 
   const addToDeck = React.useCallback(
     id => {
-      const deck = [...props.cards, getResolvedCardData({ id, level: 1 })]
+      const deck = [
+        ...props.deck,
+        getResolvedCardData(cardsIndex, { id, level: 1 }),
+      ]
       const deckId = serialization.deck.serialize(deck)
 
       navigator.replace(`/simulators/draft/${deckId}`)
     },
     // eslint-disable-next-line
-    [props.cards]
+    [props.deck]
   )
 
   return (
@@ -161,9 +167,9 @@ export default React.memo(function DraftSimulator(props) {
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>Deck</Title>
-          <Deck deck={props.cards} highlightedCards={highlightedCards} />
+          <Deck deck={props.deck} highlightedCards={highlightedCards} />
           <DeckActions
-            deck={props.cards}
+            deck={props.deck}
             reset={() => navigator.push('/simulators/draft')}
           />
 
@@ -186,7 +192,7 @@ export default React.memo(function DraftSimulator(props) {
               onCardClick={addToDeck}
             />
             <Notice icon='stack' spacing={{ top: 'LARGER' }}>
-              Pick your {getOrdinalSuffix(props.cards.length + 1)} card.
+              Pick your {getOrdinalSuffix(props.deck.length + 1)} card.
             </Notice>
 
             <ol className={css(styles.list)}>
@@ -235,16 +241,16 @@ export default React.memo(function DraftSimulator(props) {
         ) : (
           <>
             <Row.Column width='1/3'>
-              <DeckStats deck={props.cards} highlight={setHighlightedCards} />
+              <DeckStats deck={props.deck} highlight={setHighlightedCards} />
               <DeckStatsChart
-                deck={props.cards}
+                deck={props.deck}
                 withHowTo
                 withModifiers={false}
               />
             </Row.Column>
             <Row.Column width='1/3'>
               <DeckAdvice
-                deck={props.cards}
+                deck={props.deck}
                 highlight={setHighlightedCards}
                 advice={props.advice}
               />

@@ -2,6 +2,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import artwork from './documents/artwork'
 import avatar from './documents/avatar'
+import card from './documents/card'
 import channel from './documents/channel'
 import changelog from './documents/changelog'
 import contribution from './documents/contribution'
@@ -24,6 +25,7 @@ export default createSchema({
   types: schemaTypes.concat([
     artwork,
     avatar,
+    card,
     changelog,
     contribution,
     deck,

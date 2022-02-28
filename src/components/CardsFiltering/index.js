@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import getExtraAfterMax from '~/helpers/getExtraAfterMax'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
@@ -38,6 +39,7 @@ const normaliseText = name =>
     .replace(/\s+/g, ' ')
 
 export default React.memo(function CardsFiltering(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { viewportWidth } = useViewportSize()
   // All filters are within the same state object for convenience, otherwise we
   // would need a dozen of individual setters, which is pretty cumbersome.
@@ -174,10 +176,10 @@ export default React.memo(function CardsFiltering(props) {
     card =>
       filters.status === '*' ||
       (filters.status === 'MISSING' && card.missing) ||
-      (filters.status === 'MAXABLE' && isLevelAvailable(card, 5)) ||
-      (filters.status === 'UPGRADABLE' && isCardUpgradable(card)) ||
+      (filters.status === 'MAXABLE' && isLevelAvailable(cardsIndex, card, 5)) ||
+      (filters.status === 'UPGRADABLE' && isCardUpgradable(cardsIndex, card)) ||
       (filters.status === 'EXCESS' && getExtraAfterMax(card).coins > 0),
-    [filters.status]
+    [cardsIndex, filters.status]
   )
 
   const matchesLevel = React.useCallback(
@@ -272,7 +274,7 @@ export default React.memo(function CardsFiltering(props) {
     filters.status === 'EXCESS'
       ? sortByLockedCoins
       : order === 'VALUE'
-      ? sortByValue
+      ? sortByValue(cardsIndex)
       : sortCards({ withFaction: false })
 
   const collection = props.cards
@@ -301,7 +303,7 @@ export default React.memo(function CardsFiltering(props) {
       if (!matchesElder(card)) return false
       return true
     })
-    .map(getResolvedCardData)
+    .map(card => getResolvedCardData(cardsIndex, card))
     .sort(sort)
 
   return props.children({

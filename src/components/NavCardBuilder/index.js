@@ -1,13 +1,14 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CardSelect from '~/components/CardSelect'
 import SubNav from '~/components/SubNav'
-import getRawCardData from '~/helpers/getRawCardData'
 import useViewportSize from '~/hooks/useViewportSize'
 import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function NavCardBuilder(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const isMounted = useIsMounted()
   const { viewportWidth } = useViewportSize()
   const { id } = useQueryParams()
@@ -26,8 +27,8 @@ export default React.memo(function NavCardBuilder(props) {
               id='card-select'
               name='card-select'
               noBorder={viewportWidth >= 700}
-              current={getRawCardData(id).id}
-              withClear={Boolean(getRawCardData(id).id)}
+              current={cardsIndex[id]?.id}
+              withClear={Boolean(cardsIndex[id]?.id)}
               disabledOptions={id ? [id] : undefined}
               onChange={option =>
                 navigator.push(

@@ -4,8 +4,6 @@ import arrayPad from '~/helpers/arrayPad'
 import countCards from '~/helpers/countCards'
 import getDrawingSequences from '~/helpers/getDrawingSequences'
 
-const CARD_COUNTS = Object.keys(RARITIES).map(rarity => countCards({ rarity }))
-
 /**
  * Return an array of sequences filled with 0 and 1 where 0 means the card in
  * the collection is not maxed out and 1 means the card is level 5 in the
@@ -40,6 +38,7 @@ const modifySequence = (sequence, rarity, sequenceRarity) => {
 }
 
 /**
+ * @param {Number[]} cardCounts - Amount of cards of each rarity
  * @param {Number} rarity - Rarity index, from 0 to 3
  * @param {Number} cards - ?
  * @param {Number} maxedCards - Amount of cards level 5 for this rarity
@@ -47,7 +46,14 @@ const modifySequence = (sequence, rarity, sequenceRarity) => {
  * @param {Number[][]} sequences - Drawing sequences
  * @return {Number} Probability
  */
-const getProbability = (rarity, cards, maxedCards, percentiles, sequences) => {
+const getProbability = (
+  cardCounts,
+  rarity,
+  cards,
+  maxedCards,
+  percentiles,
+  sequences
+) => {
   let total = 0
 
   sequences.forEach(sequence => {
@@ -59,7 +65,7 @@ const getProbability = (rarity, cards, maxedCards, percentiles, sequences) => {
 
     possibleSequences.forEach(sequenceRarity => {
       const newSequence = modifySequence(sequence, rarity, sequenceRarity)
-      const pools = CARD_COUNTS.slice(0)
+      const pools = cardCounts.slice(0)
       let maxed = maxedCards
 
       total += sequence.reduce((probability, cardRarity, index) => {
@@ -84,6 +90,7 @@ const getProbability = (rarity, cards, maxedCards, percentiles, sequences) => {
 
 /**
  * Return the expected number of maxed out cards we can get, for each rarity
+ * @param {Number[]} cardCounts - Amount of cards of each rarity
  * @param {Number} rarityIndex - Rarity index, from 0 to 3
  * @param {String} bookType - Type of book (e.g. `MYTHIC`)
  * @param {Number} maxedCards - Amount of cards level 5 for this rarity
@@ -91,6 +98,7 @@ const getProbability = (rarity, cards, maxedCards, percentiles, sequences) => {
  * @return {Number}
  */
 const countExpectedMaxedCards = (
+  cardCounts,
   rarityIndex,
   bookType,
   maxedCards,
@@ -104,7 +112,15 @@ const countExpectedMaxedCards = (
   // the 6 cards in the book
   for (let i = 1; i < Math.min(maxedCards, draws) + 1; i++) {
     total +=
-      i * getProbability(rarityIndex, i, maxedCards, percentiles, sequences)
+      i *
+      getProbability(
+        cardCounts,
+        rarityIndex,
+        i,
+        maxedCards,
+        percentiles,
+        sequences
+      )
   }
 
   return total
@@ -122,20 +138,25 @@ const getMaxedCardsPerRarity = collection =>
   )
 
 /**
+ * @param {Card[]} cards - All cards data
  * @param {Card[]} collection - Current collection
  * @param {String} bookType - Type of book (e.g. `MYTHIC`)
  * @return {Number} Expected coins for given book type
  */
-const getExpectedCoinsPerBook = (collection, bookType) => {
+const getExpectedCoinsPerBook = (cards, collection, bookType) => {
   const { draws } = BOOKS[bookType]
   const allMaxedCardsPerRarity = getMaxedCardsPerRarity(collection)
   const rarities = Object.keys(RARITY_COPIES)
   const sequences = getDrawingSequences(draws)
+  const cardCounts = Object.keys(RARITIES).map(rarity =>
+    countCards(cards, { rarity })
+  )
 
   return rarities.reduce((total, rarity, index) => {
     const maxedCardForRarity = allMaxedCardsPerRarity[index]
     const { coinsPerExtraCopy } = RARITY_COPIES[rarity]
     const expectedCards = countExpectedMaxedCards(
+      cardCounts,
       index,
       bookType,
       maxedCardForRarity,

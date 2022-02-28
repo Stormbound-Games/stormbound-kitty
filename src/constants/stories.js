@@ -54,7 +54,7 @@ export const STORY_CATEGORIES = {
   },
   'eastern-heat': {
     background:
-      'https://cdn.sanity.io/images/5hlpazgd/production/f4c847d872107600d95b10aac9be7b4e6f6336ed-1920x1080.png?auto=format&w=1200',
+      'https://cdn.sanity.io/images/5hlpazgd/production/f4c847d872107600d95b10aac9be7b4e6f6336ed-1920x1080.png',
     content: 'The epic Eastern Heat saga by Zyries.',
     title: 'Eastern Heat',
     shortName: 'Eastern Heat',
@@ -63,7 +63,7 @@ export const STORY_CATEGORIES = {
   },
   'march-of-fauns': {
     background:
-      'https://cdn.sanity.io/images/5hlpazgd/production/9ec6fce0266d8eac9b9fba4b067a003df8770473-1920x1080.png?auto=format&w=1200',
+      'https://cdn.sanity.io/images/5hlpazgd/production/9ec6fce0266d8eac9b9fba4b067a003df8770473-1920x1080.png',
     content: 'The epic March of Fauns saga by SirToast.',
     title: 'March of Fauns',
     shortName: 'March of Fauns',

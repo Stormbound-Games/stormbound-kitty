@@ -1,14 +1,15 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { CardsContext } from '~/components/CardsProvider'
 import ListBuilderTierHeader from '~/components/ListBuilderTierHeader'
 import ListBuilderTierItem from '~/components/ListBuilderTierItem'
 import Spacing from '~/components/Spacing'
-import getRawCardData from '~/helpers/getRawCardData'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTier(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela({ isDragging: props.isDragging })
-  const cards = props.cards.map(getRawCardData)
+  const cards = props.cards.map(id => cardsIndex[id])
   const shouldRenderHeader =
     typeof props.withHeader === 'undefined'
       ? props.name || props.isEditable

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
+import CardsProvider from '~/components/CardsProvider'
 import CollectionProvider from '~/components/CollectionProvider'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import NotificationProvider from '~/components/NotificationProvider'
@@ -24,8 +25,14 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
   return (
     <>
       <Head>
-        <link rel='shortcut icon' href='/favicon.png' />
-        <link rel='apple-touch-icon' href='/favicon.png' />
+        <link
+          rel='shortcut icon'
+          href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256'
+        />
+        <link
+          rel='apple-touch-icon'
+          href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256'
+        />
 
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='theme-color' content='#101F26' />
@@ -40,11 +47,13 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <ErrorBoundary>
           <ImageSupportProvider>
             <NotificationProvider>
-              <CollectionProvider>
-                <PersonalDecksProvider>
-                  <Component {...pageProps} />
-                </PersonalDecksProvider>
-              </CollectionProvider>
+              <CardsProvider cards={pageProps.cards}>
+                <CollectionProvider>
+                  <PersonalDecksProvider>
+                    <Component {...pageProps} />
+                  </PersonalDecksProvider>
+                </CollectionProvider>
+              </CardsProvider>
             </NotificationProvider>
           </ImageSupportProvider>
         </ErrorBoundary>

@@ -1,8 +1,8 @@
 import serialization from '~/helpers/serialization'
 import searchCards from '~/helpers/searchCards'
 import getEmbed from '~/helpers/getEmbed'
-import getRawCardData from '~/helpers/getRawCardData'
 import clamp from '~/helpers/clamp'
+import getCards from '~/api/cards/getCards'
 
 const getLevelOut = term => {
   term = term.trim()
@@ -27,16 +27,17 @@ const deckid = {
         `Get the URL/ID of a deck based on the listed cards (and optional levels). An optional global deck level can be specified at the beginning or the end of the command, and optional individual card levels can be specified alongside each card in the list. For instance, \`!${this.command} 4 gp,sm,…,dopp\` or \`!${this.command} gp 3,sm 2,…,1 dopp\`.`
       )
   },
-  handler: function (message) {
+  handler: async function (message) {
     if (message.length === 0) return
 
+    const allCards = await getCards()
     const [deckLevel, search] = getLevelOut(message)
     const unknown = []
     const cards = []
 
     search.split(/\s*,\s*/g).forEach(term => {
       const [level, search] = getLevelOut(term)
-      const [card] = searchCards(search)
+      const [card] = searchCards(allCards, search)
       if (!card) return unknown.push(term)
       if (cards.find(c => c.id === card.id)) return
       cards.push({ id: card.id, level: level || deckLevel || 1 })
@@ -55,7 +56,7 @@ const deckid = {
         .filter(Boolean)
         .slice(0, 12)
         .map(card => ({
-          name: getRawCardData(card.id).name,
+          name: allCards.find(c => c.id === card.id).name,
           value: 'Level ' + card.level,
           inline: true,
         }))

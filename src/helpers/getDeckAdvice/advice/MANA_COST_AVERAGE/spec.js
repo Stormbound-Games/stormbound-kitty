@@ -4,9 +4,11 @@ import serialization from '~/helpers/serialization'
 import modifyDeck from '~/helpers/modifyDeck'
 
 const getCards = (id, modifier = 'NONE') =>
-  modifyDeck(serialization.deck.deserialize(id), modifier).map(
-    getResolvedCardData
-  )
+  modifyDeck(
+    global.__CARDS_INDEX__,
+    serialization.deck.deserialize(global.__CARDS_INDEX_BY_SID__, id),
+    modifier
+  ).map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
 describe('The `MANA_COST_AVERAGE` advice', () => {
   it('should be returned if the deck average cost is above 5.5', () => {

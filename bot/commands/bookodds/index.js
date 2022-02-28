@@ -4,25 +4,32 @@ import getDrawingProbability from '~/helpers/getDrawingProbability'
 import searchCards from '~/helpers/searchCards'
 import getEmbed from '~/helpers/getEmbed'
 import getBookName from '~/helpers/getBookName'
+import getCards from '~/api/cards/getCards'
 
-const getEmbedFields = book => {
+const getEmbedFields = (cards, book) => {
   const fields = []
 
   Object.keys(RARITIES).forEach(rarity => {
     const anyKey = 'ANY_' + rarity.toUpperCase()
     const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
-    const anyOdds = EXPECTATIONS[anyKey].getExpectations(book.only)
-    const specificOdds = EXPECTATIONS[specificKey].getExpectations(book.only)
+    const anyOdds = EXPECTATIONS[anyKey].getExpectations(cards, book.only)
+    const specificOdds = EXPECTATIONS[specificKey].getExpectations(
+      cards,
+      book.only
+    )
 
     fields.push({
       name: `Any ${rarity} card`,
-      value: (getDrawingProbability(book, anyOdds) * 100).toFixed(2) + '%',
+      value:
+        (getDrawingProbability(cards, book, anyOdds) * 100).toFixed(2) + '%',
       inline: true,
     })
 
     fields.push({
       name: `Specific ${rarity} card`,
-      value: (getDrawingProbability(book, specificOdds) * 100).toFixed(2) + '%',
+      value:
+        (getDrawingProbability(cards, book, specificOdds) * 100).toFixed(2) +
+        '%',
       inline: true,
     })
   })
@@ -36,7 +43,7 @@ const getEmbedFields = book => {
   return fields
 }
 
-const parseMessage = search => {
+const parseMessage = (cards, search) => {
   const terms = search.split(/\s+/g)
   const params = {}
 
@@ -48,7 +55,7 @@ const parseMessage = search => {
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
       params.target = 'FUSION_STONES'
     } else if (!params.target) {
-      const [card] = searchCards(term)
+      const [card] = searchCards(cards, term)
       params.target = card
     }
   })
@@ -67,8 +74,9 @@ const bookodds = {
         `Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
       )
   },
-  handler: function (message) {
-    const { bookType, target } = parseMessage(message)
+  handler: async function (message) {
+    const cards = await getCards()
+    const { bookType, target } = parseMessage(cards, message)
 
     // The book argument should be mandatory and there is no way to compute
     // anything if it’s not provided.
@@ -93,7 +101,7 @@ const bookodds = {
     // If no specific target is provided, return all the odds for the given book
     // starting with fusion stones, and then going through rarities.
     if (!target) {
-      embed.addFields(...getEmbedFields(bookType))
+      embed.addFields(...getEmbedFields(cards, bookType))
 
       return embed
     }
@@ -104,8 +112,9 @@ const bookodds = {
       const rarity = target.rarity.toUpperCase()
       const odds =
         getDrawingProbability(
+          cards,
           bookType,
-          EXPECTATIONS['SPECIFIC_' + rarity].getExpectations(book.only)
+          EXPECTATIONS['SPECIFIC_' + rarity].getExpectations(cards, book.only)
         ) * 100
 
       embed.setTitle(embed.title + ' · ' + target.name)
@@ -118,7 +127,7 @@ const bookodds = {
       return embed
     }
 
-    embed.addFields(...getEmbedFields(bookType))
+    embed.addFields(...getEmbedFields(cards, bookType))
 
     return embed
   },

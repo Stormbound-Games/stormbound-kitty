@@ -37,7 +37,7 @@ const lacksAoE = cards => {
   return true
 }
 
-export default cards => {
+const advice = cards => {
   if (!lacksAoE(cards)) return null
 
   return {
@@ -46,3 +46,5 @@ export default cards => {
       'It doesn’t look like this deck includes any way to deal damage to multiple units at once. Consider bringing a card or card combo which can clean several units.',
   }
 }
+
+export default advice

@@ -1,13 +1,12 @@
-import CARDS from '~/data/cards'
 import getExpectedCoinsPerBook from './'
 
-const LEVEL_5_COLLECTION = CARDS.map(card => ({
+const LEVEL_5_COLLECTION = global.__CARDS__.map(card => ({
   id: card.id,
   level: 5,
   rarity: card.rarity,
 }))
 
-const LEVEL_1_COLLECTION = CARDS.map(card => ({
+const LEVEL_1_COLLECTION = global.__CARDS__.map(card => ({
   id: card.id,
   level: 1,
   rarity: card.rarity,
