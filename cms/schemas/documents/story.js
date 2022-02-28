@@ -4,6 +4,7 @@ import member from '../types/member'
 import date from '../types/date'
 import json from '../types/json'
 import cardId from '../types/cardId'
+import cardRef from '../types/cardRef'
 import getBlock from '../richText/block'
 import getRawCardData from '~/helpers/getRawCardData'
 import { STORY_CATEGORIES } from '~/constants/stories'
@@ -30,6 +31,7 @@ const story = {
     },
     member,
     cardId,
+    { ...cardRef, name: 'cardRef' },
     {
       title: 'Card data',
       name: 'card',

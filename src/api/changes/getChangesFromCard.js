@@ -5,6 +5,7 @@ const getChangesFromCard = async ({ id, isPreview } = {}) => {
   const changes = await getEntries({
     conditions: ['_type == "changelog"', 'id == $id'],
     params: { id },
+    fields: `..., card -> { id }`,
     options: { order: 'date desc', isPreview },
   })
 

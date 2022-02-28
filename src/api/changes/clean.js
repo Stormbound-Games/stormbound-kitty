@@ -1,6 +1,7 @@
 const clean = change => {
   const [year, month, day] = change.date.split(/[-/]/g)
 
+  change.id = (change.card ? change.card.id : change.id) || null
   change.timestamp = new Date(change.date).valueOf()
   change.date = day + '/' + month + '/' + year
   change.from = change.from

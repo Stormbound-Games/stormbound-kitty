@@ -12,7 +12,7 @@ const getRelease = async ({
       '_type == "release"',
       '(id == $id || slug.current == $slug || date == $date)',
     ],
-    fields: `..., background { ratio, asset -> { url } }`,
+    fields: `..., background { ratio, asset -> { url } }, card -> { id }`,
     params: { id, slug, date },
     options: { isPreview },
   })

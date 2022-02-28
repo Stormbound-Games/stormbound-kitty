@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdOutlineCompareArrows, MdOutlineUndo } from 'react-icons/md'
 import cardId from '../types/cardId'
+import cardRef from '../types/cardRef'
 import date from '../types/date'
 import getRawCardData from '~/helpers/getRawCardData'
 import { formatDate } from '~/helpers/formatDate'
@@ -40,6 +41,7 @@ const changelog = {
   icon: MdOutlineCompareArrows,
   fields: [
     { ...cardId, name: 'id', validation: Rule => Rule.required() },
+    cardRef,
     {
       ...date,
       options: { dateFormat: 'DD/MM/YYYY' },
