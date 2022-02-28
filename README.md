@@ -4,7 +4,6 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
 ## Documentation
 
-- [Adding a deck](./docs/ADDING_A_DECK.md)
 - [Update the equals list](./docs/UPDATING_EQUALS_LIST.md)
 
 ## Development
