@@ -107,7 +107,7 @@ describe('Bot — !randomcard', () => {
   it('should handle negative hero', () => {
     return randomcard('!hero').then(output => {
       const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].hero).toEqual(undefined)
+      expect(global.__CARDS_INDEX__[id].hero).toEqual(false)
     })
   })
 
@@ -121,7 +121,7 @@ describe('Bot — !randomcard', () => {
   it('should handle negative ancient', () => {
     return randomcard('!ancient').then(output => {
       const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].ancient).toEqual(undefined)
+      expect(global.__CARDS_INDEX__[id].ancient).toEqual(false)
     })
   })
 
@@ -135,7 +135,7 @@ describe('Bot — !randomcard', () => {
   it('should handle negative elder', () => {
     return randomcard('!elder').then(output => {
       const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].elder).toEqual(undefined)
+      expect(global.__CARDS_INDEX__[id].elder).toEqual(false)
     })
   })
 
