@@ -43,7 +43,11 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
         'count(hosts[lower(@) == $author]) > 0',
       ].join('||'),
     ],
-    fields: `..., defined(image) => { image { asset -> { ... } } }`,
+    fields: `
+      ...,
+      _type == "artwork" => { image { asset -> { ... } } },
+      _type == "story" => { cardRef -> { id } },
+      _type == "guide" => { card    -> { id } }`,
     params: { author },
     options: { order: 'date desc', isPreview },
   })
@@ -63,6 +67,8 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
   if (content.channel) {
     content.channel = content.channel[0]
   }
+
+  console.log(content)
 
   return content
 }
