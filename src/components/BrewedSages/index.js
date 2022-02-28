@@ -11,7 +11,8 @@ import Title from '~/components/Title'
 import styles from './styles'
 
 const CARD = {
-  image: 'brewed_sages.png',
+  image:
+    'https://cdn.sanity.io/images/5hlpazgd/production/530b731e3badad728e3afef6b7b7bd26cd9acb1a-508x508.png',
   type: 'unit',
   name: 'Brewed Sages',
   race: 'Podcast',
