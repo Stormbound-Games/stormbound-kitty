@@ -13,7 +13,7 @@ export const getCardForPuzzle = puzzle => ({
   mana: puzzle.difficulty,
   rarity: 'common',
   faction: 'neutral',
-  image: puzzle.image + '?w=300&auto=format',
+  image: puzzle.image,
   ability: puzzle.restrictions
     .map(restriction => RESTRICTIONS[restriction].name)
     .join(', '),

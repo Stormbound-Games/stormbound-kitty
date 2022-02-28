@@ -58,7 +58,7 @@ export default React.memo(function BattleSimCell(props) {
       {props.card.id ? (
         <Image
           extend={styles.image}
-          src={props.card.image + '&w=60'}
+          src={props.card.image}
           alt={props.card.name}
           data-testid='cell-image'
           width={60}

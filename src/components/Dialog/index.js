@@ -75,7 +75,7 @@ export default React.memo(function Dialog(props) {
       {image !== null && (
         <Image
           extend={styles.image}
-          src={image + '?auto=format&w=' + (props.imageWidth || 200)}
+          src={image}
           alt=''
           width={props.imageWidth || 200}
           height={props.imageHeight || 200}

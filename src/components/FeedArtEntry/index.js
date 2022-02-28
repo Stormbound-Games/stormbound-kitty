@@ -8,7 +8,7 @@ export default React.memo(function FeedArtEntry(props) {
   const [width, height] = props.dimensions.split('x').map(Number)
   const displayWidth = 450
   const displayHeight = Math.round((displayWidth / width) * height)
-  const dimensions = '&w=' + displayWidth + '&h=' + displayHeight
+  const dimensions = '?auto=format&w=' + displayWidth + '&h=' + displayHeight
 
   return (
     <FeedEntry icon='image' date={props.date}>

@@ -1,5 +1,5 @@
 const clean = card => {
-  card.image = card.image.asset.url + '?auto=format'
+  card.image = card.image.asset.url
   card.movement = +card.movement
   card.ability = card.ability || null
 

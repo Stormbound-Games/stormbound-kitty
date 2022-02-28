@@ -11,20 +11,53 @@ const useFileExtension = ({ withAvif, withoutWebp }) => {
   return 'png'
 }
 
+const useSource = props => {
+  const ext = useFileExtension({
+    withAvif: props.withAvif,
+    withoutWebp: props.withoutWebp,
+  })
+
+  // If an image is rendered without a source, return an empty string.
+  if (!props.src) return ''
+
+  // If an image is served from the CDN, ensure it’s optimized.
+  if (props.src.startsWith('https://cdn.sanity.io')) {
+    let source = props.src
+
+    // If the image already provides auto=format, avoid adding it again.
+    if (!source.includes('auto=format')) {
+      source += (source.includes('?') ? '&' : '?') + 'auto=format'
+    }
+
+    // If the image already provides w= or doesn’t have an explicit width, avoid
+    // adding it again.
+    if (!source.includes('w=') && props.width) {
+      source += (source.includes('?') ? '&' : '?') + 'w=' + props.width
+    }
+
+    return source
+  }
+
+  // If the image is self-hosted, optimize it’s format.
+  if (props.src.startsWith('/assets/images')) {
+    return props.src.replace('png', ext)
+  }
+
+  // Otherwise just return the source as given.
+  return props.src
+}
+
 export default React.memo(function Image(props) {
   const { css } = useFela()
   const { isEditorialContent } = React.useContext(PageContext)
-  const ext = useFileExtension({
-    withAvif: props.withAvif && props.src.startsWith('/assets/images'),
-    withoutWebp: props.withoutWebp || !props.src.startsWith('/assets/images'),
-  })
+  const src = useSource(props)
 
   return (
     <img
       loading={props.lazy ? 'lazy' : undefined}
       width={props.width}
       height={props.height}
-      src={props.src.replace('png', ext)}
+      src={src}
       alt={props.alt || ''}
       className={css(
         {

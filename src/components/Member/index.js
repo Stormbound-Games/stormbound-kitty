@@ -112,7 +112,7 @@ export default React.memo(function Member(props) {
           ) : (
             <div className={css(styles.empty)}>
               <Image
-                src='https://cdn.sanity.io/images/5hlpazgd/production/f675c9ec86b27088ee6433b53433a9a3fdd96803-512x512.png?auto=format&w=250'
+                src='https://cdn.sanity.io/images/5hlpazgd/production/f675c9ec86b27088ee6433b53433a9a3fdd96803-512x512.png'
                 alt='Sparkly Kitties'
                 extend={styles.image}
                 width={250}

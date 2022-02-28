@@ -62,7 +62,7 @@ export default React.memo(function FanKitAvatars(props) {
                 <FanKitItem
                   {...row[index]}
                   id={row[index]._id}
-                  image={row[index].image.asset.url + '?auto=format&w=114'}
+                  image={row[index].image.asset.url}
                   key={row[index].id}
                   setActive={setActive}
                   width={114}

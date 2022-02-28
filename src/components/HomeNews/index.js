@@ -13,7 +13,7 @@ export default React.memo(function HomeNews(props) {
     <aside className={css(styles.container)}>
       <div className={css(styles.image)}>
         <Image
-          src='https://cdn.sanity.io/images/5hlpazgd/production/f675c9ec86b27088ee6433b53433a9a3fdd96803-512x512.png?auto=format&w=390'
+          src='https://cdn.sanity.io/images/5hlpazgd/production/f675c9ec86b27088ee6433b53433a9a3fdd96803-512x512.png'
           alt='Sparkly Kitties'
           width={390}
           height={390}

@@ -61,7 +61,7 @@ export default React.memo(function ListBuilderTierItem(props) {
       {shouldDisplayPlaceholderBefore && (
         <span className={css(styles.item({ isPlaceholder: true }))}>
           <Image
-            src={props.cards[props.dndSource].image + '&w=60'}
+            src={props.cards[props.dndSource].image}
             alt={props.card.name}
             extend={styles.image}
             width={60}
