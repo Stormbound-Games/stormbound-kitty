@@ -1,9 +1,3 @@
-import serialization from '~/helpers/serialization'
-import getRawCardData from '~/helpers/getRawCardData'
-
-const isValidCard = card =>
-  Boolean(getRawCardData(card.id).name) && !isNaN(card.level)
-
 const deckId = {
   title: 'ID',
   name: 'deckId',
