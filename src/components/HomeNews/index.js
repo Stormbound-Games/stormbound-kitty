@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from 'next/image'
+import Image from '~/components/Image'
 import News from '~/components/News'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
@@ -17,8 +17,6 @@ export default React.memo(function HomeNews(props) {
           alt='Sparkly Kitties'
           width={390}
           height={390}
-          layout='intrinsic'
-          loading='eager'
         />
       </div>
 
