@@ -1,4 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
+import sortCards from '~/helpers/sortCards'
 import clean from './clean'
 
 const getCards = async ({ isPreview } = {}) => {
@@ -8,7 +9,7 @@ const getCards = async ({ isPreview } = {}) => {
     options: { order: 'faction desc, name asc', isPreview },
   })
 
-  return cards.map(clean)
+  return cards.map(clean).sort(sortCards())
 }
 
 export default getCards
