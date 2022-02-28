@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdPadding } from 'react-icons/md'
 import cardId from '../types/cardId'
-import getRawCardData from '~/helpers/getRawCardData'
+import cards from '~/data/cards'
 
 const card = {
   title: 'Card',
@@ -23,7 +23,7 @@ const card = {
   preview: {
     select: { cardId: 'cardId' },
     prepare({ cardId }) {
-      const { name } = getRawCardData(cardId)
+      const { name } = cards.find(card => card.id === cardId)
 
       return {
         title: `Card ${name ? `(${name})` : ''}`,

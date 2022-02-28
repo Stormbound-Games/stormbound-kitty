@@ -1,4 +1,4 @@
-import cardId from './cardId'
+import cardRef from './cardRef'
 
 const cardLink = {
   title: 'Card link',
@@ -6,7 +6,7 @@ const cardLink = {
   type: 'object',
   fields: [
     {
-      ...cardId,
+      ...cardRef,
       description:
         'Note: card names are automatically linked provided their spelling match the official one.',
     },
