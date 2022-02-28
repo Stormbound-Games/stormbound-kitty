@@ -65,7 +65,7 @@ export const deserializeCard = (cardsIndex, string) => {
   // If the serialized image data is the ID of an existing card, set the ID in
   // `imageCardId` key; otherwise set it in `imageURL` key; then and delete
   // image.
-  if (cardsIndex[chunks[8]]?.image) {
+  if (chunks[8] in cardsIndex) {
     card.imageCardId = chunks[8]
   } else {
     card.imageURL = decodeURIComponent(chunks[8])
