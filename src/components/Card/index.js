@@ -83,7 +83,11 @@ export default React.memo(function Card(props) {
           <div className={css(styles.imageWrapper)}>
             <Image
               alt={props.image ? props.name : ''}
-              src={props.image ? props.image + '&w=300' : ''}
+              src={
+                props.image?.startsWith('https://cdn.sanity.io/')
+                  ? props.image + '&w=300'
+                  : props.image || ''
+              }
               extend={styles.image}
               data-testid='card-image'
               lazy
