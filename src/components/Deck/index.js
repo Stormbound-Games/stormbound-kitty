@@ -105,7 +105,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       <Image
         extend={styles.image({ orientation: props.orientation })}
         // Passing a width manually as 24 looks super blurry.
-        src={card.image + '&w=50'}
+        src={card.image + '?w=50'}
         alt={card.name}
         width={24}
         height={24}
