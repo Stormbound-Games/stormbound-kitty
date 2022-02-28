@@ -27,13 +27,27 @@ const nerfCompensation = {
     },
   ],
   preview: {
-    select: { ids: 'ids' },
-    prepare({ ids = [] }) {
-      const cards = ids.map(id => getRawCardData(id).name)
+    select: {
+      ids: 'ids',
+      cards: 'cards',
+      ...Array.from({ length: 10 }, (_, i) => i).reduce(
+        (acc, i) => ({
+          ...acc,
+          ['cardName' + i]: `cards.${i}.name`,
+        }),
+        {}
+      ),
+    },
+    prepare({ ids = [], ...rest }) {
+      const legacyCardNames = ids.map(id => getRawCardData(id).name)
+      const cardNames = Object.entries(rest)
+        .filter(([key, value]) => key.startsWith('cardName') && Boolean(value))
+        .map(entry => entry[1])
+        .sort()
 
       return {
         title: 'Nerf compensation info',
-        subtitle: cards.join(', '),
+        subtitle: (cardNames.length ? cardNames : legacyCardNames).join(', '),
         media: <MdHealing />,
       }
     },
