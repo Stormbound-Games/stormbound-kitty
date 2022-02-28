@@ -23,6 +23,8 @@ const card = {
       title: 'Stormbound ID',
       name: 'sid',
       type: 'string',
+      description:
+        'The card ID used by the game itself, provided by Sheepyard.',
       validation: Rule => Rule.required().lowercase(),
     },
     {
@@ -90,6 +92,8 @@ const card = {
       validation: Rule =>
         Rule.custom((value, context) => {
           if (context.document?.type === 'spell' && !value) return 'Required'
+          if (value && value.endsWith('.'))
+            return 'Ability should not end with a period'
           return true
         }),
     },

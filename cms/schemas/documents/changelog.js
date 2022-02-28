@@ -62,7 +62,11 @@ const changelog = {
       name: 'from',
       type: 'array',
       of: [change],
-      description: 'The former stats *before* that change was applied.',
+      description: (
+        <>
+          The former stats <strong>before</strong> that change was applied.
+        </>
+      ),
       validation: Rule =>
         Rule.custom((entry, { document }) => {
           if (document.type === 'INFO') return true

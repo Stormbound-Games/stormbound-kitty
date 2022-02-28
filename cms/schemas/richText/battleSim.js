@@ -1,7 +1,6 @@
 import React from 'react'
 import { MdGridOn } from 'react-icons/md'
-import cardLink from '../types/cardLink'
-import link from '../types/link'
+import getBlock from './block'
 
 const battleSimEmbed = {
   title: 'Battle Sim',
@@ -21,16 +20,7 @@ const battleSimEmbed = {
       title: 'Caption',
       name: 'caption',
       type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
-          marks: {
-            decorators: [{ title: 'Strong', value: 'strong' }],
-            annotations: [link, cardLink],
-          },
-        },
-      ],
+      of: [getBlock()],
     },
     {
       title: 'Environment',
