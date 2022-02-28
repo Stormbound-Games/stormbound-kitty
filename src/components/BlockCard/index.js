@@ -13,6 +13,11 @@ export default React.memo(function BlockCard(props) {
   const id = props.value.cardId
   const level = props.value.level || 1
 
+  if (!id) {
+    console.warn('Could not resolve card for id', id)
+    return null
+  }
+
   return isInColumn ? (
     <Card {...getResolvedCardData(cardsIndex, { id, level })} />
   ) : (
