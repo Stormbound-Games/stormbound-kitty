@@ -22,6 +22,14 @@ const getRelease = async ({
       ${markDefs},
       _type == "nerfCompensation" => {
         ..., "cards": cards[] -> { id }.id
+      },
+      _type == "card" => {
+        ...,
+        "cardId": coalesce(
+          card -> { id }.id,
+          *[ _type == "card" && _id == ("drafts." + ^.card._ref) ][0] { id }.id,
+          cardid
+        )
       }
     }
     `,

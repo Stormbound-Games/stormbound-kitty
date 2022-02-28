@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdPadding } from 'react-icons/md'
+import cardRef from '../types/cardRef'
 import cards from '~/data/cards'
 
 const card = {
@@ -19,6 +20,7 @@ const card = {
       },
       validation: Rule => Rule.required().uppercase(),
     },
+    { ...cardRef, weak: true },
     {
       title: 'Level',
       name: 'level',
