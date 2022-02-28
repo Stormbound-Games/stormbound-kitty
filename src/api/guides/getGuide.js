@@ -1,5 +1,5 @@
 import { getEntry } from '~/helpers/sanity'
-import markDefs from '~/api/misc/markDefs'
+import blocks from '~/api/misc/blocks'
 import clean from './clean'
 
 const getGuide = async ({
@@ -17,7 +17,7 @@ const getGuide = async ({
       ...,
       background { ratio, asset -> { url } },
       card -> { id },
-      content[] { ..., ${markDefs} }
+      content[] { ${blocks} }
     `,
     params: { id, slug, name },
     options: { isPreview },

@@ -1,5 +1,5 @@
 import { getEntry } from '~/helpers/sanity'
-import markDefs from '~/api/misc/markDefs'
+import blocks from '~/api/misc/blocks'
 import clean from './clean'
 
 const getRelease = async ({
@@ -18,19 +18,7 @@ const getRelease = async ({
     background { ratio, asset -> { url } },
     card -> { id },
     content[] {
-      ...,
-      ${markDefs},
-      _type == "nerfCompensation" => {
-        ..., "cards": cards[] -> { id }.id
-      },
-      _type == "card" => {
-        ...,
-        "cardId": coalesce(
-          card -> { id }.id,
-          *[ _type == "card" && _id == ("drafts." + ^.card._ref) ][0] { id }.id,
-          cardid
-        )
-      }
+      ${blocks}
     }
     `,
     params: { id, slug, date },

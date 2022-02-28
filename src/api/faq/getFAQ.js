@@ -1,11 +1,11 @@
 import { getEntries } from '~/helpers/sanity'
-import markDefs from '~/api/misc/markDefs'
+import blocks from '~/api/misc/blocks'
 import clean from './clean'
 
 const getFAQSections = async ({ isPreview } = {}) => {
   const sections = await getEntries({
     conditions: ['_type == "faqSection"'],
-    fields: `..., questions[] -> { ... }, content[] { ..., ${markDefs} }`,
+    fields: `..., questions[] -> { ... }, content[] { ${blocks} }`,
     options: { order: 'priority asc', isPreview },
   })
 

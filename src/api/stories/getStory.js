@@ -1,5 +1,5 @@
 import { getEntry } from '~/helpers/sanity'
-import markDefs from '~/api/misc/markDefs'
+import blocks from '~/api/misc/blocks'
 import clean from './clean'
 
 const getStory = async ({ slug, isPreview } = {}) => {
@@ -9,7 +9,7 @@ const getStory = async ({ slug, isPreview } = {}) => {
     fields: `
     ...,
     cardRef -> { id },
-    content[] { ..., ${markDefs} }
+    content[] { ${blocks} }
     `,
     options: { isPreview },
   })
