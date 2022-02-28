@@ -1,4 +1,5 @@
 import { getEntry } from '~/helpers/sanity'
+import markDefs from '~/api/misc/markDefs'
 import clean from './clean'
 
 const getRelease = async ({
@@ -18,6 +19,7 @@ const getRelease = async ({
     card -> { id },
     content[] {
       ...,
+      ${markDefs},
       _type == "nerfCompensation" => {
         ..., "cards": cards[] -> { id }.id
       }
