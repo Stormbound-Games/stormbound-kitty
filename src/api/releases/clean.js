@@ -3,7 +3,7 @@ const clean = release => {
 
   release.date = month + '/' + year
   release.slug = release.slug.current
-  release.cardId = (release.card ? release.card.id : release.cardId) || null
+  release.cardId = release.card ? release.card.id : null
 
   if (release.background) {
     if (typeof release.background.ratio === 'number') {
