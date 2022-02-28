@@ -24,7 +24,7 @@
     "fela-plugin-embedded": "^11.7.0",
     "fela-plugin-extend": "^11.7.0",
     "fela-plugin-fallback-value": "^11.7.0",
-    "fela-plugin-named-keys": "^11.7.0",
+    "fela-plugin-named-keys": "^12.0.2",
     "fela-plugin-responsive-value": "^11.7.0",
     "fela-sort-classnames": "^11.7.0",
     "fela-sort-media-query-mobile-first": "^11.7.0",
