@@ -143,10 +143,17 @@ const card = {
     },
   ],
   preview: {
-    select: { name: 'name', image: 'image' },
-    prepare({ name, image }) {
+    select: {
+      name: 'name',
+      image: 'image',
+      faction: 'faction',
+      type: 'type',
+      race: 'race',
+    },
+    prepare({ name, image, faction, type, race }) {
       return {
         title: name,
+        subtitle: [faction, type, race].filter(Boolean).join(' · '),
         media: image,
       }
     },
