@@ -41,6 +41,7 @@ const faqSection = {
   title: 'FAQ Section',
   name: 'faqSection',
   type: 'document',
+  icon: MdQuestionAnswer,
   fields: [
     {
       title: 'Title',
