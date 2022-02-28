@@ -10,12 +10,20 @@ const nerfCompensation = {
   icon: MdHealing,
   fields: [
     {
-      title: 'Nerfed cards',
+      title: 'Nerfed cards (legacy)',
       name: 'ids',
       description:
         'Optional list of cards that are nerfed, otherwise display generic information.',
       type: 'array',
       of: [cardId],
+    },
+    {
+      title: 'Nerfed cards',
+      name: 'cards',
+      description:
+        'Optional list of cards that are nerfed, otherwise display generic information.',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'card' }] }],
     },
   ],
   preview: {
