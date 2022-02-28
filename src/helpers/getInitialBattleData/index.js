@@ -16,9 +16,7 @@ const getInitialBattleData = (cardsIndex, sim) => {
     }
   }
 
-  const decodedData = decodeURIComponent(sim)
-
-  return { ...serialization.battle.deserialize(cardsIndex, decodedData) }
+  return serialization.battle.deserialize(cardsIndex, decodeURIComponent(sim))
 }
 
 export default getInitialBattleData

@@ -13,6 +13,7 @@ export default React.memo(function BattleSimCards(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const [cycleMode, setCycleMode] = React.useState(false)
   const { css } = useFela({ isCycle: cycleMode })
+  const deckIndex = React.useMemo(() => indexArray(props.cards), [props.cards])
 
   return (
     <>
@@ -30,7 +31,7 @@ export default React.memo(function BattleSimCards(props) {
 
         {[0, 1, 2, 3].map(index => {
           const cardId = props.hand[index]
-          const card = getResolvedCardData(cardsIndex, cardsIndex[cardId])
+          const card = getResolvedCardData(cardsIndex, deckIndex[cardId])
           const buttonLabel =
             !card && props.canDrawCard
               ? 'Draw card'

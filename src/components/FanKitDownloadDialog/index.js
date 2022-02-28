@@ -15,7 +15,7 @@ export default React.memo(function FanKitDownloadDialog(props) {
       ctaProps={
         props.image
           ? {
-              href: props.image,
+              href: props.image.split('?')[0],
               download: true,
               className: css({ minWidth: 0 }),
               'data-testid': 'fan-kit-link',
@@ -26,7 +26,7 @@ export default React.memo(function FanKitDownloadDialog(props) {
     >
       {props.image ? (
         <p>
-          <Link href={props.image} inNewTab>
+          <Link href={props.image.split('?')[0]} inNewTab>
             Open image in new tab
           </Link>{' '}
           or download it as:

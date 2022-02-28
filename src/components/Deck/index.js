@@ -104,7 +104,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       <span className={css(styles.name)}>{card.name}</span>
       <Image
         extend={styles.image({ orientation: props.orientation })}
-        src={card.image + '&w=24'}
+        src={card.image + '&w=50'}
         alt={card.name}
         width={24}
         height={24}
