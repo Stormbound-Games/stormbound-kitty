@@ -1,7 +1,5 @@
 import React from 'react'
 import { MdHealing } from 'react-icons/md'
-import cardId from '../types/cardId'
-import getRawCardData from '~/helpers/getRawCardData'
 
 const nerfCompensation = {
   title: 'Nerf compensation',
@@ -9,14 +7,6 @@ const nerfCompensation = {
   type: 'object',
   icon: MdHealing,
   fields: [
-    {
-      title: 'Nerfed cards (legacy)',
-      name: 'ids',
-      description:
-        'Optional list of cards that are nerfed, otherwise display generic information.',
-      type: 'array',
-      of: [cardId],
-    },
     {
       title: 'Nerfed cards',
       name: 'cards',
@@ -28,7 +18,6 @@ const nerfCompensation = {
   ],
   preview: {
     select: {
-      ids: 'ids',
       cards: 'cards',
       ...Array.from({ length: 10 }, (_, i) => i).reduce(
         (acc, i) => ({
@@ -39,7 +28,6 @@ const nerfCompensation = {
       ),
     },
     prepare({ ids = [], ...rest }) {
-      const legacyCardNames = ids.map(id => getRawCardData(id).name)
       const cardNames = Object.entries(rest)
         .filter(([key, value]) => key.startsWith('cardName') && Boolean(value))
         .map(entry => entry[1])
@@ -47,7 +35,7 @@ const nerfCompensation = {
 
       return {
         title: 'Nerf compensation info',
-        subtitle: (cardNames.length ? cardNames : legacyCardNames).join(', '),
+        subtitle: cardNames.join(', '),
         media: <MdHealing />,
       }
     },
