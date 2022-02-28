@@ -1,9 +1,7 @@
 import React from 'react'
 import { MdOutlineCompareArrows, MdOutlineUndo } from 'react-icons/md'
-import cardId from '../types/cardId'
 import cardRef from '../types/cardRef'
 import date from '../types/date'
-import getRawCardData from '~/helpers/getRawCardData'
 import { formatDate } from '~/helpers/formatDate'
 
 const change = {
@@ -40,7 +38,6 @@ const changelog = {
   type: 'document',
   icon: MdOutlineCompareArrows,
   fields: [
-    { ...cardId, name: 'id', validation: Rule => Rule.required() },
     cardRef,
     {
       ...date,
@@ -85,23 +82,17 @@ const changelog = {
   ],
   preview: {
     select: {
-      id: 'id',
       type: 'type',
       date: 'date',
+      image: 'card.image.asset.url',
+      name: 'card.name',
     },
-    prepare({ id, type, date }) {
-      const { name, image } = getRawCardData(id)
-
+    prepare({ name, type, date, image }) {
       return {
         title: name || 'Missing card',
         subtitle:
           (formatDate(date) || 'Missing date') + (type ? ` (${type})` : ''),
-        media: image ? (
-          <img
-            src={'https://stormbound-kitty.com/assets/images/cards/' + image}
-            alt=''
-          />
-        ) : null,
+        media: image ? <img src={image + '?auto=format&w=70'} alt='' /> : null,
       }
     },
   },

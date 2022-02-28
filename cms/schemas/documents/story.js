@@ -3,10 +3,8 @@ import React from 'react'
 import member from '../types/member'
 import date from '../types/date'
 import json from '../types/json'
-import cardId from '../types/cardId'
 import cardRef from '../types/cardRef'
 import getBlock from '../richText/block'
-import getRawCardData from '~/helpers/getRawCardData'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import { formatDate } from '~/helpers/formatDate'
 
@@ -30,7 +28,6 @@ const story = {
       validation: Rule => Rule.required(),
     },
     member,
-    cardId,
     { ...cardRef, name: 'cardRef' },
     {
       title: 'Card data',
@@ -83,11 +80,10 @@ const story = {
       author: 'author',
       title: 'title',
       date: 'date',
-      cardId: 'cardId',
+      card: 'card',
+      image: 'cardRef.image.asset.url',
     },
-    prepare({ author, title, date, cardId }) {
-      const card = getRawCardData(cardId)
-
+    prepare({ author, title, date, image }) {
       return {
         title: title || 'Missing title',
         subtitle:
@@ -95,14 +91,9 @@ const story = {
           (author || 'missing member') +
           ' in ' +
           (formatDate(date) || 'missing date'),
-        media: card.image ? (
-          <img
-            src={
-              'https://stormbound-kitty.com/assets/images/cards/' + card.image
-            }
-            alt=''
-          />
-        ) : null,
+        media: image ? (
+          <img src={image + '?auto=format&w=70'} alt='' />
+        ) : undefined,
       }
     },
   },
