@@ -18,7 +18,6 @@ const card = {
           .map(card => ({ title: card.name, value: card.id }))
           .sort((a, b) => a.title.localeCompare(b.title)),
       },
-      validation: Rule => Rule.required().uppercase(),
     },
     { ...cardRef, weak: true },
     {
@@ -32,12 +31,12 @@ const card = {
     },
   ],
   preview: {
-    select: { cardId: 'cardId' },
-    prepare({ cardId }) {
-      const { name } = cards.find(card => card.id === cardId)
+    select: { cardId: 'cardId', name: 'card.name' },
+    prepare({ cardId, name }) {
+      const cardName = name || cards.find(card => card.id === cardId)?.name
 
       return {
-        title: `Card ${name ? `(${name})` : ''}`,
+        title: `Card ${cardName ? `(${cardName})` : ''}`,
         media: <MdPadding />,
       }
     },
