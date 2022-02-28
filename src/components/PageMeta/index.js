@@ -18,7 +18,7 @@ export default React.memo(function PageMeta(props) {
     ? props.image.startsWith('https://')
       ? props.image
       : SITE_URL + props.image
-    : SITE_URL + '/favicon.png'
+    : 'https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256'
 
   return (
     <Head>
