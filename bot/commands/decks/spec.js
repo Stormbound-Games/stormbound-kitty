@@ -40,7 +40,7 @@ describe('Bot — !decks', () => {
         'https://stormbound-kitty.com/deck/featured?tags=EQUALS%2CBRAWL'
       )
     })
-  })
+  }, 10000)
 
   it('should handle aliases', () => {
     return Promise.all([
@@ -102,7 +102,7 @@ describe('Bot — !decks', () => {
         'https://stormbound-kitty.com/deck/featured?faction=swarm'
       )
     })
-  })
+  }, 10000)
 
   it('should handle including cards', () => {
     return Promise.all([decks('I2'), decks('mia'), decks('rof')]).then(
