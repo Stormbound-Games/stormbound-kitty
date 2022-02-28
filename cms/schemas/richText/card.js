@@ -1,6 +1,5 @@
 import React from 'react'
 import { MdPadding } from 'react-icons/md'
-import cardId from '../types/cardId'
 import cards from '~/data/cards'
 
 const card = {
@@ -9,7 +8,17 @@ const card = {
   type: 'object',
   icon: MdPadding,
   fields: [
-    cardId,
+    {
+      title: 'Card',
+      name: 'cardId',
+      type: 'string',
+      options: {
+        list: cards
+          .map(card => ({ title: card.name, value: card.id }))
+          .sort((a, b) => a.title.localeCompare(b.title)),
+      },
+      validation: Rule => Rule.required().uppercase(),
+    },
     {
       title: 'Level',
       name: 'level',
