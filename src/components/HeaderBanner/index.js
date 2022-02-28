@@ -27,7 +27,7 @@ const useCoverImage = props => {
     fileType,
   })
 
-  let source = props.background || ''
+  let source = props.background || DEFAULT_BANNER
 
   // If an image is served from the CDN, ensure it’s optimized.
   if (source.startsWith('https://cdn.sanity.io')) {
@@ -43,13 +43,9 @@ const useCoverImage = props => {
     }
 
     return source
-  }
-
-  if (source) {
+  } else {
     return source.replace(fileType, ext)
   }
-
-  return DEFAULT_BANNER
 }
 
 export default React.memo(function HeaderBanner(props) {
