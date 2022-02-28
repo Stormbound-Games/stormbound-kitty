@@ -5,6 +5,7 @@ const getStoriesFromCategory = async ({ category, isPreview } = {}) => {
   const stories = await getEntries({
     conditions: ['_type == "story"', 'category == $category'],
     params: { category },
+    fields: `..., cardRef -> { id }`,
     options: { order: 'date desc', isPreview },
   })
 

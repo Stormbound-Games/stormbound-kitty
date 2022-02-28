@@ -8,6 +8,7 @@ const searchStories = async ({ term, isPreview } = {}) => {
       'title match $term || content match $term',
     ],
     params: { term },
+    fields: `..., cardRef -> { id }`,
     options: { order: 'date desc', isPreview },
   })
 

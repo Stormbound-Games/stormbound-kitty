@@ -2,6 +2,7 @@ import { MdExplore } from 'react-icons/md'
 import member from '../types/member'
 import date from '../types/date'
 import cardId from '../types/cardId'
+import cardRef from '../types/cardRef'
 import image from '../richText/image'
 import getBlock from '../richText/block'
 import battleSim from '../richText/battleSim'
@@ -78,6 +79,7 @@ const guide = {
       validation: Rule => Rule.min(1),
     },
     { ...cardId, fieldset: 'metadata' },
+    { ...cardRef, fieldset: 'metadata' },
     {
       title: 'Excerpt',
       name: 'excerpt',

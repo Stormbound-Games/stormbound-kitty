@@ -5,6 +5,7 @@ const getStory = async ({ slug, isPreview } = {}) => {
   const story = await getEntry({
     conditions: ['_type == "story"', 'slug.current == $slug'],
     params: { slug },
+    fields: `..., cardRef -> { id }`,
     options: { isPreview },
   })
 

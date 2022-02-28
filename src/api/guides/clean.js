@@ -3,6 +3,7 @@ const clean = guide => {
 
   guide.date = month + '/' + year
   guide.slug = guide.slug.current
+  guide.cardId = guide.card?.id ?? guide.cardId
 
   if (guide.background) {
     if (typeof guide.background.ratio === 'number') {
