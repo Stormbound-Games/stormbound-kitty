@@ -8,7 +8,16 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
-  return { props: { cards, navigation } }
+  return {
+    props: {
+      cards: cards.map(card => ({
+        id: card.id,
+        name: card.name,
+        image: card.image,
+      })),
+      navigation,
+    },
+  }
 }
 
 const FanKitCardsPage = ({ navigation, cards, ...props }) => (
