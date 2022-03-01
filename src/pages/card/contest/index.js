@@ -11,7 +11,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const seasons = await getSWCCSeasons({ isPreview })
 
   return {
-    props: { cards, navigation, seasons },
+    props: {
+      // The only card data that’s needed on this page are the images (for cards
+      // using official images), as well as the ids to index the cards array.
+      cards: cards.map(card => ({ id: card.id, image: card.image })),
+      navigation,
+      seasons,
+    },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
