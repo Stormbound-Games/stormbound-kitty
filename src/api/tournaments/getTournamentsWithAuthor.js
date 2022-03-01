@@ -1,5 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getTournamentsWithAuthor = async ({ author, isPreview } = {}) => {
   const tournaments = await getEntries({
@@ -7,11 +7,12 @@ const getTournamentsWithAuthor = async ({ author, isPreview } = {}) => {
       '_type == "tournament"',
       'count(podium[].players[lower(@) == $author]) > 0',
     ],
+    fields: FIELDS,
     params: { author },
     options: { order: 'date desc', isPreview },
   })
 
-  return tournaments.map(clean)
+  return tournaments.map(MAPPER)
 }
 
 export default getTournamentsWithAuthor

@@ -57,7 +57,7 @@ export default React.memo(function TournamentDeck(props) {
   const { decks, podium } = props
   const winner = podium[0]
 
-  if (!props.decks) {
+  if (!props.decks.length) {
     return (
       <p>
         The winner’s deck is not available. If you happen to know which deck{' '}

@@ -1,6 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
 import cleanSwcc from '~/api/swcc/clean'
-import cleanTournament from '~/api/tournaments/clean'
 import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
 import getTournamentsWithAuthor from '~/api/tournaments/getTournamentsWithAuthor'
 import groupBy from '~/helpers/groupBy'
@@ -37,6 +36,10 @@ import {
   FIELDS as GUIDE_FIELDS,
   MAPPER as GUIDE_MAPPER,
 } from '~/api/guides/utils'
+import {
+  FIELDS as TOURNAMENT_FIELDS,
+  MAPPER as TOURNAMENT_MAPPER,
+} from '~/api/tournaments/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -50,7 +53,7 @@ const cleaners = {
   puzzle: PUZZLE_MAPPER,
   story: STORY_MAPPER,
   swcc: cleanSwcc,
-  tournament: cleanTournament,
+  tournament: TOURNAMENT_MAPPER,
 }
 
 const getContentFromAuthor = async ({ author, isPreview } = {}) => {
@@ -67,16 +70,17 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       ].join('||'),
     ],
     fields: `
-      _type != "artwork" && _type != "podcast" && _type != "puzzle" && _type != "story" && _type != "contribution" && _type != "donation" && _type != "deck" && _type != "event" && _type != "guide" => { ... },
-      _type == "artwork" => { _type, ${ARTWORK_FIELDS} },
-      _type == "podcast" => { _type, ${PODCAST_FIELDS} },
-      _type == "puzzle" => { _type, ${PUZZLE_FIELDS} },
-      _type == "story" => { _type, ${STORY_FIELDS} },
-      _type == "contribution" => { _type, ${CONTRIBUTION_FIELDS} },
-      _type == "donation" => { _type, ${DONATION_FIELDS} },
-      _type == "deck" => { _type, ${DECK_FIELDS} },
-      _type == "event" => { _type, ${EVENT_FIELDS} },
-      _type == "guide" => { _type, ${GUIDE_FIELDS} }
+      _type,
+      _type == "artwork" => { ${ARTWORK_FIELDS} },
+      _type == "contribution" => { ${CONTRIBUTION_FIELDS} },
+      _type == "deck" => { ${DECK_FIELDS} },
+      _type == "donation" => { ${DONATION_FIELDS} },
+      _type == "event" => { ${EVENT_FIELDS} },
+      _type == "guide" => { ${GUIDE_FIELDS} },
+      _type == "podcast" => { ${PODCAST_FIELDS} },
+      _type == "puzzle" => { ${PUZZLE_FIELDS} },
+      _type == "story" => { ${STORY_FIELDS} },
+      _type == "tournament" => { ${TOURNAMENT_FIELDS} },
     `,
     params: { author },
     options: { order: 'date desc', isPreview },
