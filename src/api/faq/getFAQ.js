@@ -1,15 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import blocks from '~/api/misc/blocks'
-import clean from './clean'
+import { FIELDS } from './utils'
 
 const getFAQSections = async ({ isPreview } = {}) => {
   const sections = await getEntries({
     conditions: ['_type == "faqSection"'],
-    fields: `..., questions[] -> { ... }, content[] { ${blocks} }`,
+    fields: FIELDS,
     options: { order: 'priority asc', isPreview },
   })
 
-  return sections.map(clean)
+  return sections
 }
 
 export default getFAQSections

@@ -13,6 +13,7 @@ ${markDefs},
 _type == "info" => { ..., content[] { ..., ${markDefs} } },
 _type == "battleSim" => { ..., content[] { ..., ${markDefs} } },
 _type == "nerfCompensation" => { ..., "cards": cards[] -> { id }.id },
+_type == "faq" => { ..., entries[] { id, question, answer[] { ..., ${markDefs} } } },
 _type == "card" => {
   ...,
   "cardId": coalesce(
