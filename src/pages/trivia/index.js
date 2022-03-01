@@ -13,7 +13,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
     typeof question === 'function' ? question() : question
   )
 
-  return { props: { cards, navigation, questions } }
+  return { props: { navigation, questions } }
 }
 
 const TriviaPage = ({ navigation, cards, ...props }) => (
