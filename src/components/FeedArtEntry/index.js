@@ -5,7 +5,7 @@ import FeedEntry from '~/components/FeedEntry'
 
 export default React.memo(function FeedArtEntry(props) {
   const { css } = useFela()
-  const [width, height] = props.dimensions.split('x').map(Number)
+  const { width, height } = props.dimensions
   const displayWidth = 450
   const displayHeight = Math.round((displayWidth / width) * height)
   const dimensions = '?auto=format&w=' + displayWidth + '&h=' + displayHeight

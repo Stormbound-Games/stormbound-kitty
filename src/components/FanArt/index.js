@@ -42,7 +42,7 @@ export default React.memo(function FanArt(props) {
           columnClassName={css(styles.item)}
         >
           {props.artworks.map(entry => {
-            const [width, height] = entry.dimensions.split('x').map(Number)
+            const { width, height } = entry.dimensions
             const displayWidth = 400
             const displayHeight = Math.round((displayWidth / width) * height)
             const dimensions =

@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import cleanArtwork from '~/api/artworks/clean'
 import cleanChannel from '~/api/channels/clean'
 import cleanContribution from '~/api/contributions/clean'
 import cleanDeck from '~/api/decks/clean'
@@ -14,9 +13,13 @@ import cleanTournament from '~/api/tournaments/clean'
 import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
 import getTournamentsWithAuthor from '~/api/tournaments/getTournamentsWithAuthor'
 import groupBy from '~/helpers/groupBy'
+import {
+  FIELDS as ARTWORK_FIELDS,
+  MAPPER as ARTWORK_MAPPER,
+} from '~/api/artworks/utils'
 
 const cleaners = {
-  artwork: cleanArtwork,
+  artwork: ARTWORK_MAPPER,
   channel: cleanChannel,
   contribution: cleanContribution,
   deck: cleanDeck,
@@ -44,10 +47,11 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       ].join('||'),
     ],
     fields: `
-      ...,
-      _type == "artwork" => { image { asset -> { ... } } },
+      _type != "artwork" => { ... },
+      _type == "artwork" => { _type, ${ARTWORK_FIELDS} },
       _type == "story" => { cardRef -> { id } },
-      _type == "guide" => { card    -> { id } }`,
+      _type == "guide" => { card    -> { id } }
+    `,
     params: { author },
     options: { order: 'date desc', isPreview },
   })
@@ -67,8 +71,6 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
   if (content.channel) {
     content.channel = content.channel[0]
   }
-
-  console.log(content)
 
   return content
 }
