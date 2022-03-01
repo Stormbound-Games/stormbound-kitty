@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import cleanEvent from '~/api/events/clean'
 import cleanGuide from '~/api/guides/clean'
 import cleanSwcc from '~/api/swcc/clean'
 import cleanTournament from '~/api/tournaments/clean'
@@ -31,6 +30,10 @@ import {
   MAPPER as DONATION_MAPPER,
 } from '~/api/donations/utils'
 import { FIELDS as DECK_FIELDS, MAPPER as DECK_MAPPER } from '~/api/decks/utils'
+import {
+  FIELDS as EVENT_FIELDS,
+  MAPPER as EVENT_MAPPER,
+} from '~/api/events/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -38,7 +41,7 @@ const cleaners = {
   contribution: CONTRIBUTION_MAPPER,
   deck: DECK_MAPPER,
   donation: DONATION_MAPPER,
-  event: cleanEvent,
+  event: EVENT_MAPPER,
   guide: cleanGuide,
   podcast: PODCAST_MAPPER,
   puzzle: PUZZLE_MAPPER,
@@ -61,7 +64,7 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       ].join('||'),
     ],
     fields: `
-      _type != "artwork" && _type != "podcast" && _type != "puzzle" && _type != "story" && _type != "contribution" && _type != "donation" && _type != "deck" => { ... },
+      _type != "artwork" && _type != "podcast" && _type != "puzzle" && _type != "story" && _type != "contribution" && _type != "donation" && _type != "deck" && _type != "event" => { ... },
       _type == "artwork" => { _type, ${ARTWORK_FIELDS} },
       _type == "podcast" => { _type, ${PODCAST_FIELDS} },
       _type == "puzzle" => { _type, ${PUZZLE_FIELDS} },
@@ -69,6 +72,7 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       _type == "contribution" => { _type, ${CONTRIBUTION_FIELDS} },
       _type == "donation" => { _type, ${DONATION_FIELDS} },
       _type == "deck" => { _type, ${DECK_FIELDS} },
+      _type == "event" => { _type, ${EVENT_FIELDS} },
       _type == "guide" => { card    -> { id } }
     `,
     params: { author },
