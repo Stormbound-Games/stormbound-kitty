@@ -3,15 +3,13 @@ import BrewedSages from '~/components/BrewedSages'
 import Layout from '~/components/Layout'
 import getPodcasts from '~/api/podcasts/getPodcasts'
 import getNavigation from '~/helpers/getNavigation'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const episodes = await getPodcasts({ isPreview })
 
   return {
-    props: { cards, navigation, episodes },
+    props: { navigation, episodes },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
