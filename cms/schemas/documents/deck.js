@@ -1,5 +1,6 @@
 import { MdBookmark } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import deckId from '../types/deckId'
 import { TAGS } from '~/constants/deck'
@@ -19,6 +20,7 @@ const deck = {
     },
     { ...deckId, name: 'id' },
     member,
+    user,
     date,
     {
       title: 'Tags',
