@@ -1,5 +1,6 @@
 import { MdEvent } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import json from '../types/json'
 import { formatDate } from '~/helpers/formatDate'
@@ -22,6 +23,12 @@ const event = {
       name: 'authors',
       type: 'array',
       of: [member],
+    },
+    {
+      title: 'Users',
+      name: 'users',
+      type: 'array',
+      of: [user],
       validation: Rule => Rule.min(1),
     },
     date,
