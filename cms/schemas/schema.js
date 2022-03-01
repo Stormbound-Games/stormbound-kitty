@@ -18,6 +18,7 @@ import release from './documents/release'
 import story from './documents/story'
 import swcc from './documents/swcc'
 import tournament from './documents/tournament'
+import user from './documents/user'
 import wallpaper from './documents/wallpaper'
 
 export default createSchema({
@@ -40,6 +41,7 @@ export default createSchema({
     story,
     swcc,
     tournament,
+    user,
     wallpaper,
     channel,
   ]),
