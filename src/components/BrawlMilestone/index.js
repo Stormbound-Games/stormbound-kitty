@@ -54,9 +54,10 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
     case 'FUSION_STONES':
       return (
         <Image
-          src='/assets/images/cards/stones_rare.png'
+          src='https://cdn.sanity.io/images/5hlpazgd/production/ef00952b9147d5825a83a4bda4c6d414af867420-266x300.png'
           alt='Stones'
           extend={styles.resourceImage}
+          width={100}
         />
       )
 
