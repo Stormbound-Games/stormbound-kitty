@@ -16,7 +16,19 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const list = getInitialListData(EQUALS_TIER_LIST.value)
   const release = rel ? { title: rel.title, slug: rel.slug } : null
 
-  return { props: { cards, navigation, date, list, release } }
+  return {
+    props: {
+      cards: cards.map(card => ({
+        id: card.id,
+        image: card.image,
+        name: card.name,
+      })),
+      navigation,
+      date,
+      list,
+      release,
+    },
+  }
 }
 
 const EqualsListPage = ({ navigation, cards, ...props }) => (
