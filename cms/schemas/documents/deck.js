@@ -1,5 +1,4 @@
 import { MdBookmark } from 'react-icons/md'
-import member from '../types/member'
 import user from '../types/user'
 import date from '../types/date'
 import deckId from '../types/deckId'
@@ -19,7 +18,6 @@ const deck = {
       validation: Rule => Rule.required(),
     },
     { ...deckId, name: 'id' },
-    member,
     user,
     date,
     {

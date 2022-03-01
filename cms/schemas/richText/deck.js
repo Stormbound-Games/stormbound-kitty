@@ -1,6 +1,5 @@
 import React from 'react'
 import { MdAutoAwesomeMotion } from 'react-icons/md'
-import member from '../types/member'
 import date from '../types/date'
 import deckId from '../types/deckId'
 import { TAGS } from '~/constants/deck'
@@ -20,7 +19,6 @@ const deck = {
       validation: Rule => Rule.required(),
     },
     { ...deckId, name: 'id' },
-    member,
     { ...date, validation: undefined },
     {
       title: 'Tags',

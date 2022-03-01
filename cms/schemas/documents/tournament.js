@@ -1,5 +1,4 @@
 import { MdAutoAwesome } from 'react-icons/md'
-import member from '../types/member'
 import user from '../types/user'
 import date from '../types/date'
 import deckId from '../types/deckId'
@@ -36,13 +35,6 @@ const tournament = {
       type: 'string',
     },
     {
-      title: 'Hosts',
-      name: 'hosts',
-      type: 'array',
-      of: [member],
-      validation: Rule => Rule.required(),
-    },
-    {
       title: 'Users',
       name: 'users',
       type: 'array',
@@ -61,12 +53,6 @@ const tournament = {
           name: 'team',
           type: 'object',
           fields: [
-            {
-              title: 'Players',
-              name: 'players',
-              type: 'array',
-              of: [member],
-            },
             {
               title: 'Players',
               name: 'team',
@@ -92,12 +78,6 @@ const tournament = {
               title: 'Name',
               name: 'name',
               type: 'string',
-            },
-            {
-              title: 'Authors',
-              name: 'authors',
-              type: 'array',
-              of: [member],
             },
           ],
         },

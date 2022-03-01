@@ -1,5 +1,4 @@
 import { MdEvent } from 'react-icons/md'
-import member from '../types/member'
 import user from '../types/user'
 import date from '../types/date'
 import json from '../types/json'
@@ -17,12 +16,6 @@ const event = {
       type: 'string',
       options: { list: [{ title: 'SWCC', value: 'SWCC' }] },
       validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Members',
-      name: 'authors',
-      type: 'array',
-      of: [member],
     },
     {
       title: 'Users',

@@ -1,6 +1,5 @@
 import { MdPodcasts } from 'react-icons/md'
 import React from 'react'
-import member from '../types/member'
 import user from '../types/user'
 import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
@@ -24,13 +23,6 @@ const podcast = {
       validation: Rule => Rule.required(),
     },
     date,
-    {
-      title: 'Hosts',
-      name: 'hosts',
-      type: 'array',
-      of: [member],
-      validation: Rule => Rule.min(1),
-    },
     {
       title: 'Users',
       name: 'users',

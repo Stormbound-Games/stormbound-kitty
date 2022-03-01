@@ -1,5 +1,4 @@
 import { MdPlayCircleOutline } from 'react-icons/md'
-import member from '../types/member'
 import user from '../types/user'
 
 const channels = {
@@ -8,7 +7,6 @@ const channels = {
   type: 'document',
   icon: MdPlayCircleOutline,
   fields: [
-    member,
     user,
     {
       title: 'Link',

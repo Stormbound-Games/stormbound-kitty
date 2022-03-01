@@ -1,5 +1,4 @@
 import { MdAttachMoney } from 'react-icons/md'
-import member from '../types/member'
 import user from '../types/user'
 import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
@@ -9,7 +8,7 @@ const donation = {
   name: 'donation',
   type: 'document',
   icon: MdAttachMoney,
-  fields: [member, user, date],
+  fields: [user, date],
   orderings: [
     {
       title: 'Date, New',

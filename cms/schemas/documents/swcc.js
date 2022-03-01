@@ -1,5 +1,4 @@
 import { MdAutoFixNormal } from 'react-icons/md'
-import member from '../types/member'
 import user from '../types/user'
 
 const week = {
@@ -31,7 +30,6 @@ const week = {
       name: 'winner',
       type: 'object',
       fields: [
-        member,
         user,
         {
           title: 'Card ID',
