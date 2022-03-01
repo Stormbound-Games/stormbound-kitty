@@ -9,15 +9,15 @@ import indexArray from '~/helpers/indexArray'
 import useLazyLoad from '~/hooks/useLazyLoad'
 
 const resolveAsset = (wallpaper, index) => {
-  const { dimensions } = wallpaper.image.asset.metadata
+  const { width, height, aspectRatio } = wallpaper.dimensions
 
   return {
     name: `Stormbound mobile wallpaper ${index + 1}`,
-    id: 'MOBILE_WALLPAPER_' + index,
-    image: wallpaper.image.asset.url,
-    aspectRatio: dimensions.aspectRatio,
+    id: wallpaper._id,
+    image: wallpaper.image,
+    aspectRatio: aspectRatio,
     width: 350,
-    height: Math.round(dimensions.height * (350 / dimensions.width)),
+    height: Math.round(height * (350 / width)),
     withoutWebp: true,
   }
 }
