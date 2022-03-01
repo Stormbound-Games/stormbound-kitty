@@ -36,35 +36,31 @@ const getLabel = (count, type) => {
 }
 
 export default React.memo(function MemberListEntry(props) {
-  const { member, roles } = props
-  const [name] = useMemberName()
-  const isCurrentUser = name === member
+  const [currentName] = useMemberName()
+  const isCurrentUser = props.name === currentName
   const { css } = useFela({ isYou: isCurrentUser })
-  // If rendering a specific type of entry, count only the entries from that
-  // type instead of using the overall count.
-  const count =
-    props.type === '*'
-      ? props.count
-      : props.types.filter(entry => entry === props.type).length
 
   return (
     <div className={css(styles.entry)}>
       <Icon
-        icon={roles.isSuperKAT ? 'super-star' : roles.isKAT ? 'star' : 'user'}
+        icon={
+          props.role === 'SUPER_KAT'
+            ? 'super-star'
+            : props.role === 'KAT'
+            ? 'star'
+            : 'user'
+        }
         extend={styles.icon}
       />
       <div className={css(styles.content)}>
-        <Link
-          to={`/members/${props.member.toLowerCase()}`}
-          extend={styles.name}
-        >
-          {props.member}{' '}
+        <Link to={`/members/${props.slug}`} extend={styles.name}>
+          {props.name}{' '}
           <span className={css({ opacity: 0.6 })}>
             {isCurrentUser ? '(you)' : null}
           </span>
         </Link>
         <p className={css(styles.summary)}>
-          {count} {getLabel(count, props.type)}
+          {props.contributions} {getLabel(props.contributions, props.type)}
         </p>
       </div>
     </div>

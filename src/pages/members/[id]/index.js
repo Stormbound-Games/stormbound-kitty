@@ -1,15 +1,15 @@
 import React from 'react'
 import Member from '~/components/Member'
 import Layout from '~/components/Layout'
-import getMemberContent from '~/helpers/getMemberContent'
-import getMembersList from '~/helpers/getMembersList'
 import getNavigation from '~/helpers/getNavigation'
 import useMemberName from '~/hooks/useMemberName'
+import getContentFromUser from '~/api/users/getContentFromUser'
 import getCards from '~/api/cards/getCards'
+import getUsers from '~/api/users/getUsers'
 
 export async function getStaticPaths() {
-  const paths = (await getMembersList()).map(({ member }) => ({
-    params: { id: member.toLowerCase() },
+  const paths = (await getUsers()).map(user => ({
+    params: { id: user.slug },
   }))
 
   return { paths, fallback: false }
@@ -17,28 +17,18 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const id = params.id.toLowerCase()
-  const { channel, count, content, details, displayName, roles } =
-    await getMemberContent({ id, isPreview })
+  const slug = params.id.toLowerCase()
+  const user = await getContentFromUser({ author: slug, isPreview })
+  const navigation = await getNavigation({ isPreview })
 
   // This is a bit of a hack, in case there is a link to a member page that is
   // missing the ID and gets serialized as `undefined`.
-  if (id === 'undefined') {
+  if (slug === 'undefined') {
     return { notFound: true }
   }
 
   return {
-    props: {
-      cards,
-      navigation: await getNavigation({ isPreview }),
-      id,
-      channel,
-      content,
-      count,
-      details,
-      displayName,
-      roles,
-    },
+    props: { cards, navigation, ...user },
     revalidate: 60 * 60 * 24 * 7,
   }
 }

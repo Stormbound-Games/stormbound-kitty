@@ -6,36 +6,53 @@ import Image from '~/components/Image'
 import Info from '~/components/Info'
 import MemberToC from '~/components/MemberToC'
 import Row from '~/components/Row'
+import parseDate from '~/helpers/parseDate'
 import useMemberName from '~/hooks/useMemberName'
 import styles from './styles'
+
+const parseEntryDate = entry => ({
+  ...entry,
+  date: entry.date ? parseDate(entry.date).valueOf() : entry.date,
+})
+
+const addType = type => entry => ({ ...entry, type })
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
   const [name] = useMemberName()
-  const {
-    memberId: id,
-    channel,
-    content,
-    count,
-    details,
-    displayName,
-    roles,
-  } = props
-  const isCurrentUser = name === displayName
+  const content = [
+    ...props.content.artwork.map(addType('ART')),
+    ...props.content.contribution.map(addType('CONTRIBUTION')),
+    ...props.content.deck.map(addType('DECK')),
+    ...props.content.donation.map(addType('DONATION')),
+    ...props.content.event,
+    ...props.content.guide.map(addType('GUIDE')),
+    ...props.content.podcast.map(addType('PODCAST')),
+    ...props.content.podium.map(addType('PODIUM')),
+    ...props.content.puzzle.map(addType('PUZZLE')),
+    ...props.content.story.map(addType('STORY')),
+    ...props.content.swcc.map(addType('CARD')),
+    ...props.content.tournament.map(addType('HOST')),
+  ]
+    .map(parseEntryDate)
+    .sort((a, b) => b.date - a.date)
+
+  const isCurrentUser = name === props.name
 
   return (
     <Page
-      title={isCurrentUser ? 'Activity Feed' : displayName}
-      description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
-      noIndex={count === 0 && !channel}
+      title={isCurrentUser ? 'Activity Feed' : props.name}
+      description={`Find all of ${props.name}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
+      noIndex={props.contributions === 0 && !props.channel}
       action={{ to: '/members', children: 'Back to Members' }}
       meta={
         <>
-          {count} contribution{count === 1 ? '' : 's'}
-          {roles.isKAT ? (
+          {props.contributions} contribution
+          {props.contributions === 1 ? '' : 's'}
+          {props.role === 'KAT' || props.role === 'SUPER_KAT' ? (
             <>
               {' '}
-              · {roles.isSuperKAT ? 'Super ' : null}
+              · {props.role === 'SUPER_KAT' ? 'Super ' : null}
               <abbr title='Kitty Appreciation Team'>KAT</abbr> member
             </>
           ) : (
@@ -54,20 +71,20 @@ export default React.memo(function Member(props) {
             </p>
           ) : (
             <p>
-              <span className='Highlight'>{displayName}</span> is a member of
-              the Stormbound community. Their contributions can be found below.
+              <span className='Highlight'>{props.name}</span> is a member of the
+              Stormbound community. Their contributions can be found below.
             </p>
           )}
 
-          <MemberToC {...details} />
+          <MemberToC {...props.content} />
 
-          {details.donations.length > 0 && (
+          {props.content.donation.length > 0 && (
             <Info
-              icon={roles.isSuperKAT ? 'super-star' : 'star'}
+              icon={props.role === 'SUPER_KAT' ? 'super-star' : 'star'}
               title='Financial contributor'
             >
               <p>
-                {isCurrentUser ? 'You are' : <>{displayName} is</>} one of the
+                {isCurrentUser ? 'You are' : <>{props.name} is</>} one of the
                 generous contributors who can make Stormbound-Kitty a reality.
                 Thank you and welcome to the{' '}
                 <abbr title='Kitty Appreciation Team'>KAT</abbr>!
@@ -75,10 +92,10 @@ export default React.memo(function Member(props) {
             </Info>
           )}
 
-          {details.contributions.length > 0 && (
+          {props.content.contribution.length > 0 && (
             <Info icon='hammer' title='Technical contributor'>
               <p>
-                {isCurrentUser ? 'You are' : <>{displayName} is</>} one of the
+                {isCurrentUser ? 'You are' : <>{props.name} is</>} one of the
                 skilled contributors who help make Stormbound-Kitty better every
                 day. Thank you and welcome to the{' '}
                 <abbr title='Kitty Appreciation Team'>KAT</abbr>!
@@ -87,14 +104,14 @@ export default React.memo(function Member(props) {
           )}
         </Row.Column>
         <Row.Column width='2/3'>
-          {count > 0 || channel ? (
+          {props.contributions > 0 || props.channel ? (
             <ul className={css(styles.feed)}>
-              {channel && (
+              {props.channel && (
                 <li className={css(styles.item)}>
                   <FeedItem
-                    {...channel}
+                    {...props.channel}
                     type='YOUTUBE'
-                    displayName={displayName}
+                    displayName={props.name}
                   />
                 </li>
               )}
@@ -103,8 +120,8 @@ export default React.memo(function Member(props) {
                   <FeedItem
                     {...entry}
                     date={new Date(entry.date)}
-                    user={id}
-                    displayName={displayName}
+                    user={props.slug}
+                    displayName={props.name}
                   />
                 </li>
               ))}
@@ -120,7 +137,7 @@ export default React.memo(function Member(props) {
                 lazy
               />
               <p>
-                No ‘{displayName}’ user could be found, or no content was
+                No ‘{props.name}’ user could be found, or no content was
                 associated to that user. If you believe this is a bug, please
                 report it to Kitty#1909 on Discord.
               </p>

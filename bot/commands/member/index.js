@@ -1,17 +1,8 @@
 import getEmbed from '~/helpers/getEmbed'
 import capitalize from '~/helpers/capitalize'
-import getMemberContent from '~/helpers/getMemberContent'
+import getContentFromUser from '~/api/users/getContentFromUser'
 
 const BASE_URL = 'https://stormbound-kitty.com'
-const aggregate = (acc, { entries }) => acc + entries.length
-const getEmbedField = details => type => ({
-  name: capitalize(type),
-  value:
-    type === 'contributions'
-      ? details[type].reduce(aggregate, 0)
-      : details[type].length,
-  inline: true,
-})
 
 const member = {
   command: 'member',
@@ -24,39 +15,41 @@ const member = {
         'Retrieve someone’s contributions from Stormbound-Kitty based on their username (e.g. `!member kitty`).'
       )
   },
-  handler: async function (message, client, messageObject) {
-    if (message.trim() === '') {
-      return
-    }
+  handler: async function (message) {
+    if (message.trim() === '') return
 
     const id = message.toLowerCase()
-    const { count, details, displayName, roles } = await getMemberContent({
-      id,
-    })
+    const user = await getContentFromUser({ author: id })
     const embed = getEmbed()
-      .setTitle(`${this.label}: ${displayName}`)
-      .setURL(BASE_URL + `/members/${id}`)
+      .setTitle(`${this.label}: ${user.name}`)
+      .setURL(BASE_URL + `/members/${user.slug}`)
 
-    if (count === 0) {
+    if (user.contributions === 0) {
       return embed.setDescription(
-        `There are no contributions found from ${displayName} on Stormbound-Kitty.`
+        `There are no contributions found from ${user.name} on Stormbound-Kitty.`
       )
     }
 
-    const { isKAT, isSuperKAT } = roles
+    const isKAT = user.role === 'KAT' || user.role === 'SUPER_KAT'
+    const isSuperKAT = user.role === 'SUPER_KAT'
     const KATMessage = isKAT
       ? `\n**They are also a ${isSuperKAT ? 'super' : ''} KAT member!**`
       : ''
-    const fields = Object.keys(details)
-      .map(getEmbedField(details))
+    const { channel, ...content } = user.content
+    const fields = Object.entries(content)
+      .map(([type, entries]) => ({
+        name: capitalize(type),
+        value: entries.length,
+        inline: true,
+      }))
       .filter(entry => entry.value > 0)
       .sort((a, b) => b.value - a.value)
 
     return embed
       .setDescription(
-        `${displayName} is a member of the community and has issued ${count} contribution${
-          count === 1 ? '' : 's'
-        }.${KATMessage}`
+        `${user.name} is a member of the community and has issued ${
+          user.contributions
+        } contribution${user.contributions === 1 ? '' : 's'}.${KATMessage}`
       )
       .addFields(...fields)
   },

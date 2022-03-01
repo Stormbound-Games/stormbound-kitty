@@ -63,19 +63,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
   if (!user) return {}
 
   const entries = await getEntries({
-    conditions: [
-      // Find *any* type of content that’s somewhat related to the author,
-      // either by mentioning it directly, or in an array of authors, or in an
-      // array of hosts.
-      [
-        'references(id)',
-        'author match $author',
-        'count(authors[@ match $author]) > 0',
-        'count(hosts[@ match $author]) > 0',
-        'count(podium[].players[@ match $author]) > 0',
-        'count(weeks[winner.author match $author]) > 0',
-      ].join('||'),
-    ],
+    conditions: ['references($id)'],
     fields: `
       _id,
       _type,
@@ -100,27 +88,37 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
     options: { order: 'date desc', isPreview },
   })
 
+  const contributions = entries.length
   const content = groupBy(entries, '_type')
 
-  for (let type in content) {
-    // Clean every entry based on its type.
-    content[type].forEach(entry => {
-      cleaners[type](entry)
-      // Delete the `_type` key now that it’s no longer needed.
-      delete entry._type
-    })
+  for (let type in cleaners) {
+    if (type in content) {
+      // Clean every entry based on its type.
+      content[type].forEach(entry => {
+        cleaners[type](entry)
+        // Delete the `_type` key now that it’s no longer needed.
+        delete entry._type
+      })
+    } else {
+      content[type] = []
+    }
   }
 
   // Restore the potential YouTube channel as an object.
-  if (content.channel) {
-    content.channel = content.channel[0]
-  }
+  content.channel = content.channel[0] || null
 
   if (content.swcc) {
     content.swcc = content.swcc.map(season => season.weeks).flat()
   }
 
-  return content
+  return {
+    contributions,
+    name: user.name,
+    slug: user.slug,
+    role: user.role,
+    content,
+    channel: content.channel,
+  }
 }
 
 export default getContentFromUser

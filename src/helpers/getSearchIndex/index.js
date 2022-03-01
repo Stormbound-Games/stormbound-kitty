@@ -2,7 +2,6 @@ import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getCards from '~/api/cards/getCards'
-import getMembersList from '~/helpers/getMembersList'
 import getDecks from '~/api/decks/getDecks'
 import getGuides from '~/api/guides/getGuides'
 import getStories from '~/api/stories/getStories'
@@ -11,7 +10,6 @@ import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 
 const getSearchIndex = async (withEverything = true) => {
-  console.log('Searching')
   const cards = await getCards()
   const decks = await getDecks()
   const guides = await getGuides()
@@ -19,7 +17,7 @@ const getSearchIndex = async (withEverything = true) => {
   const puzzles = await getPuzzles()
   const releases = await getReleases()
   const seasons = await getSWCCSeasons()
-  const MEMBERS = (await getMembersList()).map(entry => entry.member)
+  const users = await getUsers()
   const links = []
   const limit = withEverything ? Infinity : 1
 
@@ -274,10 +272,10 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Community', 'Discover'],
   })
 
-  MEMBERS.slice(0, limit).forEach(member => {
+  users.slice(0, limit).forEach(user => {
     links.push({
-      label: member,
-      path: '/members/' + member.toLowerCase(),
+      label: user.name,
+      path: '/members/' + user.slug,
       breadcrumbs: ['Community', 'Discover'],
     })
   })

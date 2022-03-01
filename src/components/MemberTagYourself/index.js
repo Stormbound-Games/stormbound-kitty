@@ -16,16 +16,15 @@ const UserSelect = props => {
       isClearable
       value={{ id: props.value, label: props.value }}
       onChange={props.onChange}
-      options={props.members.map(value => ({
-        value: value.member,
-        label: value.member,
-        rarity: value.roles.isActualKAT
-          ? 'legendary'
-          : value.roles.isSuperKAT
-          ? 'epic'
-          : value.roles.isKAT
-          ? 'rare'
-          : 'common',
+      options={props.members.map(user => ({
+        value: user.name,
+        label: user.name,
+        rarity:
+          user.role === 'SUPER_KAT'
+            ? 'epic'
+            : user.role === 'KAT'
+            ? 'rare'
+            : 'common',
       }))}
       styles={styles}
     />
