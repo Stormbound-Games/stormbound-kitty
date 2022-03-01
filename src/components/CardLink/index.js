@@ -15,7 +15,7 @@ export default React.memo(function CardLink(props) {
   })
   const slug = `/card/${props.id}/display`
 
-  if (!cardData.id) {
+  if (!cardData) {
     return props.children || null
   }
 
