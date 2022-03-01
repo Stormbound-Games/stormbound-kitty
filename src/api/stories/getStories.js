@@ -1,14 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getStories = async ({ isPreview } = {}) => {
   const stories = await getEntries({
     conditions: ['_type == "story"'],
-    fields: `..., cardRef -> { id }`,
+    fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
 
-  return stories.map(clean)
+  return stories.map(MAPPER)
 }
 
 export default getStories

@@ -8,7 +8,7 @@ import getCards from '~/api/cards/getCards'
 const getEmbedForStory = (cardsIndex, label, story) => {
   return getEmbed()
     .setTitle(`${label}: ${story.title}`)
-    .setURL('https://stormbound-kitty.com/stories/' + story.id)
+    .setURL('https://stormbound-kitty.com/stories/' + story.slug)
     .addFields(
       { name: 'Author', value: story.author, inline: true },
       { name: 'Card', value: cardsIndex[story.cardId].name, inline: true }

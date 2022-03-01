@@ -16,9 +16,6 @@ const StoryAuthor = React.memo(function StoryAuthor(props) {
 })
 
 const getStoryTeaser = cardsIndex => story => {
-  const id =
-    story.id ||
-    window.btoa(encodeURIComponent(story.title + '-' + story.author))
   const meta = <StoryAuthor {...story} />
 
   return {
@@ -29,7 +26,7 @@ const getStoryTeaser = cardsIndex => story => {
     },
     meta: meta,
     excerpt: story.excerpt,
-    to: `/stories/${story.slug || id}`,
+    to: `/stories/${story.slug}`,
   }
 }
 

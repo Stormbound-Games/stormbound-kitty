@@ -11,7 +11,7 @@ export default React.memo(function FeedStoryEntry(props) {
     <FeedEntry icon='quill' date={props.date}>
       {props.author} has written {prefix}{' '}
       <Link to={'/stories/' + props.category}>{category}</Link> story called{' '}
-      <Link to={'/stories/' + props.id}>{props.title}</Link>.
+      <Link to={'/stories/' + props.slug}>{props.title}</Link>.
       <blockquote>{props.excerpt}</blockquote>
     </FeedEntry>
   )

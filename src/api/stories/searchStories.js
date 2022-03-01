@@ -1,5 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const searchStories = async ({ term, isPreview } = {}) => {
   const stories = await getEntries({
@@ -8,11 +8,11 @@ const searchStories = async ({ term, isPreview } = {}) => {
       'title match $term || content match $term',
     ],
     params: { term },
-    fields: `..., cardRef -> { id }`,
+    fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
 
-  return stories.map(clean)
+  return stories.map(MAPPER)
 }
 
 export default searchStories

@@ -349,7 +349,7 @@ const getSearchIndex = async (withEverything = true) => {
   stories.slice(0, limit).forEach(story => {
     links.push({
       label: story.title,
-      path: `/stories/${story.id}`,
+      path: `/stories/${story.slug}`,
       breadcrumbs: ['Stories', STORY_CATEGORIES[story.category].title],
     })
   })

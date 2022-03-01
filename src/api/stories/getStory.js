@@ -1,20 +1,16 @@
 import { getEntry } from '~/helpers/sanity'
 import blocks from '~/api/misc/blocks'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getStory = async ({ slug, isPreview } = {}) => {
   const story = await getEntry({
     conditions: ['_type == "story"', 'slug.current == $slug'],
+    fields: `${FIELDS}, "content": body[] { ${blocks} }`,
     params: { slug },
-    fields: `
-    ...,
-    cardRef -> { id },
-    content[] { ${blocks} }
-    `,
     options: { isPreview },
   })
 
-  return story ? clean(story) : null
+  return story ? MAPPER(story) : null
 }
 
 export default getStory
