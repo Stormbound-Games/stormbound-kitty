@@ -62,10 +62,16 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     const resolvedView =
       view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
     const suggestedDeck = await getDeck({ id, isPreview })
+    const indexedDeck = indexArray(resolvedDeck)
 
     return {
       props: {
-        cards,
+        // On the detail view, the only needed cards are the ones in the deck,
+        // and every other card can be discarded.
+        cards:
+          view === 'detail'
+            ? cards.filter(card => card.id in indexedDeck)
+            : cards,
         navigation,
         id,
         deck,
