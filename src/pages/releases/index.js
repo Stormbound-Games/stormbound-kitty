@@ -9,8 +9,15 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const releases = await getReleases({ isPreview })
+  const cardIds = releases.map(release => release.cardId)
 
-  return { props: { cards, navigation, releases } }
+  return {
+    props: {
+      cards: cards.filter(card => cardIds.includes(card.id)),
+      navigation,
+      releases,
+    },
+  }
 }
 
 const ReleasesPage = ({ navigation, cards, ...props }) => (
