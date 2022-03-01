@@ -15,7 +15,11 @@ export default React.memo(function FAQEntry(props) {
         </Link>
       </dt>
       <dd className={css(styles.answer)}>
-        <BlocksRenderer value={props.answer} />
+        {Array.isArray(props.answer) || props.answer._type === 'block' ? (
+          <BlocksRenderer value={props.answer} />
+        ) : (
+          props.answer
+        )}
       </dd>
     </>
   )
