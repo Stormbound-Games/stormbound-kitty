@@ -9,7 +9,9 @@ const getSWCCFromCard = async ({ id, isPreview } = {}) => {
     options: { isPreview },
   })
 
-  return seasons.map(MAPPER).pop().weeks.pop() || null
+  const season = seasons.map(MAPPER).pop()
+
+  return season ? season.weeks.pop() : null
 }
 
 export default getSWCCFromCard
