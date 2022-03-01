@@ -35,10 +35,10 @@ const tournament = {
       type: 'string',
     },
     {
-      title: 'Users',
+      title: 'Hosts',
       name: 'users',
       type: 'array',
-      of: [user],
+      of: [{ ...user, title: 'Host' }],
       validation: Rule => Rule.required(),
     },
     {
@@ -57,10 +57,25 @@ const tournament = {
               title: 'Players',
               name: 'team',
               type: 'array',
-              of: [user],
+              of: [{ ...user, title: 'Player' }],
             },
           ],
           validation: Rule => Rule.required(),
+          preview: {
+            select: {
+              player1: 'team.0.name',
+              player2: 'team.2.name',
+              player3: 'team.3.name',
+              player4: 'team.4.name',
+            },
+            prepare({ player1, player2, player3, player4 }) {
+              return {
+                title: [player1, player2, player3, player4]
+                  .filter(Boolean)
+                  .join(', '),
+              }
+            },
+          },
         },
       ],
       validation: Rule => Rule.required().min(1).max(3),
@@ -80,6 +95,18 @@ const tournament = {
               type: 'string',
             },
           ],
+          preview: {
+            select: {
+              name: 'name',
+              id: 'id',
+            },
+            prepare({ name, id }) {
+              return {
+                title: name || 'Unnamed deck',
+                subtitle: id || 'Missing id',
+              }
+            },
+          },
         },
       ],
     },

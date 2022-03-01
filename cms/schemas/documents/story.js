@@ -27,7 +27,7 @@ const story = {
       options: { source: 'title' },
       validation: Rule => Rule.required(),
     },
-    user,
+    { ...user, title: 'Author' },
     { ...cardRef, name: 'cardRef' },
     {
       title: 'Card data',
@@ -77,7 +77,7 @@ const story = {
   ],
   preview: {
     select: {
-      author: 'author',
+      author: 'user.name',
       title: 'title',
       date: 'date',
       card: 'card',
@@ -88,7 +88,7 @@ const story = {
         title: title || 'Missing title',
         subtitle:
           'By ' +
-          (author || 'missing member') +
+          (author || 'missing author') +
           ' in ' +
           (formatDate(date) || 'missing date'),
         media: image ? (

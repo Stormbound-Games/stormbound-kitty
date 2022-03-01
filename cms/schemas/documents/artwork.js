@@ -9,7 +9,7 @@ const channels = {
   type: 'document',
   icon: MdBrush,
   fields: [
-    user,
+    { ...user, title: 'Author' },
     date,
     {
       title: 'Image',
@@ -31,7 +31,7 @@ const channels = {
   ],
   preview: {
     select: {
-      author: 'author',
+      author: 'user.name',
       date: 'date',
       image: 'image',
     },

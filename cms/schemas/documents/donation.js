@@ -8,7 +8,7 @@ const donation = {
   name: 'donation',
   type: 'document',
   icon: MdAttachMoney,
-  fields: [user, date],
+  fields: [{ ...user, title: 'Donator' }, date],
   orderings: [
     {
       title: 'Date, New',
@@ -18,12 +18,12 @@ const donation = {
   ],
   preview: {
     select: {
-      author: 'author',
+      donator: 'user.name',
       date: 'date',
     },
-    prepare({ author, date }) {
+    prepare({ donator, date }) {
       return {
-        title: author || 'Missing member',
+        title: donator || 'Missing donator',
         subtitle: formatDate(date) || 'Missing date',
       }
     },

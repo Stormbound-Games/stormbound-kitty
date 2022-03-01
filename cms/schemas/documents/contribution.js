@@ -9,7 +9,7 @@ const contribution = {
   type: 'document',
   icon: MdCode,
   fields: [
-    user,
+    { ...user, title: 'Contributor' },
     date,
     {
       title: 'Pull-request numbers',
@@ -35,12 +35,12 @@ const contribution = {
   ],
   preview: {
     select: {
-      author: 'author',
+      contributor: 'user.name',
       date: 'date',
     },
-    prepare({ author, date }) {
+    prepare({ contributor, date }) {
       return {
-        title: author || 'Missing member',
+        title: contributor || 'Missing user',
         subtitle: formatDate(date) || 'Missing date',
       }
     },

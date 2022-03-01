@@ -18,7 +18,7 @@ const deck = {
       validation: Rule => Rule.required(),
     },
     { ...deckId, name: 'id' },
-    user,
+    { ...user, title: 'Author' },
     date,
     {
       title: 'Tags',
@@ -50,7 +50,7 @@ const deck = {
   preview: {
     select: {
       name: 'name',
-      author: 'author',
+      author: 'user.name',
       date: 'date',
     },
     prepare({ name, author, date }) {
@@ -58,7 +58,7 @@ const deck = {
         title: name || 'Missing name',
         subtitle:
           'By ' +
-          (author || 'missing member') +
+          (author || 'missing author') +
           ' in ' +
           (formatDate(date) || 'missing date'),
       }

@@ -24,10 +24,10 @@ const podcast = {
     },
     date,
     {
-      title: 'Users',
+      title: 'Hosts',
       name: 'users',
       type: 'array',
-      of: [user],
+      of: [{ ...user, title: 'Host' }],
       validation: Rule => Rule.min(1),
     },
     {

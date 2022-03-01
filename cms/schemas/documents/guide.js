@@ -70,11 +70,11 @@ const guide = {
     },
     { ...date, fieldset: 'metadata' },
     {
-      title: 'Users',
+      title: 'Authors',
       name: 'user',
       type: 'array',
       fieldset: 'metadata',
-      of: [user],
+      of: [{ ...user, title: 'Author' }],
       validation: Rule => Rule.min(1),
     },
     { ...cardRef, fieldset: 'metadata' },

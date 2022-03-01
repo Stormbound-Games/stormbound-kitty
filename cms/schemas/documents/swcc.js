@@ -1,5 +1,6 @@
 import { MdAutoFixNormal } from 'react-icons/md'
 import user from '../types/user'
+import { formatDate } from '~/helpers/formatDate'
 
 const week = {
   title: 'SWCC week',
@@ -30,7 +31,7 @@ const week = {
       name: 'winner',
       type: 'object',
       fields: [
-        user,
+        { ...user, title: 'Author' },
         {
           title: 'Card ID',
           name: 'id',
@@ -45,6 +46,23 @@ const week = {
       ],
     },
   ],
+  preview: {
+    select: {
+      name: 'name',
+      author: 'winner.user.name',
+      date: 'date',
+    },
+    prepare({ author, name, date }) {
+      return {
+        title: name,
+        subtitle:
+          'By ' +
+          (author || 'missing member') +
+          ' in ' +
+          (formatDate(date) || 'missing date'),
+      }
+    },
+  },
 }
 
 const swcc = {

@@ -29,6 +29,18 @@ const channels = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      user: 'user.name',
+      description: 'description',
+    },
+    prepare({ user, description }) {
+      return {
+        title: user || 'Missing member',
+        subtitle: description,
+      }
+    },
+  },
 }
 
 export default channels

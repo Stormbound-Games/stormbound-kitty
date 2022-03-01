@@ -35,7 +35,7 @@ const puzzle = {
       validation: Rule => Rule.required(),
       options: { list: [1, 2, 3] },
     },
-    user,
+    { ...user, title: 'Author' },
     {
       title: 'Board ID',
       name: 'board',
@@ -81,7 +81,7 @@ const puzzle = {
   ],
   preview: {
     select: {
-      author: 'author',
+      author: 'user.name',
       name: 'name',
       date: 'date',
       image: 'image',
