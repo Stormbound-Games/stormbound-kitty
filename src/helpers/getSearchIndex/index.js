@@ -11,13 +11,14 @@ import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 
 const getSearchIndex = async (withEverything = true) => {
+  console.log('Searching')
   const cards = await getCards()
   const decks = await getDecks()
   const guides = await getGuides()
   const stories = await getStories()
   const puzzles = await getPuzzles()
   const releases = await getReleases()
-  const contests = (await getSWCCSeasons()).flat()
+  const seasons = await getSWCCSeasons()
   const MEMBERS = (await getMembersList()).map(entry => entry.member)
   const links = []
   const limit = withEverything ? Infinity : 1
@@ -99,13 +100,17 @@ const getSearchIndex = async (withEverything = true) => {
     })
   })
 
-  contests.slice(0, limit).forEach(contest => {
-    links.push({
-      label: 'SWCC #' + contest.id + ' ' + contest.name,
-      path: `/card/${contest.winner.id}/display`,
-      breadcrumbs: ['Community', 'Contests'],
+  seasons
+    .map(season => season.weeks)
+    .flat()
+    .slice(0, limit)
+    .forEach(contest => {
+      links.push({
+        label: 'SWCC #' + contest.id + ' ' + contest.name,
+        path: `/card/${contest.winner.id}/display`,
+        breadcrumbs: ['Community', 'Contests'],
+      })
     })
-  })
 
   links.push({
     label: 'Weekly Card Contest',
