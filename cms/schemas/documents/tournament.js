@@ -1,5 +1,6 @@
 import { MdAutoAwesome } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import deckId from '../types/deckId'
 import { formatDate } from '~/helpers/formatDate'
@@ -42,6 +43,13 @@ const tournament = {
       validation: Rule => Rule.required(),
     },
     {
+      title: 'Users',
+      name: 'users',
+      type: 'array',
+      of: [user],
+      validation: Rule => Rule.required(),
+    },
+    {
       title: 'Podium',
       name: 'podium',
       description:
@@ -58,6 +66,12 @@ const tournament = {
               name: 'players',
               type: 'array',
               of: [member],
+            },
+            {
+              title: 'Players',
+              name: 'team',
+              type: 'array',
+              of: [user],
             },
           ],
           validation: Rule => Rule.required(),
