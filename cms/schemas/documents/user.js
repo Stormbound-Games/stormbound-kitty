@@ -19,6 +19,17 @@ const user = {
       options: { source: 'name' },
       validation: Rule => Rule.required(),
     },
+    {
+      title: 'Role',
+      name: 'role',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Kat', value: 'KAT' },
+          { title: 'Super Kat', value: 'SUPER_KAT' },
+        ],
+      },
+    },
   ],
   preview: {
     select: {
