@@ -1,6 +1,6 @@
 import { getEntry } from '~/helpers/sanity'
 import blocks from '~/api/misc/blocks'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getGuide = async ({
   id = null,
@@ -14,16 +14,16 @@ const getGuide = async ({
       '(id == $id || slug.current == $slug || name == $name)',
     ],
     fields: `
-      ...,
-      background { ratio, asset -> { url } },
-      card -> { id },
+      ${FIELDS},
+      defined(background.ratio) => { "ratio": string(background.ratio) + "%" },
+      "background": background { "url": asset -> url }.url,
       content[] { ${blocks} }
     `,
     params: { id, slug, name },
     options: { isPreview },
   })
 
-  return guide ? clean(guide) : null
+  return guide ? MAPPER(guide) : null
 }
 
 export default getGuide

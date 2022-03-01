@@ -30,7 +30,6 @@ const Guide = React.memo(function Guide(props) {
           children: 'Back to guides',
         }}
         ratio={props.ratio}
-        withAvif
         isEditorialContent
         withDropCap
       >
