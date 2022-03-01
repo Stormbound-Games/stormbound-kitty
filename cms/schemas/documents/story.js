@@ -1,6 +1,7 @@
 import { MdEditNote } from 'react-icons/md'
 import React from 'react'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import json from '../types/json'
 import cardRef from '../types/cardRef'
@@ -28,6 +29,7 @@ const story = {
       validation: Rule => Rule.required(),
     },
     member,
+    user,
     { ...cardRef, name: 'cardRef' },
     {
       title: 'Card data',

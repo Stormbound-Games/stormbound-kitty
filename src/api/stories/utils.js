@@ -6,7 +6,7 @@ export const FIELDS = `
 _id,
 title,
 date,
-author,
+"author": coalesce(user -> name, author),
 "slug": slug.current,
 "cardId": cardRef -> id,
 "cardData": card,
