@@ -1,6 +1,7 @@
-import blocks from '~/api/misc/blocks'
+import blocks from '~/api/users/blocks'
 
 export const FIELDS = `
+_id,
 "id": id.current,
 title,
 priority,

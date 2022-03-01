@@ -3,6 +3,7 @@ import getReadingTime from '~/helpers/getReadingTime'
 import getExcerpt from '~/helpers/getExcerpt'
 
 export const FIELDS = `
+_id,
 title,
 date,
 author,

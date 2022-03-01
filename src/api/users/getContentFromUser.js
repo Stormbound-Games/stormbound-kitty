@@ -71,6 +71,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
       ].join('||'),
     ],
     fields: `
+      _id,
       _type,
       _type == "artwork" => { ${ARTWORK_FIELDS} },
       _type == "channel" => { ${CHANNEL_FIELDS} },

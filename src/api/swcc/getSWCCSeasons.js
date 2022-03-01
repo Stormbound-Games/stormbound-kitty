@@ -4,7 +4,7 @@ import { FIELDS, MAPPER } from './utils'
 const getSWCCSeasons = async ({ isPreview } = {}) => {
   const seasons = await getEntries({
     conditions: ['_type == "swcc"'],
-    fields: `number, weeks[] { ${FIELDS} }`,
+    fields: `_id, number, weeks[] { ${FIELDS} }`,
     options: { order: 'number desc', isPreview },
   })
 

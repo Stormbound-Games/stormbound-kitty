@@ -1,7 +1,8 @@
 import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
-authors,
+_id,
+"authors": coalesce(users[] -> name, authors),
 date,
 data,
 type

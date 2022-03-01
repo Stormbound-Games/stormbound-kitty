@@ -1,6 +1,7 @@
 import { getEntries } from '~/helpers/sanity'
 
 const FIELDS = `
+_id,
 _createdAt,
 intro,
 description,
