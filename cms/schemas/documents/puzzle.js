@@ -1,5 +1,6 @@
 import { MdExtension } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import { CATEGORIES, RESTRICTIONS } from '~/constants/puzzles'
 import { formatDate } from '~/helpers/formatDate'
@@ -36,6 +37,7 @@ const puzzle = {
       options: { list: [1, 2, 3] },
     },
     member,
+    user,
     {
       title: 'Board ID',
       name: 'board',
