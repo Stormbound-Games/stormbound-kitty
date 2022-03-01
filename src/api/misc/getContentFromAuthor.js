@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import cleanContribution from '~/api/contributions/clean'
 import cleanDeck from '~/api/decks/clean'
 import cleanDonation from '~/api/donations/clean'
 import cleanEvent from '~/api/events/clean'
@@ -25,11 +24,15 @@ import {
   FIELDS as STORY_FIELDS,
   MAPPER as STORY_MAPPER,
 } from '~/api/stories/utils'
+import {
+  FIELDS as CONTRIBUTION_FIELDS,
+  MAPPER as CONTRIBUTION_MAPPER,
+} from '~/api/contributions/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
   channel: channel => channel,
-  contribution: cleanContribution,
+  contribution: CONTRIBUTION_MAPPER,
   deck: cleanDeck,
   donation: cleanDonation,
   event: cleanEvent,
@@ -55,11 +58,12 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       ].join('||'),
     ],
     fields: `
-      _type != "artwork" && _type != "podcast" && _type != "puzzle" && _type != "story" => { ... },
+      _type != "artwork" && _type != "podcast" && _type != "puzzle" && _type != "story" && _type != "contribution" => { ... },
       _type == "artwork" => { _type, ${ARTWORK_FIELDS} },
       _type == "podcast" => { _type, ${PODCAST_FIELDS} },
       _type == "puzzle" => { _type, ${PUZZLE_FIELDS} },
       _type == "story" => { _type, ${STORY_FIELDS} },
+      _type == "contribution" => { _type, ${CONTRIBUTION_FIELDS} },
       _type == "guide" => { card    -> { id } }
     `,
     params: { author },

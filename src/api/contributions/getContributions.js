@@ -1,13 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getContributions = async ({ order = 'date desc', isPreview } = {}) => {
   const contributions = await getEntries({
     conditions: ['_type == "contribution"'],
+    fields: FIELDS,
     options: { order, isPreview },
   })
 
-  return contributions.map(clean)
+  return contributions.map(MAPPER)
 }
 
 export default getContributions
