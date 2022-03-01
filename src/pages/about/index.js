@@ -4,10 +4,8 @@ import Layout from '~/components/Layout'
 import getContributions from '~/api/contributions/getContributions'
 import getDonations from '~/api/donations/getDonations'
 import getNavigation from '~/helpers/getNavigation'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const getAuthor = entry => entry.author
   const donations = await getDonations({ order: 'author asc', isPreview })
   const donators = [...new Set(donations.map(getAuthor))]
@@ -18,7 +16,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const contributors = [...new Set(contributions.map(getAuthor))]
   const navigation = await getNavigation({ isPreview })
 
-  return { props: { cards, navigation, contributors, donators } }
+  return { props: { navigation, contributors, donators } }
 }
 
 const AboutPage = ({ navigation, cards, ...props }) => (
