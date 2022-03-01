@@ -4,8 +4,10 @@ import Layout from '~/components/Layout'
 import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
 import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
-import getNavigation from '~/helpers/getNavigation'
 import getCards from '~/api/cards/getCards'
+import indexArray from '~/helpers/indexArray'
+import getNavigation from '~/helpers/getNavigation'
+import serialization from '~/helpers/serialization'
 
 export async function getStaticPaths() {
   const paths = BRAWLS.map(brawl => ({
@@ -22,6 +24,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const guide = await getGuide({ name: brawl.title, isPreview })
   const recommendedDecks = await getDecksWithTag({ tag: id, isPreview })
   const recommendedDeck = recommendedDecks[0] || null
+  const indexedDeck = recommendedDeck
+    ? indexArray(
+        serialization.deck.deserialize(
+          indexArray(cards, 'sid'),
+          recommendedDeck.id
+        )
+      )
+    : {}
 
   if (!brawl) {
     return { notFound: true }
@@ -31,7 +41,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
-      cards,
+      cards: cards.filter(
+        card => card.id === brawl.cardId || card.id in indexedDeck
+      ),
       navigation,
       id,
       brawl,

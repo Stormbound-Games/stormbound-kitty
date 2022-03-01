@@ -1,7 +1,7 @@
 import getCostForLevel from '~/helpers/getCostForLevel'
 
-const isCardUpgradable = (cardsIndex, { id, level, copies, missing }) => {
-  if (level === 5) return false
+const isCardUpgradable = (cardsIndex, { id, level, copies, missing } = {}) => {
+  if (level === 5 || !(id in cardsIndex)) return false
 
   const { rarity } = cardsIndex[id]
   const costForNextLevel = getCostForLevel(missing ? 1 : level + 1)({
