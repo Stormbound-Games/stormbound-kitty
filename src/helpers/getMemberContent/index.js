@@ -1,7 +1,7 @@
 import capitalize from '~/helpers/capitalize'
 import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
-import getContentFromAuthor from '~/api/misc/getContentFromAuthor'
+import getContentFromUser from '~/api/users/getContentFromUser'
 
 const parseEntryDate = entry => ({
   ...entry,
@@ -25,7 +25,7 @@ const getMemberContent = async ({ id, isPreview } = {}) => {
     podium: podiums = [],
     puzzle: puzzles = [],
     story: stories = [],
-  } = await getContentFromAuthor({ author: id, isPreview })
+  } = await getContentFromUser({ author: id, isPreview })
 
   const content = [
     ...stories.map(addType('STORY')),
