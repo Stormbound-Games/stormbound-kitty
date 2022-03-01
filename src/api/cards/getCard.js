@@ -1,15 +1,15 @@
 import { getEntry } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getCard = async ({ id, isPreview } = {}) => {
   const card = await getEntry({
     conditions: ['_type == "card"', 'id match $id'],
-    fields: `..., image { asset -> { ... } }`,
+    fields: FIELDS,
     params: { id },
     options: { isPreview },
   })
 
-  return card ? clean(card) : null
+  return card ? MAPPER(card) : null
 }
 
 export default getCard
