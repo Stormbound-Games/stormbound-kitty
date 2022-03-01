@@ -4,15 +4,13 @@ import Layout from '~/components/Layout'
 import shuffle from '~/helpers/shuffle'
 import getArtworks from '~/api/artworks/getArtworks'
 import getNavigation from '~/helpers/getNavigation'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const artworks = shuffle(await getArtworks({ isPreview }))
-  const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
 
   return {
-    props: { artworks, cards, navigation },
+    props: { artworks, navigation },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
