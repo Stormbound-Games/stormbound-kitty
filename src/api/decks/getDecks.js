@@ -1,13 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getDecks = async ({ isPreview } = {}) => {
-  const ecks = await getEntries({
+  const decks = await getEntries({
     conditions: ['_type == "deck"'],
+    fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
 
-  return ecks.map(clean)
+  return decks.map(MAPPER)
 }
 
 export default getDecks

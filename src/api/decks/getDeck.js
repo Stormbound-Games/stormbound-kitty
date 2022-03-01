@@ -2,7 +2,7 @@ import { getEntry } from '~/helpers/sanity'
 import serialization from '~/helpers/serialization'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getDeck = async ({ id, isPreview } = {}) => {
   const cards = await getCards({ isPreview })
@@ -16,11 +16,12 @@ const getDeck = async ({ id, isPreview } = {}) => {
 
   const deck = await getEntry({
     conditions: ['_type == "deck"', 'id in $decks'],
+    fields: FIELDS,
     params: { decks },
     options: { isPreview },
   })
 
-  return deck ? clean(deck) : null
+  return deck ? MAPPER(deck) : null
 }
 
 export default getDeck
