@@ -25,9 +25,8 @@ export default React.memo(function FeaturedDecks(props) {
   const query = useQueryParams()
   const navigator = useNavigator()
   const formRef = React.useRef(null)
-  const { cardsIndex } = React.useContext(CardsContext)
-  const { collection, hasDefaultCollection } =
-    React.useContext(CollectionContext)
+  const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
+  const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [tags, setTags] = React.useState(query.tags?.split(',') ?? [])
   const [faction, setFaction] = React.useState(query.faction || '*')
   const [author, setAuthor] = React.useState(query.author || '*')
@@ -97,10 +96,10 @@ export default React.memo(function FeaturedDecks(props) {
     deck =>
       !including ||
       serialization.deck
-        .deserialize(deck.id)
+        .deserialize(cardsIndexBySid, deck.id)
         .map(card => card.id)
         .includes(including),
-    [including]
+    [including, cardsIndexBySid]
   )
 
   const sortFn = useFeaturedDecksSorting(order)
