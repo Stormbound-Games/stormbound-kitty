@@ -1,5 +1,6 @@
 import { MdPlayCircleOutline } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 
 const channels = {
   title: 'YouTube Channel',
@@ -8,6 +9,7 @@ const channels = {
   icon: MdPlayCircleOutline,
   fields: [
     member,
+    user,
     {
       title: 'Link',
       name: 'href',

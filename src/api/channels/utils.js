@@ -1,6 +1,6 @@
 export const FIELDS = `
 _id,
-author,
+"author": coalesce(user -> name, author),
 href,
 thumbnail,
 description
