@@ -13,7 +13,15 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const list = getInitialListData(tierList)
 
   return {
-    props: { cards, navigation, list },
+    props: {
+      cards: cards.map(card => ({
+        id: card.id,
+        image: card.image,
+        name: card.name,
+      })),
+      navigation,
+      list,
+    },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
