@@ -15,7 +15,6 @@ import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import CardLink from '~/components/CardLink'
 import countCards from '~/helpers/countCards'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getBookName from '~/helpers/getBookName'
@@ -160,10 +159,9 @@ export default React.memo(function BooksCalculator(props) {
                   opening a {getBookName(bookType)}.
                 </p>
                 <p>
-                  For instance, if you’re looking for a copy of{' '}
-                  <CardLink id='N2' />, a copy of <CardLink id='I4' /> and a
-                  copy of <CardLink id='N8' />, set 2 for “Common cards” and 1
-                  for “Legendary cards”.
+                  For instance, if you’re looking for a copy of Summon Militia,
+                  a copy of Ozone Purifiers and a copy of Collector Mirz, set 2
+                  for “Common cards” and 1 for “Legendary cards”.
                 </p>
                 <Row withNarrowGutter>
                   <Row.Column>
