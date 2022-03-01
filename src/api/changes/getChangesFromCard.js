@@ -1,15 +1,15 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getChangesFromCard = async ({ id, isPreview } = {}) => {
   const changes = await getEntries({
     conditions: ['_type == "changelog"', 'id == $id'],
     params: { id },
-    fields: `..., card -> { id }`,
+    fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
 
-  return changes.map(clean)
+  return changes.map(MAPPER)
 }
 
 export default getChangesFromCard
