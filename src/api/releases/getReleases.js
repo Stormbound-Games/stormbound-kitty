@@ -1,14 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getReleases = async ({ isPreview } = {}) => {
   const releases = await getEntries({
     conditions: ['_type == "release"'],
-    fields: `..., card -> { id }`,
+    fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
 
-  return releases.map(clean)
+  return releases.map(MAPPER)
 }
 
 export default getReleases

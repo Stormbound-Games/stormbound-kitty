@@ -1,6 +1,6 @@
 import { getEntry } from '~/helpers/sanity'
 import blocks from '~/api/misc/blocks'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getRelease = async ({
   id = null,
@@ -14,18 +14,16 @@ const getRelease = async ({
       '(id == $id || slug.current == $slug || date == $date)',
     ],
     fields: `
-    ...,
-    background { ratio, asset -> { url } },
-    card -> { id },
-    content[] {
-      ${blocks}
-    }
+      ${FIELDS},
+      defined(background.ratio) => { "ratio": string(background.ratio) + "%" },
+      "background": background { "url": asset -> url }.url,
+      content[] { ${blocks} }
     `,
     params: { id, slug, date },
     options: { isPreview },
   })
 
-  return release ? clean(release) : null
+  return release ? MAPPER(release) : null
 }
 
 export default getRelease
