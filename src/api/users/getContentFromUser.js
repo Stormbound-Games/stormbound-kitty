@@ -1,4 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
+import getUser from '~/api/users/getUser'
 import groupBy from '~/helpers/groupBy'
 import {
   FIELDS as ARTWORK_FIELDS,
@@ -57,12 +58,14 @@ const cleaners = {
 }
 
 const getContentFromUser = async ({ author, isPreview } = {}) => {
+  const user = await getUser({ slug: author, isPreview })
   const entries = await getEntries({
     conditions: [
       // Find *any* type of content that’s somewhat related to the author,
       // either by mentioning it directly, or in an array of authors, or in an
       // array of hosts.
       [
+        'references(id)',
         'author match $author',
         'count(authors[@ match $author]) > 0',
         'count(hosts[@ match $author]) > 0',
