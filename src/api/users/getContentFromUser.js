@@ -56,7 +56,7 @@ const cleaners = {
   tournament: TOURNAMENT_MAPPER,
 }
 
-const getContentFromAuthor = async ({ author, isPreview } = {}) => {
+const getContentFromUser = async ({ author, isPreview } = {}) => {
   const entries = await getEntries({
     conditions: [
       // Find *any* type of content that’s somewhat related to the author,
@@ -89,7 +89,7 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
         count(podium[].players[@ match $author]) > 0 => { "_type": "podium" }
       },
     `,
-    params: { author },
+    params: { author, id: user._id },
     options: { order: 'date desc', isPreview },
   })
 
@@ -116,4 +116,4 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
   return content
 }
 
-export default getContentFromAuthor
+export default getContentFromUser
