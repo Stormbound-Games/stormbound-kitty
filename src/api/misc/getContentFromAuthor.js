@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import cleanSwcc from '~/api/swcc/clean'
 import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
 import getTournamentsWithAuthor from '~/api/tournaments/getTournamentsWithAuthor'
 import groupBy from '~/helpers/groupBy'
@@ -52,7 +51,6 @@ const cleaners = {
   podcast: PODCAST_MAPPER,
   puzzle: PUZZLE_MAPPER,
   story: STORY_MAPPER,
-  swcc: cleanSwcc,
   tournament: TOURNAMENT_MAPPER,
 }
 
