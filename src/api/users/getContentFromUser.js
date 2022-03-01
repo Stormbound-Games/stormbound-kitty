@@ -59,6 +59,9 @@ const cleaners = {
 
 const getContentFromUser = async ({ author, isPreview } = {}) => {
   const user = await getUser({ slug: author, isPreview })
+
+  if (!user) return {}
+
   const entries = await getEntries({
     conditions: [
       // Find *any* type of content that’s somewhat related to the author,
