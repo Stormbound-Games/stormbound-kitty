@@ -150,14 +150,15 @@ const card = {
     select: {
       name: 'name',
       image: 'image',
+      rarity: 'rarity',
       faction: 'faction',
-      type: 'type',
       race: 'race',
+      type: 'type',
     },
-    prepare({ name, image, faction, type, race }) {
+    prepare({ name, image, rarity, faction, race, type }) {
       return {
         title: name,
-        subtitle: [faction, type, race].filter(Boolean).join(' · '),
+        subtitle: [rarity, faction, race, type].filter(Boolean).join(' · '),
         media: image,
       }
     },
