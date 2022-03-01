@@ -5,7 +5,7 @@ _id,
 id,
 date,
 name,
-winner { author, id },
+winner { "author": coalesce(user -> id, author), id },
 "season": ^.number
 `
 
