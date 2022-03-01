@@ -5,7 +5,7 @@ _id,
 title,
 meta,
 date,
-hosts,
+"hosts": coalesce(users[] -> name, hosts),
 href,
 excerpt
 `
