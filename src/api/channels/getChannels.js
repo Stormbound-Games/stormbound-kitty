@@ -1,13 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS } from './utils'
 
 const getChannels = async ({ isPreview } = {}) => {
   const channels = await getEntries({
     conditions: ['_type == "channel"'],
+    fields: FIELDS,
     options: { order: 'author asc', isPreview },
   })
 
-  return channels.map(clean)
+  return channels
 }
 
 export default getChannels

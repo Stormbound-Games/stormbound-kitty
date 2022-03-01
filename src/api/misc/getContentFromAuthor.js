@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import cleanChannel from '~/api/channels/clean'
 import cleanContribution from '~/api/contributions/clean'
 import cleanDeck from '~/api/decks/clean'
 import cleanDonation from '~/api/donations/clean'
@@ -29,7 +28,7 @@ import {
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
-  channel: cleanChannel,
+  channel: channel => channel,
   contribution: cleanContribution,
   deck: cleanDeck,
   donation: cleanDonation,
