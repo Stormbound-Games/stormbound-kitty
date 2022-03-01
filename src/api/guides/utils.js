@@ -7,7 +7,7 @@ name,
 "slug": slug.current,
 id,
 category,
-authors,
+"authors": coalesce(users[] -> name, authors),
 date,
 "cardId": card -> id,
 "text": pt::text(content)

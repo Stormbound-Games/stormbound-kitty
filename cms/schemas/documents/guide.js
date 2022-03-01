@@ -1,5 +1,6 @@
 import { MdExplore } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import cardRef from '../types/cardRef'
 import image from '../richText/image'
@@ -75,6 +76,14 @@ const guide = {
       type: 'array',
       fieldset: 'metadata',
       of: [member],
+      validation: Rule => Rule.min(1),
+    },
+    {
+      title: 'Users',
+      name: 'user',
+      type: 'array',
+      fieldset: 'metadata',
+      of: [user],
       validation: Rule => Rule.min(1),
     },
     { ...cardRef, fieldset: 'metadata' },
