@@ -1,14 +1,15 @@
 import { getEntry } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getPuzzle = async ({ id, isPreview } = {}) => {
   const puzzle = await getEntry({
     conditions: ['_type == "puzzle"', 'board == $id'],
+    fields: FIELDS,
     params: { id },
     options: { isPreview },
   })
 
-  return puzzle ? clean(puzzle) : null
+  return puzzle ? MAPPER(puzzle) : null
 }
 
 export default getPuzzle

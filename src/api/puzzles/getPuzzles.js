@@ -1,14 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getPuzzles = async ({ isPreview } = {}) => {
   const puzzles = await getEntries({
     conditions: ['_type == "puzzle"'],
-    fields: `..., "image": image { asset -> { url } }.asset.url`,
+    fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
 
-  return puzzles.map(clean)
+  return puzzles.map(MAPPER)
 }
 
 export default getPuzzles

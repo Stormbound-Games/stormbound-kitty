@@ -5,7 +5,6 @@ import cleanDeck from '~/api/decks/clean'
 import cleanDonation from '~/api/donations/clean'
 import cleanEvent from '~/api/events/clean'
 import cleanGuide from '~/api/guides/clean'
-import cleanPuzzle from '~/api/puzzles/clean'
 import cleanStory from '~/api/stories/clean'
 import cleanSwcc from '~/api/swcc/clean'
 import cleanTournament from '~/api/tournaments/clean'
@@ -20,6 +19,10 @@ import {
   FIELDS as PODCAST_FIELDS,
   MAPPER as PODCAST_MAPPER,
 } from '~/api/podcasts/utils'
+import {
+  FIELDS as PUZZLE_FIELDS,
+  MAPPER as PUZZLE_MAPPER,
+} from '~/api/puzzles/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -30,7 +33,7 @@ const cleaners = {
   event: cleanEvent,
   guide: cleanGuide,
   podcast: PODCAST_MAPPER,
-  puzzle: cleanPuzzle,
+  puzzle: PUZZLE_MAPPER,
   story: cleanStory,
   swcc: cleanSwcc,
   tournament: cleanTournament,
@@ -50,9 +53,10 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       ].join('||'),
     ],
     fields: `
-      _type != "artwork" && _type != "podcast" => { ... },
+      _type != "artwork" && _type != "podcast" && _type != "puzzle" => { ... },
       _type == "artwork" => { _type, ${ARTWORK_FIELDS} },
       _type == "podcast" => { _type, ${PODCAST_FIELDS} },
+      _type == "puzzle" => { _type, ${PUZZLE_FIELDS} },
       _type == "story" => { cardRef -> { id } },
       _type == "guide" => { card    -> { id } }
     `,

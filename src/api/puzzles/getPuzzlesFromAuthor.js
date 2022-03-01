@@ -1,14 +1,15 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getPuzzlesFromAuthor = async ({ author, isPreview }) => {
   const puzzles = await getEntries({
     conditions: ['_type == "puzzle"', 'author match $author'],
+    fields: FIELDS,
     params: { author },
     options: { order: 'date desc', isPreview },
   })
 
-  return puzzles.map(clean)
+  return puzzles.map(MAPPER)
 }
 
 export default getPuzzlesFromAuthor
