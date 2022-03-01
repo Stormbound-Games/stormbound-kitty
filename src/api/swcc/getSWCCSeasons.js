@@ -1,13 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS, MAPPER } from './utils'
 
 const getSWCCSeasons = async ({ isPreview } = {}) => {
   const seasons = await getEntries({
     conditions: ['_type == "swcc"'],
+    fields: `number, weeks[] { ${FIELDS} }`,
     options: { order: 'number desc', isPreview },
   })
 
-  return seasons.map(clean)
+  return seasons.map(MAPPER)
 }
 
 export default getSWCCSeasons

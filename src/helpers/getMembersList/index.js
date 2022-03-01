@@ -74,10 +74,13 @@ const getMembersList = async ({ isPreview } = {}) => {
     members[story.author] = members[story.author] || []
     members[story.author].push('STORY')
   })
-  swcc.flat().forEach(week => {
-    members[week.winner.author] = members[week.winner.author] || []
-    members[week.winner.author].push('CONTEST')
-  })
+  swcc
+    .map(swcc => swcc.weeks)
+    .flat()
+    .forEach(week => {
+      members[week.winner.author] = members[week.winner.author] || []
+      members[week.winner.author].push('CONTEST')
+    })
   tournaments.forEach(tournament => {
     tournament.hosts.forEach(host => {
       members[host] = members[host] || []

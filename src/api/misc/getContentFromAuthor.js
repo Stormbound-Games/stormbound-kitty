@@ -1,5 +1,4 @@
 import { getEntries } from '~/helpers/sanity'
-import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
 import groupBy from '~/helpers/groupBy'
 import {
   FIELDS as ARTWORK_FIELDS,
@@ -38,6 +37,7 @@ import {
   FIELDS as TOURNAMENT_FIELDS,
   MAPPER as TOURNAMENT_MAPPER,
 } from '~/api/tournaments/utils'
+import { FIELDS as SWCC_FIELDS, MAPPER as SWCC_MAPPER } from '~/api/swcc/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -51,6 +51,7 @@ const cleaners = {
   podium: TOURNAMENT_MAPPER,
   puzzle: PUZZLE_MAPPER,
   story: STORY_MAPPER,
+  swcc: SWCC_MAPPER,
   tournament: TOURNAMENT_MAPPER,
 }
 
@@ -59,12 +60,13 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
     conditions: [
       // Find *any* type of content that’s somewhat related to the author,
       // either by mentioning it directly, or in an array of authors, or in an
-      // array of hosts. SWCC wins are handled separately for convenience.
+      // array of hosts.
       [
         'author match $author',
-        'count(authors[lower(@) == $author]) > 0',
-        'count(hosts[lower(@) == $author]) > 0',
-        'count(podium[].players[lower(@) == $author]) > 0',
+        'count(authors[@ match $author]) > 0',
+        'count(hosts[@ match $author]) > 0',
+        'count(podium[].players[@ match $author]) > 0',
+        'count(weeks[winner.author match $author]) > 0',
       ].join('||'),
     ],
     fields: `
@@ -78,10 +80,11 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       _type == "podcast" => { ${PODCAST_FIELDS} },
       _type == "puzzle" => { ${PUZZLE_FIELDS} },
       _type == "story" => { ${STORY_FIELDS} },
+      _type == "swcc" => { weeks[winner.author match $author] { ${SWCC_FIELDS} } },
       _type == "tournament" => {
         ${TOURNAMENT_FIELDS},
-        count(hosts[lower(@) == $author]) > 0 => { "_type": "tournament", },
-        count(podium[].players[lower(@) == $author]) > 0 => { "_type": "podium" }
+        count(hosts[@ match $author]) > 0 => { "_type": "tournament", },
+        count(podium[].players[@ match $author]) > 0 => { "_type": "podium" }
       },
     `,
     params: { author },
@@ -92,15 +95,20 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
 
   for (let type in content) {
     // Clean every entry based on its type.
-    content[type].forEach(cleaners[type])
+    content[type].forEach(entry => {
+      cleaners[type](entry)
+      // Delete the `_type` key now that it’s no longer needed.
+      delete entry._type
+    })
   }
-
-  // Handle the tournament podiums and SWCC wins.
-  content.swcc = await getSWCCFromAuthor({ author, isPreview })
 
   // Restore the potential YouTube channel as an object.
   if (content.channel) {
     content.channel = content.channel[0]
+  }
+
+  if (content.swcc) {
+    content.swcc = content.swcc.map(season => season.weeks).flat()
   }
 
   return content

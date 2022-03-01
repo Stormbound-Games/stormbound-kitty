@@ -61,7 +61,7 @@ export default React.memo(function CardBuilderHallOfFame(props) {
           </summary>
 
           <CardBuilderHallOfFameSeason
-            weeks={season.filter(week => !!week.winner)}
+            weeks={season.weeks.filter(week => !!week.winner)}
           />
         </details>
       ))}
