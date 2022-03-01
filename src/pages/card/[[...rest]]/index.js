@@ -33,58 +33,50 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const cardsIndex = indexArray(cards)
-  const DEFAULT_PROPS = {
-    navigation,
-    cards,
-    cardId: null,
-    card: {},
-    contest: null,
-    mode: 'EDITOR',
-    versionId: null,
-    versions: [],
+  const [id, display, versionId = null] = params.rest || []
+  const isOfficialCard = id in cardsIndex
+  const versions = isOfficialCard
+    ? await getChangesFromCard({ id, isPreview })
+    : []
+
+  if (
+    // Invalid view keyword
+    (display && display !== 'display') ||
+    // Version ID with a non-official card
+    (versionId && !isOfficialCard) ||
+    // Invalid version ID
+    (versionId && !versions.some(v => String(v.timestamp) === versionId))
+  ) {
+    return { notFound: true }
   }
 
-  try {
-    const [id, display, versionId = null] = params.rest || []
-    const isOfficialCard = id in cardsIndex
-    const versions = isOfficialCard
-      ? await getChangesFromCard({ id, isPreview })
-      : []
-
-    if (
-      // Invalid view keyword
-      (display && display !== 'display') ||
-      // Version ID with a non-official card
-      (versionId && !isOfficialCard) ||
-      // Invalid version ID
-      (versionId && !versions.some(v => String(v.timestamp) === versionId))
-    ) {
-      return { notFound: true }
-    }
-
-    if (!id) {
-      return {
-        props: DEFAULT_PROPS,
-      }
-    }
-
+  if (!id) {
     return {
       props: {
         navigation,
         cards,
-        cardId: id,
-        card: getInitialCardData(cards, id),
-        contest:
-          id in cardsIndex ? null : await getSWCCFromCard({ id, isPreview }),
-        versionId,
-        versions,
-        mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+        cardId: null,
+        card: {},
+        contest: null,
+        mode: 'EDITOR',
+        versionId: null,
+        versions: [],
       },
     }
-  } catch (error) {
-    return {
-      props: DEFAULT_PROPS,
-    }
+  }
+
+  return {
+    props: {
+      navigation,
+      cards,
+      cardId: id,
+      card: getInitialCardData(cards, id),
+      contest:
+        id in cardsIndex ? null : await getSWCCFromCard({ id, isPreview }),
+      versionId,
+      versions,
+      mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+    },
   }
 }
 

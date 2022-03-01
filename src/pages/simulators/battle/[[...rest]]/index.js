@@ -25,44 +25,36 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const cardsIndex = indexArray(cards)
-  const DEFAULT_PROPS = {
-    cards,
-    cardsIndex,
-    navigation,
-    simId: null,
-    sim: getInitialBattleData(cardsIndex),
-    mode: 'EDITOR',
-    puzzle: null,
+  const [id, display] = params.rest || []
+
+  if (display && display !== 'display') {
+    return { notFound: true }
   }
 
-  try {
-    const [id, display] = params.rest || []
-
-    if (display && display !== 'display') {
-      return { notFound: true }
-    }
-
-    if (!id) {
-      return {
-        props: DEFAULT_PROPS,
-      }
-    }
-
+  if (!id) {
     return {
       props: {
         cards,
         cardsIndex,
         navigation,
-        simId: id,
-        sim: getInitialBattleData(cardsIndex, id),
-        mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
-        puzzle: await getPuzzle({ id, isPreview }),
+        simId: null,
+        sim: getInitialBattleData(cardsIndex),
+        mode: 'EDITOR',
+        puzzle: null,
       },
     }
-  } catch (error) {
-    return {
-      props: DEFAULT_PROPS,
-    }
+  }
+
+  return {
+    props: {
+      cards,
+      cardsIndex,
+      navigation,
+      simId: id,
+      sim: getInitialBattleData(cardsIndex, id),
+      mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+      puzzle: await getPuzzle({ id, isPreview }),
+    },
   }
 }
 

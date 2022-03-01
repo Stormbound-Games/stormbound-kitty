@@ -31,57 +31,53 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const navigation = await getNavigation({ isPreview })
   const cardsIndex = indexArray(cards)
   const cardsIndexBySid = indexArray(cards, 'sid')
-  const DEFAULT_PROPS = {
-    cards,
-    navigation,
-    id: null,
-    deck: [],
-    advice: [],
-    view: 'EDITOR',
-    suggestedDeck: null,
+  const [id, view] = params.rest || []
+
+  if (
+    ['dry-run', 'detail'].includes(id) ||
+    (view && !['dry-run', 'detail'].includes(view))
+  ) {
+    return { notFound: true }
   }
 
-  try {
-    const [id, view] = params.rest || []
-
-    if (
-      ['dry-run', 'detail'].includes(id) ||
-      (view && !['dry-run', 'detail'].includes(view))
-    ) {
-      return { notFound: true }
-    }
-
-    if (!id) {
-      return { props: DEFAULT_PROPS }
-    }
-
-    const deck = getInitialDeckData(cardsIndexBySid, id)
-    const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
-    const advice =
-      view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []
-    const resolvedView =
-      view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
-    const suggestedDeck = await getDeck({ id, isPreview })
-    const indexedDeck = indexArray(resolvedDeck)
-
+  if (!id) {
     return {
       props: {
-        // On the detail view, the only needed cards are the ones in the deck,
-        // and every other card can be discarded.
-        cards:
-          view === 'detail'
-            ? cards.filter(card => card.id in indexedDeck)
-            : cards,
+        cards,
         navigation,
-        id,
-        deck,
-        advice,
-        view: resolvedView,
-        suggestedDeck,
+        id: null,
+        deck: [],
+        advice: [],
+        view: 'EDITOR',
+        suggestedDeck: null,
       },
     }
-  } catch (error) {
-    return { props: DEFAULT_PROPS }
+  }
+
+  const deck = getInitialDeckData(cardsIndexBySid, id)
+  const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
+  const advice =
+    view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []
+  const resolvedView =
+    view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
+  const suggestedDeck = await getDeck({ id, isPreview })
+  const indexedDeck = indexArray(resolvedDeck)
+
+  return {
+    props: {
+      // On the detail view, the only needed cards are the ones in the deck,
+      // and every other card can be discarded.
+      cards:
+        view === 'detail'
+          ? cards.filter(card => card.id in indexedDeck)
+          : cards,
+      navigation,
+      id,
+      deck,
+      advice,
+      view: resolvedView,
+      suggestedDeck,
+    },
   }
 }
 

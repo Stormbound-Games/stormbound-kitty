@@ -14,38 +14,34 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
-  const DEFAULT_PROPS = {
-    cards,
-    navigation,
-    tiers: DEFAULT_LIST,
-    id: null,
-    mode: 'EDITOR',
+  const [id, display] = params.rest || []
+
+  if (display && display !== 'display') {
+    return { notFound: true }
   }
 
-  try {
-    const [id, display] = params.rest || []
-
-    if (display && display !== 'display') {
-      return { notFound: true }
-    }
-
-    if (!id) {
-      return { props: DEFAULT_PROPS }
-    }
-
-    const tiers = getInitialListData(id)
-
+  if (!id) {
     return {
       props: {
         cards,
         navigation,
-        tiers,
-        id,
-        mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+        tiers: DEFAULT_LIST,
+        id: null,
+        mode: 'EDITOR',
       },
     }
-  } catch (error) {
-    return { props: DEFAULT_PROPS }
+  }
+
+  const tiers = getInitialListData(id)
+
+  return {
+    props: {
+      cards,
+      navigation,
+      tiers,
+      id,
+      mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+    },
   }
 }
 
