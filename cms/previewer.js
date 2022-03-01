@@ -38,6 +38,8 @@ export default function getPreviewURL(document) {
       return goTo({ slug: document.slug?.current })
     case 'guide':
       return goTo({ slug: document.slug?.current })
+    case 'user':
+      return goTo({ slug: document.slug?.current })
     default:
       return goTo({})
   }

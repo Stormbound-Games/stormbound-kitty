@@ -5,6 +5,7 @@ import getGuide from '~/api/guides/getGuide'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import getRelease from '~/api/releases/getRelease'
 import getStory from '~/api/stories/getStory'
+import getUser from '~/api/users/getUser'
 
 const PREVIEW_MODE_DURATION = 60 * 60
 
@@ -69,6 +70,12 @@ const getRedirectUrl = async params => {
       const guide = await getGuide(params)
 
       return guide ? `/guides/${guide.slug}` : null
+    }
+
+    case 'user': {
+      const user = await getUser(params)
+
+      return user ? `/members/${user.slug}` : null
     }
 
     default:
