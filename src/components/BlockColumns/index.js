@@ -2,10 +2,15 @@ import React from 'react'
 import BlocksRenderer from '~/components/BlocksRenderer'
 import PageEmbed from '~/components/PageEmbed'
 import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
+
+const Spacer = props => (
+  <Spacing vertical={['LARGE', 'LARGER']}>{props.children}</Spacing>
+)
 
 export default React.memo(function BlockColumns({ value }) {
   const { columns, wide } = value
-  const Container = wide ? PageEmbed : React.Fragment
+  const Container = wide ? PageEmbed : Spacer
 
   return (
     <Container>
