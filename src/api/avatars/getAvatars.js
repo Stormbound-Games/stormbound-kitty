@@ -1,14 +1,26 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+
+const FIELDS = `
+_id,
+name,
+"image": image { "url": asset -> url }.url,
+"dimensions": (image {
+  "asset": (asset -> {
+    "metadata": (metadata {
+      "dimensions": (dimensions { width, height })
+    }).dimensions
+  }).metadata
+}).asset
+`
 
 const getAvatars = async ({ isPreview } = {}) => {
   const avatars = await getEntries({
     conditions: ['_type == "avatar"'],
-    fields: `..., image { asset -> { ... } }`,
+    fields: FIELDS,
     options: { order: 'name asc', isPreview },
   })
 
-  return avatars.map(clean)
+  return avatars
 }
 
 export default getAvatars

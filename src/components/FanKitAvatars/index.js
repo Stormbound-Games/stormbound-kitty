@@ -40,7 +40,7 @@ export default React.memo(function FanKitAvatars(props) {
       <FanKitDownloadDialog
         displayImage={false}
         name={activeAvatar ? activeAvatar.name : undefined}
-        image={activeAvatar ? activeAvatar.image.asset.url : undefined}
+        image={activeAvatar ? activeAvatar.image : undefined}
         dialogRef={instance => {
           dialogRef.current = instance
 
@@ -62,13 +62,13 @@ export default React.memo(function FanKitAvatars(props) {
                 <FanKitItem
                   {...row[index]}
                   id={row[index]._id}
-                  image={row[index].image.asset.url}
-                  key={row[index].id}
+                  image={row[index].image}
+                  key={row[index]._id}
                   setActive={setActive}
                   width={114}
                   height={Math.round(
-                    row[index].image.asset.metadata.dimensions.height *
-                      (114 / row[index].image.asset.metadata.dimensions.width)
+                    row[index].dimensions.height *
+                      (114 / row[index].dimensions.width)
                   )}
                   withAvif={false}
                   withoutWebp={true}
