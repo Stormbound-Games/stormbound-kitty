@@ -1,14 +1,14 @@
 import { getEntries } from '~/helpers/sanity'
-import clean from './clean'
+import { FIELDS } from './utils'
 
 const getWallpapers = async ({ isPreview } = {}) => {
   const wallpapers = await getEntries({
     conditions: ['_type == "wallpaper"'],
-    fields: `..., image { asset -> { ... } }`,
+    fields: FIELDS,
     options: { order: 'device asc', isPreview },
   })
 
-  return wallpapers.map(clean)
+  return wallpapers
 }
 
 export default getWallpapers
