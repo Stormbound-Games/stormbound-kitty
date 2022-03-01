@@ -2,7 +2,7 @@ import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
 _id,
-author,
+"author": coalesce(user -> name, author),
 date,
 "image": image { "url": asset -> url }.url,
 "dimensions": (image {

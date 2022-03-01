@@ -1,5 +1,6 @@
 import { MdBrush } from 'react-icons/md'
 import member from '../types/member'
+import user from '../types/user'
 import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
 
@@ -10,6 +11,7 @@ const channels = {
   icon: MdBrush,
   fields: [
     member,
+    user,
     date,
     {
       title: 'Image',
