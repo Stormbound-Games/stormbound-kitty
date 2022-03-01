@@ -7,21 +7,33 @@ markDefs[] {
 }
 `
 
+const card = `
+"cardId": coalesce(
+  card -> id,
+  *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id,
+  cardId
+)
+`
+
+const block = `..., ${markDefs}`
+
 const blocks = `
-...,
-${markDefs},
-_type == "info" => { ..., content[] { ..., ${markDefs} } },
-_type == "battleSim" => { ..., content[] { ..., ${markDefs} } },
-_type == "nerfCompensation" => { ..., "cards": cards[] -> { id }.id },
-_type == "faq" => { ..., entries[] { id, question, answer[] { ..., ${markDefs} } } },
-_type == "card" => {
-  ...,
-  "cardId": coalesce(
-    card -> { id }.id,
-    *[ _type == "card" && _id == ("drafts." + ^.card._ref) ][0] { id }.id,
-    cardid
-  )
-}
+${block},
+_type == "columns" => {
+  columns[] {
+    ...,
+    content[] {
+      ${block},
+      _type == "card" => { ..., ${card} },
+      _type == "info" => { ..., content[] { ${block} } },
+    }
+  }
+},
+_type == "info" => { content[] { ${block} } },
+_type == "battleSim" => { content[] { ${block} } },
+_type == "nerfCompensation" => { "cards": cards[] -> { id }.id },
+_type == "faq" => { entries[] { id, question, answer[] { ${block} } } },
+_type == "card" => { ..., ${card} }
 `
 
 export default blocks
