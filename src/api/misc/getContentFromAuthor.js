@@ -1,6 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
 import getSWCCFromAuthor from '~/api/swcc/getSWCCFromAuthor'
-import getTournamentsWithAuthor from '~/api/tournaments/getTournamentsWithAuthor'
 import groupBy from '~/helpers/groupBy'
 import {
   FIELDS as ARTWORK_FIELDS,
@@ -49,6 +48,7 @@ const cleaners = {
   event: EVENT_MAPPER,
   guide: GUIDE_MAPPER,
   podcast: PODCAST_MAPPER,
+  podium: TOURNAMENT_MAPPER,
   puzzle: PUZZLE_MAPPER,
   story: STORY_MAPPER,
   tournament: TOURNAMENT_MAPPER,
@@ -59,12 +59,12 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
     conditions: [
       // Find *any* type of content that’s somewhat related to the author,
       // either by mentioning it directly, or in an array of authors, or in an
-      // array of hosts. Tournament podiums and SWCC wins are handled separately
-      // for convenience.
+      // array of hosts. SWCC wins are handled separately for convenience.
       [
         'author match $author',
         'count(authors[lower(@) == $author]) > 0',
         'count(hosts[lower(@) == $author]) > 0',
+        'count(podium[].players[lower(@) == $author]) > 0',
       ].join('||'),
     ],
     fields: `
@@ -78,7 +78,11 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
       _type == "podcast" => { ${PODCAST_FIELDS} },
       _type == "puzzle" => { ${PUZZLE_FIELDS} },
       _type == "story" => { ${STORY_FIELDS} },
-      _type == "tournament" => { ${TOURNAMENT_FIELDS} },
+      _type == "tournament" => {
+        ${TOURNAMENT_FIELDS},
+        count(hosts[lower(@) == $author]) > 0 => { "_type": "tournament", },
+        count(podium[].players[lower(@) == $author]) > 0 => { "_type": "podium" }
+      },
     `,
     params: { author },
     options: { order: 'date desc', isPreview },
@@ -92,7 +96,6 @@ const getContentFromAuthor = async ({ author, isPreview } = {}) => {
   }
 
   // Handle the tournament podiums and SWCC wins.
-  content.podium = await getTournamentsWithAuthor({ author, isPreview })
   content.swcc = await getSWCCFromAuthor({ author, isPreview })
 
   // Restore the potential YouTube channel as an object.
