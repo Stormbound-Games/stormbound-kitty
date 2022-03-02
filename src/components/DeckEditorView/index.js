@@ -71,7 +71,7 @@ const useArticleProps = (deck, suggestedDeck) => {
   const props = {}
 
   props.title = matchedDeck.name || 'Create your deck'
-  props.author = matchedDeck.author?.name ?? ''
+  props.author = matchedDeck.author
 
   if (matchedDeck.tags) {
     props.meta = toSentence(

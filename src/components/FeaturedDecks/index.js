@@ -29,18 +29,17 @@ export default React.memo(function FeaturedDecks(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [tags, setTags] = React.useState(query.tags?.split(',') ?? [])
   const [faction, setFaction] = React.useState(query.faction || '*')
-  const [author, setAuthor] = React.useState(query.author || '*')
+  const [authorSlug, setAuthorSlug] = React.useState(query.author || '*')
   const [including, setIncluding] = React.useState(query.including || null)
   const [name, setName] = React.useState('')
   const [order, setOrder] = React.useState(
     hasDefaultCollection ? 'DATE' : 'FEASIBILITY'
   )
-  const state = { tags, faction, author, including, name }
 
   const resetFilters = React.useCallback(() => {
     setFaction('*')
     setTags([])
-    setAuthor('*')
+    setAuthorSlug('*')
     setName('')
     setIncluding(null)
   }, [])
@@ -54,8 +53,8 @@ export default React.memo(function FeaturedDecks(props) {
     if (faction === '*') delete parameters.faction
     else parameters.faction = faction
 
-    if (author === '*') delete parameters.author
-    else parameters.author = author
+    if (authorSlug === '*') delete parameters.author
+    else parameters.author = authorSlug
 
     if (including === null) delete parameters.including
     else parameters.including = including
@@ -68,7 +67,7 @@ export default React.memo(function FeaturedDecks(props) {
 
       navigator.replace(path)
     }
-  }, [navigator, query, tags, faction, author, including])
+  }, [navigator, query, tags, faction, authorSlug, including])
 
   const matchesFaction = React.useCallback(
     deck => faction === '*' || getFactionFromDeckID(deck.id) === faction,
@@ -81,8 +80,8 @@ export default React.memo(function FeaturedDecks(props) {
   )
 
   const matchesAuthor = React.useCallback(
-    deck => author === '*' || deck.author.slug === author,
-    [author]
+    deck => authorSlug === '*' || deck.author.slug === authorSlug,
+    [authorSlug]
   )
 
   const matchesName = React.useCallback(
@@ -123,11 +122,25 @@ export default React.memo(function FeaturedDecks(props) {
     ]
   )
 
+  const authorName =
+    authorSlug !== '*'
+      ? decks.find(deck => deck.author.slug === authorSlug).author.name
+      : null
+  const author = authorName ? { name: authorName, slug: authorSlug } : null
+  const state = {
+    tags,
+    faction,
+    author: author || '*',
+    including,
+    name,
+  }
+
   return (
     <Page
       title='Featured Decks'
       description={getDeckSearchDescription(state, cardsIndex)}
       meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
+      author={author}
       action={{
         to: '/deck/collection',
         children: 'Your decks',
@@ -144,7 +157,7 @@ export default React.memo(function FeaturedDecks(props) {
             decks={props.decks}
             updateTags={setTags}
             updateFaction={setFaction}
-            updateAuthor={setAuthor}
+            updateAuthor={setAuthorSlug}
             updateName={setName}
             updateIncluding={setIncluding}
             updateOrder={setOrder}

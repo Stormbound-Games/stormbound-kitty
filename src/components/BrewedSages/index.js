@@ -34,7 +34,11 @@ export default React.memo(function BrewedSages(props) {
     <Page
       title='Brewed Sages'
       description='The Brewed Sages is the first Stormbound podcast, by Freeloader, Subaiku and ThomasPetree'
-      authors={['Freeloader', 'Subaiku', 'ThomasPetree']}
+      authors={[
+        { name: 'Freeloader', slug: 'freeloader' },
+        { name: 'Subaiku', slug: 'subaiku' },
+        { name: 'ThomasPetree', slug: 'thomaspetree' },
+      ]}
       background='/assets/images/banners/environment_shadowfen.png'
       withAvif
       isEditorialContent

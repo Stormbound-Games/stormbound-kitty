@@ -53,7 +53,7 @@ export default React.memo(function FeaturedDecksFilters(props) {
             <Select
               label='Author'
               id='author'
-              value={props.author}
+              value={props.author.slug}
               onChange={event => props.updateAuthor(event.target.value)}
             >
               <option value='*'>Any</option>

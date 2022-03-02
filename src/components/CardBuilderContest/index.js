@@ -16,7 +16,10 @@ export default React.memo(function CardBuilderContest(props) {
       <Page
         title='Weekly Card Contest'
         description='All the information to participate and/or vote in the Stormbound weekly card competitions'
-        authors={['TaKo_G', 'Grimm']}
+        authors={[
+          { name: 'TaKo_G', slug: 'tako_g' },
+          { name: 'Grimm', slug: 'grimm' },
+        ]}
         action={{ to: '/card', children: 'Card builder' }}
         meta='Ongoing'
         isEditorialContent

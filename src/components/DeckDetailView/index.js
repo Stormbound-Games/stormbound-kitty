@@ -56,7 +56,7 @@ export default React.memo(function DeckDetailView(props) {
         props.suggestedDeck,
         'Deck Insights'
       )}
-      author={suggestedDeck.author?.name ?? ''}
+      author={suggestedDeck.author}
       meta={
         suggestedDeck.tags
           ? toSentence(
