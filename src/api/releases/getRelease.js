@@ -11,7 +11,7 @@ const getRelease = async ({
   const release = await getEntry({
     conditions: [
       '_type == "release"',
-      '(id == $id || slug.current == $slug || date == $date)',
+      '(slug.current == $slug || date == $date)',
     ],
     fields: `
       ${FIELDS},
