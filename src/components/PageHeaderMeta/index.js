@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
 import Link from '~/components/Link'
-import renderAuthorsLinks from '~/helpers/renderAuthorsLinks'
+import MemberList from '~/components/MemberList'
 import styles from './styles'
 
 export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
@@ -12,7 +12,8 @@ export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
     <p className={css(styles.meta)}>
       {authors.length > 0 && (
         <span>
-          By&nbsp;{authors.reduce(renderAuthorsLinks, [])}
+          By&nbsp;
+          <MemberList members={authors} />
           {meta && <>&nbsp;·&nbsp;</>}
         </span>
       )}

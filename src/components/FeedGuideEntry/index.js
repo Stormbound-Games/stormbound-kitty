@@ -15,7 +15,9 @@ export default React.memo(function FeedGuideEntry(props) {
         <>
           , alongside{' '}
           <MemberList
-            members={props.authors.filter(author => author !== props.user.name)}
+            members={props.authors.filter(
+              author => author.slug !== props.user.slug
+            )}
           />
           ,
         </>

@@ -8,12 +8,12 @@ import BrawlOutcome from '~/components/BrawlOutcome'
 import BrawlRecommendedDecks from '~/components/BrawlRecommendedDecks'
 import BrawlReset from '~/components/BrawlReset'
 import BrawlSetup from '~/components/BrawlSetup'
+import MemberList from '~/components/MemberList'
 import Teaser from '~/components/Teaser'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
-import renderAuthorsLinks from '~/helpers/renderAuthorsLinks'
 
 export default React.memo(function BrawlTracker(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
@@ -65,7 +65,9 @@ export default React.memo(function BrawlTracker(props) {
                 {...guide}
                 title={guide.name}
                 meta={
-                  <>Written by {guide.authors.reduce(renderAuthorsLinks, [])}</>
+                  <>
+                    Written by <MemberList members={guide.authors} />
+                  </>
                 }
                 to={'/guides/' + guide.slug}
               />

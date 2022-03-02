@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
+import MemberList from '~/components/MemberList'
 import Notice from '~/components/Notice'
 import Only from '~/components/Only'
 import Teasers from '~/components/Teasers'
-import renderAuthorsLinks from '~/helpers/renderAuthorsLinks'
 
 export default React.memo(function Guides(props) {
   return (
@@ -16,7 +16,11 @@ export default React.memo(function Guides(props) {
         items={props.guides.map(guide => ({
           cardId: guide.cardId,
           title: guide.name,
-          meta: <>Written by {guide.authors.reduce(renderAuthorsLinks, [])}</>,
+          meta: (
+            <>
+              Written by <MemberList members={guide.authors} />
+            </>
+          ),
           excerpt: guide.excerpt,
           to: '/guides/' + guide.slug,
         }))}
