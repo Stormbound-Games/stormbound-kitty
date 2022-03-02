@@ -5,7 +5,7 @@ _id,
 id,
 date,
 name,
-winner { "author": coalesce(user -> id, author), id },
+winner { user -> { name, "slug": slug.current }, id },
 "season": ^.number
 `
 

@@ -28,7 +28,7 @@ export const CardBuilderHallOfFameSeason = React.memo(
       return {
         id: week.winner.id,
         card: cardData,
-        title: 'Card by ' + week.winner.author,
+        title: 'Card by ' + week.winner.user.name,
         meta: `Week #${week.id} – ${week.name}`,
         to: `/card/${week.winner.id}/display`,
         excerpt: (

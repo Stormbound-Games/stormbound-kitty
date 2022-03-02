@@ -22,7 +22,7 @@ const usePageProps = (props, versionId) => {
     const { id, season, winner } = props.contest
 
     properties.meta = `Week #${id} (season ${season})`
-    properties.author = winner.author
+    properties.author = winner.user.name
     properties.action = { to: '/card/contest', children: 'Back to SWCC' }
   } else if (id) {
     const to = `/card/${id}` + (isEditing ? '/display' : '')
