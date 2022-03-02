@@ -7,7 +7,7 @@ type,
 description,
 "hosts": users[] -> { name, "slug": slug.current },
 "podium": podium[] { "users": team[] -> { name, "slug": slug.current } }.users,
-"decks": coalesce(decks[] { id, authors, name }, []),
+"decks": coalesce(decks[] { id, name }, []),
 date
 `
 

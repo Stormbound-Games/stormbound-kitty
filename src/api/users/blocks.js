@@ -1,18 +1,19 @@
-export const markDefs = `
-markDefs[] {
-  ...,
-  _type == "cardLink" => {
-    ..., "cardId": coalesce(card -> { id }.id, cardId)
-  }
-}
-`
-
 const card = `
 "cardId": coalesce(
   card -> id,
   *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id,
   cardId
 )
+`
+
+export const markDefs = `
+markDefs[] {
+  ...,
+  _type == "cardLink" => {
+    ...,
+    ${card}
+  }
+}
 `
 
 const block = `..., ${markDefs}`
