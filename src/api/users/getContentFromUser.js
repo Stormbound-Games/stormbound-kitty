@@ -1,6 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
 import getUser from '~/api/users/getUser'
-import groupBy from '~/helpers/groupBy'
 import {
   FIELDS as ARTWORK_FIELDS,
   MAPPER as ARTWORK_MAPPER,
@@ -38,7 +37,10 @@ import {
   FIELDS as TOURNAMENT_FIELDS,
   MAPPER as TOURNAMENT_MAPPER,
 } from '~/api/tournaments/utils'
-import { FIELDS as SWCC_FIELDS, MAPPER as SWCC_MAPPER } from '~/api/swcc/utils'
+import {
+  FIELDS as SWCC_FIELDS,
+  FEED_MAPPER as SWCC_MAPPER,
+} from '~/api/swcc/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -61,7 +63,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
   if (!user) return {}
 
   const entries = await getEntries({
-    conditions: ['references($id)'],
+    conditions: ['references($id)', '_type != "channel"'],
     fields: `
       _id,
       _type,
@@ -85,30 +87,17 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
     options: { order: 'date desc', isPreview },
   })
 
-  const contributions = entries.length
-  const content = groupBy(entries, '_type')
-
-  for (let type in cleaners) {
-    if (type in content) {
-      // Clean every entry based on its type.
-      content[type].forEach(entry => {
-        cleaners[type](entry)
-        // Delete the `_type` key now that it’s no longer needed.
-        delete entry._type
-      })
-    } else {
-      content[type] = []
-    }
-  }
-
-  if (content.swcc) {
-    content.swcc = content.swcc.map(season => season.weeks).flat()
-  }
+  const hasDonated = entries.some(entry => entry._type === 'donation')
+  const hasContributed = entries.some(entry => entry._type === 'contribution')
+  // We flatten in case an entry is being split into several feed items, like
+  // for SWCC entries.
+  const feed = entries.map(entry => cleaners[entry._type](entry)).flat()
 
   return {
-    ...user,
-    contributions,
-    content,
+    user,
+    feed,
+    hasDonated,
+    hasContributed,
   }
 }
 

@@ -1,64 +1,82 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
+import groupBy from '~/helpers/groupBy'
 import styles from './styles'
 
 export default React.memo(function MemberToC(props) {
   const { css } = useFela()
-  const codeContributions = props.contribution.reduce(
-    (acc, { entries }) => acc + entries.length,
-    0
+  const content = React.useMemo(
+    () => groupBy(props.feed, '_type'),
+    [props.feed]
+  )
+  const stories = content.story || []
+  const guides = content.guide || []
+  const decks = content.deck || []
+  const tournaments = content.tournament || []
+  const podiums = content.podium || []
+  const swcc = content.swcc || []
+  const artworks = content.artwork || []
+  const puzzles = content.puzzle || []
+  const podcasts = content.podcast || []
+  const events = content.event || []
+  const donations = content.donation || []
+  const contributions = (content.contributions || []).reduce(
+    (acc, { entries }) => acc.concat(entries),
+    []
   )
 
   return (
     <ul className={css(styles.toc)}>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='quill' /> {props.story.length}{' '}
-        {props.story.length === 1 ? 'story' : 'stories'}
+        <Icon extend={styles.icon} icon='quill' /> {stories.length}{' '}
+        {stories.length === 1 ? 'story' : 'stories'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='compass' /> {props.guide.length}{' '}
-        {props.guide.length === 1 ? 'guide' : 'guides'}
+        <Icon extend={styles.icon} icon='compass' /> {guides.length}{' '}
+        {guides.length === 1 ? 'guide' : 'guides'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='stack' /> {props.deck.length}{' '}
-        {props.deck.length === 1 ? 'deck' : 'decks'}
+        <Icon extend={styles.icon} icon='stack' /> {decks.length}{' '}
+        {decks.length === 1 ? 'deck' : 'decks'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='users' /> {props.tournament.length}{' '}
-        hosted {props.tournament.length === 1 ? 'tournament' : 'tournaments'}
+        <Icon extend={styles.icon} icon='users' /> {tournaments.length} hosted{' '}
+        {tournaments.length === 1 ? 'tournament' : 'tournaments'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='trophy' /> {props.podium.length}{' '}
-        {props.podium.length === 1 ? 'podium' : 'podiums'}
+        <Icon extend={styles.icon} icon='trophy' /> {podiums.length}{' '}
+        {podiums.length === 1 ? 'podium' : 'podiums'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='hammer' /> {props.swcc.length} won{' '}
-        {props.swcc.length === 1 ? 'card contest' : 'card contests'}
+        <Icon extend={styles.icon} icon='hammer' /> {swcc.length} won{' '}
+        {swcc.length === 1 ? 'card contest' : 'card contests'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='image' /> {props.artwork.length}{' '}
-        {props.artwork.length === 1 ? 'artwork' : 'artworks'}
+        <Icon extend={styles.icon} icon='image' /> {artworks.length}{' '}
+        {artworks.length === 1 ? 'artwork' : 'artworks'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='sword' /> {props.puzzle.length}{' '}
-        {props.puzzle.length === 1 ? 'puzzle' : 'puzzles'}
+        <Icon extend={styles.icon} icon='sword' /> {puzzles.length}{' '}
+        {puzzles.length === 1 ? 'puzzle' : 'puzzles'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='bubbles' /> {props.podcast.length}{' '}
-        {props.podcast.length === 1 ? 'podcast' : 'podcasts'}
+        <Icon extend={styles.icon} icon='bubbles' /> {podcasts.length}{' '}
+        {podcasts.length === 1 ? 'podcast' : 'podcasts'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='star' /> {props.event.length}{' '}
-        miscellaneous {props.event.length === 1 ? 'event' : 'events'}
+        <Icon extend={styles.icon} icon='star' /> {events.length} miscellaneous{' '}
+        {events.length === 1 ? 'event' : 'events'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='hammer' /> {codeContributions}{' '}
-        {codeContributions === 1 ? 'code contribution' : 'code contributions'}
+        <Icon extend={styles.icon} icon='hammer' /> {contributions.length}{' '}
+        {contributions.length === 1
+          ? 'code contribution'
+          : 'code contributions'}
       </li>
       <li className={css(styles.item)}>
-        <Icon extend={styles.icon} icon='heart' /> {props.donation.length}{' '}
-        {props.donation.length === 1 ? 'donation' : 'donations'}
+        <Icon extend={styles.icon} icon='heart' /> {donations.length}{' '}
+        {donations.length === 1 ? 'donation' : 'donations'}
       </li>
     </ul>
   )

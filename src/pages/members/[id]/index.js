@@ -17,18 +17,20 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const slug = params.id.toLowerCase()
-  const user = await getContentFromUser({ author: slug, isPreview })
   const navigation = await getNavigation({ isPreview })
+  const data = await getContentFromUser({
+    author: params.id.toLowerCase(),
+    isPreview,
+  })
 
   // This is a bit of a hack, in case there is a link to a member page that is
   // missing the ID and gets serialized as `undefined`.
-  if (slug === 'undefined') {
+  if (params.id === 'undefined') {
     return { notFound: true }
   }
 
   return {
-    props: { cards, navigation, ...user },
+    props: { cards, navigation, ...data },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
@@ -36,13 +38,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 const MemberPage = ({ navigation, cards, ...props }) => {
   const [name] = useMemberName()
   const active =
-    name?.toLowerCase() === props.id
+    name?.toLowerCase() === props.user.slug
       ? ['YOUR_CONTENT', 'YOUR_CONTENT', 'FEED']
       : ['COMMUNITY', 'DISCOVER', 'MEMBERS']
 
   return (
     <Layout active={active} navigation={navigation}>
-      <Member memberId={props.id} {...props} />
+      <Member {...props} />
     </Layout>
   )
 }

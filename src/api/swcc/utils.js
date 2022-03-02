@@ -12,7 +12,12 @@ winner { "author": coalesce(user -> id, author), id },
 export const MAPPER = season => {
   season.weeks.forEach(week => {
     week.date = serializeDate(week.date, false)
+    week._type = 'swcc'
+
+    return week
   })
 
   return season
 }
+
+export const FEED_MAPPER = season => MAPPER(season).weeks

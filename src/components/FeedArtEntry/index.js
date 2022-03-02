@@ -12,14 +12,14 @@ export default React.memo(function FeedArtEntry(props) {
 
   return (
     <FeedEntry icon='image' date={props.date}>
-      {props.author} has made some art.
+      {props.user.name} has made some art.
       <details open className={css({ maxWidth: displayWidth + 'px' })}>
         <summary className={css({ marginBottom: 'var(--s-base)' })}>
           + Toggle art display
         </summary>
         <Image
           src={props.image + dimensions}
-          alt={'Artwork by' + props.author}
+          alt={'Artwork by' + props.user.name}
         />
       </details>
     </FeedEntry>

@@ -9,7 +9,7 @@ export default React.memo(function FeedStoryEntry(props) {
 
   return (
     <FeedEntry icon='quill' date={props.date}>
-      {props.author} has written {prefix}{' '}
+      {props.user.name} has written {prefix}{' '}
       <Link to={'/stories/' + props.category}>{category}</Link> story called{' '}
       <Link to={'/stories/' + props.slug}>{props.title}</Link>.
       <blockquote>{props.excerpt}</blockquote>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
 import { formatDate, formatPreciseDate } from '~/helpers/formatDate'
+import parseDate from '~/helpers/parseDate'
 import styles from './styles'
 
 const pad = value => String(value).padStart(2, '0')
@@ -11,7 +12,9 @@ export default React.memo(function FeedEntry(props) {
   const isLong = props.dateFormat === 'LONG'
   const connector = isLong ? 'On' : 'In'
   const format = isLong ? formatPreciseDate : formatDate
-  const date = props.date
+  const date =
+    typeof props.date === 'string' ? parseDate(props.date) : props.date
+  const isValidDate = date instanceof Date && !isNaN(date)
 
   return (
     <div className={css(styles.entry, props.extend)}>
@@ -22,7 +25,7 @@ export default React.memo(function FeedEntry(props) {
         />
       </span>
       <div className={css(styles.main)}>
-        {date instanceof Date ? (
+        {isValidDate ? (
           <time
             className={css(styles.date)}
             dateTime={
@@ -35,7 +38,7 @@ export default React.memo(function FeedEntry(props) {
             {connector} {format(date)}
           </time>
         ) : (
-          <span className={css(styles.date)}>{date}</span>
+          <span className={css(styles.date)}>{props.date}</span>
         )}
         <div>{props.children}</div>
       </div>

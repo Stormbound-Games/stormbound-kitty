@@ -5,7 +5,7 @@ import Link from '~/components/Link'
 export default React.memo(function FeedSWCCEntry(props) {
   return (
     <FeedEntry icon='youtube' date='External channel'>
-      {props.displayName} is a{' '}
+      {props.user.name} is a{' '}
       <Link href={props.href}>content creator on YouTube</Link>.
     </FeedEntry>
   )

@@ -12,7 +12,7 @@ export default React.memo(function FeedPuzzleEntry(props) {
 
   return (
     <FeedEntry icon='sword' date={props.date}>
-      {props.author} has created {prefix} {difficulty} puzzle called{' '}
+      {props.user.name} has created {prefix} {difficulty} puzzle called{' '}
       <Link to={'/simulators/battle/' + props.board}>{props.name}</Link>.
       <div className={css(styles.container)}>
         <BattleSimPuzzle {...props} />

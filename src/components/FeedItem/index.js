@@ -2,24 +2,24 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 
 const COMPONENTS = {
-  ART: dynamic(() => import('~/components/FeedArtEntry')),
-  CARD: dynamic(() => import('~/components/FeedCardEntry')),
-  CONTRIBUTION: dynamic(() => import('~/components/FeedContributionEntry')),
-  DECK: dynamic(() => import('~/components/FeedDeckEntry')),
-  DONATION: dynamic(() => import('~/components/FeedDonationEntry')),
-  GUIDE: dynamic(() => import('~/components/FeedGuideEntry')),
-  HOST: dynamic(() => import('~/components/FeedHostEntry')),
-  PODCAST: dynamic(() => import('~/components/FeedPodcastEntry')),
-  PODIUM: dynamic(() => import('~/components/FeedPodiumEntry')),
-  PUZZLE: dynamic(() => import('~/components/FeedPuzzleEntry')),
-  RELEASE: dynamic(() => import('~/components/FeedReleaseEntry')),
-  STORY: dynamic(() => import('~/components/FeedStoryEntry')),
-  SWCC: dynamic(() => import('~/components/FeedSWCCEntry')),
-  YOUTUBE: dynamic(() => import('~/components/FeedYouTubeEntry')),
+  artwork: dynamic(() => import('~/components/FeedArtEntry')),
+  swcc: dynamic(() => import('~/components/FeedCardEntry')),
+  contribution: dynamic(() => import('~/components/FeedContributionEntry')),
+  deck: dynamic(() => import('~/components/FeedDeckEntry')),
+  donation: dynamic(() => import('~/components/FeedDonationEntry')),
+  guide: dynamic(() => import('~/components/FeedGuideEntry')),
+  tournament: dynamic(() => import('~/components/FeedHostEntry')),
+  podcast: dynamic(() => import('~/components/FeedPodcastEntry')),
+  podium: dynamic(() => import('~/components/FeedPodiumEntry')),
+  puzzle: dynamic(() => import('~/components/FeedPuzzleEntry')),
+  release: dynamic(() => import('~/components/FeedReleaseEntry')),
+  story: dynamic(() => import('~/components/FeedStoryEntry')),
+  event: dynamic(() => import('~/components/FeedSWCCEntry')),
+  channel: dynamic(() => import('~/components/FeedYouTubeEntry')),
 }
 
-export default React.memo(function MemberFeedItem(props) {
-  const Component = COMPONENTS[props.type]
+export default React.memo(function MemberFeedItem({ _type: type, ...props }) {
+  const Component = COMPONENTS[type]
 
   return Component ? <Component {...props} /> : null
 })
