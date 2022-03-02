@@ -4,7 +4,6 @@ import Page from '~/components/Page'
 import Icon from '~/components/Icon'
 import MemberListEntry from '~/components/MemberListEntry'
 import MemberTagYourself from '~/components/MemberTagYourself'
-import MembersSearchForm from '~/components/MembersSearchForm'
 import Row from '~/components/Row'
 import styles from './styles'
 
