@@ -11,7 +11,7 @@ export default React.memo(function FeedPodcastEntry(props) {
         <>
           , alongside{' '}
           <MemberList
-            members={props.hosts.filter(host => host !== props.user.name)}
+            members={props.hosts.filter(host => host.slug !== props.user.slug)}
           />
           ,
         </>

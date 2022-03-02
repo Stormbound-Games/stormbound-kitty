@@ -5,7 +5,7 @@ _id,
 title,
 meta,
 date,
-"hosts": coalesce(users[] -> name, hosts),
+"hosts": users[] -> { name, "slug": slug.current },
 href,
 excerpt
 `
