@@ -7,7 +7,6 @@ import Page from '~/components/Page'
 import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
-import sortCards from '~/helpers/sortCards'
 import useLazyLoad from '~/hooks/useLazyLoad'
 
 export default React.memo(function FanKitCards(props) {
@@ -17,9 +16,7 @@ export default React.memo(function FanKitCards(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = cardsIndex[active] || {}
-  const assets = search
-    ? [cardsIndex[search]].filter(Boolean)
-    : props.cards.slice(0).sort(sortCards())
+  const assets = search ? [cardsIndex[search]].filter(Boolean) : props.cards
   const {
     loading,
     items: displayedItems,

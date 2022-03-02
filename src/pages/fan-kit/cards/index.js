@@ -14,6 +14,8 @@ export async function getStaticProps({ preview: isPreview = false }) {
         id: card.id,
         name: card.name,
         image: card.image,
+        faction: card.faction,
+        rarity: card.rarity,
       })),
       navigation,
     },

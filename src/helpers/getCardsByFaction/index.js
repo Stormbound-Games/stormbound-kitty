@@ -1,5 +1,3 @@
-import sortCards from '~/helpers/sortCards'
-
 const getCardsByFaction = cards =>
   cards.reduce((acc, card) => {
     const group = card.token ? 'tokens' : card.faction
@@ -14,7 +12,6 @@ const getCardsByFaction = cards =>
     delete copy.image
 
     acc[group].push(copy)
-    acc[group].sort(sortCards())
 
     return acc
   }, {})
