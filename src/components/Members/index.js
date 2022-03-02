@@ -10,23 +10,6 @@ import styles from './styles'
 
 export default React.memo(function Members(props) {
   const { css } = useFela()
-  const [sort, setSort] = React.useState('ALPHABETICALLY')
-  const [type, setType] = React.useState('*')
-  const members = props.members
-    .filter(({ types }) => type === '*' || types.includes(type))
-    .sort((a, b) => {
-      if (sort === 'ALPHABETICALLY') return a.member - b.member
-      if (sort === 'CONTRIBUTIONS') {
-        const isFromType = t => t === type
-        const allTypes = type === '*'
-        const aCount = allTypes ? a.count : a.types.filter(isFromType).length
-        const bCount = allTypes ? b.count : b.types.filter(isFromType).length
-
-        return bCount - aCount
-      }
-      return 0
-    })
-
   return (
     <Page
       title='Members'
@@ -49,17 +32,11 @@ export default React.memo(function Members(props) {
             <span className='Highlight'>multiple</span> donations!
           </p>
 
-          <MembersSearchForm
-            sort={sort}
-            type={type}
-            setSort={setSort}
-            setType={setType}
-          />
-          <MemberTagYourself members={members} />
+          <MemberTagYourself members={props.members} />
         </Row.Column>
         <Row.Column width='2/3'>
           <ul className={css(styles.list)}>
-            {members.map(member => (
+            {props.members.map(member => (
               <li className={css(styles.item)} key={member.member}>
                 <MemberListEntry {...member} type={type} />
               </li>
