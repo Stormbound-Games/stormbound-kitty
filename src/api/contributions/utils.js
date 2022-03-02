@@ -2,7 +2,7 @@ import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
 _id,
-"author": coalesce(user -> name, author),
+"user": user -> { name, "slug": slug.current },
 date,
 entries
 `
