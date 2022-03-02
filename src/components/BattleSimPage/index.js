@@ -6,7 +6,7 @@ const useArticleProps = ({ simId, mode, puzzle }) =>
   puzzle
     ? {
         title: puzzle.name,
-        author: puzzle.author,
+        author: puzzle.user.name,
         meta: puzzle.category,
         action: {
           to: '/simulators/battle/puzzles',
