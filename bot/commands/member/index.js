@@ -1,5 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 import capitalize from '~/helpers/capitalize'
+import groupBy from '~/helpers/groupBy'
 import getContentFromUser from '~/api/users/getContentFromUser'
 
 const BASE_URL = 'https://stormbound-kitty.com'
@@ -18,13 +19,13 @@ const member = {
   handler: async function (message) {
     if (message.trim() === '') return
 
-    const id = message.toLowerCase()
-    const user = await getContentFromUser({ author: id })
+    const slug = message.toLowerCase()
+    const { user, feed } = await getContentFromUser({ author: slug })
     const embed = getEmbed()
       .setTitle(`${this.label}: ${user.name}`)
       .setURL(BASE_URL + `/members/${user.slug}`)
 
-    if (user.contributions === 0) {
+    if (feed.length === 0) {
       return embed.setDescription(
         `There are no contributions found from ${user.name} on Stormbound-Kitty.`
       )
@@ -35,8 +36,7 @@ const member = {
     const KATMessage = isKAT
       ? `\n**They are also a ${isSuperKAT ? 'super' : ''} KAT member!**`
       : ''
-    const { channel, ...content } = user.content
-    const fields = Object.entries(content)
+    const fields = Object.entries(groupBy(feed, '_type'))
       .map(([type, entries]) => ({
         name: capitalize(type),
         value: entries.length,
@@ -48,8 +48,8 @@ const member = {
     return embed
       .setDescription(
         `${user.name} is a member of the community and has issued ${
-          user.contributions
-        } contribution${user.contributions === 1 ? '' : 's'}.${KATMessage}`
+          feed.length
+        } contribution${feed.length === 1 ? '' : 's'}.${KATMessage}`
       )
       .addFields(...fields)
   },
