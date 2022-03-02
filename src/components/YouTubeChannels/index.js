@@ -19,16 +19,16 @@ export default React.memo(function YouTubeChannels(props) {
       isEditorialContent
     >
       {chunk(props.channels, 2).map(row => (
-        <Row key={row.map(channel => channel.author).join('+')} isDesktopOnly>
-          {row.map((channel, index, array) => (
-            <React.Fragment key={channel.author}>
+        <Row key={row.map(entry => entry.user.name).join('+')} isDesktopOnly>
+          {row.map(({ channel, user }, index, array) => (
+            <React.Fragment key={user.slug}>
               <Row.Column>
                 <Spacing bottom='LARGER'>
                   <Row isDesktopOnly>
                     <Row.Column width='1/3' extend={styles.column}>
                       <Image
                         src={channel.thumbnail}
-                        alt={`${channel.author}’s avatar`}
+                        alt={`${user.name}’s avatar`}
                         extend={styles.image}
                         width={200}
                         height={200}
@@ -40,15 +40,13 @@ export default React.memo(function YouTubeChannels(props) {
                       extend={{ justifyContent: 'center' }}
                     >
                       <h2 className={css(styles.title)}>
-                        <Link to={`/members/${channel.author.toLowerCase()}`}>
-                          {channel.author}
-                        </Link>
+                        <Link to={`/members/${user.slug}`}>{user.name}</Link>
                       </h2>
                       {channel.description}
                       <p>
                         <Icon icon='arrow-right' extend={styles.icon} />
                         <Link href={channel.href} extend={styles.link}>
-                          Visit {channel.author}’s channel
+                          Visit {user.name}’s channel
                         </Link>
                       </p>
                     </Row.Column>

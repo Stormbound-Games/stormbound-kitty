@@ -8,11 +8,11 @@ const getChannels = async ({ isPreview } = {}) => {
       'defined(channel.href)',
       'defined(channel.description)',
     ],
-    fields: `channel, "author": name`,
+    fields: `channel, "user": { name, "slug": slug.current }`,
     options: { order: 'author asc', isPreview },
   })
 
-  return users.map(user => ({ author: user.author, ...user.channel }))
+  return users
 }
 
 export default getChannels
