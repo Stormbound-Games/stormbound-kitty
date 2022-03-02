@@ -52,12 +52,12 @@ export default React.memo(function FanArt(props) {
               <figure className={css(styles.art)} key={entry.image}>
                 <Image
                   src={entry.image + dimensions}
-                  alt={'Artwork by ' + entry.author}
+                  alt={'Artwork by ' + entry.user.name}
                 />
                 <figcaption className={css(styles.caption)}>
                   Artwork by{' '}
-                  <Link to={'/members/' + entry.author.toLowerCase()}>
-                    {entry.author}
+                  <Link to={'/members/' + entry.user.slug}>
+                    {entry.user.name}
                   </Link>
                 </figcaption>
               </figure>
