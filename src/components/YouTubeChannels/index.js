@@ -42,7 +42,7 @@ export default React.memo(function YouTubeChannels(props) {
                       <h2 className={css(styles.title)}>
                         <Link to={`/members/${user.slug}`}>{user.name}</Link>
                       </h2>
-                      {channel.description}
+                      <p>{channel.description}</p>
                       <p>
                         <Icon icon='arrow-right' extend={styles.icon} />
                         <Link href={channel.href} extend={styles.link}>
