@@ -8,6 +8,7 @@ import getStories from '~/api/stories/getStories'
 import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
+import getUsers from '~/api/users/getUsers'
 
 const getSearchIndex = async (withEverything = true) => {
   const cards = await getCards()
