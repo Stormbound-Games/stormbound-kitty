@@ -11,18 +11,16 @@ import TagsSelect from '~/components/TagsSelect'
 
 const getAuthors = decks => {
   const authors = []
+  const set = new Set()
 
   decks.forEach(deck => {
-    if (!authors.includes(deck.author)) authors.push(deck.author)
+    if (!set.has(deck.author.slug)) {
+      authors.push(deck.author)
+      set.add(deck.author.slug)
+    }
   })
 
-  return authors.sort((a, b) =>
-    a.toLowerCase() < b.toLowerCase()
-      ? -1
-      : a.toLowerCase() > b.toLowerCase()
-      ? +1
-      : 0
-  )
+  return authors.sort((a, b) => a.name.localeCompare(b.name))
 }
 
 export default React.memo(function FeaturedDecksFilters(props) {
@@ -60,8 +58,8 @@ export default React.memo(function FeaturedDecksFilters(props) {
             >
               <option value='*'>Any</option>
               {authors.map(author => (
-                <option value={author} key={author}>
-                  {author}
+                <option value={author.slug} key={author.slug}>
+                  {author.name}
                 </option>
               ))}
             </Select>

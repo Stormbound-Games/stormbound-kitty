@@ -81,7 +81,7 @@ export default React.memo(function FeaturedDecks(props) {
   )
 
   const matchesAuthor = React.useCallback(
-    deck => author === '*' || deck.author === author,
+    deck => author === '*' || deck.author.slug === author,
     [author]
   )
 

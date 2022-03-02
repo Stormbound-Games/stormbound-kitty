@@ -10,7 +10,7 @@ const getDeckBuilderMetaTags = (
   const metaTags = { title: defaultTitle }
 
   if (suggestedDeck) {
-    metaTags.title = `${suggestedDeck.name} by ${suggestedDeck.author}`
+    metaTags.title = suggestedDeck.name
   }
 
   if (deck.length === 0) {

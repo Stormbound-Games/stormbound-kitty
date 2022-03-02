@@ -59,12 +59,15 @@ const Author = React.memo(function Author(props) {
   const { author, noLink } = props
 
   if (!author) return null
-  if (noLink) return <> by {author}</>
+  if (React.isValidElement(author) || noLink) return <> by {author}</>
+
+  const name = author.name || author
+  const slug = author.slug || author.toLowerCase()
 
   return (
     <>
       {' '}
-      by <Link to={`/members/${author.toLowerCase()}`}>{author}</Link>
+      by <Link to={`/members/${slug}`}>{name}</Link>
     </>
   )
 })
