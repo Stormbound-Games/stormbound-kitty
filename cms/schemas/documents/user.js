@@ -30,6 +30,33 @@ const user = {
         ],
       },
     },
+    {
+      title: 'YouTube channel',
+      name: 'channel',
+      type: 'object',
+      fields: [
+        {
+          title: 'Link',
+          name: 'href',
+          type: 'url',
+          description: 'The URL of the person’s channel on YouTube.',
+          validation: Rule => Rule.required(),
+        },
+        {
+          title: 'Thumbnail',
+          name: 'thumbnail',
+          type: 'url',
+          description: 'The URL of the person’s avatar on YouTube.',
+          validation: Rule => Rule.required(),
+        },
+        {
+          title: 'Description',
+          name: 'description',
+          type: 'text',
+          validation: Rule => Rule.required(),
+        },
+      ],
+    },
   ],
   preview: {
     select: {
