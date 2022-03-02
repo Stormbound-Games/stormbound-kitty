@@ -3,7 +3,6 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import artwork from './documents/artwork'
 import avatar from './documents/avatar'
 import card from './documents/card'
-import channel from './documents/channel'
 import changelog from './documents/changelog'
 import contribution from './documents/contribution'
 import deck from './documents/deck'
@@ -43,6 +42,5 @@ export default createSchema({
     tournament,
     user,
     wallpaper,
-    channel,
   ]),
 })
