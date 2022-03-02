@@ -1,7 +1,7 @@
 import React from 'react'
 import YouTubeChannels from '~/components/YouTubeChannels'
 import Layout from '~/components/Layout'
-import getChannels from '~/api/channels/getChannels'
+import getChannels from '~/api/users/getChannels'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps({ preview: isPreview = false }) {

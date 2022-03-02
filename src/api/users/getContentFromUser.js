@@ -39,11 +39,9 @@ import {
   MAPPER as TOURNAMENT_MAPPER,
 } from '~/api/tournaments/utils'
 import { FIELDS as SWCC_FIELDS, MAPPER as SWCC_MAPPER } from '~/api/swcc/utils'
-import { FIELDS as CHANNEL_FIELDS } from '~/api/channels/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
-  channel: channel => channel,
   contribution: CONTRIBUTION_MAPPER,
   deck: DECK_MAPPER,
   donation: DONATION_MAPPER,
@@ -68,7 +66,6 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
       _id,
       _type,
       _type == "artwork" => { ${ARTWORK_FIELDS} },
-      _type == "channel" => { ${CHANNEL_FIELDS} },
       _type == "contribution" => { ${CONTRIBUTION_FIELDS} },
       _type == "deck" => { ${DECK_FIELDS} },
       _type == "donation" => { ${DONATION_FIELDS} },
@@ -104,20 +101,14 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
     }
   }
 
-  // Restore the potential YouTube channel as an object.
-  content.channel = content.channel[0] || null
-
   if (content.swcc) {
     content.swcc = content.swcc.map(season => season.weeks).flat()
   }
 
   return {
+    ...user,
     contributions,
-    name: user.name,
-    slug: user.slug,
-    role: user.role,
     content,
-    channel: content.channel,
   }
 }
 

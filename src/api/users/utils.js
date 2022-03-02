@@ -2,5 +2,6 @@ export const FIELDS = `
 _id,
 name,
 role,
-"slug": slug.current
+"slug": slug.current,
+channel
 `
