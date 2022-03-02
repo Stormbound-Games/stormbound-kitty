@@ -14,9 +14,6 @@ const getRedirectUrl = async params => {
     case 'artwork':
       return '/fan-art'
 
-    case 'channel':
-      return '/videos'
-
     case 'donation':
       return '/about'
 
