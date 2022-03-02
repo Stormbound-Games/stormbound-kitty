@@ -37,7 +37,7 @@ export default React.memo(function Members(props) {
           <ul className={css(styles.list)}>
             {props.members.map(member => (
               <li className={css(styles.item)} key={member.member}>
-                <MemberListEntry {...member} type={type} />
+                <MemberListEntry {...member} />
               </li>
             ))}
           </ul>
