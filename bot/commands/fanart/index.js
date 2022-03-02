@@ -16,13 +16,13 @@ const fanart = {
   handler: async function (message) {
     const artworks = await getArtworks()
     const embed = getEmbed()
-    const { image, author, date } = arrayRandom(artworks)
+    const { image, user, date } = arrayRandom(artworks)
 
     embed
       .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/members/' + author.toLowerCase())
+      .setURL('https://stormbound-kitty.com/members/' + user.slug)
       .addFields([
-        { name: 'author', value: author, inline: true },
+        { name: 'author', value: user.name, inline: true },
         { name: 'date', value: date, inline: true },
       ])
       .setImage(image)
