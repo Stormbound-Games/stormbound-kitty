@@ -68,10 +68,9 @@ export const deserializeCards = string => {
     const offset = globalLevel ? 0 : string[nextFaction] === 'T' ? 2 : 1
     // Anything from the faction to the next faction minus the level offset is
     // the card ID
-    const id = string.slice(
-      indexOfFaction,
-      nextFaction ? nextFaction - offset : undefined
-    )
+    const id = string
+      .slice(indexOfFaction, nextFaction ? nextFaction - offset : undefined)
+      .toUpperCase()
     // Push the card and slice off the string to start at the new card
     cards.push({ id, level: +level })
     string = nextFaction ? string.slice(nextFaction - offset) : ''
