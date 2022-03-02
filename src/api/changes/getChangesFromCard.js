@@ -3,7 +3,7 @@ import { FIELDS, MAPPER } from './utils'
 
 const getChangesFromCard = async ({ id, isPreview } = {}) => {
   const changes = await getEntries({
-    conditions: ['_type == "changelog"', 'id == $id'],
+    conditions: ['_type == "changelog"', 'card->id == $id'],
     params: { id },
     fields: FIELDS,
     options: { order: 'date desc', isPreview },
