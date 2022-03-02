@@ -6,7 +6,7 @@ _id,
 title,
 priority,
 entries[] {
-  id,
+  "id": id.current,
   question,
   answer[] { ${blocks} }
 }
