@@ -19,7 +19,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const story = await getStory({ slug: params.slug, isPreview })
   const moreStories = (
-    await getStoriesFromAuthor({ author: story.author, isPreview })
+    await getStoriesFromAuthor({ author: story.author.slug, isPreview })
   ).filter(story => (story.saga ? story.saga === story.saga : true))
 
   if (story.saga) {
