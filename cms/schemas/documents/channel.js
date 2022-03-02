@@ -1,7 +1,7 @@
 import { MdPlayCircleOutline } from 'react-icons/md'
 import user from '../types/user'
 
-const channels = {
+const channel = {
   title: 'YouTube Channel',
   name: 'channel',
   type: 'document',
@@ -43,4 +43,4 @@ const channels = {
   },
 }
 
-export default channels
+export default channel

@@ -3,7 +3,7 @@ import user from '../types/user'
 import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
 
-const channels = {
+const artwork = {
   title: 'Artwork',
   name: 'artwork',
   type: 'document',
@@ -45,4 +45,4 @@ const channels = {
   },
 }
 
-export default channels
+export default artwork
