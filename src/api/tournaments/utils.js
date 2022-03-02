@@ -5,8 +5,8 @@ _id,
 name,
 type,
 description,
-"hosts": coalesce(users[] -> name, hosts),
-"podium": coalesce(podium[] { "users": team[] -> name }.users, podium[].players),
+"hosts": users[] -> { name, "slug": slug.current },
+"podium": podium[] { "users": team[] -> { name, "slug": slug.current } }.users,
 "decks": coalesce(decks[] { id, authors, name }, []),
 date
 `

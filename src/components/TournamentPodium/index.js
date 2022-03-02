@@ -15,20 +15,18 @@ const getPodiumData = tournaments => {
   const data = {}
 
   tournaments.forEach(tournament => {
-    tournament.podium.forEach((user, index) => {
-      const users = Array.isArray(user) ? user : [user]
-
+    tournament.podium.forEach((users, index) => {
       users.forEach(user => {
-        if (typeof data[user] === 'undefined') {
-          data[user] = { user, medals: [], points: 0 }
+        if (typeof data[user.slug] === 'undefined') {
+          data[user.slug] = { user, medals: [], points: 0 }
         }
 
-        data[user].medals.push({
+        data[user.slug].medals.push({
           type: tournament.type,
           place: index,
           points: POINT_VALUE[tournament.type][index],
         })
-        data[user].points += POINT_VALUE[tournament.type][index]
+        data[user.slug].points += POINT_VALUE[tournament.type][index]
       })
     })
   })
@@ -42,7 +40,7 @@ const getOverallPodium = tournaments => {
 
   return users
     .sort((a, b) => medals[b].points - medals[a].points)
-    .map(user => medals[user])
+    .map(slug => medals[slug])
 }
 
 const getMedalDetails = (data, index) => {
@@ -65,8 +63,8 @@ const getPointGroups = podium =>
     {}
   )
 
-const getCard = (cardsIndex, index, name) => ({
-  name,
+const getCard = (cardsIndex, index, user) => ({
+  name: user.name,
   faction: ['swarm', 'neutral', 'ironclad'][index],
   level: index + 1,
   mana: index + 1,
@@ -86,14 +84,14 @@ const useTeasers = podium => {
     return {
       title: (
         <>
-          {index + 1}. <Link to={'/members/' + user.toLowerCase()}>{user}</Link>
+          {index + 1}. <Link to={'/members/' + user.slug}>{user.name}</Link>
         </>
       ),
       meta: `With ${points} points`,
       card: getCard(cardsIndex, index, user),
       excerpt: (
         <>
-          {user} has won {nGold} 🥇&nbsp;gold medal
+          {user.name} has won {nGold} 🥇&nbsp;gold medal
           {nGold === 1 ? '' : 's'} ({sGold} points), 🥈&nbsp;{nSilver} silver
           medal
           {nSilver === 1 ? '' : 's'} ({sSilver} points) and 🥉&nbsp;{nBronze}{' '}

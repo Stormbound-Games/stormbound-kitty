@@ -2,7 +2,9 @@ import React from 'react'
 import Link from '~/components/Link'
 
 export default React.memo(function MemberList(props) {
-  return props.members.reduce((acc, user, index, arr) => {
+  const members = Array.isArray(props.members) ? props.members : [props.members]
+
+  return members.reduce((acc, user, index, arr) => {
     const name = typeof user === 'string' ? user : user.name
     const slug = typeof user === 'string' ? user.toLowerCase() : user.slug
 

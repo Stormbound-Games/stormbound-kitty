@@ -10,7 +10,8 @@ export default React.memo(function FeedPodiumEntry(props) {
   const { css } = useFela()
   const { cardsIndexBySid } = React.useContext(CardsContext)
   const { podium, decks, user } = props
-  const isAtIndex = index => podium[index]?.includes(user.name) ?? false
+  const isAtIndex = index =>
+    podium[index]?.map(user => user.slug)?.includes(user.slug) ?? false
   const index = [0, 1, 2].map(isAtIndex).indexOf(true)
   const emoji = ['🥇', '🥈', '🥉'][index]
   const label = ['gold', 'silver', 'bronze'][index]
@@ -24,7 +25,9 @@ export default React.memo(function FeedPodiumEntry(props) {
         <>
           , alongside{' '}
           <MemberList
-            members={props.podium[index].filter(winner => winner !== user.name)}
+            members={props.podium[index].filter(
+              winner => winner.slug !== user.slug
+            )}
           />
           ,
         </>

@@ -6,6 +6,7 @@ import { CollectionContext } from '~/components/CollectionProvider'
 import Deck from '~/components/Deck'
 import DiamondButton from '~/components/DiamondButton'
 import Only from '~/components/Only'
+import MemberList from '~/components/MemberList'
 import RarityBar from '~/components/RarityBar'
 import { Stones } from '~/components/Resource'
 import Tags from '~/components/Tags'
@@ -55,23 +56,6 @@ const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
   return { deck, id: serialization.deck.serialize(deck), distance }
 }
 
-const Author = React.memo(function Author(props) {
-  const { author, noLink } = props
-
-  if (!author) return null
-  if (React.isValidElement(author) || noLink) return <> by {author}</>
-
-  const name = author.name || author
-  const slug = author.slug || author.toLowerCase()
-
-  return (
-    <>
-      {' '}
-      by <Link to={`/members/${slug}`}>{name}</Link>
-    </>
-  )
-})
-
 export default React.memo(function FeaturedDeck(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
@@ -99,7 +83,12 @@ export default React.memo(function FeaturedDeck(props) {
             <Link to={`/deck/${id}/detail`} data-testid='featured-deck-name'>
               {props.name}
             </Link>
-            <Author author={props.author} noLink={props.noAuthorLink} />
+            {props.author ? (
+              <>
+                {' '}
+                by <MemberList members={props.author} />
+              </>
+            ) : null}
             {props.nerfed ? (
               <TooltipedIcon
                 label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}

@@ -4,10 +4,10 @@ import Link from '~/components/Link'
 import MemberList from '~/components/MemberList'
 
 export default React.memo(function TournamentWinners(props) {
-  const isTeamTournament = props.podium.every(entry => Array.isArray(entry))
-  const [gold, silver, bronze] = props.podium
+  const isTeamTournament = props.podium.some(step => step.length > 1)
 
   if (isTeamTournament) {
+    const [gold, silver, bronze] = props.podium
     return (
       <p>
         The team tournament was won by 🥇&nbsp;
@@ -31,18 +31,20 @@ export default React.memo(function TournamentWinners(props) {
     )
   }
 
+  const gold = props.podium[0][0]
+  const silver = props.podium[1]?.[0]
+  const bronze = props.podium[2]?.[0]
+
   return (
     <p>
       The tournament was won by 🥇{' '}
-      <Link to={'/members/' + gold.toLowerCase()}>{gold}</Link>
+      <Link to={'/members/' + gold.slug}>{gold.name}</Link>
       {silver ? (
         <>
-          , with 🥈{' '}
-          <Link to={'/members/' + silver.toLowerCase()}>{silver}</Link>{' '}
+          , with 🥈 <Link to={'/members/' + silver.slug}>{silver.name}</Link>{' '}
           {bronze ? (
             <>
-              and 🥉{' '}
-              <Link to={'/members/' + bronze.toLowerCase()}>{bronze}</Link>{' '}
+              and 🥉 <Link to={'/members/' + bronze.slug}>{bronze.name}</Link>{' '}
             </>
           ) : null}
           as {bronze ? 'respective' : ''} runner-up
