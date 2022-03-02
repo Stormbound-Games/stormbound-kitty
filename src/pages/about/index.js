@@ -20,13 +20,15 @@ const uniqueBy = (array, key = 'id') => {
 }
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const getAuthor = entry => entry.author
-  const donations = await getDonations({ order: 'author asc', isPreview })
-  const donators = [...new Set(donations.map(getAuthor))]
+  const donations = await getDonations({ order: 'user.name asc', isPreview })
   const contributions = await getContributions({
     order: 'user.name asc',
     isPreview,
   })
+  const donators = uniqueBy(
+    donations.map(({ user }) => user),
+    'name'
+  )
   const contributors = uniqueBy(
     contributions.map(({ user }) => user),
     'name'
