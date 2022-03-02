@@ -10,8 +10,8 @@ from[] { stat, value }
 `
 
 export const MAPPER = change => {
-  change.date = serializeDate(change.date, false)
   change.timestamp = new Date(change.date).valueOf()
+  change.date = serializeDate(change.date, false)
   change.from = change.from
     ? change.from.reduce((acc, entry) => {
         acc[entry.stat] = entry.value
