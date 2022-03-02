@@ -1,6 +1,9 @@
 import { STORY_CATEGORIES } from '~/constants/stories'
+import getReleases from '~/api/releases/getReleases'
 
-const getNavigation = async () => {
+const getNavigation = async ({ isPreview }) => {
+  const releases = await getReleases({ isPreview, limit: 3 })
+
   return [
     {
       id: 'HOME',
@@ -29,22 +32,12 @@ const getNavigation = async () => {
           title: 'Release Notes',
           icon: 'bullhorn',
           items: [
-            {
-              label: 'Update 03-2022',
-              to: '/releases/03-2022',
-              id: '2022_03',
-              isNew: true,
-            },
-            {
-              label: 'Update 02-2022',
-              to: '/releases/02-2022',
-              id: '2022_02',
-            },
-            {
-              label: 'Update 01-2022',
-              to: '/releases/01-2022',
-              id: '2022_01',
-            },
+            ...releases.map((release, index) => ({
+              label: release.title,
+              to: '/releases/' + release.slug,
+              id: release.id,
+              isNew: index === 0,
+            })),
             {
               label: 'All Releases',
               to: '/releases',

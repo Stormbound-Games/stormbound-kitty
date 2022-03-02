@@ -2,6 +2,7 @@ import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
 _id,
+id,
 title,
 date,
 author,
