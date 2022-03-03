@@ -2,7 +2,7 @@ import React from 'react'
 import StoryCategory from '~/components/StoryCategory'
 import Layout from '~/components/Layout'
 import { STORY_CATEGORIES } from '~/constants/stories'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
 import getCards from '~/api/cards/getCards'
 
@@ -11,18 +11,18 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const stories = await getStoriesFromCategory({ category: name, isPreview })
   const category = { ...STORY_CATEGORIES[name], id: name }
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { cards, category, navigation, stories },
+    props: { cards, category, settings, stories },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const StoriesPage = ({ navigation, cards, ...props }) => (
+const StoriesPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['STORIES', 'GENERAL', props.category.id]}
-    navigation={navigation}
+    settings={settings}
   >
     <StoryCategory {...props} />
   </Layout>

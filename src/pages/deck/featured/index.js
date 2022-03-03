@@ -2,7 +2,7 @@ import React from 'react'
 import FeaturedDecks from '~/components/FeaturedDecks'
 import Layout from '~/components/Layout'
 import getDecks from '~/api/decks/getDecks'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
 // This page uses server-side rendering instead of static rendering because it
@@ -13,16 +13,13 @@ import getCards from '~/api/cards/getCards'
 export async function getServerSideProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const decks = await getDecks({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { cards, decks, navigation } }
+  return { props: { cards, decks, settings } }
 }
 
-const FeaturedDecksPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['COMMUNITY', 'META', 'FEATURED_DECKS']}
-    navigation={navigation}
-  >
+const FeaturedDecksPage = ({ settings, cards, ...props }) => (
+  <Layout active={['COMMUNITY', 'META', 'FEATURED_DECKS']} settings={settings}>
     <FeaturedDecks {...props} />
   </Layout>
 )

@@ -2,17 +2,17 @@ import React from 'react'
 import Home from '~/components/Home'
 import Layout from '~/components/Layout'
 import getNews from '~/api/news/getNews'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const news = await getNews({ isPreview })
 
-  return { props: { news, navigation } }
+  return { props: { news, settings } }
 }
 
-const Index = ({ navigation, cards, ...props }) => (
-  <Layout active={['HOME', 'HOME', 'NEWS']} navigation={navigation}>
+const Index = ({ settings, cards, ...props }) => (
+  <Layout active={['HOME', 'HOME', 'NEWS']} settings={settings}>
     <Home {...props} />
   </Layout>
 )

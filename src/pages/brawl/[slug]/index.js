@@ -6,7 +6,7 @@ import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
 import getCards from '~/api/cards/getCards'
 import indexArray from '~/helpers/indexArray'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import serialization from '~/helpers/serialization'
 
 export async function getStaticPaths() {
@@ -37,14 +37,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
     props: {
       cards: cards.filter(
         card => card.id === brawl.cardId || card.id in indexedDeck
       ),
-      navigation,
+      settings,
       id,
       brawl,
       guide,
@@ -53,10 +53,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const BrawlTrackerPage = ({ navigation, cards, ...props }) => (
+const BrawlTrackerPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER']}
-    navigation={navigation}
+    settings={settings}
   >
     <BrawlPage {...props} />
   </Layout>

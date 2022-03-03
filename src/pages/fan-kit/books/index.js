@@ -1,16 +1,16 @@
 import React from 'react'
 import FanKitBooks from '~/components/FanKitBooks'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { navigation } }
+  return { props: { settings } }
 }
 
-const FanKitBooksPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} navigation={navigation}>
+const FanKitBooksPage = ({ settings, cards, ...props }) => (
+  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
     <FanKitBooks {...props} />
   </Layout>
 )

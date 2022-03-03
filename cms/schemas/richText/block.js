@@ -14,7 +14,12 @@ const NoticeRenderer = props => (
   </p>
 )
 
-const getBlock = ({ withHeadings = false, withNotice = false } = {}) => ({
+const getBlock = ({
+  withHeadings = false,
+  withNotice = false,
+  withLists = true,
+  withCardLink = true,
+} = {}) => ({
   type: 'block',
   styles: [
     { title: 'Normal', value: 'normal' },
@@ -26,6 +31,12 @@ const getBlock = ({ withHeadings = false, withNotice = false } = {}) => ({
       blockEditor: { render: NoticeRenderer },
     },
   ].filter(Boolean),
+  lists: withLists
+    ? [
+        { title: 'Numbered', value: 'number' },
+        { title: 'Ordered', value: 'bullet' },
+      ]
+    : [],
   marks: {
     decorators: [
       { title: 'Strong', value: 'strong' },
@@ -40,7 +51,7 @@ const getBlock = ({ withHeadings = false, withNotice = false } = {}) => ({
       },
       { title: 'Strike', value: 'strike-through' },
     ],
-    annotations: [link, cardLink],
+    annotations: [link, withCardLink ? cardLink : null].filter(Boolean),
   },
 })
 

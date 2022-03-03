@@ -1,7 +1,7 @@
 import React from 'react'
 import Member from '~/components/Member'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import useMemberName from '~/hooks/useMemberName'
 import getContentFromUser from '~/api/users/getContentFromUser'
 import getCards from '~/api/cards/getCards'
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const data = await getContentFromUser({
     author: params.id.toLowerCase(),
     isPreview,
@@ -30,12 +30,12 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   return {
-    props: { cards, navigation, ...data },
+    props: { cards, settings, ...data },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const MemberPage = ({ navigation, cards, ...props }) => {
+const MemberPage = ({ settings, cards, ...props }) => {
   const [name] = useMemberName()
   const active =
     name?.toLowerCase() === props.user.slug
@@ -43,7 +43,7 @@ const MemberPage = ({ navigation, cards, ...props }) => {
       : ['COMMUNITY', 'DISCOVER', 'MEMBERS']
 
   return (
-    <Layout active={active} navigation={navigation}>
+    <Layout active={active} settings={settings}>
       <Member {...props} />
     </Layout>
   )

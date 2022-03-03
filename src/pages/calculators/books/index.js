@@ -1,18 +1,18 @@
 import React from 'react'
 import BooksCalculator from '~/components/BooksCalculator'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { navigation } }
+  return { props: { settings } }
 }
 
-const BooksCalculatorPage = ({ navigation, cards, ...props }) => (
+const BooksCalculatorPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'BOOKS_CALCULATOR']}
-    navigation={navigation}
+    settings={settings}
   >
     <BooksCalculator {...props} />
   </Layout>

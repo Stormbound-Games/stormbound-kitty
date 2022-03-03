@@ -3,7 +3,7 @@ import ListBuilderDisplayView from '~/components/ListBuilderDisplayView'
 import ListBuilderEditorView from '~/components/ListBuilderEditorView'
 import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import { DEFAULT_LIST } from '~/constants/list'
 import getCards from '~/api/cards/getCards'
 
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const [id, display] = params.rest || []
 
   if (display && display !== 'display') {
@@ -24,7 +24,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         cards,
-        navigation,
+        settings,
         tiers: DEFAULT_LIST,
         id: null,
         mode: 'EDITOR',
@@ -37,7 +37,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return {
     props: {
       cards,
-      navigation,
+      settings,
       tiers,
       id,
       mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
@@ -45,11 +45,8 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const ListBuilderPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['TOOLS', 'BUILDERS', 'LIST_BUILDER']}
-    navigation={navigation}
-  >
+const ListBuilderPage = ({ settings, cards, ...props }) => (
+  <Layout active={['TOOLS', 'BUILDERS', 'LIST_BUILDER']} settings={settings}>
     {props.mode === 'DISPLAY' ? (
       <ListBuilderDisplayView {...props} listId={props.id} />
     ) : (

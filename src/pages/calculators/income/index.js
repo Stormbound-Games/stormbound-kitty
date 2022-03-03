@@ -1,18 +1,18 @@
 import React from 'react'
 import IncomeCalculator from '~/components/IncomeCalculator'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { navigation } }
+  return { props: { settings } }
 }
 
-const IncomeCalculatorPage = ({ navigation, cards, ...props }) => (
+const IncomeCalculatorPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'INCOME_CALCULATOR']}
-    navigation={navigation}
+    settings={settings}
   >
     <IncomeCalculator {...props} />
   </Layout>

@@ -2,22 +2,22 @@ import React from 'react'
 import YouTubeChannels from '~/components/YouTubeChannels'
 import Layout from '~/components/Layout'
 import getChannels from '~/api/users/getChannels'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const channels = await getChannels({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { channels, navigation },
+    props: { channels, settings },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const YouTubeChannelsPage = ({ navigation, cards, ...props }) => (
+const YouTubeChannelsPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['COMMUNITY', 'DISCOVER', 'YOUTUBE_CHANNELS']}
-    navigation={navigation}
+    settings={settings}
   >
     <YouTubeChannels {...props} />
   </Layout>

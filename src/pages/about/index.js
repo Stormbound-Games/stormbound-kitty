@@ -3,7 +3,7 @@ import About from '~/components/About'
 import Layout from '~/components/Layout'
 import getContributions from '~/api/contributions/getContributions'
 import getDonations from '~/api/donations/getDonations'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 const uniqueBy = (array, key = 'id') => {
   const result = []
@@ -33,13 +33,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
     contributions.map(({ user }) => user),
     'name'
   )
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { navigation, contributors, donators } }
+  return { props: { settings, contributors, donators } }
 }
 
-const AboutPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['HOME', 'HOME', 'ABOUT']} navigation={navigation}>
+const AboutPage = ({ settings, cards, ...props }) => (
+  <Layout active={['HOME', 'HOME', 'ABOUT']} settings={settings}>
     <About {...props} />
   </Layout>
 )

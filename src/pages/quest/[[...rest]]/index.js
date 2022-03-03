@@ -2,33 +2,30 @@ import React from 'react'
 import QuestBuilderRoot from '~/components/QuestBuilderRoot'
 import Layout from '~/components/Layout'
 import getInitialQuestData from '~/helpers/getInitialQuestData'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   try {
     const [id] = params.rest || []
 
     if (!id) {
-      return { props: { navigation, quest: {}, id: null } }
+      return { props: { settings, quest: {}, id: null } }
     }
 
-    return { props: { navigation, quest: getInitialQuestData(id), id } }
+    return { props: { settings, quest: getInitialQuestData(id), id } }
   } catch (error) {
-    return { props: { navigation, quest: {}, id: null } }
+    return { props: { settings, quest: {}, id: null } }
   }
 }
 
-const QuestBuilderPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['TOOLS', 'BUILDERS', 'QUEST_BUILDER']}
-    navigation={navigation}
-  >
+const QuestBuilderPage = ({ settings, cards, ...props }) => (
+  <Layout active={['TOOLS', 'BUILDERS', 'QUEST_BUILDER']} settings={settings}>
     <QuestBuilderRoot {...props} questId={props.id} />
   </Layout>
 )

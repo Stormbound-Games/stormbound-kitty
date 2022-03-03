@@ -1,19 +1,19 @@
 import React from 'react'
 import Error from '~/components/Error'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { navigation, cards } }
+  return { props: { settings, cards } }
 }
 
-export default function Custom404({ navigation, cards, ...props }) {
+export default function Custom404({ settings, cards, ...props }) {
   return (
-    <Layout active={[]} navigation={navigation}>
+    <Layout active={[]} settings={settings}>
       <Error {...props} error='404 — Page Not Found' />
     </Layout>
   )

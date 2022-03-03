@@ -3,20 +3,20 @@ import FanArt from '~/components/FanArt'
 import Layout from '~/components/Layout'
 import shuffle from '~/helpers/shuffle'
 import getArtworks from '~/api/artworks/getArtworks'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const artworks = shuffle(await getArtworks({ isPreview }))
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { artworks, navigation },
+    props: { artworks, settings },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const FanArtPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['COMMUNITY', 'DISCOVER', 'FAN_ART']} navigation={navigation}>
+const FanArtPage = ({ settings, cards, ...props }) => (
+  <Layout active={['COMMUNITY', 'DISCOVER', 'FAN_ART']} settings={settings}>
     <FanArt {...props} />
   </Layout>
 )

@@ -27,17 +27,12 @@ export default function getPreviewURL(document) {
   switch (document._type) {
     case 'card':
     case 'changelog':
-      return goTo({ id: document.id })
     case 'deck':
-      return goTo({ id: document.id })
     case 'puzzle':
       return goTo({ id: document.board })
     case 'release':
-      return goTo({ slug: document.slug?.current })
     case 'story':
-      return goTo({ slug: document.slug?.current })
     case 'guide':
-      return goTo({ slug: document.slug?.current })
     case 'user':
       return goTo({ slug: document.slug?.current })
     default:

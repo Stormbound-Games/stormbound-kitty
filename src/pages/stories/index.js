@@ -1,18 +1,18 @@
 import React from 'react'
 import StoryIndex from '~/components/StoryIndex'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { cards, navigation } }
+  return { props: { cards, settings } }
 }
 
-const StoriesPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['STORIES']} navigation={navigation}>
+const StoriesPage = ({ settings, cards, ...props }) => (
+  <Layout active={['STORIES']} settings={settings}>
     <StoryIndex {...props} />
   </Layout>
 )
