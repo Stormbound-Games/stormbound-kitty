@@ -13,6 +13,7 @@ import abbreviate from '~/helpers/abbreviate'
 import shuffle from '~/helpers/shuffle'
 import sortCards from '~/helpers/sortCards'
 import indexArray from '~/helpers/indexArray'
+import random from '~/helpers/random'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
 const getTriviaQuestions = cards => {
@@ -20,7 +21,6 @@ const getTriviaQuestions = cards => {
   const SORTED_CARDS = cards.sort(sortCards())
   const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
   const unique = (value, index, array) => array.indexOf(value) === index
-  const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
   const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
   const rangeAround = (value, delta) => range(value - delta, value + delta)
   const NEVER_UPDATED = 'N11,N28,N32,N30,N22,N19,N16,S18'.split(',')
