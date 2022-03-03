@@ -20,12 +20,10 @@ const card = {
     },
   ],
   preview: {
-    select: { cardId: 'cardId', name: 'card.name' },
-    prepare({ cardId, name }) {
-      const cardName = name || cards.find(card => card.id === cardId)?.name
-
+    select: { name: 'card.name' },
+    prepare({ name }) {
       return {
-        title: `Card ${cardName ? `(${cardName})` : ''}`,
+        title: `Card ${name ? `(${name})` : ''}`,
         media: <MdPadding />,
       }
     },
