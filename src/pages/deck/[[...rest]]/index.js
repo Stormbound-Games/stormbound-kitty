@@ -7,9 +7,9 @@ import getDeck from '~/api/decks/getDeck'
 import getDecks from '~/api/decks/getDecks'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getInitialDeckData from '~/helpers/getInitialDeckData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
+import serialization from '~/helpers/serialization'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
 import getCards from '~/api/cards/getCards'
 
@@ -54,7 +54,12 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     }
   }
 
-  const deck = getInitialDeckData(cardsIndexBySid, id)
+  const deck = id ? serialization.deck.deserialize(cardsIndexBySid, id) : []
+
+  if (deck.some(card => !(card.id in cardsIndex))) {
+    return { notFound: true }
+  }
+
   const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
   const advice =
     view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []

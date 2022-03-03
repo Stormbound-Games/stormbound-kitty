@@ -148,7 +148,7 @@ export default React.memo(function BookOpeningSimulator(props) {
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')
-  const [deck, setDeck] = React.useState(props.deck || [])
+  const [deck, setDeck] = React.useState(props.book || [])
   const [amount, setAmount] = React.useState(1)
   const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
   const id = serialization.cards.serialize(deck)
