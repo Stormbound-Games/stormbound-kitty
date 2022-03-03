@@ -17,7 +17,10 @@ const card = {
       title: 'Stormbound-Kitty ID',
       name: 'id',
       type: 'string',
-      validation: Rule => Rule.required().uppercase(),
+      validation: Rule =>
+        Rule.required()
+          .uppercase()
+          .custom(value => !/\s/g.test(value) || 'Cannot contain spaces'),
     },
     {
       title: 'Stormbound ID',
@@ -25,7 +28,10 @@ const card = {
       type: 'string',
       description:
         'The card ID used by the game itself, provided by Sheepyard.',
-      validation: Rule => Rule.required().lowercase(),
+      validation: Rule =>
+        Rule.required()
+          .lowercase()
+          .custom(value => !/\s/g.test(value) || 'Cannot contain spaces'),
     },
     {
       title: 'Type',
@@ -63,25 +69,46 @@ const card = {
       title: 'Mana',
       name: 'mana',
       type: 'string',
-      validation: Rule => Rule.required(),
+      description:
+        'Either a numeric value, or a series of numeric values separated by slashes (e.g. 1/2/3/4/5).',
+      validation: Rule =>
+        Rule.required().custom(value => {
+          if (/^\d+$/.test(value)) return true
+          if (/^\d+\/\d+\/\d+\/\d+\/\d+$/.test(value)) return true
+          return 'Invalid'
+        }),
     },
     {
       title: 'Strength',
       name: 'strength',
       type: 'string',
+      description:
+        'Either a numeric value, or a series of numeric values separated by slashes (e.g. 1/2/3/4/5).',
       hidden: ({ document }) => Boolean(document?.type === 'spell'),
       validation: Rule =>
         Rule.custom((value, context) => {
-          if (context.document?.type !== 'spell' && !value) return 'Required'
-          return true
+          if (context.document?.type === 'spell') return true
+          if (!value) return 'Required'
+          if (/^\d+$/.test(value)) return true
+          if (/^\d+\/\d+\/\d+\/\d+\/\d+$/.test(value)) return true
+          return 'Invalid'
         }),
     },
     {
       title: 'Movement',
       name: 'movement',
       type: 'string',
-      validation: Rule => Rule.required(),
+      description:
+        'Either a numeric value, or a series of numeric values separated by slashes (e.g. 1/2/3/4/5).',
       hidden: ({ document }) => Boolean(document?.type !== 'unit'),
+      validation: Rule =>
+        Rule.custom((value, context) => {
+          if (context.document?.type !== 'unit') return true
+          if (!value) return 'Required'
+          if (/^\d+$/.test(value)) return true
+          if (/^\d+\/\d+\/\d+\/\d+\/\d+$/.test(value)) return true
+          return 'Invalid'
+        }),
     },
     {
       title: 'Ability',
@@ -90,10 +117,18 @@ const card = {
       description:
         'Wrapping text with stars causes it to be bold (e.g. *bordering*).',
       validation: Rule =>
-        Rule.custom((value, context) => {
-          if (context.document?.type === 'spell' && !value) return 'Required'
+        Rule.custom(value => {
+          if (!value) return true
+
           if (value && value.endsWith('.'))
             return 'Ability should not end with a period'
+
+          const slashes = value.match(/\//g)?.length ?? 0
+          if (slashes % 4 !== 0) return 'Unexpected number of slashes (/)'
+
+          const stars = value.match(/\*/g)?.length ?? 0
+          if (stars % 2 !== 0) return 'Unexpected number of stars (*)'
+
           return true
         }),
     },
