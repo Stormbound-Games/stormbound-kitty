@@ -20,15 +20,14 @@ export default React.memo(function Layout(props) {
 
   return (
     <div className={css(styles.layout)}>
-      <EyeCatcher id='082021'>
+      <EyeCatcher id='03032022'>
         {setIsVisible => (
           <>
-            Hello! ✨ If you like Stormbound-Kitty, I could use{' '}
-            <Link to='/about' onClick={() => setIsVisible(false)}>
-              your help
+            Dear Stormbounders, please{' '}
+            <Link href='https://ukrainewar.carrd.co/'>
+              support Ukraine organizations
             </Link>{' '}
-            with the site if you’d like to contribute (financially or
-            otherwise)!
+            in dire need of funds. Every little thing helps. 🇺🇦 🙏
           </>
         )}
       </EyeCatcher>
