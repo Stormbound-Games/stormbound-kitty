@@ -4,6 +4,7 @@ import Link from '~/components/Link'
 import Image from '~/components/Image'
 import Icon from '~/components/Icon'
 import Only from '~/components/Only'
+import PoweredBySanity from '~/components/PoweredBySanity'
 import Row from '~/components/Row'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
@@ -29,10 +30,11 @@ export default React.memo(function Footer(props) {
               Official Stormbound game content courtesy of{' '}
               <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>.
             </p>
-            <p>
+            <p className={css({ medium: { display: 'flex' } })}>
               <Link
                 href='https://vercel.com/?utm_source=stormbound&utm_campaign=oss'
                 hideNewTabIndicator
+                extend={styles.logoLink}
               >
                 <Image
                   src='https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg'
@@ -43,16 +45,12 @@ export default React.memo(function Footer(props) {
                   lazy
                 />
               </Link>
-              <Link href='https://www.sanity.io' hideNewTabIndicator>
-                <Image
-                  src='/assets/images/sanity-logo.png'
-                  alt='Powered by Sanity'
-                  withoutWebp
-                  extend={styles.sanity}
-                  width={154}
-                  height={32}
-                  lazy
-                />
+              <Link
+                href='https://www.sanity.io'
+                hideNewTabIndicator
+                extend={styles.logoLink}
+              >
+                <PoweredBySanity />
               </Link>
             </p>
           </Row.Column>

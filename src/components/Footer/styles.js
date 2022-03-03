@@ -54,14 +54,12 @@ const vercel = {
   maxHeight: '2em',
   marginRight: 'auto',
   display: 'inline-block',
-  marginTop: 'var(--s-smaller)',
+  marginRight: 'var(--s-smaller)',
 }
 
-const sanity = {
-  maxHeight: '2em',
-  marginLeft: 'var(--s-small)',
-  marginRight: 'auto',
-  display: 'inline-block',
+const logoLink = {
+  display: 'block',
+  textDecoration: 'none',
   marginTop: 'var(--s-smaller)',
 }
 
@@ -70,11 +68,11 @@ const styles = {
   inner,
   info,
   vercel,
-  sanity,
   icon,
   list,
   heading,
   item,
+  logoLink,
 }
 
 export default styles
