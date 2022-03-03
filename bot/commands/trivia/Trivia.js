@@ -1,4 +1,4 @@
-import api from '~/helpers/api'
+import api from '~/helpers/triviapi'
 import arrayRandom from '~/helpers/arrayRandom'
 import capitalize from '~/helpers/capitalize'
 import formatTriviaScores, {

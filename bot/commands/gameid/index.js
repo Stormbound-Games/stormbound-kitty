@@ -1,5 +1,5 @@
 import getEmbed from '~/helpers/getEmbed'
-import api from '~/helpers/api'
+import api from '~/helpers/triviapi'
 
 const gameid = {
   command: 'gameid',
@@ -66,15 +66,15 @@ const gameid = {
       .getGameId(guildId, messageObject.author.id)
       .then(id =>
         id
-            ? embed.setDescription(`Your game ID is ${id}.`)
-            : embed.setDescription('Your game ID is not recorded yet.')
+          ? embed.setDescription(`Your game ID is ${id}.`)
+          : embed.setDescription('Your game ID is not recorded yet.')
       )
       .catch(error => {
         console.error(error)
         const message =
-            error.name === 'AbortError'
-                ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
-                : `There was an issue finding ${messageObject.author.id}’s game ID.`
+          error.name === 'AbortError'
+            ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+            : `There was an issue finding ${messageObject.author.id}’s game ID.`
         return embed.setDescription(message)
       })
   },
