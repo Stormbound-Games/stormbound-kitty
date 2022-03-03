@@ -2,7 +2,7 @@ import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
-import sortByMana from '~/helpers/sortByMana'
+import { sortByMana } from '~/helpers/sortCards'
 import useNavigator from '~/hooks/useNavigator'
 import useQueryParams from '~/hooks/useQueryParams'
 
