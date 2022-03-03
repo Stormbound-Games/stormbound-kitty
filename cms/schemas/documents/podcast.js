@@ -20,6 +20,8 @@ const podcast = {
       title: 'Meta',
       name: 'meta',
       type: 'string',
+      description:
+        'Typically the duration of the episode, such as “45 minutes and 12 seconds”.',
       validation: Rule => Rule.required(),
     },
     date,
