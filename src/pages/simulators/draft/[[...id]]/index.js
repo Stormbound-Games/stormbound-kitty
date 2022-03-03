@@ -17,17 +17,22 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const [id] = params.id || []
   const cardsIndex = indexArray(cards)
+  const deck = id ? serialization.cards.deserialize(id) : []
 
-  try {
-    const deck = serialization.cards
-      .deserialize(id)
-      .map(card => getResolvedCardData(cardsIndex, card))
-    const advice =
-      cards.length === 12 ? await getDeckAdvice(cardsIndex, deck) : []
+  if (deck.some(card => !(card.id in cardsIndex))) {
+    return { notFound: true }
+  }
 
-    return { props: { cards, settings, deck, advice } }
-  } catch (error) {
-    return { props: { cards, settings, deck: [], advice: [] } }
+  const advice =
+    cards.length === 12 ? await getDeckAdvice(cardsIndex, deck) : []
+
+  return {
+    props: {
+      cards,
+      settings,
+      deck: deck.map(card => getResolvedCardData(cardsIndex, card)),
+      advice,
+    },
   }
 }
 

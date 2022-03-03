@@ -1,7 +1,6 @@
 import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
-import getInitialDeckData from '~/helpers/getInitialDeckData'
 import { sortByMana } from '~/helpers/sortCards'
 import useNavigator from '~/hooks/useNavigator'
 import useQueryParams from '~/hooks/useQueryParams'
@@ -55,7 +54,11 @@ const useDeckBuilder = props => {
 
   React.useEffect(
     () =>
-      setDeck(props.id ? getInitialDeckData(cardsIndexBySid, props.id) : []),
+      setDeck(
+        props.id
+          ? serialization.deck.deserialize(cardsIndexBySid, props.id)
+          : []
+      ),
     [cardsIndexBySid, props.id]
   )
 

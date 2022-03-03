@@ -1,7 +1,7 @@
 import React from 'react'
 import QuestBuilderRoot from '~/components/QuestBuilderRoot'
 import Layout from '~/components/Layout'
-import getInitialQuestData from '~/helpers/getInitialQuestData'
+import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
@@ -10,18 +10,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
+  const [id] = params.rest || []
+  const quest = id ? serialization.quest.deserialize(id) : {}
 
-  try {
-    const [id] = params.rest || []
-
-    if (!id) {
-      return { props: { settings, quest: {}, id: null } }
-    }
-
-    return { props: { settings, quest: getInitialQuestData(id), id } }
-  } catch (error) {
-    return { props: { settings, quest: {}, id: null } }
-  }
+  return { props: { settings, quest, id: id || null } }
 }
 
 const QuestBuilderPage = ({ settings, cards, ...props }) => (

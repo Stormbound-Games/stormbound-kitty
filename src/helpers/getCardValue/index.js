@@ -11,22 +11,18 @@ const parseAbility = (ability, index = 0) =>
   ability.match(/(\d+)/g).map(Number)[index]
 
 const getCardValue = (cardsIndex, id, level = 1) => {
-  const MAX_STRENGTH = getResolvedCardData(cardsIndex, {
+  if (UNVALUED_CARDS.includes(id)) return null
+
+  const cardData = getResolvedCardData(cardsIndex, { id, level })
+
+  if (!cardData) return null
+
+  const { strength, mana, ability, type, movement } = cardData
+  const speed = MOVEMENT[movement || 0] || 1
+  const { strength: MAX_STRENGTH } = getResolvedCardData(cardsIndex, {
     id: 'I26',
     level,
-  }).strength
-  const { strength, mana, ability, type, movement } = getResolvedCardData(
-    cardsIndex,
-    {
-      id,
-      level,
-    }
-  )
-  const speed = MOVEMENT[movement || 0] || 1
-
-  if (UNVALUED_CARDS.includes(id)) {
-    return null
-  }
+  })
 
   switch (id) {
     case 'N1': /* Green Prototypes */ {

@@ -20,26 +20,19 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const disabledOptions = cards
     .map(card => card.id)
     .filter(id => !getCardValue(cardsIndex, id))
+  const deck = id ? serialization.cards.deserialize(id) : []
 
-  try {
-    const deck = serialization.cards.deserialize(id)
-    return {
-      props: {
-        cards,
-        settings,
-        deck: [deck[0] || defaultCard, deck[1] || defaultCard],
-        disabledOptions,
-      },
-    }
-  } catch (error) {
-    return {
-      props: {
-        cards,
-        settings,
-        deck: [defaultCard, defaultCard],
-        disabledOptions,
-      },
-    }
+  if (deck.some(card => !(card.id in cardsIndex))) {
+    return { notFound: true }
+  }
+
+  return {
+    props: {
+      cards,
+      settings,
+      deck: [deck[0] || defaultCard, deck[1] || defaultCard],
+      disabledOptions,
+    },
   }
 }
 
