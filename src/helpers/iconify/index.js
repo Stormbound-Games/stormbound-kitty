@@ -33,27 +33,31 @@ const iconify = input => {
     (match, index) => <Legendary amount={+match} key={index} />
   )
 
-  output = replaceInString(output, /(\d+)\scoins?/g, (match, index) => (
-    <Coins amount={+match} key={index} />
-  ))
-
-  output = replaceInString(output, /(\d+)\srub(?:y|ies)/g, (match, index) => (
-    <Rubies amount={+match} key={index} />
+  output = replaceInString(output, /([\d,]+)\scoins?/g, (match, index) => (
+    <Coins amount={match} key={index} />
   ))
 
   output = replaceInString(
     output,
-    /(\d+)\sfusion\sstones?/g,
-    (match, index) => <Stones amount={+match} key={index} />
+    /([\d,]+)\srub(?:y|ies)/g,
+    (match, index) => <Rubies amount={match} key={index} />
   )
 
-  output = replaceInString(output, /(\d+)\scrowns?/g, (match, index) => (
+  output = replaceInString(
+    output,
+    /([\d,]+)\sfusion\sstones?/g,
+    (match, index) => <Stones amount={match} key={index} />
+  )
+
+  output = replaceInString(output, /([\d,]+)\scrowns?/g, (match, index) => (
     <Crowns amount={match} key={index} />
   ))
 
-  output = replaceInString(output, /(\d+)\shero\scrowns?/g, (match, index) => (
-    <HeroCrowns amount={match} key={index} />
-  ))
+  output = replaceInString(
+    output,
+    /([\d,]+)\shero\scrowns?/g,
+    (match, index) => <HeroCrowns amount={match} key={index} />
+  )
 
   return output
 }
