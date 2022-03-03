@@ -25,6 +25,7 @@ export default createSchema({
   types: schemaTypes.concat([
     artwork,
     avatar,
+    podcast,
     card,
     changelog,
     contribution,
@@ -34,7 +35,6 @@ export default createSchema({
     faq,
     guide,
     news,
-    podcast,
     puzzle,
     release,
     story,

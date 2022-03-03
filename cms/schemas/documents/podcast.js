@@ -5,7 +5,7 @@ import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
 
 const podcast = {
-  title: 'Podcast episode',
+  title: 'Brewed Sages podcast',
   name: 'podcast',
   type: 'document',
   icon: MdPodcasts,

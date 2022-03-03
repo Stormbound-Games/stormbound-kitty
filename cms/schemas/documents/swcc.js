@@ -66,7 +66,7 @@ const week = {
 }
 
 const swcc = {
-  title: 'SWCC Season',
+  title: 'SWCC',
   name: 'swcc',
   type: 'document',
   icon: MdAutoFixNormal,
