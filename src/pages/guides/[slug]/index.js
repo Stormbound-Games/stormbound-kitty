@@ -4,7 +4,7 @@ import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import getGuide from '~/api/guides/getGuide'
 import getGuides from '~/api/guides/getGuides'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
@@ -19,16 +19,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const guide = await getGuide({ slug: params.slug, isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { cards, navigation, ...guide },
+    props: { cards, settings, ...guide },
     revalidate: 60 * 60 * 24,
   }
 }
 
-const GuidePage = ({ navigation, content, cards, ...props }) => (
-  <Layout active={['GUIDES', props.category, props.id]} navigation={navigation}>
+const GuidePage = ({ settings, content, cards, ...props }) => (
+  <Layout active={['GUIDES', props.category, props.id]} settings={settings}>
     <Guide {...props}>
       <BlocksRenderer value={content} />
     </Guide>

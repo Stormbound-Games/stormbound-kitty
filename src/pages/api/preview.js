@@ -11,6 +11,9 @@ const PREVIEW_MODE_DURATION = 60 * 60
 
 const getRedirectUrl = async params => {
   switch (params.type) {
+    case 'siteSettings':
+      return '/'
+
     case 'artwork':
       return '/fan-art'
 

@@ -2,26 +2,26 @@ import React from 'react'
 import Releases from '~/components/Releases'
 import Layout from '~/components/Layout'
 import getReleases from '~/api/releases/getReleases'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const releases = await getReleases({ isPreview })
   const cardIds = releases.map(release => release.cardId)
 
   return {
     props: {
       cards: cards.filter(card => cardIds.includes(card.id)),
-      navigation,
+      settings,
       releases,
     },
   }
 }
 
-const ReleasesPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['GAME', 'UPDATES', 'RELEASES']} navigation={navigation}>
+const ReleasesPage = ({ settings, cards, ...props }) => (
+  <Layout active={['GAME', 'UPDATES', 'RELEASES']} settings={settings}>
     <Releases {...props} />
   </Layout>
 )

@@ -37,14 +37,14 @@ export default React.memo(function EyeCatcher(props) {
 
   return (
     <Notification as='div' isVisible={isVisible} extend={styles.container}>
-      <p className={css({ marginBottom: 0 })}>
+      <div className={css({ '> p': { marginBottom: 0 } })}>
         {typeof props.children === 'function'
           ? props.children(setIsVisible)
           : props.children}{' '}
         <Link extend={styles.dismiss} onClick={() => setIsVisible(false)}>
           (Dismiss)
         </Link>
-      </p>
+      </div>
 
       <BlankButton extend={styles.close} onClick={() => setIsVisible(false)}>
         <Icon icon='cross' />

@@ -1,21 +1,21 @@
 import React from 'react'
 import FanKitAvatars from '~/components/FanKitAvatars'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getAvatars from '~/api/avatars/getAvatars'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const avatars = await getAvatars({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { avatars, navigation },
+    props: { avatars, settings },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const FanKitAvatarsPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} navigation={navigation}>
+const FanKitAvatarsPage = ({ settings, cards, ...props }) => (
+  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
     <FanKitAvatars {...props} />
   </Layout>
 )

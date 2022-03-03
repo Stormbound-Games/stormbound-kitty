@@ -3,7 +3,7 @@ import DraftSimulator from '~/components/DraftSimulator'
 import Layout from '~/components/Layout'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const [id] = params.id || []
   const cardsIndex = indexArray(cards)
 
@@ -25,16 +25,16 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     const advice =
       cards.length === 12 ? await getDeckAdvice(cardsIndex, deck) : []
 
-    return { props: { cards, navigation, deck, advice } }
+    return { props: { cards, settings, deck, advice } }
   } catch (error) {
-    return { props: { cards, navigation, deck: [], advice: [] } }
+    return { props: { cards, settings, deck: [], advice: [] } }
   }
 }
 
-const DraftSimulatorPage = ({ navigation, cards, ...props }) => (
+const DraftSimulatorPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'SIMULATORS', 'DRAFT_SIMULATOR']}
-    navigation={navigation}
+    settings={settings}
   >
     <DraftSimulator {...props} />
   </Layout>

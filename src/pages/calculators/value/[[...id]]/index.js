@@ -2,7 +2,7 @@ import React from 'react'
 import ValueCalculator from '~/components/ValueCalculator'
 import Layout from '~/components/Layout'
 import getCardValue from '~/helpers/getCardValue'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import serialization from '~/helpers/serialization'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const cardsIndex = indexArray(cards)
   const [id] = params.id || []
   const defaultCard = { id: null, level: 1 }
@@ -26,7 +26,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         cards,
-        navigation,
+        settings,
         deck: [deck[0] || defaultCard, deck[1] || defaultCard],
         disabledOptions,
       },
@@ -35,7 +35,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         cards,
-        navigation,
+        settings,
         deck: [defaultCard, defaultCard],
         disabledOptions,
       },
@@ -43,10 +43,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const ValueCalculatorPage = ({ navigation, cards, ...props }) => (
+const ValueCalculatorPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'VALUE_CALCULATOR']}
-    navigation={navigation}
+    settings={settings}
   >
     <ValueCalculator {...props} />
   </Layout>

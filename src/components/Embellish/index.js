@@ -24,8 +24,8 @@ export default React.memo(function Embellish(props) {
     iconify(props.children),
     CARDS_RE,
     (match, index) => {
-      const { id } = cardsIndexByName[match]
-      return id ? <CardLink id={id} key={id + index} /> : match
+      const card = cardsIndexByName[match]
+      return card ? <CardLink id={card.id} key={card.id + index} /> : match
     }
   )
 

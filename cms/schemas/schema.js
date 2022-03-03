@@ -14,6 +14,7 @@ import news from './documents/news'
 import podcast from './documents/podcast'
 import puzzle from './documents/puzzle'
 import release from './documents/release'
+import siteSettings from './documents/siteSettings'
 import story from './documents/story'
 import swcc from './documents/swcc'
 import tournament from './documents/tournament'
@@ -23,6 +24,7 @@ import wallpaper from './documents/wallpaper'
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
+    siteSettings,
     artwork,
     avatar,
     podcast,

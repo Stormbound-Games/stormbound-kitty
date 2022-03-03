@@ -1,12 +1,12 @@
 import React from 'react'
 import FanKitCards from '~/components/FanKitCards'
 import Layout from '~/components/Layout'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
   return {
     props: {
@@ -17,13 +17,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
         faction: card.faction,
         rarity: card.rarity,
       })),
-      navigation,
+      settings,
     },
   }
 }
 
-const FanKitCardsPage = ({ navigation, cards, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} navigation={navigation}>
+const FanKitCardsPage = ({ settings, cards, ...props }) => (
+  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
     <FanKitCards {...props} cards={cards} />
   </Layout>
 )

@@ -3,7 +3,7 @@ import CardBuilderEditor from '~/components/CardBuilderEditor'
 import CardBuilderApp from '~/components/CardBuilderApp'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
 import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
 import getChangesFromCard from '~/api/changes/getChangesFromCard'
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
   const cardsIndex = indexArray(cards)
   const [id, display, versionId = null] = params.rest || []
   const isOfficialCard = id in cardsIndex
@@ -53,7 +53,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   if (!id) {
     return {
       props: {
-        navigation,
+        settings,
         cards,
         cardId: null,
         card: {},
@@ -67,7 +67,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
-      navigation,
+      settings,
       cards,
       cardId: id,
       card: getInitialCardData(cards, id),
@@ -80,11 +80,8 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const CardBuilderPage = ({ navigation, cards, ...props }) => (
-  <Layout
-    active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']}
-    navigation={navigation}
-  >
+const CardBuilderPage = ({ settings, cards, ...props }) => (
+  <Layout active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']} settings={settings}>
     {props.mode === 'DISPLAY' ? (
       <CardBuilderApp {...props} />
     ) : (

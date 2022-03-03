@@ -2,7 +2,7 @@ import React from 'react'
 import CollectionStats from '~/components/CollectionStats'
 import Layout from '~/components/Layout'
 import getCollectionCost from '~/helpers/getCollectionCost'
-import getNavigation from '~/helpers/getNavigation'
+import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
 
@@ -15,15 +15,15 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     cardsIndex,
     cards.filter(card => !card.token).map(asCollectionItem)
   )
-  const navigation = await getNavigation({ isPreview })
+  const settings = await getSiteSettings({ isPreview })
 
-  return { props: { cards, navigation, maxCollectionCost } }
+  return { props: { cards, settings, maxCollectionCost } }
 }
 
-const CollectionStatsPage = ({ navigation, cards, ...props }) => (
+const CollectionStatsPage = ({ settings, cards, ...props }) => (
   <Layout
     active={['YOUR_CONTENT', 'YOUR_CONTENT', 'COLLECTION_STATS']}
-    navigation={navigation}
+    settings={settings}
   >
     <CollectionStats {...props} />
   </Layout>
