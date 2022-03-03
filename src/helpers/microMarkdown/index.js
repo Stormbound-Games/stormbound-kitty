@@ -1,4 +1,5 @@
 import React from 'react'
+import replaceInString from '~/helpers/replaceInString'
 
 const microMarkdown = string => {
   if (typeof string !== 'string') {
@@ -11,36 +12,9 @@ const microMarkdown = string => {
   // See: https://unicode-table.com/en/2011/
   string = string.replace(/-/g, '‑')
 
-  const bolds = string.match(/\*[^*]+\*/g)
-  let result = []
-  let currentIndex = 0
-
-  if (!bolds) {
-    return string
-  }
-
-  bolds.forEach((bold, index) => {
-    // Get the index in the string where the segment starts (ignoring everything
-    // before the currently recorded position so if a same word is bolded twice,
-    // we deal with the correct occurrence each time)
-    const strIndex = string.indexOf(bold, currentIndex)
-
-    // Push anything from the end of the last segment until the beginning of
-    // this one into the result
-    result.push(string.slice(currentIndex, strIndex))
-    // Push a strong tag that contains the segment in the result
-    result.push(<strong key={index}>{bold.replace(/\*/g, '')}</strong>)
-
-    // Move the pointer of the end of this segment
-    currentIndex = strIndex + bold.length
-
-    // If this is the last segment, push the rest of the string
-    if (index === bolds.length - 1) {
-      result.push(string.slice(currentIndex))
-    }
-  })
-
-  return result
+  return replaceInString(string, /\*([^*]+)\*/g, match => (
+    <strong key={match}>{match}</strong>
+  ))
 }
 
 export default microMarkdown
