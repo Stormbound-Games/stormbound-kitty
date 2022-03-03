@@ -7,14 +7,16 @@ const usePageProps = (props, versionId) => {
   const { cardsIndex } = React.useContext(CardsContext)
   const properties = {}
   const isEditing = props.mode === 'EDITOR'
-  const { name, faction, type, race } = props.card
+  const { name, faction, type, race, rarity } = props.card
   const id = props.cardId
 
   if (id in cardsIndex) {
     const date = versionId ? 'Prior ' + formatPreciseDate(versionId) : null
     const wiki = getWikiCardLink(name)
 
-    properties.meta = [faction, type, race, date].filter(Boolean).join(' · ')
+    properties.meta = [rarity, faction, race, type, date]
+      .filter(Boolean)
+      .join(' · ')
     properties.action = isEditing
       ? { to: `/card/${id}/display`, children: 'Display view', icon: 'eye' }
       : { href: wiki, children: 'Open in wiki' }
