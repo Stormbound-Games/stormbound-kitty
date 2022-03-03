@@ -3,14 +3,9 @@ require('module-alias/register')
 const { TAGS } = require('~/constants/deck')
 const parseDate = require('~/helpers/parseDate').default
 const toSentence = require('~/helpers/toSentence').default
+const groupBy = require('~/helpers/groupBy').default
 const { formatDate } = require('~/helpers/formatDate')
 const getDecks = require('~/api/decks/getDecks').default
-
-const groupBy = (xs, key) =>
-  xs.reduce((rv, x) => {
-    ;(rv[x[key]] = rv[x[key]] || []).push(x)
-    return rv
-  }, {})
 
 const BOUNDARY_DATE = new Date(2021, 4, 15)
 
