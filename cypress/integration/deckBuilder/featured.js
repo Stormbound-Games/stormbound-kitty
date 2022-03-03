@@ -27,4 +27,26 @@ describe('Deck Builder — Featured', () => {
       .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
   })
+
+  it('should be possible to filter decks', function () {
+    cy.get('[data-testid="page-meta"]')
+      .invoke('text')
+      .as('meta')
+
+      .get('[data-testid="filter-author"]')
+      .select('arthisroo')
+
+      .get('[data-testid="page-meta"]')
+      .invoke('text')
+      .then(text => expect(text).to.not.equal(this.meta))
+
+      .get('meta[name="author"]')
+      .should('have.attr', 'content', 'ArthisRoo')
+
+      .get('[data-testid="filter-name"]')
+      .type('sim city')
+
+      .get(s.DECK_SUGGESTION)
+      .should('have.length', 1)
+  })
 })

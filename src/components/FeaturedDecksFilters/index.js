@@ -55,6 +55,7 @@ export default React.memo(function FeaturedDecksFilters(props) {
               id='author'
               value={props.author.slug}
               onChange={event => props.updateAuthor(event.target.value)}
+              data-testid='filter-author'
             >
               <option value='*'>Any</option>
               {authors.map(author => (
@@ -75,6 +76,7 @@ export default React.memo(function FeaturedDecksFilters(props) {
               value={props.name}
               onChange={event => props.updateName(event.target.value)}
               placeholder='e.g. Reckless Rush'
+              data-testid='filter-name'
             />
           </Row.Column>
           <Row.Column>
