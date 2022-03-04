@@ -31,15 +31,16 @@ const useCoverImage = props => {
 
   // If an image is served from the CDN, ensure it’s optimized.
   if (source.startsWith('https://cdn.sanity.io')) {
-    // If the image already provides auto=format, avoid adding it again.
     if (!source.includes('auto=format')) {
       source += (source.includes('?') ? '&' : '?') + 'auto=format'
     }
 
-    // If the image already provides w= or doesn’t have an explicit width, avoid
-    // adding it again.
     if (!source.includes('w=1200')) {
       source += (source.includes('?') ? '&' : '?') + 'w=1200'
+    }
+
+    if (!source.includes('q=')) {
+      source += (source.includes('?') ? '&' : '?') + 'q=90'
     }
 
     return source

@@ -46,7 +46,7 @@ export default React.memo(function FanArt(props) {
             const displayWidth = 400
             const displayHeight = Math.round((displayWidth / width) * height)
             const dimensions =
-              '?auto=format&w=' + displayWidth + '&h=' + displayHeight
+              '?auto=format&w=' + displayWidth + '&h=' + displayHeight + '&q=90'
 
             return (
               <figure className={css(styles.art)} key={entry.image}>

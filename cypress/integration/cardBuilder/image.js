@@ -34,7 +34,7 @@ describe('Card Builder — Image', () => {
     for (let i = 0; i < 5; i++)
       assertCardImage(
         i,
-        'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300'
+        'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300&q=90'
       )
   })
 
@@ -45,7 +45,7 @@ describe('Card Builder — Image', () => {
     for (let i = 0; i < 5; i++)
       assertCardImage(
         i,
-        'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300'
+        'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300&q=90'
       )
   })
 

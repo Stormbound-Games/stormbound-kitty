@@ -101,7 +101,7 @@ const story = {
           ' in ' +
           (formatDate(date) || 'missing date'),
         media: image ? (
-          <img src={image + '?auto=format&w=70'} alt='' />
+          <img src={image + '?auto=format&w=70&q=90'} alt='' />
         ) : undefined,
       }
     },

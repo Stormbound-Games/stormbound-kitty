@@ -27,11 +27,11 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       <Head>
         <link
           rel='shortcut icon'
-          href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256'
+          href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256&q=90'
         />
         <link
           rel='apple-touch-icon'
-          href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256'
+          href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256&q=90'
         />
 
         <meta name='viewport' content='width=device-width, initial-scale=1' />

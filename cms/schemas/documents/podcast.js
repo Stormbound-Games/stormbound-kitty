@@ -67,7 +67,7 @@ const podcast = {
         subtitle: formatDate(date) || 'Missing date',
         media: (
           <img
-            src='https://cdn.sanity.io/images/5hlpazgd/production/530b731e3badad728e3afef6b7b7bd26cd9acb1a-508x508.png?auto=format&w=70'
+            src='https://cdn.sanity.io/images/5hlpazgd/production/530b731e3badad728e3afef6b7b7bd26cd9acb1a-508x508.png?auto=format&w=70&q=90'
             alt=''
           />
         ),

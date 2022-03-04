@@ -95,8 +95,8 @@ export default React.memo(function Card(props) {
           <span
             className={css(styles.missing)}
             style={{
-              maskImage: `url("${props.image}?auto=format&w=300")`,
-              WebkitMaskImage: `url("${props.image}?auto=format&w=300")`,
+              maskImage: `url("${props.image}?auto=format&w=300&q=90")`,
+              WebkitMaskImage: `url("${props.image}?auto=format&w=300&q=90")`,
             }}
           />
         )}
