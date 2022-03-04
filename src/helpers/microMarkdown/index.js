@@ -12,8 +12,8 @@ const microMarkdown = string => {
   // See: https://unicode-table.com/en/2011/
   string = string.replace(/-/g, '‑')
 
-  return replaceInString(string, /\*([^*]+)\*/g, match => (
-    <strong key={match}>{match}</strong>
+  return replaceInString(string, /\*([^*]+)\*/g, (match, index) => (
+    <strong key={match + index}>{match}</strong>
   ))
 }
 
