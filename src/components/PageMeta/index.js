@@ -23,6 +23,9 @@ export default React.memo(function PageMeta(props) {
   return (
     <Head>
       <title>{title}</title>
+
+      <link rel='preconnect' href='https://cdn.sanity.io' />
+
       <link rel='canonical' href={SITE_URL + location} />
       <meta name='author' content={author} />
       <meta name='description' content={description} />
