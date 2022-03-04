@@ -16,6 +16,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
         id: card.id,
         image: card.image,
         name: card.name,
+        faction: card.faction,
       })),
       settings,
       date: equalTierList.date,
