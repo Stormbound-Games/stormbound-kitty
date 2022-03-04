@@ -13,6 +13,13 @@ const story = {
   name: 'story',
   type: 'document',
   icon: MdEditNote,
+  fieldsets: [
+    {
+      name: 'saga',
+      title: 'Saga',
+      options: { collapsible: true, collapsed: true },
+    },
+  ],
   fields: [
     {
       title: 'Title',
@@ -30,13 +37,6 @@ const story = {
     { ...user, title: 'Author' },
     { ...cardRef, name: 'cardRef' },
     {
-      title: 'Card data',
-      name: 'card',
-      description:
-        'Additional JSON blob to override the card data with (handy for sagas).',
-      ...json,
-    },
-    {
       title: 'Category',
       name: 'category',
       type: 'string',
@@ -48,17 +48,6 @@ const story = {
       },
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'Saga',
-      name: 'saga',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Eastern Heat', value: 'eastern-heat' },
-          { title: 'March of Fauns', value: 'march-of-fauns' },
-        ],
-      },
-    },
     date,
     {
       title: 'Content',
@@ -66,6 +55,26 @@ const story = {
       type: 'array',
       of: [getBlock({ withHeadings: true, withNotice: true })],
       validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Saga',
+      name: 'saga',
+      type: 'string',
+      fieldset: 'saga',
+      options: {
+        list: [
+          { title: 'Eastern Heat', value: 'eastern-heat' },
+          { title: 'March of Fauns', value: 'march-of-fauns' },
+        ],
+      },
+    },
+    {
+      title: 'Card data',
+      name: 'card',
+      fieldset: 'saga',
+      description:
+        'Additional JSON blob to override the card data with (handy for sagas).',
+      ...json,
     },
   ],
   orderings: [
