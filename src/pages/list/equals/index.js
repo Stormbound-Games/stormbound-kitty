@@ -1,20 +1,14 @@
 import React from 'react'
 import EqualsList from '~/components/EqualsList'
 import Layout from '~/components/Layout'
-import getInitialListData from '~/helpers/getInitialListData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
-import getRelease from '~/api/releases/getRelease'
-import { EQUALS_TIER_LIST } from '~/constants/list'
+import getEqualTierList from '~/api/misc/getEqualTierList'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const [month, year] = EQUALS_TIER_LIST.date.split('/')
-  const rel = await getRelease({ date: year + '-' + month + '-01' })
   const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
-  const date = EQUALS_TIER_LIST.date
-  const list = getInitialListData(EQUALS_TIER_LIST.value)
-  const release = rel ? { title: rel.title, slug: rel.slug } : null
+  const equalTierList = await getEqualTierList({ isPreview })
 
   return {
     props: {
@@ -24,9 +18,8 @@ export async function getStaticProps({ preview: isPreview = false }) {
         name: card.name,
       })),
       settings,
-      date,
-      list,
-      release,
+      date: equalTierList.date,
+      list: equalTierList.tiers,
     },
   }
 }

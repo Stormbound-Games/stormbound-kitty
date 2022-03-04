@@ -1,3 +1,4 @@
+import { MdGrading } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
 
 const structure = () =>
@@ -9,8 +10,15 @@ const structure = () =>
         .child(
           S.document().schemaType('siteSettings').documentId('siteSettings')
         ),
+      S.listItem()
+        .title('Equal tier list')
+        .icon(MdGrading)
+        .child(
+          S.document().schemaType('equalTierList').documentId('equalTierList')
+        ),
       ...S.documentTypeListItems().filter(
-        listItem => !['siteSettings'].includes(listItem.getId())
+        listItem =>
+          !['siteSettings', 'equalTierList'].includes(listItem.getId())
       ),
     ])
 
