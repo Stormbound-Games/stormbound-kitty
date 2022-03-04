@@ -10,8 +10,8 @@ const CLIMBING_CARDS = {
   IRON: [0, 0, 0, 0, 1],
 }
 
-const getClimbingRewards = (league, rank) => {
-  const rewards = new MonthlyIncome()
+const getClimbingRewards = (books, league, rank) => {
+  const rewards = new MonthlyIncome(books)
   const cards = CLIMBING_CARDS[league]
 
   cards.slice(0, cards.length - rank + 1).forEach(rank => {

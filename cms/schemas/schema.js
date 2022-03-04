@@ -2,6 +2,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import artwork from './documents/artwork'
 import avatar from './documents/avatar'
+import book from './documents/book'
 import card from './documents/card'
 import changelog from './documents/changelog'
 import contribution from './documents/contribution'
@@ -29,6 +30,7 @@ export default createSchema({
     equalTierList,
     artwork,
     avatar,
+    book,
     podcast,
     card,
     changelog,

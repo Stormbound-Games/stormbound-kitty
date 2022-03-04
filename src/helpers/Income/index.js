@@ -1,25 +1,25 @@
-import { BOOKS } from '~/constants/books'
 import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
 import getPeriodMultiplier from '~/helpers/getPeriodMultiplier'
 
-const RUBY_CONVERSION_MAP = Object.keys(BOOKS).reduce(
-  (acc, key) => {
-    if (BOOKS[key].cost.type !== 'RUBIES') return acc
-    acc[key] = BOOKS[key].cost.amount
-    return acc
-  },
-  {
-    CARD_SHOP: 20,
-  }
-)
+const getRubyConversionMap = (books = []) =>
+  books.reduce(
+    (acc, { id, cost }) => {
+      if (cost.type !== 'RUBIES') return acc
+      acc[id] = cost.amount
+      return acc
+    },
+    { CARD_SHOP: 20 }
+  )
 
 class Income {
-  constructor(period, income) {
+  constructor(period, books, income) {
     this.coins = 0
     this.rubies = 0
     this.stones = 0
     this.cards = [0, 0, 0, 0]
     this.period = period
+    this.books = books
+    this.conversionMap = getRubyConversionMap(books)
 
     if (typeof period === 'undefined') {
       throw new Error('Missing period in `Income` constructor')
@@ -66,53 +66,55 @@ class Income {
     }
   }
 
-  openBook(type) {
-    if (Array.isArray(type)) {
-      type.map(bookType => this.openBook(bookType))
+  openBook(id) {
+    if (Array.isArray(id)) {
+      id.map(id => this.openBook(id))
     } else {
-      const { draws, percentiles } = BOOKS[type]
+      const book = this.books.find(book => book.id === id)
+      console.log(id)
+      const { draws, odds } = book
 
-      this.stones += getAverageStonesPerBook(type)
-      this.cards[0] += draws * percentiles[0]
-      this.cards[1] += draws * percentiles[1]
-      this.cards[2] += draws * percentiles[2]
-      this.cards[3] += draws * percentiles[3]
+      this.stones += getAverageStonesPerBook(book)
+      this.cards[0] += draws * odds[0]
+      this.cards[1] += draws * odds[1]
+      this.cards[2] += draws * odds[2]
+      this.cards[3] += draws * odds[3]
     }
   }
 
-  convertRubies(type) {
-    if (!(type in RUBY_CONVERSION_MAP)) return
+  convertRubies(id) {
+    if (!(id in this.conversionMap)) return
 
-    const cost = RUBY_CONVERSION_MAP[type]
+    const cost = this.conversionMap[id]
     const count = Math.floor(this.rubies / cost)
 
     this.rubies -= count * cost
 
-    if (type === 'CARD_SHOP') this.cards[2] += count
-    else for (let i = 0; i < count; i += 1) this.openBook(type)
+    if (id === 'CARD_SHOP') this.cards[2] += count
+    else for (let i = 0; i < count; i += 1) this.openBook(id)
   }
 }
 
 export class DailyIncome extends Income {
-  constructor(income) {
-    super('DAILY', income)
+  constructor(books, income) {
+    super('DAILY', books, income)
   }
 }
 
 export class WeeklyIncome extends Income {
-  constructor(income) {
-    super('WEEKLY', income)
+  constructor(books, income) {
+    super('WEEKLY', books, income)
   }
 }
 
 export class MonthlyIncome extends Income {
-  constructor(income) {
-    super('MONTHLY', income)
+  constructor(books, income) {
+    super('MONTHLY', books, income)
   }
 }
 
 export class YearlyIncome extends Income {
-  constructor(income) {
-    super('YEARLY', income)
+  constructor(books, income) {
+    super('YEARLY', books, income)
   }
 }

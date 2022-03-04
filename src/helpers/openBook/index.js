@@ -34,7 +34,7 @@ const getRandomCardId = pools => rarity => {
 const cache = new Map()
 
 const getSequences = (cards, book) => {
-  const key = `${book.draws}.${book.percentiles.join('')}`
+  const key = `${book.draws}.${book.odds.join('')}`
 
   if (cache.has(key)) {
     return cache.get(key)

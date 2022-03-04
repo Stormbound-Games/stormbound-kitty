@@ -57,6 +57,7 @@ export default React.memo(function BrawlMilestones(props) {
           {milestones.map((milestone, index) => (
             <div className={css(styles.item)} key={milestone.crowns}>
               <BrawlMilestone
+                booksIndex={props.booksIndex}
                 index={index + 1}
                 {...milestone}
                 cardId={BRAWL_INDEX[id].cardId}

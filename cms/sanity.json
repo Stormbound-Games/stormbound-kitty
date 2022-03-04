@@ -16,7 +16,8 @@
     "media-library",
     "table",
     "@sanity/dashboard",
-    "dashboard-widget-document-list"
+    "dashboard-widget-document-list",
+    "order-documents"
   ],
   "env": {
     "development": {

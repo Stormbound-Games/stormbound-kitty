@@ -27,6 +27,7 @@
     "react-icons": "^4.3.1",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-media-library": "^2.0.2",
+    "sanity-plugin-order-documents": "^0.0.22",
     "sanity-plugin-table": "^2.3.0",
     "styled-components": "^5.2.0"
   },

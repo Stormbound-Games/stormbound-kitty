@@ -36,7 +36,10 @@ export default React.memo(function BrawlTracker(props) {
 
   return (
     <div>
-      <BrawlMilestones difficulty={props.difficulty} />
+      <BrawlMilestones
+        booksIndex={props.booksIndex}
+        difficulty={props.difficulty}
+      />
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>About your Brawl</Title>

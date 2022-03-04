@@ -16,11 +16,10 @@ import ShareDialog from '~/components/ShareDialog'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import openBook from '~/helpers/openBook'
-import getBookName from '~/helpers/getBookName'
 import serialization from '~/helpers/serialization'
+import indexArray from '~/helpers/indexArray'
 import useViewportSize from '~/hooks/useViewportSize'
 import useNavigator from '~/hooks/useNavigator'
-import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
 const ShareButton = ({ disabled }) => (
@@ -147,22 +146,23 @@ export default React.memo(function BookOpeningSimulator(props) {
   const navigator = useNavigator()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
-  const [bookType, setBookType] = React.useState('')
+  const [bookId, setBookId] = React.useState('')
   const [deck, setDeck] = React.useState(props.book || [])
   const [amount, setAmount] = React.useState(1)
   const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
   const id = serialization.cards.serialize(deck)
+  const booksIndex = indexArray(props.books)
 
   const isFormValid = React.useMemo(
     () =>
-      bookType === 'CUSTOM'
+      bookId === 'CUSTOM'
         ? expectations.reduce((a, b) => a + b, 0) === 100
-        : Boolean(bookType),
-    [bookType, expectations]
+        : Boolean(bookId),
+    [bookId, expectations]
   )
 
   const reset = React.useCallback(() => {
-    setBookType('')
+    setBookId('')
     setDeck([])
     setAmount(1)
     setExpectations([25, 25, 25, 25])
@@ -173,16 +173,16 @@ export default React.memo(function BookOpeningSimulator(props) {
       event.preventDefault()
 
       const book =
-        bookType !== 'CUSTOM'
-          ? BOOKS[bookType]
+        bookId !== 'CUSTOM'
+          ? booksIndex[bookId]
           : {
               draws: amount,
-              percentiles: expectations.map(expectation => expectation / 100),
+              odds: expectations.map(expectation => expectation / 100),
             }
 
       setDeck(openBook(cards, book))
     },
-    [cards, bookType, expectations, amount]
+    [cards, booksIndex, bookId, expectations, amount]
   )
 
   React.useEffect(() => {
@@ -221,21 +221,21 @@ export default React.memo(function BookOpeningSimulator(props) {
             <Spacing bottom='LARGE'>
               <Select
                 label='Book type'
-                id='bookType'
+                id='bookId'
                 required
-                value={bookType}
-                onChange={event => setBookType(event.target.value)}
+                value={bookId}
+                onChange={event => setBookId(event.target.value)}
               >
                 <option value=''>Pick a book type</option>
-                {Object.keys(BOOKS).map(bookType => (
-                  <option value={bookType} key={bookType}>
-                    {getBookName(bookType)} ({BOOKS[bookType].draws})
+                {props.books.map(book => (
+                  <option value={book.id} key={book._id}>
+                    {book.name} ({book.draws})
                   </option>
                 ))}
                 <option value='CUSTOM'>Custom Book</option>
               </Select>
             </Spacing>
-            {bookType === 'CUSTOM' && (
+            {bookId === 'CUSTOM' && (
               <CustomBookFields
                 amount={amount}
                 setAmount={setAmount}

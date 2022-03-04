@@ -1,16 +1,19 @@
 import { DailyIncome } from '~/helpers/Income'
 import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
 
-const getActivityRewards = ({
-  league,
-  preferTier3Stones,
-  setup,
-  wins,
-  withDailyHumble,
-  withDailyQuests,
-  withPremiumPass,
-}) => {
-  const rewards = new DailyIncome()
+const getActivityRewards = (
+  books,
+  {
+    league,
+    preferTier3Stones,
+    setup,
+    wins,
+    withDailyHumble,
+    withDailyQuests,
+    withPremiumPass,
+  }
+) => {
+  const rewards = new DailyIncome(books)
 
   if (withDailyHumble) {
     rewards.openBook('HUMBLE')

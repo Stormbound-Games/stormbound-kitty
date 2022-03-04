@@ -15,7 +15,6 @@ import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import { BRAWL_MILESTONES } from '~/constants/brawl'
-import { BOOKS } from '~/constants/books'
 import {
   Common,
   Rare,
@@ -28,7 +27,6 @@ import {
 import capitalize from '~/helpers/capitalize'
 import clamp from '~/helpers/clamp'
 import getActivityRewards from '~/helpers/getActivityRewards'
-import getBookName from '~/helpers/getBookName'
 import getBrawlRewards from '~/helpers/getBrawlRewards'
 import getClimbingRewards from '~/helpers/getClimbingRewards'
 import getDraftRewards from '~/helpers/getDraftRewards'
@@ -45,35 +43,36 @@ import {
 import styles from './styles'
 
 const PERIODS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY']
-const SELECT_LENGTH_MULTIPLIER = {
-  DAILY: '1ch',
-  WEEKLY: '1.2ch',
-  MONTHLY: '1.2ch',
-  YEARLY: '1.1ch',
+
+const getPeriodicIncome = (books, period) => {
+  if (period === 'YEARLY') return new YearlyIncome(books)
+  if (period === 'MONTHLY') return new MonthlyIncome(books)
+  if (period === 'WEEKLY') return new WeeklyIncome(books)
+  if (period === 'DAILY') return new DailyIncome(books)
 }
 
-const getPeriodicIncome = period => {
-  if (period === 'YEARLY') return new YearlyIncome()
-  if (period === 'MONTHLY') return new MonthlyIncome()
-  if (period === 'WEEKLY') return new WeeklyIncome()
-  if (period === 'DAILY') return new DailyIncome()
-}
-
-const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
-  const income = getPeriodicIncome(period)
+const useIncomeOverPeriod = (books, settings, period, rubiesConversion) => {
+  const income = getPeriodicIncome(books, period)
 
   if (settings.league) {
-    const chestRewards = getLeagueChestRewards(settings.league)
+    const chestRewards = getLeagueChestRewards(books, settings.league)
     income.add(chestRewards)
   }
 
   if (settings.league === 'HEROES') {
-    const heroLeagueRewards = getHeroesLeagueRewards(settings.heroesPosition)
+    const heroLeagueRewards = getHeroesLeagueRewards(
+      books,
+      settings.heroesPosition
+    )
     income.add(heroLeagueRewards)
   }
 
   if (settings.league && settings.rank) {
-    const climbingRewards = getClimbingRewards(settings.league, settings.rank)
+    const climbingRewards = getClimbingRewards(
+      books,
+      settings.league,
+      settings.rank
+    )
     income.add(climbingRewards)
   }
 
@@ -81,6 +80,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
     const sessions = clamp(settings.draftSessions, 0, 3)
     const wins = clamp(settings.draftWins, 0, 6)
     const draftRewards = getDraftRewards(
+      books,
       sessions,
       wins,
       settings.withPremiumPass
@@ -91,7 +91,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
     income.add(draftRewards)
   }
 
-  const brawlRewards = getBrawlRewards({
+  const brawlRewards = getBrawlRewards(books, {
     casual: settings.casualMilestone || -1,
     warrior: settings.warriorMilestone || -1,
     ultimate: settings.ultimateMilestone || -1,
@@ -99,7 +99,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
   brawlRewards.coins -= settings.brawlCost || 0
   income.add(brawlRewards)
 
-  const activityRewards = getActivityRewards({
+  const activityRewards = getActivityRewards(books, {
     league: settings.league,
     preferTier3Stones: settings.preferTier3Stones,
     setup: settings.setup,
@@ -137,6 +137,7 @@ export default React.memo(function IncomeCalculator(props) {
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
   const [withDailyQuests, setWithDailyQuests] = React.useState(false)
   const income = useIncomeOverPeriod(
+    props.books,
     {
       brawlCost,
       heroesPosition,
@@ -449,9 +450,9 @@ export default React.memo(function IncomeCalculator(props) {
                       }
                     >
                       <option value='NONE'>Nothing</option>
-                      {Object.keys(BOOKS).map(bookType => (
-                        <option value={bookType} key={bookType}>
-                          {getBookName(bookType, true)}
+                      {props.books.map(book => (
+                        <option value={book.id} key={book._id}>
+                          {book.name}
                         </option>
                       ))}
                       <option value='CARD_SHOP'>Card Shop Epics</option>

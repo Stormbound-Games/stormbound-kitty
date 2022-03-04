@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '~/components/Link'
 import { RARITIES } from '~/constants/game'
-import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import { EXPECTATIONS } from '~/constants/books'
 import { CardsContext } from '~/components/CardsProvider'
 import Info from '~/components/Info'
 import Label from '~/components/Label'
@@ -18,6 +18,7 @@ import Title from '~/components/Title'
 import countCards from '~/helpers/countCards'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getBookName from '~/helpers/getBookName'
+import indexArray from '~/helpers/indexArray'
 import styles from './styles'
 
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), min), max)
@@ -25,9 +26,10 @@ const clamp = (min, value, max) => Math.min(Math.max(Number(value), min), max)
 export default React.memo(function BooksCalculator(props) {
   const { cards } = React.useContext(CardsContext)
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
-  const [bookType, setBookType] = React.useState('MYTHIC')
+  const [bookId, setBookId] = React.useState(props.books[0].id)
   const [target, setTarget] = React.useState('FUSION_STONES')
   const [expectations, setExpectations] = React.useState([0, 0, 0, 0])
+  const booksIndex = indexArray(props.books)
 
   // Reset the default state of each mode when toggling between the 2
   React.useEffect(() => {
@@ -107,13 +109,13 @@ export default React.memo(function BooksCalculator(props) {
                   <Select
                     label='Book type'
                     id='book'
-                    value={bookType}
-                    onChange={event => setBookType(event.target.value)}
+                    value={bookId}
+                    onChange={event => setBookId(event.target.value)}
                     data-testid='book-select'
                   >
-                    {Object.keys(BOOKS).map(bookType => (
-                      <option key={bookType} value={bookType}>
-                        {getBookName(bookType)}
+                    {props.books.map(book => (
+                      <option key={book._id} value={book.id}>
+                        {book.name}
                       </option>
                     ))}
                   </Select>
@@ -156,7 +158,7 @@ export default React.memo(function BooksCalculator(props) {
                 <p>
                   Define how many different cards of any rarity you are looking
                   for to know the odds of finding at least some of them when
-                  opening a {getBookName(bookType)}.
+                  opening a {booksIndex[bookId].name}.
                 </p>
                 <p>
                   For instance, if you’re looking for a copy of Summon Militia,
@@ -219,9 +221,9 @@ export default React.memo(function BooksCalculator(props) {
         <Row.Column width='1/3'>
           <Title element='h2'>Outcome</Title>
 
-          <BookExplanation book={bookType} />
+          <BookExplanation book={booksIndex[bookId]} />
           <BookOutcome
-            book={bookType}
+            book={booksIndex[bookId]}
             target={target}
             isAdvancedMode={isAdvancedMode}
             expectations={expectations}
@@ -239,17 +241,17 @@ export default React.memo(function BooksCalculator(props) {
                 </tr>
               </thead>
               <tbody>
-                {Object.keys(BOOKS)
-                  .filter(book => BOOKS[book].cost)
+                {props.books
+                  .filter(book => book.cost)
                   .map(book => (
-                    <tr key={book}>
+                    <tr key={book._id}>
                       <td data-label='Book name'>
-                        <Link onClick={() => setBookType(book)}>
-                          {getBookName(book)}
+                        <Link onClick={() => setBookId(book.id)}>
+                          {book.name}
                         </Link>
                       </td>
                       <td data-label='Book cost'>
-                        {getResourceLabel(BOOKS[book].cost, true)}
+                        {getResourceLabel(book.cost, true)}
                       </td>
                     </tr>
                   ))}
