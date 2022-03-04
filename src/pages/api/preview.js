@@ -14,6 +14,9 @@ const getRedirectUrl = async params => {
     case 'siteSettings':
       return '/'
 
+    case 'equalTierList':
+      return '/list/equals'
+
     case 'artwork':
       return '/fan-art'
 

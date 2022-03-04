@@ -7,6 +7,7 @@ import changelog from './documents/changelog'
 import contribution from './documents/contribution'
 import deck from './documents/deck'
 import donation from './documents/donation'
+import equalTierList from './documents/equalTierList'
 import event from './documents/event'
 import faq from './documents/faq'
 import guide from './documents/guide'
@@ -25,6 +26,7 @@ export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
     siteSettings,
+    equalTierList,
     artwork,
     avatar,
     podcast,

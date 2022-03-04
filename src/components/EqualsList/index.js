@@ -33,14 +33,13 @@ export default React.memo(function ListBuilderDisplayView(props) {
       }),
     }))
     .filter(tier => tier.cards.length > 0)
-  const lastUpdate = parseDate(props.date)
-  const release = props.release
+  const lastUpdate = formatDate(parseDate(props.date))
 
   return (
     <Page
       title='Equals Tier List'
       description='Find a Tier List for ‘Equals Mode’ of all the Stormbound cards, ranked by effectiveness and popularity'
-      meta={'Updated in ' + formatDate(lastUpdate)}
+      meta={'Updated in ' + lastUpdate}
     >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
@@ -51,14 +50,8 @@ export default React.memo(function ListBuilderDisplayView(props) {
           </p>
 
           <p>
-            It was last updated{' '}
-            {release ? (
-              <>
-                following the{' '}
-                <Link to={'/releases/' + release.slug}>{release.title}</Link>{' '}
-              </>
-            ) : null}
-            in <span className='Highlight'>{formatDate(lastUpdate)}</span>.
+            It was last updated in{' '}
+            <span className='Highlight'>{lastUpdate}</span>.
           </p>
 
           <ListBuilderToc tiers={tiers} />
