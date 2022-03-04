@@ -1,9 +1,11 @@
+import { MdSettings } from 'react-icons/md'
 import getBlock from '../richText/block'
 
 const siteSettings = {
   title: 'Site settings',
   name: 'siteSettings',
   type: 'document',
+  icon: MdSettings,
   fields: [
     {
       title: 'Site banner',
@@ -14,6 +16,13 @@ const siteSettings = {
       of: [getBlock({ withLists: false, withCardLink: false })],
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Site settings',
+      }
+    },
+  },
 }
 
 export default siteSettings
