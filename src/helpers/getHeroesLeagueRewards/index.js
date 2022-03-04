@@ -1,7 +1,7 @@
 import { MonthlyIncome } from '~/helpers/Income'
 
-const getHeroesLeagueRewards = position => {
-  const rewards = new MonthlyIncome()
+const getHeroesLeagueRewards = (books, position) => {
+  const rewards = new MonthlyIncome(books)
 
   if (position === 'TOP_1') {
     rewards.stones += 100

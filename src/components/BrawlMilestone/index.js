@@ -6,10 +6,8 @@ import Card from '~/components/Card'
 import Image from '~/components/Image'
 import BrawlProgressBar from '~/components/BrawlProgressBar'
 import ResourceIcon from '~/components/ResourceIcon'
-import capitalize from '~/helpers/capitalize'
 import getResourceLabel from '~/helpers/getResourceLabel'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
@@ -22,12 +20,12 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
     case 'CLASSIC_BOOK':
     case 'NOBLE_BOOK': {
       const bookType = props.reward.replace('_BOOK', '')
-      const book = BOOKS[bookType]
+      const book = props.booksIndex[bookType]
 
       return (
         <Image
           src={book.image}
-          alt={`${capitalize(bookType.toLowerCase())} book`}
+          alt={book.name}
           extend={styles.bookImage}
           width={150}
         />
@@ -95,7 +93,11 @@ export default React.memo(function BrawlMilestone(props) {
 
       <div className={css(styles.body)}>
         <div className={css({ width: '50%' })}>
-          <BrawlRewardAsset reward={props.reward} cardId={props.cardId} />
+          <BrawlRewardAsset
+            booksIndex={props.booksIndex}
+            reward={props.reward}
+            cardId={props.cardId}
+          />
         </div>
         <span className={css(styles.label)}>{getResourceLabel(props)}</span>
       </div>

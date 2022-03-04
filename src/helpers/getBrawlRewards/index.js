@@ -2,8 +2,8 @@ import { WeeklyIncome } from '~/helpers/Income'
 import { BRAWL_MILESTONES } from '~/constants/brawl'
 import getRewardFromMilestone from '~/helpers/getRewardFromMilestone'
 
-const getBrawlRewards = ({ casual, warrior, ultimate }) => {
-  const rewards = new WeeklyIncome()
+const getBrawlRewards = (books, { casual, warrior, ultimate }) => {
+  const rewards = new WeeklyIncome(books)
 
   for (let c = 0; c <= casual; c += 1) {
     rewards.add(getRewardFromMilestone(BRAWL_MILESTONES.CASUAL[c]))

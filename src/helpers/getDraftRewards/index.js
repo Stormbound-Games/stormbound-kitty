@@ -20,8 +20,8 @@ const PREMIUM_PASS_BONUSES = [
   { cards: [0, 0, 0, 1], coins: 400, stones: 3 },
 ]
 
-const getDraftRewards = (sessions, wins, withPremiumPass) => {
-  const rewards = new WeeklyIncome()
+const getDraftRewards = (books, sessions, wins, withPremiumPass) => {
+  const rewards = new WeeklyIncome(books)
 
   for (let i = 0; i < sessions; i++) {
     rewards.add(WINS[wins])

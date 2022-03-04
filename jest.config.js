@@ -17,10 +17,13 @@ module.exports = async () => {
   )
     .map(cleanCard)
     .sort(sortCards)
+  const books = await client.fetch(`*[ _type == 'book' ]`)
   const decks = await client.fetch(`*[ _type == 'deck' ]`)
 
   return {
     globals: {
+      __BOOKS__: books,
+      __BOOKS_INDEX__: indexArray(books),
       __CARDS__: cards,
       __CARDS_INDEX__: indexArray(cards),
       __CARDS_INDEX_BY_SID__: indexArray(cards, 'sid'),

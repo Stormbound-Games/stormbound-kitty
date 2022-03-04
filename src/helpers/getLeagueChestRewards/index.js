@@ -1,9 +1,9 @@
 import { MonthlyIncome } from '~/helpers/Income'
 
-const getLeagueChestRewards = league => {
+const getLeagueChestRewards = (books, league) => {
   switch (league) {
     case 'HEROES':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 2000,
         rubies: 70,
         stones: 7.5,
@@ -11,7 +11,7 @@ const getLeagueChestRewards = league => {
       })
 
     case 'DIAMOND':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 1500,
         rubies: 50,
         stones: 7.5,
@@ -19,7 +19,7 @@ const getLeagueChestRewards = league => {
       })
 
     case 'PLATINUM':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 1100,
         rubies: 30,
         stones: 0,
@@ -27,7 +27,7 @@ const getLeagueChestRewards = league => {
       })
 
     case 'GOLD':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 800,
         rubies: 20,
         stones: 0,
@@ -35,7 +35,7 @@ const getLeagueChestRewards = league => {
       })
 
     case 'SILVER':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 500,
         rubies: 10,
         stones: 0,
@@ -43,7 +43,7 @@ const getLeagueChestRewards = league => {
       })
 
     case 'BRONZE':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 300,
         rubies: 5,
         stones: 0,
@@ -51,14 +51,15 @@ const getLeagueChestRewards = league => {
       })
 
     case 'IRON':
-      return new MonthlyIncome({
+      return new MonthlyIncome(books, {
         coins: 150,
         rubies: 0,
         stones: 0,
         cards: [3, 1, 0, 0],
       })
+
     default:
-      return new MonthlyIncome()
+      return new MonthlyIncome(books)
   }
 }
 

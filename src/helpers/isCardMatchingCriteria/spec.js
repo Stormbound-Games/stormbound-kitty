@@ -47,7 +47,7 @@ describe('The `isCardMatchingCriteria` helper', () => {
   })
 
   it('should handle ability', () => {
-    const isElder = isCardMatchingCriteria({ ability: /a Knight with/ })
+    const isElder = isCardMatchingCriteria({ ability: 'a Knight with' })
 
     expect(
       isElder(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }))
@@ -61,7 +61,7 @@ describe('The `isCardMatchingCriteria` helper', () => {
   })
 
   it('should handle name', () => {
-    const isTemple = isCardMatchingCriteria({ name: /^Temple/ })
+    const isTemple = isCardMatchingCriteria({ name: 'Temple' })
 
     expect(
       isTemple(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }))

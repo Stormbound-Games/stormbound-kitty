@@ -1,10 +1,11 @@
 import { RARITIES } from '~/constants/game'
-import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import { EXPECTATIONS } from '~/constants/books'
 import getDrawingProbability from '~/helpers/getDrawingProbability'
 import searchCards from '~/helpers/searchCards'
+import indexArray from '~/helpers/indexArray'
 import getEmbed from '~/helpers/getEmbed'
-import getBookName from '~/helpers/getBookName'
 import getCards from '~/api/cards/getCards'
+import getBooks from '~/api/books/getBooks'
 
 const getEmbedFields = (cards, book) => {
   const fields = []
@@ -43,13 +44,13 @@ const getEmbedFields = (cards, book) => {
   return fields
 }
 
-const parseMessage = (cards, search) => {
+const parseMessage = (booksIndex, cards, search) => {
   const terms = search.split(/\s+/g)
   const params = {}
 
   terms.forEach(term => {
-    if (Object.keys(BOOKS).includes(term.toUpperCase())) {
-      params.bookType = term.toUpperCase()
+    if (term.toUpperCase() in booksIndex) {
+      params.book = booksIndex[term.toUpperCase()]
     } else if (Object.keys(RARITIES).includes(term.toLowerCase())) {
       params.target = term.toUpperCase()
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
@@ -75,19 +76,20 @@ const bookodds = {
       )
   },
   handler: async function (message) {
+    const books = await getBooks()
     const cards = await getCards()
-    const { bookType, target } = parseMessage(cards, message)
+    const booksIndex = indexArray(books)
+
+    const { book, target } = parseMessage(booksIndex, cards, message)
 
     // The book argument should be mandatory and there is no way to compute
     // anything if it’s not provided.
-    if (!bookType) return
+    if (!book) return
 
-    const book = BOOKS[bookType]
-    const bookName = getBookName(bookType)
     const embed = getEmbed()
-      .setTitle(`${this.label}: ${bookName}`)
+      .setTitle(`${this.label}: ${book.name}`)
       .setURL('https://stormbound-kitty.com/calculators/books')
-    const intro = `A **${bookName}** has:`
+    const intro = `A **${book.name}** has:`
 
     if (target === 'FUSION_STONES') {
       embed.setTitle(embed.title + ' · Fusion stones')
@@ -101,7 +103,7 @@ const bookodds = {
     // If no specific target is provided, return all the odds for the given book
     // starting with fusion stones, and then going through rarities.
     if (!target) {
-      embed.addFields(...getEmbedFields(cards, bookType))
+      embed.addFields(...getEmbedFields(cards, book))
 
       return embed
     }
@@ -113,7 +115,7 @@ const bookodds = {
       const odds =
         getDrawingProbability(
           cards,
-          bookType,
+          book,
           EXPECTATIONS['SPECIFIC_' + rarity].getExpectations(cards, book.only)
         ) * 100
 
@@ -127,7 +129,7 @@ const bookodds = {
       return embed
     }
 
-    embed.addFields(...getEmbedFields(cards, bookType))
+    embed.addFields(...getEmbedFields(cards, book))
 
     return embed
   },

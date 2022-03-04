@@ -1,5 +1,3 @@
-import { BOOKS } from '~/constants/books'
-
 const RARITY_STONES = {
   COMMON: 5,
   RARE: 10,
@@ -7,12 +5,12 @@ const RARITY_STONES = {
   LEGENDARY: 50,
 }
 
-const getAverageStonesPerBook = bookType => {
+const getAverageStonesPerBook = book => {
   // There is roughly 10% chance to get fusion stones, regardless of the type of
   // book. And the amount of fusion stones depends on the rarity of the card
   // that gets replaced.
   return (
-    BOOKS[bookType].percentiles
+    book.odds
       .map(
         (percentile, index) => percentile * Object.values(RARITY_STONES)[index]
       )

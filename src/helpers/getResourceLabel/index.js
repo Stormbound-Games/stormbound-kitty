@@ -15,6 +15,10 @@ const getResourceLabel = (entry, enhanced = false) => {
   const amount = entry.rewardAmount || entry.amount
   const type = entry.reward || entry.type
 
+  if (type.endsWith('_BOOK')) {
+    return `${amount} ${getBookName(type, amount !== 1)}`
+  }
+
   switch (type) {
     case 'RUBIES':
       return enhanced ? (
@@ -34,16 +38,6 @@ const getResourceLabel = (entry, enhanced = false) => {
       ) : (
         `${amount} fusion stone${amount === 1 ? '' : 's'}`
       )
-    case 'NOBLE_BOOK':
-    case 'CLASSIC_BOOK':
-    case 'HEROIC_BOOK':
-    case 'MYTHIC_BOOK':
-    case 'FELINE_BOOK':
-    case 'PIRATE_BOOK':
-    case 'DRAGON_BOOK':
-    case 'ARCHDRAGON_BOOK':
-    case 'HUMBLE_BOOK':
-      return `${amount} ${getBookName(entry.reward, amount !== 1)}`
     case 'COMMON_CARD':
       return enhanced ? (
         <Common amount={amount} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import { EXPECTATIONS } from '~/constants/books'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import Info from '~/components/Info'
@@ -10,7 +10,6 @@ import { Coins, Stones } from '~/components/Resource'
 import getDrawingProbability from '~/helpers/getDrawingProbability'
 import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '~/helpers/getExpectedCoinsPerBook'
-import getBookName from '~/helpers/getBookName'
 
 const useExpectedCoins = book => {
   const { cards, cardsIndex } = React.useContext(CardsContext)
@@ -35,7 +34,6 @@ const useExpectedCoins = book => {
 export default React.memo(function BookOutcome(props) {
   const { cards } = React.useContext(CardsContext)
   const { css } = useFela()
-  const bookName = getBookName(props.book)
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
     ? 'at least one of the cards you want'
@@ -43,7 +41,7 @@ export default React.memo(function BookOutcome(props) {
   const expectations = props.expectations.map(a => a || 0)
   const bookExpectations = EXPECTATIONS[props.target].getExpectations(
     cards,
-    BOOKS[props.book].only
+    props.book.only
   )
   const chances =
     // The odds of drawing fusion stones in *any* book are roughly of 1 in 10.
@@ -62,7 +60,7 @@ export default React.memo(function BookOutcome(props) {
       {props.isAdvancedMode && expectations.join('') === '0000' ? (
         <p>
           Define how many different cards you need of each rarity to get the
-          odds of drawing at least one of them in a {bookName} book.
+          odds of drawing at least one of them in a {props.book.name}.
         </p>
       ) : Number(chances) === 0 ? (
         <p>
@@ -74,7 +72,7 @@ export default React.memo(function BookOutcome(props) {
           <p>
             Opening a{' '}
             <strong className='Highlight' data-testid='book-name'>
-              {bookName}
+              {props.book.name}
             </strong>{' '}
             would yield:
           </p>

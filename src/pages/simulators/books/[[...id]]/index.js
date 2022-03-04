@@ -6,6 +6,7 @@ import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
+import getBooks from '~/api/books/getBooks'
 import FUSION_STONES from '~/constants/fs'
 
 export async function getStaticPaths() {
@@ -14,6 +15,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = (await getCards({ isPreview })).concat(FUSION_STONES)
+  const books = await getBooks({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const [id] = params.id || []
   const cardsIndex = indexArray(cards)
@@ -25,6 +27,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
+      books,
       cards,
       settings,
       book: book.map(card => getResolvedCardData(cardsIndex, card)),
