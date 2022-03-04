@@ -1,4 +1,4 @@
-import { MdGrading } from 'react-icons/md'
+import { MdGrading, MdSettings } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
 
 const structure = () =>
@@ -7,6 +7,7 @@ const structure = () =>
     .items([
       S.listItem()
         .title('Site settings')
+        .icon(MdSettings)
         .child(
           S.document().schemaType('siteSettings').documentId('siteSettings')
         ),
