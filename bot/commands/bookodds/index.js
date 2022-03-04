@@ -1,5 +1,5 @@
 import { RARITIES } from '~/constants/game'
-import { EXPECTATIONS } from '~/constants/books'
+import getDrawingExpectations from '~/helpers/getDrawingExpectations'
 import getDrawingProbability from '~/helpers/getDrawingProbability'
 import searchCards from '~/helpers/searchCards'
 import indexArray from '~/helpers/indexArray'
@@ -13,8 +13,11 @@ const getEmbedFields = (cards, book) => {
   Object.keys(RARITIES).forEach(rarity => {
     const anyKey = 'ANY_' + rarity.toUpperCase()
     const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
-    const anyOdds = EXPECTATIONS[anyKey].getExpectations(cards, book.only)
-    const specificOdds = EXPECTATIONS[specificKey].getExpectations(
+    const anyOdds = getDrawingExpectations(anyKey).getExpectations(
+      cards,
+      book.only
+    )
+    const specificOdds = getDrawingExpectations(specificKey).getExpectations(
       cards,
       book.only
     )
@@ -116,7 +119,10 @@ const bookodds = {
         getDrawingProbability(
           cards,
           book,
-          EXPECTATIONS['SPECIFIC_' + rarity].getExpectations(cards, book.only)
+          getDrawingExpectations('SPECIFIC_' + rarity).getExpectations(
+            cards,
+            book.only
+          )
         ) * 100
 
       embed.setTitle(embed.title + ' · ' + target.name)

@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import { EXPECTATIONS } from '~/constants/books'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
 import { Coins, Stones } from '~/components/Resource'
+import getDrawingExpectations from '~/helpers/getDrawingExpectations'
 import getDrawingProbability from '~/helpers/getDrawingProbability'
 import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '~/helpers/getExpectedCoinsPerBook'
@@ -37,9 +37,9 @@ export default React.memo(function BookOutcome(props) {
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
     ? 'at least one of the cards you want'
-    : EXPECTATIONS[props.target].label.toLowerCase()
+    : getDrawingExpectations(props.target).label.toLowerCase()
   const expectations = props.expectations.map(a => a || 0)
-  const bookExpectations = EXPECTATIONS[props.target].getExpectations(
+  const bookExpectations = getDrawingExpectations(props.target).getExpectations(
     cards,
     props.book.only
   )

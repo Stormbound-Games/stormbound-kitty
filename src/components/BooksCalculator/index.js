@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from '~/components/Link'
 import { RARITIES } from '~/constants/game'
-import { EXPECTATIONS } from '~/constants/books'
 import { CardsContext } from '~/components/CardsProvider'
 import Info from '~/components/Info'
 import Label from '~/components/Label'
@@ -17,7 +16,7 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import countCards from '~/helpers/countCards'
 import getResourceLabel from '~/helpers/getResourceLabel'
-import getBookName from '~/helpers/getBookName'
+import getDrawingExpectations from '~/helpers/getDrawingExpectations'
 import indexArray from '~/helpers/indexArray'
 import styles from './styles'
 
@@ -130,11 +129,18 @@ export default React.memo(function BooksCalculator(props) {
                     data-testid='target-select'
                     disabled={isAdvancedMode}
                   >
-                    {Object.keys(EXPECTATIONS).map(option => (
-                      <option key={option} value={option}>
-                        {EXPECTATIONS[option].label}
-                      </option>
-                    ))}
+                    <option value='FUSION_STONES'>Fusion stones</option>
+                    {Object.keys(RARITIES)
+                      .map(rarity => rarity.toUpperCase())
+                      .flatMap(rarity => [
+                        'SPECIFIC_' + rarity,
+                        'ANY_' + rarity,
+                      ])
+                      .map(type => (
+                        <option key={type} value={type}>
+                          {getDrawingExpectations(type).label}
+                        </option>
+                      ))}
                   </Select>
                 </Row.Column>
               </Row>
