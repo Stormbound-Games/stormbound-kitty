@@ -6,15 +6,16 @@ import styles from './styles'
 
 export default React.memo(function Loader(props) {
   const { css } = useFela()
+
   return (
-    <div className={css(styles.loader)}>
+    <div className={css(styles.loader, props.extend)}>
       <svg
         width='44'
         height='44'
         viewBox='0 0 44 44'
         xmlns='http://www.w3.org/2000/svg'
         stroke='var(--beige)'
-        className={css(styles.svg)}
+        className={css(styles.svg, props.extendSvg)}
       >
         <g fill='none' fillRule='evenodd' strokeWidth='2'>
           <circle cx='22' cy='22' r='1'>

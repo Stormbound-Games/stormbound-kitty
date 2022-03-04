@@ -39,12 +39,28 @@ const item = ({ isHighlighted, isSelected }) => ({
   textAlign: 'left',
 })
 
+const inputLoaderContainer = {
+  margin: 0,
+  position: 'absolute',
+  top: '50%',
+  right: '0.5em',
+  transform: 'translateY(-50%)',
+}
+
+const inputLoader = {
+  transform: 'none',
+  margin: 0,
+  width: '2em',
+}
+
 const styles = {
   arrow,
   meta,
   list,
   item,
   body,
+  inputLoaderContainer,
+  inputLoader,
 }
 
 export default styles

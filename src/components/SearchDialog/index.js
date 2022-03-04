@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import querystring from 'querystring'
 import { useCombobox } from 'downshift'
 import Dialog from '~/components/Dialog'
+import Loader from '~/components/Loader'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
 import useDebounce from '~/hooks/useDebounce'
@@ -76,8 +77,9 @@ export default React.memo(function SearchDialog(props) {
   const navigator = useNavigator()
   const input = React.useRef(null)
   const [search, setSearch] = React.useState('')
-  const debouncedSearch = useDebounce(search, 1000)
+  const debouncedSearch = useDebounce(search, 500)
   const [results, setResults] = React.useState([])
+  const [isNavigating, setIsNavigating] = React.useState(false)
 
   useSearchKeyboardShortcut(() => props.dialogRef.current?.show())
 
@@ -88,12 +90,20 @@ export default React.memo(function SearchDialog(props) {
   )
 
   // Hide the dialog when the URL changes (after navigating to a result).
-  // eslint-disable-next-line
-  React.useEffect(() => props.dialogRef.current?.hide(), [router.asPath])
+  React.useEffect(() => {
+    props.dialogRef.current?.hide()
+    setIsNavigating(false)
+    // eslint-disable-next-line
+  }, [router.asPath])
 
   // Function executed when selecting a result to navigate to its path.
   const handleNavigation = React.useCallback(
-    ({ selectedItem }) => selectedItem && navigator.push(selectedItem.path),
+    ({ selectedItem }) => {
+      if (selectedItem) {
+        setIsNavigating(true)
+        navigator.push(selectedItem.path)
+      }
+    },
     [navigator]
   )
 
@@ -126,7 +136,10 @@ export default React.memo(function SearchDialog(props) {
     }
   }
 
-  const comboboxProps = getComboboxProps({}, { suppressRefError: true })
+  const comboboxProps = getComboboxProps(
+    { className: css({ position: 'relative' }) },
+    { suppressRefError: true }
+  )
   const menuProps = getMenuProps({}, { suppressRefError: true })
   const inputProps = getInputProps(
     {
@@ -137,6 +150,7 @@ export default React.memo(function SearchDialog(props) {
       id: 'search',
       ref: input,
       'data-testid': 'search-input',
+      readOnly: isNavigating,
     },
     { suppressRefError: true }
   )
@@ -154,6 +168,13 @@ export default React.memo(function SearchDialog(props) {
       <div className={css(styles.body)}>
         <div {...comboboxProps}>
           <Input {...inputProps} />
+          {isNavigating && (
+            <Loader
+              hideLabel
+              extend={styles.inputLoaderContainer}
+              extendSvg={styles.inputLoader}
+            />
+          )}
         </div>
         <ul {...menuProps} className={css(styles.list({ isOpen }))}>
           {isOpen &&
