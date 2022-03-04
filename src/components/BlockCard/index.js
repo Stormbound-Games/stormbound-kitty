@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { RichTextContext } from '~/components/BlocksRenderer'
 import { CardsContext } from '~/components/CardsProvider'
 import Card from '~/components/Card'
@@ -8,8 +9,9 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function BlockCard(props) {
+  const { css } = useFela()
   const { cards, cardsIndex } = React.useContext(CardsContext)
-  const { isInColumn } = React.useContext(RichTextContext)
+  const { columns } = React.useContext(RichTextContext)
   const id = props.value.cardId
   const level = props.value.level || 1
 
@@ -18,8 +20,18 @@ export default React.memo(function BlockCard(props) {
     return null
   }
 
-  return isInColumn ? (
-    <Card {...getResolvedCardData(cardsIndex, { id, level })} />
+  return columns.count > 0 ? (
+    <div
+      className={css({
+        marginBottom: 'var(--s-large)',
+        medium: { marginBottom: 0 },
+      })}
+    >
+      <Card
+        {...getResolvedCardData(cardsIndex, { id, level })}
+        containerWidth={(columns.wide ? 1200 : 700) / columns.count}
+      />
+    </div>
   ) : (
     <PageEmbed>
       <CardBuilderCardDisplay {...getInitialCardData(cards, id)} />

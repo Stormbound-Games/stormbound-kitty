@@ -24,7 +24,7 @@ import Title from '~/components/Title'
 
 export const RichTextContext = React.createContext({
   ast: {},
-  isInColumn: false,
+  columns: { count: 0, wide: false },
 })
 
 const marks = {
@@ -99,7 +99,10 @@ export default React.memo(function BlocksRenderer(props) {
   // find all the headings.
   return (
     <RichTextContext.Provider
-      value={{ ast: props.value, isInColumn: props.isInColumn || false }}
+      value={{
+        ast: props.value,
+        columns: props.columns || { count: 0, wide: false },
+      }}
     >
       <PortableText value={props.value} components={COMPONENTS} />
     </RichTextContext.Provider>
