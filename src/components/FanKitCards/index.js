@@ -8,8 +8,10 @@ import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
 import useLazyLoad from '~/hooks/useLazyLoad'
+import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function FanKitCards(props) {
+  const isMounted = useIsMounted()
   const { cardsIndex } = React.useContext(CardsContext)
   const [search, setSearch] = React.useState(null)
   const columns = 4
@@ -51,6 +53,7 @@ export default React.memo(function FanKitCards(props) {
             withSpells
             withTokens
             withClear
+            disabled={!isMounted}
           />
         </Row.Column>
         <Row.Column width='1/4' />

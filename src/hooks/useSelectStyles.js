@@ -17,8 +17,10 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
       ...(noBorder && { ':hover': { color: 'var(--beige)' } }),
     }),
 
-    valueContainer: provided => ({
+    valueContainer: (provided, { isDisabled }) => ({
       ...provided,
+      opacity: isDisabled ? 0.5 : 1,
+      cursor: isDisabled ? 'not-allowed' : undefined,
       lineHeight: 'inherit',
       paddingTop: '0.4em',
       paddingBottom: '0.4em',
