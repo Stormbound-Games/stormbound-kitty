@@ -6,8 +6,8 @@ export default React.memo(function PoweredBySanity(props) {
   const { css } = useFela()
 
   return (
-    <div className={css(styles.wrapper)}>
-      <div className={css(styles.logoWrapper)}>
+    <span className={css(styles.wrapper)}>
+      <span className={css(styles.logoWrapper)}>
         <svg
           viewBox='0 0 28 28'
           fill='none'
@@ -29,10 +29,10 @@ export default React.memo(function PoweredBySanity(props) {
             fill='#F9B1AB'
           ></path>
         </svg>
-      </div>
+      </span>
       <span className={css(styles.textWrapper)}>
         Powered by&nbsp;<strong>Sanity</strong>
       </span>
-    </div>
+    </span>
   )
 })
