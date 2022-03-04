@@ -4,11 +4,9 @@ import { CardsContext } from '~/components/CardsProvider'
 import Link from '~/components/Link'
 import Card from '~/components/Card'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import useIsMounted from '~/hooks/useIsMounted'
 import styles from './styles'
 
 export default React.memo(function Teaser(props) {
-  const isMounted = useIsMounted()
   const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela({ isLarge: props.large })
   const card =
@@ -25,7 +23,7 @@ export default React.memo(function Teaser(props) {
         }}
       >
         <div className={css(styles.card)}>
-          {isMounted && <Card {...card} />}
+          <Card {...card} containerWidth={230} />
         </div>
       </div>
       <div className={css(styles.body)}>
