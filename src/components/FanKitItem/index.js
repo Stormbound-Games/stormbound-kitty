@@ -2,10 +2,12 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import DiamondButton from '~/components/DiamondButton'
 import Image from '~/components/Image'
+import useIsMounted from '~/hooks/useIsMounted'
 import styles from './styles'
 
 export default React.memo(function FanKitItem(props) {
   const { css } = useFela()
+  const isMounted = useIsMounted()
 
   return (
     <div
@@ -20,6 +22,11 @@ export default React.memo(function FanKitItem(props) {
           onClick={() => props.setActive(props.id)}
           label={'Download asset ' + props.name}
           icon='download'
+          href={
+            isMounted
+              ? undefined
+              : props.image + '?dl=' + encodeURIComponent(props.name)
+          }
         />
       </span>
       <Image
