@@ -26,6 +26,16 @@ export default React.memo(function DiamondButton({
         <VisuallyHidden>{label}</VisuallyHidden>
       </a>
     </RouterLink>
+  ) : props.href ? (
+    <a
+      className={css(styles.button, extend)}
+      data-testid={props['data-testid']}
+      title={label}
+      href={props.href}
+    >
+      <Icon icon={icon} />
+      <VisuallyHidden>{label}</VisuallyHidden>
+    </a>
   ) : (
     <button
       aria-pressed={isActive}
