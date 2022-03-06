@@ -101,7 +101,7 @@ const getSearchIndex = async (withEverything = true) => {
 
   swcc.slice(0, limit).forEach(contest => {
     links.push({
-      label: 'SWCC #' + contest.id + ' ' + contest.name,
+      label: `SWCC Season ${contest.season} week ${contest.week} ${contest.name}`,
       path: `/card/${contest.winner.id}/display`,
       breadcrumbs: ['Community', 'Contests'],
     })
