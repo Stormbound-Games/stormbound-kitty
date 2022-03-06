@@ -37,11 +37,9 @@ export default React.memo(function YourDecksFilters(props) {
         <Row>
           <Row.Column>
             <TagsSelect
+              availableTags={props.availableTags}
               tags={props.tags}
               updateTags={updateTags}
-              isTagAvailable={tag =>
-                decks.some(deck => deck.tags.includes(tag))
-              }
               id='tags'
             />
           </Row.Column>

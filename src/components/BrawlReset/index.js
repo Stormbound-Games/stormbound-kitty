@@ -10,13 +10,13 @@ import styles from './styles'
 
 export default React.memo(function BrawlReset(props) {
   const { css } = useFela()
-  const { brawl, resetBrawl } = React.useContext(BrawlContext)
+  const { session, resetBrawl } = React.useContext(BrawlContext)
   const [discard, setDiscard] = React.useState(false)
   const dialog = React.useRef()
   const open = () => dialog.current.show()
   const close = () => dialog.current.hide()
 
-  if (brawl.matches.length === 0) return null
+  if (session.matches.length === 0) return null
 
   return (
     <>

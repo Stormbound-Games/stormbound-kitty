@@ -36,7 +36,8 @@ const getDefaultFaction = id => {
 export default React.memo(function BrawlMatches(props) {
   const { css } = useFela()
   const [editedMatch, setEditedMatch] = React.useState(null)
-  const { brawl, meta, addMatch, updateMatch } = React.useContext(BrawlContext)
+  const { session, meta, addMatch, updateMatch } =
+    React.useContext(BrawlContext)
 
   const handleAdd = event => {
     event.preventDefault()
@@ -97,18 +98,18 @@ export default React.memo(function BrawlMatches(props) {
           <tbody>
             {editedMatch === null && (
               <BrawlMatchForm
-                opponentFaction={getDefaultFaction(brawl.id)}
+                opponentFaction={getDefaultFaction(session.id)}
                 // Reset the component and its internal states once a match has
                 // been added.
-                key={brawl.matches.length}
+                key={session.matches.length}
               />
             )}
 
-            {[...brawl.matches].reverse().map((match, index) => {
+            {[...session.matches].reverse().map((match, index) => {
               const currMilestone = getMilestone(crowns)
               crowns -= CROWN_REWARDS[match.status]
               const nextMilestone = getMilestone(crowns)
-              const reversedIndex = brawl.matches.length - index - 1
+              const reversedIndex = session.matches.length - index - 1
 
               if (editedMatch === reversedIndex) {
                 return <BrawlMatchForm key={index} {...match} isEdit />
@@ -125,7 +126,7 @@ export default React.memo(function BrawlMatches(props) {
                   )}
                 >
                   <td data-label='Match #'>
-                    {brawl.matches.length - index}
+                    {session.matches.length - index}
                     <Only.Desktop>.</Only.Desktop>
                     <Link
                       extend={styles.edit}

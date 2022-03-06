@@ -10,25 +10,19 @@ import Stats from '~/components/DeckStats'
 import Title from '~/components/Title'
 import { CardsContext } from '~/components/CardsProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
-import { TAGS } from '~/constants/deck'
 import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
 import modifyDeck from '~/helpers/modifyDeck'
-import getDeckPresets from '~/helpers/getDeckPresets'
 import toSentence from '~/helpers/toSentence'
+import indexArray from '~/helpers/indexArray'
 import useNavigator from '~/hooks/useNavigator'
-import { BRAWL_INDEX } from '~/constants/brawl'
-
-const getDefaultBrawlModifier = suggestedDeck => {
-  const { modifier } = getDeckPresets(suggestedDeck)
-
-  return modifier.includes('MANA') ? modifier : 'NONE'
-}
 
 export default React.memo(function DeckDetailView(props) {
   const { notify } = React.useContext(NotificationContext)
   const { cardsIndex } = React.useContext(CardsContext)
   const navigator = useNavigator()
-  const defaultModifier = getDefaultBrawlModifier(props.suggestedDeck)
+  const defaultModifier = props.preset.modifier.includes('MANA')
+    ? props.preset.modifier
+    : 'NONE'
   const [modifier, setModifier] = React.useState(defaultModifier)
   const deck = React.useMemo(
     () => modifyDeck(cardsIndex, props.deck, modifier),
@@ -39,13 +33,14 @@ export default React.memo(function DeckDetailView(props) {
     message => notify({ icon: 'stack', children: message }),
     [notify]
   )
+  const brawlsIndex = indexArray(props.brawls)
 
   React.useEffect(() => {
     if (defaultModifier !== 'NONE') {
-      const brawlLabel = BRAWL_INDEX[defaultModifier].label
-      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
+      const brawl = brawlsIndex[defaultModifier]
+      sendNotification(`Brawl deck found. Loaded with modifier ${brawl.name}.`)
     }
-  }, [defaultModifier, sendNotification])
+  }, [defaultModifier, brawlsIndex, sendNotification])
 
   return (
     <Page
@@ -60,7 +55,7 @@ export default React.memo(function DeckDetailView(props) {
       meta={
         suggestedDeck.tags
           ? toSentence(
-              suggestedDeck.tags.map(tag => TAGS[tag] || tag),
+              suggestedDeck.tags.map(tag => props.availableTags[tag] || tag),
               'and'
             )
           : undefined
@@ -92,6 +87,7 @@ export default React.memo(function DeckDetailView(props) {
         <Row.Column width='1/3'>
           <Stats deck={deck} highlight={props.highlight} />
           <DeckStatsChart
+            brawls={props.brawls}
             deck={deck}
             modifier={modifier}
             setModifier={setModifier}

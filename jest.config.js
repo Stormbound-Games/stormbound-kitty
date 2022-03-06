@@ -19,11 +19,15 @@ module.exports = async () => {
     .sort(sortCards)
   const books = await client.fetch(`*[ _type == 'book' ]`)
   const decks = await client.fetch(`*[ _type == 'deck' ]`)
+  const brawls = await client.fetch(
+    `*[ _type == 'brawl' ] { ..., "cardId": card -> id }`
+  )
 
   return {
     globals: {
       __BOOKS__: books,
       __BOOKS_INDEX__: indexArray(books),
+      __BRAWLS__: brawls,
       __CARDS__: cards,
       __CARDS_INDEX__: indexArray(cards),
       __CARDS_INDEX_BY_SID__: indexArray(cards, 'sid'),

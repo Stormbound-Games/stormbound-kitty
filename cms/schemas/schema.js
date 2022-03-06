@@ -3,6 +3,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import artwork from './documents/artwork'
 import avatar from './documents/avatar'
 import book from './documents/book'
+import brawl from './documents/brawl'
 import card from './documents/card'
 import changelog from './documents/changelog'
 import contribution from './documents/contribution'
@@ -31,6 +32,7 @@ export default createSchema({
     artwork,
     avatar,
     book,
+    brawl,
     podcast,
     card,
     changelog,

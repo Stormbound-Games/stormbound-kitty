@@ -2,6 +2,7 @@ import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
+import { TAGS } from '~/constants/deck'
 import Page from '~/components/Page'
 import CollectionClearHint from '~/components/CollectionClearHint'
 import CardLevelField from '~/components/DeckCardLevelField'
@@ -32,8 +33,6 @@ import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import usePrevious from '~/hooks/usePrevious'
 import useNavigator from '~/hooks/useNavigator'
-import { TAGS } from '~/constants/deck'
-import { BRAWL_INDEX } from '~/constants/brawl'
 
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
@@ -45,26 +44,23 @@ const adjustCardToCollection =
     return missing ? null : { id, level }
   }
 
-const useModifiedDeck = (deck, suggestedDeck) => {
+const useModifiedDeck = (brawls, deck, suggestedDeck) => {
   const { cardsIndex } = React.useContext(CardsContext)
+  const brawlIds = brawls.map(brawl => brawl.id)
 
   // In case the deck is in fact a suggested deck, and a brawl deck at that, it
   // should be adjusted to reflect the brawl modifier. This is especially
   // important for mana brawls in order to display the correct card mana cost.
   if (suggestedDeck) {
-    const brawl = suggestedDeck.tags.find(tag =>
-      Object.keys(BRAWL_INDEX).includes(tag)
-    )
+    const brawl = suggestedDeck.tags.find(tag => brawlIds.includes(tag))
     if (brawl) return modifyDeck(cardsIndex, deck, brawl)
   }
 
   return deck
 }
 
-const useArticleProps = (deck, suggestedDeck) => {
-  // Retrieve whether the given deck is one of the suggested decks, in which
-  // case we can display more information on screen.
-  const matchedDeck = suggestedDeck || {}
+const useArticleProps = (deck, availableTags = TAGS, matchedDeck = {}) => {
+  matchedDeck = matchedDeck || {}
   const id = serialization.deck.serialize(deck)
   const { decks, addDeck, removeDeck, toggleUnseen } =
     React.useContext(PersonalDecksContext)
@@ -75,7 +71,7 @@ const useArticleProps = (deck, suggestedDeck) => {
 
   if (matchedDeck.tags) {
     props.meta = toSentence(
-      matchedDeck.tags.map(tag => TAGS[tag] || tag),
+      matchedDeck.tags.map(tag => availableTags[tag] || tag),
       'and'
     )
   } else if (id) {
@@ -210,8 +206,12 @@ export default React.memo(function DeckEditorView(props) {
     })
   )
 
-  const deck = useModifiedDeck(props.deck, props.suggestedDeck)
-  const articleProps = useArticleProps(deck, props.suggestedDeck)
+  const deck = useModifiedDeck(props.brawls, props.deck, props.suggestedDeck)
+  const articleProps = useArticleProps(
+    deck,
+    props.availableTags,
+    props.suggestedDeck
+  )
 
   return (
     <Page

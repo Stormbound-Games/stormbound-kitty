@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
-import { BRAWL_INDEX, BRAWL_MILESTONES } from '~/constants/brawl'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
 import { BrawlContext } from '~/components/BrawlProvider'
 import BrawlMilestone from '~/components/BrawlMilestone'
 import BrawlProgress from '~/components/BrawlProgress'
@@ -10,7 +10,7 @@ import styles from './styles'
 export default React.memo(function BrawlMilestones(props) {
   const { css } = useFela()
   const container = React.useRef()
-  const { id, meta } = React.useContext(BrawlContext)
+  const { info, meta } = React.useContext(BrawlContext)
   const milestones = BRAWL_MILESTONES[props.difficulty]
   const index = milestones.findIndex(
     milestone => milestone.crowns >= meta.crowns
@@ -60,7 +60,7 @@ export default React.memo(function BrawlMilestones(props) {
                 booksIndex={props.booksIndex}
                 index={index + 1}
                 {...milestone}
-                cardId={BRAWL_INDEX[id].cardId}
+                cardId={info.cardId}
               />
             </div>
           ))}

@@ -29,9 +29,14 @@ const getInitialBrawlData = id => {
 }
 
 export default React.memo(function BrawlProvider(props) {
-  const STORAGE_KEY = 'sk.brawl.' + props.id
-  const [brawls, setBrawls] = React.useState(getDefaultBrawlData(props.id))
-  const brawl = React.useMemo(() => brawls[brawls.length - 1] || {}, [brawls])
+  const STORAGE_KEY = 'sk.brawl.' + props.brawl.id
+  const [sessions, setSessions] = React.useState(
+    getDefaultBrawlData(props.brawl.id)
+  )
+  const session = React.useMemo(
+    () => sessions[sessions.length - 1] || {},
+    [sessions]
+  )
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
     message => sendNotification({ icon: 'crown', children: message }),
@@ -39,62 +44,62 @@ export default React.memo(function BrawlProvider(props) {
   )
 
   React.useEffect(() => {
-    const brawls = getInitialBrawlData(props.id)
+    const sessions = getInitialBrawlData(props.brawl.id)
 
-    setBrawls(brawls)
+    setSessions(sessions)
 
-    if (brawls.length > 1) {
+    if (sessions.length > 1) {
       notify('Locally saved Brawl data found and loaded.')
     }
     // We only want to run that once on page load if there were locally saved
-    // Brawls, so we need to make sure not to pass `brawls` as a dependency,
+    // Brawls, so we need to make sure not to pass `sessions` as a dependency,
     // otherwise this is going to run every time the Brawl data gets updated.
     // eslint-disable-next-line
-  }, [props.id, notify])
+  }, [props.brawl.id, notify])
 
   React.useEffect(() => {
-    const data = brawls.map(brawl => ({
-      ...brawl,
-      matches: serialization.brawl.serialize(brawl.matches),
+    const data = sessions.map(session => ({
+      ...session,
+      matches: serialization.brawl.serialize(session.matches),
     }))
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
-  }, [STORAGE_KEY, brawls])
+  }, [STORAGE_KEY, sessions])
 
-  // `updateCurrentBrawl` is just a shorthand to manipulate the last item in the
-  // array of Brawls.
-  const updateCurrentBrawl = handler =>
-    setBrawls(brawls => [
-      ...brawls.slice(0, -1),
-      handler(brawls[brawls.length - 1]),
+  // `updateCurrentSession` is just a shorthand to manipulate the last item in
+  // the array of Brawls.
+  const updateCurrentSession = handler =>
+    setSessions(sessions => [
+      ...sessions.slice(0, -1),
+      handler(sessions[sessions.length - 1]),
     ])
 
   const addMatch = match =>
-    updateCurrentBrawl(brawl => ({
-      ...brawl,
+    updateCurrentSession(session => ({
+      ...session,
       updatedAt: Date.now(),
-      matches: [...brawl.matches, match],
+      matches: [...session.matches, match],
     }))
   const updateMatch = (index, match) =>
-    updateCurrentBrawl(brawl => ({
-      ...brawl,
+    updateCurrentSession(session => ({
+      ...session,
       updatedAt: Date.now(),
       matches: [
-        ...brawl.matches.slice(0, index),
+        ...session.matches.slice(0, index),
         match,
-        ...brawl.matches.slice(index + 1),
+        ...session.matches.slice(index + 1),
       ],
     }))
 
   const resetBrawl = discard => {
     const now = Date.now()
 
-    setBrawls(brawls => [
-      ...brawls.slice(0, discard ? -1 : undefined),
+    setSessions(sessions => [
+      ...sessions.slice(0, discard ? -1 : undefined),
       {
         createdAt: now,
         updatedAt: now,
-        id: props.id,
+        id: props.brawl.id,
         matches: [],
       },
     ])
@@ -123,9 +128,9 @@ export default React.memo(function BrawlProvider(props) {
 
     // If there were saved entries from the current Brawl, update the state so
     // the view re-renders.
-    if (groups[props.id].length) {
-      setBrawls(
-        groups[props.id].map(brawl => ({
+    if (groups[props.brawl.id].length) {
+      setSessions(
+        groups[props.brawl.id].map(brawl => ({
           ...brawl,
           matches: serialization.brawl.deserialize(brawl.matches),
         }))
@@ -134,15 +139,15 @@ export default React.memo(function BrawlProvider(props) {
   }
 
   const meta = React.useMemo(
-    () => getBrawlStatus(brawl.matches, props.difficulty),
-    [brawl, props.difficulty]
+    () => getBrawlStatus(session.matches, props.difficulty),
+    [session, props.difficulty]
   )
 
   return (
     <BrawlContext.Provider
       value={{
-        id: props.id,
-        brawl,
+        info: props.brawl,
+        session,
         addMatch,
         updateMatch,
         resetBrawl,

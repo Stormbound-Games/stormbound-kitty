@@ -9,8 +9,6 @@ const getDrawingExpectations = type => {
     }
   }
 
-  console.log(type)
-
   if (type.startsWith('SPECIFIC_')) {
     const rarity = type.replace('SPECIFIC_', '').toLowerCase()
 

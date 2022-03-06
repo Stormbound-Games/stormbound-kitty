@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import {
   Cell,
   Legend,
@@ -23,14 +22,13 @@ const SELECT_LENGTH_MULTIPLIER = {
 }
 
 export default React.memo(function BrawlStatusCharts(props) {
-  const { css } = useFela()
   const [faction, setFaction] = React.useState('*')
-  const { brawl } = React.useContext(BrawlContext)
+  const { session } = React.useContext(BrawlContext)
 
   const data = [
     {
       name: 'Wins',
-      value: brawl.matches.filter(
+      value: session.matches.filter(
         match =>
           match.status === 'WON' &&
           (faction === '*' ||
@@ -41,7 +39,7 @@ export default React.memo(function BrawlStatusCharts(props) {
     },
     {
       name: 'Wins by forfeit',
-      value: brawl.matches.filter(
+      value: session.matches.filter(
         match =>
           match.status === 'FORFEIT' &&
           (faction === '*' || match.opponentFaction === faction)
@@ -50,7 +48,7 @@ export default React.memo(function BrawlStatusCharts(props) {
     },
     {
       name: 'Draws',
-      value: brawl.matches.filter(
+      value: session.matches.filter(
         match =>
           match.status === 'DRAW' &&
           (faction === '*' || match.opponentFaction === faction)
@@ -59,7 +57,7 @@ export default React.memo(function BrawlStatusCharts(props) {
     },
     {
       name: 'Losses by forfeit',
-      value: brawl.matches.filter(
+      value: session.matches.filter(
         match =>
           match.status === 'SURRENDERED' &&
           (faction === '*' || match.opponentFaction === faction)
@@ -68,7 +66,7 @@ export default React.memo(function BrawlStatusCharts(props) {
     },
     {
       name: 'Losses',
-      value: brawl.matches.filter(
+      value: session.matches.filter(
         match =>
           match.status === 'LOST' &&
           (faction === '*' || match.opponentFaction === faction)

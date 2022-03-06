@@ -5,6 +5,7 @@ import getSiteSettings from '~/api/misc/getSiteSettings'
 import useMemberName from '~/hooks/useMemberName'
 import getContentFromUser from '~/api/users/getContentFromUser'
 import getCards from '~/api/cards/getCards'
+import getDeckTags from '~/api/decks/getDeckTags'
 import getUsers from '~/api/users/getUsers'
 
 export async function getStaticPaths() {
@@ -16,6 +17,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const availableTags = await getDeckTags({ isPreview })
   const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const data = await getContentFromUser({
@@ -30,7 +32,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   return {
-    props: { cards, settings, ...data },
+    props: { cards, settings, availableTags, ...data },
     revalidate: 60 * 60 * 24 * 7,
   }
 }

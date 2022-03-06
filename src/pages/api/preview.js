@@ -1,4 +1,5 @@
 import applyRateLimit from '~/helpers/applyRateLimit'
+import getBrawl from '~/api/brawls/getBrawl'
 import getCard from '~/api/cards/getCard'
 import getDeck from '~/api/decks/getDeck'
 import getGuide from '~/api/guides/getGuide'
@@ -67,6 +68,12 @@ const getRedirectUrl = async params => {
       const deck = await getDeck(params)
 
       return deck ? `/deck/${deck.id}/detail` : null
+    }
+
+    case 'brawl': {
+      const brawl = await getBrawl(params)
+
+      return brawl ? `/brawl/${brawl.slug}` : null
     }
 
     case 'guide': {

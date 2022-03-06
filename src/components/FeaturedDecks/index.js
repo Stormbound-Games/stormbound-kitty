@@ -138,7 +138,11 @@ export default React.memo(function FeaturedDecks(props) {
   return (
     <Page
       title='Featured Decks'
-      description={getDeckSearchDescription(state, cardsIndex)}
+      description={getDeckSearchDescription(
+        props.availableTags,
+        cardsIndex,
+        state
+      )}
       meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
       author={author}
       action={{
@@ -155,6 +159,7 @@ export default React.memo(function FeaturedDecks(props) {
             {...state}
             order={order}
             decks={props.decks}
+            availableTags={props.availableTags}
             updateTags={setTags}
             updateFaction={setFaction}
             updateAuthor={setAuthorSlug}
@@ -208,6 +213,7 @@ export default React.memo(function FeaturedDecks(props) {
               withBookmarking
               showUpgrades
               actions={deck => [<BookmarkDeckButton key={deck.id} {...deck} />]}
+              availableTags={props.availableTags}
             />
           ) : (
             <EmptySearch title='No Decks found' resetFilters={resetFilters} />

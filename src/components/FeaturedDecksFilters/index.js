@@ -33,6 +33,7 @@ export default React.memo(function FeaturedDecksFilters(props) {
         <Row withNarrowGutter>
           <Row.Column>
             <TagsSelect
+              availableTags={props.availableTags}
               tags={props.tags}
               updateTags={props.updateTags}
               id='tags'

@@ -146,7 +146,11 @@ export default React.memo(function DeckCollection(props) {
             permanent backup.
           </p>
 
-          <YourDecksFilters {...filters} setFilters={setFilters} />
+          <YourDecksFilters
+            {...filters}
+            setFilters={setFilters}
+            availableTags={props.availableTags}
+          />
 
           <Spacing top='BASE'>
             <Row withNarrowGutter>
@@ -171,6 +175,7 @@ export default React.memo(function DeckCollection(props) {
             mode={mode}
             setMode={setMode}
             addDeck={addDeck}
+            availableTags={props.availableTags}
           />
         </Row.Column>
       </Row>

@@ -3,10 +3,7 @@ import modifyDeck from '~/helpers/modifyDeck'
 import DryRunner from '~/components/DryRunner'
 import { CardsContext } from '~/components/CardsProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
-import { BRAWL_INDEX } from '~/constants/brawl'
-import getDeckPresets from '~/helpers/getDeckPresets'
 import useDeckMechanisms from '~/hooks/useDeckMechanisms'
-import useQueryParams from '~/hooks/useQueryParams'
 import useDryRunner from './useDryRunner'
 
 export default React.memo(function DeckDryRunView(props) {
@@ -28,19 +25,19 @@ export default React.memo(function DeckDryRunView(props) {
 
   // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
   React.useEffect(() => {
-    const preset = getDeckPresets(props.suggestedDeck)
-
-    if (preset.modifier.includes('MANA')) {
-      const brawlLabel = BRAWL_INDEX[preset.modifier].label
-      setModifier(preset.modifier)
-      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
+    if (props.preset.modifier.includes('MANA')) {
+      const brawl = props.brawls.find(
+        brawl => brawl.id === props.preset.modifier
+      )
+      setModifier(props.preset.modifier)
+      sendNotification(`Brawl deck found. Loaded with modifier ${brawl.name}.`)
     }
 
-    if (preset.equals) {
-      setEqualsMode(preset.equals)
+    if (props.preset.equals) {
+      setEqualsMode(props.preset.equals)
       sendNotification('Tournament deck found. Loaded in equals mode.')
     }
-  }, [sendNotification, props.suggestedDeck])
+  }, [sendNotification, props.preset, props.brawls])
 
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(cardsIndex, props.deck, modifier, equalsMode).map(
@@ -48,6 +45,7 @@ export default React.memo(function DeckDryRunView(props) {
   )
   const settings = { HoS, equalsMode, setEqualsMode, modifier, setModifier }
   const deckMechanisms = useDeckMechanisms({
+    brawls: props.brawls,
     deck,
     cards,
     cardsIndex,

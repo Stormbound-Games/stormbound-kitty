@@ -40,6 +40,7 @@ export default React.memo(function TournamentDeck(props) {
             onClick: () => setIndex(index + 1),
           },
         ].filter(Boolean)}
+        availableTags={props.availableTags}
       />
     </>
   )

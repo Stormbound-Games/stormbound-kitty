@@ -1,13 +1,13 @@
 import { FACTIONS } from '~/constants/game'
-import { TAGS } from '~/constants/deck'
 import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
 import getEmbed from '~/helpers/getEmbed'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
 import searchCards from '~/helpers/searchCards'
 import indexArray from '~/helpers/indexArray'
+import getDeckTags from '~/api/decks/getDeckTags'
 import getCards from '~/api/cards/getCards'
 
-export const parseMessage = (cards, content) => {
+export const parseMessage = (cards, tags, content) => {
   const terms = content.split(/\s+/g)
   const params = {}
   const unmatched = []
@@ -16,7 +16,7 @@ export const parseMessage = (cards, content) => {
   terms.forEach(term => {
     if (Object.keys(FACTIONS).includes(term)) {
       params.faction = term
-    } else if (Object.keys(TAGS).includes(term.toUpperCase())) {
+    } else if (term.toUpperCase() in tags) {
       if (!params.tags) params.tags = []
       params.tags.push(term.toUpperCase())
     } else {
@@ -58,6 +58,7 @@ const decks = {
       )
   },
   handler: async function (message) {
+    const tags = await getDeckTags()
     const cards = await getCards()
     const cardsIndex = indexArray(cards)
     const embed = getEmbed()
@@ -67,12 +68,12 @@ const decks = {
     // If no additional parameters were given, reply with the overall featured
     // decks page
     if (message.length === 0) {
-      embed.setDescription(getDeckSearchDescription(cardsIndex))
+      embed.setDescription(getDeckSearchDescription(tags, cardsIndex))
 
       return embed
     }
 
-    const { params, ignored } = parseMessage(cards, message.toLowerCase())
+    const { params, ignored } = parseMessage(cards, tags, message.toLowerCase())
     const searchParams = new URLSearchParams()
 
     for (let param in params) {
@@ -85,7 +86,7 @@ const decks = {
       searchParams.toString()
 
     embed.setDescription(
-      getDeckSearchDescription(cardsIndex, params) + '\n' + url
+      getDeckSearchDescription(tags, cardsIndex, params) + '\n' + url
     )
 
     embed.setURL(url)

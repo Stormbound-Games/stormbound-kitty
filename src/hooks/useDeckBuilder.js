@@ -64,7 +64,10 @@ const useDeckBuilder = props => {
 
   return {
     deck,
+    availableTags: props.availableTags,
     suggestedDeck: props.suggestedDeck,
+    advice: props.advice,
+    preset: props.preset,
     deckId: props.id,
     reset,
     addCardToDeck,

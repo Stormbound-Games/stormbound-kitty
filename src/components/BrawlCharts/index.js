@@ -5,9 +5,9 @@ import BrawlStatusChart from '~/components/BrawlStatusChart'
 import Row from '~/components/Row'
 
 export default React.memo(function BrawlCharts(props) {
-  const { brawl } = React.useContext(BrawlContext)
+  const { session } = React.useContext(BrawlContext)
 
-  if (brawl.matches.length === 0) {
+  if (session.matches.length === 0) {
     return null
   }
 

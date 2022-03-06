@@ -15,7 +15,7 @@ const deck = {
       name: 'modifier',
       type: 'string',
       options: {
-        list: BRAWLS.map(brawl => ({ title: brawl.label, value: brawl.id })),
+        list: BRAWLS.map(brawl => ({ title: brawl.name, value: brawl.id })),
       },
     },
     {

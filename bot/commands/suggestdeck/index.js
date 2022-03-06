@@ -4,9 +4,9 @@ import getEmbed from '~/helpers/getEmbed'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import indexArray from '~/helpers/indexArray'
 import serialization from '~/helpers/serialization'
+import getDeckTags from '~/api/decks/getDeckTags'
 import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
-import { TAGS } from '~/constants/deck'
 import { parseMessage } from '../decks'
 
 const suggestdeck = {
@@ -21,10 +21,15 @@ const suggestdeck = {
       )
   },
   handler: async function (message) {
+    const availableTags = await getDeckTags()
     const cards = await getCards()
     const decks = await getDecks()
     const cardsIndexBySid = indexArray(cards, 'sid')
-    const { params, ignored } = parseMessage(cards, message.toLowerCase())
+    const { params, ignored } = parseMessage(
+      cards,
+      availableTags,
+      message.toLowerCase()
+    )
     const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {
@@ -48,7 +53,9 @@ const suggestdeck = {
         },
         {
           name: 'Tags',
-          value: deck.tags.map(tag => TAGS[tag] || tag).join(', ') || 'No tags',
+          value:
+            deck.tags.map(tag => availableTags[tag] || tag).join(', ') ||
+            'No tags',
           inline: true,
         }
       )
@@ -98,7 +105,9 @@ const suggestdeck = {
         },
         {
           name: 'Tags',
-          value: deck.tags.map(tag => TAGS[tag] || tag).join(', ') || 'No tags',
+          value:
+            deck.tags.map(tag => availableTags[tag] || tag).join(', ') ||
+            'No tags',
           inline: true,
         }
       )

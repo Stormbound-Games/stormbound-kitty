@@ -4,7 +4,7 @@ describe('The `getDeckPresets` helper', () => {
   it('should return default presets for a non-suggested deck', () => {
     const deck = { id: '5n15n25f44f13f25f35n35n44n54n65n125n28', tags: [] }
 
-    expect(getDeckPresets(deck)).toEqual({
+    expect(getDeckPresets(global.__BRAWLS__, deck)).toEqual({
       modifier: 'NONE',
       equals: false,
     })
@@ -15,7 +15,7 @@ describe('The `getDeckPresets` helper', () => {
       id: '5n15s15n35n675s65s85s115s135n355s285s215s22',
       tags: ['UNDEAD_STRENGTH', 'BRAWL'],
     }
-    expect(getDeckPresets(deck)).toEqual({
+    expect(getDeckPresets(global.__BRAWLS__, deck)).toEqual({
       modifier: 'UNDEAD_STRENGTH',
       equals: false,
     })
@@ -27,7 +27,7 @@ describe('The `getDeckPresets` helper', () => {
       tags: ['EQUALS'],
     }
 
-    expect(getDeckPresets(deck)).toEqual({
+    expect(getDeckPresets(global.__BRAWLS__, deck)).toEqual({
       modifier: 'NONE',
       equals: true,
     })

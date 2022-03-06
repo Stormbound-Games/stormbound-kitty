@@ -5,7 +5,6 @@ import {
   RARITY_COPIES,
   RARITIES,
 } from '~/constants/game'
-import { BRAWLS } from '~/constants/brawl'
 import arrayRandom from '~/helpers/arrayRandom'
 import capitalize from '~/helpers/capitalize'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
@@ -16,7 +15,7 @@ import indexArray from '~/helpers/indexArray'
 import random from '~/helpers/random'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
-const getTriviaQuestions = cards => {
+const getTriviaQuestions = (cards, brawls) => {
   const cardsIndex = indexArray(cards)
   const SORTED_CARDS = cards.sort(sortCards())
   const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
@@ -1184,8 +1183,8 @@ const getTriviaQuestions = cards => {
 
     {
       question: 'How many different Brawls are there?',
-      answer: BRAWLS.length,
-      options: rangeAround(BRAWLS.length, 5),
+      answer: brawls.length,
+      options: rangeAround(brawls.length, 5),
     },
 
     {
@@ -1478,7 +1477,7 @@ const getTriviaQuestions = cards => {
       question:
         'What is the name of the Brawl that released Prime Oracle Bragda?',
       answer: 'Heroic Deeds',
-      options: BRAWLS.map(brawl => brawl.title),
+      options: brawls.map(brawl => brawl.name),
     },
 
     {

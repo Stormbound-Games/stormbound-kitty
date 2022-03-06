@@ -8,7 +8,7 @@ describe('The `getFactionWeights` helper', () => {
       swarm: 1,
       winter: 1,
     }
-    const result = getFactionWeights('NONE')
+    const result = getFactionWeights(global.__BRAWLS__, 'NONE')
 
     Object.keys(expectedResults).forEach(faction =>
       expect(
@@ -25,7 +25,7 @@ describe('The `getFactionWeights` helper', () => {
       swarm: 1,
       winter: 1,
     }
-    const result = getFactionWeights(modifier)
+    const result = getFactionWeights(global.__BRAWLS__, modifier)
 
     Object.keys(expectedResults).forEach(faction =>
       expect(

@@ -18,10 +18,9 @@ import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
 export default React.memo(function BrawlTracker(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
-  const { brawl: currentBrawl } = React.useContext(BrawlContext)
+  const { session } = React.useContext(BrawlContext)
   const { guide } = props
-
-  const wonMatches = currentBrawl.matches.filter(match =>
+  const wonMatches = session.matches.filter(match =>
     ['WON', 'FORFEIT'].includes(match.status)
   )
   const getCoins = getDailyCoinsCounter({
@@ -77,6 +76,7 @@ export default React.memo(function BrawlTracker(props) {
             </div>
           ) : props.recommendedDeck ? (
             <BrawlRecommendedDecks
+              availableTags={props.availableTags}
               decks={[props.recommendedDeck]}
               columns={1}
             />
