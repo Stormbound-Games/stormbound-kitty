@@ -21,9 +21,9 @@ const usePageProps = (props, versionId) => {
       ? { to: `/card/${id}/display`, children: 'Display view', icon: 'eye' }
       : { href: wiki, children: 'Open in wiki' }
   } else if (props.contest) {
-    const { id, season, winner } = props.contest
+    const { week, season, winner } = props.contest
 
-    properties.meta = `Week #${id} (season ${season})`
+    properties.meta = `Season ${season} Week #${week}`
     properties.author = winner.user.name
     properties.action = { to: '/card/contest', children: 'Back to SWCC' }
   } else if (id) {

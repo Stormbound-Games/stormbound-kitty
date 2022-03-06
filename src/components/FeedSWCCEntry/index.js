@@ -18,9 +18,10 @@ export default React.memo(function FeedSWCCEntry(props) {
   return (
     <FeedEntry icon='hammer' date={props.date}>
       {props.user.name} has won the 🥇{' '}
-      <Link to='/card/contest'>Stormbound Weekly Card Contest</Link> (week #
-      {props.id}, themed <span className='Highlight'>{props.name}</span>) with a
-      card called <Link to={'/card/' + props.winner.id}>{card.name}</Link>.
+      <Link to='/card/contest'>Stormbound Weekly Card Contest</Link> (season{' '}
+      {props.season} week #{props.week}, themed{' '}
+      <span className='Highlight'>{props.name}</span>) with a card called{' '}
+      <Link to={'/card/' + props.winner.id}>{card.name}</Link>.
       <Spacing top='BASE'>
         <div className={css(styles.container)}>
           <Teaser

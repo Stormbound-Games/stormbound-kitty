@@ -2,22 +2,15 @@ import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
 _id,
-id,
+week,
+season,
 date,
 name,
 winner { user -> { name, "slug": slug.current }, id },
-"season": ^.number
 `
 
-export const MAPPER = season => {
-  season.weeks.forEach(week => {
-    week.date = serializeDate(week.date, false)
-    week._type = 'swcc'
+export const MAPPER = week => {
+  week.date = serializeDate(week.date, false)
 
-    return week
-  })
-
-  return season
+  return week
 }
-
-export const FEED_MAPPER = season => MAPPER(season).weeks
