@@ -83,7 +83,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
         count(podium[].team[@->slug.current match $author]) > 0 => { "_type": "podium" }
       },
     `,
-    params: { author, id: user._id },
+    params: { author, id: user._id.replace('drafts.', '') },
     options: { order: 'date desc', isPreview },
   })
 
