@@ -3,5 +3,6 @@ _id,
 name,
 role,
 "slug": slug.current,
+playerId,
 channel
 `

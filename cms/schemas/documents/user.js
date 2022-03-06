@@ -31,6 +31,12 @@ const user = {
       },
     },
     {
+      title: 'Player ID',
+      name: 'playerId',
+      type: 'number',
+      validation: Rule => Rule.positive().integer().min(1000000000),
+    },
+    {
       title: 'YouTube channel',
       name: 'channel',
       type: 'object',
