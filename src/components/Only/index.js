@@ -1,7 +1,7 @@
 import React from 'react'
 import { CollectionContext } from '~/components/CollectionProvider'
 import useViewportSize from '~/hooks/useViewportSize'
-import { BREAKPOINTS } from '~/styles/variables'
+import { BREAKPOINTS } from '~/constants/styles'
 
 const Only = React.memo(function Only(props) {
   const { viewportWidth } = useViewportSize()

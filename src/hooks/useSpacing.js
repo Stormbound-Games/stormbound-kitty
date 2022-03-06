@@ -1,4 +1,4 @@
-import { SPACING_TOKENS } from '~/styles/variables'
+import { SPACING_TOKENS } from '~/constants/styles'
 
 export const expandSpacingValue = value => {
   if (typeof value === 'string') {

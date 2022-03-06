@@ -7,7 +7,7 @@ import sortMediaQueryMobileFirst from 'fela-sort-media-query-mobile-first'
 import responsiveValue from 'fela-plugin-responsive-value'
 import namedKeys from 'fela-plugin-named-keys'
 import fallback from 'fela-plugin-fallback-value'
-import { BREAKPOINTS } from '~/styles/variables'
+import { BREAKPOINTS } from '~/constants/styles'
 
 const toObject = (acc, prop) => ({ ...acc, [prop]: true })
 
