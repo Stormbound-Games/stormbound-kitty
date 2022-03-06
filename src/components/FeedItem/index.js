@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 
 const COMPONENTS = {
   artwork: dynamic(() => import('~/components/FeedArtEntry')),
-  swcc: dynamic(() => import('~/components/FeedCardEntry')),
+  swcc: dynamic(() => import('~/components/FeedSWCCEntry')),
   contribution: dynamic(() => import('~/components/FeedContributionEntry')),
   deck: dynamic(() => import('~/components/FeedDeckEntry')),
   donation: dynamic(() => import('~/components/FeedDonationEntry')),
@@ -15,7 +15,7 @@ const COMPONENTS = {
   puzzle: dynamic(() => import('~/components/FeedPuzzleEntry')),
   release: dynamic(() => import('~/components/FeedReleaseEntry')),
   story: dynamic(() => import('~/components/FeedStoryEntry')),
-  event: dynamic(() => import('~/components/FeedSWCCEntry')),
+  event: dynamic(() => import('~/components/FeedEventEntry')),
   channel: dynamic(() => import('~/components/FeedYouTubeEntry')),
 }
 
