@@ -60,7 +60,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
   if (!user) return {}
 
   const entries = await getEntries({
-    conditions: ['references($id)', '_type != "swcc"'],
+    conditions: ['references($id)'],
     fields: `
       _id,
       _type,
