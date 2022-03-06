@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 
 const COMPONENTS = {
   artwork: dynamic(() => import('~/components/FeedArtEntry')),
-  swcc: dynamic(() => import('~/components/FeedSWCCEntry')),
+  SWCC: dynamic(() => import('~/components/FeedSWCCEntry')),
   contribution: dynamic(() => import('~/components/FeedContributionEntry')),
   deck: dynamic(() => import('~/components/FeedDeckEntry')),
   donation: dynamic(() => import('~/components/FeedDonationEntry')),

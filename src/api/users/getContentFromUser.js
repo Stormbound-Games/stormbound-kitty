@@ -37,10 +37,7 @@ import {
   FIELDS as TOURNAMENT_FIELDS,
   MAPPER as TOURNAMENT_MAPPER,
 } from '~/api/tournaments/utils'
-import {
-  FIELDS as SWCC_FIELDS,
-  FEED_MAPPER as SWCC_MAPPER,
-} from '~/api/swcc/utils'
+import { FIELDS as SWCC_FIELDS, MAPPER as SWCC_MAPPER } from '~/api/swcc/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -53,7 +50,7 @@ const cleaners = {
   podium: TOURNAMENT_MAPPER,
   puzzle: PUZZLE_MAPPER,
   story: STORY_MAPPER,
-  swcc: SWCC_MAPPER,
+  SWCC: SWCC_MAPPER,
   tournament: TOURNAMENT_MAPPER,
 }
 
@@ -63,7 +60,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
   if (!user) return {}
 
   const entries = await getEntries({
-    conditions: ['references($id)'],
+    conditions: ['references($id)', '_type != "swcc"'],
     fields: `
       _id,
       _type,
@@ -76,7 +73,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
       _type == "podcast" => { ${PODCAST_FIELDS} },
       _type == "puzzle" => { ${PUZZLE_FIELDS} },
       _type == "story" => { ${STORY_FIELDS} },
-      _type == "swcc" => { weeks[winner.user->slug.current match $author] { ${SWCC_FIELDS} } },
+      _type == "SWCC" => { ${SWCC_FIELDS} },
       _type == "tournament" => {
         ${TOURNAMENT_FIELDS},
         count(users[@->slug.current match $author]) > 0 => { "_type": "tournament", },
@@ -89,9 +86,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
 
   const hasDonated = entries.some(entry => entry._type === 'donation')
   const hasContributed = entries.some(entry => entry._type === 'contribution')
-  // We flatten in case an entry is being split into several feed items, like
-  // for SWCC entries.
-  const feed = entries.map(entry => cleaners[entry._type](entry)).flat()
+  const feed = entries.map(entry => cleaners[entry._type](entry))
 
   return {
     user,

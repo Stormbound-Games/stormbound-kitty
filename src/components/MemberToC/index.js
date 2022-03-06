@@ -15,7 +15,7 @@ export default React.memo(function MemberToC(props) {
   const decks = content.deck || []
   const tournaments = content.tournament || []
   const podiums = content.podium || []
-  const swcc = content.swcc || []
+  const swcc = content.SWCC || []
   const artworks = content.artwork || []
   const puzzles = content.puzzle || []
   const podcasts = content.podcast || []

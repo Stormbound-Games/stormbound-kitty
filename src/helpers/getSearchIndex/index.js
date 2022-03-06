@@ -5,7 +5,7 @@ import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
 import getGuides from '~/api/guides/getGuides'
 import getStories from '~/api/stories/getStories'
-import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
+import getSWCCWeeks from '~/api/swcc/getSWCCWeeks'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 import getUsers from '~/api/users/getUsers'
@@ -17,7 +17,7 @@ const getSearchIndex = async (withEverything = true) => {
   const stories = await getStories()
   const puzzles = await getPuzzles()
   const releases = await getReleases()
-  const seasons = await getSWCCSeasons()
+  const swcc = await getSWCCWeeks()
   const users = await getUsers()
   const links = []
   const limit = withEverything ? Infinity : 1
@@ -99,17 +99,13 @@ const getSearchIndex = async (withEverything = true) => {
     })
   })
 
-  seasons
-    .map(season => season.weeks)
-    .flat()
-    .slice(0, limit)
-    .forEach(contest => {
-      links.push({
-        label: 'SWCC #' + contest.id + ' ' + contest.name,
-        path: `/card/${contest.winner.id}/display`,
-        breadcrumbs: ['Community', 'Contests'],
-      })
+  swcc.slice(0, limit).forEach(contest => {
+    links.push({
+      label: 'SWCC #' + contest.id + ' ' + contest.name,
+      path: `/card/${contest.winner.id}/display`,
+      breadcrumbs: ['Community', 'Contests'],
     })
+  })
 
   links.push({
     label: 'Weekly Card Contest',

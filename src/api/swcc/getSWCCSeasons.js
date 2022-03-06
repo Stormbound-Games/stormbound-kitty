@@ -1,14 +1,13 @@
-import { getEntries } from '~/helpers/sanity'
-import { FIELDS, MAPPER } from './utils'
+import groupBy from '~/helpers/groupBy'
+import getSWCCWeeks from './getSWCCWeeks'
 
 const getSWCCSeasons = async ({ isPreview } = {}) => {
-  const seasons = await getEntries({
-    conditions: ['_type == "swcc"'],
-    fields: `_id, number, weeks[] { ${FIELDS} }`,
-    options: { order: 'number desc', isPreview },
-  })
+  const weeks = await getSWCCWeeks({ isPreview })
+  const groups = groupBy(weeks, 'season')
 
-  return seasons.map(MAPPER)
+  return Object.entries(groups)
+    .map(([season, weeks]) => ({ season: +season, weeks }))
+    .sort((a, b) => b.season - a.season)
 }
 
 export default getSWCCSeasons

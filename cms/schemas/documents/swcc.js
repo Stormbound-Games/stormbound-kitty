@@ -2,14 +2,21 @@ import { MdAutoFixNormal } from 'react-icons/md'
 import user from '../types/user'
 import { formatDate } from '~/helpers/formatDate'
 
-const week = {
-  title: 'SWCC week',
-  name: 'week',
-  type: 'object',
+const swcc = {
+  title: 'SWCC',
+  name: 'SWCC',
+  type: 'document',
+  icon: MdAutoFixNormal,
   fields: [
     {
+      title: 'Season number',
+      name: 'season',
+      type: 'number',
+      validation: Rule => Rule.required().positive().min(1),
+    },
+    {
       title: 'Week number',
-      name: 'id',
+      name: 'week',
       type: 'number',
       validation: Rule => Rule.required().positive().min(1),
     },
@@ -44,17 +51,22 @@ const week = {
           type: 'string',
         },
       ],
+      validation: Rule => Rule.required(),
     },
   ],
   preview: {
     select: {
+      season: 'season',
+      week: 'week',
       name: 'name',
       author: 'winner.user.name',
       date: 'date',
     },
-    prepare({ author, name, date }) {
+    prepare({ season = '?', week = '?', author, name, date }) {
       return {
-        title: name,
+        title: ['Season ' + season, 'Week ' + week, name]
+          .filter(Boolean)
+          .join(' · '),
         subtitle:
           'By ' +
           (author || 'missing member') +
@@ -63,38 +75,13 @@ const week = {
       }
     },
   },
-}
-
-const swcc = {
-  title: 'SWCC',
-  name: 'swcc',
-  type: 'document',
-  icon: MdAutoFixNormal,
-  fields: [
+  orderings: [
     {
-      title: 'Season number',
-      name: 'number',
-      type: 'number',
-      validation: Rule => Rule.required().positive().min(1),
-    },
-    {
-      title: 'Weeks',
-      name: 'weeks',
-      type: 'array',
-      of: [week],
-      validation: Rule => Rule.required().min(1),
+      title: 'Date, New',
+      name: 'dateDesc',
+      by: [{ field: 'date', direction: 'desc' }],
     },
   ],
-  preview: {
-    select: {
-      number: 'number',
-    },
-    prepare({ number }) {
-      return {
-        title: number ? 'SWCC season ' + number : 'SWCC season',
-      }
-    },
-  },
 }
 
 export default swcc
