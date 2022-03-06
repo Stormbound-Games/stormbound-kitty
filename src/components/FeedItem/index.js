@@ -9,6 +9,7 @@ const COMPONENTS = {
   donation: dynamic(() => import('~/components/FeedDonationEntry')),
   guide: dynamic(() => import('~/components/FeedGuideEntry')),
   tournament: dynamic(() => import('~/components/FeedHostEntry')),
+  playerId: dynamic(() => import('~/components/FeedPlayerIdEntry')),
   podcast: dynamic(() => import('~/components/FeedPodcastEntry')),
   podium: dynamic(() => import('~/components/FeedPodiumEntry')),
   puzzle: dynamic(() => import('~/components/FeedPuzzleEntry')),

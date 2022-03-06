@@ -13,7 +13,7 @@ export default React.memo(function Member(props) {
   const { css } = useFela()
   const [name] = useMemberName()
   const isCurrentUser = name === props.user.name
-  const { channel, ...user } = props.user
+  const { channel, playerId, ...user } = props.user
 
   return (
     <Page
@@ -81,8 +81,13 @@ export default React.memo(function Member(props) {
           )}
         </Row.Column>
         <Row.Column width='2/3'>
-          {props.feed.length > 0 || channel ? (
+          {props.feed.length > 0 || channel || playerId ? (
             <ul className={css(styles.feed)}>
+              {playerId && (
+                <li className={css(styles.item)}>
+                  <FeedItem playerId={playerId} user={user} _type='playerId' />
+                </li>
+              )}
               {channel && (
                 <li className={css(styles.item)}>
                   <FeedItem {...channel} user={user} _type='channel' />
