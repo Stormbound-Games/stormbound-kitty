@@ -30,7 +30,7 @@ const useCoverImage = props => {
   let source = props.background || DEFAULT_BANNER
 
   // If an image is served from the CDN, ensure it’s optimized.
-  if (source.startsWith('https://cdn.sanity.io')) {
+  if (source.startsWith('https://cdn.sanity.io/')) {
     if (!source.includes('auto=format')) {
       source += (source.includes('?') ? '&' : '?') + 'auto=format'
     }

@@ -21,7 +21,7 @@ const useSource = props => {
   if (!props.src) return ''
 
   // If an image is served from the CDN, ensure it’s optimized.
-  if (props.src.startsWith('https://cdn.sanity.io')) {
+  if (props.src.startsWith('https://cdn.sanity.io/')) {
     let source = props.src
 
     if (!source.includes('auto=format')) {
