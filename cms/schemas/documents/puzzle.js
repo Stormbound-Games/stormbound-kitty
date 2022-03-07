@@ -67,7 +67,7 @@ const puzzle = {
       type: 'image',
       description: 'An image of the board, cut right around its edges.',
       options: {
-        accept: ['image/jpeg', 'image/png', 'image/gif'],
+        accept: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
       },
       validation: Rule => Rule.required(),
     },

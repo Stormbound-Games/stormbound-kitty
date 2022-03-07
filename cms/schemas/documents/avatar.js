@@ -18,7 +18,7 @@ const avatar = {
       type: 'image',
       description: 'A high-quality image (the CDN will do the optimization).',
       options: {
-        accept: ['image/jpeg', 'image/png'],
+        accept: ['image/png'],
       },
       validation: Rule => Rule.required(),
     },

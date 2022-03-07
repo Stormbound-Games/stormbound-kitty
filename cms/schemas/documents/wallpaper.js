@@ -24,7 +24,7 @@ const wallpaper = {
       type: 'image',
       description: 'A high-quality image (the CDN will do the optimization).',
       options: {
-        accept: ['image/jpeg', 'image/png'],
+        accept: ['image/jpeg', 'image/jpg', 'image/png'],
       },
       validation: Rule => Rule.required(),
     },

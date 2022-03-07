@@ -17,7 +17,7 @@ const artwork = {
       type: 'image',
       description: 'A high-quality image (the CDN will do the optimization).',
       options: {
-        accept: ['image/jpeg', 'image/png', 'image/gif'],
+        accept: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
       },
       validation: Rule => Rule.required(),
     },

@@ -108,7 +108,7 @@ const guide = {
       description:
         'A landscape image that will be displayed at the top of the guide behind the title (typically 5:1).',
       options: {
-        accept: ['image/jpeg', 'image/png', 'image/gif'],
+        accept: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
       },
       fields: [
         {
