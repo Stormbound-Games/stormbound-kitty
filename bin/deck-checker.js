@@ -1,15 +1,15 @@
 require('module-alias/register')
 
-const { TAGS } = require('~/constants/deck')
 const parseDate = require('~/helpers/parseDate').default
 const toSentence = require('~/helpers/toSentence').default
 const groupBy = require('~/helpers/groupBy').default
 const { formatDate } = require('~/helpers/formatDate')
 const getDecks = require('~/api/decks/getDecks').default
+const getDeckTags = require('~/api/decks/getDeckTags').default
 
 const BOUNDARY_DATE = new Date(2021, 4, 15)
 
-getDecks().then(decks => {
+Promise.all([getDecks(), getDeckTags()]).then(([decks, deckTags]) => {
   const groups = groupBy(
     decks.filter(deck => parseDate(deck.date) < BOUNDARY_DATE),
     'author'
@@ -37,7 +37,7 @@ getDecks().then(decks => {
 
         console.log(
           `- ${deck.name} (added in ${date}, tagged with ${toSentence(
-            deck.tags.map(tag => TAGS[tag]),
+            deck.tags.map(tag => deckTags[tag] || tag),
             'and'
           )}): https://stormbound-kitty.com/deck/${deck.id}`
         )
