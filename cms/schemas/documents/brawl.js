@@ -34,6 +34,12 @@ const brawl = {
       validation: Rule => Rule.required(),
     },
   ],
+  preview: {
+    select: { description: 'description', name: 'name' },
+    prepare({ name, description }) {
+      return { title: name, subtitle: description }
+    },
+  },
 }
 
 export default brawl
