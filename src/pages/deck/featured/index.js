@@ -2,6 +2,7 @@ import React from 'react'
 import FeaturedDecks from '~/components/FeaturedDecks'
 import Layout from '~/components/Layout'
 import getDecks from '~/api/decks/getDecks'
+import getDeckTags from '~/api/decks/getDeckTags'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
 
@@ -14,8 +15,9 @@ export async function getServerSideProps({ preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
   const decks = await getDecks({ isPreview })
   const settings = await getSiteSettings({ isPreview })
+  const availableTags = await getDeckTags({ isPreview })
 
-  return { props: { cards, decks, settings } }
+  return { props: { cards, decks, settings, availableTags } }
 }
 
 const FeaturedDecksPage = ({ settings, cards, ...props }) => (

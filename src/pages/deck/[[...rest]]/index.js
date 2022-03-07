@@ -5,12 +5,15 @@ import DeckDryRunView from '~/components/DeckDryRunView'
 import Layout from '~/components/Layout'
 import getDeck from '~/api/decks/getDeck'
 import getDecks from '~/api/decks/getDecks'
+import getDeckTags from '~/api/decks/getDeckTags'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
+import getDeckPresets from '~/helpers/getDeckPresets'
 import serialization from '~/helpers/serialization'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
+import getBrawls from '~/api/brawls/getBrawls'
 import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
@@ -27,6 +30,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const brawls = await getBrawls({ isPreview })
+  const availableTags = await getDeckTags({ isPreview })
   const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const cardsIndex = indexArray(cards)
@@ -43,6 +48,8 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   if (!id) {
     return {
       props: {
+        brawls,
+        availableTags,
         cards,
         settings,
         id: null,
@@ -50,6 +57,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
         advice: [],
         view: 'EDITOR',
         suggestedDeck: null,
+        preset: getDeckPresets(),
       },
     }
   }
@@ -70,6 +78,8 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
+      brawls: view !== 'editor' ? brawls : [],
+      availableTags,
       // On the detail view, the only needed cards are the ones in the deck,
       // and every other card can be discarded.
       cards:
@@ -82,6 +92,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       advice,
       view: resolvedView,
       suggestedDeck,
+      preset: getDeckPresets(brawls, suggestedDeck),
     },
   }
 }
@@ -101,7 +112,7 @@ const DeckBuilderPage = ({ settings, cards, ...props }) => {
       active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
       settings={settings}
     >
-      <Component {...state} advice={props.advice} />
+      <Component {...state} brawls={props.brawls} />
     </Layout>
   )
 }

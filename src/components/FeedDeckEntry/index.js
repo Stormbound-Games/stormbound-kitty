@@ -15,7 +15,7 @@ export default React.memo(function FeedDeckEntry(props) {
   return (
     <FeedEntry icon='stack' date={props.date}>
       {props.user.name} has set up {prefix} {capitalize(faction)} deck with tags{' '}
-      <Tags tags={props.tags} /> called{' '}
+      <Tags tags={props.tags} availableTags={props.availableTags} /> called{' '}
       <Link to={'/deck/' + props.id + '/detail'}>{props.name}</Link>.
       <div className={css({ maxWidth: '450px' })}>
         <FeaturedDeck {...props} />

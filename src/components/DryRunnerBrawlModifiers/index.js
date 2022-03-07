@@ -3,14 +3,15 @@ import { CardsContext } from '~/components/CardsProvider'
 import Dialog from '~/components/Dialog'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
-import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
 
-const getDialogImage = (cardsIndex, modifier) => {
+const getDialogImage = (brawls, cardsIndex, modifier) => {
   if (!modifier || modifier === 'NONE') {
     return 'https://cdn.sanity.io/images/5hlpazgd/production/3886106424f6a20f584fa658760e7fe46bd35ab5-512x512.png'
   }
 
-  return cardsIndex[BRAWL_INDEX[modifier].cardId].image
+  const brawl = brawls.find(brawl => brawl.id === modifier)
+
+  return cardsIndex[brawl.cardId].image
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
@@ -31,9 +32,9 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         }}
       >
         <option value='NONE'>None</option>
-        {BRAWLS.map(brawl => (
+        {props.brawls.map(brawl => (
           <option key={brawl.id} value={brawl.id}>
-            {brawl.label}
+            {brawl.name}
           </option>
         ))}
       </Select>
@@ -41,7 +42,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         id='brawl-modifier-dialog'
         title='Brawl mode'
         dialogRef={instance => (dialogRef.current = instance)}
-        image={getDialogImage(cardsIndex, modifier)}
+        image={getDialogImage(props.brawls, cardsIndex, modifier)}
         close={() => dialogRef.current.hide()}
         ctaProps={{
           onClick: () => {

@@ -1,8 +1,14 @@
+import { TAGS } from '~/constants/deck'
 import capitalize from '~/helpers/capitalize'
 import toSentence from '~/helpers/toSentence'
-import { TAGS } from '~/constants/deck'
 
-const getDeckSearchDescription = (cardsIndex, state = {}) => {
+const getDeckSearchDescription = (
+  // Default to the base tags (without the Brawl ones), in case available tags
+  // are not passed.
+  availableTags = TAGS,
+  cardsIndex = {},
+  state = {}
+) => {
   const cardData = cardsIndex[state.including] || {}
   const tags = state.tags || []
   const author = state.author || '*'
@@ -15,7 +21,7 @@ const getDeckSearchDescription = (cardsIndex, state = {}) => {
     tags.length === 0
       ? 'for all levels and all play-styles'
       : `tagged with ${toSentence(
-          tags.map(tag => TAGS[tag] || tag),
+          tags.map(tag => availableTags[tag] || tag),
           'and'
         )}`,
     'suggested by',

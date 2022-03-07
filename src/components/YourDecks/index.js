@@ -9,7 +9,11 @@ const NewDeck = React.memo(function NewDeck(props) {
   return props.mode === 'INITIAL' || !!props.editedDeckUUID ? (
     <YourDeckGhost onClick={() => props.setMode('FORM')} />
   ) : (
-    <YourDeckForm onSubmit={props.addDeck} cancel={props.cancel} />
+    <YourDeckForm
+      availableTags={props.availableTags}
+      onSubmit={props.addDeck}
+      cancel={props.cancel}
+    />
   )
 })
 
@@ -18,7 +22,7 @@ export default React.memo(function YourDecks(props) {
 
   return (
     <>
-      {rows.map((row, index) => (
+      {rows.map(row => (
         <Row isDesktopOnly key={row.map(deck => deck.id).join('+')}>
           <Row.Column>
             <YourDeck
@@ -27,6 +31,7 @@ export default React.memo(function YourDecks(props) {
               isEdited={row[0].uuid === props.editedDeckUUID}
               handleEdit={props.editDeck}
               cancelEdit={props.disabledEditor}
+              availableTags={props.availableTags}
             />
           </Row.Column>
           <Row.Column>
@@ -37,6 +42,7 @@ export default React.memo(function YourDecks(props) {
                 isEdited={row[1].uuid === props.editedDeckUUID}
                 handleEdit={props.editDeck}
                 cancelEdit={props.disabledEditor}
+                availableTags={props.availableTags}
               />
             ) : (
               <NewDeck
@@ -45,6 +51,7 @@ export default React.memo(function YourDecks(props) {
                 setMode={props.setMode}
                 addDeck={props.addDeck}
                 cancel={props.disabledEditor}
+                availableTags={props.availableTags}
               />
             )}
           </Row.Column>

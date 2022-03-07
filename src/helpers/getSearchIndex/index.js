@@ -1,6 +1,6 @@
-import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
+import getBrawls from '~/api/brawls/getBrawls'
 import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
 import getGuides from '~/api/guides/getGuides'
@@ -11,6 +11,7 @@ import getReleases from '~/api/releases/getReleases'
 import getUsers from '~/api/users/getUsers'
 
 const getSearchIndex = async (withEverything = true) => {
+  const brawls = await getBrawls()
   const cards = await getCards()
   const decks = await getDecks()
   const guides = await getGuides()
@@ -40,12 +41,11 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Your Content'],
   })
 
-  BRAWLS.slice(0, limit).forEach(brawl => {
-    const slug = brawl.id.replace(/_/g, '-').toLowerCase()
+  brawls.slice(0, limit).forEach(brawl => {
     links.push({
-      label: brawl.label,
-      path: '/brawl/' + slug,
-      breadcrumbs: ['Your Content'],
+      label: brawl.name,
+      path: '/brawl/' + brawl.slug,
+      breadcrumbs: ['Your Content', 'Brawl Tracker'],
     })
   })
 

@@ -10,6 +10,7 @@ export default React.memo(function YourDeck(props) {
   if (props.isEdited) {
     return (
       <YourDeckForm
+        availableTags={props.availableTags}
         onSubmit={props.handleEdit}
         name={props.name}
         tags={props.tags}

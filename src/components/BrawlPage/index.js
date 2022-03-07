@@ -6,7 +6,7 @@ import { getLongFaction } from '~/helpers/encoding'
 
 export default React.memo(function BrawlPage(props) {
   const [difficulty, setDifficulty] = React.useState('CASUAL')
-  const { id, brawl } = props
+  const { brawl } = props
   const faction = getLongFaction(brawl.cardId.slice(0, 1))
 
   return (
@@ -18,7 +18,7 @@ export default React.memo(function BrawlPage(props) {
       background={`/assets/images/banners/environment_${faction}.png`}
       withAvif
     >
-      <BrawlProvider id={id} difficulty={difficulty}>
+      <BrawlProvider brawl={brawl} difficulty={difficulty}>
         <BrawlTracker
           {...props}
           difficulty={difficulty}

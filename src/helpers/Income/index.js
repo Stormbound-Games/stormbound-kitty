@@ -71,7 +71,6 @@ class Income {
       id.map(id => this.openBook(id))
     } else {
       const book = this.books.find(book => book.id === id)
-      console.log(id)
       const { draws, odds } = book
 
       this.stones += getAverageStonesPerBook(book)

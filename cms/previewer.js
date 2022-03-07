@@ -30,9 +30,10 @@ export default function getPreviewURL(document) {
     case 'deck':
     case 'puzzle':
       return goTo({ id: document.board })
+    case 'brawl':
+    case 'guide':
     case 'release':
     case 'story':
-    case 'guide':
     case 'user':
       return goTo({ slug: document.slug?.current })
     default:

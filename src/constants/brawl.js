@@ -1,4 +1,3 @@
-import indexArray from '~/helpers/indexArray'
 import getMilestoneForCrowns from '~/helpers/getMilestoneForCrowns'
 
 export const BRAWLS = [
@@ -153,8 +152,6 @@ export const BRAWLS = [
     cardId: 'N33',
   },
 ]
-
-export const BRAWL_INDEX = indexArray(BRAWLS)
 
 export const MILESTONES_LEGACY = [
   { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },

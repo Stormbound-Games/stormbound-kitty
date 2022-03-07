@@ -15,7 +15,6 @@ import Spacing from '~/components/Spacing'
 import computeDeckChartData from '~/helpers/computeDeckChartData'
 import useIsMounted from '~/hooks/useIsMounted'
 import { TOOLTIP_STYLES } from '~/constants/stats'
-import { BRAWLS } from '~/constants/brawl'
 import styles from './styles'
 
 export default React.memo(function DeckStatsChart(props) {
@@ -77,9 +76,9 @@ export default React.memo(function DeckStatsChart(props) {
             onChange={event => props.setModifier(event.target.value)}
           >
             <option value='NONE'>None</option>
-            {BRAWLS.map(brawl => (
+            {props.brawls.map(brawl => (
               <option key={brawl.id} value={brawl.id}>
-                {brawl.label}
+                {brawl.name}
               </option>
             ))}
           </Select>

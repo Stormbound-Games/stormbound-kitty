@@ -1,14 +1,11 @@
-import { BRAWL_INDEX } from '~/constants/brawl'
-
-const BRAWLS = Object.keys(BRAWL_INDEX)
-
-const getDeckPresets = suggestedDeck => {
+const getDeckPresets = (brawls, suggestedDeck) => {
   const presetOptions = { modifier: 'NONE', equals: false }
 
   if (!suggestedDeck) return presetOptions
 
+  const brawlIds = brawls.map(brawl => brawl.id)
   const tags = suggestedDeck.tags || []
-  const brawl = tags.find(tag => BRAWLS.includes(tag))
+  const brawl = tags.find(tag => brawlIds.includes(tag))
 
   if (brawl) {
     presetOptions.modifier = brawl

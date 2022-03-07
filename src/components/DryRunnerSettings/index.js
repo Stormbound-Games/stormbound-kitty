@@ -35,6 +35,7 @@ export default React.memo(function DryRunnerSettings(props) {
       />
 
       <DryRunnerBrawlModifiers
+        brawls={props.brawls}
         modifier={props.modifier}
         setModifier={props.setModifier}
       />
