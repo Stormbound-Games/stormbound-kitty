@@ -4,7 +4,7 @@ import getAbbreviations from '~/helpers/getAbbreviations'
 const SEARCH_OPTIONS = {
   keys: ['name'],
   minMatchCharLength: 3,
-  threshold: 0.4,
+  threshold: 0.3,
   ignoreFieldNorm: true,
 }
 
@@ -28,6 +28,7 @@ const searchCards = (cards, search) => {
 
   if (matchAbbr.length) return matchAbbr
 
+  console.log(searcher.search(needle))
   return searcher.search(needle).map(result => result.item)
 }
 
