@@ -27,12 +27,14 @@ _type == "columns" => {
       ${block},
       _type == "card" => { ..., ${card} },
       _type == "info" => { ..., content[] { ${block} } },
+      _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
     }
   }
 },
 _type == "info" => { content[] { ${block} } },
 _type == "battleSim" => { content[] { ${block} } },
 _type == "nerfCompensation" => { "cards": cards[] -> { id }.id },
+_type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
 _type == "faq" => { entries[] { id, question, answer[] { ${block} } } },
 _type == "card" => { ..., ${card} }
 `
