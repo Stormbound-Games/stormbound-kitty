@@ -22,18 +22,27 @@ const deck = {
     date,
     {
       title: 'Tags',
-      name: 'tags',
+      name: 'deckTags',
       type: 'array',
       of: [
+        { type: 'reference', to: [{ type: 'brawl' }] },
         {
-          type: 'string',
-          options: {
-            list: Object.entries(TAGS).map(([value, title]) => ({
-              title,
-              value,
-            })),
-          },
-          validation: Rule => Rule.required(),
+          title: 'Tag',
+          name: 'tag',
+          type: 'object',
+          fields: [
+            {
+              title: 'Tag',
+              name: 'tag',
+              type: 'string',
+              options: {
+                list: Object.entries(TAGS).map(([value, title]) => ({
+                  title,
+                  value,
+                })),
+              },
+            },
+          ],
         },
       ],
       validation: Rule => Rule.required().min(1),
