@@ -6,7 +6,7 @@ const getStoriesForSearch = async (cards, search) => {
   if (search.length < 2) return []
 
   const results = await searchStories({ term: search })
-  const abbreviations = await getAbbreviations()
+  const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
 
   if (results.length > 0) return results
 

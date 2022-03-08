@@ -81,7 +81,7 @@ const bookodds = {
   },
   handler: async function (message) {
     const books = await getBooks()
-    const abbreviations = await getAbbreviations()
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
     const cards = await getCards()
     const booksIndex = indexArray(books)
 

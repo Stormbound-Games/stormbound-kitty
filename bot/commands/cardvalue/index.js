@@ -30,7 +30,7 @@ const cardvalue = {
       )
   },
   handler: async function (message) {
-    const abbreviations = await getAbbreviations()
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
     const cards = await getCards()
     const cardsIndex = indexArray(cards)
     const [level, search] = getLevel(message)

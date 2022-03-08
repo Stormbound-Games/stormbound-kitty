@@ -16,7 +16,7 @@ const cardinfo = {
   },
   handler: async function (message) {
     const cards = await getCards()
-    const abbreviations = await getAbbreviations()
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
 
     return (
       searchCards(cards, abbreviations, message)
