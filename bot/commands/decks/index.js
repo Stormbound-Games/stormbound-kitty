@@ -12,13 +12,14 @@ export const parseMessage = (cards, tags, content) => {
   const params = {}
   const unmatched = []
   const ignored = []
+  const tagsIndex = indexArray(tags, 'slug')
 
   terms.forEach(term => {
     if (Object.keys(FACTIONS).includes(term)) {
       params.faction = term
-    } else if (term.toUpperCase() in tags) {
+    } else if (term.toUpperCase() in tagsIndex) {
       if (!params.tags) params.tags = []
-      params.tags.push(term.toUpperCase())
+      params.tags.push(tagsIndex[term.toUpperCase()])
     } else {
       const [key, value] = handleSearchAlias(term)
       if (key) {
@@ -68,7 +69,7 @@ const decks = {
     // If no additional parameters were given, reply with the overall featured
     // decks page
     if (message.length === 0) {
-      embed.setDescription(getDeckSearchDescription(tags, cardsIndex))
+      embed.setDescription(getDeckSearchDescription(cardsIndex))
 
       return embed
     }
@@ -77,7 +78,12 @@ const decks = {
     const searchParams = new URLSearchParams()
 
     for (let param in params) {
-      searchParams.set(param, params[param])
+      if (param === 'tags')
+        searchParams.set(
+          param,
+          params[param].map(tag => tag.slug)
+        )
+      else searchParams.set(param, params[param])
     }
 
     const url =
@@ -86,7 +92,7 @@ const decks = {
       searchParams.toString()
 
     embed.setDescription(
-      getDeckSearchDescription(tags, cardsIndex, params) + '\n' + url
+      getDeckSearchDescription(cardsIndex, params) + '\n' + url
     )
 
     embed.setURL(url)

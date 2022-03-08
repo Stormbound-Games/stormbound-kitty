@@ -1,7 +1,6 @@
 import React from 'react'
 import { MdAutoGraph } from 'react-icons/md'
 import deckId from '../types/deckId'
-import { BRAWLS } from '~/constants/brawl'
 
 const deck = {
   title: 'Mana graph',
@@ -10,14 +9,6 @@ const deck = {
   icon: MdAutoGraph,
   fields: [
     deckId,
-    {
-      title: 'Brawl modifier',
-      name: 'modifier',
-      type: 'string',
-      options: {
-        list: BRAWLS.map(brawl => ({ title: brawl.title, value: brawl.id })),
-      },
-    },
     {
       title: 'Brawl modifier',
       name: 'brawl',

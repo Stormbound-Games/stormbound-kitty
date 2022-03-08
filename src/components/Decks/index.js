@@ -44,7 +44,6 @@ export default React.memo(function Decks(props) {
                       : undefined
                   }
                   spacing={{ bottom: 'SMALL' }}
-                  availableTags={props.availableTags}
                 />
               ) : null}
             </Row.Column>

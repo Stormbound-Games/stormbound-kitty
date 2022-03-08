@@ -2,24 +2,41 @@ import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
 import serialization from '~/helpers/serialization'
+import capitalize from '~/helpers/capitalize'
 import uuid from '~/helpers/uuid'
 
 export const PersonalDecksContext = React.createContext([])
 
 const STORAGE_KEY = 'sk.personal_decks'
 const ensureUUID = deck => (deck.uuid ? deck : { ...deck, uuid: uuid() })
-const resolveTags = deck =>
+const resolveTags = deck => {
   // Maintain backward compatibility with the old `category` key.
-  deck.tags ? deck : { ...deck, tags: [deck.category], category: undefined }
+  if (!deck.tags) {
+    deck.tags = [deck.category]
+    deck.category = undefined
+  }
+
+  deck.tags = deck.tags.map(tag => {
+    // Maintain backward compatibility with the old string tags.
+    if (typeof tag === 'string')
+      return {
+        slug: tag,
+        name: tag.toLowerCase().split('_').map(capitalize).join(' '),
+      }
+    else return tag
+  })
+
+  return deck
+}
 
 const getTagsFromId = (cardsIndexBySid, id) => {
   const cards = serialization.deck.deserialize(cardsIndexBySid, id)
   const average =
     cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
 
-  if (average === 1) return ['EQUALS']
-  if (average >= 4) return ['HIGH_LEVELS']
-  return ['REGULAR']
+  if (average === 1) return [{ name: 'Equals', slug: 'EQUALS' }]
+  if (average >= 4) return [{ name: 'High Levels', slug: 'HIGH_LEVELS' }]
+  return [{ name: 'Regular', slug: 'REGULAR' }]
 }
 
 const getInitialDecks = () => {

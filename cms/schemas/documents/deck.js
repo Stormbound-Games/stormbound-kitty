@@ -2,7 +2,6 @@ import { MdBookmark } from 'react-icons/md'
 import user from '../types/user'
 import date from '../types/date'
 import deckId from '../types/deckId'
-import { TAGS } from '~/constants/deck'
 import { formatDate } from '~/helpers/formatDate'
 
 const deck = {
@@ -24,27 +23,7 @@ const deck = {
       title: 'Tags',
       name: 'deckTags',
       type: 'array',
-      of: [
-        { type: 'reference', to: [{ type: 'deckTag' }, { type: 'brawl' }] },
-        {
-          title: 'Tag',
-          name: 'tag',
-          type: 'object',
-          fields: [
-            {
-              title: 'Tag',
-              name: 'tag',
-              type: 'string',
-              options: {
-                list: Object.entries(TAGS).map(([value, title]) => ({
-                  title,
-                  value,
-                })),
-              },
-            },
-          ],
-        },
-      ],
+      of: [{ type: 'reference', to: [{ type: 'deckTag' }] }],
       validation: Rule => Rule.required().min(1),
     },
     { ...date, title: 'Nerf date', name: 'nerfed', validation: undefined },

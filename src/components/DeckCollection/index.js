@@ -12,14 +12,19 @@ import YourDecks from '~/components/YourDecks'
 import YourDecksFilters from '~/components/YourDecksFilters'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import indexArray from '~/helpers/indexArray'
 
 const toArray = value => (Array.isArray(value) ? value : [value])
 
-const getDeckFromForm = form => {
+const getDeckFromForm = (availableTags, form) => {
+  const tagsIndex = indexArray(availableTags, 'slug')
   const formData = serialize(form, { hash: true })
   formData.id = getDeckIDFromURL(formData.id)
   formData.faction = getFactionFromDeckID(formData.id)
   formData.tags = toArray(formData['deck-tags'])
+    .filter(slug => slug in tagsIndex)
+    .map(slug => ({ name: tagsIndex[slug].name, slug: tagsIndex[slug].slug }))
+
   return formData
 }
 
@@ -47,7 +52,10 @@ export default React.memo(function DeckCollection(props) {
         getFactionFromDeckID(deck.id) !== filters.faction
       )
         return false
-      if (!filters.tags.every(tag => deck.tags.includes(tag))) return false
+      if (
+        !filters.tags.every(tag => deck.tags.map(tag => tag.slug).includes(tag))
+      )
+        return false
       return true
     })
     .slice(0)
@@ -95,7 +103,7 @@ export default React.memo(function DeckCollection(props) {
   const addDeck = React.useCallback(
     event => {
       event.preventDefault()
-      const formData = getDeckFromForm(event.target)
+      const formData = getDeckFromForm(props.availableTags, event.target)
       // This check is effectively performed on the deck ID and not the UUID
       // because this is about telling the user they have already recorded that
       // deck and therefore it is not going to be added again.
@@ -109,15 +117,18 @@ export default React.memo(function DeckCollection(props) {
         context.addDeck(formData)
       }
     },
-    [context, notify]
+    [context, notify, props.availableTags]
   )
 
   const editDeck = React.useCallback(
     event => {
       event.preventDefault()
-      context.updateDeck(editedDeckUUID, getDeckFromForm(event.target))
+      context.updateDeck(
+        editedDeckUUID,
+        getDeckFromForm(props.availableTags, event.target)
+      )
     },
-    [context, editedDeckUUID]
+    [context, editedDeckUUID, props.availableTags]
   )
 
   return (

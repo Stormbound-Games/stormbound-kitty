@@ -76,7 +76,6 @@ export default React.memo(function BrawlTracker(props) {
             </div>
           ) : props.recommendedDeck ? (
             <BrawlRecommendedDecks
-              availableTags={props.availableTags}
               decks={[props.recommendedDeck]}
               columns={1}
             />

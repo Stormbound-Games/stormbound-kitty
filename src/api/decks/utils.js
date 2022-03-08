@@ -7,16 +7,7 @@ date,
 id,
 name,
 nerfed,
-"tags": coalesce(
-  deckTags[] {
-    _type == "tag" => { "tag": @.tag },
-    _type == "reference" => { "tag": coalesce(
-      @ -> slug.current,
-      @ -> id
-    ) },
-  }.tag,
-  tags
-)
+"tags": deckTags[] -> { name, "slug": slug.current }
 `
 
 export const MAPPER = deck => {

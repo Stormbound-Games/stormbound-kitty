@@ -18,7 +18,9 @@ module.exports = async () => {
     .map(cleanCard)
     .sort(sortCards)
   const books = await client.fetch(`*[ _type == 'book' ]`)
-  const decks = await client.fetch(`*[ _type == 'deck' ]`)
+  const decks = await client.fetch(
+    `*[ _type == 'deck' ] { ..., "tags": deckTags[] -> { name, "slug": slug.current } }`
+  )
   const brawls = await client.fetch(
     `*[ _type == 'brawl' ] { ..., "cardId": card -> id }`
   )

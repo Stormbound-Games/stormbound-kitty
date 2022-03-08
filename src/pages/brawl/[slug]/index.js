@@ -3,7 +3,6 @@ import BrawlPage from '~/components/BrawlPage'
 import Layout from '~/components/Layout'
 import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
-import getDeckTags from '~/api/decks/getDeckTags'
 import getCards from '~/api/cards/getCards'
 import getBooks from '~/api/books/getBooks'
 import indexArray from '~/helpers/indexArray'
@@ -21,7 +20,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({ isPreview })
-  const availableTags = await getDeckTags({ isPreview })
   const brawl = await getBrawl({ slug: params.slug, isPreview })
   const guide = await getGuide({ name: brawl.title, isPreview })
   const recommendedDecks = await getDecksWithTag({ tag: brawl.id, isPreview })
@@ -45,7 +43,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
-      availableTags,
       booksIndex,
       cards: cards.filter(
         card => card.id === brawl.cardId || card.id in indexedDeck

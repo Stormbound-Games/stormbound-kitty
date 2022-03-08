@@ -1,33 +1,32 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import dynamic from 'next/dynamic'
-import { TAGS } from '~/constants/deck'
-import inputStyles from '~/components/Input/styles'
+import Label from '~/components/Label'
 import useSelectStyles from '~/hooks/useSelectStyles'
+import indexArray from '~/helpers/indexArray'
 
 const Select = dynamic(() => import('react-select'))
 
 export default React.memo(function TagsSelect(props) {
-  const { css } = useFela()
   const styles = useSelectStyles()
-  // Default to the base tags (without the Brawl ones), in case available tags
-  // are not passed.
-  const availableTags = props.availableTags || TAGS
-  const value = props.tags.map(value => ({
-    value,
-    label: availableTags[value] || value,
-  }))
-  const options = Object.entries(availableTags).map(([value, label]) => ({
-    value,
-    label,
+  const tagsIndex = React.useMemo(
+    () => indexArray(props.availableTags, 'slug'),
+    [props.availableTags]
+  )
+  const value = props.tags.map(tag => {
+    if (typeof tag === 'string') {
+      return { value: tag, label: tagsIndex[tag].name }
+    }
+    return { value: tag.slug, label: tag.name }
+  })
+  const options = props.availableTags.map(tag => ({
+    value: tag.slug,
+    label: tag.name,
   }))
   const id = props.id || 'tags-select'
 
   return (
     <>
-      <label htmlFor={id} className={css(inputStyles.label)}>
-        {props.label || 'Tags'}
-      </label>
+      <Label htmlFor={id}>{props.label || 'Tags'}</Label>
       <Select
         styles={styles}
         id={id}

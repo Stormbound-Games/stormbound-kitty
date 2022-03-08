@@ -5,6 +5,7 @@ import CTA from '~/components/CTA'
 import Only from '~/components/Only'
 import FileUpload from '~/components/FileUpload'
 import uuid from '~/helpers/uuid'
+import capitalize from '~/helpers/capitalize'
 
 const parseCSVData = data => {
   return data
@@ -14,7 +15,19 @@ const parseCSVData = data => {
     .map(item => {
       // prettier-ignore
       const [id, name, /* faction */, tags] = item.split(',')
-      return { id, name, tags: tags.split(' '), uuid: uuid() }
+      return {
+        id,
+        name,
+        tags: tags.split(' ').map(tag => {
+          const [slug, name] = tag.split('/')
+          return {
+            slug,
+            name:
+              name || slug.toLowerCase().split('_').map(capitalize).join(' '),
+          }
+        }),
+        uuid: uuid(),
+      }
     })
 }
 

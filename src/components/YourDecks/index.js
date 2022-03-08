@@ -67,6 +67,7 @@ export default React.memo(function YourDecks(props) {
               setMode={props.setMode}
               addDeck={props.addDeck}
               cancel={props.disabledEditor}
+              availableTags={props.availableTags}
             />
           </Row.Column>
           <Row.Column />

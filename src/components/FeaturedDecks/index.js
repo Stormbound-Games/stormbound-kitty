@@ -75,7 +75,9 @@ export default React.memo(function FeaturedDecks(props) {
   )
 
   const matchesTags = React.useCallback(
-    deck => tags.length === 0 || tags.every(tag => deck.tags.includes(tag)),
+    deck =>
+      tags.length === 0 ||
+      tags.every(tag => deck.tags.map(tag => tag.slug).includes(tag)),
     [tags]
   )
 
@@ -138,11 +140,7 @@ export default React.memo(function FeaturedDecks(props) {
   return (
     <Page
       title='Featured Decks'
-      description={getDeckSearchDescription(
-        props.availableTags,
-        cardsIndex,
-        state
-      )}
+      description={getDeckSearchDescription(cardsIndex, state)}
       meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
       author={author}
       action={{
@@ -213,7 +211,6 @@ export default React.memo(function FeaturedDecks(props) {
               withBookmarking
               showUpgrades
               actions={deck => [<BookmarkDeckButton key={deck.id} {...deck} />]}
-              availableTags={props.availableTags}
             />
           ) : (
             <EmptySearch title='No Decks found' resetFilters={resetFilters} />

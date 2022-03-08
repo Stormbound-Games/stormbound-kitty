@@ -9,7 +9,7 @@ const getDeckTags = require('~/api/decks/getDeckTags').default
 
 const BOUNDARY_DATE = new Date(2021, 4, 15)
 
-Promise.all([getDecks(), getDeckTags()]).then(([decks, deckTags]) => {
+getDecks().then(decks => {
   const groups = groupBy(
     decks.filter(deck => parseDate(deck.date) < BOUNDARY_DATE),
     'author'
@@ -37,7 +37,7 @@ Promise.all([getDecks(), getDeckTags()]).then(([decks, deckTags]) => {
 
         console.log(
           `- ${deck.name} (added in ${date}, tagged with ${toSentence(
-            deck.tags.map(tag => deckTags[tag] || tag),
+            deck.tags.map(tag => tag.name),
             'and'
           )}): https://stormbound-kitty.com/deck/${deck.id}`
         )
