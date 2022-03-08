@@ -8,6 +8,7 @@ import card from './documents/card'
 import changelog from './documents/changelog'
 import contribution from './documents/contribution'
 import deck from './documents/deck'
+import deckTags from './documents/deckTags'
 import donation from './documents/donation'
 import equalTierList from './documents/equalTierList'
 import event from './documents/event'
@@ -38,6 +39,7 @@ export default createSchema({
     changelog,
     contribution,
     deck,
+    deckTags,
     donation,
     event,
     faq,
