@@ -14,7 +14,7 @@ const deck = {
       name: 'brawl',
       type: 'reference',
       to: [{ type: 'brawl' }],
-      options: { displayNew: true },
+      options: { displayNew: false },
     },
     {
       title: 'With “How To”',
