@@ -8,7 +8,7 @@ export default React.memo(function Tags(props) {
       <>
         {acc}
         {index === 0 ? '' : index === arr.length - 1 ? ' and' : ','}{' '}
-        <span className='Highlight'>{tag.name}</span>
+        <span className='Highlight'>{tag.name || tag}</span>
       </>
     ),
     <></>
