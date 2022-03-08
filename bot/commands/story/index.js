@@ -10,7 +10,7 @@ const getEmbedForStory = (cardsIndex, label, story) => {
     .setTitle(`${label}: ${story.title}`)
     .setURL('https://stormbound-kitty.com/stories/' + story.slug)
     .addFields(
-      { name: 'Author', value: story.author, inline: true },
+      { name: 'Author', value: story.author.name, inline: true },
       { name: 'Card', value: cardsIndex[story.cardId].name, inline: true }
     )
     .setDescription(story.excerpt.replace(/\n/g, ' '))

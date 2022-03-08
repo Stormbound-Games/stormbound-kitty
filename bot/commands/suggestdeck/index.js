@@ -45,7 +45,7 @@ const suggestdeck = {
       embed.setTitle(deck.name)
       embed.setURL('https://stormbound-kitty.com/deck/' + deck.id)
       embed.addFields(
-        { name: 'Author', value: deck.author, inline: true },
+        { name: 'Author', value: deck.author.name, inline: true },
         {
           name: 'Faction',
           value: capitalize(getFactionFromDeckID(deck.id)),
@@ -97,7 +97,7 @@ const suggestdeck = {
       embed.setTitle(deck.name)
       embed.setURL('https://stormbound-kitty.com/deck/' + deck.id)
       embed.addFields(
-        { name: 'Author', value: deck.author, inline: true },
+        { name: 'Author', value: deck.author.name, inline: true },
         {
           name: 'Faction',
           value: capitalize(getFactionFromDeckID(deck.id)),
