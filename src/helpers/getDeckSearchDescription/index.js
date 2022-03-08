@@ -1,4 +1,3 @@
-import { TAGS } from '~/constants/deck'
 import capitalize from '~/helpers/capitalize'
 import toSentence from '~/helpers/toSentence'
 
