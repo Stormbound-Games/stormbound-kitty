@@ -21,13 +21,14 @@ const resolveTags = deck => {
     if (typeof tag === 'string')
       return {
         slug: tag,
-        name: capitalize(tag.toLowerCase().replace(/_/g, ' ')),
+        name: tag.toLowerCase().split('_').map(capitalize).join(' '),
       }
     else return tag
   })
 
   return deck
 }
+
 const getTagsFromId = (cardsIndexBySid, id) => {
   const cards = serialization.deck.deserialize(cardsIndexBySid, id)
   const average =
