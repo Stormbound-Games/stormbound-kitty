@@ -6,6 +6,7 @@ import getEmbed from '~/helpers/getEmbed'
 import getRandomDeck from '~/helpers/getRandomDeck'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
 import serialization from '~/helpers/serialization'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
 const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
@@ -26,7 +27,7 @@ const findFaction = message => {
   return []
 }
 
-export const parseMessage = (allCards, message) => {
+export const parseMessage = (allCards, abbreviations, message) => {
   // Find the faction of the deck (if any), as well as the term that describes
   // it; either a faction name (e.g. shadowfen), or an alias (e.g. sf).
   const [authored, resolved] = findFaction(message)
@@ -43,7 +44,7 @@ export const parseMessage = (allCards, message) => {
     // Make sure not to include a card twice. For instance, `herald, herald`
     // should include Pan Heralds and Herald’s Hymn, but not one of them twice.
     // Same goes for other cases, such as `dread, dread`.
-    const card = searchCards(allCards, part).find(
+    const card = searchCards(allCards, abbreviations, part).find(
       card => !cards.map(c => c.id).includes(card.id)
     )
     if (card) cards.push(card)
@@ -102,8 +103,13 @@ const randomdeck = {
       )
   },
   handler: async function (message) {
+    const abbreviations = await getAbbreviations()
     const cards = await getCards()
-    const { faction, including } = parseMessage(cards, message.toLowerCase())
+    const { faction, including } = parseMessage(
+      cards,
+      abbreviations,
+      message.toLowerCase()
+    )
     const resolvedFaction = validateFaction(faction.resolved, including)
     const embed = getEmbed()
       .setTitle(`${this.label}`)

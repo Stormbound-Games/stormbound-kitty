@@ -1,14 +1,16 @@
 import React from 'react'
 import Lexicon from '~/components/Lexicon'
 import Layout from '~/components/Layout'
-import getSiteSettings from '~/api/misc/getSiteSettings'
 import getCards from '~/api/cards/getCards'
+import getSiteSettings from '~/api/misc/getSiteSettings'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 
 export async function getStaticProps({ preview: isPreview = false }) {
+  const abbreviations = await getAbbreviations({ isPreview })
   const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { cards, settings } }
+  return { props: { abbreviations, cards, settings } }
 }
 
 const LexiconPage = ({ settings, cards, ...props }) => (

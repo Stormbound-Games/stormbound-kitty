@@ -5,9 +5,10 @@ import handleSearchAlias from '~/helpers/handleSearchAlias'
 import searchCards from '~/helpers/searchCards'
 import indexArray from '~/helpers/indexArray'
 import getDeckTags from '~/api/decks/getDeckTags'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
-export const parseMessage = (cards, tags, content) => {
+export const parseMessage = (cards, abbreviations, tags, content) => {
   const terms = content.split(/\s+/g)
   const params = {}
   const unmatched = []
@@ -34,7 +35,7 @@ export const parseMessage = (cards, tags, content) => {
 
   // After having gone through all term individually, join the ones that didn’t
   // match anything to perform a card search.
-  const [card] = searchCards(cards, unmatched.join(' '))
+  const [card] = searchCards(cards, abbreviations, unmatched.join(' '))
 
   // If a card was found with the unmatching terms, store it, otherwise ignore
   // the unmatching terms.
@@ -61,6 +62,7 @@ const decks = {
   handler: async function (message) {
     const tags = await getDeckTags()
     const cards = await getCards()
+    const abbreviations = await getAbbreviations()
     const cardsIndex = indexArray(cards)
     const embed = getEmbed()
       .setTitle(`${this.label}`)
@@ -74,7 +76,12 @@ const decks = {
       return embed
     }
 
-    const { params, ignored } = parseMessage(cards, tags, message.toLowerCase())
+    const { params, ignored } = parseMessage(
+      cards,
+      abbreviations,
+      tags,
+      message.toLowerCase()
+    )
     const searchParams = new URLSearchParams()
 
     for (let param in params) {

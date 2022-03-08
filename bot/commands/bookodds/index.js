@@ -4,6 +4,7 @@ import getDrawingProbability from '~/helpers/getDrawingProbability'
 import searchCards from '~/helpers/searchCards'
 import indexArray from '~/helpers/indexArray'
 import getEmbed from '~/helpers/getEmbed'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 import getBooks from '~/api/books/getBooks'
 
@@ -47,7 +48,7 @@ const getEmbedFields = (cards, book) => {
   return fields
 }
 
-const parseMessage = (booksIndex, cards, search) => {
+const parseMessage = (booksIndex, cards, abbreviations, search) => {
   const terms = search.split(/\s+/g)
   const params = {}
 
@@ -59,7 +60,7 @@ const parseMessage = (booksIndex, cards, search) => {
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
       params.target = 'FUSION_STONES'
     } else if (!params.target) {
-      const [card] = searchCards(cards, term)
+      const [card] = searchCards(cards, abbreviations, term)
       params.target = card
     }
   })
@@ -80,10 +81,16 @@ const bookodds = {
   },
   handler: async function (message) {
     const books = await getBooks()
+    const abbreviations = await getAbbreviations()
     const cards = await getCards()
     const booksIndex = indexArray(books)
 
-    const { book, target } = parseMessage(booksIndex, cards, message)
+    const { book, target } = parseMessage(
+      booksIndex,
+      cards,
+      abbreviations,
+      message
+    )
 
     // The book argument should be mandatory and there is no way to compute
     // anything if it’s not provided.

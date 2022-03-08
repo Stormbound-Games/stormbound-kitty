@@ -2,6 +2,7 @@ import serialization from '~/helpers/serialization'
 import searchCards from '~/helpers/searchCards'
 import getEmbed from '~/helpers/getEmbed'
 import clamp from '~/helpers/clamp'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
 const getLevelOut = term => {
@@ -30,6 +31,7 @@ const deckid = {
   handler: async function (message) {
     if (message.length === 0) return
 
+    const abbreviations = await getAbbreviations()
     const allCards = await getCards()
     const [deckLevel, search] = getLevelOut(message)
     const unknown = []
@@ -37,7 +39,7 @@ const deckid = {
 
     search.split(/\s*,\s*/g).forEach(term => {
       const [level, search] = getLevelOut(term)
-      const [card] = searchCards(allCards, search)
+      const [card] = searchCards(allCards, abbreviations, search)
       if (!card) return unknown.push(term)
       if (cards.find(c => c.id === card.id)) return
       cards.push({ id: card.id, level: level || deckLevel || 1 })

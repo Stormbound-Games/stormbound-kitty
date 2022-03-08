@@ -1,12 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Masonry from 'react-masonry-css'
-import { CardsContext } from '~/components/CardsProvider'
 import Embellish from '~/components/Embellish'
 import Page from '~/components/Page'
 import Spacing from '~/components/Spacing'
 import getTermsForLetter from '~/helpers/getTermsForLetter'
-import getAbbreviations from '~/helpers/getAbbreviations'
 import styles from './styles'
 
 const Terms = React.memo(function Terms(props) {
@@ -32,9 +30,7 @@ const Terms = React.memo(function Terms(props) {
 })
 
 export default React.memo(function Lexicon(props) {
-  const { cards } = React.useContext(CardsContext)
   const { css } = useFela()
-  const terms = getAbbreviations(cards, 'NATURAL')
 
   return (
     <Page
@@ -50,7 +46,7 @@ export default React.memo(function Lexicon(props) {
         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => (
           <React.Fragment key={letter}>
             <h2 className={css(styles.title)}>{letter}</h2>
-            <Terms terms={getTermsForLetter(terms, letter)} />
+            <Terms terms={getTermsForLetter(props.abbreviations, letter)} />
           </React.Fragment>
         ))}
       </Masonry>

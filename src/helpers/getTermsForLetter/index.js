@@ -1,9 +1,9 @@
-const getTermsForLetter = (terms, letter) => {
-  return Object.keys(terms)
+const getTermsForLetter = (abbreviations, letter) => {
+  return Object.keys(abbreviations)
     .sort((a, b) => a.localeCompare(b))
     .filter(term => term.toUpperCase().startsWith(letter))
     .reduce((acc, term) => {
-      acc[term] = terms[term]
+      acc[term] = abbreviations[term]
       return acc
     }, {})
 }

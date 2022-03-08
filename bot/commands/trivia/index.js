@@ -1,5 +1,6 @@
 import getChannelId from '~/helpers/getChannelId'
 import getEmbed from '~/helpers/getEmbed'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 import Trivia from './Trivia'
 
@@ -31,6 +32,7 @@ const trivia = {
       )
   },
   handler: async function (message, client, messageObject) {
+    const abbreviations = await getAbbreviations()
     const cards = await getCards()
     const channelId = getChannelId(messageObject, this)
     const guildId = messageObject.channel.guild.id
@@ -38,7 +40,7 @@ const trivia = {
     if (!channelId) return
 
     if (!cache.has(guildId)) {
-      cache.set(guildId, new Trivia({ cards, guildId }))
+      cache.set(guildId, new Trivia({ cards, abbreviations, guildId }))
     }
 
     const trivia = cache.get(guildId)

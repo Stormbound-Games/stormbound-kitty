@@ -1,7 +1,6 @@
-import getAbbreviations from '~/helpers/getAbbreviations'
 import toSentence from '~/helpers/toSentence'
 import getEmbed from '~/helpers/getEmbed'
-import getCards from '~/api/cards/getCards'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 
 const quotify = value => `“${value}”`
 
@@ -17,8 +16,7 @@ const abbr = {
       )
   },
   handler: async function (message) {
-    const cards = await getCards()
-    const abbreviations = getAbbreviations(cards, 'LOWERCASE')
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
     const matches = abbreviations[message.toLowerCase()]
 
     if (!matches) return

@@ -5,6 +5,7 @@ import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import indexArray from '~/helpers/indexArray'
 import serialization from '~/helpers/serialization'
 import getDeckTags from '~/api/decks/getDeckTags'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
 import { parseMessage } from '../decks'
@@ -21,12 +22,14 @@ const suggestdeck = {
       )
   },
   handler: async function (message) {
+    const abbreviations = await getAbbreviations()
     const availableTags = await getDeckTags()
     const cards = await getCards()
     const decks = await getDecks()
     const cardsIndexBySid = indexArray(cards, 'sid')
     const { params, ignored } = parseMessage(
       cards,
+      abbreviations,
       availableTags,
       message.toLowerCase()
     )
