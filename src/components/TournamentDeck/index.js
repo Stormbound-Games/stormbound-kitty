@@ -26,7 +26,7 @@ export default React.memo(function TournamentDeck(props) {
         id={deck.id}
         name={deck.name || 'Unnamed deck'}
         author={podium[index]}
-        tags={['EQUALS']}
+        tags={[{ name: 'Equals', slug: 'EQUALS' }]}
         nerfed={parseDate(props.date) < new Date(2019, 6, 1) ? '07/2020' : null}
         actions={[
           index > 0 && {
