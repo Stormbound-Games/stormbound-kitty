@@ -1,7 +1,7 @@
 const BLOCK_NAMES = {
   battleSim: 'Battle Sim',
   card: 'Card',
-  deck: 'Deck',
+  deckEmbed: 'Deck',
   image: 'Image',
   manaGraph: 'Mana Graph',
   tableOfContents: 'Table of Contents',
