@@ -126,47 +126,70 @@ describe('Bot — !randomdeck', () => {
 
   describe('The `parseMessage` helper', () => {
     it('should find the faction regardless of position', () => {
-      expect(parseMessage(global.__CARDS__, 'sf').faction).toEqual({
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'sf').faction
+      ).toEqual({
         authored: 'sf',
         resolved: 'shadowfen',
       })
-      expect(parseMessage(global.__CARDS__, 'rof sf').faction).toEqual({
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'rof sf')
+          .faction
+      ).toEqual({
         authored: 'sf',
         resolved: 'shadowfen',
       })
-      expect(parseMessage(global.__CARDS__, 'sf rof').faction).toEqual({
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'sf rof')
+          .faction
+      ).toEqual({
         authored: 'sf',
         resolved: 'shadowfen',
       })
-      expect(parseMessage(global.__CARDS__, 'wotw, rof sf').faction).toEqual({
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'wotw, rof sf')
+          .faction
+      ).toEqual({
         authored: 'sf',
         resolved: 'shadowfen',
       })
-      expect(parseMessage(global.__CARDS__, 'sf wotw, rof').faction).toEqual({
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'sf wotw, rof')
+          .faction
+      ).toEqual({
         authored: 'sf',
         resolved: 'shadowfen',
       })
     })
 
     it('should find included cards', () => {
-      expect(parseMessage(global.__CARDS__, 'sf').including.length).toEqual(0)
-      expect(parseMessage(global.__CARDS__, 'rof sf').including.length).toEqual(
-        1
-      )
-      expect(parseMessage(global.__CARDS__, 'sf rof').including.length).toEqual(
-        1
-      )
       expect(
-        parseMessage(global.__CARDS__, 'wotw, rof sf').including.length
-      ).toEqual(2)
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'sf').including
+          .length
+      ).toEqual(0)
       expect(
-        parseMessage(global.__CARDS__, 'sf wotw, rof').including.length
-      ).toEqual(2)
-      expect(
-        parseMessage(global.__CARDS__, 'pan herald').including.length
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'rof sf')
+          .including.length
       ).toEqual(1)
       expect(
-        parseMessage(global.__CARDS__, 'pan, herald').including.length
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'sf rof')
+          .including.length
+      ).toEqual(1)
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'wotw, rof sf')
+          .including.length
+      ).toEqual(2)
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'sf wotw, rof')
+          .including.length
+      ).toEqual(2)
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'pan herald')
+          .including.length
+      ).toEqual(1)
+      expect(
+        parseMessage(global.__CARDS__, global.__ABBREVIATIONS__, 'pan, herald')
+          .including.length
       ).toEqual(2)
     })
   })

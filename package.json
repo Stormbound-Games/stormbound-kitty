@@ -53,7 +53,7 @@
   "scripts": {
     "start": "next dev",
     "build:cra": "next build && next-sitemap",
-    "test": "jest --forceExit",
+    "test": "node -r esm $(npm bin)/jest --forceExit",
     "bot": "node -r esm bot/cli.js",
     "bot:dev": "nodemon -x \"node -r esm\" bot/cli.js --watch src",
     "prepare": "husky install && node cypress/support/apply-patches.js"

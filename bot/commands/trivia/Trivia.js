@@ -16,7 +16,7 @@ import Canvas from './Canvas'
 const KITTY_ID = '368097495605182483'
 
 export default class Trivia {
-  constructor({ guildId, cards = [], withScores = true }) {
+  constructor({ guildId, cards = [], abbreviations = {}, withScores = true }) {
     this.withScores = withScores
     this.mode =
       this.difficulty =
@@ -28,6 +28,7 @@ export default class Trivia {
         null
     this.streaks = []
     this.cards = cards
+    this.abbreviations = abbreviations
     this.guildId = guildId
     this.questions = getTriviaQuestions(cards)
     this.canvas = new Canvas()
@@ -114,11 +115,11 @@ export default class Trivia {
       case 'QUESTION':
         return Object.keys(this.answer.choices).includes(content.toUpperCase())
       case 'IMAGE':
-        return searchCards(this.cards, content).length > 0
+        return searchCards(this.cards, this.abbreviations, content).length > 0
       case 'CARD':
         return (
           !!parseCardGuess(content)[0] ||
-          searchCards(this.cards, content).length > 0
+          searchCards(this.cards, this.abbreviations, content).length > 0
         )
       default:
         return false
@@ -166,7 +167,7 @@ export default class Trivia {
         return embed
       }
 
-      const [card] = searchCards(this.cards, content)
+      const [card] = searchCards(this.cards, this.abbreviations, content)
 
       if (card) {
         if (card.name === this.answer.name) {

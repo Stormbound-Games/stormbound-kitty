@@ -3,6 +3,7 @@ import searchCards from '~/helpers/searchCards'
 import parseDate from '~/helpers/parseDate'
 import getChangesFromCard from '~/api/changes/getChangesFromCard'
 import { formatPreciseDate } from '~/helpers/formatDate'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
 const groupByDate = (acc, change) => {
@@ -26,7 +27,8 @@ const changelog = {
   },
   handler: async function (message) {
     const cards = await getCards()
-    const [card] = searchCards(cards, message)
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
+    const [card] = searchCards(cards, abbreviations, message)
 
     // If no card was found with the given search, look no further.
     if (!card) return

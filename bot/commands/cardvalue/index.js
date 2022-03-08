@@ -3,6 +3,7 @@ import clamp from '~/helpers/clamp'
 import getCardValue from '~/helpers/getCardValue'
 import searchCards from '~/helpers/searchCards'
 import indexArray from '~/helpers/indexArray'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
 const getLevel = message => {
@@ -29,10 +30,11 @@ const cardvalue = {
       )
   },
   handler: async function (message) {
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
     const cards = await getCards()
     const cardsIndex = indexArray(cards)
     const [level, search] = getLevel(message)
-    const [card] = searchCards(cards, search)
+    const [card] = searchCards(cards, abbreviations, search)
 
     if (!card) return
 

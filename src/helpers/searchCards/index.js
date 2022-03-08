@@ -1,5 +1,4 @@
 import Fuse from 'fuse.js'
-import getAbbreviations from '~/helpers/getAbbreviations'
 
 const SEARCH_OPTIONS = {
   keys: ['name'],
@@ -8,7 +7,7 @@ const SEARCH_OPTIONS = {
   ignoreFieldNorm: true,
 }
 
-const searchCards = (cards, search) => {
+const searchCards = (cards = [], abbreviations = {}, search = '') => {
   const searcher = new Fuse(
     cards.filter(card => !card.token),
     SEARCH_OPTIONS
@@ -21,14 +20,12 @@ const searchCards = (cards, search) => {
 
   if (cardFromID) return [cardFromID]
 
-  const abbreviations = getAbbreviations(cards, 'LOWERCASE')
   const matchAbbr = (abbreviations[needle.toLowerCase()] || [])
     .map(definition => cards.find(card => card.name === definition))
     .filter(Boolean)
 
   if (matchAbbr.length) return matchAbbr
 
-  console.log(searcher.search(needle))
   return searcher.search(needle).map(result => result.item)
 }
 

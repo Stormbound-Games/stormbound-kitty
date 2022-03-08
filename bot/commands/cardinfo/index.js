@@ -1,5 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 import searchCards from '~/helpers/searchCards'
+import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
 const cardinfo = {
@@ -15,9 +16,10 @@ const cardinfo = {
   },
   handler: async function (message) {
     const cards = await getCards()
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
 
     return (
-      searchCards(cards, message)
+      searchCards(cards, abbreviations, message)
         .map(card => `https://stormbound-kitty.com/card/${card.id}/display`)
         .slice(0, 3)
         .join('\n') || undefined
