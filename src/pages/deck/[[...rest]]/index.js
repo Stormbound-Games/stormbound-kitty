@@ -5,7 +5,6 @@ import DeckDryRunView from '~/components/DeckDryRunView'
 import Layout from '~/components/Layout'
 import getDeck from '~/api/decks/getDeck'
 import getDecks from '~/api/decks/getDecks'
-import getDeckTags from '~/api/decks/getDeckTags'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -31,7 +30,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const brawls = await getBrawls({ isPreview })
-  const availableTags = await getDeckTags({ isPreview })
   const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const cardsIndex = indexArray(cards)
@@ -49,7 +47,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         brawls,
-        availableTags,
         cards,
         settings,
         id: null,
@@ -79,7 +76,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return {
     props: {
       brawls: view !== 'editor' ? brawls : [],
-      availableTags,
       // On the detail view, the only needed cards are the ones in the deck,
       // and every other card can be discarded.
       cards:

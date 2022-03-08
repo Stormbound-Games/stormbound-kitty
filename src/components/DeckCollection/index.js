@@ -47,7 +47,10 @@ export default React.memo(function DeckCollection(props) {
         getFactionFromDeckID(deck.id) !== filters.faction
       )
         return false
-      if (!filters.tags.every(tag => deck.tags.includes(tag))) return false
+      if (
+        !filters.tags.every(tag => deck.tags.map(tag => tag.slug).includes(tag))
+      )
+        return false
       return true
     })
     .slice(0)

@@ -37,9 +37,11 @@ const suggestdeck = {
         // If the tags are not provided, assume the expectation is to have a
         // deck that works and is competitive under normal circumstances (so
         // ranking and Diamond) and therefore discard any Brawl/Equals deck.
-        decks.filter(
-          deck => !deck.tags.includes('BRAWL') && !deck.tags.includes('EQUALS')
-        )
+        decks.filter(deck => {
+          const tagSlugs = deck.tags.map(tag => tag.slug)
+
+          return !tagSlugs.includes('BRAWL') && !tagSlugs.includes('EQUALS')
+        })
       )
 
       embed.setTitle(deck.name)
@@ -53,9 +55,7 @@ const suggestdeck = {
         },
         {
           name: 'Tags',
-          value:
-            deck.tags.map(tag => availableTags[tag] || tag).join(', ') ||
-            'No tags',
+          value: deck.tags.map(tag => tag.name).join(', ') || 'No tags',
           inline: true,
         }
       )
@@ -64,17 +64,19 @@ const suggestdeck = {
     }
 
     const results = decks.filter(deck => {
+      const tagSlugs = deck.tags.map(tag => tag.slug)
+
       if (params.faction && getFactionFromDeckID(deck.id) !== params.faction) {
         return false
       }
 
       if (params.tags) {
-        if (!params.tags.every(tag => deck.tags.includes(tag))) return false
+        if (!params.tags.every(tag => tagSlugs.includes(tag))) return false
       } else {
         // If the tags are not provided, assume the expectation is to have a
         // deck that works and is competitive under normal circumstances (so
         // ranking and Diamond) and therefore discard any Brawl/Equals deck.
-        if (deck.tags.includes('BRAWL') || deck.tags.includes('EQUALS'))
+        if (tagSlugs.includes('BRAWL') || tagSlugs.includes('EQUALS'))
           return false
       }
 
@@ -105,9 +107,7 @@ const suggestdeck = {
         },
         {
           name: 'Tags',
-          value:
-            deck.tags.map(tag => availableTags[tag] || tag).join(', ') ||
-            'No tags',
+          value: deck.tags.map(tag => tag.name).join(', ') || 'No tags',
           inline: true,
         }
       )

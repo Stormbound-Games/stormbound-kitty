@@ -23,7 +23,7 @@ export default React.memo(function ExportDecks(props) {
         deck.id,
         deck.name,
         getFactionFromDeckID(deck.id),
-        deck.tags.join(' '),
+        deck.tags.map(tag => tag.slug + '/' + tag.name).join(' '),
       ]),
     ].join('\n')
 

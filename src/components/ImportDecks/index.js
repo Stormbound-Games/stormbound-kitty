@@ -14,7 +14,15 @@ const parseCSVData = data => {
     .map(item => {
       // prettier-ignore
       const [id, name, /* faction */, tags] = item.split(',')
-      return { id, name, tags: tags.split(' '), uuid: uuid() }
+      return {
+        id,
+        name,
+        tags: tags.split(' ').map(tag => {
+          const [slug, name = slug] = tag.split('/')
+          return { slug, name }
+        }),
+        uuid: uuid(),
+      }
     })
 }
 

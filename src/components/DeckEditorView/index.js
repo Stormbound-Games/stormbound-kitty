@@ -52,14 +52,14 @@ const useModifiedDeck = (brawls, deck, suggestedDeck) => {
   // should be adjusted to reflect the brawl modifier. This is especially
   // important for mana brawls in order to display the correct card mana cost.
   if (suggestedDeck) {
-    const brawl = suggestedDeck.tags.find(tag => brawlIds.includes(tag))
+    const brawl = suggestedDeck.tags.find(tag => brawlIds.includes(tag.slug))
     if (brawl) return modifyDeck(cardsIndex, deck, brawl)
   }
 
   return deck
 }
 
-const useArticleProps = (deck, availableTags = TAGS, matchedDeck = {}) => {
+const usePageProps = (deck, matchedDeck = {}) => {
   matchedDeck = matchedDeck || {}
   const id = serialization.deck.serialize(deck)
   const { decks, addDeck, removeDeck, toggleUnseen } =
@@ -71,7 +71,7 @@ const useArticleProps = (deck, availableTags = TAGS, matchedDeck = {}) => {
 
   if (matchedDeck.tags) {
     props.meta = toSentence(
-      matchedDeck.tags.map(tag => availableTags[tag] || tag),
+      matchedDeck.tags.map(tag => tag.name),
       'and'
     )
   } else if (id) {
@@ -207,11 +207,7 @@ export default React.memo(function DeckEditorView(props) {
   )
 
   const deck = useModifiedDeck(props.brawls, props.deck, props.suggestedDeck)
-  const articleProps = useArticleProps(
-    deck,
-    props.availableTags,
-    props.suggestedDeck
-  )
+  const articleProps = usePageProps(deck, props.suggestedDeck)
 
   return (
     <Page

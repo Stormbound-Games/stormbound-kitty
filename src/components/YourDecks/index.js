@@ -31,7 +31,6 @@ export default React.memo(function YourDecks(props) {
               isEdited={row[0].uuid === props.editedDeckUUID}
               handleEdit={props.editDeck}
               cancelEdit={props.disabledEditor}
-              availableTags={props.availableTags}
             />
           </Row.Column>
           <Row.Column>
@@ -42,7 +41,6 @@ export default React.memo(function YourDecks(props) {
                 isEdited={row[1].uuid === props.editedDeckUUID}
                 handleEdit={props.editDeck}
                 cancelEdit={props.disabledEditor}
-                availableTags={props.availableTags}
               />
             ) : (
               <NewDeck

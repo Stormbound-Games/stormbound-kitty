@@ -55,7 +55,7 @@ export default React.memo(function DeckDetailView(props) {
       meta={
         suggestedDeck.tags
           ? toSentence(
-              suggestedDeck.tags.map(tag => props.availableTags[tag] || tag),
+              suggestedDeck.tags.map(tag => tag.name),
               'and'
             )
           : undefined

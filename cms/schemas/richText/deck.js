@@ -2,7 +2,6 @@ import React from 'react'
 import { MdAutoAwesomeMotion } from 'react-icons/md'
 import date from '../types/date'
 import deckId from '../types/deckId'
-import { TAGS } from '~/constants/deck'
 
 const deck = {
   title: 'Deck',
@@ -24,27 +23,7 @@ const deck = {
       title: 'Tags',
       name: 'deckTags',
       type: 'array',
-      of: [
-        { type: 'reference', to: [{ type: 'brawl' }, { type: 'deckTag' }] },
-        {
-          title: 'Tag',
-          name: 'tag',
-          type: 'object',
-          fields: [
-            {
-              title: 'Tag',
-              name: 'tag',
-              type: 'string',
-              options: {
-                list: Object.entries(TAGS).map(([value, title]) => ({
-                  title,
-                  value,
-                })),
-              },
-            },
-          ],
-        },
-      ],
+      of: [{ type: 'reference', to: [{ type: 'deckTag' }] }],
       validation: Rule => Rule.required().min(1),
     },
   ],

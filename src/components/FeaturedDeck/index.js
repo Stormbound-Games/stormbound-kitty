@@ -126,7 +126,7 @@ export default React.memo(function FeaturedDeck(props) {
                 as
               </>
             )}
-            <Tags tags={props.tags} availableTags={props.availableTags} />
+            <Tags tags={props.tags} />
           </span>
         </div>
         {actions.length > 0 && (

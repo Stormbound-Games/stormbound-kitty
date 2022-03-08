@@ -16,15 +16,7 @@ markDefs[] {
 }
 `
 
-const deckTags = `
-"tags": coalesce(
-  deckTags[] {
-    _type == "tag" => { "tag": @.tag },
-    _type == "reference" => { "tag": @ -> id }
-  }.tag,
-  tags
-)
-`
+const deckTags = `"tags": deckTags[] -> { name, "slug": slug.current }`
 
 const block = `..., ${markDefs}`
 

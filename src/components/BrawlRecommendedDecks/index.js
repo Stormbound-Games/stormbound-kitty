@@ -15,12 +15,7 @@ export default React.memo(function BrawlRecommendedDecks(props) {
   return (
     <>
       <Title>Recommended deck{props.decks.length === 1 ? '' : 's'}</Title>
-      <Decks
-        showUpgrades
-        columns={props.columns}
-        decks={props.decks}
-        availableTags={props.availableTags}
-      />
+      <Decks showUpgrades columns={props.columns} decks={props.decks} />
       <p className={css({ marginTop: '-1.25em' })}>
         <Icon icon='arrow-right' extend={{ transform: 'translateY(2px)' }} />{' '}
         Check more{' '}

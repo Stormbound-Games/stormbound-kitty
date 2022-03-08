@@ -26,8 +26,9 @@ describe('Bot — !suggestdeck', () => {
       .forEach(([tag, result]) => {
         const id = result.url.replace(BASE_URL, '')
         const deck = global.__DECKS_INDEX__[id]
+        const tagSlugs = deck.tags.map(tag => tag.slug)
 
-        expect(deck.tags.includes(tag)).toEqual(true)
+        expect(tagSlugs.includes(tag)).toEqual(true)
       })
   })
 
@@ -53,8 +54,9 @@ describe('Bot — !suggestdeck', () => {
     return suggestdeck('ic hl').then(output => {
       const id = output.url.replace(BASE_URL, '')
       const deck = global.__DECKS_INDEX__[id]
+      const tagSlugs = deck.tags.map(tag => tag.slug)
 
-      expect(deck.tags.includes('HIGH_LEVELS')).toEqual(true)
+      expect(tagSlugs.includes('HIGH_LEVELS')).toEqual(true)
       expect(getFactionFromDeckID(deck.id)).toEqual('ironclad')
     })
   })
