@@ -30,6 +30,7 @@ const suggestdeck = {
       availableTags,
       message.toLowerCase()
     )
+    console.log(params)
     const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {
@@ -47,7 +48,7 @@ const suggestdeck = {
       embed.setTitle(deck.name)
       embed.setURL('https://stormbound-kitty.com/deck/' + deck.id)
       embed.addFields(
-        { name: 'Author', value: deck.author, inline: true },
+        { name: 'Author', value: deck.author.name, inline: true },
         {
           name: 'Faction',
           value: capitalize(getFactionFromDeckID(deck.id)),
@@ -71,7 +72,7 @@ const suggestdeck = {
       }
 
       if (params.tags) {
-        if (!params.tags.every(tag => tagSlugs.includes(tag))) return false
+        if (!params.tags.every(tag => tagSlugs.includes(tag.slug))) return false
       } else {
         // If the tags are not provided, assume the expectation is to have a
         // deck that works and is competitive under normal circumstances (so
@@ -99,7 +100,7 @@ const suggestdeck = {
       embed.setTitle(deck.name)
       embed.setURL('https://stormbound-kitty.com/deck/' + deck.id)
       embed.addFields(
-        { name: 'Author', value: deck.author, inline: true },
+        { name: 'Author', value: deck.author.name, inline: true },
         {
           name: 'Faction',
           value: capitalize(getFactionFromDeckID(deck.id)),

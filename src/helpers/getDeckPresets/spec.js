@@ -13,7 +13,10 @@ describe('The `getDeckPresets` helper', () => {
   it('should return brawl ID for a Brawl deck', () => {
     const deck = {
       id: '5n15s15n35n675s65s85s115s135n355s285s215s22',
-      tags: ['UNDEAD_STRENGTH', 'BRAWL'],
+      tags: [
+        { name: 'Swift Demise', slug: 'UNDEAD_STRENGTH' },
+        { name: 'Brawl', slug: 'BRAWL' },
+      ],
     }
     expect(getDeckPresets(global.__BRAWLS__, deck)).toEqual({
       modifier: 'UNDEAD_STRENGTH',
@@ -24,7 +27,7 @@ describe('The `getDeckPresets` helper', () => {
   it('should return equals for a tournament deck', () => {
     const deck = {
       id: '1n11i11i21n61n81n111i71i201i171i191n461n47',
-      tags: ['EQUALS'],
+      tags: [{ name: 'Equals', slug: 'EQUALS' }],
     }
 
     expect(getDeckPresets(global.__BRAWLS__, deck)).toEqual({

@@ -36,7 +36,7 @@ describe('Bot — !suggestdeck', () => {
     })
   })
 
-  it('should handle multi-searches', () => {
+  it.only('should handle multi-searches', () => {
     return suggestdeck('ic hl').then(output => {
       const id = output.url.replace(BASE_URL, '')
       const deck = global.__DECKS_INDEX__[id]

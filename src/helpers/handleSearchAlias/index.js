@@ -23,72 +23,81 @@ const handleSearchAlias = term => {
     case 'hl':
     case 'heroes':
     case 'diamond':
-      return ['tags', ['HIGH_LEVELS']]
+      return ['tags', [{ name: 'High Levels', slug: 'HIGH_LEVELS' }]]
     case 'equal':
     case 'tournament':
     case 'tourney':
-      return ['tags', ['EQUALS']]
+      return ['tags', [{ name: 'Equals', slug: 'EQUALS' }]]
     case 'casual':
     case 'warrior':
     case 'ultimate':
-      return ['tags', ['BRAWL']]
+      return ['tags', [{ name: 'Brawl', slug: 'BRAWL' }]]
     case 'toad':
     case 'toads':
-      return ['tags', ['TOAD_MANA']]
+      return ['tags', [{ name: 'Freedom Fight', slug: 'TOAD_MANA' }]]
     case 'dwarf':
     case 'dwarves':
-      return ['tags', ['DWARF_MANA']]
+      return ['tags', [{ name: 'Natural Sprint', slug: 'DWARF_MANA' }]]
     case 'pirate':
     case 'pirates':
-      return ['tags', ['PIRATE_MANA']]
+      return ['tags', [{ name: 'Pirate Treasure', slug: 'PIRATE_MANA' }]]
     case 'raven':
     case 'ravens':
-      return ['tags', ['RAVEN_MOVEMENT']]
+      return ['tags', [{ name: 'Scavengers', slug: 'RAVEN_MOVEMENT' }]]
     case 'rodent':
     case 'rodents':
-      return ['tags', ['RODENT_STRENGTH']]
+      return ['tags', [{ name: 'Small Plague', slug: 'RODENT_STRENGTH' }]]
     case 'feline':
     case 'felines':
-      return ['tags', ['FELINE_STRENGTH']]
+      return ['tags', [{ name: 'Noble Coalition', slug: 'FELINE_STRENGTH' }]]
     case 'satyr':
     case 'satyrs':
-      return ['tags', ['SATYR_MOVEMENT']]
+      return ['tags', [{ name: 'Self-Control', slug: 'SATYR_MOVEMENT' }]]
     case 'spell':
     case 'spells':
-      return ['tags', ['SPELL_MANA']]
+      return ['tags', [{ name: 'Eye of the Tempest', slug: 'SPELL_MANA' }]]
     case 'frostling':
     case 'frostlings':
-      return ['tags', ['FROSTLING_STRENGTH']]
+      return ['tags', [{ name: 'Goddess Boon', slug: 'FROSTLING_STRENGTH' }]]
     case 'elder':
     case 'elders':
-      return ['tags', ['ELDER_STRENGTH']]
+      return ['tags', [{ name: 'Elderly Wisdom', slug: 'ELDER_STRENGTH' }]]
     case 'construct':
     case 'constructs':
-      return ['tags', ['CONSTRUCT_MOVEMENT']]
+      return [
+        'tags',
+        [{ name: 'Lucrative Movement', slug: 'CONSTRUCT_MOVEMENT' }],
+      ]
     case 'knight':
     case 'knights':
-      return ['tags', ['KNIGHT_MANA']]
+      return ['tags', [{ name: 'Heavy Metal', slug: 'KNIGHT_MANA' }]]
     case 'dragon':
     case 'dragons':
-      return ['tags', ['DRAGON_MOVEMENT']]
+      return ['tags', [{ name: 'Unleashed Fury', slug: 'DRAGON_MOVEMENT' }]]
     case 'undead':
-      return ['tags', ['UNDEAD_STRENGTH']]
+      return ['tags', [{ name: 'Swift Demise', slug: 'UNDEAD_STRENGTH' }]]
     case 'hero':
-      return ['tags', ['HERO_STRENGTH']]
+      return ['tags', [{ name: 'Heroic Deeds', slug: 'HERO_STRENGTH' }]]
     case 'amal':
     case 'amalgamation':
     case 'pa':
-      return ['tags', ['PURE_AMALGAMATION']]
+      return [
+        'tags',
+        [{ name: 'Pure Almagamation', slug: 'PURE_AMALGAMATION' }],
+      ]
     case 'fot':
     case 'fight':
     case 'threes':
-      return ['tags', ['FIGHTS_OF_THREES']]
+      return ['tags', [{ name: 'Fights of Threes', slug: 'FIGHTS_OF_THREES' }]]
     case 'tnml':
     case 'land':
-      return ['tags', ['THIN_NO_MANS_LAND']]
+      return [
+        'tags',
+        [{ name: 'Thin No Man’s Land', slug: 'THIN_NO_MANS_LAND' }],
+      ]
     case 'sa':
     case 'stunning':
-      return ['tags', ['STUNNING_ATTACK']]
+      return ['tags', [{ name: 'Stunning Attack', slug: 'STUNNING_ATTACK' }]]
     default:
       return []
   }

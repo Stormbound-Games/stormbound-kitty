@@ -18,7 +18,7 @@ describe('Bot — !decks', () => {
 
   it('should handle tags', () => {
     return Promise.all([
-      decks('high_levels'),
+      decks('hl'),
       decks('regular'),
       decks('brawl'),
       decks('equals'),
