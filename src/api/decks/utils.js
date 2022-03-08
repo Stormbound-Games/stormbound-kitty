@@ -10,7 +10,10 @@ nerfed,
 "tags": coalesce(
   deckTags[] {
     _type == "tag" => { "tag": @.tag },
-    _type == "reference" => { "tag": @->id }
+    _type == "reference" => { "tag": coalesce(
+      @ -> slug.current,
+      @ -> id
+    ) },
   }.tag,
   tags
 )

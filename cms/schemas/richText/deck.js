@@ -25,7 +25,7 @@ const deck = {
       name: 'deckTags',
       type: 'array',
       of: [
-        { type: 'reference', to: [{ type: 'brawl' }] },
+        { type: 'reference', to: [{ type: 'brawl' }, { type: 'deckTag' }] },
         {
           title: 'Tag',
           name: 'tag',
