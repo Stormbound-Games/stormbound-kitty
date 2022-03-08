@@ -17,6 +17,7 @@ markDefs[] {
 `
 
 const deckTags = `"tags": deckTags[] -> { name, "slug": slug.current }`
+const deckAuthor = `"author": user -> { name, "slug": slug.current }`
 
 const block = `..., ${markDefs}`
 
@@ -28,7 +29,7 @@ _type == "columns" => {
     content[] {
       ${block},
       _type == "card" => { ..., ${card} },
-      _type == "deck" => { ..., ${deckTags} },
+      _type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
       _type == "info" => { ..., content[] { ${block} } },
       _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
     }
@@ -36,7 +37,7 @@ _type == "columns" => {
 },
 _type == "battleSim" => { content[] { ${block} } },
 _type == "card" => { ..., ${card} },
-_type == "deck" => { ..., ${deckTags} },
+_type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
 _type == "faq" => { entries[] { id, question, answer[] { ${block} } } },
 _type == "info" => { content[] { ${block} } },
 _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
