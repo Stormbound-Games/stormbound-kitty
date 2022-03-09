@@ -8,7 +8,7 @@ concurrency:
 
 jobs:
   install:
-    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
+    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
