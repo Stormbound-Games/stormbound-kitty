@@ -12,32 +12,20 @@ const PREVIEW_MODE_DURATION = 60 * 60
 
 const getRedirectUrl = async params => {
   switch (params.type) {
-    case 'siteSettings':
-      return '/'
-
-    case 'equalTierList':
-      return '/list/equals'
-
     case 'artwork':
       return '/fan-art'
 
-    case 'donation':
-      return '/about'
-
-    case 'event':
-      return '/'
-
-    case 'podcast':
-      return '/brewed-sages'
-
-    case 'tournament':
-      return '/tournaments/hall-of-fame'
-
-    case 'avatars':
+    case 'avatar':
       return '/fan-kit/avatars'
 
-    case 'wallpaper':
-      return '/fan-kit/wallpapers'
+    case 'book':
+      return '/fan-kit/books'
+
+    case 'brawl': {
+      const brawl = await getBrawl(params)
+
+      return brawl ? `/brawl/${brawl.slug}` : null
+    }
 
     case 'card':
     case 'changelog': {
@@ -45,6 +33,40 @@ const getRedirectUrl = async params => {
 
       return card ? `/card/${card.id}/display` : null
     }
+
+    case 'contribution':
+    case 'donation':
+      return '/about'
+
+    case 'deck': {
+      const deck = await getDeck(params)
+
+      return deck ? `/deck/${deck.id}/detail` : null
+    }
+
+    case 'deckTags':
+      return '/deck/featured'
+
+    case 'equalTierList':
+      return '/list/equals'
+
+    case 'event':
+      return '/'
+
+    case 'faq':
+      return '/faq'
+
+    case 'guide': {
+      const guide = await getGuide(params)
+
+      return guide ? `/guides/${guide.slug}` : null
+    }
+
+    case 'news':
+      return '/'
+
+    case 'podcast':
+      return '/brewed-sages'
 
     case 'puzzle': {
       const puzzle = await getPuzzle(params)
@@ -58,35 +80,26 @@ const getRedirectUrl = async params => {
       return release ? `/releases/${release.slug}` : null
     }
 
+    case 'siteSettings':
+      return '/'
+
     case 'story': {
       const story = await getStory(params)
 
       return story ? `/stories/${story.slug}` : null
     }
 
-    case 'deck': {
-      const deck = await getDeck(params)
-
-      return deck ? `/deck/${deck.id}/detail` : null
-    }
-
-    case 'brawl': {
-      const brawl = await getBrawl(params)
-
-      return brawl ? `/brawl/${brawl.slug}` : null
-    }
-
-    case 'guide': {
-      const guide = await getGuide(params)
-
-      return guide ? `/guides/${guide.slug}` : null
-    }
+    case 'tournament':
+      return '/tournaments/hall-of-fame'
 
     case 'user': {
       const user = await getUser(params)
 
       return user ? `/members/${user.slug}` : null
     }
+
+    case 'wallpaper':
+      return '/fan-kit/wallpapers'
 
     default:
       return null

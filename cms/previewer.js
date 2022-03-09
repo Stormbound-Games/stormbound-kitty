@@ -1,4 +1,22 @@
 import querystring from 'querystring'
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({ apiVersion: '2022-03-01' })
+
+let CARDS = new Map()
+
+const fetchDocuments = async () => {
+  const cards = await client.fetch(`*[_type == "card"] { _id, id }`)
+
+  cards.forEach(card => {
+    CARDS.set(card._id, card.id)
+  })
+}
+
+// Pretty ugly hack to not being able to resolve references in the main function
+// because it needs to be synchronous.
+// See: https://github.com/sanity-io/sanity/issues/2036
+fetchDocuments()
 
 const PREVIEW_PATH = '/api/preview'
 const PREVIEW_TOKEN = process.env.SANITY_STUDIO_PREVIEW_TOKEN
@@ -7,14 +25,14 @@ const PREVIEW_DOMAIN =
     ? 'https://stormbound-kitty.com'
     : 'http://localhost:3000'
 
-export default function getPreviewURL(document) {
+export default function resolvePageURL(document) {
   if (!PREVIEW_TOKEN) {
     return console.warn(
       'Missing environment variable `SANITY_STUDIO_PREVIEW_TOKEN`.'
     )
   }
 
-  const goTo = args =>
+  const getPreviewURL = args =>
     PREVIEW_DOMAIN +
     PREVIEW_PATH +
     '?' +
@@ -26,17 +44,25 @@ export default function getPreviewURL(document) {
 
   switch (document._type) {
     case 'card':
+      return getPreviewURL({ id: document.id })
+
     case 'changelog':
+      return getPreviewURL({ id: CARDS.get(document.card._ref) })
+
     case 'deck':
+      return getPreviewURL({ id: document.id })
+
     case 'puzzle':
-      return goTo({ id: document.board })
+      return getPreviewURL({ id: document.board })
+
     case 'brawl':
     case 'guide':
     case 'release':
     case 'story':
     case 'user':
-      return goTo({ slug: document.slug?.current })
+      return getPreviewURL({ slug: document.slug?.current })
+
     default:
-      return goTo({})
+      return getPreviewURL({})
   }
 }
