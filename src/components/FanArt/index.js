@@ -5,7 +5,11 @@ import Link from '~/components/Link'
 import Masonry from 'react-masonry-css'
 import Page from '~/components/Page'
 import Spacing from '~/components/Spacing'
+import parseDate from '~/helpers/parseDate'
+import { formatDate } from '~/helpers/formatDate'
 import styles from './styles'
+
+const pad = value => String(value).padStart(2, '0')
 
 export default React.memo(function FanArt(props) {
   const { css } = useFela()
@@ -47,18 +51,27 @@ export default React.memo(function FanArt(props) {
             const displayHeight = Math.round((displayWidth / width) * height)
             const dimensions =
               '?auto=format&w=' + displayWidth + '&h=' + displayHeight + '&q=90'
+            const date = parseDate(entry.date)
 
             return (
               <figure className={css(styles.art)} key={entry.image}>
                 <Image
                   src={entry.image + dimensions}
                   alt={'Artwork by ' + entry.user.name}
+                  extend={{ marginBottom: 0 }}
                 />
                 <figcaption className={css(styles.caption)}>
-                  Artwork by{' '}
+                  By{' '}
                   <Link to={'/members/' + entry.user.slug}>
                     {entry.user.name}
-                  </Link>
+                  </Link>{' '}
+                  in{' '}
+                  <time
+                    className='Highlight'
+                    dateTime={date.getFullYear() + '-' + pad(date.getMonth())}
+                  >
+                    {formatDate(date)}
+                  </time>
                 </figcaption>
               </figure>
             )

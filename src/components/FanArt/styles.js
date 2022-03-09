@@ -22,10 +22,7 @@ const art = {
 }
 
 const caption = {
-  color: 'var(--beige)',
-  textTransform: 'uppercase',
   fontSize: '80%',
-  letterSpacing: '1px',
   marginTop: 'var(--s-smaller)',
 }
 
