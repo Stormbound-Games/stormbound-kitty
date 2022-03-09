@@ -75,8 +75,6 @@ export const CROWN_REWARDS = {
   SURRENDERED: 1,
 }
 
-export const CYCLE_START = new Date(2021, 3, 1, 9, 0)
-
 export const VICTORY_BONUSES = {
   COINS: { label: 'Coins', id: 'C', isAvailable: () => true },
   RUBIES: {
