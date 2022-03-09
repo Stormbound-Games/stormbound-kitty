@@ -8,6 +8,6 @@ updates:
       - dependency-name: 'discord.js'
         versions: ['13.x']
       - dependency-name: 'framer-motion'
-        versions: ['4.x', '5.x', '6.x']
+        versions: ['5.x', '6.x']
       - dependency-name: 'node-fetch'
         versions: ['3.x']
