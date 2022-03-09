@@ -5,7 +5,7 @@ const getFAQSections = async ({ isPreview } = {}) => {
   const sections = await getEntries({
     conditions: ['_type == "faqSection"'],
     fields: FIELDS,
-    options: { order: 'priority asc', isPreview },
+    options: { order: 'order asc', isPreview },
   })
 
   return sections

@@ -64,10 +64,17 @@ const faqSection = {
       validation: Rule => Rule.min(1),
     },
     {
-      name: 'priority',
-      title: 'Priority',
+      name: 'order',
+      title: 'Order',
       type: 'number',
-      validation: Rule => Rule.min(0).integer().positive(),
+      hidden: true,
+    },
+  ],
+  orderings: [
+    {
+      title: 'Manual order',
+      name: 'manualOrder',
+      by: [{ field: 'order', direction: 'asc' }],
     },
   ],
 }
