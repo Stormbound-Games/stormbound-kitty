@@ -37,11 +37,17 @@ const contribution = {
     select: {
       contributor: 'user.name',
       date: 'date',
+      entries: 'entries',
     },
-    prepare({ contributor, date }) {
+    prepare({ contributor, date, entries = [] }) {
       return {
         title: contributor || 'Missing user',
-        subtitle: formatDate(date) || 'Missing date',
+        subtitle:
+          entries.length +
+          ' pull-request' +
+          (entries.length === 1 ? '' : 's') +
+          ' in ' +
+          (formatDate(date) || 'missing date'),
       }
     },
   },
