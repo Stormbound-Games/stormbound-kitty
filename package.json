@@ -56,7 +56,7 @@
     "test": "node -r esm $(npm bin)/jest --forceExit",
     "bot": "node -r esm bot/cli.js",
     "bot:dev": "nodemon -x \"node -r esm\" bot/cli.js --watch src",
-    "prepare": "husky install && node cypress/support/apply-patches.js"
+    "prepare": "husky install && test -f cypress/support/apply-patches.js && node cypress/support/apply-patches.js"
   },
   "browserslist": [
     ">0.2%",
