@@ -103,7 +103,7 @@ export default React.memo(function Footer(props) {
                       <Link to='/about'>Donate</Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link href='https://github.com/KittySparkles/stormbound-kitty'>
+                      <Link href='https://github.com/sheepyard/stormbound-kitty'>
                         GitHub
                       </Link>
                     </li>

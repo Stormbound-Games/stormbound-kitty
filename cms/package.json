@@ -31,9 +31,5 @@
     "sanity-plugin-table": "^2.3.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git@github.com-KittySparkles:KittySparkles/stormbound-kitty"
-  }
+  "devDependencies": {}
 }
