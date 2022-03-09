@@ -1,12 +1,11 @@
 import React from 'react'
 import FanArt from '~/components/FanArt'
 import Layout from '~/components/Layout'
-import shuffle from '~/helpers/shuffle'
 import getArtworks from '~/api/artworks/getArtworks'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const artworks = shuffle(await getArtworks({ isPreview }))
+  const artworks = await getArtworks({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
   return {
