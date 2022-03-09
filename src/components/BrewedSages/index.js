@@ -39,7 +39,7 @@ export default React.memo(function BrewedSages(props) {
         { name: 'Subaiku', slug: 'subaiku' },
         { name: 'ThomasPetree', slug: 'thomaspetree' },
       ]}
-      background='/assets/images/banners/environment_shadowfen.png'
+      background='https://cdn.sanity.io/images/5hlpazgd/production/67614c154b0115f94ef8448e7fbb8bb72fe6d519-1024x576.png'
       withAvif
       isEditorialContent
     >

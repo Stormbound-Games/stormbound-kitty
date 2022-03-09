@@ -1,6 +1,7 @@
 export const STORY_CATEGORIES = {
   lore: {
-    background: '/assets/images/banners/environment_neutral.png',
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/4ddcaa576ea827d6d7f3896fda60541bda15c569-1024x576.png',
     content:
       'Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.',
     title: 'Bound by the Storm',
@@ -9,7 +10,8 @@ export const STORY_CATEGORIES = {
     category: 'GENERAL',
   },
   ironclad: {
-    background: '/assets/images/banners/environment_ironclad.png',
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/7405fd6a6d522ca4a89b6d9ad87b8bf6f30a125c-1024x576.png',
     content:
       'The rodents of Ironclad occupy one of the richest rocks in the skies. They are very intelligent and industrious, and use constructs for their hard labor.',
     title: 'Ironclad Union',
@@ -18,7 +20,8 @@ export const STORY_CATEGORIES = {
     category: 'FACTIONS',
   },
   shadowfen: {
-    background: '/assets/images/banners/environment_shadowfen.png',
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/67614c154b0115f94ef8448e7fbb8bb72fe6d519-1024x576.png',
     content:
       'This unusual alliance formed in the swamps of Shadowfen, the Toads and Ravens use the environment as weapons against their opponents.',
     title: 'Tribes of the Shadowfen',
@@ -27,7 +30,8 @@ export const STORY_CATEGORIES = {
     category: 'FACTIONS',
   },
   winter: {
-    background: '/assets/images/banners/environment_winter.png',
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/d1841b7f9be19eb4ada821227f4572c9b3510fc5-1024x576.png',
     content:
       'Slow and steady wins the race. Rely on controlling your enemy, ramping up to big creatures and finish the game with a bang, a big bang.',
     title: 'Winter Pact',
@@ -36,7 +40,8 @@ export const STORY_CATEGORIES = {
     category: 'FACTIONS',
   },
   swarm: {
-    background: '/assets/images/banners/environment_swarm.png',
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/7a7c79d7f13854bc62510c876deb631f2ca5029b-1024x576.png',
     content:
       'The oldest kingdoms is that of the undead. They are a powerful and aggressive race, and due to their speed and big army size, they are referred to as “The Swarm”.',
     title: 'Swarm of the East',
@@ -45,7 +50,8 @@ export const STORY_CATEGORIES = {
     category: 'FACTIONS',
   },
   neutral: {
-    background: '/assets/images/banners/environment_neutral.png',
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/4ddcaa576ea827d6d7f3896fda60541bda15c569-1024x576.png',
     content: 'Never pick a side yet always keep fighting.',
     title: 'Always Neutral',
     shortName: 'Neutral',
