@@ -18,6 +18,12 @@ const deckTags = {
       type: 'slug',
       validation: Rule => Rule.required(),
     },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      hidden: true,
+    },
   ],
   preview: {
     select: { name: 'name', slug: 'slug.current' },
