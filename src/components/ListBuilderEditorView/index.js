@@ -1,7 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
-import hookIntoProps from 'hook-into-props'
-import isEqual from 'lodash.isequal'
 import {
   TIER_COLORS,
   DEFAULT_LIST,
@@ -17,10 +14,156 @@ import ShareButton from '~/components/ListBuilderShareButton'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import Title from '~/components/Title'
 import serialization from '~/helpers/serialization'
-import getInitialListData from '~/helpers/getInitialListData'
-import reorder from '~/helpers/reorder'
 import useNavigator from '~/hooks/useNavigator'
+import useIsMounted from '~/hooks/useIsMounted'
 
+export default React.memo(function ListBuilderEditorView(props) {
+  const isMounted = useIsMounted()
+  const navigator = useNavigator()
+  const [tiers, setTiers] = React.useState(props.tiers)
+  const reset = React.useCallback(() => setTiers(DEFAULT_LIST), [])
+
+  const updateTier = React.useCallback(
+    (index, update) =>
+      setTiers(curr => {
+        const next = curr.slice(0)
+        next[index] = { ...next[index], ...update }
+        return next
+      }),
+    []
+  )
+
+  const addCardToTier = React.useCallback(
+    (index, cardId) =>
+      updateTier(index, { cards: [...tiers[index].cards, cardId] }),
+    [updateTier, tiers]
+  )
+
+  const removeCardFromTier = React.useCallback(
+    (index, cardId) =>
+      updateTier(index, {
+        cards: tiers[index].cards.filter(card => card !== cardId),
+      }),
+    [updateTier, tiers]
+  )
+
+  const moveTierUp = index => () => {
+    if (index === 0) return
+
+    setTiers(curr => {
+      const next = curr.slice(0)
+      const tier = next[index]
+      const previousTier = next[index - 1]
+
+      next[index] = previousTier
+      next[index - 1] = tier
+
+      return next
+    })
+  }
+
+  const moveTierDown = index => () => {
+    if (index === tiers.length - 1) return
+
+    return setTiers(curr => {
+      const next = curr.slice(0)
+      const tier = next[index]
+      const nextTier = next[index + 1]
+
+      next[index] = nextTier
+      next[index + 1] = tier
+
+      return next
+    })
+  }
+
+  const addTier = () => setTiers(tiers => [...tiers, { ...DEFAULT_TIER }])
+
+  React.useEffect(() => {
+    if (props.listId) setTiers(serialization.list.deserialize(props.listId))
+    else reset()
+  }, [props.listId, reset])
+
+  React.useEffect(() => {
+    navigator.replace('/list/' + serialization.list.serialize(tiers))
+    // eslint-disable-next-line
+  }, [tiers])
+
+  return (
+    <Page
+      title='Create your list'
+      description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
+      action={
+        props.listId && {
+          to: `/list/${props.listId}/display`,
+          children: 'Display view',
+          icon: 'eye',
+        }
+      }
+    >
+      <Row isDesktopOnly>
+        <Row.Column width='1/3'>
+          <Title>Settings</Title>
+
+          <p>
+            This tier list editor makes it possible to create up to 12 tiers of
+            cards. It is currently very much in active development so make sure
+            to report any bug, oddity or desired features.
+          </p>
+
+          <Row withNarrowGutter spacing={{ vertical: 'BASE' }}>
+            <Row.Column>
+              <ResetButton
+                label='Reset list'
+                confirm='Are you sure you want to reset the list to its initial state?'
+                reset={reset}
+                disabled={!props.listId}
+              />
+            </Row.Column>
+            <Row.Column>
+              <ShareButton title='Share tier list' disabled={!props.listId} />
+            </Row.Column>
+          </Row>
+        </Row.Column>
+        <Row.Column width='2/3'>
+          <Title>Tier list</Title>
+
+          {tiers.map((tier, index) => (
+            <ListBuilderTier
+              {...tier}
+              key={index}
+              color={TIER_COLORS[index]}
+              prefix={`tier-${index}-`}
+              // Basic edition
+              isEditable={true}
+              reorderCards={cards => updateTier(index, { cards })}
+              updateName={name => updateTier(index, { name })}
+              addCard={cardId => addCardToTier(index, cardId)}
+              removeCard={cardId => removeCardFromTier(index, cardId)}
+              // Tiers order
+              moveUp={moveTierUp(index)}
+              moveDown={moveTierDown(index)}
+              canMoveUp={index !== 0}
+              canMoveDown={index !== tiers.length - 1}
+            />
+          ))}
+
+          <HorizontalRule spacing={{ bottom: ['LARGE', 'LARGER'] }} />
+
+          <CTA
+            onClick={addTier}
+            disabled={!isMounted || tiers.length === MAX_TIERS}
+            extend={{ margin: '0 auto' }}
+          >
+            Add a new tier
+          </CTA>
+        </Row.Column>
+      </Row>
+    </Page>
+  )
+})
+
+/*
 class ListBuilderEditorView extends React.Component {
   constructor(props) {
     super(props)
@@ -28,11 +171,6 @@ class ListBuilderEditorView extends React.Component {
     this.state = {
       isMounted: false,
       tiers: props.tiers,
-      dndTierIndex: null,
-      dndSource: null,
-      dndTarget: null,
-      dndDirection: null,
-      preventRemoval: false,
     }
   }
 
@@ -120,55 +258,6 @@ class ListBuilderEditorView extends React.Component {
 
   reset = () => {
     this.setState({ tiers: DEFAULT_LIST })
-  }
-
-  onMouseDown = tierIndex => cardIndex => {
-    this.setState({
-      preventRemoval: false,
-      dndTierIndex: tierIndex,
-      dndSource: cardIndex,
-    })
-  }
-
-  onMouseOver = cardIndex => {
-    if (this.state.dndTierIndex === null) return
-
-    this.setState(state => ({
-      dndTarget: cardIndex,
-      dndDirection: !state.dndDirection
-        ? cardIndex < state.dndSource
-          ? -1
-          : cardIndex > state.dndSource
-          ? +1
-          : null
-        : state.dndTarget === cardIndex
-        ? state.dndDirection * -1
-        : state.dndTarget > cardIndex
-        ? -1
-        : +1,
-    }))
-  }
-
-  onMouseUp = () => {
-    const { dndSource, dndTarget, dndTierIndex } = this.state
-
-    this.setState({
-      dndTierIndex: null,
-      dndSource: null,
-      dndTarget: null,
-      dndDirection: null,
-      preventRemoval: dndSource === dndTarget,
-    })
-
-    if (dndSource !== null && dndTarget !== null && dndSource !== dndTarget) {
-      const cards = reorder(
-        [...this.state.tiers[dndTierIndex].cards],
-        dndSource,
-        dndTarget
-      )
-
-      this.updateTier(dndTierIndex, { cards })
-    }
   }
 
   render() {
@@ -261,3 +350,4 @@ export default hookIntoProps(() => ({
   ...useFela(),
   navigator: useNavigator(),
 }))(ListBuilderEditorView)
+*/

@@ -1,60 +1,54 @@
-const item = ({ isPlaceholder }) => ({
-  display: 'inline-block',
-  width: 'calc(25% - var(--s-smaller))',
-  border: '1px solid var(--color)',
-  margin: '0.07em var(--s-smallest)',
-  backgroundColor: '#00000099',
+const item = ({ isEditable }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  border: '1px solid var(--dark-beige)',
   borderRadius: '0.2em',
+  padding: 'var(--s-smaller)',
+  margin: 'var(--s-smaller) 0',
+  backgroundImage: `linear-gradient(to right, var(--color), transparent)`,
+  cursor: isEditable ? 'grab' : undefined,
   position: 'relative',
-  padding: 0,
-  borderStyle: isPlaceholder ? 'dashed' : undefined,
-  borderColor: isPlaceholder ? '#ffffff4d' : undefined,
-  opacity: isPlaceholder ? 0.7 : undefined,
+  overflow: 'hidden',
 
   '::after': {
     content: '""',
     position: 'absolute',
-    top: 0,
+    paddingTop: '50%',
+    width: '50%',
+    transform: 'translate(20%, -50%) rotate(45deg)',
     right: 0,
-    bottom: 0,
-    left: 0,
-    backgroundColor: 'var(--faction)',
-    zIndex: -1,
-  },
-
-  '::before': {
-    content: '""',
-    display: 'block',
-    paddingTop: '100%',
-  },
-
-  medium: {
-    width: '4.66em',
-    height: '4.66em',
+    top: '50%',
+    WebkitMaskImage: 'linear-gradient(270deg, var(--black), transparent)',
+    maskImage: 'linear-gradient(270deg, var(--black), transparent)',
+    backgroundImage:
+      'repeating-linear-gradient(10deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',
   },
 })
 
 const image = {
-  maxWidth: '90%',
-  maxHeight: '90%',
-  objectFit: 'contain',
-  position: 'absolute',
-  left: '50%',
-  top: '50%',
-  transform: 'translate(-50%, -50%)',
-  pointerEvents: 'none',
-  margin: 'auto',
+  maxWidth: '3em',
+  marginLeft: '0 var(--s-small)',
 }
 
-const name = {
-  position: 'absolute',
-  opacity: 0,
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
+const content = {
+  marginLeft: 'var(--s-base)',
+  marginRight: 'var(--s-base)',
+  marginBottom: 0,
 }
 
-const styles = { item, image, name }
+const name = { display: 'block' }
+
+const meta = {
+  opacity: 0.7,
+}
+
+const button = {
+  zIndex: 2,
+  marginLeft: 'auto',
+  flexShrink: 0,
+  marginRight: 'var(--s-smaller)',
+}
+
+const styles = { item, image, content, name, meta, button }
 
 export default styles
