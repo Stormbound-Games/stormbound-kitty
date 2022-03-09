@@ -36,7 +36,7 @@ export default React.memo(function Members(props) {
         <Row.Column width='2/3'>
           <ul className={css(styles.list)}>
             {props.members.map(member => (
-              <li className={css(styles.item)} key={member.member}>
+              <li className={css(styles.item)} key={member._id}>
                 <MemberListEntry {...member} />
               </li>
             ))}

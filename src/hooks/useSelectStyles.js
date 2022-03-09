@@ -35,7 +35,7 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
       color: 'var(--white)',
       // If there is no chosen value, the clear button can be safely masked.
       display:
-        !data.selectProps.value.id || !withClear ? 'none' : provided.display,
+        !data.selectProps.value || !withClear ? 'none' : provided.display,
       cursor: 'pointer',
       ':hover': { color: 'var(--beige)' },
     }),

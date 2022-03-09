@@ -6,13 +6,15 @@ import Image from '~/components/Image'
 import Info from '~/components/Info'
 import MemberToC from '~/components/MemberToC'
 import Row from '~/components/Row'
-import useMemberName from '~/hooks/useMemberName'
+import useUser from '~/hooks/useUser'
 import styles from './styles'
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
-  const [name] = useMemberName()
-  const isCurrentUser = name === props.user.name
+  const [currentUser] = useUser()
+  const isCurrentUser = currentUser
+    ? currentUser.slug === props.user.slug
+    : false
   const { channel, playerId, ...user } = props.user
 
   return (

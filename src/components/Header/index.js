@@ -10,7 +10,7 @@ import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
-import useMemberName from '~/hooks/useMemberName'
+import useUser from '~/hooks/useUser'
 import styles from './styles'
 
 const SubNav = React.memo(function SubNav(props) {
@@ -72,13 +72,13 @@ const HeaderItem = props => {
 
 const useNavigation = (navigation = []) => {
   const { isUnseen } = React.useContext(PersonalDecksContext)
-  const [name] = useMemberName()
+  const [user] = useUser()
 
-  if (!name && !isUnseen) return navigation
+  if (!user && !isUnseen) return navigation
 
-  const feed = name && {
+  const feed = user && {
     label: 'Activity Feed',
-    to: `/members/${name.toLowerCase()}`,
+    to: `/members/${user.slug}`,
     id: 'FEED',
   }
 
@@ -99,7 +99,7 @@ const useNavigation = (navigation = []) => {
 
     return {
       ...category,
-      label: name || 'Your Content',
+      label: user ? user.name : 'Your Content',
       isNew: isUnseen,
       items,
     }
