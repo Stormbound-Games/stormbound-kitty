@@ -6,7 +6,7 @@ export default React.memo(function ReleaseNotes(props) {
     <Page
       title={props.title}
       description={props.excerpt}
-      author={{ name: 'Kitty', slug: 'kitty' }}
+      author={props.author}
       image={props.background}
       action={{ to: '/releases', children: 'Back to releases' }}
       meta={'Official · ' + props.date}

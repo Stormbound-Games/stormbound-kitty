@@ -5,8 +5,8 @@ import FeedEntry from '~/components/FeedEntry'
 export default React.memo(function FeedReleaseEntry(props) {
   return (
     <FeedEntry icon='bullhorn' date={props.date}>
-      {props.user.name} has published release notes for the{' '}
-      <Link to={'/releases/' + props.slug}>{props.name}</Link>.
+      {props.user.name} has published official release called titled{' '}
+      <Link to={'/releases/' + props.slug}>{props.title}</Link>.
     </FeedEntry>
   )
 })

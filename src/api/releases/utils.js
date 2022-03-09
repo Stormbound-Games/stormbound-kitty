@@ -5,7 +5,7 @@ _id,
 id,
 title,
 date,
-author,
+"author": user -> { name, "slug": slug.current },
 "slug": slug.current,
 "cardId": card -> id,
 excerpt

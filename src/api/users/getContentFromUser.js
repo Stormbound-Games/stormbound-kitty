@@ -38,6 +38,10 @@ import {
   MAPPER as TOURNAMENT_MAPPER,
 } from '~/api/tournaments/utils'
 import { FIELDS as SWCC_FIELDS, MAPPER as SWCC_MAPPER } from '~/api/swcc/utils'
+import {
+  FIELDS as RELEASE_FIELDS,
+  MAPPER as RELEASE_MAPPER,
+} from '~/api/releases/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,
@@ -49,6 +53,7 @@ const cleaners = {
   podcast: PODCAST_MAPPER,
   podium: TOURNAMENT_MAPPER,
   puzzle: PUZZLE_MAPPER,
+  release: RELEASE_MAPPER,
   story: STORY_MAPPER,
   SWCC: SWCC_MAPPER,
   tournament: TOURNAMENT_MAPPER,
@@ -72,6 +77,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
       _type == "guide" => { ${GUIDE_FIELDS} },
       _type == "podcast" => { ${PODCAST_FIELDS} },
       _type == "puzzle" => { ${PUZZLE_FIELDS} },
+      _type == "release" => { ${RELEASE_FIELDS} },
       _type == "story" => { ${STORY_FIELDS} },
       _type == "SWCC" => { ${SWCC_FIELDS} },
       _type == "tournament" => {
