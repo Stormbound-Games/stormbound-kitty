@@ -1,7 +1,10 @@
+import { MdOutlineFiberNew } from 'react-icons/md'
+
 const news = {
   title: 'News',
   name: 'news',
   type: 'document',
+  icon: MdOutlineFiberNew,
   fields: [
     {
       title: 'Intro',
