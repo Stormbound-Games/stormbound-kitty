@@ -6,7 +6,7 @@
     "node": "14.x"
   },
   "dependencies": {
-    "@portabletext/react": "^1.0.3",
+    "@portabletext/react": "^1.0.4",
     "@reach/tooltip": "^0.16.2",
     "@sanity/client": "^3.2.0",
     "@sanity/image-url": "^1.0.1",
