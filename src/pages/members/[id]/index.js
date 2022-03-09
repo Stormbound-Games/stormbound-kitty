@@ -2,7 +2,7 @@ import React from 'react'
 import Member from '~/components/Member'
 import Layout from '~/components/Layout'
 import getSiteSettings from '~/api/misc/getSiteSettings'
-import useMemberName from '~/hooks/useMemberName'
+import useUser from '~/hooks/useUser'
 import getContentFromUser from '~/api/users/getContentFromUser'
 import getCards from '~/api/cards/getCards'
 import getUsers from '~/api/users/getUsers'
@@ -36,9 +36,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 }
 
 const MemberPage = ({ settings, cards, ...props }) => {
-  const [name] = useMemberName()
+  const [user] = useUser()
   const active =
-    name?.toLowerCase() === props.user.slug
+    user && user.slug === props.user.slug
       ? ['YOUR_CONTENT', 'YOUR_CONTENT', 'FEED']
       : ['COMMUNITY', 'DISCOVER', 'MEMBERS']
 

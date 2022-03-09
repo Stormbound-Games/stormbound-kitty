@@ -9,11 +9,11 @@ import MemberList from '~/components/MemberList'
 import Notice from '~/components/Notice'
 import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
-import useMemberName from '~/hooks/useMemberName'
+import useUser from '~/hooks/useUser'
 import styles from './styles'
 
 export default React.memo(function About(props) {
-  const [name] = useMemberName()
+  const [user] = useUser()
   const { css } = useFela()
 
   return (
@@ -96,7 +96,7 @@ export default React.memo(function About(props) {
           <p>
             If you do donate, please do let me know on Discord so I can add a
             donation entry to{' '}
-            <Link to={name ? `/members/${name.toLowerCase()}` : '/members'}>
+            <Link to={user ? `/members/${user.slug}` : '/members'}>
               your page on Stormbound-Kitty
             </Link>
             , or will create one if you don’t have one yet. Thank you so much!

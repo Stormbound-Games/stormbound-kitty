@@ -3,21 +3,24 @@ import dynamic from 'next/dynamic'
 import Info from '~/components/Info'
 import useSelectStyles from '~/hooks/useSelectStyles'
 import useIsMounted from '~/hooks/useIsMounted'
-import useMemberName from '~/hooks/useMemberName'
+import useUser from '~/hooks/useUser'
 
 const Select = dynamic(() => import('react-select'), { ssr: false })
 
 const UserSelect = props => {
   const styles = useSelectStyles({ withClear: true })
+  const [user, setUser] = useUser()
 
   return (
     <Select
       id='user-name'
       isClearable
-      value={{ id: props.value, label: props.value }}
-      onChange={props.onChange}
+      value={user ? { value: user.slug, label: user.name } : null}
+      onChange={option =>
+        setUser(option ? { name: option.label, slug: option.value } : null)
+      }
       options={props.members.map(user => ({
-        value: user.name,
+        value: user.slug,
         label: user.name,
         rarity:
           user.role === 'SUPER_KAT'
@@ -33,7 +36,6 @@ const UserSelect = props => {
 
 export default React.memo(function MemberTagYourself(props) {
   const isMounted = useIsMounted()
-  const [name, setName] = useMemberName()
 
   if (!isMounted) return null
 
@@ -44,13 +46,7 @@ export default React.memo(function MemberTagYourself(props) {
         who you are, the site can sometimes highlight your content more
         conveniently and make it easier for you to navigate.
       </p>
-      <UserSelect
-        members={props.members}
-        value={name}
-        onChange={option => {
-          setName(option?.value ?? null)
-        }}
-      />
+      <UserSelect members={props.members} />
     </Info>
   )
 })
