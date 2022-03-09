@@ -1,6 +1,7 @@
 import { MdOutlineNewReleases } from 'react-icons/md'
 import cardRef from '../types/cardRef'
 import date from '../types/date'
+import user from '../types/user'
 import getBlock from '../richText/block'
 import battleSim from '../richText/battleSim'
 import cheapenedBrawl from '../richText/cheapenedBrawl'
@@ -56,6 +57,7 @@ const release = {
           ),
     },
     { ...date, fieldset: 'metadata' },
+    { ...user, fieldset: 'metadata', title: 'Author' },
     { ...cardRef, fieldset: 'metadata' },
     {
       title: 'Excerpt',
