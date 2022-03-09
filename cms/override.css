@@ -1,0 +1,21 @@
+:root {
+  --black: #101f26;
+}
+
+/**
+ * Toggles for collapsible sections lack a bit of interactivity. This should
+ * make it more clear that they are interactive.
+ */
+fieldset legend:focus > div,
+fieldset legend:hover > div {
+  background-color: rgb(25 75 125 / 0.1);
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+/**
+ * Buttons have the default cursor for some reasons, and this should be fixed.
+ */
+button:not(:disabled) {
+  cursor: pointer !important;
+}
