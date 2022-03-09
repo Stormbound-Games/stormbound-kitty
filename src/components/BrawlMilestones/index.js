@@ -27,9 +27,9 @@ export default React.memo(function BrawlMilestones(props) {
       const isNotFirstMilestone = active > 0
       const isNotLastMilestone = active < milestones.length - 1
 
-      if (info.point.x > DRAG_THRESHOLD && isNotFirstMilestone) {
+      if (info.offset.x > DRAG_THRESHOLD && isNotFirstMilestone) {
         setActive(current => current - 1)
-      } else if (info.point.x < DRAG_THRESHOLD * -1 && isNotLastMilestone) {
+      } else if (info.offset.x < DRAG_THRESHOLD * -1 && isNotLastMilestone) {
         setActive(current => current + 1)
       }
     },

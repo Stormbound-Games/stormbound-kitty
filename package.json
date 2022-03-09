@@ -29,7 +29,7 @@
     "fela-sort-classnames": "^12.0.2",
     "fela-sort-media-query-mobile-first": "^12.0.2",
     "form-serialize": "^0.7.2",
-    "framer-motion": "^1.11.1",
+    "framer-motion": "^2.9.5",
     "fuse.js": "^6.5.3",
     "hook-into-props": "^4.0.1",
     "html2canvas": "^1.4.1",

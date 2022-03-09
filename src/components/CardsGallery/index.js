@@ -46,9 +46,9 @@ export default React.memo(function CardsGallery(props) {
       const isNotFirstPage = activePage > 0
       const isNotLastPage = activePage < pages.length - 1
 
-      if (info.point.x > DRAG_THRESHOLD && isNotFirstPage) {
+      if (info.offset.x > DRAG_THRESHOLD && isNotFirstPage) {
         changePage(page => page - 1)
-      } else if (info.point.x < DRAG_THRESHOLD * -1 && isNotLastPage) {
+      } else if (info.offset.x < DRAG_THRESHOLD * -1 && isNotLastPage) {
         changePage(page => page + 1)
       }
     },
