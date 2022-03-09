@@ -70,6 +70,19 @@ const faqSection = {
       hidden: true,
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      entries: 'entries',
+    },
+    prepare({ title, entries = [] }) {
+      return {
+        title,
+        subtitle:
+          entries.length + ' question' + (entries.length === 1 ? '' : 's'),
+      }
+    },
+  },
   orderings: [
     {
       title: 'Manual order',
