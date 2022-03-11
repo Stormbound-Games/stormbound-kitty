@@ -1,7 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import hookIntoProps from 'hook-into-props'
-import isEqual from 'lodash.isequal'
 import Board from '~/components/BattleSimBoardMobile'
 import DiamondButton from '~/components/DiamondButton'
 import CardsForm from '~/components/BattleSimCardsForm'
@@ -15,297 +13,224 @@ import Puzzle from '~/components/BattleSimPuzzle'
 import serialization from '~/helpers/serialization'
 import styles from './styles'
 
-class BattleSimAppMobile extends React.Component {
-  static MODES = {
-    GAME: 'GAME',
-    SETTINGS: 'SETTINGS',
-    CELL: 'CELL',
-  }
-
-  state = { mode: BattleSimAppMobile.MODES.GAME }
-
-  componentDidMount() {
-    this.xDown = null
-    this.yDown = null
-
-    if (!this.props.withoutGestures) {
-      document.addEventListener('touchstart', this.handleTouchStart, false)
-      document.addEventListener('touchend', this.handleTouchMove, false)
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.activeCell &&
-      !isEqual(prevProps.activeCell, this.props.activeCell)
-    ) {
-      this.setState({ mode: BattleSimAppMobile.MODES.CELL })
-    }
-  }
-
-  getTouches = event => {
-    return event.touches || event.changedTouches || event.originalEvent.touches
-  }
-
-  handleTouchStart = event => {
-    const firstTouch = this.getTouches(event)[0]
-
-    if (['BUTTON', 'INPUT'].includes(event.target.nodeName)) {
-      return
-    }
-
-    this.xDown = firstTouch.clientX
-    this.yDown = firstTouch.clientY
-  }
-
-  handleTouchMove = event => {
-    if (!this.xDown || !this.yDown) {
-      return
-    }
-
-    const touches = event.changedTouches
-    const touch = touches[touches.length - 1]
-
-    const xUp = touch.clientX
-    const yUp = touch.clientY
-    const xDiff = this.xDown - xUp
-    const yDiff = this.yDown - yUp
-
-    const viewportWidth = document.documentElement.clientWidth
-    const isRelevant =
-      Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > viewportWidth / 3
-
-    if (isRelevant) {
-      if (xDiff > 0) {
-        this.handleLeftSwipe()
-      } else {
-        this.handleRightSwipe()
-      }
-    }
-
-    this.xDown = null
-    this.yDown = null
-  }
-
-  handleLeftSwipe = () => {
-    const shouldRenderRightPanel =
-      (this.props.mode === 'EDITOR' &&
-        !!this.props.activePlayer &&
-        !!this.props.activeCell) ||
-      (this.props.mode === 'DISPLAY' && !!this.props.puzzle)
-
-    if (
-      this.state.mode === BattleSimAppMobile.MODES.GAME &&
-      shouldRenderRightPanel
-    ) {
-      this.setState({ mode: BattleSimAppMobile.MODES.CELL })
-    } else if (this.state.mode === BattleSimAppMobile.MODES.SETTINGS) {
-      this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-    }
-  }
-
-  handleRightSwipe = () => {
-    if (this.state.mode === BattleSimAppMobile.MODES.CELL) {
-      this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-    } else if (
-      this.state.mode === BattleSimAppMobile.MODES.GAME &&
-      this.props.shouldRenderLeftPanel
-    ) {
-      this.setState({ mode: BattleSimAppMobile.MODES.SETTINGS })
-    }
-  }
-
-  componentWillUnmount() {
-    if (!this.props.withoutGestures) {
-      document.removeEventListener('touchstart', this.handleTouchStart, false)
-      document.removeEventListener('touchmove', this.handleTouchMove, false)
-    }
-  }
-
-  setActivePlayer = player => {
-    if (!this.props.activePlayer) {
-      this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-    }
-
-    this.props.setActivePlayer(player)
-  }
-
-  onUnitSubmit = event => {
-    this.props.onUnitSubmit(event)
-    this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-  }
-
-  emptyActiveCell = () => {
-    this.props.emptyActiveCell()
-    this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-  }
-
-  render() {
-    const shouldRenderRightPanel =
-      (this.props.mode === 'EDITOR' &&
-        !!this.props.activePlayer &&
-        !!this.props.activeCell) ||
-      (this.props.mode === 'DISPLAY' && !!this.props.puzzle)
-
-    return (
-      <div className={this.props.css(styles.root)}>
-        {this.props.shouldRenderLeftPanel && (
-          <div
-            className={this.props.css(
-              styles.panel({
-                type: BattleSimAppMobile.MODES.SETTINGS,
-                isActive: this.state.mode === BattleSimAppMobile.MODES.SETTINGS,
-              })
-            )}
-          >
-            {this.props.mode === 'EDITOR' ? (
-              <Panel
-                side='left'
-                title='Game settings'
-                isMobile={true}
-                isPanelOpen={
-                  this.state.mode === BattleSimAppMobile.MODES.SETTINGS
-                }
-                closePanel={() =>
-                  this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-                }
-                data-testid='settings-panel'
-              >
-                <PlayerForm
-                  player='RED'
-                  displayName='🔴 Red player (opponent)'
-                  {...this.props.players.RED}
-                />
-                <PlayerForm
-                  player='BLUE'
-                  displayName='🔵 Blue player (you)'
-                  {...this.props.players.BLUE}
-                />
-                <CardsForm {...this.props} />
-                <GameForm {...this.props} />
-              </Panel>
-            ) : (
-              <Panel
-                side='left'
-                title='Your deck'
-                isMobile={true}
-                isPanelOpen={
-                  this.state.mode === BattleSimAppMobile.MODES.SETTINGS
-                }
-                closePanel={() =>
-                  this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-                }
-                data-testid='deck-panel'
-              >
-                <Deck
-                  deck={this.props.cards}
-                  onClick={this.props.zoom}
-                  onClickLabel='Enlarge card'
-                />
-                <p>
-                  <Link
-                    href={
-                      `/deck/` + serialization.deck.serialize(this.props.cards)
-                    }
-                    inNewTab
-                  >
-                    Open deck
-                  </Link>{' '}
-                  in deck builder.
-                </p>
-              </Panel>
-            )}
-          </div>
-        )}
-
-        <div className={this.props.css(styles.board)}>
-          <Board
-            {...this.props}
-            openCellPanel={() =>
-              this.setState({ mode: BattleSimAppMobile.MODES.CELL })
-            }
-            dndProps={() => ({})}
-          />
-
-          {this.props.shouldRenderLeftPanel &&
-            this.state.mode !== BattleSimAppMobile.MODES.SETTINGS && (
-              <DiamondButton
-                extend={styles.button({ side: 'LEFT' })}
-                onClick={() =>
-                  this.setState({ mode: BattleSimAppMobile.MODES.SETTINGS })
-                }
-                label='Open settings panel'
-                data-testid='settings-panel-btn'
-                icon='hamburger'
-              />
-            )}
-
-          {shouldRenderRightPanel &&
-            this.state.mode !== BattleSimAppMobile.MODES.CELL && (
-              <DiamondButton
-                extend={styles.button({ side: 'RIGHT' })}
-                onClick={() =>
-                  this.setState({ mode: BattleSimAppMobile.MODES.CELL })
-                }
-                label='Open cell panel'
-                data-testid='cell-panel-btn'
-                icon='target'
-              />
-            )}
-        </div>
-
-        {shouldRenderRightPanel && (
-          <div
-            className={this.props.css(
-              styles.panel({
-                type: BattleSimAppMobile.MODES.CELL,
-                isActive: this.state.mode === BattleSimAppMobile.MODES.CELL,
-              })
-            )}
-          >
-            {this.props.mode === 'EDITOR' ? (
-              <Panel
-                side='right'
-                title='Active cell'
-                isMobile={true}
-                isPanelOpen={this.state.mode === BattleSimAppMobile.MODES.CELL}
-                closePanel={() =>
-                  this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-                }
-                data-testid='cell-panel'
-              >
-                {!!this.props.activePlayer && !!this.props.activeCell && (
-                  <CellForm
-                    {...this.props}
-                    setActivePlayer={this.setActivePlayer}
-                    onUnitSubmit={this.onUnitSubmit}
-                    emptyActiveCell={this.emptyActiveCell}
-                  />
-                )}
-                {(!this.props.activePlayer || !this.props.activeCell) && (
-                  <p>Select a cell.</p>
-                )}
-              </Panel>
-            ) : (
-              <Panel
-                title='Puzzle'
-                side='right'
-                isMobile
-                closePanel={() =>
-                  this.setState({ mode: BattleSimAppMobile.MODES.GAME })
-                }
-                isPanelOpen={this.state.mode === BattleSimAppMobile.MODES.CELL}
-              >
-                <Puzzle {...this.props.puzzle} withoutLink />
-              </Panel>
-            )}
-          </div>
-        )}
-      </div>
-    )
-  }
+const MODES = {
+  GAME: 'GAME',
+  SETTINGS: 'SETTINGS',
+  CELL: 'CELL',
 }
 
-export default hookIntoProps(props => ({
-  ...useFela(),
-}))(BattleSimAppMobile)
+const getTouches = event =>
+  event.touches || event.changedTouches || event.originalEvent.touches
+
+export default React.memo(function BattleSimAppMobile(props) {
+  const { css } = useFela()
+  const [mode, setMode] = React.useState(MODES.GAME)
+  const [down, setDown] = React.useState({ x: null, y: null })
+
+  const { shouldRenderLeftPanel } = props
+  const shouldRenderRightPanel =
+    (props.mode === 'EDITOR' && !!props.activePlayer && !!props.activeCell) ||
+    (props.mode === 'DISPLAY' && !!props.puzzle)
+
+  React.useEffect(() => {
+    if (!props.withoutGestures) {
+      document.addEventListener('touchstart', handleTouchStart, false)
+      document.addEventListener('touchend', handleTouchMove, false)
+
+      return () => {
+        document.removeEventListener('touchstart', handleTouchStart, false)
+        document.removeEventListener('touchmove', handleTouchMove, false)
+      }
+    }
+  }, [handleTouchStart, handleTouchMove, props.withoutGestures])
+
+  React.useEffect(() => {
+    if (props.activeCell) setMode(MODES.CELL)
+  }, [props.activeCell])
+
+  React.useEffect(() => {
+    if (!props.activePlayer) setMode(MODES.GAME)
+  }, [props.activePlayer])
+
+  const handleTouchStart = React.useCallback(event => {
+    if (!['BUTTON', 'INPUT'].includes(event.target.nodeName)) {
+      const [firstTouch] = getTouches(event)
+      setDown({ x: firstTouch.clientX, y: firstTouch.clientY })
+    }
+  }, [])
+
+  const handleTouchMove = React.useCallback(
+    event => {
+      if (!down.x || !down.y) return
+
+      const touches = event.changedTouches
+      const touch = touches[touches.length - 1]
+      const xDiff = down.x - touch.clientX
+      const yDiff = down.y - touch.clientY
+      const viewportWidth = document.documentElement.clientWidth
+
+      if (
+        Math.abs(xDiff) > Math.abs(yDiff) &&
+        Math.abs(xDiff) > viewportWidth / 3
+      ) {
+        if (xDiff > 0) handleLeftSwipe()
+        else handleRightSwipe()
+      }
+
+      setDown({ x: null, y: null })
+    },
+    [down, handleLeftSwipe, handleRightSwipe]
+  )
+
+  const handleLeftSwipe = React.useCallback(() => {
+    if (mode === MODES.GAME && shouldRenderRightPanel) setMode(MODES.CELL)
+    else if (mode === MODES.SETTINGS) setMode(MODES.GAME)
+  }, [mode, shouldRenderRightPanel])
+
+  const handleRightSwipe = React.useCallback(() => {
+    if (mode === MODES.CELL) setMode(MODES.GAME)
+    else if (mode === MODES.GAME && shouldRenderLeftPanel)
+      setMode(MODES.SETTINGS)
+  }, [mode, shouldRenderLeftPanel])
+
+  const onUnitSubmit = event => {
+    props.onUnitSubmit(event)
+    setMode(MODES.GAME)
+  }
+
+  const emptyActiveCell = () => {
+    props.emptyActiveCell()
+    setMode(MODES.GAME)
+  }
+
+  return (
+    <div className={css(styles.root)}>
+      {shouldRenderLeftPanel && (
+        <div
+          className={css(
+            styles.panel({
+              type: MODES.SETTINGS,
+              isActive: mode === MODES.SETTINGS,
+            })
+          )}
+        >
+          {props.mode === 'EDITOR' ? (
+            <Panel
+              side='left'
+              title='Game settings'
+              isMobile={true}
+              isPanelOpen={mode === MODES.SETTINGS}
+              closePanel={() => setMode(MODES.GAME)}
+              data-testid='settings-panel'
+            >
+              <PlayerForm
+                player='RED'
+                displayName='🔴 Red player (opponent)'
+                {...props.players.RED}
+              />
+              <PlayerForm
+                player='BLUE'
+                displayName='🔵 Blue player (you)'
+                {...props.players.BLUE}
+              />
+              <CardsForm {...props} />
+              <GameForm {...props} />
+            </Panel>
+          ) : (
+            <Panel
+              side='left'
+              title='Your deck'
+              isMobile={true}
+              isPanelOpen={mode === MODES.SETTINGS}
+              closePanel={() => setMode(MODES.GAME)}
+              data-testid='deck-panel'
+            >
+              <Deck
+                deck={props.cards}
+                onClick={props.zoom}
+                onClickLabel='Enlarge card'
+              />
+              <p>
+                <Link
+                  href={`/deck/` + serialization.deck.serialize(props.cards)}
+                  inNewTab
+                >
+                  Open deck
+                </Link>{' '}
+                in deck builder.
+              </p>
+            </Panel>
+          )}
+        </div>
+      )}
+
+      <div className={css(styles.board)}>
+        <Board
+          {...props}
+          openCellPanel={() => setMode(MODES.CELL)}
+          dndProps={() => ({})}
+        />
+
+        {shouldRenderLeftPanel && mode !== MODES.SETTINGS && (
+          <DiamondButton
+            extend={styles.button({ side: 'LEFT' })}
+            onClick={() => setMode(MODES.SETTINGS)}
+            label='Open settings panel'
+            data-testid='settings-panel-btn'
+            icon='hamburger'
+          />
+        )}
+
+        {shouldRenderRightPanel && mode !== MODES.CELL && (
+          <DiamondButton
+            extend={styles.button({ side: 'RIGHT' })}
+            onClick={() => setMode(MODES.CELL)}
+            label='Open cell panel'
+            data-testid='cell-panel-btn'
+            icon='target'
+          />
+        )}
+      </div>
+
+      {shouldRenderRightPanel && (
+        <div
+          className={css(
+            styles.panel({ type: MODES.CELL, isActive: mode === MODES.CELL })
+          )}
+        >
+          {props.mode === 'EDITOR' ? (
+            <Panel
+              side='right'
+              title='Active cell'
+              isMobile={true}
+              isPanelOpen={mode === MODES.CELL}
+              closePanel={() => setMode(MODES.GAME)}
+              data-testid='cell-panel'
+            >
+              {!!props.activePlayer && !!props.activeCell && (
+                <CellForm
+                  {...props}
+                  onUnitSubmit={onUnitSubmit}
+                  emptyActiveCell={emptyActiveCell}
+                />
+              )}
+              {(!props.activePlayer || !props.activeCell) && (
+                <p>Select a cell.</p>
+              )}
+            </Panel>
+          ) : (
+            <Panel
+              title='Puzzle'
+              side='right'
+              isMobile
+              closePanel={() => setMode(MODES.GAME)}
+              isPanelOpen={mode === MODES.CELL}
+            >
+              <Puzzle {...props.puzzle} withoutLink />
+            </Panel>
+          )}
+        </div>
+      )}
+    </div>
+  )
+})
