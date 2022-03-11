@@ -63,7 +63,6 @@ export default React.memo(function FanKitBooks(props) {
                   width={280}
                   height={300}
                   lazy
-                  withAvif
                 />
               )}
             </Row.Column>

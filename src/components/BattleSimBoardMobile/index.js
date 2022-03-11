@@ -13,7 +13,7 @@ export default React.memo(function BattleSimBoardMobile(props) {
   return (
     <div className={css(styles.board)} data-testid='board'>
       <Image
-        src='/assets/images/bg-swarm.png'
+        src='/assets/images/bg-swarm.jpg'
         alt='Mobile-format Swarm-themed battle background featuring the main interface elements from a Stormbound battle, especially the board'
         layout='fill'
         objectFit='cover'

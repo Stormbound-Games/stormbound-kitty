@@ -70,8 +70,6 @@ export default React.memo(function FanKitAvatars(props) {
                     row[index].dimensions.height *
                       (114 / row[index].dimensions.width)
                   )}
-                  withAvif={false}
-                  withoutWebp={true}
                 />
               )}
             </Row.Column>

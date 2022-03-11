@@ -12,7 +12,6 @@ export default React.memo(function ReleaseNotes(props) {
       meta={'Official · ' + props.date}
       background={props.background}
       ratio={props.ratio}
-      withAvif={typeof props.withAvif === 'undefined' ? true : props.withAvif}
       isEditorialContent
       withDropCap
     >

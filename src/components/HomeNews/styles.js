@@ -49,7 +49,7 @@ const boxPseudo = {
  */
 const box = {
   position: 'relative',
-  backgroundImage: 'url("/assets/images/background.png")',
+  backgroundImage: 'url("/assets/images/background.jpg")',
   backgroundRepeat: 'repeat',
   backgroundColor: 'var(--black)',
   border: '1px solid var(--beige)',

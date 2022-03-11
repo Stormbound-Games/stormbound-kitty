@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { ImageSupportContext } from '~/components/ImageSupportProvider'
 import BaseHealth from '~/components/BattleSimBaseHealth'
 import Cards from '~/components/BattleSimCards'
 import CardZoom from '~/components/CardZoom'
@@ -50,8 +49,6 @@ const POSITIONS = {
 export default React.memo(function BattleSimBoardDesktop(props) {
   const { css } = useFela()
   const isMounted = useIsMounted()
-  const { supportsAvif, supportsWebp } = React.useContext(ImageSupportContext)
-  const ext = supportsAvif ? 'avif' : supportsWebp ? 'webp' : 'png'
   const environment = props.environment || 'swarm'
   const [redHealth, blueHealth, background] = POSITIONS[environment]
 

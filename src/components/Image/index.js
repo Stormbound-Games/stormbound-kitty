@@ -54,6 +54,7 @@ export default React.memo(function Image(props) {
   const src = useSource(props)
 
   return (
+    // eslint-disable-next-line
     <img
       loading={props.lazy ? 'lazy' : undefined}
       width={props.width}

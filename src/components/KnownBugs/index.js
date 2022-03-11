@@ -81,6 +81,7 @@ export default React.memo(function KnownBugs(props) {
               width={328}
               height={584}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -156,6 +157,7 @@ export default React.memo(function KnownBugs(props) {
               width={329}
               height={675}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span>{' '}
@@ -168,11 +170,12 @@ export default React.memo(function KnownBugs(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/guides/fusion_stone_reward.jpeg'
+              src='/assets/images/guides/fusion_stone_reward.jpg'
               alt='Animation when being rewarded with fusion stones'
               width={328}
               height={584}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -241,6 +244,7 @@ export default React.memo(function KnownBugs(props) {
               width={328}
               height={670}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span>{' '}
@@ -258,6 +262,7 @@ export default React.memo(function KnownBugs(props) {
               width={329}
               height={687}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -345,6 +350,7 @@ export default React.memo(function KnownBugs(props) {
               width={329}
               height={669}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -356,11 +362,12 @@ export default React.memo(function KnownBugs(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/guides/friend-list-gaps.jpg'
+              src='/assets/images/guides/friend-list-gaps..j'
               alt='Friend list having odd empty gaps'
               width={329}
               height={675}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> fixed
@@ -413,11 +420,12 @@ export default React.memo(function KnownBugs(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/guides/tegor_ever_lasting_skull.png'
+              src='/assets/images/guides/tegor_ever_lasting_skull..j'
               alt='Tegor’s on-death skull floating at the bottom left of the board'
               width={329}
               height={338}
               lazy
+              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> fixed

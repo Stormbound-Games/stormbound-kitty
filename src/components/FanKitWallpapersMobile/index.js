@@ -18,7 +18,6 @@ const resolveAsset = (wallpaper, index) => {
     aspectRatio: aspectRatio,
     width: 350,
     height: Math.round(height * (350 / width)),
-    withoutWebp: true,
   }
 }
 
