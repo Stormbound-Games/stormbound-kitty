@@ -1,53 +1,43 @@
-const header = {
+const row = {
   display: 'flex',
   flexDirection: 'column',
 
   medium: {
+    marginLeft: 'calc(var(--s-smallest) * -1)',
+    marginRight: 'calc(var(--s-smallest) * -1)',
     flexDirection: 'row',
     alignItems: 'flex-end',
   },
 }
 
 const name = {
-  textTransform: 'uppercase',
-  marginTop: 0,
-  marginBottom: 0,
-  color: 'var(--beige)',
-  fontSize: '100%',
-  fontWeight: 'normal',
+  margin: 0,
 }
 
 const item = {
-  paddingBottom: 'var(--s-small)',
-  flex: '1 1 100%',
-  display: 'flex',
-  flexDirection: 'column',
+  flex: '0 0 100%',
+  marginBottom: 'var(--s-small)',
 
   medium: {
-    padding: '0 var(--s-smaller) var(--s-smaller) 0',
-    flexBasis: 'auto',
-
-    ':last-child': {
-      paddingRight: 0,
-      flexGrow: 0,
-      display: 'block',
-    },
+    flexBasis: 'calc(50% - var(--s-smallest) * 2)',
+    marginLeft: 'var(--s-smallest)',
+    marginRight: 'var(--s-smallest)',
   },
 }
 
 const move = {
-  display: 'inline-block',
-  ':last-child': { marginLeft: '1.5em' },
+  textDecoration: 'none',
+
+  ':first-child': { marginLeft: 'var(--s-smaller)' },
+  ':last-child': { marginLeft: 'var(--s-base)' },
 }
 
 const buttons = {
-  display: 'none',
-  marginBottom: '0.4em',
-  marginLeft: 'var(--s-smaller)',
-
-  medium: { display: 'flex' },
+  display: 'flex',
+  flexDirection: 'row',
+  marginBottom: 'var(--s-base)',
 }
 
-const styles = { header, name, item, move, buttons }
+const styles = { row, name, item, move, buttons }
 
 export default styles
