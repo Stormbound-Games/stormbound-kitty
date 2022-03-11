@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { ImageSupportContext } from '~/components/ImageSupportProvider'
 import Only from '~/components/Only'
 import Spacing from '~/components/Spacing'
 import styles from './styles'
