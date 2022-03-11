@@ -29,7 +29,11 @@ const getInitialCollectionData = cardsWithoutTokens => {
     const MISSING_CARD_PROPS = { level: 1, missing: true, copies: 0 }
     const collection = JSON.parse(localStorage.getItem(STORAGE_KEY))
 
-    if (collection.length === cardsWithoutTokens.length) {
+    // It is possible that `cardsWithoutTokens` does not contain all the cards
+    // data, as it’s not always passed to the page to minimize footprint. In a
+    // case where the collection has more cards than the index, just return the
+    // collection as is.
+    if (collection.length >= cardsWithoutTokens.length) {
       return collection
     }
 
@@ -75,6 +79,12 @@ export default React.memo(function CollectionProvider(props) {
   }, [notify, cardsWithoutTokens])
 
   React.useEffect(() => {
+    // If the collection is incomplete (arbitrary 100 threshold), it means we
+    // are on a page that doesn’t have all the cards’ information, and therefore
+    // we shouldn’t do anything for risk of overriding an existing collection
+    // with an empty one.
+    if (collection.length < 100) return
+
     // If the collection is the default one, remove it from the local storage as
     // this is not only unnecessary, but can also lead to hard-to-track bug
     // where obsolete data get stored (e.g. a default collection of 188 cards
