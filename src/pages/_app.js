@@ -59,6 +59,11 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         </ErrorBoundary>
       </RendererProvider>
       <Script lazyOnload src='/focus-visible.min.js' />
+      <Script
+        strategy='lazyOnload'
+        data-domain='stormbound-kitty.com'
+        src='https://plausible.io/js/plausible.js'
+      />
     </>
   )
 }
