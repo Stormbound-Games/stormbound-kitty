@@ -5,14 +5,14 @@ const toSentence = require('~/helpers/toSentence').default
 const groupBy = require('~/helpers/groupBy').default
 const { formatDate } = require('~/helpers/formatDate')
 const getDecks = require('~/api/decks/getDecks').default
-const getDeckTags = require('~/api/decks/getDeckTags').default
 
-const BOUNDARY_DATE = new Date(2021, 4, 15)
+const now = new Date()
+const BOUNDARY_DATE = new Date(now.getFullYear() - 1, now.getMonth(), 15)
 
 getDecks().then(decks => {
   const groups = groupBy(
     decks.filter(deck => parseDate(deck.date) < BOUNDARY_DATE),
-    'author'
+    'author.name'
   )
 
   Object.keys(groups)
