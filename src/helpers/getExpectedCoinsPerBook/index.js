@@ -129,8 +129,8 @@ const countExpectedMaxedCards = (
  * @return {Number[]} Amount of cards level 5 per rarity
  */
 const getMaxedCardsPerRarity = collection =>
-  Object.keys(RARITIES).map(
-    (rarity, index) =>
+  RARITIES.map(
+    rarity =>
       collection.filter(card => card.rarity === rarity && card.level === 5)
         .length
   )
@@ -145,9 +145,7 @@ const getExpectedCoinsPerBook = (cards, collection, book) => {
   const allMaxedCardsPerRarity = getMaxedCardsPerRarity(collection)
   const rarities = Object.keys(RARITY_COPIES)
   const sequences = getDrawingSequences(book.draws)
-  const cardCounts = Object.keys(RARITIES).map(rarity =>
-    countCards(cards, { rarity })
-  )
+  const cardCounts = RARITIES.map(rarity => countCards(cards, { rarity }))
 
   return rarities.reduce((total, rarity, index) => {
     const maxedCardForRarity = allMaxedCardsPerRarity[index]

@@ -9,15 +9,13 @@ import serialization from '~/helpers/serialization'
 import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
-const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
-  faction => faction !== 'neutral'
-)
+const ALLOWED_FACTIONS = FACTIONS.filter(faction => faction !== 'neutral')
 
 const findFaction = message => {
   const terms = message.split(/[\s,]+/g).filter(Boolean)
 
   for (let term of terms) {
-    if (Object.keys(FACTIONS).includes(term)) return [term, term]
+    if (FACTIONS.includes(term)) return [term, term]
     else {
       const [key, value] = handleSearchAlias(term)
       if (key === 'faction') return [term, value]

@@ -26,7 +26,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle factions', () => {
-    const faction = Object.keys(FACTIONS)[0]
+    const faction = FACTIONS[0]
 
     return randomcard(faction).then(output => {
       const id = getCardId(output)
@@ -35,7 +35,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle negative factions', () => {
-    const faction = Object.keys(FACTIONS)[0]
+    const faction = FACTIONS[0]
 
     return randomcard('!' + faction).then(output => {
       const id = getCardId(output)
@@ -44,7 +44,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle types', () => {
-    const type = Object.keys(TYPES)[0]
+    const type = TYPES[0]
 
     return randomcard(type).then(output => {
       const id = getCardId(output)
@@ -53,7 +53,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle negative types', () => {
-    const type = Object.keys(TYPES)[0]
+    const type = TYPES[0]
 
     return randomcard('!' + type).then(output => {
       const id = getCardId(output)
@@ -62,7 +62,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle races', () => {
-    const race = Object.keys(RACES)[0]
+    const race = RACES[0]
 
     return randomcard(race).then(output => {
       const id = getCardId(output)
@@ -71,7 +71,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle negative races', () => {
-    const race = Object.keys(RACES)[0]
+    const race = RACES[0]
 
     return randomcard('!' + race).then(output => {
       const id = getCardId(output)
@@ -80,7 +80,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle rarities', () => {
-    const rarity = Object.keys(RARITIES)[0]
+    const rarity = RARITIES[0]
 
     return randomcard(rarity).then(output => {
       const id = getCardId(output)
@@ -89,7 +89,7 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle negative rarities', () => {
-    const rarity = Object.keys(RARITIES)[0]
+    const rarity = RARITIES[0]
 
     return randomcard('!' + rarity).then(output => {
       const id = getCardId(output)

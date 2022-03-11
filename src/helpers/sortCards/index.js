@@ -1,11 +1,7 @@
-import { RARITIES } from '~/constants/game'
+import { FACTIONS, RARITIES } from '~/constants/game'
 import unfoldValue from '~/helpers/unfoldValue'
 import { getCardCost } from '~/helpers/getCollectionCost'
 import getExtraAfterMax from '~/helpers/getExtraAfterMax'
-
-const FACTIONS_ORDER = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
-const factions = FACTIONS_ORDER
-const rarities = Object.keys(RARITIES)
 
 export const sortByLockedCoins = (a, b) => {
   const { coins: extraA } = getExtraAfterMax(a)
@@ -30,12 +26,12 @@ export const sortByValue = cardsIndex => (a, b) => {
   if (a.level > b.level) return -1
 
   // Then order cards per rarity, legendary to common
-  if (rarities.indexOf(a.rarity) < rarities.indexOf(b.rarity)) return +1
-  if (rarities.indexOf(a.rarity) > rarities.indexOf(b.rarity)) return -1
+  if (RARITIES.indexOf(a.rarity) < RARITIES.indexOf(b.rarity)) return +1
+  if (RARITIES.indexOf(a.rarity) > RARITIES.indexOf(b.rarity)) return -1
 
   // Then order cards per faction, neutral first
-  if (factions.indexOf(a.faction) < factions.indexOf(b.faction)) return -1
-  if (factions.indexOf(a.faction) > factions.indexOf(b.faction)) return +1
+  if (FACTIONS.indexOf(a.faction) < FACTIONS.indexOf(b.faction)) return -1
+  if (FACTIONS.indexOf(a.faction) > FACTIONS.indexOf(b.faction)) return +1
 
   // Then order cards per value (copies), highest to lowest
   if (costA < costB) return +1
@@ -48,8 +44,8 @@ export const sortByValue = cardsIndex => (a, b) => {
 const sortNaturally =
   ({ withFaction = true } = {}) =>
   (a, b) => {
-    const factionIndexA = FACTIONS_ORDER.indexOf(a.faction)
-    const factionIndexB = FACTIONS_ORDER.indexOf(b.faction)
+    const factionIndexA = FACTIONS.indexOf(a.faction)
+    const factionIndexB = FACTIONS.indexOf(b.faction)
 
     if (withFaction && factionIndexA > factionIndexB) return +1
     if (withFaction && factionIndexA < factionIndexB) return -1

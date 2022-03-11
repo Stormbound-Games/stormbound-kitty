@@ -201,7 +201,7 @@ describe('The `getCardValue` helper', () => {
   })
 
   it('should return value for Hunter’s Vengeance', () => {
-    const types = Object.keys(RACES).length + 2
+    const types = RACES.length + 3
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N23', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N23', 5)
     expect(value1[0]).toEqual((-2 * types) / 3)

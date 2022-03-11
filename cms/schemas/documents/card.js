@@ -37,28 +37,28 @@ const card = {
       title: 'Type',
       name: 'type',
       type: 'string',
-      options: { list: Object.keys(TYPES) },
+      options: { list: TYPES },
       validation: Rule => Rule.required(),
     },
     {
       title: 'Faction',
       name: 'faction',
       type: 'string',
-      options: { list: Object.keys(FACTIONS) },
+      options: { list: FACTIONS },
       validation: Rule => Rule.required(),
     },
     {
       title: 'Race',
       name: 'race',
       type: 'string',
-      options: { list: Object.keys(RACES) },
+      options: { list: RACES },
       hidden: ({ document }) => Boolean(document?.type !== 'unit'),
     },
     {
       title: 'Rarity',
       name: 'rarity',
       type: 'string',
-      options: { list: Object.keys(RARITIES) },
+      options: { list: RARITIES },
       validation: Rule =>
         Rule.custom((value, context) => {
           if (!context.document?.token && !value) return 'Required'

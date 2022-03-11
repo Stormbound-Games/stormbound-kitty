@@ -7,25 +7,25 @@ describe('The `parseAdvancedSearch` helper', () => {
   })
 
   it('should handle races', () => {
-    Object.keys(RACES).forEach(race => {
+    RACES.forEach(race => {
       expect(parse('is:' + race)).toEqual({ race })
     })
   })
 
   it('should handle types', () => {
-    Object.keys(TYPES).forEach(type => {
+    TYPES.forEach(type => {
       expect(parse('is:' + type)).toEqual({ type })
     })
   })
 
   it('should handle factions', () => {
-    Object.keys(FACTIONS).forEach(faction => {
+    FACTIONS.forEach(faction => {
       expect(parse('is:' + faction)).toEqual({ faction })
     })
   })
 
   it('should handle rarities', () => {
-    Object.keys(RARITIES).forEach(rarity => {
+    RARITIES.forEach(rarity => {
       expect(parse('is:' + rarity)).toEqual({ rarity })
     })
   })

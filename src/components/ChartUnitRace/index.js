@@ -15,7 +15,7 @@ import countCards from '~/helpers/countCards'
 
 export default React.memo(function ChartUnitRace(props) {
   const { cards } = React.useContext(CardsContext)
-  const RACES = {
+  const RACE_COLORS = {
     frostling: 'var(--winter)',
     dwarf: 'var(--light-winter)',
     construct: 'var(--ironclad)',
@@ -29,10 +29,10 @@ export default React.memo(function ChartUnitRace(props) {
     dragon: 'var(--dark-beige)',
     feline: 'var(--beige)',
   }
-  const data = Object.keys(RACES).map(race => ({
+  const data = Object.entries(RACE_COLORS).map(([race, color]) => ({
     name: capitalize(race),
     value: countCards(cards, { race }, false),
-    color: RACES[race],
+    color,
   }))
 
   return (

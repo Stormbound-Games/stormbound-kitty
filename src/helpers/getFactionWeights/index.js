@@ -2,9 +2,7 @@ import { FACTIONS } from '~/constants/game'
 import { getLongFaction } from '~/helpers/encoding'
 
 const getFactionWeights = (brawls, modifier) => {
-  const factions = Object.keys(FACTIONS).filter(
-    faction => faction !== 'neutral'
-  )
+  const factions = FACTIONS.filter(faction => faction !== 'neutral')
 
   if (modifier === 'NONE')
     return factions.map(faction => ({ id: faction, weight: 1 }))

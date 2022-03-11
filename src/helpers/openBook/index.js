@@ -13,7 +13,7 @@ const getRarityPool = (cards, rarity, only = {}) =>
   cards.filter(isCardMatchingCriteria({ ...only, rarity })).map(card => card.id)
 
 const getDrawingPools = (cards, book) =>
-  Object.keys(RARITIES).reduce(
+  RARITIES.reduce(
     (acc, rarity) => ({
       ...acc,
       [rarity]: getRarityPool(cards, rarity, book.only),
@@ -69,7 +69,7 @@ const openBook = (cards, book) => {
   const pools = getDrawingPools(cards, book)
   const draw = getRandomCardId(pools)
   const bookCards = sequence
-    .map(rarityIndex => Object.keys(RARITIES)[rarityIndex])
+    .map(rarityIndex => RARITIES[rarityIndex])
     .map(draw)
     .map(id => getResolvedCardData(cardsIndex, { id, level: 1 }))
 

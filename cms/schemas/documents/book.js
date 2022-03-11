@@ -29,7 +29,7 @@ const restriction = {
       title: 'Value',
       name: 'value_race',
       type: 'string',
-      options: { list: Object.keys(RACES) },
+      options: { list: RACES },
       hidden: ({ parent }) => parent?.property !== 'race',
       validation: Rule =>
         Rule.custom((value, context) => {
@@ -42,7 +42,7 @@ const restriction = {
       title: 'Value',
       name: 'value_faction',
       type: 'string',
-      options: { list: Object.keys(FACTIONS) },
+      options: { list: FACTIONS },
       hidden: ({ parent }) => parent?.property !== 'faction',
       validation: Rule =>
         Rule.custom((value, context) => {
@@ -55,7 +55,7 @@ const restriction = {
       title: 'Value',
       name: 'value_type',
       type: 'string',
-      options: { list: Object.keys(TYPES) },
+      options: { list: TYPES },
       hidden: ({ parent }) => parent?.property !== 'type',
       validation: Rule =>
         Rule.custom((value, context) => {
@@ -68,7 +68,7 @@ const restriction = {
       title: 'Value',
       name: 'value_rarity',
       type: 'string',
-      options: { list: Object.keys(RARITIES) },
+      options: { list: RARITIES },
       hidden: ({ parent }) => parent?.property !== 'rarity',
       validation: Rule =>
         Rule.custom((value, context) => {

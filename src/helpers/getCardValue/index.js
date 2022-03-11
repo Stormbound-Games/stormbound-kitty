@@ -4,7 +4,7 @@ import { UNVALUED_CARDS } from '~/constants/misc'
 
 export const MAX_MANA = 30
 export const MAX_TILES = 10
-const TYPES = Object.keys(RACES).length + 2
+const RACE_COUNT = RACES.length + 3
 const MOVEMENT = [0.5, 1, 1.5, 1.75, 2]
 
 const parseAbility = (ability, index = 0) =>
@@ -125,7 +125,10 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'N23': /* Hunter’s Vengeance */ {
       const strength = parseAbility(ability)
-      return [(strength * -1 * TYPES) / mana, (strength * TYPES) / mana]
+      return [
+        (strength * -1 * RACE_COUNT) / mana,
+        (strength * RACE_COUNT) / mana,
+      ]
     }
     case 'N35': /* Ubass the Hunter */ {
       return [

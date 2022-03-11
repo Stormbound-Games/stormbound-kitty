@@ -14,7 +14,7 @@ const getDrawingExpectations = type => {
 
     return {
       label: `a specific ${rarity} card`,
-      getExpectations: () => Object.keys(RARITIES).map(r => +(r === rarity)),
+      getExpectations: () => RARITIES.map(r => +(r === rarity)),
     }
   }
 
@@ -24,7 +24,7 @@ const getDrawingExpectations = type => {
     return {
       label: `any ${rarity} card`,
       getExpectations: (cards, criteria) =>
-        Object.keys(RARITIES).map(r =>
+        RARITIES.map(r =>
           r === rarity ? countCards(cards, { ...criteria, rarity }, false) : 0
         ),
     }

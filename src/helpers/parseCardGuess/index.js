@@ -22,11 +22,11 @@ const parseCardGuess = message => {
   if (message === 'hero') return ['hero', true]
   if (message === 'elder') return ['elder', true]
   if (message === 'ancient') return ['ancient', true]
-  if (Object.keys(RARITIES).includes(message)) return ['rarity', message]
-  if (message.split(',').every(chunk => Object.keys(FACTIONS).includes(chunk)))
+  if (RARITIES.includes(message)) return ['rarity', message]
+  if (message.split(',').every(chunk => FACTIONS.includes(chunk)))
     return ['faction', message]
-  if (Object.keys(TYPES).includes(message)) return ['type', message]
-  if (Object.keys(RACES).includes(message)) return ['race', message]
+  if (TYPES.includes(message)) return ['type', message]
+  if (RACES.includes(message)) return ['race', message]
   const [key, value] = handleSearchAlias(message)
   if (Object.keys(SAMPLE_CARD).includes(key)) return [key, value]
   return []

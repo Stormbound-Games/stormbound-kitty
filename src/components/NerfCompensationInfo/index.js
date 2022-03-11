@@ -57,8 +57,7 @@ export default React.memo(function NerfCompensationInfo(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const ids = props.ids || []
   const cards = ids.length > 0 ? ids.map(id => cardsIndex[id]) : []
-  const rarities =
-    ids.length > 0 ? cards.map(card => card.rarity) : Object.keys(RARITIES)
+  const rarities = ids.length > 0 ? cards.map(card => card.rarity) : RARITIES
   const names = cards.map(card => card.name)
 
   return (

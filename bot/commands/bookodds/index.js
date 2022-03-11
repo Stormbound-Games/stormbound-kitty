@@ -11,7 +11,7 @@ import getBooks from '~/api/books/getBooks'
 const getEmbedFields = (cards, book) => {
   const fields = []
 
-  Object.keys(RARITIES).forEach(rarity => {
+  RARITIES.forEach(rarity => {
     const anyKey = 'ANY_' + rarity.toUpperCase()
     const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
     const anyOdds = getDrawingExpectations(anyKey).getExpectations(
@@ -55,7 +55,7 @@ const parseMessage = (booksIndex, cards, abbreviations, search) => {
   terms.forEach(term => {
     if (term.toUpperCase() in booksIndex) {
       params.book = booksIndex[term.toUpperCase()]
-    } else if (Object.keys(RARITIES).includes(term.toLowerCase())) {
+    } else if (RARITIES.includes(term.toLowerCase())) {
       params.target = term.toUpperCase()
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
       params.target = 'FUSION_STONES'

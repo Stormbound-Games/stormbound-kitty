@@ -16,7 +16,7 @@ export const parseMessage = (cards, abbreviations, tags, content) => {
   const tagsIndex = indexArray(tags, 'slug')
 
   terms.forEach(term => {
-    if (Object.keys(FACTIONS).includes(term)) {
+    if (FACTIONS.includes(term)) {
       params.faction = term
     } else if (term.toUpperCase() in tagsIndex) {
       if (!params.tags) params.tags = []

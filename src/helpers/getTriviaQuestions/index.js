@@ -27,12 +27,12 @@ const getTriviaQuestions = (cards, brawls) => {
     .filter(card => (card.ability || '').includes('n death'))
     .map(card => card.race)
     .filter(unique)
-  const racesWithoutOnDeath = Object.keys(RACES).filter(
+  const racesWithoutOnDeath = RACES.filter(
     race => !racesWithOnDeath.includes(race)
   )
-  const cardsPerFaction = Object.keys(FACTIONS)
-    .filter(faction => faction !== 'neutral')
-    .map(faction => cards.filter(card => card.faction === faction).length)
+  const cardsPerFaction = FACTIONS.filter(faction => faction !== 'neutral').map(
+    faction => cards.filter(card => card.faction === faction).length
+  )
   const maxCardsPerFaction = Math.max(...cardsPerFaction)
 
   return [
@@ -111,7 +111,7 @@ const getTriviaQuestions = (cards, brawls) => {
       return {
         question: `What is the race of ${randomCard.name}?`,
         answer: capitalize(randomCard.race),
-        options: Object.keys(RACES).map(capitalize),
+        options: RACES.map(capitalize),
       }
     },
 
@@ -121,7 +121,7 @@ const getTriviaQuestions = (cards, brawls) => {
       return {
         question: `What is the faction of ${randomCard.name}?`,
         answer: capitalize(randomCard.faction),
-        options: Object.keys(FACTIONS).map(capitalize),
+        options: FACTIONS.map(capitalize),
       }
     },
 
@@ -356,7 +356,7 @@ const getTriviaQuestions = (cards, brawls) => {
       question:
         'Which type of tokens did Tegor the Vengeful initially spawned?',
       answer: 'Knight',
-      options: Object.keys(RACES).map(capitalize),
+      options: RACES.map(capitalize),
     },
 
     {
@@ -555,7 +555,7 @@ const getTriviaQuestions = (cards, brawls) => {
       question:
         'Of which race are Beards of Crowglyphs showing visual elements?',
       answer: 'Dragon',
-      options: Object.keys(RACES).map(capitalize),
+      options: RACES.map(capitalize),
     },
 
     {
@@ -674,7 +674,7 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'Which unit type is Powder Tower built by?',
       answer: 'Pirate',
-      options: Object.keys(RACES).map(capitalize),
+      options: RACES.map(capitalize),
     },
 
     {
@@ -704,8 +704,8 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many unit races are there?',
-      answer: Object.keys(RACES).length,
-      options: rangeAround(Object.keys(RACES).length, 5),
+      answer: RACES.length,
+      options: rangeAround(RACES.length, 5),
     },
 
     {
@@ -858,7 +858,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     () => {
-      const rarity = arrayRandom(Object.keys(RARITIES))
+      const rarity = arrayRandom(RARITIES)
 
       return {
         question: `How many Fusion Stones does it cost to craft a ${rarity} card?`,
@@ -1084,7 +1084,7 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'In the kingdom order, which is the 3rd faction?',
       answer: 'Ironclad',
-      options: Object.keys(FACTIONS).map(capitalize),
+      options: FACTIONS.map(capitalize),
     },
 
     {
@@ -1138,11 +1138,11 @@ const getTriviaQuestions = (cards, brawls) => {
         'Which other races were possible to vote for for the community created card Harvesters of Souls?',
       answer: 'Pirate and Raven',
       options: Array.from({ length: 20 }, () => {
-        const randomRace = arrayRandom(Object.keys(RACES))
+        const randomRace = arrayRandom(RACES)
 
         return [
           randomRace,
-          arrayRandom(Object.keys(RACES).filter(race => race !== randomRace)),
+          arrayRandom(RACES.filter(race => race !== randomRace)),
         ]
           .map(capitalize)
           .join(' and ')
@@ -1338,7 +1338,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     () => {
-      const rarity = arrayRandom(Object.keys(RARITIES))
+      const rarity = arrayRandom(RARITIES)
       const count = cards.filter(
         card => card.faction === 'winter' && card.rarity === rarity
       ).length
@@ -1538,9 +1538,9 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'Which faction has the most units?',
       answer: 'Shadowfen',
-      options: Object.keys(FACTIONS)
-        .filter(faction => faction !== 'neutral')
-        .map(capitalize),
+      options: FACTIONS.filter(faction => faction !== 'neutral').map(
+        capitalize
+      ),
     },
 
     {

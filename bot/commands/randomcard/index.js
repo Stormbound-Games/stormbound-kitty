@@ -30,13 +30,13 @@ const parseMessage = content => {
     } else if (filter.value === 'ancient') {
       filter.key = 'ancient'
       filter.value = true
-    } else if (Object.keys(FACTIONS).includes(filter.value)) {
+    } else if (FACTIONS.includes(filter.value)) {
       filter.key = 'faction'
-    } else if (Object.keys(RACES).includes(filter.value)) {
+    } else if (RACES.includes(filter.value)) {
       filter.key = 'race'
-    } else if (Object.keys(RARITIES).includes(filter.value)) {
+    } else if (RARITIES.includes(filter.value)) {
       filter.key = 'rarity'
-    } else if (Object.keys(TYPES).includes(filter.value)) {
+    } else if (TYPES.includes(filter.value)) {
       filter.key = 'type'
     } else {
       const [key, value] = handleSearchAlias(filter.value)

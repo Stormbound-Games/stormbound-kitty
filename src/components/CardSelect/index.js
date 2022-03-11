@@ -9,7 +9,7 @@ import useSelectStyles from '~/hooks/useSelectStyles'
 
 const Select = dynamic(() => import('react-select'))
 
-const ORDER = [...Object.keys(FACTIONS), 'tokens']
+const ORDER = [...FACTIONS, 'tokens']
 
 export default React.memo(function CardSelect(props) {
   const { cards, cardsIndex } = React.useContext(CardsContext)
