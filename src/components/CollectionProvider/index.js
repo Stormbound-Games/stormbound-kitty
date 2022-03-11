@@ -79,12 +79,6 @@ export default React.memo(function CollectionProvider(props) {
   }, [notify, cardsWithoutTokens])
 
   React.useEffect(() => {
-    // If the collection is incomplete (arbitrary 100 threshold), it means we
-    // are on a page that doesn’t have all the cards’ information, and therefore
-    // we shouldn’t do anything for risk of overriding an existing collection
-    // with an empty one.
-    if (collection.length < 100) return
-
     // If the collection is the default one, remove it from the local storage as
     // this is not only unnecessary, but can also lead to hard-to-track bug
     // where obsolete data get stored (e.g. a default collection of 188 cards
