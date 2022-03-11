@@ -28,7 +28,6 @@ export default React.memo(function ListBuilderTier(props) {
               values={props.cards}
               onReorder={props.reorderCards}
               className={css(styles.list)}
-              axis='y'
             >
               {props.cards.map(cardId => (
                 <ListBuilderTierItem

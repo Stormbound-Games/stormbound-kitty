@@ -1,7 +1,6 @@
 const header = {
   display: 'flex',
   flexDirection: 'column',
-  marginBottom: 'var(--s-base)',
 
   medium: {
     flexDirection: 'row',

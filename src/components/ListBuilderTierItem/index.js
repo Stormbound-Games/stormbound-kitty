@@ -42,6 +42,7 @@ export default React.memo(function ListBuilderTierItem(props) {
       value={props.id}
       className={css(styles.item)}
       style={{ '--color': `var(--${props.faction})` }}
+      drag
     >
       <Image
         src={props.image}

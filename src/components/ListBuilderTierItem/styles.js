@@ -1,10 +1,12 @@
 const item = ({ isEditable }) => ({
   display: 'flex',
   alignItems: 'center',
+  flex: '0 0 100%',
   border: '1px solid var(--dark-beige)',
   borderRadius: '0.2em',
   padding: 'var(--s-smaller)',
-  margin: 'var(--s-smaller) 0',
+  marginTop: 'var(--s-smallest)',
+  marginBottom: 'var(--s-smallest)',
   backgroundImage: `linear-gradient(to right, var(--color), transparent)`,
   cursor: isEditable ? 'grab' : undefined,
   position: 'relative',
@@ -22,12 +24,23 @@ const item = ({ isEditable }) => ({
     maskImage: 'linear-gradient(270deg, var(--black), transparent)',
     backgroundImage:
       'repeating-linear-gradient(10deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',
+    zIndex: -1,
+  },
+
+  medium: {
+    flexBasis: 'calc(50% - var(--s-smallest) * 2)',
+    marginLeft: 'var(--s-smallest)',
+    marginRight: 'var(--s-smallest)',
   },
 })
 
+// 1. This enables dragging items via the image.
 const image = {
   maxWidth: '3em',
+  maxHeight: '3em',
   marginLeft: '0 var(--s-small)',
+  objectFit: 'contain',
+  pointerEvents: 'none' /* 1 */,
 }
 
 const content = {
