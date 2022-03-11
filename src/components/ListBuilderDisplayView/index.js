@@ -7,14 +7,23 @@ import ShareButton from '~/components/ListBuilderShareButton'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import ListBuilderToc from '~/components/ListBuilderToc'
 import Title from '~/components/Title'
+import toSentence from '~/helpers/toSentence'
 
 export default React.memo(function ListBuilderDisplayView(props) {
   const { tiers, listId: id } = props
+  const description = `This list features ${tiers
+    .map(tier => tier.cards.length)
+    .reduce((a, b) => a + b, 0)} cards across the following ${
+    props.tiers.length
+  } tiers: ${toSentence(
+    props.tiers.map(tier => tier.name),
+    'and'
+  )}.`
 
   return (
     <Page
-      title='List builder'
-      description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
+      title='Tier List'
+      description={description}
       action={{
         to: `/list/${id}`,
         children: 'Edit list',

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Reorder } from 'framer-motion'
 import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
 import ListBuilderTierHeader from '~/components/ListBuilderTierHeader'
@@ -8,8 +9,7 @@ import styles from './styles'
 
 export default React.memo(function ListBuilderTier(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const { css } = useFela({ isDragging: props.isDragging })
-  const cards = props.cards.map(id => cardsIndex[id])
+  const { css } = useFela()
   const shouldRenderHeader =
     typeof props.withHeader === 'undefined'
       ? props.name || props.isEditable
@@ -17,39 +17,42 @@ export default React.memo(function ListBuilderTier(props) {
 
   return (
     <Spacing bottom='LARGE'>
-      <div style={{ '--color': props.color }}>
-        {shouldRenderHeader && (
-          <ListBuilderTierHeader {...props} cards={cards} />
-        )}
+      {shouldRenderHeader && (
+        <ListBuilderTierHeader {...props} cards={props.cards} />
+      )}
 
-        <div className={css(styles.body)} onMouseUp={props.onMouseUp}>
-          {cards.length ? (
-            cards.map((card, index) => (
-              <ListBuilderTierItem
-                isEditable={props.isEditable}
-                onMouseDown={props.onMouseDown}
-                onMouseOver={props.onMouseOver}
-                onMouseUp={props.onMouseUp}
-                dndDirection={props.dndDirection}
-                dndTarget={props.dndTarget}
-                dndSource={props.dndSource}
-                isDragging={props.isDragging}
-                removeCard={props.removeCard}
-                cards={cards}
-                card={card}
-                index={index}
-                key={card.id}
-              />
-            ))
+      {props.cards.length > 0 ? (
+        <>
+          {props.isEditable ? (
+            <Reorder.Group
+              values={props.cards}
+              onReorder={props.reorderCards}
+              className={css(styles.list)}
+            >
+              {props.cards.map(cardId => (
+                <ListBuilderTierItem
+                  {...cardsIndex[cardId]}
+                  key={cardId}
+                  removeCard={props.removeCard}
+                  isEditable
+                />
+              ))}
+            </Reorder.Group>
           ) : (
-            <p className={css(styles.empty)}>
-              There are currently no cards in this tier.{' '}
-              {props.isEditable &&
-                'Try adding a card to it to have it displayed here.'}
-            </p>
+            <ul className={css(styles.list)}>
+              {props.cards.map(cardId => (
+                <ListBuilderTierItem {...cardsIndex[cardId]} key={cardId} />
+              ))}
+            </ul>
           )}
-        </div>
-      </div>
+        </>
+      ) : (
+        <p className={css(styles.empty)}>
+          There are currently no cards in this tier.{' '}
+          {props.isEditable &&
+            'Try adding a card to it to have it displayed here.'}
+        </p>
+      )}
     </Spacing>
   )
 })
