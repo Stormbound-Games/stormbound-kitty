@@ -44,7 +44,7 @@ export default React.memo(function BooksCalculator(props) {
         : clamp(
             0,
             Number(value),
-            countCards(cards, { rarity: Object.keys(RARITIES)[index] })
+            countCards(cards, { rarity: RARITIES[index] })
           ),
       ...expectations.slice(index + 1),
     ])
@@ -130,8 +130,7 @@ export default React.memo(function BooksCalculator(props) {
                     disabled={isAdvancedMode}
                   >
                     <option value='FUSION_STONES'>Fusion stones</option>
-                    {Object.keys(RARITIES)
-                      .map(rarity => rarity.toUpperCase())
+                    {RARITIES.map(rarity => rarity.toUpperCase())
                       .flatMap(rarity => [
                         'SPECIFIC_' + rarity,
                         'ANY_' + rarity,

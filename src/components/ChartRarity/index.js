@@ -16,7 +16,7 @@ import countCards from '~/helpers/countCards'
 
 export default React.memo(function ChartRarity(props) {
   const { cards } = React.useContext(CardsContext)
-  const data = Object.keys(RARITIES).map(rarity => ({
+  const data = RARITIES.map(rarity => ({
     name: capitalize(rarity),
     value: countCards(cards, { rarity }) - 1,
     color: `var(--${rarity})`,

@@ -153,7 +153,7 @@ const useCopiesData = () => {
   const { cards, cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
 
-  return Object.keys(RARITIES).map(rarity => {
+  return RARITIES.map(rarity => {
     const owned = collection
       .filter(card => cardsIndex[card.id].rarity === rarity)
       .reduce(
@@ -178,31 +178,29 @@ const useProgressData = () => {
   const { cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
 
-  return Object.keys(RARITIES)
-    .map(rarity => {
-      return collection
-        .filter(card => cardsIndex[card.id].rarity === rarity)
-        .reduce(
-          (acc, card) => {
-            acc[card.level === 5 ? 0 : 1].value++
+  return RARITIES.map(rarity => {
+    return collection
+      .filter(card => cardsIndex[card.id].rarity === rarity)
+      .reduce(
+        (acc, card) => {
+          acc[card.level === 5 ? 0 : 1].value++
 
-            return acc
+          return acc
+        },
+        [
+          {
+            color: `var(--${rarity}-bright)`,
+            name: 'Maxed out ' + capitalize(rarity),
+            value: 0,
           },
-          [
-            {
-              color: `var(--${rarity}-bright)`,
-              name: 'Maxed out ' + capitalize(rarity),
-              value: 0,
-            },
-            {
-              color: `var(--${rarity})`,
-              name: 'In progress ' + capitalize(rarity),
-              value: 0,
-            },
-          ]
-        )
-    })
-    .flat()
+          {
+            color: `var(--${rarity})`,
+            name: 'In progress ' + capitalize(rarity),
+            value: 0,
+          },
+        ]
+      )
+  }).flat()
 }
 
 export default React.memo(function CollectionStats(props) {

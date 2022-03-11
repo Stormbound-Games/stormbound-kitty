@@ -52,7 +52,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
               onChange={event => props.setRarity(event.target.value)}
               data-testid='cb-rarity-select'
             >
-              {Object.keys(RARITIES).map(rarity => (
+              {RARITIES.map(rarity => (
                 <option value={rarity} key={rarity}>
                   {capitalize(rarity)}
                 </option>
@@ -68,7 +68,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
               onChange={event => props.setType(event.target.value)}
               data-testid='cb-type-select'
             >
-              {Object.keys(TYPES).map(type => (
+              {TYPES.map(type => (
                 <option value={type} key={type}>
                   {capitalize(type)}
                 </option>
@@ -98,7 +98,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
               data-testid='cb-race-select'
             >
               <option value=''>Race</option>
-              {Object.keys(RACES).map(race => (
+              {RACES.map(race => (
                 <option value={race} key={race}>
                   {capitalize(race)}
                 </option>

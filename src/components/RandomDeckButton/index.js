@@ -14,7 +14,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import arrayRandom from '~/helpers/arrayRandom'
 
 const getRandomFaction = () =>
-  arrayRandom(Object.keys(FACTIONS).filter(faction => faction !== 'neutral'))
+  arrayRandom(FACTIONS.filter(faction => faction !== 'neutral'))
 
 export default React.memo(function RandomDeckButton(props) {
   const dialog = React.useRef(null)

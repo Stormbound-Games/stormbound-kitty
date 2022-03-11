@@ -1,36 +1,21 @@
-export const FACTIONS = {
-  neutral: 'N',
-  winter: 'W',
-  ironclad: 'I',
-  shadowfen: 'F',
-  swarm: 'S',
-}
-
-export const TYPES = { unit: 'U', structure: 'S', spell: 'C' }
-
-export const RARITIES = { common: 'C', rare: 'R', epic: 'E', legendary: 'L' }
-
-export const RACES = {
-  construct: 'C',
-  dragon: 'D',
-  dwarf: 'W',
-  frostling: 'F',
-  feline: 'E',
-  knight: 'K',
-  pirate: 'P',
-  raven: 'R',
-  rodent: 'O',
-  satyr: 'S',
-  toad: 'T',
-  undead: 'U',
-}
-
-export const CURRENCIES = {
-  coins: 'C',
-  rubies: 'R',
-  stones: 'S',
-}
-
+export const FACTIONS = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
+export const TYPES = ['unit', 'structure', 'spell']
+export const RARITIES = ['common', 'rare', 'epic', 'legendary']
+export const RACES = [
+  'construct',
+  'dragon',
+  'dwarf',
+  'frostling',
+  'feline',
+  'knight',
+  'pirate',
+  'raven',
+  'rodent',
+  'satyr',
+  'toad',
+  'undead',
+]
+export const CURRENCIES = ['coins', 'rubies', 'stones']
 export const UPGRADE_COST = [50, 100, 300, 1000]
 export const RARITY_COPIES = {
   common: {

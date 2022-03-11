@@ -19,9 +19,8 @@ export default React.memo(function FactionSelect({
     <Select {...props} label={label} id={id}>
       {withAny && <option value='*'>{anyLabel || 'Any'}</option>}
       {withEmpty && <option value=''>{emptyLabel || 'Pick a faction'}</option>}
-      {Object.keys(FACTIONS)
-        .filter(faction => withNeutral || faction !== 'neutral')
-        .map(faction => (
+      {FACTIONS.filter(faction => withNeutral || faction !== 'neutral').map(
+        faction => (
           <React.Fragment key={faction}>
             <option value={faction}>{capitalize(faction)}</option>
             {withExtendedVersions && faction !== 'neutral' && (
@@ -30,7 +29,8 @@ export default React.memo(function FactionSelect({
               </option>
             )}
           </React.Fragment>
-        ))}
+        )
+      )}
     </Select>
   )
 })

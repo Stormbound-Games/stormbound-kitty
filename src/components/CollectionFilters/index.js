@@ -68,7 +68,7 @@ export default React.memo(function CollectionFilters(props) {
                     data-testid='type-select'
                   >
                     <option value='*'>Any</option>
-                    {Object.keys(TYPES).map(type => (
+                    {TYPES.map(type => (
                       <option value={type} key={type}>
                         {capitalize(type)}
                       </option>
@@ -126,7 +126,7 @@ export default React.memo(function CollectionFilters(props) {
                     data-testid='rarity-select'
                   >
                     <option value='*'>Any</option>
-                    {Object.keys(RARITIES).map(rarity => (
+                    {RARITIES.map(rarity => (
                       <option value={rarity} key={rarity}>
                         {capitalize(rarity)}
                       </option>
@@ -142,7 +142,7 @@ export default React.memo(function CollectionFilters(props) {
                     data-testid='race-select'
                   >
                     <option value='*'>Any</option>
-                    {Object.keys(RACES).map(race => (
+                    {RACES.map(race => (
                       <option value={race} key={race}>
                         {capitalize(race)}
                       </option>

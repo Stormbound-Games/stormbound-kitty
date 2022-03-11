@@ -11,7 +11,7 @@ import getDrawingSequences from '~/helpers/getDrawingSequences'
  */
 export const getSequenceProbability = (cards, book, expectations) => {
   const { draws, odds, only } = book
-  const cardCounts = Object.keys(RARITIES).map(rarity =>
+  const cardCounts = RARITIES.map(rarity =>
     countCards(cards, { ...only, rarity })
   )
 

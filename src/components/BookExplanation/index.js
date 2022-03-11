@@ -27,7 +27,7 @@ export default React.memo(function BookExplanation({ book }) {
       </p>
       <p>The chances of drawing are as follow:</p>
       <ul className={css({ margin: 0, paddingLeft: 'var(--s-base)' })}>
-        {Object.keys(RARITIES).map((rarity, index) => (
+        {RARITIES.map((rarity, index) => (
           <li key={rarity}>
             {(book.odds[index] * 100).toFixed(0)}% chance of drawing a {rarity}{' '}
             card

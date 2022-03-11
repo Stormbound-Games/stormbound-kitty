@@ -11,9 +11,9 @@ const getRewardFromMilestone = milestone => {
 
   if (reward.includes('_CARD')) {
     return {
-      cards: Object.keys(RARITIES)
-        .map(rarity => rarity.toUpperCase())
-        .map(rarity => (reward.includes(rarity) ? rewardAmount : 0)),
+      cards: RARITIES.map(rarity => rarity.toUpperCase()).map(rarity =>
+        reward.includes(rarity) ? rewardAmount : 0
+      ),
     }
   }
 

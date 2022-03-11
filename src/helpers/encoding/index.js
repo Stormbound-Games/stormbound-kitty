@@ -1,16 +1,17 @@
-import { FACTIONS, TYPES, RARITIES, RACES, CURRENCIES } from '~/constants/game'
+import {
+  FACTIONS as FACTIONS_LONG,
+  TYPES as TYPES_LONG,
+  RARITIES as RARITIES_LONG,
+  RACES as RACES_LONG,
+  CURRENCIES as CURRENCIES_LONG,
+} from '~/constants/game'
 import { MATCH_STATUSES, VICTORY_BONUSES } from '~/constants/brawl'
 
-const RACES_LONG = Object.keys(RACES)
-const RACES_SHORT = Object.values(RACES)
-const RARITIES_LONG = Object.keys(RARITIES)
-const RARITIES_SHORT = Object.values(RARITIES)
-const TYPES_LONG = Object.keys(TYPES)
-const TYPES_SHORT = Object.values(TYPES)
-const FACTIONS_LONG = Object.keys(FACTIONS)
-const FACTIONS_SHORT = Object.values(FACTIONS)
-const CURRENCIES_LONG = Object.keys(CURRENCIES)
-const CURRENCIES_SHORT = Object.values(CURRENCIES)
+const RACES_SHORT = ['C', 'D', 'W', 'F', 'E', 'K', 'P', 'R', 'O', 'S', 'T', 'U']
+const RARITIES_SHORT = ['C', 'R', 'E', 'L']
+const TYPES_SHORT = ['U', 'S', 'C']
+const FACTIONS_SHORT = ['N', 'W', 'I', 'F', 'S']
+const CURRENCIES_SHORT = ['C', 'R', 'S']
 const MATCH_STATUSES_LONG = Object.keys(MATCH_STATUSES)
 const MATCH_STATUSES_SHORT = Object.values(MATCH_STATUSES)
 const VICTORY_BONUSES_LONG = Object.keys(VICTORY_BONUSES)
