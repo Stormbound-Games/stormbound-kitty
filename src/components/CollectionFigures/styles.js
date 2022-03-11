@@ -11,7 +11,7 @@ const select = {
   WebkitAppearance: 'none',
   appearance: 'none',
   display: 'inline-block',
-  width: '5ch',
+  width: '5.5ch',
   padding: 0,
   border: 0,
   borderBottom: '2px solid',
