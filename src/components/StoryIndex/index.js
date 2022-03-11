@@ -20,7 +20,6 @@ export default React.memo(function StoryIndex(props) {
     <Page
       title='Stories'
       description='Read immersive stories from the community about Stormbound'
-      withAvif
     >
       <Teasers items={ITEMS} />
     </Page>

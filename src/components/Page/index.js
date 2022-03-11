@@ -33,8 +33,6 @@ const Page = React.memo(function Page(props) {
         title={props.title}
         background={props.background}
         ratio={props.ratio}
-        withAvif={props.withAvif}
-        withoutWebp={props.withoutWebp}
       />
 
       <PageHeaderMeta authors={authors} meta={props.meta} action={action} />

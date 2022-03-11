@@ -23,7 +23,6 @@ export default React.memo(function BrawlPage(props) {
       meta={brawl.name}
       action={{ to: '/brawl', children: 'Back to index' }}
       background={background}
-      withAvif
     >
       <BrawlProvider brawl={brawl} difficulty={difficulty}>
         <BrawlTracker
