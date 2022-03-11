@@ -8,7 +8,7 @@ The site runs with [Next](https://nextjs.org/). Therefore, it uses Node.js (vers
 
 Then run the following commands to install the local dependencies and start the development server:
 
-```
+```sh
 npm install
 npm start
 ```
@@ -17,9 +17,25 @@ npm start
 
 Unit tests are authored and ran with Jest, while end-to-end tests are executed via Cypress.
 
-```
+```sh
 npm test
 npx cypress open
+```
+
+## CMS
+
+To run the CMS locally, make sure you [have Yarn installed](https://classic.yarnpkg.com/lang/en/docs/install/) then:
+
+```sh
+cd cms
+yarn
+npm start
+```
+
+For the preview to work locally, both the local website and the local CMS need to run with the same `SANITY_STUDIO_PREVIEW_TOKEN` environment variable. Set it in `.env` for the Next app, and run the `npm start` command of the CMS passing it the environment variable:
+
+```sh
+SANITY_STUDIO_PREVIEW_TOKEN=YourValueHere npm start
 ```
 
 ## Bot
