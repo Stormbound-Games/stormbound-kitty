@@ -30,7 +30,7 @@ const renderRootStyles = renderer => {
         "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
       WebkitFontSmoothing: 'antialiased',
       MozOsxFontSmoothing: 'grayscale',
-      backgroundImage: "url('/assets/images/background.png')",
+      backgroundImage: "url('/assets/images/background.jpg')",
       backgroundRepeat: 'repeat',
       backgroundColor: '#101f26',
       color: 'var(--white)',
