@@ -42,6 +42,7 @@ export default React.memo(function HeaderBanner(props) {
         style={{ '--image': `url(${background})`, '--ratio': props.ratio }}
       >
         <Only.Desktop>
+          {/* eslint-disable-next-line */}
           <img src={background} alt='' hidden />
         </Only.Desktop>
         <h1 className={css(styles.title)}>{props.title}</h1>
