@@ -25,6 +25,8 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
   return (
     <>
       <Head>
+        <link rel='preconnect' href='https://cdn.sanity.io' />
+
         <link
           rel='shortcut icon'
           href='https://cdn.sanity.io/images/5hlpazgd/production/87e0bf6ba32d6c2700343a69c93ca7be97005760-512x512.png?auto=format&w=256&h=256&q=90'
