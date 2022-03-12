@@ -19,7 +19,7 @@ export default React.memo(function BattleSimAppDesktop(props) {
   const { setIsDragging, setDndSource, setDndTarget } = props
 
   React.useEffect(() => {
-    if (props.activeCell) {
+    if (props.activeCell && dialog.current) {
       const [y, x] = props.activeCell
       const node = document.querySelector(
         `[data-battle-sim-row]:nth-child(${y + 1}) > :nth-child(${x + 1})`

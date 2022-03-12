@@ -1,12 +1,11 @@
 import React from 'react'
 import BattleSimPage from '~/components/BattleSimPage'
-import BattleSimState from '~/components/BattleSimState'
 import Layout from '~/components/Layout'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getPuzzle from '~/api/puzzles/getPuzzle'
-import useNavigator from '~/hooks/useNavigator'
+import useBattleSim from '~/hooks/useBattleSim'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
 
@@ -50,7 +49,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       cards,
       cardsIndex,
       settings,
-      simId: id,
+      id,
       sim: getInitialBattleData(cardsIndex, id),
       mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
       puzzle: await getPuzzle({ id, isPreview }),
@@ -59,13 +58,11 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 }
 
 const BattleSim = ({ settings, cards, ...props }) => {
-  const navigator = useNavigator()
+  const state = useBattleSim(props)
 
   return (
     <Layout active={['TOOLS', 'SIMULATORS', 'BATTLE_SIM']} settings={settings}>
-      <BattleSimState {...props} navigator={navigator}>
-        {state => <BattleSimPage {...state} {...props} />}
-      </BattleSimState>
+      <BattleSimPage {...state} {...props} />
     </Layout>
   )
 }
