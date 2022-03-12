@@ -9,7 +9,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings } }
 }
 
-const HeroScoreCalculatorPage = ({ settings, cards, ...props }) => (
+const HeroScoreCalculatorPage = ({ settings, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'HERO_CALCULATOR']}
     settings={settings}

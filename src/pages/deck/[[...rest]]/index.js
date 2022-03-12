@@ -13,7 +13,6 @@ import getDeckPresets from '~/helpers/getDeckPresets'
 import serialization from '~/helpers/serialization'
 import useDeckBuilder from '~/hooks/useDeckBuilder'
 import getBrawls from '~/api/brawls/getBrawls'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   const decks = await getDecks()
@@ -30,10 +29,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const brawls = await getBrawls({ isPreview })
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
-  const cardsIndex = indexArray(cards)
-  const cardsIndexBySid = indexArray(cards, 'sid')
+  const cardsIndex = indexArray(settings.cards)
+  const cardsIndexBySid = indexArray(settings.cards, 'sid')
   const [id, view] = params.rest || []
 
   if (
@@ -47,7 +45,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         brawls,
-        cards,
         settings,
         id: null,
         deck: [],
@@ -76,12 +73,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return {
     props: {
       brawls: view !== 'editor' ? brawls : [],
-      // On the detail view, the only needed cards are the ones in the deck,
-      // and every other card can be discarded.
-      cards:
-        view === 'detail'
-          ? cards.filter(card => card.id in indexedDeck)
-          : cards,
       settings,
       id,
       deck,
@@ -99,7 +90,7 @@ const COMPONENTS = {
   EDITOR: DeckEditorView,
 }
 
-const DeckBuilderPage = ({ settings, cards, ...props }) => {
+const DeckBuilderPage = ({ settings, ...props }) => {
   const Component = COMPONENTS[props.view]
   const state = useDeckBuilder(props)
 

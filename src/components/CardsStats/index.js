@@ -56,67 +56,67 @@ export default React.memo(function CardsStats(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartType cards={props.cards} />
+              <ChartType />
             </Spacing>
           </Row.Column>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartRarity cards={props.cards} />
+              <ChartRarity />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartMovement cards={props.cards} />
+              <ChartMovement />
             </Spacing>
           </Row.Column>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartAbility cards={props.cards} />
+              <ChartAbility />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartModifier cards={props.cards} />
+              <ChartModifier />
             </Spacing>
           </Row.Column>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartUnitRace cards={props.cards} />
+              <ChartUnitRace />
             </Spacing>
           </Row.Column>
-        </Row>
-
-        <Row isDesktopOnly>
-          <Row.Column>
-            <Spacing vertical='BASE'>
-              <ChartFactionCard cards={props.cards} />
-            </Spacing>
-          </Row.Column>
-          <Row.Column/>           
         </Row>
 
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartMana cards={props.cards} />
+              <ChartFactionCard />
+            </Spacing>
+          </Row.Column>
+          <Row.Column />
+        </Row>
+
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Spacing vertical='BASE'>
+              <ChartMana />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartStrength cards={props.cards} />
+              <ChartStrength />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartStrengthMana cards={props.cards} />
+              <ChartStrengthMana />
             </Spacing>
           </Row.Column>
         </Row>

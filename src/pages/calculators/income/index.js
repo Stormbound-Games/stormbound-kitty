@@ -11,7 +11,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings, books } }
 }
 
-const IncomeCalculatorPage = ({ settings, cards, ...props }) => (
+const IncomeCalculatorPage = ({ settings, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'INCOME_CALCULATOR']}
     settings={settings}

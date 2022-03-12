@@ -14,7 +14,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-const FanKitWallpapersPage = ({ settings, cards, ...props }) => (
+const FanKitWallpapersPage = ({ settings, ...props }) => (
   <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
     <FanKitWallpapersDesktop {...props} />
   </Layout>

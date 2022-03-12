@@ -16,7 +16,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return { props: { settings, quest, id: id || null } }
 }
 
-const QuestBuilderPage = ({ settings, cards, ...props }) => (
+const QuestBuilderPage = ({ settings, ...props }) => (
   <Layout active={['TOOLS', 'BUILDERS', 'QUEST_BUILDER']} settings={settings}>
     <QuestBuilderRoot {...props} questId={props.id} />
   </Layout>

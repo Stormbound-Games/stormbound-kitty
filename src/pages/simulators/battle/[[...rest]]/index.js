@@ -1,13 +1,13 @@
 import React from 'react'
 import BattleSimPage from '~/components/BattleSimPage'
 import Layout from '~/components/Layout'
-import getInitialBattleData from '~/helpers/getInitialBattleData'
+import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import useBattleSim from '~/hooks/useBattleSim'
 import indexArray from '~/helpers/indexArray'
-import getCards from '~/api/cards/getCards'
+import { DEFAULT_SIM } from '~/constants/battle'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
   const puzzles = await getPuzzles({ isPreview })
@@ -21,9 +21,8 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
-  const cardsIndex = indexArray(cards)
+  const cardsIndex = indexArray(settings.cards)
   const [id, display] = params.rest || []
 
   if (display && display !== 'display') {
@@ -33,11 +32,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   if (!id) {
     return {
       props: {
-        cards,
-        cardsIndex,
         settings,
         simId: null,
-        sim: getInitialBattleData(cardsIndex),
+        sim: DEFAULT_SIM,
         mode: 'EDITOR',
         puzzle: null,
       },
@@ -46,11 +43,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
-      cards,
-      cardsIndex,
       settings,
-      id,
-      sim: getInitialBattleData(cardsIndex, id),
+      id: decodeURIComponent(id),
+      sim: serialization.battle.deserialize(cardsIndex, decodeURIComponent(id)),
       mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
       puzzle: await getPuzzle({ id, isPreview }),
     },

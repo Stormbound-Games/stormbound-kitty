@@ -5,14 +5,12 @@ import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import { DEFAULT_LIST } from '~/constants/list'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const [id, display] = params.rest || []
 
@@ -23,7 +21,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   if (!id) {
     return {
       props: {
-        cards,
         settings,
         tiers: DEFAULT_LIST,
         id: null,
@@ -36,7 +33,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
-      cards,
       settings,
       tiers,
       id,
@@ -45,7 +41,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const ListBuilderPage = ({ settings, cards, ...props }) => (
+const ListBuilderPage = ({ settings, ...props }) => (
   <Layout active={['TOOLS', 'BUILDERS', 'LIST_BUILDER']} settings={settings}>
     {props.mode === 'DISPLAY' ? (
       <ListBuilderDisplayView {...props} listId={props.id} />

@@ -29,7 +29,7 @@ export default React.memo(function ChartStrengthMana(props) {
 
   const cards = React.useMemo(
     () =>
-      props.cards
+      Object.values(cardsIndex)
         .filter(
           card =>
             !card.token &&
@@ -37,7 +37,7 @@ export default React.memo(function ChartStrengthMana(props) {
             card.type !== 'spell'
         )
         .map(card => getResolvedCardData(cardsIndex, { ...card, level })),
-    [props.cards, cardsIndex, level, factions]
+    [cardsIndex, level, factions]
   )
   const getFactionData = React.useCallback(
     faction => {

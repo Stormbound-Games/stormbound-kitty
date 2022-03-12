@@ -14,7 +14,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-const BrewedSagesPage = ({ settings, cards, ...props }) => (
+const BrewedSagesPage = ({ settings, ...props }) => (
   <Layout
     active={['COMMUNITY', 'DISCOVER', 'BREWED_SAGES']}
     settings={settings}

@@ -9,7 +9,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings } }
 }
 
-const KnownBugsPage = ({ settings, cards, ...props }) => (
+const KnownBugsPage = ({ settings, ...props }) => (
   <Layout active={['GAME', 'INFORMATION', 'KNOWN_BUGS']} settings={settings}>
     <KnownBugs {...props} />
   </Layout>

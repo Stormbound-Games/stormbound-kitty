@@ -11,7 +11,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { news, settings } }
 }
 
-const Index = ({ settings, cards, ...props }) => (
+const Index = ({ settings, ...props }) => (
   <Layout active={['HOME', 'HOME', 'NEWS']} settings={settings}>
     <Home {...props} />
   </Layout>
