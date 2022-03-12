@@ -16,7 +16,13 @@ import Canvas from './Canvas'
 const KITTY_ID = '368097495605182483'
 
 export default class Trivia {
-  constructor({ guildId, cards = [], abbreviations = {}, withScores = true }) {
+  constructor({
+    guildId,
+    cards = [],
+    abbreviations = {},
+    brawls = [],
+    withScores = true,
+  }) {
     this.withScores = withScores
     this.mode =
       this.difficulty =
@@ -30,7 +36,7 @@ export default class Trivia {
     this.cards = cards
     this.abbreviations = abbreviations
     this.guildId = guildId
-    this.questions = getTriviaQuestions(cards)
+    this.questions = getTriviaQuestions(cards, brawls)
     this.canvas = new Canvas()
   }
 
