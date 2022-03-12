@@ -90,6 +90,12 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
     options: { order: 'date desc', isPreview },
   })
 
+  // If there’s nothing in the feed and there is no relevant meta data, it means
+  // there is nothing to display.
+  if (entries.length === 0 && !user.channel && !user.playerId) {
+    return {}
+  }
+
   const hasDonated = entries.some(entry => entry._type === 'donation')
   const hasContributed = entries.some(entry => entry._type === 'contribution')
   const feed = entries.map(entry => cleaners[entry._type](entry))
