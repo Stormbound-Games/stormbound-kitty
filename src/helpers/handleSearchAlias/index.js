@@ -1,5 +1,15 @@
 const handleSearchAlias = term => {
   switch (term.toLowerCase()) {
+    case 'kepp':
+      return ['id', 'S4']
+    case 'ayanami':
+      return ['id', 'W5']
+    case 'emkaem':
+      return ['id', 'I13']
+    case 'frozenearth':
+      return ['id', 'W15']
+    case 'kitty':
+      return ['id', 'N86']
     case 'struct':
       return ['type', 'structure']
     case 'ic':
@@ -25,9 +35,11 @@ const handleSearchAlias = term => {
     case 'diamond':
       return ['tags', [{ name: 'High Levels', slug: 'HIGH_LEVELS' }]]
     case 'equal':
+    case 'joust':
     case 'tournament':
     case 'tourney':
       return ['tags', [{ name: 'Equals', slug: 'EQUALS' }]]
+    case 'brawl':
     case 'casual':
     case 'warrior':
     case 'ultimate':

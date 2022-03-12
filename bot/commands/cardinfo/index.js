@@ -1,5 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 import searchCards from '~/helpers/searchCards'
+import handleSearchAlias from '~/helpers/handleSearchAlias'
 import getAbbreviations from '~/api/misc/getAbbreviations'
 import getCards from '~/api/cards/getCards'
 
@@ -15,6 +16,12 @@ const cardinfo = {
       )
   },
   handler: async function (message) {
+    const alias = handleSearchAlias(message)
+
+    if (alias[0] === 'id') {
+      return `https://stormbound-kitty.com/card/${alias[1]}/display`
+    }
+
     const cards = await getCards()
     const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
 
