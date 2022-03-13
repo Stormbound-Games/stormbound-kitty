@@ -19,25 +19,28 @@ const useLocalStorage = (key, initialValue) => {
   // value, thus failing reconciliation.
   const [storedValue, setStoredValue] = React.useState(initialValue)
 
-  const setValue = value => {
-    if (typeof window == 'undefined') {
-      console.warn(
-        `Tried setting localStorage key “${key}” outside of the browser.`
-      )
-    }
+  const setValue = React.useCallback(
+    value => {
+      if (typeof window == 'undefined') {
+        console.warn(
+          `Tried setting localStorage key “${key}” outside of the browser.`
+        )
+      }
 
-    try {
-      const newValue = value instanceof Function ? value(storedValue) : value
+      try {
+        const newValue = value instanceof Function ? value(storedValue) : value
 
-      window.localStorage.setItem(key, JSON.stringify(newValue))
+        window.localStorage.setItem(key, JSON.stringify(newValue))
 
-      setStoredValue(newValue)
+        setStoredValue(newValue)
 
-      window.dispatchEvent(new Event('local-storage'))
-    } catch (error) {
-      console.warn(`Error setting localStorage key “${key}”:`, error)
-    }
-  }
+        window.dispatchEvent(new Event('local-storage'))
+      } catch (error) {
+        console.warn(`Error setting localStorage key “${key}”:`, error)
+      }
+    },
+    [storedValue, key]
+  )
 
   const handleStorageChange = React.useCallback(
     () => setStoredValue(readValue()),
