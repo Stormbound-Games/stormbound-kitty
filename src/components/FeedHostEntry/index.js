@@ -10,7 +10,7 @@ export default React.memo(function FeedHostEntry(props) {
         <>
           , alongside{' '}
           <MemberList
-            members={props.hosts.filter(winner => winner !== props.user.name)}
+            members={props.hosts.filter(host => host.slug !== props.user.slug)}
           />
           ,
         </>
