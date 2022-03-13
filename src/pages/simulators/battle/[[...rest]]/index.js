@@ -5,7 +5,6 @@ import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getPuzzle from '~/api/puzzles/getPuzzle'
-import useBattleSim from '~/hooks/useBattleSim'
 import indexArray from '~/helpers/indexArray'
 import { DEFAULT_SIM } from '~/constants/battle'
 
@@ -52,14 +51,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const BattleSim = ({ settings, cards, ...props }) => {
-  const state = useBattleSim(props)
-
-  return (
-    <Layout active={['TOOLS', 'SIMULATORS', 'BATTLE_SIM']} settings={settings}>
-      <BattleSimPage {...state} {...props} />
-    </Layout>
-  )
-}
+const BattleSim = ({ settings, ...props }) => (
+  <Layout active={['TOOLS', 'SIMULATORS', 'BATTLE_SIM']} settings={settings}>
+    <BattleSimPage {...props} />
+  </Layout>
+)
 
 export default BattleSim
