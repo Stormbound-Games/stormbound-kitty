@@ -3,7 +3,6 @@ import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import NotificationProvider from '~/components/NotificationProvider'
-import ImageSupportProvider from '~/components/ImageSupportProvider'
 import createFelaRenderer from '~/helpers/createFelaRenderer'
 
 const fallbackRenderer = createFelaRenderer()
@@ -45,11 +44,9 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
 
       <RendererProvider renderer={renderer}>
         <ErrorBoundary>
-          <ImageSupportProvider>
-            <NotificationProvider>
-              <Component {...pageProps} />
-            </NotificationProvider>
-          </ImageSupportProvider>
+          <NotificationProvider>
+            <Component {...pageProps} />
+          </NotificationProvider>
         </ErrorBoundary>
       </RendererProvider>
 

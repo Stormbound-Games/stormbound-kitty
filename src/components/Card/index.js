@@ -1,14 +1,14 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Image from '~/components/Image'
-import { ImageSupportContext } from '~/components/ImageSupportProvider'
 import microMarkdown from '~/helpers/microMarkdown'
 import clamp from '~/helpers/clamp'
 import useFluidSizing from '~/hooks/useFluidSizing'
+import useImageSupport from '~/hooks/useImageSupport'
 import styles, { getOutlineColor } from './styles'
 
 const useCardBackground = ({ missing, rarity, type, faction }) => {
-  const { supportsWebp } = React.useContext(ImageSupportContext)
+  const { supportsWebp } = useImageSupport()
   const ext = supportsWebp ? 'webp' : 'png'
   const base = '/assets/images/card'
   const asUrl = fileName => `url("${base}/${fileName}.${ext}")`
