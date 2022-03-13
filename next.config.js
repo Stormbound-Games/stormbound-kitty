@@ -1,4 +1,5 @@
 module.exports = {
+  compiler: { reactRemoveProperties: process.env.VERCEL_ENV === 'production' },
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
