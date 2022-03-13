@@ -19,8 +19,9 @@ const member = {
   handler: async function (message) {
     if (message.trim() === '') return
 
-    const slug = message.toLowerCase()
-    const { user, feed } = await getContentFromUser({ author: slug })
+    const { user, feed } = await getContentFromUser({
+      slug: message.toLowerCase(),
+    })
     const embed = getEmbed()
       .setTitle(`${this.label}: ${user.name}`)
       .setURL(BASE_URL + `/members/${user.slug}`)

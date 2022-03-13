@@ -59,8 +59,8 @@ const cleaners = {
   tournament: TOURNAMENT_MAPPER,
 }
 
-const getContentFromUser = async ({ author, isPreview } = {}) => {
-  const user = await getUser({ slug: author, isPreview })
+const getContentFromUser = async ({ slug, isPreview } = {}) => {
+  const user = await getUser({ slug, isPreview })
 
   if (!user) return {}
 
@@ -86,7 +86,7 @@ const getContentFromUser = async ({ author, isPreview } = {}) => {
         count(podium[].team[@->slug.current match $author]) > 0 => { "_type": "podium" }
       },
     `,
-    params: { author, id: user._id.replace('drafts.', '') },
+    params: { author: slug, id: user._id.replace('drafts.', '') },
     options: { order: 'date desc', isPreview },
   })
 
