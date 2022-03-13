@@ -38,7 +38,7 @@ export const question = {
 }
 
 const faqSection = {
-  title: 'FAQ Section',
+  title: 'FAQ',
   name: 'faqSection',
   type: 'document',
   icon: MdQuestionAnswer,
