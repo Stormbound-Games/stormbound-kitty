@@ -4,7 +4,6 @@ import Layout from '~/components/Layout'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import useUser from '~/hooks/useUser'
 import getContentFromUser from '~/api/users/getContentFromUser'
-import getCards from '~/api/cards/getCards'
 import getUsers from '~/api/users/getUsers'
 
 export async function getStaticPaths() {
@@ -16,7 +15,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const data = await getContentFromUser({
     author: params.id.toLowerCase(),
@@ -30,12 +28,12 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   return {
-    props: { cards, settings, ...data },
+    props: { settings, ...data },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
 
-const MemberPage = ({ settings, cards, ...props }) => {
+const MemberPage = ({ settings, ...props }) => {
   const [user] = useUser()
   const active =
     user && user.slug === props.user.slug

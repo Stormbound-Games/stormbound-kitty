@@ -38,7 +38,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings, contributors, donators } }
 }
 
-const AboutPage = ({ settings, cards, ...props }) => (
+const AboutPage = ({ settings, ...props }) => (
   <Layout active={['HOME', 'HOME', 'ABOUT']} settings={settings}>
     <About {...props} />
   </Layout>

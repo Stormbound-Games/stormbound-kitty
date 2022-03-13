@@ -5,7 +5,6 @@ import ReleaseNotes from '~/components/ReleaseNotes'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getRelease from '~/api/releases/getRelease'
 import getReleases from '~/api/releases/getReleases'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticPaths() {
   const releases = await getReleases()
@@ -17,14 +16,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const release = await getRelease({ slug: params.slug, isPreview })
 
-  return { props: { cards, settings, ...release } }
+  return { props: { settings, ...release } }
 }
 
-const ReleasePage = ({ settings, cards, ...props }) => (
+const ReleasePage = ({ settings, ...props }) => (
   <Layout active={['GAME', 'UPDATES', props.id]} settings={settings}>
     <ReleaseNotes {...props}>
       <BlocksRenderer value={props.content} />

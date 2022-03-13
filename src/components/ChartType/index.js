@@ -7,12 +7,14 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
+import { CardsContext } from '~/components/CardsProvider'
 import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartType(props) {
+  const { cards } = React.useContext(CardsContext)
   const types = ['unit', 'spell', 'structure']
-  const data = props.cards
+  const data = cards
     .filter(card => !card.token)
     .reduce(
       (acc, card) => {

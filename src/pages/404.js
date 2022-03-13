@@ -9,7 +9,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings } }
 }
 
-export default function Custom404({ settings, cards, ...props }) {
+export default function Custom404({ settings, ...props }) {
   return (
     <Layout active={[]} settings={settings}>
       <Error {...props} error='404 — Page Not Found' />

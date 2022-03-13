@@ -12,13 +12,13 @@ import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function FanKitCards(props) {
   const isMounted = useIsMounted()
-  const { cardsIndex } = React.useContext(CardsContext)
+  const { cards, cardsIndex } = React.useContext(CardsContext)
   const [search, setSearch] = React.useState(null)
   const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = cardsIndex[active] || {}
-  const assets = search ? [cardsIndex[search]].filter(Boolean) : props.cards
+  const assets = search ? [cardsIndex[search]].filter(Boolean) : cards
   const {
     loading,
     items: displayedItems,

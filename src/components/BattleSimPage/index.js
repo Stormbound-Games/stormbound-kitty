@@ -1,8 +1,9 @@
 import React from 'react'
 import Page from '~/components/Page'
 import BattleSimApp from '~/components/BattleSimApp'
+import useBattleSim from '~/hooks/useBattleSim'
 
-const useArticleProps = ({ simId, mode, puzzle }) =>
+const usePageProps = ({ id, mode, puzzle }) =>
   puzzle
     ? {
         title: puzzle.name,
@@ -15,12 +16,12 @@ const useArticleProps = ({ simId, mode, puzzle }) =>
       }
     : {
         title: 'Battle simulator',
-        action: simId
+        action: id
           ? {
               to:
                 mode === 'EDITOR'
-                  ? `/simulators/battle/${simId}/display`
-                  : `/simulators/battle/${simId}`,
+                  ? `/simulators/battle/${id}/display`
+                  : `/simulators/battle/${id}`,
               children: mode === 'EDITOR' ? 'Display view' : 'Edit sim',
               icon: mode === 'EDITOR' ? 'eye' : undefined,
             }
@@ -28,14 +29,15 @@ const useArticleProps = ({ simId, mode, puzzle }) =>
       }
 
 export default React.memo(function BattleSimPage(props) {
-  const articleProps = useArticleProps(props)
+  const pageProps = usePageProps(props)
+  const state = useBattleSim(props)
 
   return (
     <Page
-      {...articleProps}
+      {...pageProps}
       description='Create your own Stormbound battles, reproducing static in-game situations in this simulator'
     >
-      <BattleSimApp {...props} />
+      <BattleSimApp {...state} {...props} />
     </Page>
   )
 })

@@ -28,14 +28,14 @@ export default React.memo(function ChartStrength(props) {
 
   const cards = React.useMemo(
     () =>
-      props.cards
+      Object.values(cardsIndex)
         .filter(
           card =>
             !card.token &&
             (factions[0] === '*' || factions.includes(card.faction))
         )
         .map(card => getResolvedCardData(cardsIndex, { ...card, level })),
-    [props.cards, cardsIndex, level, factions]
+    [cardsIndex, level, factions]
   )
 
   const data = Object.values(

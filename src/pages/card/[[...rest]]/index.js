@@ -30,9 +30,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
-  const cardsIndex = indexArray(cards)
+  const cardsIndex = indexArray(settings.cards)
   const [id, display, versionId = null] = params.rest || []
   const isOfficialCard = id in cardsIndex
   const versions = isOfficialCard
@@ -54,7 +53,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return {
       props: {
         settings,
-        cards,
         cardId: null,
         card: {},
         contest: null,
@@ -68,9 +66,8 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return {
     props: {
       settings,
-      cards,
       cardId: id,
-      card: getInitialCardData(cards, id),
+      card: getInitialCardData(settings.cards, id),
       contest:
         id in cardsIndex ? null : await getSWCCFromCard({ id, isPreview }),
       versionId,
@@ -80,7 +77,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const CardBuilderPage = ({ settings, cards, ...props }) => (
+const CardBuilderPage = ({ settings, ...props }) => (
   <Layout active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']} settings={settings}>
     {props.mode === 'DISPLAY' ? (
       <CardBuilderApp {...props} />

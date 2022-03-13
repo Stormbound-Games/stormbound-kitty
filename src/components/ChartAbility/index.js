@@ -7,11 +7,13 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
+import { CardsContext } from '~/components/CardsProvider'
 import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import { CHIP_CARDS } from '~/constants/game'
 
 export default React.memo(function ChartAbility(props) {
+  const { cards } = React.useContext(CardsContext)
   const abilities = {
     drain: { name: 'Drain', color: 'var(--light-shadowfen)' },
     command: { name: 'Commanding', color: 'var(--swarm)' },
@@ -27,7 +29,7 @@ export default React.memo(function ChartAbility(props) {
   }
   const regex = new RegExp('(' + Object.keys(abilities).join('|') + ')', 'i')
   const data = Object.values(
-    props.cards.reduce((acc, card) => {
+    cards.reduce((acc, card) => {
       if (!card.ability) return acc
 
       const isChip = CHIP_CARDS.includes(card.id)

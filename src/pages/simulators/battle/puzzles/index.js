@@ -11,7 +11,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings, puzzles } }
 }
 
-const BattleSimPuzzlesPage = ({ settings, cards, ...props }) => (
+const BattleSimPuzzlesPage = ({ settings, ...props }) => (
   <Layout active={['COMMUNITY', 'CONTESTS', 'PUZZLES']} settings={settings}>
     <BattleSimPuzzles {...props} />
   </Layout>

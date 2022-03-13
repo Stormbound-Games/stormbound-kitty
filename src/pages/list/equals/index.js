@@ -3,24 +3,13 @@ import EqualsList from '~/components/EqualsList'
 import Layout from '~/components/Layout'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getEqualTierList from '~/api/misc/getEqualTierList'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
-  const cards = await getCards({ isPreview })
   const settings = await getSiteSettings({ isPreview })
   const equalTierList = await getEqualTierList({ isPreview })
 
   return {
     props: {
-      cards: cards.map(card => ({
-        id: card.id,
-        image: card.image,
-        name: card.name,
-        faction: card.faction,
-        rarity: card.rarity,
-        type: card.type,
-        race: card.race,
-      })),
       settings,
       date: equalTierList.date,
       list: equalTierList.tiers,
@@ -28,7 +17,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-const EqualsListPage = ({ settings, cards, ...props }) => (
+const EqualsListPage = ({ settings, ...props }) => (
   <Layout active={['COMMUNITY', 'META', 'EQUALS_LIST']} settings={settings}>
     <EqualsList {...props} />
   </Layout>

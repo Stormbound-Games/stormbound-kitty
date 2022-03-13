@@ -14,7 +14,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-const YouTubeChannelsPage = ({ settings, cards, ...props }) => (
+const YouTubeChannelsPage = ({ settings, ...props }) => (
   <Layout
     active={['COMMUNITY', 'DISCOVER', 'YOUTUBE_CHANNELS']}
     settings={settings}

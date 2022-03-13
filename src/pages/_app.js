@@ -1,11 +1,8 @@
 import Head from 'next/head'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
-import CardsProvider from '~/components/CardsProvider'
-import CollectionProvider from '~/components/CollectionProvider'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import NotificationProvider from '~/components/NotificationProvider'
-import PersonalDecksProvider from '~/components/PersonalDecksProvider'
 import ImageSupportProvider from '~/components/ImageSupportProvider'
 import createFelaRenderer from '~/helpers/createFelaRenderer'
 
@@ -45,21 +42,17 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <meta name='twitter:site' content='@stormboundccg' />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
+
       <RendererProvider renderer={renderer}>
         <ErrorBoundary>
           <ImageSupportProvider>
             <NotificationProvider>
-              <CardsProvider cards={pageProps.cards}>
-                <CollectionProvider>
-                  <PersonalDecksProvider>
-                    <Component {...pageProps} />
-                  </PersonalDecksProvider>
-                </CollectionProvider>
-              </CardsProvider>
+              <Component {...pageProps} />
             </NotificationProvider>
           </ImageSupportProvider>
         </ErrorBoundary>
       </RendererProvider>
+
       <Script lazyOnload src='/focus-visible.min.js' />
       <Script
         strategy='lazyOnload'
