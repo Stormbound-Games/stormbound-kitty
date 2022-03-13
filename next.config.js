@@ -1,5 +1,4 @@
 module.exports = {
-  compiler: { reactRemoveProperties: true },
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
