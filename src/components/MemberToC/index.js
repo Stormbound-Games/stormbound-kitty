@@ -21,6 +21,7 @@ export default React.memo(function MemberToC(props) {
   const podcasts = content.podcast || []
   const events = content.event || []
   const donations = content.donation || []
+  const releases = content.release || []
   const contributions = (content.contributions || []).reduce(
     (acc, { entries }) => acc.concat(entries),
     []
@@ -78,6 +79,12 @@ export default React.memo(function MemberToC(props) {
         <Icon extend={styles.icon} icon='heart' /> {donations.length}{' '}
         {donations.length === 1 ? 'donation' : 'donations'}
       </li>
+      {releases.length > 0 && (
+        <li className={css(styles.item)}>
+          <Icon extend={styles.icon} icon='bullhorn' /> {releases.length}{' '}
+          {releases.length === 1 ? 'release' : 'releases'}
+        </li>
+      )}
     </ul>
   )
 })
