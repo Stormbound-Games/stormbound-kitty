@@ -17,7 +17,6 @@ const SubNav = React.memo(function SubNav(props) {
   const [item, sub] = props.active
 
   if (item === 'CARDS') return <NavCardBuilder />
-  if (item === 'CARD_BUILDER') return <NavCardBuilder />
   if (item === 'DECK_BUILDER') return <NavDeckBuilder active={sub} />
   return null
 })
