@@ -167,6 +167,8 @@ const useBattleSim = props => {
   }, [sim.board, isDragging, dndTarget, dndSource])
 
   React.useEffect(() => {
+    if (props.mode !== 'EDITOR') return
+
     const id = serialization.battle.serialize(
       sim.board,
       sim.players,
