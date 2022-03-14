@@ -79,20 +79,25 @@ export default React.memo(function SearchDialog(props) {
   const [search, setSearch] = React.useState('')
   const debouncedSearch = useDebounce(search, 500)
   const [results, setResults] = React.useState([])
-  const [isNavigating, setIsNavigating] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
 
   useSearchKeyboardShortcut(() => props.dialogRef.current?.show())
 
   // Update search results when the search term changes.
   React.useEffect(
-    () => debouncedSearch && runSearch(debouncedSearch).then(setResults),
+    () =>
+      debouncedSearch &&
+      runSearch(debouncedSearch).then(results => {
+        setResults(results)
+        setIsLoading(false)
+      }),
     [debouncedSearch]
   )
 
   // Hide the dialog when the URL changes (after navigating to a result).
   React.useEffect(() => {
     props.dialogRef.current?.hide()
-    setIsNavigating(false)
+    setIsLoading(false)
     // eslint-disable-next-line
   }, [router.asPath])
 
@@ -100,7 +105,7 @@ export default React.memo(function SearchDialog(props) {
   const handleNavigation = React.useCallback(
     ({ selectedItem }) => {
       if (selectedItem) {
-        setIsNavigating(true)
+        setIsLoading(true)
         navigator.push(selectedItem.path)
       }
     },
@@ -118,7 +123,10 @@ export default React.memo(function SearchDialog(props) {
     reset,
   } = useCombobox({
     items: results,
-    onInputValueChange: ({ inputValue }) => setSearch(inputValue),
+    onInputValueChange: ({ inputValue }) => {
+      setIsLoading(inputValue.length > 0)
+      setSearch(inputValue)
+    },
     onSelectedItemChange: handleNavigation,
     itemToString: item => (item ? item.label : ''),
   })
@@ -150,7 +158,6 @@ export default React.memo(function SearchDialog(props) {
       id: 'search',
       ref: input,
       'data-testid': 'search-input',
-      readOnly: isNavigating,
     },
     { suppressRefError: true }
   )
@@ -168,7 +175,7 @@ export default React.memo(function SearchDialog(props) {
       <div className={css(styles.body)}>
         <div {...comboboxProps}>
           <Input {...inputProps} />
-          {isNavigating && (
+          {isLoading && (
             <Loader
               hideLabel
               extend={styles.inputLoaderContainer}
