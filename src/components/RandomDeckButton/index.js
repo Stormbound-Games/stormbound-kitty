@@ -5,7 +5,6 @@ import { CollectionContext } from '~/components/CollectionProvider'
 import CTA from '~/components/CTA'
 import Dialog from '~/components/Dialog'
 import FactionSelect from '~/components/FactionSelect'
-import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
@@ -62,14 +61,7 @@ export default React.memo(function RandomDeckButton(props) {
       </CTA>
       <Dialog
         id='random-deck-dialog'
-        title={
-          <>
-            Generate random deck{' '}
-            <LearnMoreIcon anchor='#random-deck'>
-              Learn more about random decks
-            </LearnMoreIcon>
-          </>
-        }
+        title='Generate random deck'
         dialogRef={instance => (dialog.current = instance)}
         image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
         close={() => dialog.current.hide()}
