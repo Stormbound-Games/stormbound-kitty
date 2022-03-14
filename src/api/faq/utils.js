@@ -4,7 +4,7 @@ export const FIELDS = `
 _id,
 "id": id.current,
 title,
-priority,
+order,
 entries[] {
   "id": id.current,
   question,
