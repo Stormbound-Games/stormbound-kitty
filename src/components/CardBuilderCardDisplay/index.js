@@ -68,6 +68,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
         <Spacing vertical='LARGER'>
           <Card
             {...props}
+            key={activeLevel}
             containerWidth={400}
             mana={props.mana.values[activeLevel - 1]}
             strength={props.strength.values[activeLevel - 1]}
