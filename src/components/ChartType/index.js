@@ -22,9 +22,9 @@ export default React.memo(function ChartType(props) {
         return acc
       },
       [
-        { name: 'Units', value: 0, color: 'var(--green)' },
-        { name: 'Spells', value: 0, color: 'var(--light-blue)' },
-        { name: 'Structures', value: 0, color: 'var(--dark-blue)' },
+        { name: 'Units', value: 0, color: '#e74c3c' },
+        { name: 'Spells', value: 0, color: '#9b59b6' },
+        { name: 'Structures', value: 0, color: '#1abc9c' },
       ]
     )
 
