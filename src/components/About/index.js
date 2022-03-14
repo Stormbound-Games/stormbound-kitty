@@ -33,14 +33,18 @@ export default React.memo(function About(props) {
           (that’s you), I kept working on the site, adding more tools, solving
           more problems and all in all enhancing players’ experience outside of
           the game itself. I certainly did not expect the site to become what it
-          had become over the last year or so. And if it is what it is today, it
-          is essentially thanks to you, kind member of the Stormbound community.
+          had become over the last years or so. And if it is what it is today,
+          it is essentially thanks to you, kind member of the Stormbound
+          community.
         </p>
 
         <p>
-          In June 2020, I also created a Discord bot for the official Stormbound
-          Discord server, which is kind of an extension of the site for Discord,
-          giving access to most of the tools directly from Discord, as well as a{' '}
+          In June 2020, I also created a Discord bot for the official{' '}
+          <Link href='https://discord.gg/stormbound'>
+            Stormbound Discord server
+          </Link>
+          , which is kind of an extension of the site for Discord, giving access
+          to most of the tools directly from Discord, as well as a{' '}
           <Link to='/trivia'>Stormbound trivia game</Link>.
         </p>
 
@@ -59,7 +63,7 @@ export default React.memo(function About(props) {
             love this project to bits, and I invest in it because I feel like it
             and want to. That being said, having financial support can allow me
             devote more time without feeling guilty and helps cover minor costs
-            such as hosting, tracking-less analytics and domain names.
+            such as hosting, privacy-oriented analytics and domain names.
           </p>
 
           <p>
