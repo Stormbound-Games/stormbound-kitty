@@ -65,6 +65,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   return {
     props: {
+      isOfficialCard,
       settings,
       cardId: id,
       card: getInitialCardData(settings.cards, id),
@@ -77,14 +78,23 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const CardBuilderPage = ({ settings, ...props }) => (
-  <Layout active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']} settings={settings}>
-    {props.mode === 'DISPLAY' ? (
-      <CardBuilderApp {...props} />
-    ) : (
-      <CardBuilderEditor {...props} />
-    )}
-  </Layout>
-)
+const CardBuilderPage = ({ settings, isOfficialCard, ...props }) => {
+  return (
+    <Layout
+      active={
+        isOfficialCard
+          ? ['GAME', 'INFORMATION', 'CARDS']
+          : ['TOOLS', 'BUILDERS', 'CARD_BUILDER']
+      }
+      settings={settings}
+    >
+      {props.mode === 'DISPLAY' ? (
+        <CardBuilderApp {...props} />
+      ) : (
+        <CardBuilderEditor {...props} />
+      )}
+    </Layout>
+  )
+}
 
 export default CardBuilderPage
