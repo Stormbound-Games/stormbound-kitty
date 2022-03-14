@@ -51,11 +51,13 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       </RendererProvider>
 
       <Script lazyOnload src='/focus-visible.min.js' />
-      <Script
-        strategy='lazyOnload'
-        data-domain='stormbound-kitty.com'
-        src='https://plausible.io/js/plausible.js'
-      />
+      {process.env.VERCEL_ENV === 'production' && (
+        <Script
+          strategy='lazyOnload'
+          data-domain='stormbound-kitty.com'
+          src='https://plausible.io/js/plausible.js'
+        />
+      )}
     </>
   )
 }
