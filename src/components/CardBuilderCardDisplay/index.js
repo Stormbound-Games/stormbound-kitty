@@ -65,7 +65,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
         </Spacing>
       </Only.Desktop>
       <Only.Mobile>
-        <Spacing top='BASE'>
+        <Spacing vertical='LARGER'>
           <Card
             {...props}
             containerWidth={400}
@@ -75,9 +75,8 @@ export default React.memo(function CardBuilderCardDisplay(props) {
             image={cardsIndex[props.imageCardId]?.image ?? props.imageURL}
             level={activeLevel}
           />
-
           {!props.hasSingleLevel && (
-            <Spacing top='LARGER'>
+            <Spacing top='LARGE'>
               <Row withNarrowGutter>
                 <Row.Column>
                   {activeLevel > 1 && (
