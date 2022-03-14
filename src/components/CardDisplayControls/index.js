@@ -34,35 +34,36 @@ export default React.memo(function CardDisplayControls(props) {
     cardInCollection && orderedCollection[indexInCollection - 1]
 
   return (
-    <Only.Desktop>
-      <div className={css(styles.container)}>
-        <div>
-          <CTA
-            disabled={!previousCard}
-            to={previousCard ? `/card/${previousCard.id}/display` : undefined}
-            scroll={false}
-            data-testid='prev-btn'
-          >
-            Previous card
-          </CTA>
-        </div>
-        {cardInCollection && (
-          <Only.CustomCollection>
-            <CardProgress card={cardInCollection} />
-          </Only.CustomCollection>
-        )}
-
-        <div>
-          <CTA
-            disabled={!nextCard}
-            to={nextCard ? `/card/${nextCard.id}/display` : undefined}
-            scroll={false}
-            data-testid='next-btn'
-          >
-            Next card
-          </CTA>
-        </div>
+    <div className={css(styles.container)}>
+      <div>
+        <CTA
+          disabled={!previousCard}
+          to={previousCard ? `/card/${previousCard.id}/display` : undefined}
+          scroll={false}
+          data-testid='prev-btn'
+        >
+          Previous card
+        </CTA>
       </div>
-    </Only.Desktop>
+
+      {cardInCollection && (
+        <Only.CustomCollection>
+          <div className={css(styles.collection)}>
+            <CardProgress card={cardInCollection} />
+          </div>
+        </Only.CustomCollection>
+      )}
+
+      <div>
+        <CTA
+          disabled={!nextCard}
+          to={nextCard ? `/card/${nextCard.id}/display` : undefined}
+          scroll={false}
+          data-testid='next-btn'
+        >
+          Next card
+        </CTA>
+      </div>
+    </div>
   )
 })
