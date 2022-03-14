@@ -90,18 +90,20 @@ const COMPONENTS = {
   EDITOR: DeckEditorView,
 }
 
-const DeckBuilderPage = ({ settings, ...props }) => {
-  const Component = COMPONENTS[props.view]
+const Component = props => {
   const state = useDeckBuilder(props)
+  const View = COMPONENTS[props.view]
 
-  return (
-    <Layout
-      active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
-      settings={settings}
-    >
-      <Component {...state} brawls={props.brawls} />
-    </Layout>
-  )
+  return <View {...state} brawls={props.brawls} />
 }
+
+const DeckBuilderPage = ({ settings, ...props }) => (
+  <Layout
+    active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
+    settings={settings}
+  >
+    <Component {...props} />
+  </Layout>
+)
 
 export default DeckBuilderPage
