@@ -41,7 +41,7 @@ const INITIAL_STATE = {
   ability: formatLevelProp(null),
 }
 
-const useCardBuilderEditor = props => {
+const useCardBuilder = props => {
   const navigator = useNavigator()
   const imageErrorDialog = React.useRef(null)
   const [cardData, setCardData] = React.useState({
@@ -174,7 +174,7 @@ const useCardBuilderEditor = props => {
     imageErrorDialogRef: dialog => (imageErrorDialog.current = dialog),
   }
 
-  return { card: cardData, setters }
+  return { card: cardData, setters: props.mode === 'EDITOR' ? setters : {} }
 }
 
-export default useCardBuilderEditor
+export default useCardBuilder

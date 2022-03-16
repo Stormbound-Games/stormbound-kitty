@@ -17,7 +17,7 @@ const sortCollection = cardsIndex => (a, b) =>
 
 export default React.memo(function CardDisplayControls(props) {
   const { css } = useFela()
-  const { cardId } = props
+  const { id } = props
   const { cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
@@ -25,9 +25,7 @@ export default React.memo(function CardDisplayControls(props) {
     [cardsIndex, collection]
   )
 
-  const indexInCollection = orderedCollection.findIndex(
-    card => card.id === cardId
-  )
+  const indexInCollection = orderedCollection.findIndex(card => card.id === id)
   const cardInCollection = orderedCollection[indexInCollection]
   const nextCard = cardInCollection && orderedCollection[indexInCollection + 1]
   const previousCard =

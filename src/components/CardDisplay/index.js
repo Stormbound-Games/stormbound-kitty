@@ -10,7 +10,7 @@ import Spacing from '~/components/Spacing'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
 import styles from './styles'
 
-export default React.memo(function CardBuilderCardDisplay(props) {
+export default React.memo(function CardDisplay(props) {
   const { css } = useFela()
   const { cardsIndex } = React.useContext(CardsContext)
   const cardId = props.id
