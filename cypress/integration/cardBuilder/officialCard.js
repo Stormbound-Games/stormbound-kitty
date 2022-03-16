@@ -1,13 +1,10 @@
 import s from './selectors'
 
 describe('Card Builder — Official card', () => {
-  before(() => cy.visit('/card'))
+  before(() => cy.visit('/card/N1'))
 
   it('should be possible to load an official card', () => {
     cy.get(s.CARD_SELECT)
-      .find('.CardSelect__single-value')
-      .should('have.text', 'Pick a card')
-      .get(s.CARD_SELECT)
       .find('input')
       .first()
       .type('Sweet', { force: true })
@@ -61,11 +58,7 @@ describe('Card Builder — Official card', () => {
       .should('match', /\/card$/)
 
       .get(s.CARD_SELECT)
-      .find('.CardSelect__single-value')
-      .should('have.text', 'Pick a card')
-
-      .get(s.CARD_NAME)
-      .should('be.empty')
+      .should('not.exist')
   })
 
   it('should hide the editing interface', () => {
@@ -82,23 +75,12 @@ describe('Card Builder — Official card', () => {
       )
   })
 
-  it('should display progress with a loaded collection', () => {
-    cy.visit('/collection')
-      .get('[data-testid="import-btn"]')
-      .importFile('collection.import.csv')
+  it('should display controls', () => {
+    cy.get(s.PREV_BTN)
+      .click()
 
-      .visit('/card/N1/display')
-
-      .get('[role="progressbar"]')
-      .should('exist')
-  })
-
-  it('should controls with a loaded collection', () => {
-    cy.visit('/collection')
-      .get('[data-testid="import-btn"]')
-      .importFile('collection.import.csv')
-
-      .visit('/card/N89/display')
+      .url()
+      .should('match', /\/card\/N89\/display/)
 
       .get(s.PREV_BTN)
       .should('be.disabled')
@@ -108,12 +90,17 @@ describe('Card Builder — Official card', () => {
 
       .url()
       .should('match', /\/card\/N1\/display/)
+  })
 
-      .get(s.PREV_BTN)
-      .click()
+  it('should display progress with a loaded collection', () => {
+    cy.visit('/collection')
+      .get('[data-testid="import-btn"]')
+      .importFile('collection.import.csv')
 
-      .url()
-      .should('match', /\/card\/N1\/display/)
+      .visit('/card/N1/display')
+
+      .get('[role="progressbar"]')
+      .should('exist')
   })
 
   it('should display upgradable levels with a loaded collection', () => {

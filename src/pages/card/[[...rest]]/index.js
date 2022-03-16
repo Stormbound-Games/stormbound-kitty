@@ -1,6 +1,6 @@
 import React from 'react'
-import CardBuilderEditor from '~/components/CardBuilderEditor'
-import CardBuilderApp from '~/components/CardBuilderApp'
+import OfficialCardPage from '~/components/OfficialCardPage'
+import CardBuilder from '~/components/CardBuilder'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -31,68 +31,55 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
-  const cardsIndex = indexArray(settings.cards)
-  const [id, display, versionId = null] = params.rest || []
-  const isOfficialCard = id in cardsIndex
-  const versions = isOfficialCard
-    ? await getChangesFromCard({ id, isPreview })
-    : []
+  const [cardId, display, versionId = null] = params.rest || []
+  const isOfficial = cardId in indexArray(settings.cards)
 
   if (
     // Invalid view keyword
     (display && display !== 'display') ||
     // Version ID with a non-official card
-    (versionId && !isOfficialCard) ||
-    // Invalid version ID
-    (versionId && !versions.some(v => String(v.timestamp) === versionId))
+    (versionId && !isOfficial)
   ) {
     return { notFound: true }
   }
 
-  if (!id) {
+  if (!cardId) {
+    return { props: { settings, mode: 'EDITOR' } }
+  }
+
+  const card = getInitialCardData(settings.cards, cardId)
+
+  if (isOfficial) {
+    const versions = await getChangesFromCard({ id: cardId, isPreview })
+
+    if (
+      // Invalid version ID
+      versionId &&
+      !versions.some(v => String(v.timestamp) === versionId)
+    ) {
+      return { notFound: true }
+    }
+
     return {
-      props: {
-        settings,
-        cardId: null,
-        card: {},
-        contest: null,
-        mode: 'EDITOR',
-        versionId: null,
-        versions: [],
-      },
+      props: { settings, isOfficial, cardId, card, versionId, versions },
     }
   }
 
-  return {
-    props: {
-      isOfficialCard,
-      settings,
-      cardId: id,
-      card: getInitialCardData(settings.cards, id),
-      contest:
-        id in cardsIndex ? null : await getSWCCFromCard({ id, isPreview }),
-      versionId,
-      versions,
-      mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
-    },
-  }
+  const contest = await getSWCCFromCard({ id: cardId, isPreview })
+  const mode = display === 'display' ? 'DISPLAY' : 'EDITOR'
+
+  return { props: { settings, cardId, card, contest, mode } }
 }
 
-const CardBuilderPage = ({ settings, isOfficialCard, ...props }) => {
+const CardBuilderPage = ({ settings, isOfficial, ...props }) => {
+  const Component = isOfficial ? OfficialCardPage : CardBuilder
+  const active = isOfficial
+    ? ['GAME', 'INFORMATION', 'CARDS']
+    : ['TOOLS', 'BUILDERS', 'CARD_BUILDER']
+
   return (
-    <Layout
-      active={
-        isOfficialCard
-          ? ['GAME', 'INFORMATION', 'CARDS']
-          : ['TOOLS', 'BUILDERS', 'CARD_BUILDER']
-      }
-      settings={settings}
-    >
-      {props.mode === 'DISPLAY' ? (
-        <CardBuilderApp {...props} />
-      ) : (
-        <CardBuilderEditor {...props} />
-      )}
+    <Layout active={active} settings={settings}>
+      <Component {...props} />
     </Layout>
   )
 }

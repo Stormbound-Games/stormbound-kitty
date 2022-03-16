@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import { RichTextContext } from '~/components/BlocksRenderer'
 import { CardsContext } from '~/components/CardsProvider'
 import Card from '~/components/Card'
-import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import CardDisplay from '~/components/CardDisplay'
 import PageEmbed from '~/components/PageEmbed'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialCardData from '~/helpers/getInitialCardData'
@@ -34,7 +34,7 @@ export default React.memo(function BlockCard(props) {
     </div>
   ) : (
     <PageEmbed>
-      <CardBuilderCardDisplay {...getInitialCardData(cards, id)} />
+      <CardDisplay {...getInitialCardData(cards, id)} />
     </PageEmbed>
   )
 })
