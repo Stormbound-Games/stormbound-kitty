@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CardChangeFeed from '~/components/CardChangeFeed'
 import CardDisplay from '~/components/CardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
@@ -10,6 +11,7 @@ import useVersionedCardData from './useVersionedCardData'
 import getWikiCardLink from '~/helpers/getWikiCardLink'
 
 export default React.memo(function OfficialCardPage(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { cardId } = props
   const versionId = Number(props.versionId)
   const cardData = useVersionedCardData(props)
@@ -23,6 +25,7 @@ export default React.memo(function OfficialCardPage(props) {
   ]
     .filter(Boolean)
     .join(' · ')
+  const { image } = cardsIndex[cardData.imageCardId]
 
   return (
     <Page
@@ -30,7 +33,7 @@ export default React.memo(function OfficialCardPage(props) {
       metaTitle={versionId ? cardData.name + ' (prior ' + date + ')' : null}
       title={cardData.name}
       description={formatCardStats(cardData)}
-      image={cardData.image}
+      image={image}
       action={{
         href: getWikiCardLink(cardData.name),
         children: 'Open in wiki',
