@@ -64,13 +64,17 @@ const useCardBuilder = props => {
       }
 
       navigator.replace(
-        ['/card', isDefaultState ? '' : serialization.card.serialize(data)]
+        [
+          '/card',
+          isDefaultState ? '' : serialization.card.serialize(data),
+          props.mode === 'DISPLAY' ? 'display' : '',
+        ]
           .filter(Boolean)
           .join('/')
       )
     } catch {}
     // eslint-disable-next-line
-  }, [cardData])
+  }, [cardData, props.mode])
 
   const setProperty =
     (key, transform = v => v) =>

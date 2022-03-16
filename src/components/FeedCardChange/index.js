@@ -56,8 +56,8 @@ export default React.memo(function FeedCardChange(props) {
             scroll={false}
             to={
               isActive
-                ? `/card/${props.id}/display`
-                : `/card/${props.id}/display/${props.previewVersionId}`
+                ? `/card/official/${props.id}`
+                : `/card/official/${props.id}/${props.previewVersionId}`
             }
             label={isActive ? 'Deactivate this change' : 'Preview this change'}
           />

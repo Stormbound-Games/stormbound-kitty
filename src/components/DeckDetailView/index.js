@@ -70,7 +70,7 @@ export default React.memo(function DeckDetailView(props) {
             deck={deck}
             orientation='vertical'
             highlightedCards={props.highlightedCards}
-            onClick={card => navigator.push('/card/' + card.id + '/display')}
+            onClick={card => navigator.push('/card/official/' + card.id)}
             onClickLabel='Open card in card builder'
           />
           {suggestedDeck.name === 'Reckless Rush' && (

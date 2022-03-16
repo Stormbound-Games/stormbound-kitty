@@ -32,7 +32,7 @@ export default React.memo(function NavCardBuilder(props) {
               disabledOptions={id ? [id] : undefined}
               onChange={option =>
                 navigator.push(
-                  option ? `/card/${option.value}/display` : '/card'
+                  option ? `/card/official/${option.value}` : '/card'
                 )
               }
               withSpells

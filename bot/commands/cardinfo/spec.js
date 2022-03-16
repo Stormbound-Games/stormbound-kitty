@@ -12,20 +12,20 @@ describe('Bot — !cardinfo', () => {
 
   it('should handle a Stormbound-Kitty ID', () => {
     return cardinfo('N1').then(output =>
-      expect(output).toEqual('https://stormbound-kitty.com/card/N1/display')
+      expect(output).toEqual('https://stormbound-kitty.com/card/official/N1')
     )
   })
 
   it('should handle a known card abbreviation', () => {
     return cardinfo('rof').then(output =>
-      expect(output).toEqual('https://stormbound-kitty.com/card/F8/display')
+      expect(output).toEqual('https://stormbound-kitty.com/card/official/F8')
     )
   })
 
   it('should handle a fuzzy search', () => {
     return cardinfo('king').then(output => {
-      expect(output).toContain('https://stormbound-kitty.com/card/N69/display')
-      expect(output).toContain('https://stormbound-kitty.com/card/N73/display')
+      expect(output).toContain('https://stormbound-kitty.com/card/official/N69')
+      expect(output).toContain('https://stormbound-kitty.com/card/official/N73')
     })
   })
 
