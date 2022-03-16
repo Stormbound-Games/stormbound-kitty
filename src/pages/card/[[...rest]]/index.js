@@ -5,17 +5,10 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
 import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
-import getSWCCWeeks from '~/api/swcc/getSWCCWeeks'
 
 export async function getStaticPaths() {
-  const weeks = await getSWCCWeeks()
-  const paths = weeks
-    .map(week => ({
-      params: { rest: [week.winner.id, 'display'] },
-    }))
-    .concat({ params: { rest: [] } })
-
-  return { paths, fallback: 'blocking' }
+  // SWCC pages cannot be prerenredered because their URL is too long. :(
+  return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
