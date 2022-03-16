@@ -20,7 +20,7 @@ export default React.memo(function Decks(props) {
 
   if (props.decks.length === 0) return null
 
-  const navigateToCard = card => navigator.push('/card/' + card.id + '/display')
+  const navigateToCard = card => navigator.push('/card/official/' + card.id)
   const rows = chunk(items, columns)
 
   return (

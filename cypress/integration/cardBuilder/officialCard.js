@@ -24,7 +24,7 @@ describe('Card Builder — Official card', () => {
           .url()
           // Do not test for the timestamp as the conversion is done on the
           // client, which can result in some subtle timezone differences.
-          .should('not.match', /\/display$/)
+          .should('not.match', /N62$/)
         cy.get(s.CARD_ABILITY)
           .first()
           .invoke('text')
@@ -37,11 +37,7 @@ describe('Card Builder — Official card', () => {
       .first()
       .invoke('text')
       .then(ability => {
-        cy.get(s.VERSION_BTN)
-          .last()
-          .click()
-          .url()
-          .should('match', /\/display$/)
+        cy.get(s.VERSION_BTN).last().click().url().should('match', /N62$/)
         cy.get(s.CARD_ABILITY)
           .first()
           .invoke('text')
@@ -62,7 +58,7 @@ describe('Card Builder — Official card', () => {
   })
 
   it('should hide the editing interface', () => {
-    cy.visit('/card/N1/display')
+    cy.visit('/card/official/N1')
       .get('form:not([name="search"])')
       .should('not.exist')
 
@@ -80,7 +76,7 @@ describe('Card Builder — Official card', () => {
       .click()
 
       .url()
-      .should('match', /\/card\/N89\/display/)
+      .should('match', /\/card\/official\/N89/)
 
       .get(s.PREV_BTN)
       .should('be.disabled')
@@ -89,7 +85,7 @@ describe('Card Builder — Official card', () => {
       .click()
 
       .url()
-      .should('match', /\/card\/N1\/display/)
+      .should('match', /\/card\/official\/N1/)
   })
 
   it('should display progress with a loaded collection', () => {
@@ -97,7 +93,7 @@ describe('Card Builder — Official card', () => {
       .get('[data-testid="import-btn"]')
       .importFile('collection.import.csv')
 
-      .visit('/card/N1/display')
+      .visit('/card/official/N1')
 
       .get('[role="progressbar"]')
       .should('exist')
@@ -108,7 +104,7 @@ describe('Card Builder — Official card', () => {
       .get('[data-testid="import-btn"]')
       .importFile('collection.import.csv')
 
-      .visit('/card/N1/display')
+      .visit('/card/official/N1')
 
       .get(s.CARD)
       .eq(2)

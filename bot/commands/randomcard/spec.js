@@ -3,7 +3,7 @@ import command from './'
 
 const randomcard = command.handler.bind(command)
 
-const BASE_URL = 'https://stormbound-kitty.com/card/'
+const BASE_URL = 'https://stormbound-kitty.com/card/official/'
 const ALIASES = [
   { keyword: 'struct', key: 'type', value: 'structure' },
   { keyword: 'ic', key: 'faction', value: 'ironclad' },
@@ -17,8 +17,7 @@ const ALIASES = [
   { keyword: 'yellow', key: 'faction', value: 'swarm' },
 ]
 
-const getCardId = url =>
-  url ? url.replace(BASE_URL, '').replace('/display', '') : url
+const getCardId = url => (url ? url.replace(BASE_URL, '') : url)
 
 describe('Bot — !randomcard', () => {
   it('should return a random card for an empty search', () => {

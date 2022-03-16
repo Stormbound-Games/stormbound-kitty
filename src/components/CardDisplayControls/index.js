@@ -36,7 +36,7 @@ export default React.memo(function CardDisplayControls(props) {
       <div>
         <CTA
           disabled={!previousCard}
-          to={previousCard ? `/card/${previousCard.id}/display` : undefined}
+          to={previousCard ? `/card/official/${previousCard.id}` : undefined}
           scroll={false}
           data-testid='prev-btn'
         >
@@ -55,7 +55,7 @@ export default React.memo(function CardDisplayControls(props) {
       <div>
         <CTA
           disabled={!nextCard}
-          to={nextCard ? `/card/${nextCard.id}/display` : undefined}
+          to={nextCard ? `/card/official/${nextCard.id}` : undefined}
           scroll={false}
           data-testid='next-btn'
         >

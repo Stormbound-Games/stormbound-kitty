@@ -94,7 +94,7 @@ const getSearchIndex = async (withEverything = true) => {
   cards.slice(0, limit).forEach(card => {
     links.push({
       label: card.name,
-      path: `/card/${card.id}/display`,
+      path: `/card/official/${card.id}`,
       breadcrumbs: ['Tools', 'Card Builder', 'Display'],
     })
   })
