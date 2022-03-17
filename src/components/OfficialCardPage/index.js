@@ -1,9 +1,11 @@
 import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import CardChangeFeed from '~/components/CardChangeFeed'
+import CardCommunityFeed from '~/components/CardCommunityFeed'
 import CardDisplay from '~/components/CardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
 import Page from '~/components/Page'
+import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import { formatPreciseDate } from '~/helpers/formatDate'
 import formatCardStats from '~/helpers/formatCardStats'
@@ -47,13 +49,28 @@ export default React.memo(function OfficialCardPage(props) {
         <CardDisplayControls id={cardId} />
       </Spacing>
 
-      <Page.Narrow>
-        <CardChangeFeed
-          id={props.cardId}
-          versionId={versionId}
-          changes={props.versions}
-        />
-      </Page.Narrow>
+      {props.feed.length ? (
+        <Row isDesktopOnly>
+          <Row.Column>
+            <CardChangeFeed
+              id={props.cardId}
+              versionId={versionId}
+              changes={props.versions}
+            />
+          </Row.Column>
+          <Row.Column>
+            <CardCommunityFeed id={props.cardId} feed={props.feed} />
+          </Row.Column>
+        </Row>
+      ) : (
+        <Page.Narrow>
+          <CardChangeFeed
+            id={props.cardId}
+            versionId={versionId}
+            changes={props.versions}
+          />
+        </Page.Narrow>
+      )}
     </Page>
   )
 })
