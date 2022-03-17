@@ -1,6 +1,6 @@
 const { withPlausibleProxy } = require('next-plausible')
 
-module.exports = withPlausibleProxy({
+module.exports = withPlausibleProxy()({
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
