@@ -60,6 +60,7 @@ export default React.memo(function FeedCardChange(props) {
                 : `/card/official/${props.id}/${props.previewVersionId}`
             }
             label={isActive ? 'Deactivate this change' : 'Preview this change'}
+            extend={{ marginRight: 'var(--s-small)' }}
           />
         )
       }
