@@ -6,6 +6,7 @@ import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
 import getChangesFromCard from '~/api/changes/getChangesFromCard'
 import getCards from '~/api/cards/getCards'
+import getCardFeed from '~/api/cards/getCardFeed'
 
 export async function getStaticPaths() {
   const cards = (await getCards()).filter(card => !card.token)
@@ -25,9 +26,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   const card = getInitialCardData(settings.cards, cardId)
   const versions = await getChangesFromCard({ id: cardId, isPreview })
+  const feed = await getCardFeed({ id: cardId, isPreview })
 
   return {
-    props: { settings, cardId, card, versions },
+    props: { settings, cardId, card, versions, feed },
   }
 }
 
