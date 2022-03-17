@@ -8,7 +8,7 @@ import createFelaRenderer from '~/helpers/createFelaRenderer'
 const fallbackRenderer = createFelaRenderer()
 
 export function reportWebVitals(metric) {
-  const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
+  const VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV || 'development'
   const IS_DEV = VERCEL_ENV === 'development'
   const WITH_WEB_VITALS = Boolean(Number(process.env.NEXT_PUBLIC_WV))
 
@@ -51,7 +51,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       </RendererProvider>
 
       <Script lazyOnload src='/focus-visible.min.js' />
-      {process.env.VERCEL_ENV === 'production' && (
+      {process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' && (
         <Script
           strategy='lazyOnload'
           data-domain='stormbound-kitty.com'

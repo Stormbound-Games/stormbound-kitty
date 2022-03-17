@@ -2,6 +2,9 @@ module.exports = {
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV,
+  },
   images: {
     domains: ['cdn.sanity.io'],
   },
