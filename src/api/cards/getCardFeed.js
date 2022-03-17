@@ -36,7 +36,7 @@ const getCardFeed = async ({ id, isPreview } = {}) => {
     fields: `
       _type,
       _type == "artwork" => { ${ARTWORK_FIELDS} },
-      _type == "story" => { ${STORY_FIELDS} },
+      _type == "story" && !defined(saga) => { ${STORY_FIELDS} },
       _type == "guide" && name match $name => { ${GUIDE_FIELDS} }
     `,
     params: { ref: card._id, name: card.name },
