@@ -8,7 +8,7 @@ const isIncomplete = state => {
   return false
 }
 
-const getCardBuilderMetaTags = state => {
+const getCardBuilderMetaTags = (cardsIndex, state) => {
   const metaTags = {
     title: state.name || 'Card Builder',
   }
@@ -21,6 +21,8 @@ const getCardBuilderMetaTags = state => {
 
   if (state.imageURL) {
     metaTags.image = state.imageURL
+  } else if (state.imageCardId in cardsIndex) {
+    metaTags.image = cardsIndex[state.imageCardId].image
   }
 
   return metaTags

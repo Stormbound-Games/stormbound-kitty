@@ -1,4 +1,5 @@
 import React from 'react'
+import { CardsContext } from '~/components/CardsProvider'
 import CardDisplay from '~/components/CardDisplay'
 import Page from '~/components/Page'
 import CoreForm from '~/components/CardBuilderCoreForm'
@@ -38,9 +39,10 @@ const usePageProps = (props, card) => {
 }
 
 export default React.memo(function CardBuilder(props) {
+  const { cardsIndex } = React.useContext(CardsContext)
   const { card, setters } = useCardBuilder(props)
   const pageProps = usePageProps(props, card)
-  const metaTags = getCardBuilderMetaTags(card)
+  const metaTags = getCardBuilderMetaTags(cardsIndex, card)
 
   return (
     <Page {...pageProps} {...metaTags}>
