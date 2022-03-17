@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import PlausibleProvider from 'next-plausible'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
 import ErrorBoundary from '~/components/ErrorBoundary'
@@ -42,22 +43,20 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
 
-      <RendererProvider renderer={renderer}>
-        <ErrorBoundary>
-          <NotificationProvider>
-            <Component {...pageProps} />
-          </NotificationProvider>
-        </ErrorBoundary>
-      </RendererProvider>
+      <PlausibleProvider
+        domain='stormbound-kitty.com'
+        enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
+      >
+        <RendererProvider renderer={renderer}>
+          <ErrorBoundary>
+            <NotificationProvider>
+              <Component {...pageProps} />
+            </NotificationProvider>
+          </ErrorBoundary>
+        </RendererProvider>
+      </PlausibleProvider>
 
       <Script lazyOnload src='/focus-visible.min.js' />
-      {process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' && (
-        <Script
-          strategy='lazyOnload'
-          data-domain='stormbound-kitty.com'
-          src='https://plausible.io/js/plausible.js'
-        />
-      )}
     </>
   )
 }
