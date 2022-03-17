@@ -30,7 +30,7 @@ export default React.memo(function CardChangeFeed(props) {
 
   return (
     <>
-      <Title>Changes</Title>
+      <Title>Official changes</Title>
       <ul className={css(styles.feed)}>
         {changes
           .map(entry => ({

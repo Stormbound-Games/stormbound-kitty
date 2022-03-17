@@ -34,7 +34,7 @@ const date = {
 const right = {
   marginLeft: 'auto',
   alignSelf: 'center',
-  paddingLeft: '2ch',
+  paddingLeft: 'var(--s-base)',
 }
 
 const styles = {
