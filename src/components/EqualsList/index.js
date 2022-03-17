@@ -78,7 +78,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <Info icon='compass' title='Intro to equals'>
             <p>
               If you are new to equal matches, be sure to read the{' '}
-              <Link to='/guides/equals-intro'>introduction to equals</Link> by{' '}
+              <Link to='/guides/equals'>introduction to equals</Link> by{' '}
               <Link to='/members/derk'>Derk</Link> to learn everything about
               this game mode.
             </p>
