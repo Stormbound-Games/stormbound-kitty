@@ -224,8 +224,7 @@ const getSearchIndex = async (withEverything = true) => {
       })
     })
 
-  // Always test all guides because they are all different.
-  guides.forEach(guide => {
+  guides.slice(0, limit).forEach(guide => {
     links.push({
       label: guide.name,
       path: '/guides/' + guide.slug,
@@ -289,8 +288,7 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Official', 'Updates'],
   })
 
-  // Always test all releases because they are all different.
-  releases.forEach(release => {
+  releases.slice(0, limit).forEach(release => {
     links.push({
       label: release.title,
       path: '/releases/' + release.slug,
