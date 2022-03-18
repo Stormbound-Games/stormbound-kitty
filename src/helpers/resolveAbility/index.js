@@ -11,7 +11,7 @@ const VARIABLES_RE = /([^*\s/]*)\/([^/]*)\/([^/]*)\/([^/]*)\/([^*\s,]*|$)/g
 const SLOTS = [null, null, null, null, null]
 
 const resolveAbility = string => {
-  if (string === null) {
+  if (!string) {
     return { values: SLOTS, display: null }
   }
 
