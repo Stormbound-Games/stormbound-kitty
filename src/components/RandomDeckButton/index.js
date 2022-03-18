@@ -32,10 +32,9 @@ export default React.memo(function RandomDeckButton(props) {
     const deck = getRandomDeck({
       availableCards,
       faction: faction === '*' ? getRandomFaction() : faction,
-      maxEpicCards: !isNaN(+maxEpicCards) ? +maxEpicCards : undefined,
-      maxLegendaryCards: !isNaN(+maxLegendaryCards)
-        ? +maxLegendaryCards
-        : undefined,
+      maxEpicCards: maxEpicCards === '' ? undefined : +maxEpicCards,
+      maxLegendaryCards:
+        maxLegendaryCards === '' ? undefined : +maxLegendaryCards,
       minFactionCards: minFactionCards,
     })
 
