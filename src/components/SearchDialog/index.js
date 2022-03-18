@@ -9,6 +9,7 @@ import Icon from '~/components/Icon'
 import Input from '~/components/Input'
 import useDebounce from '~/hooks/useDebounce'
 import useNavigator from '~/hooks/useNavigator'
+import track from '~/helpers/track'
 import styles from './styles'
 
 const isSearchShortcut = event => {
@@ -84,15 +85,15 @@ export default React.memo(function SearchDialog(props) {
   useSearchKeyboardShortcut(() => props.dialogRef.current?.show())
 
   // Update search results when the search term changes.
-  React.useEffect(
-    () =>
-      debouncedSearch &&
+  React.useEffect(() => {
+    if (debouncedSearch) {
+      track('site_search', { search: debouncedSearch })
       runSearch(debouncedSearch).then(results => {
         setResults(results)
         setIsLoading(false)
-      }),
-    [debouncedSearch]
-  )
+      })
+    }
+  }, [debouncedSearch])
 
   // Hide the dialog when the URL changes (after navigating to a result).
   React.useEffect(() => {

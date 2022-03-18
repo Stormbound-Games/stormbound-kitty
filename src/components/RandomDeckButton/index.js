@@ -11,6 +11,7 @@ import Select from '~/components/Select'
 import getRandomDeck from '~/helpers/getRandomDeck'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import arrayRandom from '~/helpers/arrayRandom'
+import track from '~/helpers/track'
 
 const getRandomFaction = () =>
   arrayRandom(FACTIONS.filter(faction => faction !== 'neutral'))
@@ -29,15 +30,16 @@ export default React.memo(function RandomDeckButton(props) {
   )
 
   const generateDeck = React.useCallback(() => {
-    const deck = getRandomDeck({
-      availableCards,
+    const options = {
       faction: faction === '*' ? getRandomFaction() : faction,
       maxEpicCards: maxEpicCards === '' ? undefined : +maxEpicCards,
       maxLegendaryCards:
         maxLegendaryCards === '' ? undefined : +maxLegendaryCards,
       minFactionCards: minFactionCards,
-    })
+    }
+    const deck = getRandomDeck({ availableCards, ...options })
 
+    track('random_deck', options)
     defineDeck(deck)
     dialog.current.hide()
   }, [

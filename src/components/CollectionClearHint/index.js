@@ -9,6 +9,7 @@ import Only from '~/components/Only'
 import download from '~/helpers/download'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortCards from '~/helpers/sortCards'
+import track from '~/helpers/track'
 
 const useSerializedContent = () => {
   const { collection } = React.useContext(CollectionContext)
@@ -50,6 +51,7 @@ export default React.memo(function CollectionClearHint(props) {
       icon: 'books',
       children: 'Your collection has been successfully exported.',
     })
+    track('export_collection_data')
   }, [content, notify])
 
   return (
