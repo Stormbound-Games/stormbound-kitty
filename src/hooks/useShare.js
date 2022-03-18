@@ -1,6 +1,7 @@
 import React from 'react'
 import copy from 'copy-to-clipboard'
 import minifyUrl from '~/helpers/minifyUrl'
+import track from '~/helpers/track'
 
 const useShare = ({
   processURL = url => url,
@@ -38,6 +39,8 @@ const useShare = ({
   }, [content, getURL])
 
   const share = async () => {
+    track('page_share', { url: processURL(window.location.href) })
+
     if (!canUseShareAPI()) return copyToClipboard()
 
     try {

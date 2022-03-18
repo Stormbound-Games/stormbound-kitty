@@ -3,6 +3,7 @@ import CTA from '~/components/CTA'
 import Only from '~/components/Only'
 import { NotificationContext } from '~/components/NotificationProvider'
 import download from '~/helpers/download'
+import track from '~/helpers/track'
 
 export default React.memo(function BrawlExport(props) {
   const { notify: sendNotification } = React.useContext(NotificationContext)
@@ -12,7 +13,7 @@ export default React.memo(function BrawlExport(props) {
     [sendNotification]
   )
 
-  const formatBrawlAsCSV = decks => {
+  const formatBrawlAsCSV = () => {
     const brawls = Object.keys(localStorage)
       .filter(key => key.startsWith('sk.brawl.'))
       .map(key => JSON.parse(localStorage.getItem(key)))
@@ -40,6 +41,7 @@ export default React.memo(function BrawlExport(props) {
       mimeType: 'text/csv;encoding:utf-8',
     })
     notify('Your Brawl data has been successfully exported.')
+    track('export_brawl_data')
   }
 
   return (

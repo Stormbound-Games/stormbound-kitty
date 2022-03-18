@@ -8,10 +8,12 @@ import Input from '~/components/Input'
 import ShareDialog from '~/components/ShareDialog'
 import Spacing from '~/components/Spacing'
 import download from '~/helpers/download'
+import track from '~/helpers/track'
 import { convertToSbId } from '~/helpers/convertDeckId'
 
 const exportAsImage = () => {
   const deck = document.querySelector('#deck')
+  track('download_deck_as_image')
 
   // Scrolling back to the top of the page seems to help with having an accurate
   // visual representation of the deck.
@@ -41,6 +43,7 @@ export default React.memo(function DeckShareButton(props) {
   const [hasCopied, setHasCopied] = React.useState(false)
   const copyToClipboard = React.useCallback(() => {
     if (copy(sbId)) {
+      track('copy_stormbound_deck_id', { id: sbId })
       setHasCopied(true)
       setTimeout(() => setHasCopied(false), 3000)
     }

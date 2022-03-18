@@ -9,6 +9,7 @@ import parseAdvancedSearch, {
   serializeFilters,
 } from '~/helpers/parseAdvancedSearch'
 import sortCards, { sortByValue, sortByLockedCoins } from '~/helpers/sortCards'
+import track from '~/helpers/track'
 import useViewportSize from '~/hooks/useViewportSize'
 import { CHIP_CARDS } from '~/constants/game'
 
@@ -240,6 +241,7 @@ export default React.memo(function CardsFiltering(props) {
     event.preventDefault()
     const parameters = parseAdvancedSearch(search.trim())
     setFilters({ ...DEFAULT_FILTERS, ...parameters })
+    track('advanced_card_search', parameters)
   }
 
   const setAdvancedSearch = search => {

@@ -5,6 +5,7 @@ import { NotificationContext } from '~/components/NotificationProvider'
 import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
 import download from '~/helpers/download'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import track from '~/helpers/track'
 
 export default React.memo(function ExportDecks(props) {
   const { decks } = React.useContext(PersonalDecksContext)
@@ -37,6 +38,7 @@ export default React.memo(function ExportDecks(props) {
       mimeType: 'text/csv;encoding:utf-8',
     })
     notify('Your decks has been successfully exported.')
+    track('export_decks_data')
   }
 
   return (

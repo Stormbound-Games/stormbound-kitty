@@ -4,6 +4,7 @@ import Info from '~/components/Info'
 import useSelectStyles from '~/hooks/useSelectStyles'
 import useIsMounted from '~/hooks/useIsMounted'
 import useUser from '~/hooks/useUser'
+import track from '~/helpers/track'
 
 const Select = dynamic(() => import('react-select'), { ssr: false })
 
@@ -16,9 +17,10 @@ const UserSelect = props => {
       id='user-name'
       isClearable
       value={user ? { value: user.slug, label: user.name } : null}
-      onChange={option =>
+      onChange={option => {
         setUser(option ? { name: option.label, slug: option.value } : null)
-      }
+        if (option) track('user_self_tagging')
+      }}
       options={props.members.map(user => ({
         value: user.slug,
         label: user.name,
