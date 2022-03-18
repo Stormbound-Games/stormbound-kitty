@@ -113,7 +113,7 @@ export default React.memo(function BooksCalculator(props) {
                     data-testid='book-select'
                   >
                     {props.books.map(book => (
-                      <option key={book._id} value={book.id}>
+                      <option key={book.id} value={book.id}>
                         {book.name}
                       </option>
                     ))}
@@ -249,7 +249,7 @@ export default React.memo(function BooksCalculator(props) {
                 {props.books
                   .filter(book => book.cost)
                   .map(book => (
-                    <tr key={book._id}>
+                    <tr key={book.id}>
                       <td data-label='Book name'>
                         <Link onClick={() => setBookId(book.id)}>
                           {book.name}

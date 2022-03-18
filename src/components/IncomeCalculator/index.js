@@ -451,7 +451,7 @@ export default React.memo(function IncomeCalculator(props) {
                     >
                       <option value='NONE'>Nothing</option>
                       {props.books.map(book => (
-                        <option value={book.id} key={book._id}>
+                        <option value={book.id} key={book.id}>
                           {book.name}
                         </option>
                       ))}

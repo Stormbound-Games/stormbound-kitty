@@ -1,5 +1,6 @@
 import { getEntries } from '~/helpers/sanity'
 import getUser from '~/api/users/getUser'
+import { FIELDS as USER_FIELDS } from '~/api/users/utils'
 import {
   FIELDS as ARTWORK_FIELDS,
   MAPPER as ARTWORK_MAPPER,
@@ -60,14 +61,17 @@ const cleaners = {
 }
 
 const getContentFromUser = async ({ slug, isPreview } = {}) => {
-  const user = await getUser({ slug, isPreview })
+  const user = await getUser({
+    slug,
+    isPreview,
+    fields: `_id, ${USER_FIELDS}`,
+  })
 
   if (!user) return {}
 
   const entries = await getEntries({
     conditions: ['references($id)'],
     fields: `
-      _id,
       _type,
       _type == "artwork" => { ${ARTWORK_FIELDS} },
       _type == "contribution" => { ${CONTRIBUTION_FIELDS} },

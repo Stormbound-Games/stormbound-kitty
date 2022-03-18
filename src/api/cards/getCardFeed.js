@@ -31,21 +31,27 @@ const getCardFeed = async ({ id, isPreview } = {}) => {
   const references = await getEntries({
     conditions: [
       'references($ref)',
-      "(_type in ['artwork', 'story', 'guide'])",
+      '(' +
+        [
+          '(_type == "artwork")',
+          '(_type == "story" && !defined(saga))',
+          '(_type == "guide" && name match $name)',
+        ].join(' || ') +
+        ')',
     ],
     fields: `
       _type,
-      _type == "artwork" => { ${ARTWORK_FIELDS} },
-      _type == "story" && !defined(saga) => { ${STORY_FIELDS} },
-      _type == "guide" && name match $name => { ${GUIDE_FIELDS} }
+      _type == "artwork" => { _id, ${ARTWORK_FIELDS} },
+      _type == "story" => { _id, ${STORY_FIELDS} },
+      _type == "guide" => { _id, ${GUIDE_FIELDS} }
     `,
     params: { ref: card._id, name: card.name },
     options: { order: 'date desc', isPreview },
   })
 
-  const feed = references
-    .filter(entry => entry._id)
-    .map(entry => cleaners[entry._type](entry))
+  const feed = references.map(({ _id, ...entry }) =>
+    cleaners[entry._type](entry)
+  )
 
   return feed
 }

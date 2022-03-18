@@ -1,5 +1,5 @@
 export const FIELDS = `
-_id,
+"id": _id,
 device,
 "image": image { "url": asset -> url }.url,
 "dimensions": (image {

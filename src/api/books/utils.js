@@ -1,5 +1,4 @@
 export const FIELDS = `
-_id,
 id,
 name,
 cost { type, amount },

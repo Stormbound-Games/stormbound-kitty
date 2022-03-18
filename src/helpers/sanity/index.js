@@ -70,9 +70,7 @@ const createQuery = ({ conditions, fields = '...', options = {} }) => {
     options.isPreview &&
     !(fields.includes('_id') || fields.includes('...'))
   ) {
-    throw new Error(
-      'The document `_id` needs to be queried when the preview mode is enabled.'
-    )
+    fields = `_id, ${fields}`
   }
 
   return `*[${conditions.join(' && ')}] { ${fields} } ${order} ${slice}`

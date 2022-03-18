@@ -1,7 +1,6 @@
 import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
-_id,
 "user": user -> { name, "slug": slug.current },
 date,
 "image": image { "url": asset -> url }.url,
