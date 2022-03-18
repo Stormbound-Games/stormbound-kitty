@@ -1,7 +1,6 @@
 import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
-_id,
 "id": card -> id,
 type,
 date,

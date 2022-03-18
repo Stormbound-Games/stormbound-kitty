@@ -1,10 +1,10 @@
 import { getEntry } from '~/helpers/sanity'
 import { FIELDS } from './utils'
 
-const getUser = async ({ slug, isPreview } = {}) => {
+const getUser = async ({ slug, isPreview, fields = FIELDS } = {}) => {
   const user = await getEntry({
     conditions: ['_type == "user"', 'slug.current == $slug'],
-    fields: FIELDS,
+    fields,
     params: { slug },
     options: { isPreview },
   })

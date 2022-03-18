@@ -15,7 +15,7 @@ export default React.memo(function FanKitAvatars(props) {
   const columns = viewportWidth >= 700 ? 8 : 2
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const AVATARS_INDEX = indexArray(props.avatars, '_id')
+  const AVATARS_INDEX = indexArray(props.avatars)
   const activeAvatar = AVATARS_INDEX[active]
   const {
     loading,
@@ -61,9 +61,8 @@ export default React.memo(function FanKitAvatars(props) {
               {row[index] && (
                 <FanKitItem
                   {...row[index]}
-                  id={row[index]._id}
                   image={row[index].image}
-                  key={row[index]._id}
+                  key={row[index].id}
                   setActive={setActive}
                   width={114}
                   height={Math.round(

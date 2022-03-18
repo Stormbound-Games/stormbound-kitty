@@ -1,7 +1,6 @@
 import serializeDate from '~/helpers/serializeDate'
 
 export const FIELDS = `
-_id,
 "users": users[] -> { name, "slug": slug.current },
 date,
 data,

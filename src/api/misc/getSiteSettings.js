@@ -7,7 +7,7 @@ const getSiteSettings = async ({ isPreview } = {}) => {
   const navigation = await getNavigation({ isPreview })
   const siteSettings = await getEntry({
     conditions: ['_type == "siteSettings"'],
-    fields: `_id, _updatedAt, eyeCatcher`,
+    fields: `_updatedAt, eyeCatcher`,
     options: { isPreview },
   })
 

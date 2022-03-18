@@ -6,7 +6,7 @@ const getAbbreviations = async ({ isPreview, casing = 'NATURAL' } = {}) => {
   const cards = await getCards({ isPreview })
   const siteSettings = await getEntry({
     conditions: ['_type == "siteSettings"'],
-    fields: `_id, "abbreviations": coalesce(abbreviations, [])`,
+    fields: `"abbreviations": coalesce(abbreviations, [])`,
     options: { isPreview },
   })
   const abbreviations = {}

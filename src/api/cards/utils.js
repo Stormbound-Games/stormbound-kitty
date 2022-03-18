@@ -1,5 +1,4 @@
 export const FIELDS = `
-_id,
 id,
 sid,
 

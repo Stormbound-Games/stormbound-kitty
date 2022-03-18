@@ -228,7 +228,7 @@ export default React.memo(function BookOpeningSimulator(props) {
               >
                 <option value=''>Pick a book type</option>
                 {props.books.map(book => (
-                  <option value={book.id} key={book._id}>
+                  <option value={book.id} key={book.id}>
                     {book.name} ({book.draws})
                   </option>
                 ))}

@@ -1,7 +1,7 @@
 import { getEntries } from '~/helpers/sanity'
 
 const FIELDS = `
-_id,
+"id": _id,
 name,
 "image": image { "url": asset -> url }.url,
 "dimensions": (image {

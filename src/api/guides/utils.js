@@ -2,7 +2,6 @@ import serializeDate from '~/helpers/serializeDate'
 import getExcerpt from '~/helpers/getExcerpt'
 
 export const FIELDS = `
-_id,
 name,
 "slug": slug.current,
 id,
