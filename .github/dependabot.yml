@@ -5,7 +5,11 @@ updates:
     schedule:
       interval: 'weekly'
     ignore:
+      # Version 13+ of discord.js requires Node 16, which is not supported on
+      # Vercel at the moment.
       - dependency-name: 'discord.js'
         versions: ['13.x']
+      # Version 3+ of node-fetch is esm only, which is not going to work for
+      # this project.
       - dependency-name: 'node-fetch'
         versions: ['3.x']
