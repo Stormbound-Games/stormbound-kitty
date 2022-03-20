@@ -28,6 +28,10 @@ const getEffectiveSpeed = card => {
       // of the first enemy (and then 1 extra tile if it kills it), so we
       // consider an average of 2.
       return 2
+    case 'N89':
+      // Erratic Neglects have 1 chance out of 5 to freeze themselves before
+      // moving, therefore their effective speed is 0.8.
+      return 0.8
     default:
       return card.movement || 0
   }
