@@ -36,7 +36,7 @@ const guide = {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
-      options: { source: 'title' },
+      options: { source: 'name' },
       fieldset: 'metadata',
       validation: Rule => Rule.required(),
     },
