@@ -11,7 +11,7 @@ const escapeRegExp = string => {
 }
 
 const flatten = function (array) {
-  var newArray = []
+  let newArray = []
 
   array.forEach(function (item) {
     if (Array.isArray(item)) {

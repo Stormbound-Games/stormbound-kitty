@@ -1,6 +1,4 @@
 const getExcerpt = (string, length) => {
-  string = string.replace(/---/g, '')
-
   if (string.length <= length) return string
 
   let excerpt = string.slice(0, length)

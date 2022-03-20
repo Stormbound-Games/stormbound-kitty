@@ -5,27 +5,24 @@ import isCardLevelResolved from '~/helpers/isCardLevelResolved'
 const getResolvedCardData = (cardsIndex, card) => {
   const { id, level, copies, missing } = card || {}
 
-  // If no `id` is given, return early
-  if (!id) {
-    return null
-  }
+  // If no `id` is given, return early.
+  if (!id) return null
 
+  // Resolve the actual card ID from the given ID accounting for composed IDs
+  // (which can happen in the dry-runner where a deck can eventually contain
+  // several copies of the same card).
   const [displayId] = id.toUpperCase().split('_')
 
-  // Find the card data from the given id, and return early if it wasn’t found
   const cardData = cardsIndex[displayId]
 
-  if (!cardData) {
-    return null
-  }
+  // If the given ID doesn’t resolve to an official card, return early.
+  if (!cardData) return null
 
-  // If it looks like the card is already fully resolved, return right away
-  if (isCardLevelResolved(card)) {
-    return card
-  }
+  // If it looks like the card is already fully resolved, return right away.
+  if (isCardLevelResolved(card)) return card
 
   // Find the card data for the given level, or default to the first level if
-  // not found
+  // not found.
   const unfoldedMana = cardData.mana ? unfoldValue(cardData.mana) : null
   const unfoldedStrength = cardData.strength
     ? unfoldValue(cardData.strength)
