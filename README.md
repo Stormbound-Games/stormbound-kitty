@@ -2,6 +2,18 @@
 
 Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
+## Technology stack
+
+- Framework: [Next.js](https://nextjs.org/)
+- Styling: [Fela](https://fela.js.org/)
+- CI/CD: [GitHub Worklows](https://docs.github.com/en/actions/using-workflows)
+- Hosting: [Vercel](https://vercel.com/) (via an [open-source sponsorship](https://vercel.com/support/articles/can-vercel-sponsor-my-open-source-project))
+- Testing: [Jest](https://jestjs.io/) unit tests and [Cypress](https://www.cypress.io/) end-to-end tests (via an [open-source plan](https://docs.cypress.io/guides/dashboard/organizations#Open-Source-Plan))
+- Analytics: [Plausible](https://plausible.io/)
+- URL shortening: [Cutt.ly](https://cutt.ly/)
+- CMS: [Sanity](sanity.io/) (via an [open-source plan](https://www.sanity.io/docs/open-source-plan))
+- Discord bot hosting: [Heroku](https://www.heroku.com/)
+
 ## Development
 
 The site runs with [Next](https://nextjs.org/). Therefore, it uses Node.js (version 14). It is recommended to install [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows)) to manage Node versions, but it’s not mandatory, as long as Node 14 is installed on the machine.
