@@ -2,6 +2,12 @@
 
 Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
+## Documentation
+
+- [CMS](./docs/CMS.md)
+- [Formulas](./docs/FORMULAS.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
+
 ## Technology stack
 
 - Framework: [Next.js](https://nextjs.org/)
