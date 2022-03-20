@@ -75,7 +75,7 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
     "mathjax-node": "^2.1.1",
-    "next-sitemap": "^2.5.7",
+    "next-sitemap": "^2.5.10",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "svg2png": "^4.1.1",
