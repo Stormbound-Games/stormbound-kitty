@@ -68,7 +68,10 @@ const createQuery = ({ conditions, fields = '...', options = {} }) => {
 
   if (
     options.isPreview &&
-    !(fields.includes('_id') || fields.includes('...'))
+    // This regular expression is certainly not bulletproof, but is a decent way
+    // to figure out whether the `_id` field has been queried as is (not
+    // aliased, e.g. `"id": _id`).
+    !(/(^|\n|,)\s*_id/.test(fields) || fields.includes('...'))
   ) {
     fields = `_id, ${fields}`
   }
