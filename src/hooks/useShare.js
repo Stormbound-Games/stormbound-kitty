@@ -29,29 +29,34 @@ const useShare = ({
     return !shortenURL ? url : minifyUrl(url)
   }, [processURL, shortenURL])
 
-  const copyToClipboard = React.useCallback(async () => {
-    const url = await getURL()
-
-    if (copy([content, url].filter(Boolean).join('\n'))) {
-      setHasCopied(true)
-      setTimeout(() => setHasCopied(false), 3000)
-    }
-  }, [content, getURL])
+  const copyToClipboard = React.useCallback(
+    async url => {
+      if (copy([content, url].filter(Boolean).join('\n'))) {
+        setHasCopied(true)
+        setTimeout(() => setHasCopied(false), 3000)
+      }
+    },
+    [content]
+  )
 
   const share = async () => {
-    track('page_share', { url: processURL(window.location.href) })
+    const url = await getURL()
 
-    if (!canUseShareAPI()) return copyToClipboard()
+    track('page_share', { url })
+
+    if (!canUseShareAPI()) {
+      return copyToClipboard(url)
+    }
 
     try {
-      await navigator.share({ url: await getURL(), title, text: content })
+      await navigator.share({ url, title, text: content })
     } catch (error) {
       if (error instanceof DOMException) {
         // eslint-disable-next-line
         console.error(error.message)
       }
 
-      await copyToClipboard()
+      await copyToClipboard(url)
     }
   }
 
