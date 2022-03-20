@@ -65,7 +65,7 @@
   ],
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
-    "@babel/register": "^7.17.0",
+    "@babel/register": "^7.17.7",
     "@cypress/webpack-preprocessor": "^5.11.1",
     "cypress": "^9.5.1",
     "diff": "^5.0.0",
