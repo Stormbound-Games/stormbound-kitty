@@ -1,3 +1,5 @@
+import unfoldValue from '~/helpers/unfoldValue'
+
 // Not a star, space or forward slash
 // Followed by a slash
 // Followed by not a slash (possibly empty)
@@ -15,19 +17,14 @@ const resolveAbility = string => {
     return { values: SLOTS, display: null }
   }
 
-  const variables = string.match(VARIABLES_RE)
-  const values = SLOTS.map((slot, index) => {
-    if (!variables) return string
-
-    let result = string
-
-    variables.forEach(variable => {
-      const chunks = variable.split('/')
-      result = result.replace(variable, chunks[index])
-    })
-
-    return result
-  })
+  const variables = string.match(VARIABLES_RE) || []
+  const values = SLOTS.map((_, index) =>
+    variables.reduce(
+      (result, variable) =>
+        result.replace(variable, unfoldValue(variable)[index]),
+      string
+    )
+  )
 
   return { values, display: string }
 }
