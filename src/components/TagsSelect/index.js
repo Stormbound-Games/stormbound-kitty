@@ -4,7 +4,7 @@ import Label from '~/components/Label'
 import useSelectStyles from '~/hooks/useSelectStyles'
 import indexArray from '~/helpers/indexArray'
 
-const Select = dynamic(() => import('react-select'))
+const Select = dynamic(() => import('react-select'), { ssr: false })
 
 export default React.memo(function TagsSelect(props) {
   const styles = useSelectStyles()
