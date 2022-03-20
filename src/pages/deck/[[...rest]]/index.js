@@ -44,7 +44,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   if (!id) {
     return {
       props: {
-        brawls,
+        brawls: brawls.map(brawl => ({ id: brawl.id })),
         settings,
         id: null,
         deck: [],
@@ -68,11 +68,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const resolvedView =
     view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
   const suggestedDeck = await getDeck({ id, isPreview })
-  const indexedDeck = indexArray(resolvedDeck)
 
   return {
     props: {
-      brawls: view !== 'editor' ? brawls : [],
+      brawls: view ? brawls : [],
       settings,
       id,
       deck,
