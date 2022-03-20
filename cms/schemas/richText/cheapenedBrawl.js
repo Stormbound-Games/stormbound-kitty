@@ -19,6 +19,7 @@ const cheapenedBrawl = {
       title: 'Legacy Brawl',
       name: 'legacy',
       type: 'boolean',
+      hidden: true,
       description:
         'Whether this is for the legacy Brawl, before the tier-system was introduced.',
       initialValue: false,
