@@ -1,6 +1,15 @@
+const withPlugins = require('next-compose-plugins')
 const { withPlausibleProxy } = require('next-plausible')
+const withBundleAnalyzer = require('@next/bundle-analyzer')
 
-module.exports = withPlausibleProxy()({
+const plugins = [
+  withPlausibleProxy(),
+  withBundleAnalyzer({
+    enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1',
+  }),
+]
+
+module.exports = withPlugins(plugins, {
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
