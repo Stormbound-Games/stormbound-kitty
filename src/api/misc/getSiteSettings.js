@@ -15,7 +15,7 @@ const getSiteSettings = async ({ isPreview } = {}) => {
     ? { content: siteSettings?.eyeCatcher, id: siteSettings._updatedAt }
     : null
 
-  return { navigation, eyeCatcher, cards: cards.map(cleanUpCard) }
+  return { navigation, eyeCatcher, cards: cards.map(cleanUpCard), isPreview }
 }
 
 // The codebase should be resilient to absence of value for properties which
