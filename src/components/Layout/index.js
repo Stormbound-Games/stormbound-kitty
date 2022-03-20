@@ -10,6 +10,7 @@ import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import BlocksRenderer from '~/components/BlocksRenderer'
 import Loader from '~/components/Loader'
+import PreviewBanner from '~/components/PreviewBanner'
 import styles from './styles'
 
 const SearchDialog = dynamic(() => import('~/components/SearchDialog'), {
@@ -42,6 +43,8 @@ export default React.memo(function Layout(props) {
             </main>
 
             <Footer />
+
+            {props.settings.isPreview && <PreviewBanner />}
 
             <SearchDialog dialogRef={searchDialog} />
           </div>
