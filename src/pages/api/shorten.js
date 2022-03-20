@@ -12,10 +12,16 @@ export default async function handler(request, response) {
     return response.status(429).json({ message: 'Too many requests' })
   }
 
-  const url = decodeURIComponent(
-    request.query.url.replace(
-      'http://localhost:3000',
-      'https://stormbound-kitty.com'
+  if (!request.query.url) {
+    return response.status(400).send('Bad request')
+  }
+
+  const url = encodeURIComponent(
+    decodeURIComponent(
+      request.query.url.replace(
+        'http://localhost:3000',
+        'https://stormbound-kitty.com'
+      )
     )
   )
 
