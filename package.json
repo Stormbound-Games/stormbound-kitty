@@ -6,6 +6,7 @@
     "node": "14.x"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.1.0",
     "@portabletext/react": "^1.0.4",
     "@reach/tooltip": "^0.16.2",
     "@sanity/client": "^3.2.2",
@@ -36,6 +37,7 @@
     "lodash.isequal": "^4.5.0",
     "module-alias": "^2.2.2",
     "next": "^12.1.0",
+    "next-compose-plugins": "^2.2.1",
     "next-plausible": "^3.1.6",
     "node-fetch": "^2.6.7",
     "random-weighted-choice": "^0.1.4",
