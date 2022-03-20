@@ -22,6 +22,6 @@ out
 cypress/screenshots
 .nyc_output
 coverage
-public/sitemap.xml
+public/sitemap*.xml
 cypress/fixtures/registry.json
 cypress/fixtures/cards.json
