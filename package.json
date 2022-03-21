@@ -16,7 +16,6 @@
     "copy-to-clipboard": "^3.3.1",
     "discord.js": "^12.5.3",
     "dotenv": "^16.0.0",
-    "downshift": "^6.1.7",
     "esm": "^3.2.25",
     "express-rate-limit": "^6.3.0",
     "express-slow-down": "^1.4.0",

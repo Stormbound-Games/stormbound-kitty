@@ -27,18 +27,21 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'News',
     path: '/',
     breadcrumbs: ['Home'],
+    icon: 'home',
   })
 
   links.push({
     label: 'About',
     path: '/about',
     breadcrumbs: ['Home'],
+    icon: 'cat',
   })
 
   links.push({
     label: 'Brawl Tracker',
     path: '/brawl',
     breadcrumbs: ['Your Content'],
+    icon: 'crown',
   })
 
   brawls.slice(0, limit).forEach(brawl => {
@@ -46,6 +49,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: brawl.name,
       path: '/brawl/' + brawl.slug,
       breadcrumbs: ['Your Content', 'Brawl Tracker'],
+      icon: 'crown',
     })
   })
 
@@ -53,49 +57,57 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Brewed Sages Podcast',
     path: '/brewed-sages',
     breadcrumbs: ['Community', 'Discover'],
+    icon: 'users',
   })
 
   links.push({
     label: 'Books Calculator',
     path: '/calculators/books',
     breadcrumbs: ['Tools', 'Calculators'],
+    icon: 'equalizer',
   })
 
   links.push({
     label: 'Brawl Calculator',
     path: '/calculators/brawl',
     breadcrumbs: ['Tools', 'Calculators'],
+    icon: 'equalizer',
   })
 
   links.push({
     label: 'Income Calculator',
     path: '/calculators/income',
     breadcrumbs: ['Tools', 'Calculators'],
+    icon: 'equalizer',
   })
 
   links.push({
     label: 'Value Calculator',
     path: '/calculators/value',
     breadcrumbs: ['Tools', 'Calculators'],
+    icon: 'equalizer',
   })
 
   links.push({
     label: 'Hero Calculator',
     path: '/calculators/hero',
     breadcrumbs: ['Tools', 'Calculators'],
+    icon: 'equalizer',
   })
 
   links.push({
     label: 'Card Builder',
     path: '/card',
     breadcrumbs: ['Tools', 'Builders'],
+    icon: 'hammer',
   })
 
   cards.slice(0, limit).forEach(card => {
     links.push({
       label: card.name,
       path: `/card/official/${card.id}`,
-      breadcrumbs: ['Tools', 'Card Builder', 'Display'],
+      breadcrumbs: ['Official', 'Information'],
+      icon: 'stack',
     })
   })
 
@@ -104,6 +116,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: `SWCC Season ${contest.season} week ${contest.week} ${contest.name}`,
       path: `/card/${contest.winner.id}/display`,
       breadcrumbs: ['Community', 'Contests'],
+      icon: 'trophy',
     })
   })
 
@@ -111,36 +124,42 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Weekly Card Contest',
     path: '/card/contest',
     breadcrumbs: ['Community', 'Contests'],
+    icon: 'trophy',
   })
 
   links.push({
     label: 'Card Statistics',
     path: '/card/stats',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'stack',
   })
 
   links.push({
     label: 'Card Changelog',
     path: '/changelog',
     breadcrumbs: ['Official', 'Updates'],
+    icon: 'bullhorn',
   })
 
   links.push({
     label: 'Card Collection',
     path: '/collection',
     breadcrumbs: ['Your Content'],
+    icon: 'stack',
   })
 
   links.push({
     label: 'Card Collection Statistics',
     path: '/collection/stats',
     breadcrumbs: ['Your Content'],
+    icon: 'stack',
   })
 
   links.push({
     label: 'Deck Builder',
     path: '/deck',
     breadcrumbs: ['Tools', 'Builders'],
+    icon: 'stack',
   })
 
   decks.slice(0, limit).forEach(deck => {
@@ -148,12 +167,14 @@ const getSearchIndex = async (withEverything = true) => {
       label: deck.name,
       path: `/deck/${deck.id}/detail`,
       breadcrumbs: ['Tools', 'Builders', 'Detail'],
+      icon: 'stack',
     })
 
     links.push({
       label: deck.name,
       path: `/deck/${deck.id}`,
       breadcrumbs: ['Tools', 'Builders', 'Editor'],
+      icon: 'stack',
     })
   })
 
@@ -161,57 +182,71 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Deck Collection',
     path: '/deck/collection',
     breadcrumbs: ['Your Content'],
+    icon: 'stack',
   })
 
   links.push({
     label: 'Featured Decks',
     path: '/deck/featured',
     breadcrumbs: ['Community', 'Meta'],
+    icon: 'stack',
   })
 
   links.push({
     label: 'Fan Art',
     path: '/fan-art',
     breadcrumbs: ['Community', 'Discover'],
+    icon: 'image',
   })
 
   links.push({
     label: 'Fan-Kit',
     path: '/fan-kit',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'image',
   })
 
   links.push({
     label: 'Fan-Kit Avatars',
     path: '/fan-kit/avatars',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'image',
   })
 
   links.push({
     label: 'Fan-Kit Books',
     path: '/fan-kit/books',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'image',
   })
 
   links.push({
     label: 'Fan-Kit Cards',
     path: '/fan-kit/cards',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'image',
   })
 
   links.push({
     label: 'Fan-Kit Desktop Wallpapers',
     path: '/fan-kit/wallpapers/desktop',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'image',
   })
 
   links.push({
     label: 'Fan-Kit Mobile Wallpapers',
     path: '/fan-kit/wallpapers/mobile',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'image',
   })
 
-  links.push({ label: 'FAQ', path: '/faq', breadcrumbs: ['Home'] })
+  links.push({
+    label: 'FAQ',
+    path: '/faq',
+    breadcrumbs: ['Home'],
+    icon: 'info',
+  })
 
   Object.keys(GUIDE_CATEGORIES)
     .slice(0, limit)
@@ -221,6 +256,7 @@ const getSearchIndex = async (withEverything = true) => {
         label: category.name.long,
         path: '/guides/' + category.slug,
         breadcrumbs: ['Guides'],
+        icon: 'compass',
       })
     })
 
@@ -229,6 +265,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: guide.name,
       path: '/guides/' + guide.slug,
       breadcrumbs: ['Guides', GUIDE_CATEGORIES[guide.category].name.short],
+      icon: 'compass',
     })
   })
 
@@ -236,36 +273,42 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Known Bugs',
     path: '/known-bugs',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'library',
   })
 
   links.push({
     label: 'Lexicon',
     path: '/lexicon',
     breadcrumbs: ['Official', 'Information'],
+    icon: 'library',
   })
 
   links.push({
     label: 'List Builder',
     path: '/list',
     breadcrumbs: ['Tools', 'Builders'],
+    icon: 'hammer',
   })
 
   links.push({
     label: 'Equals List',
     path: '/list/equals',
     breadcrumbs: ['Community', 'Meta'],
+    icon: 'star',
   })
 
   links.push({
     label: 'Ranked List',
     path: '/list/ranked',
     breadcrumbs: ['Community', 'Meta'],
+    icon: 'star',
   })
 
   links.push({
     label: 'Members',
     path: '/members',
     breadcrumbs: ['Community', 'Discover'],
+    icon: 'users',
   })
 
   users.slice(0, limit).forEach(user => {
@@ -273,6 +316,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: user.name,
       path: '/members/' + user.slug,
       breadcrumbs: ['Community', 'Discover'],
+      icon: 'users',
     })
   })
 
@@ -280,12 +324,14 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Quest Builder',
     path: '/quest',
     breadcrumbs: ['Tools', 'Builders'],
+    icon: 'hammer',
   })
 
   links.push({
     label: 'Releases',
     path: '/releases',
     breadcrumbs: ['Official', 'Updates'],
+    icon: 'bullhorn',
   })
 
   releases.slice(0, limit).forEach(release => {
@@ -293,6 +339,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: release.title,
       path: '/releases/' + release.slug,
       breadcrumbs: ['Official', 'Updates'],
+      icon: 'bullhorn',
     })
   })
 
@@ -300,6 +347,7 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Battle Simulator',
     path: '/simulators/battle',
     breadcrumbs: ['Tools', 'Simulators'],
+    icon: 'wand',
   })
 
   puzzles.slice(0, limit).forEach(puzzle => {
@@ -307,6 +355,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: puzzle.name,
       path: `/simulators/battle/${puzzle.board}/display`,
       breadcrumbs: ['Community', 'Contest'],
+      icon: 'trophy',
     })
   })
 
@@ -314,24 +363,28 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Puzzles',
     path: '/simulators/battle/puzzles',
     breadcrumbs: ['Community', 'Contest'],
+    icon: 'trophy',
   })
 
   links.push({
     label: 'Books Simulator',
     path: '/simulators/books',
     breadcrumbs: ['Tools', 'Simulators'],
+    icon: 'wand',
   })
 
   links.push({
     label: 'Draft Simulator',
     path: '/simulators/draft',
     breadcrumbs: ['Tools', 'Simulators'],
+    icon: 'wand',
   })
 
   links.push({
     label: 'Stories',
     path: '/stories',
     breadcrumbs: ['Stories'],
+    icon: 'quill',
   })
 
   Object.keys(STORY_CATEGORIES)
@@ -341,6 +394,7 @@ const getSearchIndex = async (withEverything = true) => {
         label: STORY_CATEGORIES[category].title,
         path: '/stories/' + category,
         breadcrumbs: ['Stories'],
+        icon: 'quill',
       })
     })
 
@@ -349,6 +403,7 @@ const getSearchIndex = async (withEverything = true) => {
       label: story.title,
       path: `/stories/${story.slug}`,
       breadcrumbs: ['Stories', STORY_CATEGORIES[story.category].title],
+      icon: 'quill',
     })
   })
 
@@ -356,18 +411,21 @@ const getSearchIndex = async (withEverything = true) => {
     label: 'Tournaments Hall of Fame',
     path: '/tournaments/hall-of-fame',
     breadcrumbs: ['Community', 'Contests'],
+    icon: 'trophy',
   })
 
   links.push({
     label: 'Trivia Game',
     path: '/trivia',
     breadcrumbs: ['Community', 'Contests'],
+    icon: 'trophy',
   })
 
   links.push({
     label: 'YouTube Channels',
     path: '/videos',
     breadcrumbs: ['Community', 'Discover'],
+    icon: 'youtube',
   })
 
   return links

@@ -1,43 +1,14 @@
+const dialog = {
+  width: '850px',
+}
+
 const body = {
+  medium: { padding: 'var(--s-large)' },
+}
+
+const inputWrapper = {
   position: 'relative',
-  marginBottom: 'var(--s-base)',
 }
-
-const arrow = {
-  fontSize: '80%',
-  transform: 'translateY(1px)',
-  margin: '0 0.75ch',
-}
-
-const meta = {
-  display: 'block',
-  opacity: 0.8,
-}
-
-const list = ({ isOpen }) => ({
-  listStyleType: 'none',
-  padding: 0,
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  zIndex: 10,
-  border: '1px solid ' + (isOpen ? 'var(--dark-beige)' : 'transparent'),
-  backgroundColor: 'var(--dark-blue)',
-  borderRadius: '4px',
-  top: 'calc(100% - 0.5em)',
-  boxShadow: isOpen
-    ? '0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)'
-    : undefined,
-
-  ':empty': { borderColor: 'transparent' },
-})
-
-const item = ({ isHighlighted, isSelected }) => ({
-  padding: 'var(--s-smaller)',
-  backgroundColor: isHighlighted ? '#0000001a' : 'transparent',
-  fontWeight: isSelected ? 'bold' : 'normal',
-  textAlign: 'left',
-})
 
 const inputLoaderContainer = {
   margin: 0,
@@ -53,14 +24,100 @@ const inputLoader = {
   width: '2em',
 }
 
+const searchIcon = {
+  margin: 0,
+  position: 'absolute',
+  top: '50%',
+  left: '1em',
+  transform: 'translateY(-50%)',
+  color: 'var(--dark-beige)',
+  transition: '200ms color',
+}
+
+const input = {
+  paddingLeft: '2.5em',
+
+  ':focus + svg': {
+    color: 'inherit',
+  },
+}
+
+const list = {
+  position: 'relative',
+  listStyleType: 'none',
+  padding: 0,
+  margin: 'var(--s-base) calc(var(--s-large) * -1)',
+  display: 'flex',
+  flexWrap: 'wrap',
+
+  medium: {
+    '::before': {
+      content: '""',
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '1px',
+      height: '100%',
+      background:
+        'linear-gradient(to bottom, transparent, var(--dark-beige), transparent)',
+    },
+  },
+}
+
+const item = {
+  flex: '1 1 100%',
+  padding: 'var(--s-small) var(--s-large)',
+  textAlign: 'left',
+
+  medium: {
+    flex: '1 1 50%',
+  },
+}
+
+const icon = {
+  position: 'relative',
+  top: '0.225em',
+  fontSize: '200%',
+  opacity: 0.5,
+  color: 'var(--beige)',
+}
+
+const meta = {
+  display: 'block',
+  opacity: 0.8,
+  fontSize: '90%',
+}
+
+const arrow = {
+  fontSize: '80%',
+  transform: 'translateY(1px)',
+  margin: '0 0.5ch',
+}
+
+const hint = {
+  fontSize: '90%',
+  marginBottom: 0,
+
+  medium: {
+    marginTop: 'var(--s-large)',
+  },
+}
+
 const styles = {
-  arrow,
-  meta,
-  list,
-  item,
+  dialog,
   body,
+  inputWrapper,
   inputLoaderContainer,
   inputLoader,
+  searchIcon,
+  input,
+  list,
+  item,
+  icon,
+  meta,
+  arrow,
+  hint,
 }
 
 export default styles

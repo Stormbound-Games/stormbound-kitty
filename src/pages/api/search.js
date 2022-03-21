@@ -20,9 +20,13 @@ const getRegistry = async () => {
 export default async function handler(request, response) {
   const registry = await getRegistry()
   const index = new Fuse(registry, {
-    keys: ['label'],
+    keys: [
+      { name: 'label', weight: 0.7 },
+      { name: 'breadcrumbs', weight: 0.3 },
+    ],
     minMatchCharLength: 3,
     isCaseSensitive: false,
+    includeScore: true,
   })
 
   try {
@@ -31,10 +35,7 @@ export default async function handler(request, response) {
     return response.status(429).json({ message: 'Too many requests' })
   }
 
-  return response.status(200).json(
-    index
-      .search(request.query.s)
-      .slice(0, 5)
-      .map(entry => entry.item)
-  )
+  return response
+    .status(200)
+    .json(index.search(request.query.search.trim()).slice(0, 6))
 }
