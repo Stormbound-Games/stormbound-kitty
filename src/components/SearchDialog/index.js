@@ -119,7 +119,11 @@ export default React.memo(function SearchDialog(props) {
       <div>
         <ul className={css(styles.list)}>
           {results.map(result => (
-            <li key={result.path} className={css(styles.item)}>
+            <li
+              key={result.path}
+              className={css(styles.item)}
+              data-testid='search-result'
+            >
               <FeedEntry
                 icon={result.icon}
                 right={
