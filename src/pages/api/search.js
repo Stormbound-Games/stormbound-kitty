@@ -23,6 +23,7 @@ export default async function handler(request, response) {
     keys: ['label'],
     minMatchCharLength: 3,
     isCaseSensitive: false,
+    includeScore: true,
   })
 
   try {
