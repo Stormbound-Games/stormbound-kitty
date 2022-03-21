@@ -15,7 +15,7 @@ export default function Custom404({ settings, ...props }) {
     <Layout active={[]} settings={settings}>
       <Error {...props} error='404 — Page Not Found' />
       <Script id='404-tracking' strategy='lazyOnload'>
-        {`if (plausible) plausible("404", { props: { path: document.location.pathname } });`}
+        {`if (window.plausible) window.plausible("404", { props: { path: document.location.pathname } });`}
       </Script>
     </Layout>
   )
