@@ -33,7 +33,7 @@ export default async function handler(request, response) {
 
   return response.status(200).json(
     index
-      .search(request.query.s)
+      .search(request.query.s.trim())
       .slice(0, 5)
       .map(entry => entry.item)
   )
