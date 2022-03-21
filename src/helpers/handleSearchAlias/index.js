@@ -1,15 +1,35 @@
 const handleSearchAlias = term => {
   switch (term.toLowerCase()) {
-    case 'kepp':
-      return ['id', 'S4']
-    case 'ayanami':
-      return ['id', 'W5']
+    case 'arano':
+      return ['id', 'N48']
+    case 'aspareforyou':
+      return ['id', 'N6']
+    case 'conflicter':
+      return ['id', 'N10']
+    case 'dansu':
+      return ['id', 'N51']
     case 'emkaem':
       return ['id', 'I13']
+    case 'fosen':
     case 'frozenearth':
       return ['id', 'W15']
+    case 'gale':
+      return ['id', 'I7']
+    case 'kahrua':
+    case 'ayanami':
+      return ['id', 'W5']
+    case 'kepp':
+      return ['id', 'S4']
     case 'kitty':
       return ['id', 'N86']
+    case 'ludo88':
+      return ['id', 'N43']
+    case 'omer':
+      return ['id', 'S12']
+    case 'sunny':
+      return ['id', 'F19']
+    case 'wander':
+      return ['id', 'F9']
     case 'struct':
       return ['type', 'structure']
     case 'ic':
