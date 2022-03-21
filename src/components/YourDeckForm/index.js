@@ -22,7 +22,13 @@ const validateDeckId = (cardsIndex, cardsIndexBySid, id) => {
   // is Good Enough™. Anyway, if it’s a SBID, convert it to a SKID and call the
   // function again to check if it’s valid.
   if (/[=+]/.test(id) || /[A-Z]/.test(id)) {
-    return validateDeckId(convertToSkId(cardsIndexBySid, id))
+    try {
+      const skid = convertToSkId(cardsIndexBySid, id)
+
+      return validateDeckId(cardsIndex, cardsIndexBySid, skid)
+    } catch {
+      return false
+    }
   }
 
   return serialization.deck
