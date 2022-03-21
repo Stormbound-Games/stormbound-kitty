@@ -105,7 +105,6 @@ export default React.memo(function SearchDialog(props) {
           }}
           data-testid='search-input'
           hideLabel
-          autoFocus
           extend={styles.input}
         />
         <Icon icon='search' extend={styles.searchIcon} />
