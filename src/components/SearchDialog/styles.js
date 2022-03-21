@@ -24,6 +24,24 @@ const inputLoader = {
   width: '2em',
 }
 
+const searchIcon = {
+  margin: 0,
+  position: 'absolute',
+  top: '50%',
+  left: '1em',
+  transform: 'translateY(-50%)',
+  color: 'var(--dark-beige)',
+  transition: '200ms color',
+}
+
+const input = {
+  paddingLeft: '2.5em',
+
+  ':focus + svg': {
+    color: 'inherit',
+  },
+}
+
 const list = {
   position: 'relative',
   listStyleType: 'none',
@@ -92,6 +110,8 @@ const styles = {
   inputWrapper,
   inputLoaderContainer,
   inputLoader,
+  searchIcon,
+  input,
   list,
   item,
   icon,
