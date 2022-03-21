@@ -21,7 +21,7 @@ fetchDocuments()
 const PREVIEW_PATH = '/api/preview'
 const PREVIEW_TOKEN = process.env.SANITY_STUDIO_PREVIEW_TOKEN
 const PREVIEW_DOMAIN =
-  process.env.SANITY_ACTIVE_ENV === 'production'
+  process.env.SANITY_STUDIO_ENVIRONMENT === 'production'
     ? 'https://stormbound-kitty.com'
     : 'http://localhost:3000'
 
