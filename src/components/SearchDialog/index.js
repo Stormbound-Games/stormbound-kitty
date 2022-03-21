@@ -125,7 +125,7 @@ export default React.memo(function SearchDialog(props) {
                 icon={result.icon}
                 right={
                   <span className={css({ opacity: 0.6 })}>
-                    Rlv.
+                    <abbr title='Relevance score out of 1'>Rlv.</abbr>
                     <br />
                     {(1 - result.score).toFixed(2)}
                   </span>
