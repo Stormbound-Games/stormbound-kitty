@@ -22,7 +22,7 @@ const deserializeDeck = (cardsIndexBySid, hash) => {
     // converted to a Stormbound-Kitty deck ID before being decoded. Note that
     // we pass the base64 hash, and not the decoded string, as `convertToSkId`
     // expects a base 64 value.
-    if (/^\d((b|s|u|ud|ue|ut)\d+)+$/.test(string)) {
+    if (/^\d((b|s|u|ua|ud|ue|ut)\d+)+$/.test(string)) {
       const deckId = convertToSkId(cardsIndexBySid, hash)
 
       return serialization.cards.deserialize(deckId)
