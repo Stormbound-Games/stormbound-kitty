@@ -25,6 +25,8 @@ const findSameEntry = (current, array) => {
 const preserveDrafts = (current, _, array) =>
   findSameEntry(current, array) ? isDraftEntry(current) : true
 
+const withoutSanityId = ({ _id, ...entry }) => entry
+
 export const getEntry = async ({
   conditions,
   fields,
@@ -42,8 +44,9 @@ export const getEntry = async ({
 
   if (options.isPreview) {
     const entries = await previewClient.fetch(query, params)
+    const entry = entries.find(isDraftEntry) || entries.find(isPublishedEntry)
 
-    return entries.find(isDraftEntry) || entries.find(isPublishedEntry)
+    return withoutSanityId(entry)
   }
 
   return client.fetch(query, params)
@@ -59,22 +62,27 @@ export const getEntries = async ({
   const sanityClient = options.isPreview ? previewClient : client
   const entries = await sanityClient.fetch(query, params)
 
-  return options.isPreview ? entries.filter(preserveDrafts) : entries
+  return options.isPreview
+    ? entries.filter(preserveDrafts).map(withoutSanityId)
+    : entries
 }
 
 const createQuery = ({ conditions, fields = '...', options = {} }) => {
   const slice = typeof options.slice !== 'undefined' ? `[${options.slice}]` : ''
   const order = options.order ? `| order(${options.order})` : ''
 
-  if (
-    options.isPreview &&
-    // This regular expression is certainly not bulletproof, but is a decent way
-    // to figure out whether the `_id` field has been queried as is (not
-    // aliased, e.g. `"id": _id`).
-    !(/(^|\n|,)\s*_id/.test(fields) || fields.includes('...'))
-  ) {
-    fields = `_id, ${fields}`
-  }
-
-  return `*[${conditions.join(' && ')}] { ${fields} } ${order} ${slice}`
+  return [
+    `*[${conditions.join(' && ')}]`,
+    '{',
+    // The `_id` field is necessary when the preview mode is enabled, as it is
+    // used to pick drafts over published entries. It’s hard to determine
+    // whether it is already requested or not though, so we always add it.
+    options.isPreview ? '_id, ' : '',
+    fields,
+    '}',
+    order,
+    slice,
+  ]
+    .filter(Boolean)
+    .join(' ')
 }
