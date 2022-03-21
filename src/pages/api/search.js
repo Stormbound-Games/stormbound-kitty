@@ -20,7 +20,10 @@ const getRegistry = async () => {
 export default async function handler(request, response) {
   const registry = await getRegistry()
   const index = new Fuse(registry, {
-    keys: ['label'],
+    keys: [
+      { name: 'label', weight: 0.7 },
+      { name: 'breadcrumbs', weight: 0.3 },
+    ],
     minMatchCharLength: 3,
     isCaseSensitive: false,
     includeScore: true,
