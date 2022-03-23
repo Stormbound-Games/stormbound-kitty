@@ -38,7 +38,7 @@ const item = ({ isEditable }) => ({
 const image = {
   maxWidth: '3em',
   maxHeight: '3em',
-  marginLeft: '0 var(--s-small)',
+  margin: 0,
   objectFit: 'contain',
   pointerEvents: 'none' /* 1 */,
 }
@@ -53,6 +53,7 @@ const name = { display: 'block' }
 
 const meta = {
   opacity: 0.7,
+  fontSize: '90%',
 }
 
 const button = {
