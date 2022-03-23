@@ -1,6 +1,16 @@
 import React from 'react'
-import FAQSection from '~/components/FAQSection'
+import FAQEntry from '~/components/FAQEntry'
 
 export default React.memo(function BlockFAQ(props) {
-  return <FAQSection id='faq' title='FAQ' entries={props.value.entries || []} />
+  const entries = props.value.entries || []
+
+  if (entries.length === 0) return null
+
+  return (
+    <dl>
+      {entries.map(entry => (
+        <FAQEntry key={entry.question} {...entry} />
+      ))}
+    </dl>
+  )
 })
