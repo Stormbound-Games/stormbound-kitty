@@ -38,7 +38,7 @@ _type == "columns" => {
 _type == "battleSim" => { content[] { ${block} } },
 _type == "card" => { ..., ${card} },
 _type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
-_type == "faq" => { entries[] { id, question, answer[] { ${block} } } },
+_type == "faq" => { entries[] { "id": id.current, question, answer[] { ${block} } } },
 _type == "info" => { content[] { ${block} } },
 _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
 _type == "nerfCompensation" => { "cards": cards[] -> { id }.id },
