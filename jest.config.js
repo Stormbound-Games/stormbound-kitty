@@ -41,5 +41,6 @@ module.exports = async () => {
       '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
     },
     transformIgnorePatterns: ['/node_modules/'],
+    testTimeout: 10000,
   }
 }
