@@ -36,7 +36,12 @@ const Sparkles = props => {
       {sparkles.map(sparkle => (
         <Sparkle key={sparkle.id} {...sparkle} />
       ))}
-      {props.children}
+      {/*
+       * This <span> is not necessary per se but prevents a page crash when
+       * running Google Translate. See:
+       * https://github.com/facebook/react/issues/11538#issuecomment-390386520
+       */}
+      <span>{props.children}</span>
     </span>
   )
 }
