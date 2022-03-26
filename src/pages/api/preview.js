@@ -6,6 +6,7 @@ import getGuide from '~/api/guides/getGuide'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import getRelease from '~/api/releases/getRelease'
 import getStory from '~/api/stories/getStory'
+import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
 import getUser from '~/api/users/getUser'
 
 const PREVIEW_MODE_DURATION = 60 * 60
@@ -87,6 +88,12 @@ const getRedirectUrl = async params => {
       const story = await getStory(params)
 
       return story ? `/stories/${story.slug}` : null
+    }
+
+    case 'SWCC': {
+      const swcc = await getSWCCFromCard(params)
+
+      return swcc ? `/card/${swcc.winner.id}/display` : null
     }
 
     case 'tournament':

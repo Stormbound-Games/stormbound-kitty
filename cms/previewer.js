@@ -43,12 +43,10 @@ export default function resolvePageURL(document) {
     })
 
   switch (document._type) {
-    case 'card':
-      return getPreviewURL({ id: document.id })
-
     case 'changelog':
       return getPreviewURL({ id: CARDS.get(document.card._ref) })
 
+    case 'card':
     case 'deck':
       return getPreviewURL({ id: document.id })
 
@@ -61,6 +59,9 @@ export default function resolvePageURL(document) {
     case 'story':
     case 'user':
       return getPreviewURL({ slug: document.slug?.current })
+
+    case 'SWCC':
+      return getPreviewURL({ id: document.winner.id })
 
     default:
       return getPreviewURL({})
