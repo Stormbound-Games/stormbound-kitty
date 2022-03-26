@@ -385,9 +385,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N43', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N43', 5)
     expect(value1[0]).toEqual((5 / 6) * 0.5)
-    expect(value1[1]).toEqual(((5 + 1 * 6) / 6) * 0.5)
+    expect(value1[1]).toEqual(((5 + 1 * 6) / 6) * 1)
     expect(value5[0]).toEqual((10 / 6) * 0.5)
-    expect(value5[1]).toEqual(((10 + 3 * 6) / 6) * 0.5)
+    expect(value5[1]).toEqual(((10 + 3 * 6) / 6) * 1)
   })
 
   it('should return value for Needle Blast', () => {
@@ -883,9 +883,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Eloth the Ignited', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I17', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I17', 5)
-    expect(value1[0]).toEqual((5 / 5) * 2)
+    expect(value1[0]).toEqual((5 / 5) * 0.5)
     expect(value1[1]).toEqual(((5 + 3) / 5) * 2)
-    expect(value5[0]).toEqual((10 / 5) * 2)
+    expect(value5[0]).toEqual((10 / 5) * 0.5)
     expect(value5[1]).toEqual(((10 + 7) / 5) * 2)
   })
 
@@ -1190,18 +1190,18 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F23', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F23', 5)
     expect(value1[0]).toEqual((5 / 8) * 0.5)
-    expect(value1[1]).toEqual(((5 + 19 * 5 * 2) / 8) * 0.5)
+    expect(value1[1]).toEqual(((5 + 10 * 5 * 2) / 8) * 2)
     expect(value5[0]).toEqual((10 / 8) * 0.5)
-    expect(value5[1]).toEqual(((10 + 19 * 10 * 2) / 8) * 0.5)
+    expect(value5[1]).toEqual(((10 + 10 * 10 * 2) / 8) * 2)
   })
 
   it('should return value for Clerics with Cords', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F24', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F24', 5)
     expect(value1[0]).toEqual((3 / 4) * 0.5)
-    expect(value1[1]).toEqual(((3 + 2 * 2) / 4) * 0.5)
+    expect(value1[1]).toEqual(((3 + 2 * 2) / 4) * 1)
     expect(value5[0]).toEqual((7 / 4) * 0.5)
-    expect(value5[1]).toEqual(((7 + 6 * 2) / 4) * 0.5)
+    expect(value5[1]).toEqual(((7 + 6 * 2) / 4) * 1)
   })
 
   it('should return value for Limelimbs', () => {
@@ -1433,9 +1433,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'S22', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'S22', 5)
     expect(value1[0]).toEqual((3 / 6) * 1.75)
-    expect(value1[1]).toEqual(((3 + 1 * 3) / 6) * 1.75)
+    expect(value1[1]).toEqual(((3 + 1 * 1.75) / 6) * 1.75)
     expect(value5[0]).toEqual((6 / 6) * 1.75)
-    expect(value5[1]).toEqual(((6 + 2 * 3) / 6) * 1.75)
+    expect(value5[1]).toEqual(((6 + 2 * 1.75) / 6) * 1.75)
   })
 
   it('should return value for Lasting Remains', () => {
@@ -1654,13 +1654,13 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).toEqual(((9 + 12) / 7) * 1.5)
   })
 
-  it.skip('should return value for Gift of the Wise', () => {
+  it('should return value for Gift of the Wise', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W19', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W19', 5)
-    expect(value1[0]).toEqual()
-    expect(value1[1]).toEqual()
-    expect(value5[0]).toEqual()
-    expect(value5[1]).toEqual()
+    expect(value1[0]).toEqual(2)
+    expect(value1[1]).toEqual(2)
+    expect(value5[0]).toEqual(6)
+    expect(value5[1]).toEqual(6)
   })
 
   it('should return value for Calming Spirits', () => {
@@ -1747,9 +1747,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Iceflakes', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W31', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W31', 5)
-    expect(value1[0]).toEqual((3 / 2) * 0.5)
-    expect(value1[1]).toEqual((3 / 2) * 0.5)
-    expect(value5[0]).toEqual((7 / 2) * 0.5)
-    expect(value5[1]).toEqual((7 / 2) * 0.5)
+    expect(value1[0]).toEqual((3 / 2) * -0.5)
+    expect(value1[1]).toEqual((3 / 2) * -0.5)
+    expect(value5[0]).toEqual((7 / 2) * -0.5)
+    expect(value5[1]).toEqual((7 / 2) * -0.5)
   })
 })

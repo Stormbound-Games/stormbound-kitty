@@ -1,11 +1,20 @@
 import getResolvedCardData from '~/helpers/getResolvedCardData'
+import getEffectiveSpeed from '~/helpers/getEffectiveSpeed'
 import { RACES } from '~/constants/game'
 import { UNVALUED_CARDS } from '~/constants/misc'
 
 export const MAX_MANA = 30
 export const MAX_TILES = 10
 const RACE_COUNT = RACES.length + 3
-const MOVEMENT = [0.5, 1, 1.5, 1.75, 2]
+
+const getSpeedFactor = movement => {
+  if (!movement) return 0.5
+  if (movement <= 1) return movement
+  if (movement <= 2) return 1.5
+  if (movement <= 3) return 1.75
+  if (movement > 3) return 2
+  return 1
+}
 
 const parseAbility = (ability, index = 0) =>
   ability.match(/(\d+)/g).map(Number)[index]
@@ -18,7 +27,7 @@ const getCardValue = (cardsIndex, id, level = 1) => {
   if (!cardData) return null
 
   const { strength, mana, ability, type, movement } = cardData
-  const speed = MOVEMENT[movement || 0] || 1
+  const speed = getSpeedFactor(getEffectiveSpeed(cardData))
   const { strength: MAX_STRENGTH } = getResolvedCardData(cardsIndex, {
     id: 'I26',
     level,
@@ -68,15 +77,15 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'W13': /* Rockworkers */ {
       return [
-        (strength / mana) * speed,
-        ((strength + parseAbility(ability)) / mana) * MOVEMENT[1],
+        (strength / mana) * getSpeedFactor(0),
+        ((strength + parseAbility(ability)) / mana) * getSpeedFactor(1),
       ]
     }
     case 'S16': /* Dreadfauns */ {
       const [spawns, value] = ability.match(/(\d+)/g).map(Number)
       return [
-        (strength / mana) * speed,
-        ((strength + spawns * value) / mana) * MOVEMENT[1],
+        (strength / mana) * getSpeedFactor(0),
+        ((strength + spawns * value) / mana) * getSpeedFactor(1),
       ]
     }
     case 'N8': /* Collector Mirz */ {
@@ -110,18 +119,27 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     case 'N65': /* Razor-Sharp Lynxes */ {
       const [strengthBuff, speedBuff] = ability.match(/(\d+)/g).map(Number)
       const buffedStrength = (strength + (strength + strengthBuff)) / 2
-      const buffedSpeed = (speed + MOVEMENT[movement + speedBuff]) / 2
+      const buffedSpeed = (speed + getSpeedFactor(movement + speedBuff)) / 2
       return [(strength / mana) * speed, (buffedStrength / mana) * buffedSpeed]
     }
     case 'I9': /* Sound Drivers */
     case 'N66': /* Bigthrust Tigers */ {
-      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[4]]
+      return [
+        (strength / mana) * getSpeedFactor(0),
+        (strength / mana) * getSpeedFactor(4),
+      ]
     }
     case 'N67': /* Wild Saberpaws */ {
-      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[2]]
+      return [
+        (strength / mana) * getSpeedFactor(0),
+        (strength / mana) * getSpeedFactor(2),
+      ]
     }
     case 'N68': /* Twilight Prowlers */ {
-      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[3]]
+      return [
+        (strength / mana) * getSpeedFactor(0),
+        (strength / mana) * getSpeedFactor(3),
+      ]
     }
     case 'N23': /* Hunter’s Vengeance */ {
       const strength = parseAbility(ability)
@@ -219,8 +237,8 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'N43': /* Ludic Matriarchs */ {
       return [
-        (strength / mana) * speed,
-        ((strength + parseAbility(ability) * 6) / mana) * speed,
+        (strength / mana) * getSpeedFactor(0),
+        ((strength + parseAbility(ability) * 6) / mana) * getSpeedFactor(1),
       ]
     }
     case 'F14': /* Witches of the Wild */
@@ -253,8 +271,8 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'F1': /* Brood Sages */ {
       return [
-        (strength / mana) * speed,
-        ((strength + 1 * 10) / mana) * MOVEMENT[1],
+        (strength / mana) * getSpeedFactor(0),
+        ((strength + 1 * 10) / mana) * getSpeedFactor(1),
       ]
     }
     case 'F4': /* Toxic Sacrifice */ {
@@ -299,8 +317,8 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'I17': /* Eloth the Ignited */ {
       return [
-        (strength / mana) * MOVEMENT[4],
-        ((strength + parseAbility(ability)) / mana) * MOVEMENT[4],
+        (strength / mana) * getSpeedFactor(0),
+        ((strength + parseAbility(ability)) / mana) * getSpeedFactor(4),
       ]
     }
     case 'I19': /* Siege Assembly */ {
@@ -311,7 +329,12 @@ const getCardValue = (cardsIndex, id, level = 1) => {
       const value = parseAbility(ability)
       return [value / mana, (value * 5) / mana]
     }
-    case 'F24': /* Clerics with Cords */
+    case 'F24': /* Clerics with Cords */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 2) / mana) * getSpeedFactor(1),
+      ]
+    }
     case 'I16': /* Debug Loggers */
     case 'F16': /* Feral Shamans */
     case 'F15': /* Amberhides */
@@ -352,6 +375,10 @@ const getCardValue = (cardsIndex, id, level = 1) => {
         ((strength + value * 18) / mana) * speed,
       ]
     }
+    case 'W19': /* Gift of the Wise */ {
+      const value = parseAbility(ability)
+      return [Math.abs(mana - value), Math.abs(mana - value)]
+    }
     case 'W21': /* Visions of the Grove */ {
       const value = parseAbility(ability)
       const remainingMana = MAX_MANA - mana
@@ -381,7 +408,9 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     case 'F23': /* High-Priestess Klaxi */ {
       return [
         (strength / mana) * speed,
-        ((strength + 19 * parseAbility(ability) * 2) / mana) * speed,
+        ((strength + MAX_TILES * parseAbility(ability) * getSpeedFactor(4)) /
+          mana) *
+          getSpeedFactor(4),
       ]
     }
     case 'F28': /* Hairy Chestnuts */ {
@@ -397,7 +426,7 @@ const getCardValue = (cardsIndex, id, level = 1) => {
       ]
     }
     case 'S23': /* Lasting Remains */ {
-      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[4]]
+      return [(strength / mana) * speed, (strength / mana) * getSpeedFactor(4)]
     }
     case 'N74': /* Beards of Crowglyph */
     case 'F18': /* Soulcrushers */ {
@@ -411,8 +440,8 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'S1': /* Doppelbocks */ {
       return [
-        (strength / mana) * speed,
-        ((strength + parseAbility(ability)) / mana) * MOVEMENT[1],
+        (strength / mana) * getSpeedFactor(0),
+        ((strength + parseAbility(ability)) / mana) * speed,
       ]
     }
     case 'S7': /* Moonlit Aerie */ {
@@ -428,7 +457,7 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     case 'S19': /* Xuri, Lord of Life */ {
       return [
         (strength / mana) * speed,
-        ((strength + parseAbility(ability) * 3) / mana) * MOVEMENT[4],
+        ((strength + parseAbility(ability) * 3) / mana) * getSpeedFactor(4),
       ]
     }
     case 'S21': /* Queen of Herds */ {
@@ -446,12 +475,12 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     case 'S22': /* Vindicators */ {
       return [
         (strength / mana) * speed,
-        ((strength + parseAbility(ability) * movement) / mana) * speed,
+        ((strength + parseAbility(ability) * speed) / mana) * speed,
       ]
     }
     case 'S24': /* Head Start */ {
       const value = parseAbility(ability)
-      return [(value / mana) * MOVEMENT[0], (value / mana) * MOVEMENT[0]]
+      return [(value / mana) * speed, (value / mana) * speed]
     }
     case 'W17': /* Wolfcloaks */ {
       return [(1 / mana) * speed, (strength / mana) * speed]
@@ -496,17 +525,17 @@ const getCardValue = (cardsIndex, id, level = 1) => {
         ((strength + parseAbility(ability)) / mana) * speed,
       ]
     }
-    case 'I27': /* Scrapped Planners */ {
-      return [
-        (strength / mana) * speed,
-        ((strength - 1 + parseAbility(ability)) / mana) * speed,
-      ]
-    }
-    case 'I24': /* Scrapped Planners */ {
+    case 'I24': /* Mechanical Workers */ {
       const [health, spawn] = ability.match(/(\d)/g).map(Number)
       return [
         (strength / mana) * speed,
         ((strength + health + spawn) / mana) * speed,
+      ]
+    }
+    case 'I27': /* Scrapped Planners */ {
+      return [
+        (strength / mana) * speed,
+        ((strength - 1 + parseAbility(ability)) / mana) * speed,
       ]
     }
     case 'F17': /* Obsidian Butchers */ {
