@@ -28,6 +28,7 @@ import Home from '~/components/Icons/Home'
 import Image from '~/components/Icons/Image'
 import Info from '~/components/Icons/Info'
 import Library from '~/components/Icons/Library'
+import List from '~/components/Icons/List'
 import PagePlus from '~/components/Icons/PagePlus'
 import Pencil from '~/components/Icons/Pencil'
 import Power from '~/components/Icons/Power'
@@ -39,6 +40,7 @@ import Stack from '~/components/Icons/Stack'
 import Star from '~/components/Icons/Star'
 import SuperStar from '~/components/Icons/SuperStar'
 import Sword from '~/components/Icons/Sword'
+import Table from '~/components/Icons/Table'
 import Target from '~/components/Icons/Target'
 import Template from '~/components/Icons/Template'
 import Trophy from '~/components/Icons/Trophy'
@@ -78,6 +80,7 @@ const MAP = {
   image: Image,
   info: Info,
   library: Library,
+  list: List,
   'page-plus': PagePlus,
   pencil: Pencil,
   power: Power,
@@ -89,6 +92,7 @@ const MAP = {
   star: Star,
   'super-star': SuperStar,
   sword: Sword,
+  table: Table,
   target: Target,
   template: Template,
   trophy: Trophy,
