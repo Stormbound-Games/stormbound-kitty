@@ -8,28 +8,31 @@ import styles from './styles'
 
 export default React.memo(function ListHeader(props) {
   const { css } = useFela()
+  const sorting = props.sorting || []
 
   return (
     <div className={css(styles.header)}>
       <p className={css(styles.label)}>{props.children}</p>
       <div className={css(styles.sort)}>
-        <Select
-          id='order'
-          label='Sort by'
-          hideLabel
-          extend={styles.select}
-          value={props.order}
-          onChange={event => props.setOrder(event.target.value)}
-        >
-          <option value='' disabled>
-            Sort by…
-          </option>
-          {props.sorting.map(order => (
-            <option value={order.value} key={order.value}>
-              Sort by {order.title}
+        {sorting.length > 0 && (
+          <Select
+            id='order'
+            label='Sort by'
+            hideLabel
+            extend={styles.select}
+            value={props.order}
+            onChange={event => props.setOrder(event.target.value)}
+          >
+            <option value='' disabled>
+              Sort by…
             </option>
-          ))}
-        </Select>
+            {sorting.map(order => (
+              <option value={order.value} key={order.value}>
+                Sort by {order.title}
+              </option>
+            ))}
+          </Select>
+        )}
       </div>
       <div className={css(styles.layout)}>
         <BlankButton
