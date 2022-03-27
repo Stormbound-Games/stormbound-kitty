@@ -17,14 +17,19 @@ export default React.memo(function StoryCategory(props) {
   const [order, setOrder] = useLocalStorage('stories.order', 'DATE')
   const items = React.useMemo(
     () =>
-      props.stories.slice(0).sort((a, b) => {
-        if (order === 'TITLE') return a.title.localeCompare(b.title)
-        if (order === 'AUTHOR')
-          return a.author.name.localeCompare(b.author.name)
-        if (order === 'DATE') return parseDate(b.date) - parseDate(a.date)
-        return 0
-      }),
-    [props.stories, order]
+      // Sagas are returned in the right order from the server and therefore
+      // shouldn’t be sorted on the client. Additionally, the sorting option
+      // is removed.
+      props.isSaga
+        ? props.stories
+        : props.stories.slice(0).sort((a, b) => {
+            if (order === 'TITLE') return a.title.localeCompare(b.title)
+            if (order === 'AUTHOR')
+              return a.author.name.localeCompare(b.author.name)
+            if (order === 'DATE') return parseDate(b.date) - parseDate(a.date)
+            return 0
+          }),
+    [props.stories, props.isSaga, order]
   )
 
   return (
@@ -41,11 +46,15 @@ export default React.memo(function StoryCategory(props) {
           setLayout={setLayout}
           order={order}
           setOrder={setOrder}
-          sorting={[
-            { title: 'Date', value: 'DATE' },
-            { title: 'Title', value: 'TITLE' },
-            { title: 'Author', value: 'AUTHOR' },
-          ]}
+          sorting={
+            props.isSaga
+              ? null
+              : [
+                  { title: 'Date', value: 'DATE' },
+                  { title: 'Title', value: 'TITLE' },
+                  { title: 'Author', value: 'AUTHOR' },
+                ]
+          }
         >
           {items.length} {items.length === 1 ? 'story' : 'stories'}
         </ListHeader>
