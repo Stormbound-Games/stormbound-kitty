@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 
   return {
     paths: releases.map(release => ({ params: { slug: release.slug } })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 

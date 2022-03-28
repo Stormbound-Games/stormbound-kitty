@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 
   return {
     paths: guides.map(guide => ({ params: { slug: guide.slug } })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 

@@ -11,7 +11,7 @@ export async function getStaticPaths({ preview: isPreview = false }) {
   const stories = await getStories({ isPreview })
   const paths = stories.map(story => ({ params: { slug: story.slug } }))
 
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
