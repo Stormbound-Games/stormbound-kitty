@@ -15,7 +15,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const category = { ...STORY_CATEGORIES[name], id: name }
 
   return {
-    props: { category, settings, stories },
+    props: { category, settings, stories, isSaga: true },
     revalidate: 60 * 60 * 24 * 7,
   }
 }
