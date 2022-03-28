@@ -12,8 +12,15 @@ export default React.memo(function ListLayoutItem(props) {
     <Spacing key={props.title} vertical='BASE'>
       <FeedEntry icon={props.icon} date={props.date}>
         <p className={css(styles.primary)}>
-          <Link to={props.path}>{props.title}</Link> by{' '}
-          <Link to={'/members/' + props.author.slug}>{props.author.name}</Link>
+          <Link to={props.path}>{props.title}</Link>
+          {props.author ? (
+            <>
+              by{' '}
+              <Link to={'/members/' + props.author.slug}>
+                {props.author.name}
+              </Link>
+            </>
+          ) : null}
         </p>
         <p className={css(styles.secondary)}>{props.excerpt}</p>
       </FeedEntry>
