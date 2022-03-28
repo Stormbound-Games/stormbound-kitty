@@ -87,9 +87,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N10', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N10', 5)
     expect(value1[0]).toEqual((2 / 3) * 0.5)
-    expect(value1[1]).toEqual(((2 + 1 * 4) / 3) * 0.5)
+    expect(value1[1]).toEqual(((2 + 2 * 4) / 3) * 0.5)
     expect(value5[0]).toEqual((4 / 3) * 0.5)
-    expect(value5[1]).toEqual(((4 + 3 * 4) / 3) * 0.5)
+    expect(value5[1]).toEqual(((4 + 4 * 4) / 3) * 0.5)
   })
 
   it('should return value for Felflares', () => {
@@ -714,8 +714,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N82', 5)
     expect(value1[0]).toEqual((7 / 5) * 0.5)
     expect(value1[1]).toEqual((7 / 5) * 0.5)
-    expect(value5[0]).toEqual((16 / 5) * 0.5)
-    expect(value5[1]).toEqual((16 / 5) * 0.5)
+    expect(value5[0]).toEqual((14 / 5) * 0.5)
+    expect(value5[1]).toEqual((14 / 5) * 0.5)
   })
 
   it('should return value for Headless Hotheads', () => {

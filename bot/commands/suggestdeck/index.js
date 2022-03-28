@@ -33,7 +33,6 @@ const suggestdeck = {
       availableTags,
       message.toLowerCase()
     )
-    console.log(params)
     const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {

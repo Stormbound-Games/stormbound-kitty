@@ -27,7 +27,7 @@ describe('The `getEffectiveManaCost` helper', () => {
       getEffectiveManaCost(4)(
         getResolvedCardData(global.__CARDS_INDEX__, { id: 'W12', level: 1 })
       )
-    ).toEqual(5)
+    ).toEqual(4)
     expect(
       getEffectiveManaCost(5)(
         getResolvedCardData(global.__CARDS_INDEX__, { id: 'W12', level: 1 })
