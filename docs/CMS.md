@@ -3,6 +3,7 @@
 - [Previewing content](#previewing-content)
 - [Publishing content](#publishing-content)
 - [Undoing mistakes](#undoing-mistakes)
+- [Publishing release notes](#publishing-release-notes)
 
 ## Previewing content
 
@@ -33,3 +34,18 @@ Sanity is surprisingly resilient to mistakes. There are 3 levels of defense for 
 2. If the undesired content update has been published, click the “Current version” at the top right of the document, then find the previous “Published” version, click it, then click “Restore” at the bottom of the screen. This will essentially roll back the document to that version.
 
 3. If the undesired content update is irreversible, the whole database is backed up every 3 days, so Kitty can restore it to the latest stable version. That’s a little more complicated, but that’s a good way to recover from large mistakes.
+
+## Publishing release notes
+
+To publish new release notes, start by preparing every you need as a draft on the CMS: the release notes themselves, but also the new cards, the card changes, a news entry, etc.
+
+When you’re ready to publish the release notes, publish all the draft entries. It can take a bit of time depending on how many entries there are to publish, so plan ahead.
+
+Finally, when everything is published, trigger a production build. This is usually done by pushing some changes to the `main` branch. A new release typically involve updating some unit tests, so that’s a good time to do that.
+
+Summary:
+
+1. Work on the release notes and all related documents in drafts.
+2. Publish everything when finally ready.
+3. Update the tests on the `main` branch.
+4. This will cause a deployment that renews the content.
