@@ -29,10 +29,6 @@ const getEffectiveSpeed = card => {
     // using itself, so moves up 1 cell at most.
     case 'N86':
       return 1
-    // Erratic Neglects have 1 chance out of 5 to freeze themselves before
-    // moving, therefore their effective speed is 0.8.
-    case 'N89':
-      return 0.8
     // Twilight Prowlers are typically played on the base line to gain speed and
     // it’s very uncommon to not be able to play on the base line, so for all
     // intents and purposes, they have 3 movement.
