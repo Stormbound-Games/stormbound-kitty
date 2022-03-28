@@ -19,6 +19,11 @@ const icon = ({ iconColor = 'var(--beige)' }) => ({
   color: iconColor,
 })
 
+const image = {
+  maxWidth: '3em',
+  margin: 0,
+}
+
 const main = {
   marginTop: 0,
   color: 'var(--white)',
@@ -41,6 +46,7 @@ const styles = {
   entry,
   left,
   icon,
+  image,
   main,
   date,
   right,

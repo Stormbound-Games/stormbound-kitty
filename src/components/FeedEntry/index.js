@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '~/components/Icon'
+import Image from '~/components/Image'
 import { formatDate, formatPreciseDate } from '~/helpers/formatDate'
 import parseDate from '~/helpers/parseDate'
 import styles from './styles'
@@ -19,10 +20,15 @@ export default React.memo(function FeedEntry(props) {
   return (
     <div className={css(styles.entry, props.extend)}>
       <span className={css(styles.left)}>
-        <Icon
-          icon={props.icon}
-          extend={styles.icon({ iconColor: props.iconColor })}
-        />
+        {props.icon ? (
+          <Icon
+            icon={props.icon}
+            extend={styles.icon({ iconColor: props.iconColor })}
+          />
+        ) : null}
+        {props.image ? (
+          <Image src={props.image} alt='' extend={styles.image} />
+        ) : null}
       </span>
       <div className={css(styles.main)}>
         {isValidDate ? (
