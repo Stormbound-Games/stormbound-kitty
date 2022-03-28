@@ -76,10 +76,7 @@ export default React.memo(function CardChangelog(props) {
                   <ul className={css(styles.list)}>
                     {changesByDate[date]
                       .sort((a, b) =>
-                        sortCards()(
-                          cardsIndex[a.id].name,
-                          cardsIndex[b.id].name
-                        )
+                        sortCards()(cardsIndex[a.id], cardsIndex[b.id])
                       )
                       .map(change => (
                         <li

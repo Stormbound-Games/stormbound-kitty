@@ -25,8 +25,7 @@ export default React.memo(function FeedEntry(props) {
             icon={props.icon}
             extend={styles.icon({ iconColor: props.iconColor })}
           />
-        ) : null}
-        {props.image ? (
+        ) : props.image ? (
           <Image src={props.image} alt='' extend={styles.image} />
         ) : null}
       </span>
