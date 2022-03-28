@@ -61,11 +61,6 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Stormbound</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
-                      <Link href='https://paladinstudios.com/stormbound/'>
-                        Official site
-                      </Link>
-                    </li>
-                    <li className={css(styles.item)}>
                       <Link href='https://twitter.com/stormboundccg'>
                         Twitter
                       </Link>
@@ -83,6 +78,11 @@ export default React.memo(function Footer(props) {
                     <li className={css(styles.item)}>
                       <Link href='https://store.steampowered.com/app/790600/Stormbound/'>
                         Steam
+                      </Link>
+                    </li>
+                    <li className={css(styles.item)}>
+                      <Link href='https://stormbound.checklyhq.com/'>
+                        Service Status
                       </Link>
                     </li>
                   </ul>
