@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Card Builder — Hero', () => {
+describe('Card Builder — Ancient', () => {
   const assertCardAncient = index =>
     cy
       .get(s.CARD_PREVIEW)
