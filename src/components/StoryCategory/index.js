@@ -4,17 +4,15 @@ import Page from '~/components/Page'
 import Notice from '~/components/Notice'
 import Only from '~/components/Only'
 import ListHeader from '~/components/ListHeader'
-import Loader from '~/components/Loader'
 import Stories from '~/components/Stories'
 import parseDate from '~/helpers/parseDate'
-import useLocalStorage from '~/hooks/useLocalStorage'
 import useViewportSize from '~/hooks/useViewportSize'
 
 export default React.memo(function StoryCategory(props) {
   const { viewportWidth } = useViewportSize()
   const { title, background, shortName } = props.category
-  const [layout, setLayout] = useLocalStorage('stories.layout', 'GRID')
-  const [order, setOrder] = useLocalStorage('stories.order', 'DATE')
+  const [layout, setLayout] = React.useState('GRID')
+  const [order, setOrder] = React.useState('DATE')
   const items = React.useMemo(
     () =>
       // Sagas are returned in the right order from the server and therefore
