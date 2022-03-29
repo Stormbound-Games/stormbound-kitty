@@ -22,7 +22,7 @@ export default React.memo(function MemberToC(props) {
   const events = content.event || []
   const donations = content.donation || []
   const releases = content.release || []
-  const contributions = (content.contributions || []).reduce(
+  const contributions = (content.contribution || []).reduce(
     (acc, { entries }) => acc.concat(entries),
     []
   )
