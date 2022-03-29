@@ -23,7 +23,7 @@ describe('Dry-runner — Mana', () => {
       .drPlay('W12')
 
       .get(s.MANA)
-      .should('contain', 12)
+      .should('contain', 13)
 
       .drPlay('W10')
 
