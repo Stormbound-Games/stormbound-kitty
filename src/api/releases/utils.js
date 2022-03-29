@@ -6,7 +6,7 @@ title,
 date,
 "author": user -> { name, "slug": slug.current },
 "slug": slug.current,
-"cardId": card -> id,
+"cardId": card -> { "id": coalesce(id.current, id) }.id,
 excerpt
 `
 

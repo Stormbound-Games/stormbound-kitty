@@ -1,6 +1,6 @@
 const card = `
 "cardId": coalesce(
-  card -> id,
+  card -> { "id": coalesce(id.current, id) }.id,
   *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id.current,
   *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id,
   cardId
@@ -42,7 +42,7 @@ _type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
 _type == "faq" => { entries[] { "id": id.current, question, answer[] { ${block} } } },
 _type == "info" => { content[] { ${block} } },
 _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
-_type == "nerfCompensation" => { "cards": cards[] -> { id }.id },
+_type == "nerfCompensation" => { "cards": cards[] -> { "id": coalesce(id.current, id) }.id },
 `
 
 export default blocks
