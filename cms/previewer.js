@@ -7,7 +7,7 @@ let CARDS = new Map()
 
 const fetchDocuments = async () => {
   const cards = await client.fetch(
-    `*[_type == "card"] { _id, "id": coalesce(id.current, id) }`
+    `*[_type == "card"] { _id, "id": id.current }`
   )
 
   cards.forEach(card => {

@@ -1,6 +1,6 @@
 export const FIELDS = `
-"id": coalesce(id.current, id),
-"sid": coalesce(sid.current, sid),
+"id": id.current,
+"sid": sid.current,
 
 name,
 faction,
