@@ -3,7 +3,7 @@ import { FIELDS, MAPPER } from './utils'
 
 const getCard = async ({ id, isPreview } = {}) => {
   const card = await getEntry({
-    conditions: ['_type == "card"', 'coalesce(id.current, id) match $id'],
+    conditions: ['_type == "card"', 'id.current match $id'],
     fields: FIELDS,
     params: { id },
     options: { isPreview },

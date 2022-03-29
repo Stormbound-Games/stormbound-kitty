@@ -5,7 +5,7 @@ const FIELDS = `
 _updatedAt,
 tiers[] {
   name,
-  "cards": cards[] -> { "id": coalesce(id.current, id) }.id
+  "cards": cards[] -> { "id": id.current }.id
 }
 `
 

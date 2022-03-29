@@ -3,7 +3,7 @@ id,
 name,
 description,
 "slug": slug.current,
-"cardId": card -> { "id": coalesce(id.current, id) }.id
+"cardId": card -> { "id": id.current }.id
 `
 
 export const MAPPER = brawl => {
