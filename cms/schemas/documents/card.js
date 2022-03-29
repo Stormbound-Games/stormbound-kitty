@@ -16,11 +16,8 @@ const card = {
     {
       title: 'Stormbound-Kitty ID',
       name: 'id',
-      type: 'string',
-      validation: Rule =>
-        Rule.required()
-          .uppercase()
-          .custom(value => !/\s/g.test(value) || 'Cannot contain spaces'),
+      type: 'slug',
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Stormbound ID',
