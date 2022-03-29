@@ -19,7 +19,7 @@ export default React.memo(function Stories(props) {
               id: story.cardId,
               level: 1,
             }),
-            ...story.card,
+            ...story.cardData,
           }
           const meta = (
             <>

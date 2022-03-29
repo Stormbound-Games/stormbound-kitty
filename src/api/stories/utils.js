@@ -20,5 +20,9 @@ export const MAPPER = story => {
   story.excerpt = getExcerpt(story.text, 150)
   delete story.text
 
+  if (story.cardData) {
+    story.cardData = JSON.parse(story.cardData)
+  }
+
   return story
 }
