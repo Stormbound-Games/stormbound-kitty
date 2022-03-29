@@ -26,3 +26,4 @@ coverage
 public/sitemap*.xml
 cypress/fixtures/registry.json
 cypress/fixtures/cards.json
+cms/*.gz
