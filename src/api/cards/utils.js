@@ -1,5 +1,5 @@
 export const FIELDS = `
-id,
+"id": coalesce(id.current, id),
 "sid": coalesce(sid.current, sid),
 
 name,

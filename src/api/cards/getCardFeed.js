@@ -20,7 +20,7 @@ const cleaners = {
 
 const getCardFeed = async ({ id, isPreview } = {}) => {
   const card = await getEntry({
-    conditions: ['_type == "card"', 'id match $id'],
+    conditions: ['_type == "card"', 'coalesce(id.current, id) match $id'],
     fields: `_id, name`,
     params: { id },
     options: { isPreview },

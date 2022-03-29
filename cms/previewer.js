@@ -6,7 +6,9 @@ const client = sanityClient.withConfig({ apiVersion: '2022-03-01' })
 let CARDS = new Map()
 
 const fetchDocuments = async () => {
-  const cards = await client.fetch(`*[_type == "card"] { _id, id }`)
+  const cards = await client.fetch(
+    `*[_type == "card"] { _id, "id": coalesce(id.current, id) }`
+  )
 
   cards.forEach(card => {
     CARDS.set(card._id, card.id)
