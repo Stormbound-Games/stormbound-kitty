@@ -25,13 +25,10 @@ const card = {
     {
       title: 'Stormbound ID',
       name: 'sid',
-      type: 'string',
+      type: 'slug',
       description:
         'The card ID used by the game itself, provided by Sheepyard.',
-      validation: Rule =>
-        Rule.required()
-          .lowercase()
-          .custom(value => !/\s/g.test(value) || 'Cannot contain spaces'),
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Type',
