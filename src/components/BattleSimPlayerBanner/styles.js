@@ -42,7 +42,12 @@ const faction = {
 const factionIcon = {
   width: '1.25em',
   height: '1.25em',
-  margin: '0 var(--s-smaller)',
+  marginRight: 'var(--s-smallest)',
+
+  medium: {
+    marginLeft: 'var(--s-smallest)',
+    marginRight: 0,
+  },
 }
 
 const styles = { banner, meta, faction, factionIcon }
