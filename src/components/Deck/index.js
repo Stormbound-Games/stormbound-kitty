@@ -6,6 +6,7 @@ import BlankButton from '~/components/BlankButton'
 import Image from '~/components/Image'
 import Mana from '~/components/Mana'
 import Card from '~/components/Card'
+import Link from '~/components/Link'
 import Tooltip from '~/components/Tooltip'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import { sortByMana } from '~/helpers/sortCards'
@@ -84,15 +85,6 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       className={css(styles.card)}
       data-testid={[card.id, card.idx].filter(Boolean).join('_') + ' deck-slot'}
     >
-      {props.onClick && (
-        <BlankButton
-          extend={styles.button}
-          onClick={() => props.onClick(card)}
-          disabled={props.isCardDisabled ? props.isCardDisabled(card) : false}
-          label={props.onClickLabel}
-        />
-      )}
-
       <Mana
         mana={card.mana}
         extend={styles.mana({
@@ -101,7 +93,27 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
           isIncreased: card.manaIncreased,
         })}
       />
-      <span className={css(styles.name)}>{card.name}</span>
+
+      {props.withCardLink ? (
+        <Link
+          extend={styles.name({ orientation: props.orientation })}
+          to={'/card/official/' + card.id}
+        >
+          {card.name}
+        </Link>
+      ) : props.onClick ? (
+        <BlankButton
+          extend={styles.name({ orientation: props.orientation })}
+          onClick={() => props.onClick(card)}
+          disabled={props.isCardDisabled ? props.isCardDisabled(card) : false}
+        >
+          {card.name}
+          <VisuallyHidden>{props.onClickLabel}</VisuallyHidden>
+        </BlankButton>
+      ) : (
+        <span className={css(styles.name)}>{card.name}</span>
+      )}
+
       <Image
         extend={styles.image({ orientation: props.orientation })}
         // Passing a width manually as 24 looks super blurry.

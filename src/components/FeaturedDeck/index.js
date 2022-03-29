@@ -69,8 +69,7 @@ export default React.memo(function FeaturedDeck(props) {
         showUpgrades={props.showUpgrades}
         deck={deck}
         orientation='horizontal'
-        onClick={props.onClick}
-        onClickLabel='Display card'
+        withCardLink
       />
 
       <div className={css(styles.rarityBar)}>
