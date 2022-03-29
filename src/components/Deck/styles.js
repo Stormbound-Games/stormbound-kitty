@@ -198,6 +198,7 @@ const mana = ({ isDecreased, isIncreased, orientation }) => ({
 
 const name = ({ orientation }) => ({
   textTransform: 'uppercase',
+  textDecoration: 'none',
 
   ...(orientation === 'horizontal'
     ? {
@@ -212,7 +213,27 @@ const name = ({ orientation }) => ({
         overflow: 'hidden',
         fontSize: '85%',
       }
-    : {}),
+    : {
+        // Expanding the hitbox from the link/button can only work in vertical
+        // mode. That’s because in horizontal mode, the node is absolutely
+        // positioned which means it acts as a position context for the pseudo-
+        // element instead of the slot container. That means in horizontal mode,
+        // the link/button is only on the text, not the whole slot.
+        '::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          zIndex: 2,
+          transition: 'background-color 200ms',
+        },
+
+        ':hover::before': {
+          backgroundColor: '#ffffff1a',
+        },
+      }),
 })
 
 const image = ({ orientation }) => ({
@@ -240,22 +261,6 @@ const image = ({ orientation }) => ({
     : {}),
 })
 
-const button = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  width: '100%',
-  height: '100%',
-  transition: 'background-color 250ms',
-  zIndex: 2,
-
-  ':not(:disabled):hover': {
-    backgroundColor: '#ffffff1a',
-  },
-}
-
 const styles = {
   deck,
   list,
@@ -263,7 +268,6 @@ const styles = {
   mana,
   name,
   image,
-  button,
 }
 
 export default styles
