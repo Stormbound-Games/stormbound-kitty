@@ -54,7 +54,7 @@ const getRedirectUrl = async params => {
     case 'event':
       return '/'
 
-    case 'faq':
+    case 'faqSection':
       return '/faq'
 
     case 'guide': {
