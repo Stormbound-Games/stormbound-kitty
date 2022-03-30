@@ -10,6 +10,7 @@ import styles from './styles'
 
 export default React.memo(function BattleSimBoardMobile(props) {
   const { css } = useFela()
+
   return (
     <div className={css(styles.board)} data-testid='board'>
       <Image
@@ -59,16 +60,7 @@ export default React.memo(function BattleSimBoardMobile(props) {
       </div>
 
       <div className={css(styles.cards)}>
-        <Cards
-          hand={props.hand}
-          cards={props.cards}
-          zoom={props.zoom}
-          mana={props.mana}
-          drawCard={props.drawCard}
-          canDrawCard={props.mode !== 'DISPLAY' && props.canDrawCard}
-          cycleCard={props.cycleCard}
-          canCycleCard={props.mode !== 'DISPLAY' && props.canCycleCard}
-        />
+        <Cards cards={props.cards} zoom={props.zoom} mana={props.mana} />
       </div>
     </div>
   )

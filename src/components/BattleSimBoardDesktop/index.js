@@ -104,16 +104,7 @@ export default React.memo(function BattleSimBoardDesktop(props) {
 
       {isMounted && (
         <div className={css(styles.cards)}>
-          <Cards
-            hand={props.hand}
-            cards={props.cards}
-            zoom={props.zoom}
-            mana={props.mana}
-            drawCard={props.drawCard}
-            canDrawCard={props.mode !== 'DISPLAY' && props.canDrawCard}
-            cycleCard={props.cycleCard}
-            canCycleCard={props.mode !== 'DISPLAY' && props.canCycleCard}
-          />
+          <Cards cards={props.cards} zoom={props.zoom} mana={props.mana} />
         </div>
       )}
     </div>

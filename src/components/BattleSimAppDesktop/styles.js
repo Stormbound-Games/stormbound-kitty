@@ -13,7 +13,7 @@ const root = {
 const puzzle = {
   position: 'absolute',
   right: 0,
-  bottom: '-1.5em',
+  top: 0,
   padding: 'var(--s-base)',
   width: 'calc((100% - 40%) / 2)',
 

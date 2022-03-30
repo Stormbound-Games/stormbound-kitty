@@ -26,11 +26,7 @@ export default React.memo(function BattleSimAppMobile(props) {
   const { css } = useFela()
   const [mode, setMode] = React.useState(MODES.GAME)
   const [down, setDown] = React.useState({ x: null, y: null })
-
-  const { shouldRenderLeftPanel } = props
-  const shouldRenderRightPanel =
-    (props.mode === 'EDITOR' && !!props.activePlayer && !!props.activeCell) ||
-    (props.mode === 'DISPLAY' && !!props.puzzle)
+  const { shouldRenderLeftPanel, shouldRenderRightPanel } = props
 
   React.useEffect(() => {
     if (!props.withoutGestures) {
@@ -136,31 +132,7 @@ export default React.memo(function BattleSimAppMobile(props) {
               <CardsForm {...props} />
               <GameForm {...props} />
             </Panel>
-          ) : (
-            <Panel
-              side='left'
-              title='Your deck'
-              isMobile={true}
-              isPanelOpen={mode === MODES.SETTINGS}
-              closePanel={() => setMode(MODES.GAME)}
-              data-testid='deck-panel'
-            >
-              <Deck
-                deck={props.cards}
-                onClick={props.zoom}
-                onClickLabel='Enlarge card'
-              />
-              <p>
-                <Link
-                  href={`/deck/` + serialization.deck.serialize(props.cards)}
-                  inNewTab
-                >
-                  Open deck
-                </Link>{' '}
-                in deck builder.
-              </p>
-            </Panel>
-          )}
+          ) : null}
         </div>
       )}
 

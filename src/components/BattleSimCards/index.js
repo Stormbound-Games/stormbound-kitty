@@ -1,70 +1,35 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
-import Card from '~/components/Card'
-import CTA from '~/components/CTA'
 import BlankButton from '~/components/BlankButton'
+import Card from '~/components/Card'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import indexArray from '~/helpers/indexArray'
-
 import styles from './styles'
 
 export default React.memo(function BattleSimCards(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const [cycleMode, setCycleMode] = React.useState(false)
-  const { css } = useFela({ isCycle: cycleMode })
-  const deckIndex = React.useMemo(() => indexArray(props.cards), [props.cards])
+  const { css } = useFela()
 
   return (
     <>
       <div className={css(styles.cards)}>
-        {props.canCycleCard && (
-          <CTA
-            type='button'
-            onClick={() => setCycleMode(m => !m)}
-            extend={styles.cycleButton}
-            aria-pressed={cycleMode}
-          >
-            {cycleMode ? 'Cancel' : 'Cycle card'}
-          </CTA>
-        )}
-
         {[0, 1, 2, 3].map(index => {
-          const cardId = props.hand[index]
-          const card = getResolvedCardData(cardsIndex, deckIndex[cardId])
-          const buttonLabel =
-            !card && props.canDrawCard
-              ? 'Draw card'
-              : cycleMode
-              ? 'Cycle card'
-              : 'Enlarge card'
+          const card = getResolvedCardData(cardsIndex, props.cards[index]) || {}
 
           return (
             <div
               className={css(styles.slot)}
-              key={cardId || index}
+              key={card.id || index}
               data-testid={`card-slot-${index}`}
             >
-              {!card && !props.canDrawCard ? null : (
+              {card.id ? (
                 <BlankButton
                   data-testid='card-slot-button'
-                  extend={styles.button({ isEmpty: !card })}
-                  onClick={() => {
-                    if (!card && props.canDrawCard) {
-                      return props.drawCard()
-                    }
-
-                    if (cycleMode) {
-                      props.cycleCard(card.id)
-                      setCycleMode(false)
-                    } else {
-                      props.zoom({ id: card.id, level: card.level })
-                    }
-                  }}
-                  label={buttonLabel}
+                  extend={styles.button}
+                  onClick={() => props.zoom(card)}
+                  label='Enlarge card'
                 />
-              )}
-
+              ) : null}
               <div
                 className={css(styles.slotContent)}
                 data-testid='card-slot-content'
