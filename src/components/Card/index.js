@@ -31,7 +31,7 @@ export default React.memo(function Card(props) {
     hasDecreasedMana: props.manaDecreased,
     hasDecreasedMovement: props.movementDecreased,
     hasDecreasedStrength: props.strengthDecreased,
-    hasFixedMovement: props.ability?.includes('fixed'),
+    hasFixedMovement: props.fixedMovement,
     hasIncreasedMana: props.manaIncreased,
     hasIncreasedMovement: props.movementIncreased,
     hasIncreasedStrength: props.strengthIncreased,
@@ -147,7 +147,12 @@ export default React.memo(function Card(props) {
             <div className={css(styles.movement)}>
               <span
                 className={css(styles.movementContent)}
-                data-testid='card-movement'
+                data-testid={[
+                  'card-movement',
+                  props.fixedMovement && 'card-movement-fixed',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
               >
                 {props.movement}
               </span>

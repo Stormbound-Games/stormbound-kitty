@@ -57,10 +57,13 @@ export const deserializeCard = (cardsIndex, string) => {
   card.name = decodeURIComponent(chunks[7])
 
   // If the card is a unit and movement is defined, return it
-  card.movement =
-    card.type === 'unit' && !isNaN(parseInt(chunks[5]))
-      ? parseInt(chunks[5])
-      : null
+  if (card.type === 'unit' && chunks[5]) {
+    card.movement = parseInt(chunks[5], 10) || null
+    card.fixedMovement = chunks[5].endsWith('F')
+  } else {
+    card.movement = null
+    card.fixedMovement = false
+  }
 
   // If the serialized image data is the ID of an existing card, set the ID in
   // `imageCardId` key; otherwise set it in `imageURL` key; then and delete
@@ -99,7 +102,7 @@ const serializeCard = formState =>
     getShortType(formState.type),
     getShortRarity(formState.rarity),
     formState.mana,
-    formState.movement,
+    formState.movement + (formState.fixedMovement ? 'F' : ''),
     formState.strength,
     encodeURIComponent(formState.name),
     formState.id ||
