@@ -14,9 +14,16 @@ const useLocalStorage = (key, initialValue) => {
       didMountRef.current = true
 
       const item = window.localStorage.getItem(key)
-      if (typeof item !== 'undefined') setValue(JSON.parse(item))
+
+      if (typeof item !== 'undefined') {
+        try {
+          setValue(JSON.parse(item))
+        } catch {
+          setValue(initialValue)
+        }
+      }
     }
-  }, [key, value])
+  }, [key, value, initialValue])
 
   return [value, setValue]
 }
