@@ -42,6 +42,8 @@ const faction = {
 const factionIcon = {
   width: '1.25em',
   height: '1.25em',
+  marginTop: 0,
+  marginBottom: 0,
   marginRight: 'var(--s-smallest)',
 
   medium: {
