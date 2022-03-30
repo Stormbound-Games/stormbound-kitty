@@ -1,5 +1,4 @@
 import { DEFAULT_CELL } from '~/constants/battle'
-import { DEFAULT_CARD } from '~/constants/deck'
 import arrayPad from '~/helpers/arrayPad'
 import chunk from '~/helpers/chunk'
 import { base64Decode, base64Encode } from '~/helpers/base64'
@@ -94,47 +93,31 @@ const deserializeSettings = string => {
   return { mana: +mana, gridMarkers: !!+gridMarkers }
 }
 
-const deserializeBattleSimCards = (string, size) =>
-  arrayPad(serialization.cards.deserialize(string), size, DEFAULT_CARD, +1)
-
-const deserializeHand = (handString, cardsString) => {
-  // Board was created before it was possible to have a full deck, so the `hand`
-  // part of the serialized string is actually undefined instead of being an
-  // empty string. In that case, we need to consider the 4 first cards from the
-  // deck to be the hand.
-  if (handString === undefined) {
-    return deserializeBattleSimCards(cardsString, 4)
-      .filter(card => !!card.id)
-      .map(card => card.id)
-  }
-
-  return handString.split(',').slice(0, 4).filter(Boolean)
+const deserializeBattleSimCards = (string, size) => {
+  const cards = serialization.cards.deserialize(string)
+  if (cards.length > size) return cards.slice(0, size)
+  if (cards.length < size)
+    return arrayPad(cards, size, { id: null, level: 1 }, +1)
+  return cards
 }
 
-const serializeBattle = (board, players, settings, { cards, hand }) =>
+const serializeBattle = (board, players, settings, cards) =>
   [
     serializeBoard(board),
     serializePlayers(players),
     serializeSettings(settings),
     serialization.cards.serialize(cards),
-    hand.join(','),
   ].join(';')
 
 const deserializeBattle = (cardsIndex, encodedString) => {
   const string = decodeURIComponent(encodedString)
-  const [
-    board = '',
-    players = '',
-    settings = '',
-    cards = '',
-    hand /* Explicitly no fallback here */,
-  ] = string.split(';')
+  const [board = '', players = '', settings = '', cards = ''] =
+    string.split(';')
 
   return {
     board: deserializeBoard(cardsIndex, board),
     players: deserializePlayers(players),
-    cards: deserializeBattleSimCards(cards, 12),
-    hand: deserializeHand(hand, cards),
+    cards: deserializeBattleSimCards(cards, 4),
     ...deserializeSettings(settings),
   }
 }

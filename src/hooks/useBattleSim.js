@@ -8,10 +8,8 @@ import {
   DEFAULT_BOARD,
 } from '~/constants/battle'
 import { CardsContext } from '~/components/CardsProvider'
-import { DEFAULT_DECK } from '~/constants/deck'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import serialization from '~/helpers/serialization'
-import arrayRandom from '~/helpers/arrayRandom'
 import useNavigator from '~/hooks/useNavigator'
 
 const Z_KEY = 90
@@ -173,7 +171,7 @@ const useBattleSim = props => {
       sim.board,
       sim.players,
       { mana: sim.mana, gridMarkers: sim.gridMarkers },
-      { cards: sim.cards, hand: sim.hand }
+      sim.cards
     )
 
     navigator.replace('/simulators/battle/' + id)
@@ -283,8 +281,7 @@ const useBattleSim = props => {
     setSim({
       players: { RED: { ...DEFAULT_PLAYER }, BLUE: { ...DEFAULT_PLAYER } },
       board: [...DEFAULT_BOARD],
-      cards: [...DEFAULT_DECK],
-      hand: [],
+      cards: [],
       mana: DEFAULT_MANA,
       gridMarkers: false,
     })
@@ -304,26 +301,9 @@ const useBattleSim = props => {
           ...sim.cards.slice(index + 1),
         ]
 
-        // Make sure not to keep in hand cards that have been updated
-        const hand = sim.hand.filter(cardId =>
-          cards.map(c => c.id).includes(cardId)
-        )
-
-        if (id && hand.length < 4) {
-          hand.push(id)
-        }
-
-        return { ...sim, cards, hand }
+        return { ...sim, cards }
       })
     }
-
-  const addToHand = ({ id }) => {
-    if (sim.hand.includes(id)) {
-      setSim(sim => ({ ...sim, hand: sim.hand.filter(i => i !== id) }))
-    } else if (sim.hand.length < 4) {
-      setSim(sim => ({ ...sim, hand: [...sim.hand, id] }))
-    }
-  }
 
   const onCellClick = (x, y) => event => {
     const cell = sim.board[x][y]
@@ -366,48 +346,6 @@ const useBattleSim = props => {
     []
   )
 
-  const importDeck = ({ cards, hand }) =>
-    setSim(sim => ({ ...sim, cards, hand }))
-
-  const getCardFromDeck = React.useCallback(() => {
-    const cardsInDeck = sim.cards.filter(c => !!c.id)
-    const draw = arrayRandom(cardsInDeck).id
-
-    if (sim.hand.includes(draw) || !draw) {
-      return getCardFromDeck()
-    }
-
-    return draw
-  }, [sim.cards, sim.hand])
-
-  const canDrawCard = React.useCallback(
-    () => sim.cards.filter(card => !!card.id).length > sim.hand.length,
-    [sim.cards, sim.hand]
-  )
-
-  const canCycleCard = React.useCallback(
-    () => canDrawCard() && sim.hand.length > 0,
-    [canDrawCard, sim.hand]
-  )
-
-  const cycleCard = React.useCallback(
-    id => {
-      if (canCycleCard()) {
-        setSim(sim => ({
-          ...sim,
-          hand: [...sim.hand.filter(card => card !== id), getCardFromDeck()],
-        }))
-      }
-    },
-    [canCycleCard, getCardFromDeck]
-  )
-
-  const drawCard = React.useCallback(() => {
-    if (canDrawCard()) {
-      setSim(sim => ({ ...sim, hand: [...sim.hand, getCardFromDeck()] }))
-    }
-  }, [canDrawCard, getCardFromDeck])
-
   return {
     ...sim,
     activeCell,
@@ -441,12 +379,6 @@ const useBattleSim = props => {
     setCard: setCard,
     zoom: setZoomed,
     unzoom: unzoom,
-    addToHand: addToHand,
-    importDeck: importDeck,
-    cycleCard: cycleCard,
-    drawCard: drawCard,
-    canDrawCard: canDrawCard(),
-    canCycleCard: canCycleCard(),
   }
 }
 

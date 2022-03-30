@@ -3,7 +3,6 @@ import { useFela } from 'react-fela'
 import Board from '~/components/BattleSimBoardDesktop'
 import CardsForm from '~/components/BattleSimCardsForm'
 import CellFormDialog from '~/components/BattleSimCellFormDialog'
-import Deck from '~/components/Deck'
 import GameForm from '~/components/BattleSimGameForm'
 import PlayerForm from '~/components/BattleSimPlayerForm'
 import Row from '~/components/Row'
@@ -92,17 +91,6 @@ export default React.memo(function BattleSimAppDesktop(props) {
       {props.mode === 'DISPLAY' && !!props.puzzle && (
         <div className={css(styles.puzzle)}>
           <Puzzle {...props.puzzle} withoutLink />
-        </div>
-      )}
-
-      {props.mode === 'DISPLAY' && (
-        <div className={css(styles.deck)}>
-          <Deck
-            deck={props.cards}
-            onClick={props.zoom}
-            onClickLabel='Enlarge card'
-            showEmptySlots={false}
-          />
         </div>
       )}
 

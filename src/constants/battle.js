@@ -1,5 +1,3 @@
-import { DEFAULT_DECK } from '~/constants/deck'
-
 export const DEFAULT_PLAYER = { health: 10, faction: 'neutral' }
 export const DEFAULT_CELL = {
   player: null,
@@ -49,8 +47,12 @@ export const DEFAULT_BOARD = [
 export const DEFAULT_SIM = {
   board: DEFAULT_BOARD,
   mana: DEFAULT_MANA,
-  cards: [...DEFAULT_DECK],
-  hand: [],
+  cards: [
+    { id: null, level: 1 },
+    { id: null, level: 1 },
+    { id: null, level: 1 },
+    { id: null, level: 1 },
+  ],
   players: {
     RED: { ...DEFAULT_PLAYER },
     BLUE: { ...DEFAULT_PLAYER },

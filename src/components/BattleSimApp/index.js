@@ -4,11 +4,10 @@ import AppMobile from '~/components/BattleSimAppMobile'
 import Only from '~/components/Only'
 
 export default React.memo(function BattleSimApp(props) {
-  const shouldRenderLeftPanel =
-    props.mode === 'EDITOR' ||
-    (props.mode === 'DISPLAY' && props.cards.filter(c => !!c.id).length > 0)
+  const shouldRenderLeftPanel = props.mode === 'EDITOR'
   const shouldRenderRightPanel =
-    props.mode === 'EDITOR' || (props.mode === 'DISPLAY' && !!props.puzzle)
+    (props.mode === 'EDITOR' && !!props.activePlayer && !!props.activeCell) ||
+    (props.mode === 'DISPLAY' && !!props.puzzle)
 
   return (
     <>
