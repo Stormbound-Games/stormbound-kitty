@@ -58,8 +58,12 @@ const parseAdvancedSearch = value => {
   }
 
   if (movChunk) {
-    const movement = parseToRange(movChunk.replace(MOV_TOKEN, ''))
-    if (movement) accumulator.movement = movement
+    const value = movChunk.replace(MOV_TOKEN, '')
+    if (value === 'fixed') accumulator.fixedMovement = true
+    else {
+      const movement = parseToRange(value)
+      if (movement) accumulator.movement = movement
+    }
   }
 
   if (hasChunk) {
@@ -82,6 +86,7 @@ export const serializeFilters = filters => {
   if (filters.elder) search.push('is:elder')
   if (filters.ancient) search.push('is:ancient')
   if (filters.text) search.push(filters.text)
+  if (filters.fixedMovement) search.push('mov:fixed')
   if (filters.faction !== '*') search.push('is:' + filters.faction)
   if (filters.race !== '*') search.push('is:' + filters.race)
   if (filters.type !== '*') search.push('is:' + filters.type)

@@ -105,6 +105,14 @@ const card = {
         }),
     },
     {
+      title: 'Fixed movement',
+      name: 'fixedMovement',
+      type: 'boolean',
+      description: 'Whether the card has fixed movement.',
+      hidden: ({ document }) => Boolean(document?.type !== 'unit'),
+      defaultValue: false,
+    },
+    {
       title: 'Ability',
       name: 'ability',
       type: 'text',

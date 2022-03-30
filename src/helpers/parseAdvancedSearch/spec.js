@@ -90,6 +90,7 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('mov:<2')).toEqual({ movement: '0-1' })
     expect(parse('mov:<=2')).toEqual({ movement: '0-2' })
     expect(parse('mov:0-2')).toEqual({ movement: '0-2' })
+    expect(parse('mov:fixed')).toEqual({ fixedMovement: true })
   })
 
   it('should ignore invalid numeric values', () => {

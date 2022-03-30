@@ -39,6 +39,16 @@ export default React.memo(function CardBuilderCoreForm(props) {
               disabled={props.type !== 'unit'}
               data-testid='cb-movement-input'
             />
+            <Checkbox
+              id='fixed-movement'
+              checked={props.fixedMovement}
+              onChange={event => props.setFixedMovement(event.target.checked)}
+              disabled={props.type !== 'unit'}
+              data-testid='cb-fixed-movement-checkbox'
+              extend={{ marginTop: 'var(--s-small)' }}
+            >
+              Has forward-fixed movement
+            </Checkbox>
           </Row.Column>
         </Row>
 

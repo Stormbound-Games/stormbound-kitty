@@ -11,6 +11,7 @@ rarity,
 strength,
 mana,
 movement,
+fixedMovement,
 ability,
 
 elder,

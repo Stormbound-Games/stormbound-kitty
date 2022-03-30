@@ -36,6 +36,7 @@ const INITIAL_STATE = {
   hero: false,
   type: 'unit',
   movement: null,
+  fixedMovement: false,
   mana: formatLevelProp(null),
   strength: formatLevelProp(null),
   ability: formatLevelProp(null),
@@ -84,6 +85,7 @@ const useCardBuilder = props => {
   const setName = setProperty('name')
   const setRarity = setProperty('rarity')
   const setMovement = setProperty('movement')
+  const setFixedMovement = setProperty('fixedMovement')
   const setFaction = setProperty('faction')
   const setMana = setProperty('mana', resolveLevels)
   const setStrength = setProperty('strength', resolveLevels)
@@ -104,6 +106,7 @@ const useCardBuilder = props => {
         elder: false,
         hero: false,
         movement: null,
+        fixedMovement: false,
         strength: formatLevelProp(null),
       }))
     }
@@ -118,6 +121,7 @@ const useCardBuilder = props => {
         elder: false,
         hero: false,
         movement: null,
+        fixedMovement: false,
         strength:
           cardData.type === 'spell' ? formatLevelProp(null) : cardData.strength,
       }))
@@ -129,6 +133,8 @@ const useCardBuilder = props => {
         ...cardData,
         type,
         movement: cardData.type !== 'unit' ? null : cardData.movement,
+        fixedMovement:
+          cardData.type !== 'unit' ? false : cardData.fixedMovement,
         strength:
           cardData.type === 'spell' ? formatLevelProp(null) : cardData.strength,
       }))
@@ -171,6 +177,7 @@ const useCardBuilder = props => {
     setElder,
     setHero,
     setMovement,
+    setFixedMovement,
     setStrength,
     setAbility,
     onImagePaste,

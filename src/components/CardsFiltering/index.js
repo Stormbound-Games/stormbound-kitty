@@ -20,6 +20,7 @@ const DEFAULT_FILTERS = {
   mana: '*',
   strength: '*',
   movement: '*',
+  fixedMovement: false,
   rarity: '*',
   text: '',
   status: '*',
@@ -76,13 +77,22 @@ export default React.memo(function CardsFiltering(props) {
     updateFilter('type')(type)
     // If the type filter is not `unit`, movement should be reseted to its
     // default value otherwise this leads to absence of results.
-    if (type !== 'unit') updateFilter('movement')(DEFAULT_FILTERS.movement)
+    if (type !== 'unit') {
+      updateFilter('movement')(DEFAULT_FILTERS.movement)
+      updateFilter('fixedMovement')(DEFAULT_FILTERS.fixedMovement)
+    }
   }
   const setMovement = movement => {
     updateFilter('movement')(movement)
     // If the movement filter is set, the type filter should be set to `unit`
     // otherwise this leads to absence of results.
     if (movement !== '*') updateFilter('type')('unit')
+  }
+  const setFixedMovement = fixedMovement => {
+    updateFilter('fixedMovement')(fixedMovement)
+    // If the movement filter is set, the type filter should be set to `unit`
+    // otherwise this leads to absence of results.
+    if (fixedMovement) updateFilter('type')('unit')
   }
   const setRarity = updateFilter('rarity')
   const setStatus = updateFilter('status')
@@ -162,6 +172,13 @@ export default React.memo(function CardsFiltering(props) {
   const matchesStrength = React.useCallback(matchesNumeric('strength'), [
     filters.strength,
   ])
+
+  const matchesFixedMovement = React.useCallback(
+    card =>
+      !filters.fixedMovement ||
+      Boolean(card.fixedMovement) === filters.fixedMovement,
+    [filters.fixedMovement]
+  )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const matchesMovement = React.useCallback(matchesNumeric('movement'), [
@@ -255,6 +272,7 @@ export default React.memo(function CardsFiltering(props) {
     setRace,
     setMana,
     setMovement,
+    setFixedMovement,
     setRarity,
     setText,
     setStatus,
@@ -296,6 +314,7 @@ export default React.memo(function CardsFiltering(props) {
       if (!matchesMana(card)) return false
       if (!matchesStrength(card)) return false
       if (!matchesMovement(card)) return false
+      if (!matchesFixedMovement(card)) return false
       if (!matchesRarity(card)) return false
       if (!matchesStatus(card)) return false
       if (!matchesLevel(card)) return false
