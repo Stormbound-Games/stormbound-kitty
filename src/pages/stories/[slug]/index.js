@@ -16,6 +16,11 @@ export async function getStaticPaths({ preview: isPreview = false }) {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const story = await getStory({ slug: params.slug, isPreview })
+
+  if (!story) {
+    return { notFound: true }
+  }
+
   const moreStories = (
     await getStoriesFromAuthor({ author: story.author.slug, isPreview })
   ).filter(story => (story.saga ? story.saga === story.saga : true))
