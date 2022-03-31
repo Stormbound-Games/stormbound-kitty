@@ -1,4 +1,4 @@
-import { DEFAULT_CELL } from '~/constants/battle'
+import { DEFAULT_CELL, DEFAULT_CARD } from '~/constants/battle'
 import arrayPad from '~/helpers/arrayPad'
 import chunk from '~/helpers/chunk'
 import { base64Decode, base64Encode } from '~/helpers/base64'
@@ -96,8 +96,7 @@ const deserializeSettings = string => {
 const deserializeBattleSimCards = (string, size) => {
   const cards = serialization.cards.deserialize(string)
   if (cards.length > size) return cards.slice(0, size)
-  if (cards.length < size)
-    return arrayPad(cards, size, { id: null, level: 1 }, +1)
+  if (cards.length < size) return arrayPad(cards, size, { ...DEFAULT_CARD }, +1)
   return cards
 }
 

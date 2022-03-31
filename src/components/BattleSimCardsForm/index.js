@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
+import { DEFAULT_CARD } from '~/constants/battle'
 import CardSelect from '~/components/CardSelect'
 import Label from '~/components/Label'
 import NumberInput from '~/components/NumberInput'
@@ -24,7 +25,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
             current={props.cards[index].id}
             onChange={option => {
               !option
-                ? props.setCard(index)({ id: null, level: 1 })
+                ? props.setCard(index)({ ...DEFAULT_CARD })
                 : props.setCard(index)({
                     id: option.value,
                     level: Math.min(props.cards[index].level, 5),

@@ -43,15 +43,15 @@ export const DEFAULT_BOARD = [
     { ...DEFAULT_CELL },
   ],
 ]
-
+export const DEFAULT_CARD = { id: null, level: 1 }
 export const DEFAULT_SIM = {
   board: DEFAULT_BOARD,
   mana: DEFAULT_MANA,
   cards: [
-    { id: null, level: 1 },
-    { id: null, level: 1 },
-    { id: null, level: 1 },
-    { id: null, level: 1 },
+    { ...DEFAULT_CARD },
+    { ...DEFAULT_CARD },
+    { ...DEFAULT_CARD },
+    { ...DEFAULT_CARD },
   ],
   players: {
     RED: { ...DEFAULT_PLAYER },

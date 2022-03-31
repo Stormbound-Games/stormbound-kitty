@@ -6,6 +6,7 @@ import {
   DEFAULT_CELL,
   DEFAULT_PLAYER,
   DEFAULT_BOARD,
+  DEFAULT_CARD,
 } from '~/constants/battle'
 import { CardsContext } from '~/components/CardsProvider'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
@@ -281,7 +282,12 @@ const useBattleSim = props => {
     setSim({
       players: { RED: { ...DEFAULT_PLAYER }, BLUE: { ...DEFAULT_PLAYER } },
       board: [...DEFAULT_BOARD],
-      cards: [],
+      cards: [
+        { ...DEFAULT_CARD },
+        { ...DEFAULT_CARD },
+        { ...DEFAULT_CARD },
+        { ...DEFAULT_CARD },
+      ],
       mana: DEFAULT_MANA,
       gridMarkers: false,
     })
