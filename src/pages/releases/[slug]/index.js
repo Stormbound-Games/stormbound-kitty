@@ -19,6 +19,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const release = await getRelease({ slug: params.slug, isPreview })
 
+  if (!release) {
+    return { notFound: true }
+  }
+
   return { props: { settings, ...release } }
 }
 
