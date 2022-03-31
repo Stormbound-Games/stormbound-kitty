@@ -58,7 +58,8 @@ export const deserializeCard = (cardsIndex, string) => {
 
   // If the card is a unit and movement is defined, return it
   if (card.type === 'unit' && chunks[5]) {
-    card.movement = parseInt(chunks[5], 10) || null
+    const value = parseInt(chunks[5], 10)
+    card.movement = isNaN(value) ? null : value
     card.fixedMovement = chunks[5].endsWith('F')
   } else {
     card.movement = null
