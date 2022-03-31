@@ -21,6 +21,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     isPreview,
   })
 
+  if (!data.user) {
+    return { notFound: true }
+  }
+
   // This is a bit of a hack, in case there is a link to a member page that is
   // missing the ID and gets serialized as `undefined`.
   if (params.slug === 'undefined') {
