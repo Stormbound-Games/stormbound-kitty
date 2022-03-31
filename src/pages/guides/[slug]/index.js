@@ -17,6 +17,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const guide = await getGuide({ slug: params.slug, isPreview })
+
+  if (!guide) {
+    return { notFound: true }
+  }
+
   const settings = await getSiteSettings({ isPreview })
 
   return {
