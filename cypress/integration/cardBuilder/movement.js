@@ -23,10 +23,18 @@ describe('Card Builder — Movement', () => {
   })
 
   it('should be possible to define the card movement', () => {
-    cy.get(s.MOVEMENT_INPUT).type(movement).should('have.value', movement)
+    cy.get(s.MOVEMENT_INPUT).type(0).should('have.value', 0)
+  })
+
+  it('should be reflected in all preview', () => {
+    for (let i = 0; i < 5; i++) assertCardMovement(i, 0)
   })
 
   it('should be possible to define fixed movement', () => {
+    cy.get(s.MOVEMENT_INPUT)
+      .clear()
+      .type(movement)
+      .should('have.value', movement)
     cy.get(s.FIXED_MOVEMENT_CHECKBOX).check().should('be.checked')
   })
 
