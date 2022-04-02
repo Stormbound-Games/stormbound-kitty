@@ -21,7 +21,7 @@ const cleaners = {
 const getCardFeed = async ({ id, isPreview } = {}) => {
   const card = await getEntry({
     conditions: ['_type == "card"', 'id.current match $id'],
-    fields: `_id, name`,
+    fields: `"ref": _id, id, name`,
     params: { id },
     options: { isPreview },
   })
@@ -45,7 +45,7 @@ const getCardFeed = async ({ id, isPreview } = {}) => {
       _type == "story" => { _id, ${STORY_FIELDS} },
       _type == "guide" => { _id, ${GUIDE_FIELDS} }
     `,
-    params: { ref: card._id, name: card.name },
+    params: { ref: card.ref, name: card.name },
     options: { order: 'date desc', isPreview },
   })
 

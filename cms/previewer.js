@@ -49,6 +49,8 @@ export default function resolvePageURL(document) {
       return getPreviewURL({ id: CARDS.get(document.card._ref) })
 
     case 'card':
+      return getPreviewURL({ id: document.id.current })
+
     case 'deck':
       return getPreviewURL({ id: document.id })
 
