@@ -43,7 +43,7 @@ export default React.memo(function SearchDialog(props) {
   const { css } = useFela()
   const input = React.useRef(null)
   const [search, setSearch] = React.useState('')
-  const debouncedSearch = useDebounce(search, 500)
+  const debouncedSearch = useDebounce(search, 300)
   const [results, setResults] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(false)
 
