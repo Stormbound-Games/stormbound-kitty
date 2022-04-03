@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import BlankButton from '~/components/BlankButton'
+import useDidUpdateEffect from '~/hooks/useDidUpdateEffect'
 
 const Tab = React.memo(function Tab(props) {
   return (
@@ -32,18 +33,6 @@ const Panel = React.memo(function Panel(props) {
     </div>
   )
 })
-
-// Custom hook to avoid the wrapped `useEffect` hook from firing on initial
-// render.
-function useDidUpdateEffect(callback, dependencies) {
-  const didMountRef = React.useRef(false)
-
-  React.useEffect(() => {
-    if (didMountRef.current) return callback()
-    else didMountRef.current = true
-    // eslint-disable-next-line
-  }, dependencies)
-}
 
 const Tabs = React.memo(function Tabs(props) {
   const { css } = useFela()
