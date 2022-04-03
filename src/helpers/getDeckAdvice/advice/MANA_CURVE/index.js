@@ -8,7 +8,7 @@ const getManaCurveIntersection = (deck, modifier) => {
   let mana = 8
   let odds = computeDeckChances(deck, mana, modifier)
 
-  while (odds.usingAllMana >= odds.playingAllCards) {
+  while (odds.usingAllMana >= odds.playingAllCards && odds.usingAllMana > 0) {
     odds = computeDeckChances(deck, ++mana, modifier)
   }
 
