@@ -66,7 +66,8 @@ const ADVICE = [
 
 /**
  * Return an array of (unresolved) deck advice as promises.
- * @param {Cards[]} deck - Resolved deck of cards
+ * @param {Object} cardsIndex - Index of all cards in the game
+ * @param {Card[]} deck - Resolved deck of cards
  * @param {String} modifier - Optional Brawl modifier
  * @return {Promise[]}
  */
