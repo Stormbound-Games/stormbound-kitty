@@ -18,7 +18,7 @@ const Advice = props => (
 
 export default React.memo(function DeckAdvice(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const [advice, setAdvice] = React.useState(props.advice)
+  const [advice, setAdvice] = React.useState(props.advice || [])
 
   React.useEffect(() => {
     getDeckAdvice(cardsIndex, props.deck, props.modifier).then(advice =>
