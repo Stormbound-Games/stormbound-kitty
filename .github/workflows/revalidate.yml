@@ -14,13 +14,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm ci
-        env:
-          CYPRESS_INSTALL_BINARY: 0
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17'
 
-      - name: Revalidate path
-        run: node -r esm bin/revalidate.js "${{ github.event.inputs.path }}"
+      - name: 'Revalidate ${{ github.event.inputs.path }}'
+        run: node --experimental-fetch bin/revalidate.js "${{ github.event.inputs.path }}"
         env:
           NODE_ENV: production
           NEXT_REVALIDATION_TOKEN: ${{ secrets.NEXT_REVALIDATION_TOKEN }}

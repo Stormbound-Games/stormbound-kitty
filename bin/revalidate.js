@@ -1,6 +1,3 @@
-require('dotenv').config()
-const fetch = require('node-fetch')
-
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const NEXT_REVALIDATION_TOKEN = process.env.NEXT_REVALIDATION_TOKEN
 
