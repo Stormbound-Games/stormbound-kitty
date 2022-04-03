@@ -33,6 +33,9 @@ const deckadvice = {
       const cards = serialization.deck
         .deserialize(cardsIndexBySid, id)
         .map(card => getResolvedCardData(cardsIndex, card))
+
+      if (cards.some(card => !card)) return
+
       const advice = await getDeckAdvice(cardsIndex, cards)
 
       if (advice.length === 0) {
