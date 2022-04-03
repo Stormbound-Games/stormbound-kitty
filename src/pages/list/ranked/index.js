@@ -10,10 +10,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const list = getInitialListData(tierList)
 
-  return {
-    props: { settings, list },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { settings, list } }
 }
 
 const RankedListPage = ({ settings, ...props }) => (

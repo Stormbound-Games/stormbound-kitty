@@ -31,10 +31,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
-  return {
-    props: { settings, ...data },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { settings, ...data } }
 }
 
 const MemberPage = ({ settings, ...props }) => {

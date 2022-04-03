@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const artworks = await getArtworks({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return {
-    props: { artworks, settings },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { artworks, settings } }
 }
 
 const FanArtPage = ({ settings, ...props }) => (

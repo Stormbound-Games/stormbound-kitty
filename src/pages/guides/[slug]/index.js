@@ -24,10 +24,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   const settings = await getSiteSettings({ isPreview })
 
-  return {
-    props: { settings, ...guide },
-    revalidate: 60 * 60 * 24,
-  }
+  return { props: { settings, ...guide } }
 }
 
 const GuidePage = ({ settings, content, ...props }) => (

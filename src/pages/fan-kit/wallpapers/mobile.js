@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const wallpapers = await getWallpapersFromType({ type: 'MOBILE', isPreview })
 
-  return {
-    props: { settings, wallpapers },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { settings, wallpapers } }
 }
 
 const FanKitWallpapersPage = ({ settings, ...props }) => (

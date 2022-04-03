@@ -44,7 +44,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       story,
       settings,
     },
-    revalidate: 60 * 60 * 24 * 7,
   }
 }
 

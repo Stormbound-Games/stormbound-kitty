@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const avatars = await getAvatars({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return {
-    props: { avatars, settings },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { avatars, settings } }
 }
 
 const FanKitAvatarsPage = ({ settings, ...props }) => (

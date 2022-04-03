@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const episodes = await getPodcasts({ isPreview })
 
-  return {
-    props: { settings, episodes },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { settings, episodes } }
 }
 
 const BrewedSagesPage = ({ settings, ...props }) => (

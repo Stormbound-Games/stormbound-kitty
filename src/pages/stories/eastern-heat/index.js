@@ -14,10 +14,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const category = { ...STORY_CATEGORIES[name], id: name }
 
-  return {
-    props: { category, settings, stories, isSaga: true },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { category, settings, stories, isSaga: true } }
 }
 
 const StoriesPage = ({ settings, ...props }) => (

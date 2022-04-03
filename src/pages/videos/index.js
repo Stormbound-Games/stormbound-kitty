@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const channels = await getChannels({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return {
-    props: { channels, settings },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { channels, settings } }
 }
 
 const YouTubeChannelsPage = ({ settings, ...props }) => (

@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const tournaments = await getTournaments({ isPreview })
 
-  return {
-    props: { settings, tournaments },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { settings, tournaments } }
 }
 
 const TournamentHallOfFamePage = ({ settings, ...props }) => (

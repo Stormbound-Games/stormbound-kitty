@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const seasons = await getSWCCSeasons({ isPreview })
 
-  return {
-    props: { settings, seasons },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { settings, seasons } }
 }
 
 const CardContestPage = ({ settings, ...props }) => (

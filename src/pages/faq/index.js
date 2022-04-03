@@ -8,10 +8,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const data = await getFAQ({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return {
-    props: { data, settings },
-    revalidate: 60 * 60 * 24 * 7,
-  }
+  return { props: { data, settings } }
 }
 
 const FAQPage = ({ settings, ...props }) => (
