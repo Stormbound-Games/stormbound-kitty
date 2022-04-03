@@ -72,6 +72,8 @@ const ADVICE = [
  * @return {Promise[]}
  */
 const getDeckAdvice = async (cardsIndex, deck, modifier) => {
+  if (deck.length < 12) return []
+
   const promises = ADVICE.map(advice => advice(deck, modifier, cardsIndex))
   const advice = await Promise.all(promises)
 
