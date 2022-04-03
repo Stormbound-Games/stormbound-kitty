@@ -3,6 +3,7 @@ import { CardsContext } from '~/components/CardsProvider'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Title from '~/components/Title'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
+import useDidUpdateEffect from '~/hooks/useDidUpdateEffect'
 
 const Advice = props => (
   <p
@@ -20,7 +21,7 @@ export default React.memo(function DeckAdvice(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const [advice, setAdvice] = React.useState(props.advice || [])
 
-  React.useEffect(() => {
+  useDidUpdateEffect(() => {
     getDeckAdvice(cardsIndex, props.deck, props.modifier).then(advice =>
       setAdvice(advice)
     )
