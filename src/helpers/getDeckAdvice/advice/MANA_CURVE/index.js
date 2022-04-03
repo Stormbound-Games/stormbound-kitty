@@ -8,8 +8,12 @@ const getManaCurveIntersection = (deck, modifier) => {
   let mana = 8
   let odds = computeDeckChances(deck, mana, modifier)
 
-  while (odds.usingAllMana >= odds.playingAllCards && odds.usingAllMana > 0) {
+  while (odds.usingAllMana >= odds.playingAllCards) {
     odds = computeDeckChances(deck, ++mana, modifier)
+
+    // If after 30 mana this still hasn’t happened, we might have reached an odd
+    // edge case and might as well stop to avoid an infinite loop.
+    if (mana >= 30) break
   }
 
   return mana
