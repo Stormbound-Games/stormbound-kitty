@@ -15,21 +15,16 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const [id] = params.id || []
   const cardsIndex = indexArray(settings.cards)
-  const deck = id ? serialization.cards.deserialize(id) : []
+  const cards = id ? serialization.cards.deserialize(id) : []
 
-  if (deck.some(card => !(card.id in cardsIndex))) {
+  if (cards.some(card => !(card.id in cardsIndex))) {
     return { notFound: true }
   }
 
-  const advice = deck.length === 12 ? await getDeckAdvice(cardsIndex, deck) : []
+  const deck = cards.map(card => getResolvedCardData(cardsIndex, card))
+  const advice = await getDeckAdvice(cardsIndex, deck)
 
-  return {
-    props: {
-      settings,
-      deck: deck.map(card => getResolvedCardData(cardsIndex, card)),
-      advice,
-    },
-  }
+  return { props: { settings, deck, advice } }
 }
 
 const DraftSimulatorPage = ({ settings, ...props }) => (
