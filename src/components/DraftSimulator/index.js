@@ -22,10 +22,10 @@ import serialization from '~/helpers/serialization'
 import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
-const useRolls = cards => [
+const ROLLS = [
   state => {
     const legendaries = shuffle(
-      cards.filter(
+      state.cards.filter(
         ({ rarity, faction }) => rarity === 'legendary' && faction !== 'neutral'
       )
     )
@@ -40,14 +40,14 @@ const useRolls = cards => [
     return options
   },
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'epic' &&
         faction === state.faction &&
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, mana, id }) =>
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
@@ -55,7 +55,7 @@ const useRolls = cards => [
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, mana, id }) =>
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
@@ -63,21 +63,21 @@ const useRolls = cards => [
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, mana, id }) =>
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
@@ -85,7 +85,7 @@ const useRolls = cards => [
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, mana, id }) =>
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
@@ -93,28 +93,28 @@ const useRolls = cards => [
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'epic' &&
         [state.faction, 'neutral'].includes(faction) &&
         !state.deck.some(card => card.id === id)
     ),
   state =>
-    cards.filter(
+    state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'legendary' &&
         faction === 'neutral' &&
@@ -124,13 +124,12 @@ const useRolls = cards => [
 
 const useOptions = deck => {
   const { cards, cardsIndex } = React.useContext(CardsContext)
-  const rolls = useRolls(cards)
 
   if (deck.length === 12) return []
 
   const { faction } = deck.find(card => card.faction !== 'neutral') ?? {}
-  const getPool = rolls[deck.length]
-  const pool = shuffle(getPool({ deck, faction }).slice(0))
+  const getPool = ROLLS[deck.length]
+  const pool = shuffle(getPool({ cards, deck, faction }))
   const options = pool.slice(0, 3)
 
   return options.map(card =>
