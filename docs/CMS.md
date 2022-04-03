@@ -17,13 +17,11 @@ In that mode, every request made to the CMS will query draft documents as well, 
 
 ## Publishing content
 
-Content does not get automatically deployed as you publish it in the CMS. Content gets deployed and becomes visible for everyone on the site when:
+While the entire site does not get rebuilt everytime something gets published in the CMS, the cache for relevant pages gets invalidated (see [Next.js docs](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#on-demand-revalidation-beta)). For instance, updating a guide document causes the page for the guide to be updated almost immediately (within a few seconds). Adding a new story causes this story to be visible immediately. And so on.
 
-- Some code gets pushed to the `main` branch of this GitHub repository.
-- A page gets invalidated by Vercel based on its cache time (every few days for most pages on this site).
-- A page gets revalidated manually via the dedicated GitHub Workflow or the `bin/revalidate.js` script.
+When updating card documents however the site will need to be rebuilt, because cards are used all over the site, and therefore require an entire rebuild to be accurate everywhere. This can be done by pushing some code to the `main` branch (or asking Kitty).
 
-If you have published a content update on the CMS and needs it to be visible on the live website, reach out to Kitty to have it revalidated. If you have read/write access to GitHub, you can [trigger a “revalidate” workflow](https://github.com/sheepyard/stormbound-kitty/actions/workflows/revalidate.yml) and pass it the path you want revalidated.
+If necessary, a specific page can be revalidated at any time via the `bin/revalidate.js` script or the [dedicated GitHub Workflow](https://github.com/sheepyard/stormbound-kitty/actions/workflows/revalidate.yml) that can be triggered manually (and uses the same Node script under the hood).
 
 ## Undoing mistakes
 
