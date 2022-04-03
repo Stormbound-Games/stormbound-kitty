@@ -21,9 +21,9 @@ Content does not get automatically deployed as you publish it in the CMS. Conten
 
 - Some code gets pushed to the `main` branch of this GitHub repository.
 - A page gets invalidated by Vercel based on its cache time (every few days for most pages on this site).
-- A page gets revalidated manually via the `bin/revalidate.js` script.
+- A page gets revalidated manually via the dedicated GitHub Workflow or the `bin/revalidate.js` script.
 
-If you have published a content update on the CMS and needs it to be visible on the live website, reach out to Kitty to have it revalidated.
+If you have published a content update on the CMS and needs it to be visible on the live website, reach out to Kitty to have it revalidated. If you have read/write access to GitHub, you can [trigger a “revalidate” workflow](https://github.com/sheepyard/stormbound-kitty/actions/workflows/revalidate.yml) and pass it the path you want revalidated.
 
 ## Undoing mistakes
 
