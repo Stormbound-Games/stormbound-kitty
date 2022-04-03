@@ -33,11 +33,11 @@ export default React.memo(function BrewedSages(props) {
   return (
     <Page
       title='Brewed Sages'
-      description='The Brewed Sages is the first Stormbound podcast, by Freeloader, Subaiku and ThomasPetree'
+      description='The Brewed Sages is the first Stormbound podcast, by Freeloader, Subaiku and Thomas Petree'
       authors={[
         { name: 'Freeloader', slug: 'freeloader' },
         { name: 'Subaiku', slug: 'subaiku' },
-        { name: 'ThomasPetree', slug: 'thomaspetree' },
+        { name: 'Thomas Petree', slug: 'thomaspetree' },
       ]}
       background='https://cdn.sanity.io/images/5hlpazgd/production/67614c154b0115f94ef8448e7fbb8bb72fe6d519-1024x576.png'
       isEditorialContent
@@ -47,7 +47,7 @@ export default React.memo(function BrewedSages(props) {
           The Brewed Sages is the first Stormbound podcast, by{' '}
           <Link to='/members/freeloader'>Freeloader</Link>,{' '}
           <Link to='/members/subaiku'>Subaiku</Link>, and{' '}
-          <Link to='/members/thomaspetree'>ThomasPetree</Link>. They gather
+          <Link to='/members/thomaspetree'>Thomas Petree</Link>. They gather
           around the mic on a regular basis to discuss everything Stormbound.
           Tune in, and enjoy the show!
         </p>

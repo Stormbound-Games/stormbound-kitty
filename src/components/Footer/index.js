@@ -24,7 +24,7 @@ export default React.memo(function Footer(props) {
               Stormbound-Kitty is made with{' '}
               <Icon icon='heart' extend={styles.icon} />
               <VisuallyHidden>love</VisuallyHidden> by Kitty and the vibrant
-              Stormbound community. <Link to='/about'>Want to help?</Link>
+              Stormbound community. <Link to='/contribute'>Want to help?</Link>
             </p>
             <p className={css(styles.info)}>
               Official Stormbound game content courtesy of{' '}
@@ -91,16 +91,16 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Kitty</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
+                      <Link to='/about'>About</Link>
+                    </li>
+                    <li className={css(styles.item)}>
+                      <Link to='/contribute'>Contribute</Link>
+                    </li>
+                    <li className={css(styles.item)}>
                       <Link to='/faq'>FAQ</Link>
                     </li>
                     <li className={css(styles.item)}>
                       <Link to='/fan-kit'>Fan-kit</Link>
-                    </li>
-                    <li className={css(styles.item)}>
-                      <Link to='/deck/featured'>Decks</Link>
-                    </li>
-                    <li className={css(styles.item)}>
-                      <Link to='/about'>Donate</Link>
                     </li>
                     <li className={css(styles.item)}>
                       <Link href='https://github.com/sheepyard/stormbound-kitty'>

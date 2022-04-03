@@ -1,5 +1,5 @@
 import React from 'react'
-import About from '~/components/About'
+import Contribute from '~/components/Contribute'
 import Layout from '~/components/Layout'
 import getContributions from '~/api/contributions/getContributions'
 import getDonations from '~/api/donations/getDonations'
@@ -25,10 +25,10 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings, contributors, donators } }
 }
 
-const AboutPage = ({ settings, ...props }) => (
-  <Layout active={['HOME', 'HOME', 'ABOUT']} settings={settings}>
-    <About {...props} />
+const ContributePage = ({ settings, ...props }) => (
+  <Layout active={['HOME', 'HOME', 'CONTRIBUTE']} settings={settings}>
+    <Contribute {...props} />
   </Layout>
 )
 
-export default AboutPage
+export default ContributePage

@@ -38,6 +38,13 @@ const getSearchIndex = async (withEverything = true) => {
   })
 
   links.push({
+    label: 'Contribute',
+    path: '/contribute',
+    breadcrumbs: ['Home'],
+    icon: 'gift',
+  })
+
+  links.push({
     label: 'Brawl Tracker',
     path: '/brawl',
     breadcrumbs: ['Your Content'],
