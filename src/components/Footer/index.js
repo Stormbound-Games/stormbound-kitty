@@ -1,11 +1,13 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import Image from '~/components/Image'
+import PoweredBySanity from '~/components/PoweredBySanity'
+import PoweredByVercel from '~/components/PoweredByVercel'
+import PoweredByCuttly from '~/components/PoweredByCuttly'
 import Icon from '~/components/Icon'
 import Only from '~/components/Only'
-import PoweredBySanity from '~/components/PoweredBySanity'
 import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
@@ -30,28 +32,10 @@ export default React.memo(function Footer(props) {
               Official Stormbound game content courtesy of{' '}
               <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>.
             </p>
-            <p className={css({ medium: { display: 'flex' } })}>
-              <Link
-                href='https://vercel.com/?utm_source=stormbound&utm_campaign=oss'
-                hideNewTabIndicator
-                extend={styles.logoLink}
-              >
-                <Image
-                  src='https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg'
-                  alt='Powered by Vercel'
-                  extend={styles.vercel}
-                  width={154}
-                  height={32}
-                  lazy
-                />
-              </Link>
-              <Link
-                href='https://www.sanity.io'
-                hideNewTabIndicator
-                extend={styles.logoLink}
-              >
-                <PoweredBySanity />
-              </Link>
+            <p className={css(styles.sponsors)}>
+              <PoweredBySanity />
+              <PoweredByVercel />
+              <PoweredByCuttly />
             </p>
           </Row.Column>
           <Only.Desktop>
