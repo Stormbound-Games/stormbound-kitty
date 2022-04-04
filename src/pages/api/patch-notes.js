@@ -12,6 +12,9 @@ export default async function handler(request, response) {
   try {
     const [{ slug }] = await getReleases()
 
+    // Set up a 4 hours cache on the response.
+    response.setHeader('Cache-Control', 's-maxage=' + 60 * 60 * 4)
+
     return response.redirect('/releases/' + slug)
   } catch {
     await trackError(request)
