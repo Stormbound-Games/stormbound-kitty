@@ -17,7 +17,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - Monitoring: [Checkly](https://www.checklyhq.com/)
 - Testing: [Jest](https://jestjs.io/) unit tests and [Cypress](https://www.cypress.io/) end-to-end tests (via an [open-source plan](https://docs.cypress.io/guides/dashboard/organizations#Open-Source-Plan))
 - Analytics: [Plausible](https://plausible.io/)
-- URL shortening: [Cutt.ly](https://cutt.ly/)
+- URL shortening: [Cutt.ly](https://cutt.ly/) (via an open-source sponsorship)
 - CMS: [Sanity](sanity.io/) (via an [open-source plan](https://www.sanity.io/docs/open-source-plan))
 - Discord bot hosting: [Heroku](https://www.heroku.com/)
 
@@ -70,3 +70,5 @@ For the bot to work properly on a Discord server, it requires:
 [![Powered by Vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=stormbound&utm_campaign=oss)
 
 [![Powered by Sanity](https://stormbound-kitty.com/assets/images/sanity-logo.png)](https://www.sanity.io/)
+
+[![Powered by Cutt.ly](https://cutt.ly/img/cuttly.svg)](https://cutt.ly/)
