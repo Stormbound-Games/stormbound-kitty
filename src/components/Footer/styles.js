@@ -50,29 +50,22 @@ const item = {
   '> a': { textDecoration: 'none' },
 }
 
-const vercel = {
-  maxHeight: '2em',
-  marginRight: 'auto',
-  display: 'inline-block',
-  marginRight: 'var(--s-smaller)',
-}
-
-const logoLink = {
-  display: 'block',
-  textDecoration: 'none',
-  marginTop: 'var(--s-smaller)',
+const sponsors = {
+  marginTop: 'var(--s-base)',
+  marginBottom: 0,
+  display: 'flex',
+  flexWrap: 'wrap',
 }
 
 const styles = {
   footer,
   inner,
   info,
-  vercel,
   icon,
   list,
   heading,
   item,
-  logoLink,
+  sponsors,
 }
 
 export default styles
