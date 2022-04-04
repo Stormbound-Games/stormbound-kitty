@@ -1,9 +1,7 @@
 import rateLimit from 'express-rate-limit'
 import slowDown from 'express-slow-down'
 import applyMiddleware from '~/helpers/applyMiddleware'
-
-const getIP = request =>
-  request.ip || request.headers['x-real-ip'] || request.connection.remoteAddress
+import getIP from '~/helpers/getIP'
 
 async function applyRateLimit(request, response) {
   const limitPerWindow = 20
