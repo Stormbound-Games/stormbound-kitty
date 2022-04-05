@@ -13,7 +13,7 @@ export default React.memo(function PoweredByCuttly(props) {
         x='0px'
         y='0px'
         viewBox='0 0 32 32'
-        style={{ 'enable-background': 'new 0 0 32 32' }}
+        style={{ enableBackground: 'new 0 0 32 32' }}
         xmlSpace='preserve'
         focusable='false'
       >
