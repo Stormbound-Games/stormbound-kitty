@@ -8,6 +8,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - [CMS](./docs/CMS.md)
 - [Formulas](./docs/FORMULAS.md)
 - [Monitoring](./docs/MONITORING.md)
+- [Workflows](./WORKFLOWS.md)
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ## Technology stack
