@@ -6,6 +6,7 @@ export default React.memo(function PoweredByVercel(props) {
     <PoweredBy
       name='Vercel'
       href='https://vercel.com/?utm_source=stormbound&utm_campaign=oss'
+      title='Vercel is a hosting platform focused on web performance'
     >
       <svg
         width='512'

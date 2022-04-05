@@ -12,6 +12,7 @@ export default React.memo(function PoweredBy(props) {
       target='_blank'
       hideNewTabIndicator
       extend={styles.wrapper}
+      title={props.title}
     >
       <span className={css(styles.logoWrapper)} aria-hidden='false'>
         {props.children}

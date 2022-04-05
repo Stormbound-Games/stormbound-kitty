@@ -3,7 +3,11 @@ import PoweredBy from '~/components/PoweredBy'
 
 export default React.memo(function PoweredByCuttly(props) {
   return (
-    <PoweredBy name='Cutt.ly' href='https://cutt.ly/'>
+    <PoweredBy
+      name='Cutt.ly'
+      href='https://cutt.ly/'
+      title='Cutt.ly is URL Shortener to reduce long links'
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         x='0px'

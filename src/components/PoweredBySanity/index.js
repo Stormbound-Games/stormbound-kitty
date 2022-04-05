@@ -3,7 +3,11 @@ import PoweredBy from '~/components/PoweredBy'
 
 export default React.memo(function PoweredBySanity(props) {
   return (
-    <PoweredBy name='Sanity' href='https://www.sanity.io'>
+    <PoweredBy
+      name='Sanity'
+      href='https://www.sanity.io'
+      title='Sanity.io is the unified content platform that powers better digital experiences'
+    >
       <svg
         viewBox='0 0 28 28'
         fill='none'
