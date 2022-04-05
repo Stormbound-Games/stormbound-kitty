@@ -74,6 +74,11 @@ module.exports = withPlugins(plugins, {
         destination: '/changelog',
         permanent: true,
       },
+      {
+        source: '/changelog/:id*',
+        destination: '/releases/:id*',
+        permanent: true,
+      },
       { source: '/donate', destination: '/contribute', permanent: true },
       {
         source: '/member/:id*',
@@ -88,6 +93,11 @@ module.exports = withPlugins(plugins, {
       {
         source: '/fan-kit/wallpapers',
         destination: '/fan-kit/wallpapers/desktop',
+        permanent: true,
+      },
+      {
+        source: '/releases/end-of-2020',
+        destination: '/releases/01-2021',
         permanent: true,
       },
     ]
