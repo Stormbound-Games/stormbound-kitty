@@ -10,16 +10,12 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings } }
 }
 
-export default function Custom404({ settings, ...props }) {
+export default function Custom500({ settings, ...props }) {
   return (
     <Layout active={[]} settings={settings}>
-      <Error
-        {...props}
-        title='The page was not found'
-        error='404 — Page Not Found'
-      />
-      <Script id='404-tracking' strategy='lazyOnload'>
-        {`if (window.plausible) window.plausible("404", { props: { path: document.location.pathname } });`}
+      <Error {...props} error='500 — Internal Server Error' />
+      <Script id='500-tracking' strategy='lazyOnload'>
+        {`if (window.plausible) window.plausible("500", { props: { path: document.location.pathname } });`}
       </Script>
     </Layout>
   )

@@ -13,7 +13,7 @@ export default React.memo(function Error(props) {
     <>
       <div className={css(styles.error)}>
         <Title element='h1' className={css(styles.title)}>
-          An error occurred
+          {props.title || 'An error has occurred'}
         </Title>
 
         <Image
