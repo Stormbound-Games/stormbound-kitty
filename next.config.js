@@ -22,6 +22,11 @@ module.exports = withPlugins(plugins, {
   async redirects() {
     return [
       {
+        source: '/patch-notes',
+        destination: '/api/patch-notes',
+        permanent: true,
+      },
+      {
         source: '/deck/suggestions',
         destination: '/deck/featured',
         permanent: true,
