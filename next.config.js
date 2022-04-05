@@ -69,7 +69,7 @@ module.exports = withPlugins(plugins, {
         destination: '/changelog',
         permanent: true,
       },
-      { source: '/donate', destination: '/about', permanent: true },
+      { source: '/donate', destination: '/contribute', permanent: true },
       {
         source: '/member/:id*',
         destination: '/members/:id*',

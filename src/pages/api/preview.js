@@ -37,7 +37,7 @@ const getRedirectUrl = async params => {
 
     case 'contribution':
     case 'donation':
-      return '/about'
+      return '/contribute'
 
     case 'deck': {
       const deck = await getDeck(params)
