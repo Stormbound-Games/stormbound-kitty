@@ -1,10 +1,7 @@
-const getStaticCards = cards =>
-  cards.filter(
-    card => (card.movement || 0) < 1 && !['N66', 'N67', 'N68'].includes(card.id)
-  )
+import getEffectiveSpeed from '~/helpers/getEffectiveSpeed'
 
 const advice = cards => {
-  const staticCards = getStaticCards(cards)
+  const staticCards = cards.filter(card => getEffectiveSpeed(card) === 0)
 
   // Slow decks (decks which contain a lot of cards which do not move) can
   // suffer against early rush decks. The wild cats with no base movement but

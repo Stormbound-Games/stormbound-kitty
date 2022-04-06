@@ -20,19 +20,4 @@ describe('The `SLOW_DECK` advice', () => {
     const cards = getCards('5n15n25w25n35n45n124w34w44w65n285w124w14')
     expect(advice(cards)).toEqual(null)
   })
-
-  it('should not count Bigthrust Tigers as a static card', () => {
-    const cards = getCards('5n15n25n35n44n54n62n622n665n115n125n145n16')
-    expect(advice(cards)).toEqual(null)
-  })
-
-  it('should not count Wild Saberpaws as a static card', () => {
-    const cards = getCards('5n15n25n35n44n54n62n622n675n115n125n145n16')
-    expect(advice(cards)).toEqual(null)
-  })
-
-  it('should not count Twilight Prowlers as a static card', () => {
-    const cards = getCards('5n15n25n35n44n54n62n622n685n115n125n145n16')
-    expect(advice(cards)).toEqual(null)
-  })
 })
