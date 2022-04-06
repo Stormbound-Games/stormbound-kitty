@@ -26,12 +26,13 @@ export default React.memo(function CardSelect(props) {
           {props.label}
         </VisuallyHidden>
       ) : (
-        <Label htmlFor={props.id}>{props.label}</Label>
+        <Label htmlFor={props.id + '-input'}>{props.label}</Label>
       )}
 
       <Select
         name={props.name}
         id={props.id}
+        inputId={props.id + '-input'}
         instanceId={props.id}
         isDisabled={props.disabled}
         required={props.required}
