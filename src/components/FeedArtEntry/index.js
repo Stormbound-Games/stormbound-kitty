@@ -1,10 +1,9 @@
 import React from 'react'
-import { useFela } from 'react-fela'
-import Image from '~/components/Image'
+import FeedDetailDisplay from '~/components/FeedDetailDisplay'
 import FeedEntry from '~/components/FeedEntry'
+import Image from '~/components/Image'
 
 export default React.memo(function FeedArtEntry(props) {
-  const { css } = useFela()
   const { width, height } = props.dimensions
   const displayWidth = 450
   const displayHeight = Math.round((displayWidth / width) * height)
@@ -14,15 +13,13 @@ export default React.memo(function FeedArtEntry(props) {
   return (
     <FeedEntry icon='image' date={props.date}>
       {props.user.name} has made some art.
-      <details open className={css({ maxWidth: displayWidth + 'px' })}>
-        <summary className={css({ marginBottom: 'var(--s-base)' })}>
-          + Toggle art display
-        </summary>
+      <FeedDetailDisplay label='artwork'>
         <Image
+          extend={{ marginTop: 0 }}
           src={props.image + dimensions}
           alt={'Artwork by' + props.user.name}
         />
-      </details>
+      </FeedDetailDisplay>
     </FeedEntry>
   )
 })

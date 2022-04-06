@@ -1,13 +1,12 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
 import Deck from '~/components/Deck'
+import FeedDetailDisplay from '~/components/FeedDetailDisplay'
 import FeedEntry from '~/components/FeedEntry'
 import MemberList from '~/components/MemberList'
 import serialization from '~/helpers/serialization'
 
 export default React.memo(function FeedPodiumEntry(props) {
-  const { css } = useFela()
   const { cardsIndexBySid } = React.useContext(CardsContext)
   const { podium, decks, user } = props
   const isAtIndex = index =>
@@ -38,16 +37,13 @@ export default React.memo(function FeedPodiumEntry(props) {
       </span>{' '}
       in {props.name}.
       {deck && (
-        <details open className={css({ maxWidth: '450px' })}>
-          <summary className={css({ marginBottom: 'var(--s-base)' })}>
-            + Toggle deck display
-          </summary>
+        <FeedDetailDisplay label='deck'>
           <Deck
             deck={serialization.deck.deserialize(cardsIndexBySid, deck)}
             orientation='horizontal'
             id={deck}
           />
-        </details>
+        </FeedDetailDisplay>
       )}
     </FeedEntry>
   )
