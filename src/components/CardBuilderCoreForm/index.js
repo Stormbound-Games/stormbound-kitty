@@ -1,4 +1,5 @@
 import React from 'react'
+import Creatable from 'react-select/creatable'
 import { RARITIES, TYPES, RACES } from '~/constants/game'
 import CardSelect from '~/components/CardSelect'
 import Checkbox from '~/components/Checkbox'
@@ -10,9 +11,11 @@ import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import capitalize from '~/helpers/capitalize'
+import useSelectStyles from '~/hooks/useSelectStyles'
 
 export default React.memo(function CardBuilderCoreForm(props) {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
+  const styles = useSelectStyles({ withClear: true })
 
   return (
     <>
@@ -98,22 +101,31 @@ export default React.memo(function CardBuilderCoreForm(props) {
             />
           </Row.Column>
           <Row.Column>
-            <Select
+            <Label htmlFor='race-input'>Race</Label>
+            <Creatable
               label='Race'
               id='race'
+              inputId='race-input'
+              name='race'
               required
-              value={props.race || ''}
-              disabled={props.type !== 'unit'}
-              onChange={event => props.setRace(event.target.value)}
+              value={{
+                id: props.race || '',
+                label: capitalize(props.race || ''),
+              }}
+              isDisabled={props.type !== 'unit'}
+              onChange={option => props.setRace(option ? option.value : '')}
+              isClearable
+              styles={styles}
+              options={RACES.map(race => ({
+                value: race,
+                label: capitalize(race),
+              }))}
+              className={['RaceSelect', props.className]
+                .filter(Boolean)
+                .join(' ')}
+              classNamePrefix='RaceSelect'
               data-testid='cb-race-select'
-            >
-              <option value=''>Race</option>
-              {RACES.map(race => (
-                <option value={race} key={race}>
-                  {capitalize(race)}
-                </option>
-              ))}
-            </Select>
+            />
           </Row.Column>
         </Row>
 
