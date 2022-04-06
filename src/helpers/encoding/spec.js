@@ -115,7 +115,10 @@ describe('The `getShortRace` helper', () => {
 
   it('should default to empty', () => {
     expect(getShortRace()).toEqual('')
-    expect(getShortRace('mldsffkmsd')).toEqual('')
+  })
+
+  it('should support custom values', () => {
+    expect(getShortRace('mldsffkmsd')).toEqual('mldsffkmsd')
   })
 })
 
@@ -137,7 +140,10 @@ describe('The `getLongRace` helper', () => {
 
   it('should default to empty', () => {
     expect(getLongRace()).toEqual('')
-    expect(getLongRace('mldsffkmsd')).toEqual('')
+  })
+
+  it('should support custom values', () => {
+    expect(getLongRace('mldsffkmsd')).toEqual('mldsffkmsd')
   })
 })
 
