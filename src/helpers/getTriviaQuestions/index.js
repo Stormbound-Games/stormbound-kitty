@@ -1435,18 +1435,6 @@ const getTriviaQuestions = (cards, brawls) => {
         ),
     },
 
-    () => {
-      const mana = random(1, 9)
-      const level = random(1, 5)
-      const count = cards.filter(card => card.mana === mana).length
-
-      return {
-        question: `How many cards cost ${mana} mana at level ${level}?`,
-        answer: count,
-        options: rangeAround(count, Math.floor(count / 2)),
-      }
-    },
-
     {
       question: 'What is on Edrik’s shield?',
       answer: 'A crown',
