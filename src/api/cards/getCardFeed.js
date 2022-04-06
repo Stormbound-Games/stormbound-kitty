@@ -18,16 +18,11 @@ const cleaners = {
   story: STORY_MAPPER,
 }
 
-const getCardFeed = async ({ id, isPreview } = {}) => {
-  const card = await getEntry({
-    conditions: ['_type == "card"', 'id.current match $id'],
-    fields: `"ref": _id, id, name`,
-    params: { id },
-    options: { isPreview },
-  })
-
-  if (!card) return []
-
+// This function requires the card document reference (`ref`) and its name
+// (`name`) as parameters to avoid having to perform an additional query to get
+// them. This should speed us build time by removing a significant amount of
+// extra queries.
+const getCardFeed = async ({ params, isPreview } = {}) => {
   const references = await getEntries({
     conditions: [
       'references($ref)',
@@ -45,7 +40,7 @@ const getCardFeed = async ({ id, isPreview } = {}) => {
       _type == "story" => { _id, ${STORY_FIELDS} },
       _type == "guide" => { _id, ${GUIDE_FIELDS} }
     `,
-    params: { ref: card.ref, name: card.name },
+    params,
     options: { order: 'date desc', isPreview },
   })
 

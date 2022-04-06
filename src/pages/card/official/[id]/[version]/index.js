@@ -7,6 +7,8 @@ import indexArray from '~/helpers/indexArray'
 import getChangesFromCard from '~/api/changes/getChangesFromCard'
 import getChanges from '~/api/changes/getChanges'
 import getCardFeed from '~/api/cards/getCardFeed'
+import getCards from '~/api/cards/getCards'
+import { FIELDS as CARD_FIELDS } from '~/api/cards/utils'
 
 export async function getStaticPaths() {
   const changes = await getChanges()
@@ -18,9 +20,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const settings = await getSiteSettings({ isPreview })
+  const cards = await getCards({
+    isPreview,
+    fields: '"ref": _id, ' + CARD_FIELDS,
+  })
+  const settings = await getSiteSettings({ isPreview, cards })
   const { id: cardId, version: versionId } = params
-  const isOfficial = cardId in indexArray(settings.cards)
+  const cardsIndex = indexArray(settings.cards)
+  const isOfficial = cardId in cardsIndex
 
   if (!isOfficial) {
     return { notFound: true }
@@ -33,7 +40,10 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
-  const feed = await getCardFeed({ id: cardId, isPreview })
+  const feed = await getCardFeed({
+    params: { name: card.name, ref: cardsIndex[cardId].ref },
+    isPreview,
+  })
 
   return {
     props: { settings, cardId, card, versionId, versions, feed },

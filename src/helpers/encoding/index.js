@@ -31,10 +31,8 @@ export const getShortRarity = rarity =>
 export const getLongRarity = rarity =>
   RARITIES_LONG[RARITIES_SHORT.indexOf(rarity)] || 'common'
 
-export const getShortRace = race =>
-  RACES_SHORT[RACES_LONG.indexOf(race)] || race || ''
-export const getLongRace = race =>
-  RACES_LONG[RACES_SHORT.indexOf(race)] || race || ''
+export const getShortRace = race => RACES_SHORT[RACES_LONG.indexOf(race)] || ''
+export const getLongRace = race => RACES_LONG[RACES_SHORT.indexOf(race)] || ''
 
 export const getShortCurrency = currency =>
   CURRENCIES_SHORT[CURRENCIES_LONG.indexOf(currency)] || 'C'

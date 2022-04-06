@@ -2,8 +2,8 @@ import { getEntry } from '~/helpers/sanity'
 import getNavigation from '~/helpers/getNavigation'
 import getCards from '~/api/cards/getCards'
 
-const getSiteSettings = async ({ isPreview } = {}) => {
-  const cards = await getCards({ isPreview })
+const getSiteSettings = async ({ isPreview, cards } = {}) => {
+  if (!cards) cards = await getCards({ isPreview })
   const navigation = await getNavigation({ isPreview })
   const siteSettings = await getEntry({
     conditions: ['_type == "siteSettings"'],
