@@ -1,5 +1,10 @@
 const useSelectStyles = ({ noBorder, withClear } = {}) => {
   return {
+    container: (provided, { isDisabled }) => ({
+      ...provided,
+      pointerEvents: isDisabled ? 'auto' : provided.pointerEvents,
+    }),
+
     input: provided => ({ ...provided, color: 'var(--white)' }),
 
     // The dropdown indicator and its separator are a little superfluous
@@ -40,8 +45,11 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
       ':hover': { color: 'var(--beige)' },
     }),
 
-    control: (provided, { isFocused, selectProps }) => ({
+    control: (provided, { isFocused, isDisabled, selectProps }) => ({
       ...provided,
+
+      opacity: isDisabled ? 0.5 : 1,
+      cursor: isDisabled ? 'not-allowed' : provided.cursor,
 
       // When there is no border, the width of the field should adapt to the
       // currently selected value.
