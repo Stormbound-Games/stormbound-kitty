@@ -29,7 +29,9 @@ export default async function handler(request, response) {
     return response.status(200).json(cache.get(url))
   }
 
-  const res = await fetch(API_URL + `?key=${API_KEY}&short=${url}&noTitle=1`)
+  const res = await fetch(
+    API_URL + `?key=${API_KEY}&short=${url}&noTitle=1&userDomain=1`
+  )
   const { url: data } = await res.json()
 
   if (data.status !== 7) {
