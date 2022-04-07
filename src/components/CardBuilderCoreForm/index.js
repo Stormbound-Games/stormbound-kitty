@@ -105,6 +105,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
             <Creatable
               label='Race'
               id='race'
+              instanceId='race'
               inputId='race-input'
               name='race'
               required
@@ -113,7 +114,17 @@ export default React.memo(function CardBuilderCoreForm(props) {
                 label: capitalize(props.race || ''),
               }}
               isDisabled={props.type !== 'unit'}
-              onChange={option => props.setRace(option ? option.value : '')}
+              onChange={option => {
+                if (option?.value.toLowerCase() === 'ancient') {
+                  props.setAncient(true)
+                } else if (option?.value.toLowerCase() === 'hero') {
+                  props.setHero(true)
+                } else if (option?.value.toLowerCase() === 'elder') {
+                  props.setElder(true)
+                } else {
+                  props.setRace(option ? option.value : '')
+                }
+              }}
               isClearable
               styles={styles}
               options={RACES.map(race => ({

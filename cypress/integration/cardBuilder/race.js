@@ -53,7 +53,7 @@ describe('Card Builder — Race', () => {
     assertFieldDisplay('knight')
   })
 
-  it('should be reflected in all preview', () => {
+  it('should be reflected in all previews', () => {
     for (let i = 0; i < 5; i++) assertCardRace(i, 'knight')
   })
 
@@ -93,5 +93,24 @@ describe('Card Builder — Race', () => {
     assertFieldEmpty()
     assertFieldDisabled()
     assertRaceEmpty()
+  })
+
+  it('should not be possible to define ‘hero’', () => {
+    cy.get(s.TYPE_SELECT).select('unit')
+    fill('hero')
+    assertFieldEmpty()
+    cy.get(s.HERO_CHECKBOX).should('be.checked')
+  })
+
+  it('should not be possible to define ‘ancient’', () => {
+    fill('ancient')
+    assertFieldEmpty()
+    cy.get(s.ANCIENT_CHECKBOX).should('be.checked')
+  })
+
+  it('should not be possible to define ‘elder’', () => {
+    fill('elder')
+    assertFieldEmpty()
+    cy.get(s.ELDER_CHECKBOX).should('be.checked')
   })
 })
