@@ -18,7 +18,7 @@ export default React.memo(function About(props) {
   return (
     <Page
       title='Contribute'
-      description='Stormbound-Kitty is 100% free: no ads, no tracking, no paywall. If you can, consider contributing!'
+      description='Stormbound-Kitty is 100% free: no ads, no marketing tracking, no paywall. If you can, consider contributing!'
       isEditorialContent
       meta={
         <>
