@@ -5,8 +5,8 @@ const wrapper = {
   color: '#fbfbfb',
   borderRadius: '0.35em',
   textDecoration: 'none',
-  marginRight: 'var(--s-small)',
-  marginBottom: 'var(--s-small)',
+  marginRight: 'var(--s-smaller)',
+  marginBottom: 'var(--s-smaller)',
 }
 
 const logoWrapper = {

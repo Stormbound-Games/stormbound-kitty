@@ -4,10 +4,10 @@ import Link from '~/components/Link'
 import PoweredBySanity from '~/components/PoweredBySanity'
 import PoweredByVercel from '~/components/PoweredByVercel'
 import PoweredByCuttly from '~/components/PoweredByCuttly'
+import PoweredByCypress from '~/components/PoweredByCypress'
 import Icon from '~/components/Icon'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
@@ -36,6 +36,7 @@ export default React.memo(function Footer(props) {
               <PoweredBySanity />
               <PoweredByVercel />
               <PoweredByCuttly />
+              <PoweredByCypress />
             </p>
           </Row.Column>
           <Only.Desktop>
@@ -44,6 +45,9 @@ export default React.memo(function Footer(props) {
                 <Row.Column width='1/3'>
                   <span className={css(styles.heading)}>Stormbound</span>
                   <ul className={css(styles.list)}>
+                    <li className={css(styles.item)}>
+                      <Link href='https://sheepyard.pl/'>Sheepyard</Link>
+                    </li>
                     <li className={css(styles.item)}>
                       <Link href='https://twitter.com/stormboundccg'>
                         Twitter
@@ -87,6 +91,9 @@ export default React.memo(function Footer(props) {
                       <Link to='/fan-kit'>Fan-kit</Link>
                     </li>
                     <li className={css(styles.item)}>
+                      <Link to='/releases'>Patch notes</Link>
+                    </li>
+                    <li className={css(styles.item)}>
                       <Link href='https://github.com/sheepyard/stormbound-kitty'>
                         GitHub
                       </Link>
@@ -96,6 +103,10 @@ export default React.memo(function Footer(props) {
                 <Row.Column width='1/3'>
                   <span className={css(styles.heading)}>Community</span>
                   <ul className={css(styles.list)}>
+                    <li className={css(styles.item)}>
+                      <Link to='/brewed-sages'>Brewed Sages</Link>
+                    </li>
+
                     <li className={css(styles.item)}>
                       <Link href='https://reddit.com/r/stormbound'>Reddit</Link>
                     </li>

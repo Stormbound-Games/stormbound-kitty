@@ -51,10 +51,14 @@ const item = {
 }
 
 const sponsors = {
-  marginTop: 'var(--s-base)',
+  marginTop: 'var(--s-small)',
   marginBottom: 0,
   display: 'flex',
   flexWrap: 'wrap',
+  maxWidth: '40ch',
+  fontSize: '80%',
+
+  medium: { fontSize: '100%' },
 }
 
 const styles = {
