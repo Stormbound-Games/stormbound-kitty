@@ -9,7 +9,10 @@ const input = {
   border: '1px solid #ded7a480',
   color: 'var(--white)',
 
-  ':disabled': { opacity: 0.5 },
+  ':disabled': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+  },
 }
 
 const styles = { input }
