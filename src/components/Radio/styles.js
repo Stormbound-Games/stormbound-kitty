@@ -23,8 +23,8 @@ const icon = ({ isDisabled }) => ({
   left: 0,
 
   ':disabled': {
-    cursor: 'not-allowed',
     opacity: 0.5,
+    cursor: 'not-allowed',
   },
 })
 

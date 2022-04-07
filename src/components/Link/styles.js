@@ -20,8 +20,8 @@ const buttonAsLink = {
 
   ':disabled': {
     opacity: 0.7,
+    cursor: 'not-allowed',
     filter: 'grayscale(1)',
-    cursor: 'default',
   },
 
   ':not(:disabled):hover': {
