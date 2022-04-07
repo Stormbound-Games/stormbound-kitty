@@ -2,10 +2,10 @@ import { getEntries } from '~/helpers/sanity'
 import sortCards from '~/helpers/sortCards'
 import { FIELDS, MAPPER } from './utils'
 
-const getCards = async ({ isPreview } = {}) => {
+const getCards = async ({ isPreview, fields = FIELDS } = {}) => {
   const cards = await getEntries({
     conditions: ['_type == "card"'],
-    fields: FIELDS,
+    fields,
     options: { order: 'faction desc, name asc', isPreview },
   })
 
