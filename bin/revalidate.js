@@ -1,8 +1,3 @@
-// The script is executed with Node 17 in the GitHub Workflow, but might be
-// executed with Node 14 or Node 16 when ran locally.
-const fetch =
-  typeof global.fetch === 'function' ? global.fetch : require('node-fetch')
-
 const NODE_ENV = process.env.NODE_ENV || 'development'
 const NEXT_REVALIDATION_TOKEN = process.env.NEXT_REVALIDATION_TOKEN
 
