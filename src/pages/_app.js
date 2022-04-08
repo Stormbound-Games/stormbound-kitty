@@ -2,6 +2,9 @@ import Head from 'next/head'
 import PlausibleProvider from 'next-plausible'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
+import CardsProvider from '~/components/CardsProvider'
+import CollectionProvider from '~/components/CollectionProvider'
+import PersonalDecksProvider from '~/components/PersonalDecksProvider'
 import ErrorBoundary from '~/components/ErrorBoundary'
 import NotificationProvider from '~/components/NotificationProvider'
 import createFelaRenderer from '~/helpers/createFelaRenderer'
@@ -19,6 +22,9 @@ export function reportWebVitals(metric) {
 }
 
 function App({ Component, pageProps, renderer = fallbackRenderer }) {
+  const { settings: _settings, ...componentProps } = pageProps
+  const { cards, ...settings } = _settings
+
   return (
     <>
       <Head>
@@ -50,7 +56,13 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <RendererProvider renderer={renderer}>
           <ErrorBoundary>
             <NotificationProvider>
-              <Component {...pageProps} />
+              <CardsProvider cards={cards}>
+                <CollectionProvider>
+                  <PersonalDecksProvider>
+                    <Component {...componentProps} settings={settings} />
+                  </PersonalDecksProvider>
+                </CollectionProvider>
+              </CardsProvider>
             </NotificationProvider>
           </ErrorBoundary>
         </RendererProvider>
