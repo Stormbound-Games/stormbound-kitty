@@ -1,4 +1,4 @@
-import FanKitBooks from '~/components/FanKitBooks'
+import PageFanKitBooks from '~/components/PageFanKitBooks'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getBooks from '~/api/books/getBooks'
 
@@ -19,4 +19,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default FanKitBooks
+export default PageFanKitBooks

@@ -1,4 +1,4 @@
-import BrawlPage from '~/components/BrawlPage'
+import PageBrawl from '~/components/PageBrawl'
 import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
 import getBooks from '~/api/books/getBooks'
@@ -40,4 +40,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default BrawlPage
+export default PageBrawl

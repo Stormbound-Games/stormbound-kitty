@@ -1,4 +1,4 @@
-import QuestBuilderRoot from '~/components/QuestBuilderRoot'
+import PageQuestBuilder from '~/components/PageQuestBuilder'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -20,4 +20,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default QuestBuilderRoot
+export default PageQuestBuilder

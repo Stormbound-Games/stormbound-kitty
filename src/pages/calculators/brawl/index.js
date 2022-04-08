@@ -1,4 +1,4 @@
-import BrawlCalculator from '~/components/BrawlCalculator'
+import PageBrawlCalculator from '~/components/PageBrawlCalculator'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -12,4 +12,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default BrawlCalculator
+export default PageBrawlCalculator

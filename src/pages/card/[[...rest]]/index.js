@@ -1,4 +1,4 @@
-import CardBuilder from '~/components/CardBuilder'
+import PageCardBuilder from '~/components/PageCardBuilder'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
@@ -39,4 +39,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return { props: { settings, cardId, card, contest, mode, breadcrumbs } }
 }
 
-export default CardBuilder
+export default PageCardBuilder

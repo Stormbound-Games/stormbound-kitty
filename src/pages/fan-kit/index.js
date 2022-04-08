@@ -1,4 +1,4 @@
-import FanKit from '~/components/FanKit'
+import PageFanKit from '~/components/PageFanKit'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -9,4 +9,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default FanKit
+export default PageFanKit

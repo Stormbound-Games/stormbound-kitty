@@ -1,4 +1,4 @@
-import HeroScoreCalculator from '~/components/HeroScoreCalculator'
+import PageHeroScoreCalculator from '~/components/PageHeroScoreCalculator'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -12,4 +12,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default HeroScoreCalculator
+export default PageHeroScoreCalculator

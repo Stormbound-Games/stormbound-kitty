@@ -1,4 +1,4 @@
-import IncomeCalculator from '~/components/IncomeCalculator'
+import PageIncomeCalculator from '~/components/PageIncomeCalculator'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getBooks from '~/api/books/getBooks'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default IncomeCalculator
+export default PageIncomeCalculator

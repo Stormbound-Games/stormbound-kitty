@@ -1,4 +1,4 @@
-import CardChangelog from '~/components/CardChangelog'
+import PageCardChangelog from '~/components/PageCardChangelog'
 import getChanges from '~/api/changes/getChanges'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default CardChangelog
+export default PageCardChangelog

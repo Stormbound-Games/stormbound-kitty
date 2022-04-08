@@ -1,4 +1,4 @@
-import Members from '~/components/Members'
+import PageMembers from '~/components/PageMembers'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getUsers from '~/api/users/getUsers'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default Members
+export default PageMembers

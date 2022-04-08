@@ -1,4 +1,4 @@
-import Collection from '~/components/Collection'
+import PageCollection from '~/components/PageCollection'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -12,4 +12,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default Collection
+export default PageCollection

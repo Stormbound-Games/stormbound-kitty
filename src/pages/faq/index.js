@@ -1,4 +1,4 @@
-import FAQ from '~/components/FAQ'
+import PageFAQ from '~/components/PageFAQ'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getFAQ from '~/api/faq/getFAQ'
 
@@ -9,4 +9,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { data, settings, breadcrumbs: ['HOME', 'HOME', 'FAQ'] } }
 }
 
-export default FAQ
+export default PageFAQ

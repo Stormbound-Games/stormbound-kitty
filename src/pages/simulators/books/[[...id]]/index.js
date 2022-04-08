@@ -1,4 +1,4 @@
-import BookOpeningSimulator from '~/components/BookOpeningSimulator'
+import PageBookOpeningSimulator from '~/components/PageBookOpeningSimulator'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -32,4 +32,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default BookOpeningSimulator
+export default PageBookOpeningSimulator

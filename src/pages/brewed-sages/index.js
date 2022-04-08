@@ -1,4 +1,4 @@
-import BrewedSages from '~/components/BrewedSages'
+import PageBrewedSages from '~/components/PageBrewedSages'
 import getPodcasts from '~/api/podcasts/getPodcasts'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default BrewedSages
+export default PageBrewedSages

@@ -1,4 +1,4 @@
-import CardsStats from '~/components/CardsStats'
+import PageCardsStats from '~/components/PageCardsStats'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -9,4 +9,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default CardsStats
+export default PageCardsStats

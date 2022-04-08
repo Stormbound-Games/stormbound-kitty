@@ -1,4 +1,4 @@
-import Story from '~/components/Story'
+import PageStory from '~/components/PageStory'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getStory from '~/api/stories/getStory'
 import getStories from '~/api/stories/getStories'
@@ -45,4 +45,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default Story
+export default PageStory

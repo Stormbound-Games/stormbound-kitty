@@ -1,4 +1,4 @@
-import BooksCalculator from '~/components/BooksCalculator'
+import PageBooksCalculator from '~/components/PageBooksCalculator'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getBooks from '~/api/books/getBooks'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default BooksCalculator
+export default PageBooksCalculator

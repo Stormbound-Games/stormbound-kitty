@@ -1,4 +1,4 @@
-import KnownBugs from '~/components/KnownBugs'
+import PageKnownBugs from '~/components/PageKnownBugs'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -9,4 +9,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default KnownBugs
+export default PageKnownBugs

@@ -1,4 +1,4 @@
-import BattleSimPage from '~/components/BattleSimPage'
+import PageBattleSim from '~/components/PageBattleSim'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getPuzzles from '~/api/puzzles/getPuzzles'
@@ -52,4 +52,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default BattleSimPage
+export default PageBattleSim

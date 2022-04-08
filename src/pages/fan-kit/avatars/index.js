@@ -1,4 +1,4 @@
-import FanKitAvatars from '~/components/FanKitAvatars'
+import PageFanKitAvatars from '~/components/PageFanKitAvatars'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getAvatars from '~/api/avatars/getAvatars'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default FanKitAvatars
+export default PageFanKitAvatars

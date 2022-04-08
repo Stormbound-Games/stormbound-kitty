@@ -1,4 +1,4 @@
-import FanKitWallpapersDesktop from '~/components/FanKitWallpapersDesktop'
+import PageFanKitWallpapersDesktop from '~/components/PageFanKitWallpapersDesktop'
 import getWallpapersFromType from '~/api/wallpapers/getWallpapersFromType'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default FanKitWallpapersDesktop
+export default PageFanKitWallpapersDesktop

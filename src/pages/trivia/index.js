@@ -1,4 +1,4 @@
-import Trivia from '~/components/Trivia'
+import PageTrivia from '~/components/PageTrivia'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getTriviaQuestions from '~/helpers/getTriviaQuestions'
 import getBrawls from '~/api/brawls/getBrawls'
@@ -22,4 +22,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default Trivia
+export default PageTrivia

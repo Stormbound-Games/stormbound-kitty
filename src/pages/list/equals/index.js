@@ -1,4 +1,4 @@
-import EqualsList from '~/components/EqualsList'
+import PageEqualsList from '~/components/PageEqualsList'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getEqualTierList from '~/api/misc/getEqualTierList'
 
@@ -16,4 +16,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default EqualsList
+export default PageEqualsList

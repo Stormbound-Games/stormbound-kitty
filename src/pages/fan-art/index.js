@@ -1,4 +1,4 @@
-import FanArt from '~/components/FanArt'
+import PageFanArt from '~/components/PageFanArt'
 import getArtworks from '~/api/artworks/getArtworks'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default FanArt
+export default PageFanArt

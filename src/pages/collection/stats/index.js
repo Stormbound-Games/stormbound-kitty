@@ -1,4 +1,4 @@
-import CollectionStats from '~/components/CollectionStats'
+import PageCollectionStats from '~/components/PageCollectionStats'
 import getCollectionCost from '~/helpers/getCollectionCost'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
@@ -22,4 +22,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default CollectionStats
+export default PageCollectionStats

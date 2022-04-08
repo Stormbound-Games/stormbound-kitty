@@ -1,4 +1,4 @@
-import ValueCalculator from '~/components/ValueCalculator'
+import PageValueCalculator from '~/components/PageValueCalculator'
 import getCardValue from '~/helpers/getCardValue'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import serialization from '~/helpers/serialization'
@@ -32,4 +32,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default ValueCalculator
+export default PageValueCalculator

@@ -1,4 +1,4 @@
-import Contribute from '~/components/Contribute'
+import PageContribute from '~/components/PageContribute'
 import getContributions from '~/api/contributions/getContributions'
 import getDonations from '~/api/donations/getDonations'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -30,4 +30,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default Contribute
+export default PageContribute

@@ -1,6 +1,6 @@
 import React from 'react'
-import ListBuilderDisplayView from '~/components/ListBuilderDisplayView'
-import ListBuilderEditorView from '~/components/ListBuilderEditorView'
+import PageListBuilderDisplay from '~/components/PageListBuilderDisplay'
+import PageListBuilderEditor from '~/components/PageListBuilderEditor'
 import getInitialListData from '~/helpers/getInitialListData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import { DEFAULT_LIST } from '~/constants/list'
@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const [id, display] = params.rest || []
+  const breadcrumbs = ['TOOLS', 'BUILDERS', 'LIST_BUILDER']
 
   if (display && display !== 'display') {
     return { notFound: true }
@@ -24,6 +25,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
         tiers: DEFAULT_LIST,
         id: null,
         mode: 'EDITOR',
+        breadcrumbs,
       },
     }
   }
@@ -36,15 +38,16 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       tiers,
       id,
       mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+      breadcrumbs,
     },
   }
 }
 
 const ListBuilderPage = ({ settings, ...props }) =>
   props.mode === 'DISPLAY' ? (
-    <ListBuilderDisplayView {...props} listId={props.id} />
+    <PageListBuilderDisplay {...props} listId={props.id} />
   ) : (
-    <ListBuilderEditorView {...props} listId={props.id} />
+    <PageListBuilderEditor {...props} listId={props.id} />
   )
 
 export default ListBuilderPage

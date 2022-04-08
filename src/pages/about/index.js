@@ -1,4 +1,4 @@
-import About from '~/components/About'
+import PageAbout from '~/components/PageAbout'
 import getContributions from '~/api/contributions/getContributions'
 import getDonations from '~/api/donations/getDonations'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -30,4 +30,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default About
+export default PageAbout

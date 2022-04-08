@@ -1,4 +1,4 @@
-import DeckCollection from '~/components/DeckCollection'
+import PageDeckCollection from '~/components/PageDeckCollection'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getDeckTags from '~/api/decks/getDeckTags'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default DeckCollection
+export default PageDeckCollection

@@ -1,4 +1,4 @@
-import Lexicon from '~/components/Lexicon'
+import PageLexicon from '~/components/PageLexicon'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getAbbreviations from '~/api/misc/getAbbreviations'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default Lexicon
+export default PageLexicon

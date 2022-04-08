@@ -1,4 +1,4 @@
-import FeaturedDecks from '~/components/FeaturedDecks'
+import PageFeaturedDecks from '~/components/PageFeaturedDecks'
 import getDecks from '~/api/decks/getDecks'
 import getDeckTags from '~/api/decks/getDeckTags'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -37,4 +37,4 @@ export async function getServerSideProps({
   }
 }
 
-export default FeaturedDecks
+export default PageFeaturedDecks

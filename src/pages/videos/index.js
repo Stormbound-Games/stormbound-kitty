@@ -1,4 +1,4 @@
-import YouTubeChannels from '~/components/YouTubeChannels'
+import PageYouTubeChannels from '~/components/PageYouTubeChannels'
 import getChannels from '~/api/users/getChannels'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default YouTubeChannels
+export default PageYouTubeChannels

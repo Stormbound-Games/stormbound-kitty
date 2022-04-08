@@ -1,4 +1,4 @@
-import OfficialCardPage from '~/components/OfficialCardPage'
+import PageOfficialCard from '~/components/PageOfficialCard'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
@@ -56,4 +56,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default OfficialCardPage
+export default PageOfficialCard

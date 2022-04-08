@@ -1,4 +1,4 @@
-import CardBuilderContest from '~/components/CardBuilderContest'
+import PageCardBuilderContest from '~/components/PageCardBuilderContest'
 import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default CardBuilderContest
+export default PageCardBuilderContest

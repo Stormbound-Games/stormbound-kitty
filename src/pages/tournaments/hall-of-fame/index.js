@@ -1,4 +1,4 @@
-import TournamentHallOfFame from '~/components/TournamentHallOfFame'
+import PageTournamentHallOfFame from '~/components/PageTournamentHallOfFame'
 import getTournaments from '~/api/tournaments/getTournaments'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default TournamentHallOfFame
+export default PageTournamentHallOfFame

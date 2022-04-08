@@ -1,4 +1,4 @@
-import StoryCategory from '~/components/StoryCategory'
+import PageStoryCategory from '~/components/PageStoryCategory'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
@@ -19,4 +19,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default StoryCategory
+export default PageStoryCategory

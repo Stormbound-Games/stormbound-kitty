@@ -1,4 +1,4 @@
-import ReleaseNotes from '~/components/ReleaseNotes'
+import PageReleaseNotes from '~/components/PageReleaseNotes'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getRelease from '~/api/releases/getRelease'
 import getReleases from '~/api/releases/getReleases'
@@ -29,4 +29,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default ReleaseNotes
+export default PageReleaseNotes

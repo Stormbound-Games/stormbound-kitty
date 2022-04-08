@@ -1,4 +1,4 @@
-import StoryIndex from '~/components/StoryIndex'
+import PageStoryIndex from '~/components/PageStoryIndex'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -7,4 +7,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings, breadcrumbs: ['STORIES'] } }
 }
 
-export default StoryIndex
+export default PageStoryIndex

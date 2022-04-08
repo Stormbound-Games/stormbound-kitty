@@ -23,7 +23,7 @@ export function reportWebVitals(metric) {
 }
 
 function App({ Component, pageProps, renderer = fallbackRenderer }) {
-  const { settings: _settings, breadcrumbs, ...componentProps } = pageProps
+  const { settings: _settings, breadcrumbs = [], ...componentProps } = pageProps
   const { cards, ...settings } = _settings
 
   return (

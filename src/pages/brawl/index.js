@@ -1,4 +1,4 @@
-import BrawlIndex from '~/components/BrawlIndex'
+import PageBrawlIndex from '~/components/PageBrawlIndex'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getBrawls from '~/api/brawls/getBrawls'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default BrawlIndex
+export default PageBrawlIndex

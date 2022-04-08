@@ -1,4 +1,4 @@
-import BattleSimPuzzles from '~/components/BattleSimPuzzles'
+import PageBattleSimPuzzles from '~/components/PageBattleSimPuzzles'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default BattleSimPuzzles
+export default PageBattleSimPuzzles

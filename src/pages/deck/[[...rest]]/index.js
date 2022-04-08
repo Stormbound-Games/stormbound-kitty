@@ -1,7 +1,4 @@
-import React from 'react'
-import DeckEditorView from '~/components/DeckEditorView'
-import DeckDetailView from '~/components/DeckDetailView'
-import DeckDryRunView from '~/components/DeckDryRunView'
+import PageDeckBuilder from '~/components/PageDeckBuilder'
 import getDeck from '~/api/decks/getDeck'
 import getDecks from '~/api/decks/getDecks'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
@@ -10,7 +7,6 @@ import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
 import getDeckPresets from '~/helpers/getDeckPresets'
 import serialization from '~/helpers/serialization'
-import useDeckBuilder from '~/hooks/useDeckBuilder'
 import getBrawls from '~/api/brawls/getBrawls'
 
 export async function getStaticPaths() {
@@ -85,17 +81,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const COMPONENTS = {
-  DRY_RUN: DeckDryRunView,
-  DETAIL: DeckDetailView,
-  EDITOR: DeckEditorView,
-}
-
-const DeckBuilderPage = props => {
-  const state = useDeckBuilder(props)
-  const View = COMPONENTS[props.view]
-
-  return <View {...state} brawls={props.brawls} />
-}
-
-export default DeckBuilderPage
+export default PageDeckBuilder

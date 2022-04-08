@@ -1,4 +1,4 @@
-import DraftSimulator from '~/components/DraftSimulator'
+import PageDraftSimulator from '~/components/PageDraftSimulator'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -32,4 +32,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default DraftSimulator
+export default PageDraftSimulator

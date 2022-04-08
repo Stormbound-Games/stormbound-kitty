@@ -1,4 +1,4 @@
-import RankedList from '~/components/RankedList'
+import PageRankedList from '~/components/PageRankedList'
 import getInitialListData from '~/helpers/getInitialListData'
 import getLiveTierList from '~/helpers/getLiveTierList'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -17,4 +17,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default RankedList
+export default PageRankedList

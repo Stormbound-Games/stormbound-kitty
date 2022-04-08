@@ -1,4 +1,4 @@
-import FanKitWallpapersMobile from '~/components/FanKitWallpapersMobile'
+import PageFanKitWallpapersMobile from '~/components/PageFanKitWallpapersMobile'
 import getWallpapersFromType from '~/api/wallpapers/getWallpapersFromType'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -15,4 +15,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default FanKitWallpapersMobile
+export default PageFanKitWallpapersMobile

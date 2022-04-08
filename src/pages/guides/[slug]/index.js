@@ -1,4 +1,4 @@
-import Guide from '~/components/Guide'
+import PageGuide from '~/components/PageGuide'
 import getGuide from '~/api/guides/getGuide'
 import getGuides from '~/api/guides/getGuides'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -30,4 +30,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default Guide
+export default PageGuide
