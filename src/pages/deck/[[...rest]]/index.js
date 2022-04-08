@@ -2,7 +2,6 @@ import React from 'react'
 import DeckEditorView from '~/components/DeckEditorView'
 import DeckDetailView from '~/components/DeckDetailView'
 import DeckDryRunView from '~/components/DeckDryRunView'
-import Layout from '~/components/Layout'
 import getDeck from '~/api/decks/getDeck'
 import getDecks from '~/api/decks/getDecks'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
@@ -33,6 +32,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cardsIndex = indexArray(settings.cards)
   const cardsIndexBySid = indexArray(settings.cards, 'sid')
   const [id, view] = params.rest || []
+  const resolvedView =
+    view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
+  const breadcrumbs = ['TOOLS', 'BUILDERS', 'DECK_BUILDER', resolvedView]
 
   if (
     ['dry-run', 'detail'].includes(id) ||
@@ -52,6 +54,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
         view: 'EDITOR',
         suggestedDeck: null,
         preset: getDeckPresets(),
+        breadcrumbs,
       },
     }
   }
@@ -65,8 +68,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const resolvedDeck = deck.map(card => getResolvedCardData(cardsIndex, card))
   const advice =
     view === 'detail' ? await getDeckAdvice(cardsIndex, resolvedDeck) : []
-  const resolvedView =
-    view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
   const suggestedDeck = await getDeck({ id, isPreview })
 
   return {
@@ -79,6 +80,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       view: resolvedView,
       suggestedDeck,
       preset: getDeckPresets(brawls, suggestedDeck),
+      breadcrumbs,
     },
   }
 }
@@ -89,20 +91,11 @@ const COMPONENTS = {
   EDITOR: DeckEditorView,
 }
 
-const Component = props => {
+const DeckBuilderPage = props => {
   const state = useDeckBuilder(props)
   const View = COMPONENTS[props.view]
 
   return <View {...state} brawls={props.brawls} />
 }
-
-const DeckBuilderPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
-    settings={settings}
-  >
-    <Component {...props} />
-  </Layout>
-)
 
 export default DeckBuilderPage

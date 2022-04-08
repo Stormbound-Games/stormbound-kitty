@@ -1,6 +1,4 @@
-import React from 'react'
 import Home from '~/components/Home'
-import Layout from '~/components/Layout'
 import getNews from '~/api/news/getNews'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -8,13 +6,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const news = await getNews({ isPreview })
 
-  return { props: { news, settings } }
+  return { props: { news, settings, breadcrumbs: ['HOME', 'HOME', 'NEWS'] } }
 }
 
-const Index = ({ settings, ...props }) => (
-  <Layout active={['HOME', 'HOME', 'NEWS']} settings={settings}>
-    <Home {...props} />
-  </Layout>
-)
-
-export default Index
+export default Home

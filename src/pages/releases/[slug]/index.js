@@ -1,6 +1,3 @@
-import React from 'react'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import Layout from '~/components/Layout'
 import ReleaseNotes from '~/components/ReleaseNotes'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getRelease from '~/api/releases/getRelease'
@@ -23,15 +20,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
-  return { props: { settings, ...release } }
+  return {
+    props: {
+      settings,
+      ...release,
+      breadcrumbs: ['GAME', 'UPDATES', release.id],
+    },
+  }
 }
 
-const ReleasePage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'UPDATES', props.id]} settings={settings}>
-    <ReleaseNotes {...props}>
-      <BlocksRenderer value={props.content} />
-    </ReleaseNotes>
-  </Layout>
-)
-
-export default ReleasePage
+export default ReleaseNotes

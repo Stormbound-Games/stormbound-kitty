@@ -1,6 +1,4 @@
-import React from 'react'
 import OfficialCardPage from '~/components/OfficialCardPage'
-import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
@@ -38,14 +36,15 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   })
 
   return {
-    props: { settings, cardId, card, versions, feed },
+    props: {
+      settings,
+      cardId,
+      card,
+      versions,
+      feed,
+      breadcrumbs: ['GAME', 'INFORMATION', 'CARDS'],
+    },
   }
 }
 
-const CardBuilderPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'CARDS']} settings={settings}>
-    <OfficialCardPage {...props} />
-  </Layout>
-)
-
-export default CardBuilderPage
+export default OfficialCardPage

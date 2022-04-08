@@ -1,4 +1,5 @@
 import React from 'react'
+import BlocksRenderer from '~/components/BlocksRenderer'
 import HorizontalRule from '~/components/HorizontalRule'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
@@ -35,7 +36,7 @@ const Guide = React.memo(function Guide(props) {
       >
         <Page.Narrow>
           <GuideRenderingContext.Provider value={{ isWithinGuide: true }}>
-            {props.children}
+            <BlocksRenderer value={props.content} />
           </GuideRenderingContext.Provider>
         </Page.Narrow>
       </Page>

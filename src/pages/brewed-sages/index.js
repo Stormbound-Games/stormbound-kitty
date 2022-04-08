@@ -1,6 +1,4 @@
-import React from 'react'
 import BrewedSages from '~/components/BrewedSages'
-import Layout from '~/components/Layout'
 import getPodcasts from '~/api/podcasts/getPodcasts'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -8,16 +6,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const episodes = await getPodcasts({ isPreview })
 
-  return { props: { settings, episodes } }
+  return {
+    props: {
+      settings,
+      episodes,
+      breadcrumbs: ['COMMUNITY', 'DISCOVER', 'BREWED_SAGES'],
+    },
+  }
 }
 
-const BrewedSagesPage = ({ settings, ...props }) => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'BREWED_SAGES']}
-    settings={settings}
-  >
-    <BrewedSages {...props} />
-  </Layout>
-)
-
-export default BrewedSagesPage
+export default BrewedSages

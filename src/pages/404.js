@@ -1,7 +1,6 @@
 import React from 'react'
 import Script from 'next/script'
 import Error from '~/components/Error'
-import Layout from '~/components/Layout'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -10,17 +9,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return { props: { settings } }
 }
 
-export default function Custom404({ settings, ...props }) {
+export default function Custom404() {
   return (
-    <Layout active={[]} settings={settings}>
-      <Error
-        {...props}
-        title='The page was not found'
-        error='404 — Page Not Found'
-      />
+    <>
+      <Error title='The page was not found' error='404 — Page Not Found' />
       <Script id='404-tracking' strategy='lazyOnload'>
         {`if (window.plausible) window.plausible("404", { props: { path: document.location.pathname } });`}
       </Script>
-    </Layout>
+    </>
   )
 }

@@ -1,6 +1,4 @@
-import React from 'react'
 import BookOpeningSimulator from '~/components/BookOpeningSimulator'
-import Layout from '~/components/Layout'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -29,17 +27,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       books,
       settings,
       book: book.map(card => getResolvedCardData(cardsIndex, card)),
+      breadcrumbs: ['TOOLS', 'SIMULATORS', 'BOOK_SIMULATOR'],
     },
   }
 }
 
-const BookOpeningSimulatorPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'SIMULATORS', 'BOOK_SIMULATOR']}
-    settings={settings}
-  >
-    <BookOpeningSimulator {...props} />
-  </Layout>
-)
-
-export default BookOpeningSimulatorPage
+export default BookOpeningSimulator

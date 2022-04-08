@@ -1,7 +1,6 @@
 import React from 'react'
 import ListBuilderDisplayView from '~/components/ListBuilderDisplayView'
 import ListBuilderEditorView from '~/components/ListBuilderEditorView'
-import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import { DEFAULT_LIST } from '~/constants/list'
@@ -41,14 +40,11 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const ListBuilderPage = ({ settings, ...props }) => (
-  <Layout active={['TOOLS', 'BUILDERS', 'LIST_BUILDER']} settings={settings}>
-    {props.mode === 'DISPLAY' ? (
-      <ListBuilderDisplayView {...props} listId={props.id} />
-    ) : (
-      <ListBuilderEditorView {...props} listId={props.id} />
-    )}
-  </Layout>
-)
+const ListBuilderPage = ({ settings, ...props }) =>
+  props.mode === 'DISPLAY' ? (
+    <ListBuilderDisplayView {...props} listId={props.id} />
+  ) : (
+    <ListBuilderEditorView {...props} listId={props.id} />
+  )
 
 export default ListBuilderPage

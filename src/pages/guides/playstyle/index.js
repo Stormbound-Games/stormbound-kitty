@@ -1,6 +1,4 @@
-import React from 'react'
 import Guides from '~/components/Guides'
-import Layout from '~/components/Layout'
 import { CATEGORIES } from '~/constants/guides'
 import getGuidesFromCategory from '~/api/guides/getGuidesFromCategory'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -12,14 +10,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { category, guides, settings },
+    props: {
+      category,
+      guides,
+      settings,
+      breadcrumbs: ['GUIDES', name],
+    },
   }
 }
 
-const GuidesPage = ({ settings, ...props }) => (
-  <Layout active={['GUIDES', props.category.id]} settings={settings}>
-    <Guides {...props} />
-  </Layout>
-)
-
-export default GuidesPage
+export default Guides

@@ -1,4 +1,5 @@
 import React from 'react'
+import BlocksRenderer from '~/components/BlocksRenderer'
 import Page from '~/components/Page'
 
 export default React.memo(function ReleaseNotes(props) {
@@ -15,7 +16,9 @@ export default React.memo(function ReleaseNotes(props) {
       isEditorialContent
       withDropCap
     >
-      <Page.Narrow>{props.children}</Page.Narrow>
+      <Page.Narrow>
+        <BlocksRenderer value={props.content} />
+      </Page.Narrow>
     </Page>
   )
 })

@@ -1,6 +1,4 @@
-import React from 'react'
 import Story from '~/components/Story'
-import Layout from '~/components/Layout'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getStory from '~/api/stories/getStory'
 import getStories from '~/api/stories/getStories'
@@ -34,12 +32,12 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     })
   }
   const { category } = story
-  const active = ['STORIES', STORY_CATEGORIES[category].category, category]
+  const breadcrumbs = ['STORIES', STORY_CATEGORIES[category].category, category]
   const settings = await getSiteSettings({ isPreview })
 
   return {
     props: {
-      active,
+      breadcrumbs,
       moreStories: moreStories.slice(0, 3),
       story,
       settings,
@@ -47,10 +45,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const StoryPage = ({ active, settings, ...props }) => (
-  <Layout active={active} settings={settings}>
-    <Story {...props} />
-  </Layout>
-)
-
-export default StoryPage
+export default Story

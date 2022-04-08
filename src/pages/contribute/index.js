@@ -1,6 +1,4 @@
-import React from 'react'
 import Contribute from '~/components/Contribute'
-import Layout from '~/components/Layout'
 import getContributions from '~/api/contributions/getContributions'
 import getDonations from '~/api/donations/getDonations'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -22,13 +20,14 @@ export async function getStaticProps({ preview: isPreview = false }) {
   )
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { settings, contributors, donators } }
+  return {
+    props: {
+      settings,
+      contributors,
+      donators,
+      breadcrumbs: ['HOME', 'HOME', 'CONTRIBUTE'],
+    },
+  }
 }
 
-const ContributePage = ({ settings, ...props }) => (
-  <Layout active={['HOME', 'HOME', 'CONTRIBUTE']} settings={settings}>
-    <Contribute {...props} />
-  </Layout>
-)
-
-export default ContributePage
+export default Contribute

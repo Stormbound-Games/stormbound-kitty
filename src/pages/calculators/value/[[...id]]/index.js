@@ -1,6 +1,4 @@
-import React from 'react'
 import ValueCalculator from '~/components/ValueCalculator'
-import Layout from '~/components/Layout'
 import getCardValue from '~/helpers/getCardValue'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import serialization from '~/helpers/serialization'
@@ -29,17 +27,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       settings,
       deck: [deck[0] || defaultCard, deck[1] || defaultCard],
       disabledOptions,
+      breadcrumbs: ['TOOLS', 'CALCULATORS', 'VALUE_CALCULATOR'],
     },
   }
 }
 
-const ValueCalculatorPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'CALCULATORS', 'VALUE_CALCULATOR']}
-    settings={settings}
-  >
-    <ValueCalculator {...props} />
-  </Layout>
-)
-
-export default ValueCalculatorPage
+export default ValueCalculator

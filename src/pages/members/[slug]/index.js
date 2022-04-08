@@ -1,8 +1,5 @@
-import React from 'react'
 import Member from '~/components/Member'
-import Layout from '~/components/Layout'
 import getSiteSettings from '~/api/misc/getSiteSettings'
-import useUser from '~/hooks/useUser'
 import getContentFromUser from '~/api/users/getContentFromUser'
 import getUsers from '~/api/users/getUsers'
 
@@ -31,21 +28,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
-  return { props: { settings, ...data } }
+  return {
+    props: {
+      settings,
+      ...data,
+      breadcrumbs: ['COMMUNITY', 'DISCOVER', 'MEMBERS'],
+    },
+  }
 }
 
-const MemberPage = ({ settings, ...props }) => {
-  const [user] = useUser()
-  const active =
-    user && user.slug === props.user.slug
-      ? ['YOUR_CONTENT', 'YOUR_CONTENT', 'FEED']
-      : ['COMMUNITY', 'DISCOVER', 'MEMBERS']
-
-  return (
-    <Layout active={active} settings={settings}>
-      <Member {...props} />
-    </Layout>
-  )
-}
-
-export default MemberPage
+export default Member

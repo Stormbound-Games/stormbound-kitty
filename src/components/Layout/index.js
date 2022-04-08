@@ -26,6 +26,7 @@ export default React.memo(function Layout(props) {
           <BlocksRenderer value={props.settings.eyeCatcher.content} />
         </EyeCatcher>
       ) : null}
+
       <Header
         navigation={props.settings.navigation}
         active={props.active}
