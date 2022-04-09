@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import querystring from 'querystring'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
@@ -218,16 +217,6 @@ export default React.memo(function PageFeaturedDecks(props) {
           )}
         </Row.Column>
       </Row>
-
-      <Head>
-        {/* Ensure all hits with query parameters (used for filtering) are
-         * marked as the same page by search engines.
-         */}
-        <link
-          rel='canonical'
-          href='https://stormbound-kitty.com/deck/featured'
-        />
-      </Head>
     </Page>
   )
 })

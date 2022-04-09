@@ -7,7 +7,7 @@ const DEFAULT_DESCRIPTION =
   'Stormbound-Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
 
 export default React.memo(function PageMeta(props) {
-  const { asPath: location } = useRouter()
+  const { pathname } = useRouter()
   const description = props.description || DEFAULT_DESCRIPTION
   const title =
     props.metaTitle || props.title
@@ -24,14 +24,14 @@ export default React.memo(function PageMeta(props) {
     <Head>
       <title>{title}</title>
 
-      <link rel='canonical' href={SITE_URL + location} />
+      <link rel='canonical' href={SITE_URL + pathname} />
       <meta name='author' content={author} />
       <meta name='description' content={description} />
 
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
       <meta property='og:image' content={image} />
-      <meta property='og:url' content={SITE_URL + location} />
+      <meta property='og:url' content={SITE_URL + pathname} />
 
       <meta property='twitter:title' content={title} />
       <meta property='twitter:description' content={description} />
