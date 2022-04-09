@@ -29,16 +29,4 @@ describe('Official card — Navigation', () => {
       .url()
       .should('match', /\/card\/official\/N1/)
   })
-
-  it('should be possible to clear the current card', () => {
-    cy.get(s.CARD_SELECT)
-      .find('.CardSelect__clear-indicator')
-      .click({ force: true })
-
-      .url()
-      .should('match', /\/card$/)
-
-      .get(s.CARD_SELECT)
-      .should('not.exist')
-  })
 })
