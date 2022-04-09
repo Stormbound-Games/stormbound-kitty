@@ -119,7 +119,7 @@ export default React.memo(function Home(props) {
 
       <PageMeta
         title='Home'
-        description='Stormbound-Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
+        description='Stormbound-Kitty aims at providing tools and information about Sheepyard’s great Stormbound game, and extending its players’ experience outside the game'
       />
 
       <Head>
