@@ -22,6 +22,7 @@ const getSearchIndex = async (withEverything = true) => {
   const users = await getUsers()
   const links = []
   const limit = withEverything ? Infinity : 1
+  const seasons = [...new Set(swcc.map(week => week.season))].sort()
 
   links.push({
     label: 'News',
@@ -120,9 +121,9 @@ const getSearchIndex = async (withEverything = true) => {
 
   swcc.slice(0, limit).forEach(contest => {
     links.push({
-      label: `SWCC Season ${contest.season} week ${contest.week} ${contest.name}`,
+      label: `SWCC S${contest.season}W${contest.week} ${contest.name}`,
       path: `/card/${contest.winner.id}/display`,
-      breadcrumbs: ['Community', 'Contests'],
+      breadcrumbs: ['Community', 'Contests', 'SWCC'],
       icon: 'trophy',
     })
   })
@@ -133,6 +134,15 @@ const getSearchIndex = async (withEverything = true) => {
     breadcrumbs: ['Community', 'Contests'],
     icon: 'trophy',
   })
+
+  seasons.map(season =>
+    links.push({
+      label: 'SWCC Season ' + season,
+      path: '/swcc/season/' + season,
+      breadcrumbs: ['Community', 'Contests', 'SWCC'],
+      icon: 'trophy',
+    })
+  )
 
   links.push({
     label: 'Card Statistics',

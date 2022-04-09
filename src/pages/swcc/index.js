@@ -9,7 +9,10 @@ export async function getStaticProps({ preview: isPreview = false }) {
   return {
     props: {
       settings,
-      seasons,
+      seasons: seasons.map(season => ({
+        number: season.season,
+        duration: season.weeks.length,
+      })),
       breadcrumbs: ['COMMUNITY', 'CONTESTS', 'CARD_CONTEST'],
     },
   }
