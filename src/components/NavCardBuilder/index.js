@@ -2,6 +2,7 @@ import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import CardSelect from '~/components/CardSelect'
 import SubNav from '~/components/SubNav'
+import track from '~/helpers/track'
 import useViewportSize from '~/hooks/useViewportSize'
 import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
@@ -28,13 +29,15 @@ export default React.memo(function NavCardBuilder(props) {
               name='card-select'
               noBorder={viewportWidth >= 700}
               current={cardsIndex[id]?.id}
-              withClear={Boolean(cardsIndex[id]?.id)}
               disabledOptions={id ? [id] : undefined}
-              onChange={option =>
+              onChange={option => {
+                track('card_select_navigation', {
+                  id: option ? option.value : null,
+                })
                 navigator.push(
                   option ? `/card/official/${option.value}` : '/card'
                 )
-              }
+              }}
               withSpells
             />
           ),
