@@ -22,7 +22,7 @@ export default React.memo(function PageSWCCSeason(props) {
   return (
     <Page
       title={'SWCC Season ' + props.number}
-      description={`All the cards from the Stormbound Weekly Card Contest season ${props.number}`}
+      description={`Find all the cards created by the community from the Stormbound Weekly Card Contest season ${props.number}`}
       authors={[
         { name: 'TaKo_G', slug: 'tako_g' },
         props.number >= 4 && { name: 'Grimm', slug: 'grimm' },
