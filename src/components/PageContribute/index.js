@@ -133,16 +133,6 @@ export default React.memo(function PageContribute(props) {
             </li>
 
             <li>
-              The <Link to='/calculators/value'>value calculator</Link> is
-              pretty experimental. Some cards have questionable results, and{' '}
-              <Link to='/faq#value-calculator'>
-                some cards are not implemented
-              </Link>{' '}
-              at all. It would be great to have help figuring out how to best
-              compute the value of some cards.
-            </li>
-
-            <li>
               <Link to='/guides'>Guides</Link> tend to be outdated as time goes
               by and the game gets updated. Having them reviewed every now and
               then ensures the information they contain remains valuable and
@@ -154,6 +144,23 @@ export default React.memo(function PageContribute(props) {
               <Link to='/simulators/battle/puzzles'>Stormbound puzzles</Link>,
               but not many are being added. If you would like to suggest new
               puzzles, I’m sure that would make a lot of people happy!
+            </li>
+
+            <li>
+              The <Link to='/list/equals'>Equals Tier List</Link> needs to be
+              updated on a monthly basis to reflect balance changes. We tend to
+              only update it every few months, which makes it less useful, so
+              feel free to help improving it!
+            </li>
+
+            <li>
+              The <Link to='/calculators/value'>value calculator</Link> is
+              pretty experimental. Some cards have questionable results, and{' '}
+              <Link to='/faq#value-calculator'>
+                some cards are not implemented
+              </Link>{' '}
+              at all. It would be great to have help figuring out how to best
+              compute the value of some cards.
             </li>
           </ul>
 
