@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import { useFela } from 'react-fela'
 import HomeNews from '~/components/HomeNews'
 import HomeSection from '~/components/HomeSection'
@@ -121,15 +120,6 @@ export default React.memo(function Home(props) {
         title='Home'
         description='Stormbound-Kitty aims at providing tools and information about Sheepyard’s great Stormbound game, and extending its players’ experience outside the game'
       />
-
-      <Head>
-        {/* For some reason, the /index route exists in product
-ion (but not
-         * locally) and is marked as duplicated from the / route. This should
-         * fix it.
-         */}
-        <link rel='canonical' href='https://stormbound-kitty.com' />
-      </Head>
     </>
   )
 })
