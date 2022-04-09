@@ -8,7 +8,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import styles from './styles'
 
-export default React.memo(function PageCardBuilderContest(props) {
+export default React.memo(function PageSWCC(props) {
   const { css } = useFela()
 
   return (

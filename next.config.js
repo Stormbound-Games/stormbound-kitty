@@ -100,6 +100,11 @@ module.exports = withPlugins(plugins, {
         destination: '/releases/01-2021',
         permanent: true,
       },
+      {
+        source: '/card/contest',
+        destination: '/swcc',
+        permanent: true,
+      },
     ]
   },
   async headers() {

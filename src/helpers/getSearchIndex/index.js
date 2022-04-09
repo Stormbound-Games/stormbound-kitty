@@ -129,7 +129,7 @@ const getSearchIndex = async (withEverything = true) => {
 
   links.push({
     label: 'Weekly Card Contest',
-    path: '/card/contest',
+    path: '/swcc',
     breadcrumbs: ['Community', 'Contests'],
     icon: 'trophy',
   })

@@ -10,8 +10,7 @@ export default React.memo(function FeedEventEntry(props) {
     return (
       <FeedEntry icon='hammer' date={props.date}>
         <MemberList members={props.users} /> {verb} started a new season of the{' '}
-        <Link to='/card/contest'>Stormbound Weekly Card Contest</Link> (SWCC for
-        short).
+        <Link to='/swcc'>Stormbound Weekly Card Contest</Link> (SWCC for short).
       </FeedEntry>
     )
 

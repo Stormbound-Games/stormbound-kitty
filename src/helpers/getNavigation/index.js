@@ -337,7 +337,7 @@ const getNavigation = async ({ isPreview }) => {
             },
             {
               label: 'Weekly Card Contest',
-              to: '/card/contest',
+              to: '/swcc',
               id: 'CARD_CONTEST',
             },
             {

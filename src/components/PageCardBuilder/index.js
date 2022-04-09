@@ -18,7 +18,7 @@ const usePageProps = (props, card) => {
     return {
       meta: `Season ${season} Week #${week}`,
       author: winner.user.name,
-      action: { to: '/card/contest', children: 'Back to SWCC' },
+      action: { to: '/swcc', children: 'Back to SWCC' },
     }
   }
 

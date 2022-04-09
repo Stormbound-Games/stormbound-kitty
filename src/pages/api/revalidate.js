@@ -70,7 +70,7 @@ const getRevalidationPaths = body => {
     case 'siteSettings':
       return ['/lexicon']
     case 'SWCC':
-      return ['/card/contest', `/members/${user.slug.current}`]
+      return ['/swcc', `/members/${user.slug.current}`]
     case 'tournament':
       return [
         '/tournaments/hall-of-fame',
