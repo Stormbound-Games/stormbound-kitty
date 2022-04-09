@@ -1,6 +1,4 @@
-import React from 'react'
-import Lexicon from '~/components/Lexicon'
-import Layout from '~/components/Layout'
+import PageLexicon from '~/components/PageLexicon'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getAbbreviations from '~/api/misc/getAbbreviations'
 
@@ -8,13 +6,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const abbreviations = await getAbbreviations({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { abbreviations, settings } }
+  return {
+    props: {
+      abbreviations,
+      settings,
+      breadcrumbs: ['GAME', 'INFORMATION', 'LEXICON'],
+    },
+  }
 }
 
-const LexiconPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'LEXICON']} settings={settings}>
-    <Lexicon {...props} />
-  </Layout>
-)
-
-export default LexiconPage
+export default PageLexicon

@@ -6,6 +6,7 @@ import CardsProvider from '~/components/CardsProvider'
 import CollectionProvider from '~/components/CollectionProvider'
 import PersonalDecksProvider from '~/components/PersonalDecksProvider'
 import ErrorBoundary from '~/components/ErrorBoundary'
+import Layout from '~/components/Layout'
 import NotificationProvider from '~/components/NotificationProvider'
 import createFelaRenderer from '~/helpers/createFelaRenderer'
 
@@ -22,7 +23,7 @@ export function reportWebVitals(metric) {
 }
 
 function App({ Component, pageProps, renderer = fallbackRenderer }) {
-  const { settings: _settings, ...componentProps } = pageProps
+  const { settings: _settings, breadcrumbs = [], ...componentProps } = pageProps
   const { cards, ...settings } = _settings
 
   return (
@@ -59,7 +60,9 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
               <CardsProvider cards={cards}>
                 <CollectionProvider>
                   <PersonalDecksProvider>
-                    <Component {...componentProps} settings={settings} />
+                    <Layout active={breadcrumbs} settings={settings}>
+                      <Component {...componentProps} />
+                    </Layout>
                   </PersonalDecksProvider>
                 </CollectionProvider>
               </CardsProvider>

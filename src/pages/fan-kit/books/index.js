@@ -1,6 +1,4 @@
-import React from 'react'
-import FanKitBooks from '~/components/FanKitBooks'
-import Layout from '~/components/Layout'
+import PageFanKitBooks from '~/components/PageFanKitBooks'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getBooks from '~/api/books/getBooks'
 
@@ -16,14 +14,9 @@ export async function getStaticProps({ preview: isPreview = false }) {
         name: book.name,
         image: book.image,
       })),
+      breadcrumbs: ['GAME', 'INFORMATION', 'FAN_KIT'],
     },
   }
 }
 
-const FanKitBooksPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
-    <FanKitBooks {...props} />
-  </Layout>
-)
-
-export default FanKitBooksPage
+export default PageFanKitBooks

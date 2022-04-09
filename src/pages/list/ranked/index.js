@@ -1,6 +1,4 @@
-import React from 'react'
-import RankedList from '~/components/RankedList'
-import Layout from '~/components/Layout'
+import PageRankedList from '~/components/PageRankedList'
 import getInitialListData from '~/helpers/getInitialListData'
 import getLiveTierList from '~/helpers/getLiveTierList'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -10,13 +8,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const list = getInitialListData(tierList)
 
-  return { props: { settings, list } }
+  return {
+    props: {
+      settings,
+      list,
+      breadcrumbs: ['COMMUNITY', 'META', 'RANKED_LIST'],
+    },
+  }
 }
 
-const RankedListPage = ({ settings, ...props }) => (
-  <Layout active={['COMMUNITY', 'META', 'RANKED_LIST']} settings={settings}>
-    <RankedList {...props} />
-  </Layout>
-)
-
-export default RankedListPage
+export default PageRankedList

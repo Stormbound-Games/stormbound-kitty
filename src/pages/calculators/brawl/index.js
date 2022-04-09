@@ -1,21 +1,15 @@
-import React from 'react'
-import BrawlCalculator from '~/components/BrawlCalculator'
-import Layout from '~/components/Layout'
+import PageBrawlCalculator from '~/components/PageBrawlCalculator'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { settings } }
+  return {
+    props: {
+      settings,
+      breadcrumbs: ['TOOLS', 'CALCULATORS', 'BRAWL_CALCULATOR'],
+    },
+  }
 }
 
-const BrawlCalculatorPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'CALCULATORS', 'BRAWL_CALCULATOR']}
-    settings={settings}
-  >
-    <BrawlCalculator {...props} />
-  </Layout>
-)
-
-export default BrawlCalculatorPage
+export default PageBrawlCalculator

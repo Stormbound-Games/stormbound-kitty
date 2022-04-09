@@ -1,6 +1,4 @@
-import React from 'react'
-import FeaturedDecks from '~/components/FeaturedDecks'
-import Layout from '~/components/Layout'
+import PageFeaturedDecks from '~/components/PageFeaturedDecks'
 import getDecks from '~/api/decks/getDecks'
 import getDeckTags from '~/api/decks/getDeckTags'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -29,13 +27,14 @@ export async function getServerSideProps({
   const settings = await getSiteSettings({ isPreview })
   const availableTags = await getDeckTags({ isPreview })
 
-  return { props: { decks, settings, availableTags } }
+  return {
+    props: {
+      decks,
+      settings,
+      availableTags,
+      breadcrumbs: ['COMMUNITY', 'META', 'FEATURED_DECKS'],
+    },
+  }
 }
 
-const FeaturedDecksPage = ({ settings, ...props }) => (
-  <Layout active={['COMMUNITY', 'META', 'FEATURED_DECKS']} settings={settings}>
-    <FeaturedDecks {...props} />
-  </Layout>
-)
-
-export default FeaturedDecksPage
+export default PageFeaturedDecks

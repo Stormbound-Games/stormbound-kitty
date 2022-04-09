@@ -1,18 +1,12 @@
-import React from 'react'
-import CardsStats from '~/components/CardsStats'
-import Layout from '~/components/Layout'
+import PageCardsStats from '~/components/PageCardsStats'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { settings } }
+  return {
+    props: { settings, breadcrumbs: ['GAME', 'INFORMATION', 'CARD_STATS'] },
+  }
 }
 
-const CardStatsPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'CARD_STATS']} settings={settings}>
-    <CardsStats {...props} />
-  </Layout>
-)
-
-export default CardStatsPage
+export default PageCardsStats

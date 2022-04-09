@@ -1,6 +1,4 @@
-import React from 'react'
-import Members from '~/components/Members'
-import Layout from '~/components/Layout'
+import PageMembers from '~/components/PageMembers'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getUsers from '~/api/users/getUsers'
 
@@ -8,13 +6,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const members = await getUsers({ isPreview })
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { settings, members } }
+  return {
+    props: {
+      settings,
+      members,
+      breadcrumbs: ['COMMUNITY', 'DISCOVER', 'MEMBERS'],
+    },
+  }
 }
 
-const MembersPage = ({ settings, ...props }) => (
-  <Layout active={['COMMUNITY', 'DISCOVER', 'MEMBERS']} settings={settings}>
-    <Members {...props} />
-  </Layout>
-)
-
-export default MembersPage
+export default PageMembers

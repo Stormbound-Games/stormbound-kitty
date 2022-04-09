@@ -1,7 +1,4 @@
-import React from 'react'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import Guide from '~/components/Guide'
-import Layout from '~/components/Layout'
+import PageGuide from '~/components/PageGuide'
 import getGuide from '~/api/guides/getGuide'
 import getGuides from '~/api/guides/getGuides'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -24,15 +21,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { settings, ...guide } }
+  return {
+    props: {
+      settings,
+      ...guide,
+      breadcrumbs: ['GUIDES', guide.category, guide.id],
+    },
+  }
 }
 
-const GuidePage = ({ settings, content, ...props }) => (
-  <Layout active={['GUIDES', props.category, props.id]} settings={settings}>
-    <Guide {...props}>
-      <BlocksRenderer value={content} />
-    </Guide>
-  </Layout>
-)
-
-export default GuidePage
+export default PageGuide

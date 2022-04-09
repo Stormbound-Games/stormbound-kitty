@@ -1,6 +1,4 @@
-import React from 'react'
-import StoryCategory from '~/components/StoryCategory'
-import Layout from '~/components/Layout'
+import PageStoryCategory from '~/components/PageStoryCategory'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
@@ -11,16 +9,14 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const category = { ...STORY_CATEGORIES[name], id: name }
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { category, settings, stories } }
+  return {
+    props: {
+      category,
+      settings,
+      stories,
+      breadcrumbs: ['STORIES', 'GENERAL', category.id],
+    },
+  }
 }
 
-const StoriesPage = ({ settings, ...props }) => (
-  <Layout
-    active={['STORIES', 'GENERAL', props.category.id]}
-    settings={settings}
-  >
-    <StoryCategory {...props} />
-  </Layout>
-)
-
-export default StoriesPage
+export default PageStoryCategory

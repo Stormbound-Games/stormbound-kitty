@@ -1,6 +1,4 @@
-import React from 'react'
-import DraftSimulator from '~/components/DraftSimulator'
-import Layout from '~/components/Layout'
+import PageDraftSimulator from '~/components/PageDraftSimulator'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
@@ -24,16 +22,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const deck = cards.map(card => getResolvedCardData(cardsIndex, card))
   const advice = await getDeckAdvice(cardsIndex, deck)
 
-  return { props: { settings, deck, advice } }
+  return {
+    props: {
+      settings,
+      deck,
+      advice,
+      breadcrumbs: ['TOOLS', 'SIMULATORS', 'DRAFT_SIMULATOR'],
+    },
+  }
 }
 
-const DraftSimulatorPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'SIMULATORS', 'DRAFT_SIMULATOR']}
-    settings={settings}
-  >
-    <DraftSimulator {...props} />
-  </Layout>
-)
-
-export default DraftSimulatorPage
+export default PageDraftSimulator

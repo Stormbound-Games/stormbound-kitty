@@ -1,19 +1,12 @@
-import React from 'react'
-import FanKit from '~/components/FanKit'
-import Layout from '~/components/Layout'
+import PageFanKit from '~/components/PageFanKit'
 import getSiteSettings from '~/api/misc/getSiteSettings'
-import getCards from '~/api/cards/getCards'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
 
-  return { props: { settings } }
+  return {
+    props: { settings, breadcrumbs: ['GAME', 'INFORMATION', 'FAN_KIT'] },
+  }
 }
 
-const FanKitPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
-    <FanKit {...props} />
-  </Layout>
-)
-
-export default FanKitPage
+export default PageFanKit

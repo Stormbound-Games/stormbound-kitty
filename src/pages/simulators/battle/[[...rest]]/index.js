@@ -1,6 +1,4 @@
-import React from 'react'
-import BattleSimPage from '~/components/BattleSimPage'
-import Layout from '~/components/Layout'
+import PageBattleSim from '~/components/PageBattleSim'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getPuzzles from '~/api/puzzles/getPuzzles'
@@ -23,6 +21,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const cardsIndex = indexArray(settings.cards)
   const [id, display] = params.rest || []
+  const breadcrumbs = ['TOOLS', 'SIMULATORS', 'BATTLE_SIM']
 
   if (display && display !== 'display') {
     return { notFound: true }
@@ -36,6 +35,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
         sim: DEFAULT_SIM,
         mode: 'EDITOR',
         puzzle: null,
+        breadcrumbs,
       },
     }
   }
@@ -47,14 +47,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       sim: serialization.battle.deserialize(cardsIndex, decodeURIComponent(id)),
       mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
       puzzle: await getPuzzle({ id, isPreview }),
+      breadcrumbs,
     },
   }
 }
 
-const BattleSim = ({ settings, ...props }) => (
-  <Layout active={['TOOLS', 'SIMULATORS', 'BATTLE_SIM']} settings={settings}>
-    <BattleSimPage {...props} />
-  </Layout>
-)
-
-export default BattleSim
+export default PageBattleSim

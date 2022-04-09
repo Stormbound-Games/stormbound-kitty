@@ -1,6 +1,4 @@
-import React from 'react'
-import FanKitWallpapersDesktop from '~/components/FanKitWallpapersDesktop'
-import Layout from '~/components/Layout'
+import PageFanKitWallpapersDesktop from '~/components/PageFanKitWallpapersDesktop'
 import getWallpapersFromType from '~/api/wallpapers/getWallpapersFromType'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -8,13 +6,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const wallpapers = await getWallpapersFromType({ type: 'DESKTOP', isPreview })
 
-  return { props: { settings, wallpapers } }
+  return {
+    props: {
+      settings,
+      wallpapers,
+      breadcrumbs: ['GAME', 'INFORMATION', 'FAN_KIT'],
+    },
+  }
 }
 
-const FanKitWallpapersPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} settings={settings}>
-    <FanKitWallpapersDesktop {...props} />
-  </Layout>
-)
-
-export default FanKitWallpapersPage
+export default PageFanKitWallpapersDesktop

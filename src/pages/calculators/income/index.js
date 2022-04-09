@@ -1,6 +1,4 @@
-import React from 'react'
-import IncomeCalculator from '~/components/IncomeCalculator'
-import Layout from '~/components/Layout'
+import PageIncomeCalculator from '~/components/PageIncomeCalculator'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getBooks from '~/api/books/getBooks'
 
@@ -8,16 +6,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const books = await getBooks({ isPreview })
 
-  return { props: { settings, books } }
+  return {
+    props: {
+      settings,
+      books,
+      breadcrumbs: ['TOOLS', 'CALCULATORS', 'INCOME_CALCULATOR'],
+    },
+  }
 }
 
-const IncomeCalculatorPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'CALCULATORS', 'INCOME_CALCULATOR']}
-    settings={settings}
-  >
-    <IncomeCalculator {...props} />
-  </Layout>
-)
-
-export default IncomeCalculatorPage
+export default PageIncomeCalculator

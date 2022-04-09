@@ -1,6 +1,4 @@
-import React from 'react'
-import Releases from '~/components/Releases'
-import Layout from '~/components/Layout'
+import PageReleases from '~/components/PageReleases'
 import getReleases from '~/api/releases/getReleases'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -13,14 +11,9 @@ export async function getStaticProps({ preview: isPreview = false }) {
     props: {
       settings,
       releases,
+      breadcrumbs: ['GAME', 'UPDATES', 'RELEASES'],
     },
   }
 }
 
-const ReleasesPage = ({ settings, ...props }) => (
-  <Layout active={['GAME', 'UPDATES', 'RELEASES']} settings={settings}>
-    <Releases {...props} />
-  </Layout>
-)
-
-export default ReleasesPage
+export default PageReleases

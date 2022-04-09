@@ -1,6 +1,4 @@
-import React from 'react'
-import Trivia from '~/components/Trivia'
-import Layout from '~/components/Layout'
+import PageTrivia from '~/components/PageTrivia'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getTriviaQuestions from '~/helpers/getTriviaQuestions'
 import getBrawls from '~/api/brawls/getBrawls'
@@ -15,13 +13,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
     typeof question === 'function' ? question() : question
   )
 
-  return { props: { settings, questions } }
+  return {
+    props: {
+      settings,
+      questions,
+      breadcrumbs: ['COMMUNITY', 'CONTESTS', 'TRIVIA'],
+    },
+  }
 }
 
-const TriviaPage = ({ settings, ...props }) => (
-  <Layout active={['COMMUNITY', 'CONTESTS', 'TRIVIA']} settings={settings}>
-    <Trivia {...props} />
-  </Layout>
-)
-
-export default TriviaPage
+export default PageTrivia

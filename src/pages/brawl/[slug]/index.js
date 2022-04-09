@@ -1,6 +1,4 @@
-import React from 'react'
-import BrawlPage from '~/components/BrawlPage'
-import Layout from '~/components/Layout'
+import PageBrawl from '~/components/PageBrawl'
 import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
 import getBooks from '~/api/books/getBooks'
@@ -37,17 +35,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       brawl,
       guide,
       recommendedDeck,
+      breadcrumbs: ['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER'],
     },
   }
 }
 
-const BrawlTrackerPage = ({ settings, ...props }) => (
-  <Layout
-    active={['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER']}
-    settings={settings}
-  >
-    <BrawlPage {...props} />
-  </Layout>
-)
-
-export default BrawlTrackerPage
+export default PageBrawl

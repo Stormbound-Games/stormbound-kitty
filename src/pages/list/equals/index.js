@@ -1,6 +1,4 @@
-import React from 'react'
-import EqualsList from '~/components/EqualsList'
-import Layout from '~/components/Layout'
+import PageEqualsList from '~/components/PageEqualsList'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import getEqualTierList from '~/api/misc/getEqualTierList'
 
@@ -13,14 +11,9 @@ export async function getStaticProps({ preview: isPreview = false }) {
       settings,
       date: equalTierList.date,
       list: equalTierList.tiers,
+      breadcrumbs: ['COMMUNITY', 'META', 'EQUALS_LIST'],
     },
   }
 }
 
-const EqualsListPage = ({ settings, ...props }) => (
-  <Layout active={['COMMUNITY', 'META', 'EQUALS_LIST']} settings={settings}>
-    <EqualsList {...props} />
-  </Layout>
-)
-
-export default EqualsListPage
+export default PageEqualsList

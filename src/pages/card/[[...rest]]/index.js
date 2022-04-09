@@ -1,6 +1,4 @@
-import React from 'react'
-import CardBuilder from '~/components/CardBuilder'
-import Layout from '~/components/Layout'
+import PageCardBuilder from '~/components/PageCardBuilder'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
@@ -15,6 +13,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const [cardId, display] = params.rest || []
   const isOfficial = cardId in indexArray(settings.cards)
+  const breadcrumbs = ['TOOLS', 'BUILDERS', 'CARD_BUILDER']
 
   if (display && display !== 'display') {
     return { notFound: true }
@@ -30,20 +29,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   if (!cardId) {
-    return { props: { settings, mode: 'EDITOR' } }
+    return { props: { settings, mode: 'EDITOR', breadcrumbs } }
   }
 
   const card = getInitialCardData(settings.cards, cardId)
   const contest = await getSWCCFromCard({ id: cardId, isPreview })
   const mode = display === 'display' ? 'DISPLAY' : 'EDITOR'
 
-  return { props: { settings, cardId, card, contest, mode } }
+  return { props: { settings, cardId, card, contest, mode, breadcrumbs } }
 }
 
-const CardBuilderPage = ({ settings, ...props }) => (
-  <Layout active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']} settings={settings}>
-    <CardBuilder {...props} />
-  </Layout>
-)
-
-export default CardBuilderPage
+export default PageCardBuilder

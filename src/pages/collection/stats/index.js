@@ -1,6 +1,4 @@
-import React from 'react'
-import CollectionStats from '~/components/CollectionStats'
-import Layout from '~/components/Layout'
+import PageCollectionStats from '~/components/PageCollectionStats'
 import getCollectionCost from '~/helpers/getCollectionCost'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
@@ -15,16 +13,13 @@ export async function getStaticProps({ preview: isPreview = false }) {
     settings.cards.filter(card => !card.token).map(asCollectionItem)
   )
 
-  return { props: { settings, maxCollectionCost } }
+  return {
+    props: {
+      settings,
+      maxCollectionCost,
+      breadcrumbs: ['YOUR_CONTENT', 'YOUR_CONTENT', 'COLLECTION_STATS'],
+    },
+  }
 }
 
-const CollectionStatsPage = ({ settings, ...props }) => (
-  <Layout
-    active={['YOUR_CONTENT', 'YOUR_CONTENT', 'COLLECTION_STATS']}
-    settings={settings}
-  >
-    <CollectionStats {...props} />
-  </Layout>
-)
-
-export default CollectionStatsPage
+export default PageCollectionStats

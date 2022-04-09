@@ -1,6 +1,4 @@
-import React from 'react'
-import QuestBuilderRoot from '~/components/QuestBuilderRoot'
-import Layout from '~/components/Layout'
+import PageQuestBuilder from '~/components/PageQuestBuilder'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
@@ -13,13 +11,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const [id] = params.rest || []
   const quest = id ? serialization.quest.deserialize(id) : {}
 
-  return { props: { settings, quest, id: id || null } }
+  return {
+    props: {
+      settings,
+      quest,
+      breadcrumbs: ['TOOLS', 'BUILDERS', 'QUEST_BUILDER'],
+    },
+  }
 }
 
-const QuestBuilderPage = ({ settings, ...props }) => (
-  <Layout active={['TOOLS', 'BUILDERS', 'QUEST_BUILDER']} settings={settings}>
-    <QuestBuilderRoot {...props} questId={props.id} />
-  </Layout>
-)
-
-export default QuestBuilderPage
+export default PageQuestBuilder
