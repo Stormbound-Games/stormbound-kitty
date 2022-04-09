@@ -1,4 +1,5 @@
 import React from 'react'
+import { components } from 'react-select'
 import Creatable from 'react-select/creatable'
 import { RARITIES, TYPES, RACES } from '~/constants/game'
 import CardSelect from '~/components/CardSelect'
@@ -12,6 +13,10 @@ import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import capitalize from '~/helpers/capitalize'
 import useSelectStyles from '~/hooks/useSelectStyles'
+
+const CustomInput = React.memo(function Input(props) {
+  return <components.Input {...props} maxLength={props.selectProps.maxLength} />
+})
 
 export default React.memo(function CardBuilderCoreForm(props) {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
@@ -103,6 +108,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
           <Row.Column>
             <Label htmlFor='race-input'>Race</Label>
             <Creatable
+              components={{ Input: CustomInput }}
               label='Race'
               id='race'
               instanceId='race'
@@ -125,6 +131,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
                   props.setRace(option ? option.value : '')
                 }
               }}
+              maxLength={25}
               isClearable
               styles={styles}
               options={RACES.map(race => ({
