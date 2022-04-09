@@ -255,8 +255,8 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
-      paddingLeft: '1.35em',
-      textIndent: '-1.35em',
+      paddingLeft: '1.1em',
+      textIndent: '-1.1em',
       marginBottom: 'var(--s-smaller)',
     },
     '.EditorialContent ol li:not([class])'
@@ -264,8 +264,8 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
-      paddingLeft: '1.35em',
-      textIndent: '-1.35em',
+      paddingLeft: '1.1em',
+      textIndent: '-1.1em',
       marginBottom: 'var(--s-smaller)',
     },
     '.EditorialContent ul li:not([class])'
