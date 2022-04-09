@@ -14,7 +14,12 @@ export default React.memo(function ListLayoutItem(props) {
 
   return (
     <Spacing key={props.title} vertical='BASE'>
-      <FeedEntry icon={props.icon} image={props.image} date={props.date}>
+      <FeedEntry
+        icon={props.icon}
+        image={props.image}
+        date={props.date}
+        dateFormat={props.dateFormat}
+      >
         <p className={css(styles.primary)}>
           <Link to={props.path}>{props.title}</Link>
           {authors.length > 0 ? (

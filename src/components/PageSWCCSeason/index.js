@@ -1,58 +1,24 @@
 import React from 'react'
-import Link from '~/components/Link'
+import ListHeader from '~/components/ListHeader'
 import Page from '~/components/Page'
-import Teasers from '~/components/Teasers'
-import { CardsContext } from '~/components/CardsProvider'
-import serialization from '~/helpers/serialization'
+import SWCCSeasonCards from '~/components/SWCCSeasonCards'
 import parseDate from '~/helpers/parseDate'
-import microMarkdown from '~/helpers/microMarkdown'
-import { formatDate } from '~/helpers/formatDate'
-
-export const getCardData = (cardsIndex, id) => {
-  const data = serialization.card.deserialize(cardsIndex, id)
-  data.image = cardsIndex[data.imageCardId]?.image ?? data.imageURL
-  data.strength = data.strength.values[0]
-  data.mana = data.mana.values[0]
-  data.ability = data.ability.values[0]
-  data.level = 1
-  return data
-}
-
-export const CardBuilderHallOfFameSeason = React.memo(function SWCCSeason(
-  props
-) {
-  const { cardsIndex } = React.useContext(CardsContext)
-  const items = props.weeks.map(week => {
-    const cardData = getCardData(cardsIndex, week.winner.id)
-    const date = formatDate(parseDate(week.date))
-
-    return {
-      id: week.winner.id,
-      card: cardData,
-      title: week.name,
-      meta: (
-        <>
-          By{' '}
-          <Link to={`/members/${week.winner.user.slug}`}>
-            {week.winner.user.name}
-          </Link>{' '}
-          in {date}
-        </>
-      ),
-      to: `/card/${week.winner.id}/display`,
-      excerpt: (
-        <>
-          <strong className='Highlight'>{cardData.name}</strong> —{' '}
-          {microMarkdown(cardData.ability)}
-        </>
-      ),
-    }
-  })
-
-  return <Teasers items={items} />
-})
 
 export default React.memo(function PageSWCCSeason(props) {
+  const [layout, setLayout] = React.useState('GRID')
+  const [order, setOrder] = React.useState('DATE')
+  const items = React.useMemo(
+    () =>
+      props.weeks.slice(0).sort((a, b) => {
+        if (order === 'THEME') return a.name.localeCompare(b.name)
+        if (order === 'AUTHOR')
+          return a.winner.user.name.localeCompare(b.winner.user.name)
+        if (order === 'DATE') return parseDate(b.date) - parseDate(a.date)
+        return 0
+      }),
+    [props.weeks, order]
+  )
+
   return (
     <Page
       title={'SWCC Season ' + props.number}
@@ -63,8 +29,23 @@ export default React.memo(function PageSWCCSeason(props) {
       ].filter(Boolean)}
       action={{ to: '/swcc', children: 'Back to SWCC' }}
       meta={`${props.weeks.length} weeks`}
+      isEditorialContent
     >
-      <CardBuilderHallOfFameSeason weeks={props.weeks} />
+      <ListHeader
+        layout={layout}
+        setLayout={setLayout}
+        order={order}
+        setOrder={setOrder}
+        sorting={[
+          { title: 'Date', value: 'DATE' },
+          { title: 'Author', value: 'AUTHOR' },
+          { title: 'Theme', value: 'THEME' },
+        ]}
+      >
+        {items.length} {items.length === 1 ? 'week' : 'weeks'}
+      </ListHeader>
+
+      <SWCCSeasonCards layout={layout} weeks={items} />
     </Page>
   )
 })

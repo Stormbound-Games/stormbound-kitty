@@ -4,13 +4,13 @@ import Link from '~/components/Link'
 import FeedDetailDisplay from '~/components/FeedDetailDisplay'
 import FeedEntry from '~/components/FeedEntry'
 import Teaser from '~/components/Teaser'
-import { getCardData } from '~/components/CardBuilderHallOfFame'
 import serialization from '~/helpers/serialization'
+import getSWCCCardData from '~/helpers/getSWCCCardData'
 
 export default React.memo(function FeedSWCCEntry(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const card = serialization.card.deserialize(cardsIndex, props.winner.id)
-  const cardData = getCardData(cardsIndex, props.winner.id)
+  const cardData = getSWCCCardData(cardsIndex, props.winner.id)
 
   return (
     <FeedEntry icon='hammer' date={props.date}>
