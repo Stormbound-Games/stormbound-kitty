@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cards = await getCards({
     isPreview,
-    fields: '"ref": _id, ' + CARD_FIELDS,
+    fields: '"ref": _id, notes, ' + CARD_FIELDS,
   })
   const settings = await getSiteSettings({ isPreview, cards })
   const cardId = params.id
@@ -27,6 +27,14 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   if (!isOfficial) {
     return { notFound: true }
   }
+
+  const notes = cardsIndex[cardId].notes || null
+
+  // Cards notes should not be carried away in the context as they are
+  // unnecessary throughout the codebase except for the official card page.
+  settings.cards.forEach(card => {
+    delete card.notes
+  })
 
   const card = getInitialCardData(settings.cards, cardId)
   const versions = await getChangesFromCard({ id: cardId, isPreview })
@@ -42,6 +50,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       card,
       versions,
       feed,
+      notes,
       breadcrumbs: ['GAME', 'INFORMATION', 'CARDS'],
     },
   }
