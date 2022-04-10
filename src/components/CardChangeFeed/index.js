@@ -29,7 +29,7 @@ export default React.memo(function CardChangeFeed(props) {
   if (changes.length === 0) return null
 
   return (
-    <>
+    <Spacing vertical='LARGEST'>
       <Title>Official changes</Title>
       <ul className={css(styles.feed)}>
         {changes
@@ -45,7 +45,7 @@ export default React.memo(function CardChangeFeed(props) {
               : index === 0
 
             return (
-              <li key={index}>
+              <li key={index} className={css(styles.item)}>
                 <Spacing bottom='BASE'>
                   <FeedCardChange
                     {...entry}
@@ -59,6 +59,6 @@ export default React.memo(function CardChangeFeed(props) {
             )
           })}
       </ul>
-    </>
+    </Spacing>
   )
 })
