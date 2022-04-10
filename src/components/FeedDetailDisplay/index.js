@@ -7,10 +7,8 @@ export default React.memo(function FeedDetailDisplay(props) {
 
   return (
     <details className={css({ maxWidth: '450px' })}>
-      <Spacing bottom='BASE' as='summary'>
-        + Toggle {props.label} display
-      </Spacing>
-      {props.children}
+      <summary>+ Toggle {props.label} display</summary>
+      <Spacing top='BASE'>{props.children}</Spacing>
     </details>
   )
 })
