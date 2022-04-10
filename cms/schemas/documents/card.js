@@ -1,5 +1,6 @@
 import { MdWysiwyg } from 'react-icons/md'
 import { FACTIONS, RACES, TYPES, RARITIES } from '~/constants/game'
+import getBlock from '../richText/block'
 
 const card = {
   title: 'Card',
@@ -170,6 +171,13 @@ const card = {
       type: 'boolean',
       initialValue: false,
       hidden: ({ document }) => document?.type !== 'unit',
+    },
+    {
+      title: 'Additional notes',
+      name: 'notes',
+      type: 'block',
+      type: 'array',
+      of: [getBlock()],
     },
   ],
   orderings: [
