@@ -13,6 +13,7 @@ const container = {
 }
 
 const collection = {
+  marginTop: 'calc(var(--s-smaller) * -1)',
   small: { order: -1 },
 }
 

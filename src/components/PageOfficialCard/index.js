@@ -4,8 +4,8 @@ import CardChangeFeed from '~/components/CardChangeFeed'
 import CardCommunityFeed from '~/components/CardCommunityFeed'
 import CardDisplay from '~/components/CardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
+import CardNotes from '~/components/CardNotes'
 import Page from '~/components/Page'
-import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import { formatPreciseDate } from '~/helpers/formatDate'
 import formatCardStats from '~/helpers/formatCardStats'
@@ -40,6 +40,7 @@ export default React.memo(function PageOfficialCard(props) {
         href: getWikiCardLink(cardData.name),
         children: 'Open in wiki',
       }}
+      isEditorialContent
     >
       <Spacing bottom='LARGEST'>
         <CardDisplay mode='DISPLAY' {...cardData} id={cardId} />
@@ -49,28 +50,15 @@ export default React.memo(function PageOfficialCard(props) {
         <CardDisplayControls id={cardId} />
       </Spacing>
 
-      {props.feed.length ? (
-        <Row isDesktopOnly>
-          <Row.Column>
-            <CardChangeFeed
-              id={props.cardId}
-              versionId={versionId}
-              changes={props.versions}
-            />
-          </Row.Column>
-          <Row.Column>
-            <CardCommunityFeed id={props.cardId} feed={props.feed} />
-          </Row.Column>
-        </Row>
-      ) : (
-        <Page.Narrow>
-          <CardChangeFeed
-            id={props.cardId}
-            versionId={versionId}
-            changes={props.versions}
-          />
-        </Page.Narrow>
-      )}
+      <Page.Narrow>
+        <CardChangeFeed
+          id={props.cardId}
+          versionId={versionId}
+          changes={props.versions}
+        />
+        <CardNotes id={props.cardId} notes={props.notes} />
+        <CardCommunityFeed id={props.cardId} feed={props.feed} />
+      </Page.Narrow>
     </Page>
   )
 })
