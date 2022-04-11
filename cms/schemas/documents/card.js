@@ -175,7 +175,6 @@ const card = {
     {
       title: 'Additional notes',
       name: 'notes',
-      type: 'block',
       type: 'array',
       of: [getBlock()],
     },
