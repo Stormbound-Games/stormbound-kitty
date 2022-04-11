@@ -68,6 +68,9 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
           // `/card/stats`).
           '/card/*',
           '/card/*/display',
+          '/deck/*/detail',
+          '/deck/*/dry-run',
+          '/list/*/display',
           // Plausible expects a comma-separated list of paths, and
           // next-plausible only proxies the value without changing it.
         ].join(',')}
