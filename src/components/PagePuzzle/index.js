@@ -1,9 +1,13 @@
 import React from 'react'
+import BattleSimApp from '~/components/BattleSimApp'
+import BlockNotice from '~/components/BlockNotice'
+import BlocksRenderer from '~/components/BlocksRenderer'
 import FAQSection from '~/components/FAQSection'
 import Link from '~/components/Link'
-import BlockNotice from '~/components/BlockNotice'
+import Only from '~/components/Only'
 import Page from '~/components/Page'
-import BattleSimApp from '~/components/BattleSimApp'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
 import useBattleSim from '~/hooks/useBattleSim'
 import { formatDate } from '~/helpers/formatDate'
 import parseDate from '~/helpers/parseDate'
@@ -38,6 +42,22 @@ export default React.memo(function PagePuzzle(props) {
           ))}
         </ul>
 
+        {puzzle.solution?.length > 0 && (
+          <>
+            <Title>Solution</Title>
+            <details>
+              <summary>
+                <strong className='Highlight'>Spoilers!</strong>{' '}
+                <Only.Desktop>Click</Only.Desktop>
+                <Only.Mobile>Tab</Only.Mobile> here to reveal the solution.
+              </summary>
+              <Spacing top='SMALLER' bottom='NONE'>
+                <BlocksRenderer value={puzzle.solution} />
+              </Spacing>
+            </details>
+          </>
+        )}
+
         <FAQSection
           id='FAQ'
           title='FAQ'
@@ -65,9 +85,20 @@ export default React.memo(function PagePuzzle(props) {
                   <Link to={`/members/${puzzle.user.slug}`}>
                     {puzzle.user.name}
                   </Link>{' '}
-                  in <strong>{formatDate(date)}</strong>. If you believe it no
-                  longer to be possible in the current state of the game, please
-                  reach out to the author or Kitty on Discord.
+                  in <strong>{formatDate(date)}</strong>.{' '}
+                  {puzzle.solution?.length > 0 ? (
+                    <>
+                      If you believe the aforementioned solution does not work
+                      for any reason, please reach out to the author or Kitty on
+                      Discord.
+                    </>
+                  ) : (
+                    <>
+                      If you believe it no longer to be possible in the current
+                      state of the game, please reach out to the author or Kitty
+                      on Discord.
+                    </>
+                  )}
                 </p>
               ),
             },
