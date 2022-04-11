@@ -284,8 +284,8 @@ const getNavigation = async ({ isPreview }) => {
               id: 'COLLECTION_STATS',
             },
             {
-              label: 'Personal Decks',
-              to: '/deck/collection',
+              label: 'Bookmarked Decks',
+              to: '/decks/bookmarks',
               id: 'DECK_COLLECTION',
             },
             { label: 'Brawl Tracker', to: '/brawl', id: 'BRAWL_TRACKER' },
@@ -305,7 +305,7 @@ const getNavigation = async ({ isPreview }) => {
           items: [
             {
               label: 'Featured Decks',
-              to: '/deck/featured',
+              to: '/decks',
               id: 'FEATURED_DECKS',
             },
             {

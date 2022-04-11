@@ -126,10 +126,10 @@ export default React.memo(function PageContribute(props) {
 
           <ul>
             <li>
-              We have plenty <Link to='/deck/featured'>featured decks</Link>,
-              but it’s sometimes hard to maintain that collection up to date
-              with the meta. If you could point out which decks should be
-              removed because no longer competitive, that would be helpful!
+              We have plenty <Link to='/decks'>featured decks</Link>, but it’s
+              sometimes hard to maintain that collection up to date with the
+              meta. If you could point out which decks should be removed because
+              no longer competitive, that would be helpful!
             </li>
 
             <li>

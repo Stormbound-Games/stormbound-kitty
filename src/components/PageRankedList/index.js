@@ -40,10 +40,10 @@ export default React.memo(function PageRankedList(props) {
         <Row.Column width='1/3'>
           <p>
             This tier list is computed from the{' '}
-            <Link to='/deck/featured'>featured decks</Link>. It orders cards
-            based on how frequently they appear in top-ranking decks. This does
-            not necessarily reflect the actual power of each card individually;
-            it is more a popularity list that way.
+            <Link to='/decks'>featured decks</Link>. It orders cards based on
+            how frequently they appear in top-ranking decks. This does not
+            necessarily reflect the actual power of each card individually; it
+            is more a popularity list that way.
           </p>
 
           <p>

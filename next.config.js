@@ -28,7 +28,12 @@ module.exports = withPlugins(plugins, {
       },
       {
         source: '/deck/suggestions',
-        destination: '/deck/featured',
+        destination: '/decks',
+        permanent: true,
+      },
+      {
+        source: '/deck/featured',
+        destination: '/decks',
         permanent: true,
       },
       {

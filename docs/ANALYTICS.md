@@ -13,8 +13,7 @@ To prevent these tools from inflating our stats and pushing us to a more expensi
 - `/calculators/value/*`
 - `/card/*/display`
 - `/card/*`
-- `/deck/*/detail`
-- `/deck/*/dry-run`
+- `/deck/**`
 - `/list/*/display`
 - `/quest/*`
 - `/simulators/battle/*/display`

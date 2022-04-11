@@ -22,7 +22,7 @@ export default React.memo(function Home(props) {
           actions={[
             { to: '/guides/deck', children: 'Guide' },
             { to: '/deck', children: 'Builder' },
-            { to: '/deck/featured', children: 'Decks' },
+            { to: '/decks', children: 'Decks' },
           ]}
         >
           <p>

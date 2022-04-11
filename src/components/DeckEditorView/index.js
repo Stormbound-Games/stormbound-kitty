@@ -443,8 +443,8 @@ const HelpInfo = React.memo(function HelpInfo(props) {
         If you do not know where to start,{' '}
         <Link to='/guides/deck'>read the deck-building guide</Link> to learn how
         to make a viable deck, or try one of the{' '}
-        <Link to='/deck/featured'>ready-to-go featured decks</Link>. Or try
-        generating a random deck below.{' '}
+        <Link to='/decks'>ready-to-go featured decks</Link>. Or try generating a
+        random deck below.{' '}
         <LearnMoreIcon anchor='#random-deck'>
           Learn more about random decks
         </LearnMoreIcon>

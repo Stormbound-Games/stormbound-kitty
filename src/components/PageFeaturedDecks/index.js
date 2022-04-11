@@ -62,8 +62,8 @@ export default React.memo(function PageFeaturedDecks(props) {
     if (querystring.stringify(parameters) !== querystring.stringify(query)) {
       const path =
         Object.keys(parameters).length > 0
-          ? '/deck/featured?' + querystring.stringify(parameters)
-          : '/deck/featured'
+          ? '/decks?' + querystring.stringify(parameters)
+          : '/decks'
 
       navigator.replace(path)
     }
@@ -144,7 +144,7 @@ export default React.memo(function PageFeaturedDecks(props) {
       meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
       author={author}
       action={{
-        to: '/deck/collection',
+        to: '/decks/bookmarks',
         children: 'Your decks',
         icon: 'arrow-right',
       }}
