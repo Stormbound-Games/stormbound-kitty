@@ -54,7 +54,11 @@ const getRevalidationPaths = body => {
         ...users.map(user => `/members/${user.slug.current}`),
       ]
     case 'puzzle':
-      return ['/puzzles', `/members/${user.slug.current}`]
+      return [
+        '/puzzles',
+        `/puzzles/${slug.current}`,
+        `/members/${user.slug.current}`,
+      ]
     case 'release':
       return [
         '/releases',
