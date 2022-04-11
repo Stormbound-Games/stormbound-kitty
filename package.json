@@ -19,17 +19,17 @@
     "esm": "^3.2.25",
     "express-rate-limit": "^6.3.0",
     "express-slow-down": "^1.4.0",
-    "fela": "^12.0.2",
+    "fela": "^12.1.1",
     "fela-enforce-longhands": "^12.0.2",
     "fela-plugin-embedded": "^12.0.2",
     "fela-plugin-extend": "^12.1.1",
     "fela-plugin-fallback-value": "^12.0.2",
     "fela-plugin-named-keys": "^12.0.2",
     "fela-plugin-responsive-value": "^12.0.2",
-    "fela-sort-classnames": "^12.0.2",
+    "fela-sort-classnames": "^12.1.1",
     "fela-sort-media-query-mobile-first": "^12.0.2",
     "form-serialize": "^0.7.2",
-    "framer-motion": "^6.2.8",
+    "framer-motion": "^6.2.9",
     "fuse.js": "^6.5.3",
     "html2canvas": "^1.4.1",
     "lodash.clonedeep": "^4.5.0",
@@ -66,7 +66,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@babel/register": "^7.17.7",
     "@cypress/webpack-preprocessor": "^5.11.1",
     "cypress": "^9.5.3",
@@ -81,7 +81,7 @@
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
     "svg2png": "^4.1.1",
-    "webpack": "^5.71.0"
+    "webpack": "^5.72.0"
   },
   "lint-staged": {
     "*.js": [
