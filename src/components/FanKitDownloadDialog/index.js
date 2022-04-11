@@ -15,9 +15,7 @@ export default React.memo(function FanKitDownloadDialog(props) {
       ctaProps={
         props.image
           ? {
-              href: props.image,
-              download: true,
-              className: css({ minWidth: 0 }),
+              href: props.image + '?dl=' + encodeURIComponent(props.name),
               'data-testid': 'fan-kit-link',
               children: 'PNG file',
             }
