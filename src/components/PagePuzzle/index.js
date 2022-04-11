@@ -102,7 +102,19 @@ export default React.memo(function PagePuzzle(props) {
                 </p>
               ),
             },
-          ]}
+            (!puzzle.solution || puzzle.solution?.length === 0) && {
+              id: 'solution',
+              question: 'What’s the solution?',
+              answer: (
+                <>
+                  This puzzle was defined before it was possible to record the
+                  solution alongside it. If you believe you’ve found the
+                  solution, please reach out on Discord so it can be added to
+                  this page for other players to validate their hypothesis.
+                </>
+              ),
+            },
+          ].filter(Boolean)}
         />
       </Page.Narrow>
     </Page>
