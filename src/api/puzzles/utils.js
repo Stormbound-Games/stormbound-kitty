@@ -5,7 +5,6 @@ export const FIELDS = `
 board,
 category,
 date,
-difficulty,
 image,
 name,
 "slug": slug.current,

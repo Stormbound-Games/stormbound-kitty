@@ -35,13 +35,6 @@ const puzzle = {
         })),
       },
     },
-    {
-      title: 'Difficulty',
-      name: 'difficulty',
-      type: 'number',
-      validation: Rule => Rule.required(),
-      options: { list: [1, 2, 3] },
-    },
     { ...user, title: 'Author' },
     {
       title: 'Board ID',

@@ -5,13 +5,6 @@ describe('Puzzles — Search', () => {
     cy.visit('/puzzles')
   })
 
-  it('should be able to filter by difficulty', () => {
-    cy.get(s.DIFFICULTY_SELECT)
-      .select('3')
-      .get(s.PUZZLE)
-      .should($puzzle => expect($puzzle.attr('data-testid')).to.include('3/3'))
-  })
-
   it('should be able to filter by type', () => {
     cy.get(s.CATEGORY_SELECT)
       .select('SURVIVE')

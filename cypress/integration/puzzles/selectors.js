@@ -1,5 +1,4 @@
 const selectors = {
-  DIFFICULTY_SELECT: '[data-testid="difficulty-select"]',
   CATEGORY_SELECT: '[data-testid="category-select"]',
   NAME_INPUT: '[data-testid="name-input"]',
   PUZZLE: '[data-testid*="puzzle"]',

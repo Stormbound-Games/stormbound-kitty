@@ -10,7 +10,6 @@ import styles from './styles'
 
 export default React.memo(function BattleSimPuzzlesFilters(props) {
   const { css } = useFela()
-  const updateDifficulty = props.updateFilter('difficulty')
   const updateName = props.updateFilter('name')
   const updateCategory = props.updateFilter('category')
   const updateRestrictions = props.updateFilter('restrictions')
@@ -19,18 +18,15 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
     <form onSubmit={event => event.preventDefault()}>
       <Row withNarrowGutter>
         <Row.Column>
-          <Select
-            label='Difficulty'
-            data-testid='difficulty-select'
-            id='difficulty'
-            value={props.difficulty}
-            onChange={event => updateDifficulty(event.target.value)}
-          >
-            <option value='*'>Any</option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-          </Select>
+          <Input
+            label='Name'
+            type='search'
+            id='name'
+            data-testid='name-input'
+            value={props.name}
+            onChange={event => updateName(event.target.value)}
+            placeholder='e.g. Sneaky Outcasts'
+          />
         </Row.Column>
 
         <Row.Column>
@@ -48,20 +44,6 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
               </option>
             ))}
           </Select>
-        </Row.Column>
-      </Row>
-
-      <Row>
-        <Row.Column>
-          <Input
-            label='Name'
-            type='search'
-            id='name'
-            data-testid='name-input'
-            value={props.name}
-            onChange={event => updateName(event.target.value)}
-            placeholder='e.g. Sneaky Outcasts'
-          />
         </Row.Column>
       </Row>
 

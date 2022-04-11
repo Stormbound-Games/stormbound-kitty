@@ -10,7 +10,7 @@ export const getCardForPuzzle = puzzle => ({
   name: puzzle.name,
   type: 'unit',
   race: puzzle.category,
-  mana: puzzle.difficulty,
+  mana: '0',
   rarity: 'common',
   faction: 'neutral',
   image: puzzle.image,
@@ -23,7 +23,7 @@ export const getExcerptForPuzzle = puzzle => (
   <>
     {capitalize(puzzle.category.toLowerCase())} puzzle created by{' '}
     <Link to={`/members/${puzzle.user.slug}`}>{puzzle.user.name}</Link> in{' '}
-    {formatDate(parseDate(puzzle.date))}. Difficulty: {puzzle.difficulty}/3.{' '}
+    {formatDate(parseDate(puzzle.date))}.{' '}
     {puzzle.restrictions.length > 0
       ? puzzle.restrictions
           .slice(0)
