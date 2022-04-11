@@ -66,7 +66,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@babel/register": "^7.17.7",
     "@cypress/webpack-preprocessor": "^5.11.1",
     "cypress": "^9.5.3",
