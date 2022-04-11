@@ -22,7 +22,7 @@ export const RESTRICTIONS = {
   },
   DETAILED: {
     name: 'Detailed',
-    description: 'Open the link and tap on things for more info about levels.',
+    description: 'Cards have specific level; check them individually.',
   },
   FACTION: {
     name: 'Faction',
