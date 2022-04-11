@@ -4,6 +4,24 @@ Tracking is done via [Plausible](https://plausible.io/), a privacy-friendly alte
 
 The tracking script is proxied on Next.js (see `next.config.js`) to be loaded from our top-level domain in order to bypass aggressive ad-blockers. It is loaded asynchronously with low priority to minimize its impact on performance.
 
+## Excluded paths
+
+[Plausible’s pricing system](https://plausible.io/#pricing) is based on page views. Our current plan caps at 100,000 views a month, and we are floating a little below that limit. This is because some tools such as the card builder count a view for every single update that gets serialized in the URL.
+
+To prevent these tools from inflating our stats and pushing us to a more expensive plan, we exclude these paths from tracking entirely. Here are the ignored paths:
+
+- `/calculators/value/*`
+- `/card/*/display`
+- `/card/*`
+- `/deck/*/detail`
+- `/deck/*/dry-run`
+- `/list/*/display`
+- `/quest/*`
+- `/simulators/battle/*/display`
+- `/simulators/battle/*`
+- `/simulators/books/*`
+- `/simulators/draft/*`
+
 ## Events
 
 Custom events can be tracked via the `helpers/track` utility function. This only works on the client though as it relies on the global `window.plausible` function, so make sure to only call it when the app has mounted (e.g. in `useEffect` React hooks).
