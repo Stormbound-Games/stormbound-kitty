@@ -113,7 +113,7 @@ export default React.memo(function PagePuzzles(props) {
                     </Link>
                   </>
                 ),
-                to: `/puzzles/${puzzle.board}`,
+                to: `/puzzles/${puzzle.slug}`,
                 excerpt: getExcerptForPuzzle(puzzle),
                 'data-testid': `puzzle ${puzzle.name} ${puzzle.category} ${
                   puzzle.difficulty

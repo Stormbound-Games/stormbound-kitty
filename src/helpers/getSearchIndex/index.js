@@ -370,7 +370,7 @@ const getSearchIndex = async (withEverything = true) => {
   puzzles.slice(0, limit).forEach(puzzle => {
     links.push({
       label: puzzle.name,
-      path: `/puzzles/${puzzle.board}`,
+      path: `/puzzles/${puzzle.slug}`,
       breadcrumbs: ['Community', 'Contest'],
       icon: 'trophy',
     })

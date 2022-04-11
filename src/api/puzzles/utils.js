@@ -8,6 +8,7 @@ date,
 difficulty,
 image,
 name,
+"slug": slug.current,
 restrictions,
 "image": image { "url": asset -> url }.url
 `

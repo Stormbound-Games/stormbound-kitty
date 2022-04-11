@@ -7,15 +7,15 @@ import serialization from '~/helpers/serialization'
 
 export async function getStaticPaths() {
   const puzzles = await getPuzzles()
-  const paths = puzzles.map(puzzle => ({ params: { id: puzzle.board } }))
+  const paths = puzzles.map(puzzle => ({ params: { slug: puzzle.slug } }))
 
   return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
-  const { id } = params
+  const { slug } = params
   const settings = await getSiteSettings({ isPreview })
-  const puzzle = await getPuzzle({ id, isPreview })
+  const puzzle = await getPuzzle({ slug, isPreview })
   const cardsIndex = indexArray(settings.cards)
 
   if (!puzzle) {

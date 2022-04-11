@@ -72,7 +72,7 @@ const getRedirectUrl = async params => {
     case 'puzzle': {
       const puzzle = await getPuzzle(params)
 
-      return puzzle ? `/puzzles/${puzzle.board}` : null
+      return puzzle ? `/puzzles/${puzzle.slug}` : null
     }
 
     case 'release': {
