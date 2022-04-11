@@ -22,11 +22,17 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
+  const sim = serialization.battle.deserialize(cardsIndex, puzzle.board)
+
+  // Enforce grid markers for puzzles as it’s important to understand the
+  // solution.
+  sim.gridMarkers = true
+
   return {
     props: {
       settings,
       puzzle,
-      sim: serialization.battle.deserialize(cardsIndex, puzzle.board),
+      sim,
       breadcrumbs: ['COMMUNITY', 'CONTESTS', 'PUZZLES'],
     },
   }
