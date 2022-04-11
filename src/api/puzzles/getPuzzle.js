@@ -1,11 +1,11 @@
 import { getEntry } from '~/helpers/sanity'
 import { FIELDS, MAPPER } from './utils'
 
-const getPuzzle = async ({ id, isPreview } = {}) => {
+const getPuzzle = async ({ slug, isPreview } = {}) => {
   const puzzle = await getEntry({
-    conditions: ['_type == "puzzle"', 'board == $id'],
+    conditions: ['_type == "puzzle"', 'slug.current == $slug'],
     fields: FIELDS,
-    params: { id },
+    params: { slug },
     options: { isPreview },
   })
 

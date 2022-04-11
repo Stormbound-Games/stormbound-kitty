@@ -49,11 +49,7 @@ export default React.memo(function BattleSimPuzzle(props) {
       card={getCardForPuzzle(props)}
       title={props.name}
       meta={`Made in ${formatDate(date)}`}
-      to={
-        props.withoutLink
-          ? undefined
-          : `/simulators/battle/${props.board}/display`
-      }
+      to={`/puzzles/${props.slug}`}
       excerpt={getExcerptForPuzzle(props)}
       data-testid='puzzle'
     />

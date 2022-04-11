@@ -7,21 +7,6 @@ const root = {
   fontSize: '0.9rem' /* 1 */,
 }
 
-/**
- * 1. Hide the header from the teaser.
- */
-const puzzle = {
-  position: 'absolute',
-  right: 0,
-  top: 0,
-  padding: 'var(--s-base)',
-  width: 'calc((100% - 40%) / 2)',
-
-  '> * > :first-child': { display: 'none' /* 1 */ },
-  '> ::before': { content: 'none' /* 1 */ },
-  '> ::after': { content: 'none' /* 1 */ },
-}
-
 const deck = {
   position: 'absolute',
   right: 0,
@@ -30,6 +15,6 @@ const deck = {
   width: '25%',
 }
 
-const styles = { root, puzzle, deck }
+const styles = { root, deck }
 
 export default styles

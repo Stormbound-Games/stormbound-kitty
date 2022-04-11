@@ -17,6 +17,13 @@ const puzzle = {
       validation: Rule => Rule.required(),
     },
     {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: { source: 'name' },
+      validation: Rule => Rule.required(),
+    },
+    {
       title: 'Category',
       name: 'category',
       type: 'string',

@@ -12,7 +12,7 @@ import {
   getExcerptForPuzzle,
 } from '~/components/BattleSimPuzzle'
 
-export default React.memo(function PageBattleSimPuzzles(props) {
+export default React.memo(function PagePuzzles(props) {
   const [difficulty, setDifficulty] = React.useState('*')
   const [category, setCategory] = React.useState('*')
   const [restrictions, setRestrictions] = React.useState([])
@@ -113,7 +113,7 @@ export default React.memo(function PageBattleSimPuzzles(props) {
                     </Link>
                   </>
                 ),
-                to: `/simulators/battle/${puzzle.board}/display`,
+                to: `/puzzles/${puzzle.slug}`,
                 excerpt: getExcerptForPuzzle(puzzle),
                 'data-testid': `puzzle ${puzzle.name} ${puzzle.category} ${
                   puzzle.difficulty

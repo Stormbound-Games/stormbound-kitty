@@ -2,7 +2,7 @@ import s from './selectors'
 
 describe('Puzzles — Search', () => {
   beforeEach(() => {
-    cy.visit('/simulators/battle/puzzles')
+    cy.visit('/puzzles')
   })
 
   it('should be able to filter by difficulty', () => {
@@ -39,12 +39,10 @@ describe('Puzzles — Search', () => {
   it('should be possible to navigate to the sim', () => {
     cy.get(s.PUZZLE)
       .first()
-      .find('a')
+      .find('h2 a')
       .first()
       .click()
       .url()
-      .should('match', /\/simulators\/battle\/[a-zA-Z=+]+/)
-      .get(s.PUZZLE)
-      .should('be.visible')
+      .should('match', /\/puzzles\/\w+/)
   })
 })

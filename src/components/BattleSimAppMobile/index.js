@@ -4,13 +4,9 @@ import Board from '~/components/BattleSimBoardMobile'
 import DiamondButton from '~/components/DiamondButton'
 import CardsForm from '~/components/BattleSimCardsForm'
 import CellForm from '~/components/BattleSimCellForm'
-import Deck from '~/components/Deck'
 import GameForm from '~/components/BattleSimGameForm'
-import Link from '~/components/Link'
 import Panel from '~/components/BattleSimPanel'
 import PlayerForm from '~/components/BattleSimPlayerForm'
-import Puzzle from '~/components/BattleSimPuzzle'
-import serialization from '~/helpers/serialization'
 import styles from './styles'
 
 const MODES = {
@@ -190,17 +186,7 @@ export default React.memo(function BattleSimAppMobile(props) {
                 <p>Select a cell.</p>
               )}
             </Panel>
-          ) : (
-            <Panel
-              title='Puzzle'
-              side='right'
-              isMobile
-              closePanel={() => setMode(MODES.GAME)}
-              isPanelOpen={mode === MODES.CELL}
-            >
-              <Puzzle {...props.puzzle} withoutLink />
-            </Panel>
-          )}
+          ) : null}
         </div>
       )}
     </div>
