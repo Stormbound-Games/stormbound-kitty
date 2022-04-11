@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.1.4",
-    "@portabletext/react": "^1.0.4",
+    "@portabletext/react": "^1.0.6",
     "@reach/tooltip": "^0.16.2",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
