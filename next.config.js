@@ -91,6 +91,11 @@ module.exports = withPlugins(plugins, {
         permanent: true,
       },
       {
+        source: '/simulators/battle/puzzles',
+        destination: '/puzzles',
+        permanent: true,
+      },
+      {
         source: '/fan-kit/wallpapers',
         destination: '/fan-kit/wallpapers/desktop',
         permanent: true,
