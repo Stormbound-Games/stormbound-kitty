@@ -5,6 +5,7 @@ import CTA from '~/components/CTA'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import chunk from '~/helpers/chunk'
+import track from '~/helpers/track'
 import styles from './styles'
 
 const MAX_NEWS = 7
@@ -41,7 +42,10 @@ export default React.memo(function News(props) {
             <CTA
               type='button'
               data-testid='news-recent-btn'
-              onClick={loadNext}
+              onClick={() => {
+                loadNext()
+                track('news_pagination', { direction: 'NEXT' })
+              }}
               disabled={activePage === 0}
             >
               Recent news
@@ -51,7 +55,10 @@ export default React.memo(function News(props) {
             <CTA
               type='button'
               data-testid='news-older-btn'
-              onClick={loadPrev}
+              onClick={() => {
+                loadPrev()
+                track('news_pagination', { direction: 'PREV' })
+              }}
               disabled={activePage === pages.length - 1}
             >
               Older news

@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import DiamondButton from '~/components/DiamondButton'
 import Image from '~/components/Image'
 import useIsMounted from '~/hooks/useIsMounted'
+import track from '~/helpers/track'
 import styles from './styles'
 
 export default React.memo(function FanKitItem(props) {
@@ -19,7 +20,10 @@ export default React.memo(function FanKitItem(props) {
       <span className={css(styles.download)}>
         <DiamondButton
           data-testid='fan-kit-download-btn'
-          onClick={() => props.setActive(props.id)}
+          onClick={() => {
+            props.setActive(props.id)
+            track('fankit_open', { id: props.id })
+          }}
           label={'Download asset ' + props.name}
           icon='download'
           href={

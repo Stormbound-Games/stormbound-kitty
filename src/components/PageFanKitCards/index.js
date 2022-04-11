@@ -7,6 +7,7 @@ import Page from '~/components/Page'
 import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
+import track from '~/helpers/track'
 import useLazyLoad from '~/hooks/useLazyLoad'
 import useIsMounted from '~/hooks/useIsMounted'
 
@@ -49,7 +50,12 @@ export default React.memo(function PageFanKitCards(props) {
             id='card'
             required
             current={search}
-            onChange={option => setSearch(option ? option.value : null)}
+            onChange={option => {
+              setSearch(option ? option.value : null)
+              track('fankit_card_search', {
+                id: option ? option.value : null,
+              })
+            }}
             withSpells
             withTokens
             withClear
