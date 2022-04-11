@@ -3,6 +3,7 @@ import user from '../types/user'
 import date from '../types/date'
 import { CATEGORIES, RESTRICTIONS } from '~/constants/puzzles'
 import { formatDate } from '~/helpers/formatDate'
+import getBlock from '../richText/block'
 
 const puzzle = {
   title: 'Puzzle',
@@ -70,6 +71,12 @@ const puzzle = {
         accept: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
       },
       validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Solution',
+      name: 'solution',
+      type: 'array',
+      of: [getBlock()],
     },
   ],
   orderings: [
