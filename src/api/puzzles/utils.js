@@ -9,6 +9,7 @@ image,
 name,
 "slug": slug.current,
 restrictions,
+solution,
 "image": image { "url": asset -> url }.url
 `
 
