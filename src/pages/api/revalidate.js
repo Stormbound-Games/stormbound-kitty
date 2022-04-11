@@ -8,10 +8,10 @@ const getRevalidationPaths = body => {
     return [body.path]
   }
 
-  // The data received from the Sanity API is defined in the webbook settings
+  // The data received from the Sanity API is defined in the webhook settings
   // to avoid passing unnecessary data. If a new value is needed, reconfigure
   // the webhook first.
-  const { category, device, id, slug, user, users } = body
+  const { category, date, device, id, season, slug, user, users } = body
 
   switch (body._type) {
     case 'artwork':
@@ -23,8 +23,13 @@ const getRevalidationPaths = body => {
     case 'brawl':
       return [`/brawl/${slug.current}`]
     case 'card':
+      return [`/card/official/${id.current}`, '/stats']
     case 'changelog':
-      return [`/card/official/${id.current}`]
+      const timestamp = new Date(date).valueOf()
+      return [
+        `/card/official/${id.current}`,
+        `/card/official/${id.current}/${timestamp}`,
+      ]
     case 'contribution':
     case 'donation':
       return ['/about', '/contribute', `/members/${user.slug.current}`]
@@ -74,14 +79,18 @@ const getRevalidationPaths = body => {
     case 'siteSettings':
       return ['/lexicon']
     case 'SWCC':
-      return ['/swcc', `/members/${user.slug.current}`]
+      return [
+        '/swcc',
+        `/swcc/season/${season}`,
+        `/members/${user.slug.current}`,
+      ]
     case 'tournament':
       return [
         '/tournaments/hall-of-fame',
         ...users.map(user => `/members/${user.slug.current}`),
       ]
     case 'user':
-      return [`/members/${slug.current}`]
+      return ['/members', `/members/${slug.current}`]
     case 'wallpaper':
       return [`/fan-kit/wallpapers/${device.toLowerCase()}`]
     default:
