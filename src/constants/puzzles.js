@@ -16,23 +16,9 @@ export const RESTRICTIONS = {
     description:
       'Nothing goes right without 100% precision! Leave no room for chance.',
   },
-  PRESET: {
-    name: 'Preset',
-    description: 'Only cards and levels shown from the given deck can be used.',
-  },
   DETAILED: {
     name: 'Detailed',
     description: 'Cards have specific level; check them individually.',
-  },
-  FACTION: {
-    name: 'Faction',
-    description:
-      'Only cards from one specific faction and neutral cards are allowed for the player.',
-  },
-  CUSTOM_BOARD: {
-    name: 'Custom board',
-    description:
-      'The board can be in any state the restrictions allow it to be.',
   },
 }
 
