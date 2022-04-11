@@ -140,8 +140,7 @@ export default React.memo(function PageContribute(props) {
             </li>
 
             <li>
-              People really like{' '}
-              <Link to='/simulators/battle/puzzles'>Stormbound puzzles</Link>,
+              People really like <Link to='/puzzles'>Stormbound puzzles</Link>,
               but not many are being added. If you would like to suggest new
               puzzles, I’m sure that would make a lot of people happy!
             </li>

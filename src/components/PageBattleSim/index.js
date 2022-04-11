@@ -3,39 +3,25 @@ import Page from '~/components/Page'
 import BattleSimApp from '~/components/BattleSimApp'
 import useBattleSim from '~/hooks/useBattleSim'
 
-const usePageProps = ({ id, mode, puzzle }) =>
-  puzzle
-    ? {
-        title: puzzle.name,
-        author: puzzle.user.name,
-        meta: puzzle.category,
-        action: {
-          to: '/simulators/battle/puzzles',
-          children: 'Back to puzzles',
-        },
-      }
-    : {
-        title: 'Battle simulator',
-        action: id
-          ? {
-              to:
-                mode === 'EDITOR'
-                  ? `/simulators/battle/${id}/display`
-                  : `/simulators/battle/${id}`,
-              children: mode === 'EDITOR' ? 'Display view' : 'Edit sim',
-              icon: mode === 'EDITOR' ? 'eye' : undefined,
-            }
-          : undefined,
-      }
-
 export default React.memo(function PageBattleSim(props) {
-  const pageProps = usePageProps(props)
   const state = useBattleSim(props)
 
   return (
     <Page
-      {...pageProps}
+      title='Battle simulator'
       description='Create your own Stormbound battles, reproducing static in-game situations in this simulator'
+      action={
+        props.id
+          ? {
+              to:
+                props.mode === 'EDITOR'
+                  ? `/simulators/battle/${props.id}/display`
+                  : `/simulators/battle/${props.id}`,
+              children: props.mode === 'EDITOR' ? 'Display view' : 'Edit sim',
+              icon: props.mode === 'EDITOR' ? 'eye' : undefined,
+            }
+          : undefined
+      }
     >
       <BattleSimApp {...state} {...props} />
     </Page>

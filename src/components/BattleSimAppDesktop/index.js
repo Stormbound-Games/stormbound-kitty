@@ -8,7 +8,6 @@ import PlayerForm from '~/components/BattleSimPlayerForm'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import Puzzle from '~/components/BattleSimPuzzle'
 import styles from './styles'
 
 export default React.memo(function BattleSimAppDesktop(props) {
@@ -86,12 +85,6 @@ export default React.memo(function BattleSimAppDesktop(props) {
           coords={coords}
           dialogRef={instance => (dialog.current = instance)}
         />
-      )}
-
-      {props.mode === 'DISPLAY' && !!props.puzzle && (
-        <div className={css(styles.puzzle)}>
-          <Puzzle {...props.puzzle} withoutLink />
-        </div>
       )}
 
       {props.mode === 'EDITOR' && (

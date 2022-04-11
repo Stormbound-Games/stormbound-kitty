@@ -6,8 +6,7 @@ import Only from '~/components/Only'
 export default React.memo(function BattleSimApp(props) {
   const shouldRenderLeftPanel = props.mode === 'EDITOR'
   const shouldRenderRightPanel =
-    (props.mode === 'EDITOR' && !!props.activePlayer && !!props.activeCell) ||
-    (props.mode === 'DISPLAY' && !!props.puzzle)
+    props.mode === 'EDITOR' && !!props.activePlayer && !!props.activeCell
 
   return (
     <>

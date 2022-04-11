@@ -1,20 +1,11 @@
 import PageBattleSim from '~/components/PageBattleSim'
 import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
-import getPuzzles from '~/api/puzzles/getPuzzles'
-import getPuzzle from '~/api/puzzles/getPuzzle'
 import indexArray from '~/helpers/indexArray'
 import { DEFAULT_SIM } from '~/constants/battle'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
-  const puzzles = await getPuzzles({ isPreview })
-  const paths = puzzles
-    .map(puzzle => ({
-      params: { rest: [puzzle.board, 'display'] },
-    }))
-    .concat([{ params: { rest: [] } }])
-
-  return { paths, fallback: 'blocking' }
+  return { paths: [], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
@@ -34,7 +25,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
         simId: null,
         sim: DEFAULT_SIM,
         mode: 'EDITOR',
-        puzzle: null,
         breadcrumbs,
       },
     }
@@ -46,7 +36,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       id: decodeURIComponent(id),
       sim: serialization.battle.deserialize(cardsIndex, decodeURIComponent(id)),
       mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
-      puzzle: await getPuzzle({ id, isPreview }),
       breadcrumbs,
     },
   }

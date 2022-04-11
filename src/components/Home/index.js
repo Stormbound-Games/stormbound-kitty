@@ -71,7 +71,7 @@ export default React.memo(function Home(props) {
           imageAlt='Olf the Hammer'
           actions={[
             { to: '/simulators/battle', children: 'Simulator' },
-            { to: '/simulators/battle/puzzles', children: 'Puzzles' },
+            { to: '/puzzles', children: 'Puzzles' },
           ]}
         >
           <p>

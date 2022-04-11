@@ -2,7 +2,7 @@ import s from './selectors'
 
 describe('Puzzles — Search', () => {
   beforeEach(() => {
-    cy.visit('/simulators/battle/puzzles')
+    cy.visit('/puzzles')
   })
 
   it('should be able to filter by difficulty', () => {

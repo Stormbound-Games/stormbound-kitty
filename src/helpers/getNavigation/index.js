@@ -342,7 +342,7 @@ const getNavigation = async ({ isPreview }) => {
             },
             {
               label: 'Battle Puzzles',
-              to: '/simulators/battle/puzzles',
+              to: '/puzzles',
               id: 'PUZZLES',
             },
             { label: 'Trivia Game', to: '/trivia', id: 'TRIVIA' },
