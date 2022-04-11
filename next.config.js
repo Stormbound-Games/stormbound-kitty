@@ -105,6 +105,11 @@ module.exports = withPlugins(plugins, {
         destination: '/swcc',
         permanent: true,
       },
+      {
+        source: '/card/stats',
+        destination: '/stats',
+        permanent: true,
+      },
     ]
   },
   async headers() {

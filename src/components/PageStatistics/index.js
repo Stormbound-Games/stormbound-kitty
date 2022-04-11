@@ -17,12 +17,12 @@ import Spacing from '~/components/Spacing'
 import ChartUnitRace from '../ChartUnitRace'
 import ChartFactionCard from '../ChartFactionCard'
 
-export default React.memo(function PageCardsStats(props) {
+export default React.memo(function PageStatistics(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
 
   return (
     <Page
-      title='Cards Statistics'
+      title='Statistics'
       description='Enjoy insights and statistics about the state of the Stormbound card collection'
       action={
         hasDefaultCollection
@@ -37,7 +37,7 @@ export default React.memo(function PageCardsStats(props) {
     >
       <Page.Narrow>
         <p>
-          This is data visualisation about the current state of the Stormbound
+          This is data visualization about the current state of the Stormbound
           card collection. If you would like to suggest more data
           representations, please get in touch with me on Discord (Kitty#1909).
         </p>
@@ -45,7 +45,7 @@ export default React.memo(function PageCardsStats(props) {
         <Only.CustomCollection>
           <Info icon='books' title='Your collection'>
             <p>
-              If you happen to be looking for data visualisation on{' '}
+              If you happen to be looking for data visualization on{' '}
               <strong className='Highlight'>your</strong> card collection, head
               over to <Link to='/collection/stats'>the collection section</Link>
               .

@@ -145,8 +145,8 @@ const getSearchIndex = async (withEverything = true) => {
   )
 
   links.push({
-    label: 'Card Statistics',
-    path: '/card/stats',
+    label: 'Statistics',
+    path: '/stats',
     breadcrumbs: ['Official', 'Information'],
     icon: 'stack',
   })

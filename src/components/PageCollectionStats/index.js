@@ -229,7 +229,7 @@ export default React.memo(function PageCollectionStats(props) {
             <Row.Column>
               <Title>What is this</Title>
               <p>
-                On this page, you can find some data visualisation for your card
+                On this page, you can find some data visualization for your card
                 collection.{' '}
                 <Only.DefaultCollection>
                   Start by{' '}
