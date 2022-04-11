@@ -53,7 +53,22 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       <PlausibleProvider
         domain='stormbound-kitty.com'
         enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
-        exclude='/simulators/draft/*, /simulators/books/*, /quest/*, /calculators/value/*'
+        exclude={[
+          '/simulators/draft/*',
+          '/simulators/books/*',
+          '/quest/*',
+          '/calculators/value/*',
+          // A single star (*) is non-greedy, which means it will take anything
+          // until the next slash (/). Therefore, this path should exclude card
+          // builder paths, without excluding official pages, since they are
+          // formatted as `/card/official/*`. It will exclude anything starting
+          // with `/card` and expressed over a single URL portion though (e.g.
+          // `/card/stats`).
+          '/card/*',
+          '/card/*/display',
+          // Plausible expects a comma-separated list of paths, and
+          // next-plausible only proxies the value without changing it.
+        ].join(',')}
       >
         <RendererProvider renderer={renderer}>
           <ErrorBoundary>
