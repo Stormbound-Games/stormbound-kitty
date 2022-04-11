@@ -15,7 +15,12 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const isOfficial = cardId in indexArray(settings.cards)
   const breadcrumbs = ['TOOLS', 'BUILDERS', 'CARD_BUILDER']
 
-  if (display && display !== 'display') {
+  if (
+    (display && display !== 'display') ||
+    // If the path is `/card/official`, it falls onto this route handler and
+    // should yield a 404.
+    cardId === 'official'
+  ) {
     return { notFound: true }
   }
 
