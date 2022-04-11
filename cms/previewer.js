@@ -54,11 +54,9 @@ export default function resolvePageURL(document) {
     case 'deck':
       return getPreviewURL({ id: document.id })
 
-    case 'puzzle':
-      return getPreviewURL({ id: document.board })
-
     case 'brawl':
     case 'guide':
+    case 'puzzle':
     case 'release':
     case 'story':
     case 'user':
