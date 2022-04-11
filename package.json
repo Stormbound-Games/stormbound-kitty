@@ -26,7 +26,7 @@
     "fela-plugin-fallback-value": "^12.0.2",
     "fela-plugin-named-keys": "^12.0.2",
     "fela-plugin-responsive-value": "^12.0.2",
-    "fela-sort-classnames": "^12.0.2",
+    "fela-sort-classnames": "^12.1.1",
     "fela-sort-media-query-mobile-first": "^12.0.2",
     "form-serialize": "^0.7.2",
     "framer-motion": "^6.2.8",
