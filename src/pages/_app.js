@@ -53,6 +53,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       <PlausibleProvider
         domain='stormbound-kitty.com'
         enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
+        exclude='/simulators/draft/*, /simulators/books/*, /quest/*, /calculators/value/*'
       >
         <RendererProvider renderer={renderer}>
           <ErrorBoundary>
