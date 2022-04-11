@@ -15,7 +15,7 @@ describe('Fan-kit', () => {
       .get(s.DIALOG)
       .should('be.visible')
       .find(s.DOWNLOAD_LINK)
-      .filter('[href$="png"]')
+      .filter('[href*=".png"]')
       .then(anchor => {
         const url = anchor.attr('href')
         cy.request(url).then(response => {
