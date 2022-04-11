@@ -54,8 +54,10 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         domain='stormbound-kitty.com'
         enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
         exclude={[
-          '/simulators/draft/*',
+          '/simulators/battle/*',
+          '/simulators/battle/*/display',
           '/simulators/books/*',
+          '/simulators/draft/*',
           '/quest/*',
           '/calculators/value/*',
           // A single star (*) is non-greedy, which means it will take anything
