@@ -10,19 +10,14 @@ jobs:
     if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-
       - name: Print URL
         run: echo ${{ github.event.deployment_status.target_url }}
 
-      - name: Install dependencies
-        uses: cypress-io/github-action@v2
-        with:
-          runTests: false
+      - name: Check out repository
+        uses: actions/checkout@v2
 
-      - name: Report machine parameters
-        run: npx cypress info
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run unit tests
         run: npm test
