@@ -28,7 +28,7 @@ const getDeckFromForm = (availableTags, form) => {
   return formData
 }
 
-export default React.memo(function PageDeckCollection(props) {
+export default React.memo(function PageBookmarkedDecks(props) {
   const context = React.useContext(PersonalDecksContext)
   const { toggleUnseen } = context
   const [mode, setMode] = React.useState('INITIAL')
@@ -133,13 +133,13 @@ export default React.memo(function PageDeckCollection(props) {
 
   return (
     <Page
-      title='Personal Decks'
+      title='Bookmarked Decks'
       description='Bookmark and manage your own deck, with a local backup and CSV import/export'
       meta={
         context.decks.length === 1 ? '1 deck' : `${context.decks.length} decks`
       }
       action={{
-        to: '/deck/featured',
+        to: '/decks',
         children: 'Featured Decks',
         icon: 'arrow-right',
       }}

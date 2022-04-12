@@ -4,14 +4,14 @@ const decks = command.handler.bind(command)
 describe('Bot — !decks', () => {
   it('should return the featured URL for an empty search', () => {
     return decks('').then(output =>
-      expect(output.url).toEqual('https://stormbound-kitty.com/deck/featured')
+      expect(output.url).toEqual('https://stormbound-kitty.com/decks')
     )
   })
 
   it('should handle factions', () => {
     return decks('ironclad').then(output => {
       expect(output.url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=ironclad'
+        'https://stormbound-kitty.com/decks?faction=ironclad'
       )
     })
   })
@@ -25,19 +25,19 @@ describe('Bot — !decks', () => {
       decks('equals brawl'),
     ]).then(outputs => {
       expect(outputs[0].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=HIGH_LEVELS'
+        'https://stormbound-kitty.com/decks?tags=HIGH_LEVELS'
       )
       expect(outputs[1].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=REGULAR'
+        'https://stormbound-kitty.com/decks?tags=REGULAR'
       )
       expect(outputs[2].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=BRAWL'
+        'https://stormbound-kitty.com/decks?tags=BRAWL'
       )
       expect(outputs[3].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=EQUALS'
+        'https://stormbound-kitty.com/decks?tags=EQUALS'
       )
       expect(outputs[4].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=EQUALS%2CBRAWL'
+        'https://stormbound-kitty.com/decks?tags=EQUALS%2CBRAWL'
       )
     })
   }, 10000)
@@ -60,46 +60,46 @@ describe('Bot — !decks', () => {
       decks('yellow'),
     ]).then(outputs => {
       expect(outputs[0].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=HIGH_LEVELS'
+        'https://stormbound-kitty.com/decks?tags=HIGH_LEVELS'
       )
       expect(outputs[1].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=HIGH_LEVELS'
+        'https://stormbound-kitty.com/decks?tags=HIGH_LEVELS'
       )
       expect(outputs[2].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=EQUALS'
+        'https://stormbound-kitty.com/decks?tags=EQUALS'
       )
       expect(outputs[3].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=EQUALS'
+        'https://stormbound-kitty.com/decks?tags=EQUALS'
       )
       expect(outputs[4].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?tags=EQUALS'
+        'https://stormbound-kitty.com/decks?tags=EQUALS'
       )
       expect(outputs[5].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=ironclad'
+        'https://stormbound-kitty.com/decks?faction=ironclad'
       )
       expect(outputs[6].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=ironclad'
+        'https://stormbound-kitty.com/decks?faction=ironclad'
       )
       expect(outputs[7].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=shadowfen'
+        'https://stormbound-kitty.com/decks?faction=shadowfen'
       )
       expect(outputs[8].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=shadowfen'
+        'https://stormbound-kitty.com/decks?faction=shadowfen'
       )
       expect(outputs[9].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=winter'
+        'https://stormbound-kitty.com/decks?faction=winter'
       )
       expect(outputs[10].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=winter'
+        'https://stormbound-kitty.com/decks?faction=winter'
       )
       expect(outputs[11].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=winter'
+        'https://stormbound-kitty.com/decks?faction=winter'
       )
       expect(outputs[12].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=swarm'
+        'https://stormbound-kitty.com/decks?faction=swarm'
       )
       expect(outputs[13].url).toEqual(
-        'https://stormbound-kitty.com/deck/featured?faction=swarm'
+        'https://stormbound-kitty.com/decks?faction=swarm'
       )
     })
   }, 10000)
@@ -108,13 +108,13 @@ describe('Bot — !decks', () => {
     return Promise.all([decks('I2'), decks('mia'), decks('rof')]).then(
       outputs => {
         expect(outputs[0].url).toEqual(
-          'https://stormbound-kitty.com/deck/featured?including=I2'
+          'https://stormbound-kitty.com/decks?including=I2'
         )
         expect(outputs[1].url).toEqual(
-          'https://stormbound-kitty.com/deck/featured?including=I2'
+          'https://stormbound-kitty.com/decks?including=I2'
         )
         expect(outputs[2].url).toEqual(
-          'https://stormbound-kitty.com/deck/featured?including=F8'
+          'https://stormbound-kitty.com/decks?including=F8'
         )
       }
     )

@@ -68,8 +68,9 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
           // `/card/stats`).
           '/card/*',
           '/card/*/display',
-          '/deck/*/detail',
-          '/deck/*/dry-run',
+          // Ignore the whole deck builder and its sub-paths but the root and
+          // blank URL.
+          '/deck/**',
           '/list/*/display',
           // Plausible expects a comma-separated list of paths, and
           // next-plausible only proxies the value without changing it.

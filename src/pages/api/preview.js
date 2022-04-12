@@ -46,7 +46,7 @@ const getRedirectUrl = async params => {
     }
 
     case 'deckTags':
-      return '/deck/featured'
+      return '/decks'
 
     case 'equalTierList':
       return '/list/equals'

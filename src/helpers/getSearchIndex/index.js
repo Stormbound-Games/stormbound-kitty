@@ -196,15 +196,15 @@ const getSearchIndex = async (withEverything = true) => {
   })
 
   links.push({
-    label: 'Deck Collection',
-    path: '/deck/collection',
+    label: 'Bookmarked Decks',
+    path: '/decks/bookmarks',
     breadcrumbs: ['Your Content'],
     icon: 'stack',
   })
 
   links.push({
     label: 'Featured Decks',
-    path: '/deck/featured',
+    path: '/decks',
     breadcrumbs: ['Community', 'Meta'],
     icon: 'stack',
   })

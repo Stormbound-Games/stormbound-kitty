@@ -34,13 +34,9 @@ const getRevalidationPaths = body => {
     case 'donation':
       return ['/about', '/contribute', `/members/${user.slug.current}`]
     case 'deck':
-      return [
-        '/deck/featured',
-        `/deck/${id}/detail`,
-        `/members/${user.slug.current}`,
-      ]
+      return ['/decks', `/deck/${id}/detail`, `/members/${user.slug.current}`]
     case 'deckTags':
-      return ['/deck/featured', '/deck/collection']
+      return ['/decks', '/decks/bookmarks']
     case 'equalTierList':
       return ['/list/equals']
     case 'faqSection':
