@@ -1,21 +1,17 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
+import {
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts'
 import Title from '~/components/Title'
 import { BrawlContext } from '~/components/BrawlProvider'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import FactionSelect from '~/components/FactionSelect'
 import styles from './styles'
-
-const Cell = dynamic(() => import('recharts').then(module => module.Cell))
-const Legend = dynamic(() => import('recharts').then(module => module.Legend))
-const Pie = dynamic(() => import('recharts').then(module => module.Pie))
-const PieChart = dynamic(() =>
-  import('recharts').then(module => module.PieChart)
-)
-const ResponsiveContainer = dynamic(() =>
-  import('recharts').then(module => module.ResponsiveContainer)
-)
-const Tooltip = dynamic(() => import('recharts').then(module => module.Tooltip))
 
 const SELECT_LENGTH_MULTIPLIER = {
   '*': '1ch',

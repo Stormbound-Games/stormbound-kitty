@@ -1,21 +1,25 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
 import { CollectionContext } from '~/components/CollectionProvider'
-import ChartAbility from '~/components/ChartAbility'
-import ChartMana from '~/components/ChartMana'
-import ChartModifier from '~/components/ChartModifier'
-import ChartMovement from '~/components/ChartMovement'
-import ChartRarity from '~/components/ChartRarity'
-import ChartStrength from '~/components/ChartStrength'
-import ChartStrengthMana from '~/components/ChartStrengthMana'
-import ChartType from '~/components/ChartType'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import ChartUnitRace from '../ChartUnitRace'
 import ChartFactionCard from '../ChartFactionCard'
+
+const ChartAbility = dynamic(() => import('~/components/ChartAbility'))
+const ChartMana = dynamic(() => import('~/components/ChartMana'))
+const ChartModifier = dynamic(() => import('~/components/ChartModifier'))
+const ChartMovement = dynamic(() => import('~/components/ChartMovement'))
+const ChartRarity = dynamic(() => import('~/components/ChartRarity'))
+const ChartStrength = dynamic(() => import('~/components/ChartStrength'))
+const ChartStrengthMana = dynamic(() =>
+  import('~/components/ChartStrengthMana')
+)
+const ChartType = dynamic(() => import('~/components/ChartType'))
 
 export default React.memo(function PageStatistics(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)

@@ -1,8 +1,10 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { BrawlContext } from '~/components/BrawlProvider'
-import BrawlCoinsChart from '~/components/BrawlCoinsChart'
-import BrawlStatusChart from '~/components/BrawlStatusChart'
 import Row from '~/components/Row'
+
+const BrawlCoinsChart = dynamic(() => import('~/components/BrawlCoinsChart'))
+const BrawlStatusChart = dynamic(() => import('~/components/BrawlStatusChart'))
 
 export default React.memo(function BrawlCharts(props) {
   const { session } = React.useContext(BrawlContext)
