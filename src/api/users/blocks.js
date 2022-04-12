@@ -17,6 +17,7 @@ markDefs[] {
 
 const deckTags = `"tags": deckTags[] -> { name, "slug": slug.current }`
 const deckAuthor = `"author": user -> { name, "slug": slug.current }`
+const image = `"src": asset -> { url }.url`
 
 const block = `..., ${markDefs}`
 
@@ -29,6 +30,7 @@ _type == "columns" => {
       ${block},
       _type == "card" => { ..., ${card} },
       _type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
+      _type == "image" => { ${image} },
       _type == "info" => { ..., content[] { ${block} } },
       _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
     }
@@ -38,6 +40,7 @@ _type == "battleSim" => { content[] { ${block} } },
 _type == "card" => { ..., ${card} },
 _type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
 _type == "faq" => { entries[] { "id": id.current, question, answer[] { ${block} } } },
+_type == "image" => { ${image} },
 _type == "info" => { content[] { ${block} } },
 _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
 _type == "nerfCompensation" => { "cards": cards[] -> { "id": id.current }.id },
