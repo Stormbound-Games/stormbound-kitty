@@ -49,7 +49,7 @@ const getRedirectUrl = async params => {
       return '/decks'
 
     case 'equalTierList':
-      return '/list/equals'
+      return '/tier-list/equals'
 
     case 'event':
       return '/'

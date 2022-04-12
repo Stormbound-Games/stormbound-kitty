@@ -309,14 +309,14 @@ const getSearchIndex = async (withEverything = true) => {
 
   links.push({
     label: 'Equals List',
-    path: '/list/equals',
+    path: '/tier-list/equals',
     breadcrumbs: ['Community', 'Meta'],
     icon: 'star',
   })
 
   links.push({
     label: 'Ranked List',
-    path: '/list/ranked',
+    path: '/tier-list/ranked',
     breadcrumbs: ['Community', 'Meta'],
     icon: 'star',
   })

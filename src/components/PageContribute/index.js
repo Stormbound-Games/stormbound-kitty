@@ -146,9 +146,9 @@ export default React.memo(function PageContribute(props) {
             </li>
 
             <li>
-              The <Link to='/list/equals'>Equals Tier List</Link> needs to be
-              updated on a monthly basis to reflect balance changes. We tend to
-              only update it every few months, which makes it less useful, so
+              The <Link to='/tier-list/equals'>Equals Tier List</Link> needs to
+              be updated on a monthly basis to reflect balance changes. We tend
+              to only update it every few months, which makes it less useful, so
               feel free to help improving it!
             </li>
 

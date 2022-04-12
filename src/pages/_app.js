@@ -54,11 +54,6 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         domain='stormbound-kitty.com'
         enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
         exclude={[
-          '/simulators/battle/*',
-          '/simulators/battle/*/display',
-          '/simulators/books/*',
-          '/simulators/draft/*',
-          '/quest/*',
           '/calculators/value/*',
           // A single star (*) is non-greedy, which means it will take anything
           // until the next slash (/). Therefore, this path should exclude card
@@ -68,10 +63,14 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
           // `/card/stats`).
           '/card/*',
           '/card/*/display',
-          // Ignore the whole deck builder and its sub-paths but the root and
-          // blank URL.
+          // Ignore the whole deck builder and list builder and all their sub
+          // paths but the root/blank URL.
           '/deck/**',
-          '/list/*/display',
+          '/list/**',
+          '/quest/*',
+          '/simulators/battle/**',
+          '/simulators/books/*',
+          '/simulators/draft/*',
           // Plausible expects a comma-separated list of paths, and
           // next-plausible only proxies the value without changing it.
         ].join(',')}

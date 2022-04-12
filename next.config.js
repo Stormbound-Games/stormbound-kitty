@@ -51,12 +51,22 @@ module.exports = withPlugins(plugins, {
       },
       {
         source: '/list/ranked/display',
-        destination: '/list/ranked',
+        destination: '/tier-list/ranked',
+        permanent: true,
+      },
+      {
+        source: '/list/ranked',
+        destination: '/tier-list/ranked',
         permanent: true,
       },
       {
         source: '/list/equals/display',
-        destination: '/list/equals',
+        destination: '/tier-list/equals',
+        permanent: true,
+      },
+      {
+        source: '/list/equals',
+        destination: '/tier-list/equals',
         permanent: true,
       },
       {

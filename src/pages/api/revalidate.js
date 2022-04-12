@@ -38,7 +38,7 @@ const getRevalidationPaths = body => {
     case 'deckTags':
       return ['/decks', '/decks/bookmarks']
     case 'equalTierList':
-      return ['/list/equals']
+      return ['/tier-list/equals']
     case 'faqSection':
       return ['/faq']
     case 'guide':

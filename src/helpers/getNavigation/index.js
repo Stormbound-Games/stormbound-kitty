@@ -310,12 +310,12 @@ const getNavigation = async ({ isPreview }) => {
             },
             {
               label: 'Equals Tier List',
-              to: '/list/equals',
+              to: '/tier-list/equals',
               id: 'EQUALS_LIST',
             },
             {
               label: 'Ranked Tier List',
-              to: '/list/ranked',
+              to: '/tier-list/ranked',
               id: 'RANKED_LIST',
             },
             {
