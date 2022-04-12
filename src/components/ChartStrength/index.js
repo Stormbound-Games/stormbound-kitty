@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-} from 'recharts'
+import dynamic from 'next/dynamic'
 import { CardsContext } from '~/components/CardsProvider'
 import FactionSelect from '~/components/FactionSelect'
 import Row from '~/components/Row'
@@ -15,6 +7,20 @@ import Select from '~/components/Select'
 import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import { TOOLTIP_STYLES } from '~/constants/stats'
+
+const CartesianGrid = dynamic(() =>
+  import('recharts').then(module => module.CartesianGrid)
+)
+const XAxis = dynamic(() => import('recharts').then(module => module.XAxis))
+const YAxis = dynamic(() => import('recharts').then(module => module.YAxis))
+const Line = dynamic(() => import('recharts').then(module => module.Line))
+const LineChart = dynamic(() =>
+  import('recharts').then(module => module.LineChart)
+)
+const ResponsiveContainer = dynamic(() =>
+  import('recharts').then(module => module.ResponsiveContainer)
+)
+const Tooltip = dynamic(() => import('recharts').then(module => module.Tooltip))
 
 export default React.memo(function ChartStrength(props) {
   const { cardsIndex } = React.useContext(CardsContext)

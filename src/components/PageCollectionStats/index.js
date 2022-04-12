@@ -1,18 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import {
-  ResponsiveContainer,
-  Bar,
-  BarChart,
-  YAxis,
-  XAxis,
-  Legend,
-  Cell,
-  Tooltip,
-  PieChart,
-  Pie,
-} from 'recharts'
+import dynamic from 'next/dynamic'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import Page from '~/components/Page'
@@ -30,6 +19,23 @@ import { getCardCost } from '~/helpers/getCollectionCost'
 import { RARITIES, RARITY_COPIES } from '~/constants/game'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import styles from './styles'
+
+const ResponsiveContainer = dynamic(() =>
+  import('recharts').then(module => module.ResponsiveContainer)
+)
+const Bar = dynamic(() => import('recharts').then(module => module.Bar))
+const BarChart = dynamic(() =>
+  import('recharts').then(module => module.BarChart)
+)
+const YAxis = dynamic(() => import('recharts').then(module => module.YAxis))
+const XAxis = dynamic(() => import('recharts').then(module => module.XAxis))
+const Legend = dynamic(() => import('recharts').then(module => module.Legend))
+const Cell = dynamic(() => import('recharts').then(module => module.Cell))
+const Tooltip = dynamic(() => import('recharts').then(module => module.Tooltip))
+const PieChart = dynamic(() =>
+  import('recharts').then(module => module.PieChart)
+)
+const Pie = dynamic(() => import('recharts').then(module => module.Pie))
 
 const COLORS = [
   '#ded7a4',
