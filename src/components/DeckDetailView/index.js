@@ -1,8 +1,8 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import DeckAdvice from '~/components/DeckAdvice'
 import Page from '~/components/Page'
 import Deck from '~/components/Deck'
-import DeckStatsChart from '~/components/DeckStatsChart'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Row from '~/components/Row'
@@ -15,6 +15,8 @@ import modifyDeck from '~/helpers/modifyDeck'
 import toSentence from '~/helpers/toSentence'
 import indexArray from '~/helpers/indexArray'
 import useNavigator from '~/hooks/useNavigator'
+
+const DeckStatsChart = dynamic(() => import('~/components/DeckStatsChart'))
 
 export default React.memo(function DeckDetailView(props) {
   const { notify } = React.useContext(NotificationContext)

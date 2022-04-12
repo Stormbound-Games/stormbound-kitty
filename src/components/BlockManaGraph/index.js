@@ -1,8 +1,10 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { CardsContext } from '~/components/CardsProvider'
-import DeckStatsChart from '~/components/DeckStatsChart'
 import serialization from '~/helpers/serialization'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
+
+const DeckStatsChart = dynamic(() => import('~/components/DeckStatsChart'))
 
 export default React.memo(function BlockManaGraph(props) {
   const { deckId, modifier = 'NONE' } = props.value

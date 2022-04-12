@@ -1,5 +1,14 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
+import {
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  ZAxis,
+  Scatter,
+  ScatterChart,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts'
 import { CardsContext } from '~/components/CardsProvider'
 import FactionSelect from '~/components/FactionSelect'
 import Row from '~/components/Row'
@@ -7,21 +16,6 @@ import Select from '~/components/Select'
 import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import { TOOLTIP_STYLES } from '~/constants/stats'
-
-const ResponsiveContainer = dynamic(() =>
-  import('recharts').then(module => module.ResponsiveContainer)
-)
-const CartesianGrid = dynamic(() =>
-  import('recharts').then(module => module.CartesianGrid)
-)
-const Scatter = dynamic(() => import('recharts').then(module => module.Scatter))
-const ScatterChart = dynamic(() =>
-  import('recharts').then(module => module.ScatterChart)
-)
-const Tooltip = dynamic(() => import('recharts').then(module => module.Tooltip))
-const XAxis = dynamic(() => import('recharts').then(module => module.XAxis))
-const YAxis = dynamic(() => import('recharts').then(module => module.YAxis))
-const ZAxis = dynamic(() => import('recharts').then(module => module.ZAxis))
 
 export default React.memo(function ChartStrengthMana(props) {
   const { cardsIndex } = React.useContext(CardsContext)

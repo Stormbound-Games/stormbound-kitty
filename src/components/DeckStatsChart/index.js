@@ -1,25 +1,21 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import {
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
 import Link from '~/components/Link'
-import dynamic from 'next/dynamic'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import computeDeckChartData from '~/helpers/computeDeckChartData'
 import useIsMounted from '~/hooks/useIsMounted'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import styles from './styles'
-
-const Legend = dynamic(() => import('recharts').then(module => module.Legend))
-const Line = dynamic(() => import('recharts').then(module => module.Line))
-const LineChart = dynamic(() =>
-  import('recharts').then(module => module.LineChart)
-)
-const ResponsiveContainer = dynamic(() =>
-  import('recharts').then(module => module.ResponsiveContainer)
-)
-const Tooltip = dynamic(() => import('recharts').then(module => module.Tooltip))
-const XAxis = dynamic(() => import('recharts').then(module => module.XAxis))
-const YAxis = dynamic(() => import('recharts').then(module => module.YAxis))
 
 export default React.memo(function DeckStatsChart(props) {
   const isMounted = useIsMounted()

@@ -1,11 +1,11 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
 import CardsGallery from '~/components/CardsGallery'
 import Deck from '~/components/Deck'
 import DeckAdvice from '~/components/DeckAdvice'
 import DeckStats from '~/components/DeckStats'
-import DeckStatsChart from '~/components/DeckStatsChart'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
 import Notice from '~/components/Notice'
@@ -21,6 +21,8 @@ import shuffle from '~/helpers/shuffle'
 import serialization from '~/helpers/serialization'
 import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
+
+const DeckStatsChart = dynamic(() => import('~/components/DeckStatsChart'))
 
 const ROLLS = [
   state => {
