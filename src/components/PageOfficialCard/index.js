@@ -14,7 +14,6 @@ import getWikiCardLink from '~/helpers/getWikiCardLink'
 
 export default React.memo(function PageOfficialCard(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const { cardId } = props
   const versionId = Number(props.versionId)
   const cardData = useVersionedCardData(props)
   const date = formatPreciseDate(versionId)
@@ -43,21 +42,21 @@ export default React.memo(function PageOfficialCard(props) {
       isEditorialContent
     >
       <Spacing bottom='LARGEST'>
-        <CardDisplay mode='DISPLAY' {...cardData} id={cardId} />
+        <CardDisplay mode='DISPLAY' {...cardData} id={props.id} />
       </Spacing>
 
       <Spacing bottom='LARGEST'>
-        <CardDisplayControls id={cardId} />
+        <CardDisplayControls id={props.id} />
       </Spacing>
 
       <Page.Narrow>
         <CardChangeFeed
-          id={props.cardId}
+          id={props.id}
           versionId={versionId}
           changes={props.versions}
         />
-        <CardNotes id={props.cardId} notes={props.notes} />
-        <CardCommunityFeed id={props.cardId} feed={props.feed} />
+        <CardNotes id={props.id} notes={props.notes} />
+        <CardCommunityFeed id={props.id} feed={props.feed} />
       </Page.Narrow>
     </Page>
   )

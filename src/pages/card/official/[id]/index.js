@@ -46,7 +46,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return {
     props: {
       settings,
-      cardId,
+      id: cardId,
       card,
       versions,
       feed,

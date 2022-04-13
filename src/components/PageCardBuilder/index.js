@@ -12,30 +12,18 @@ import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import useCardBuilder from '~/hooks/useCardBuilder'
 
 const usePageProps = (props, card) => {
-  if (props.contest) {
-    const { week, season, winner } = props.contest
+  if (!props.cardId) return {}
 
-    return {
-      meta: `Season ${season} Week #${week}`,
-      author: winner.user.name,
-      action: { to: '/swcc', children: 'Back to SWCC' },
-    }
+  const isEditing = props.mode === 'EDITOR'
+  const { rarity, faction, type, race } = card
+  const to = `/card/${props.cardId}` + (isEditing ? '/display' : '')
+  const label = isEditing ? 'Display view' : 'Edit card'
+  const icon = isEditing ? 'eye' : undefined
+
+  return {
+    meta: [rarity, faction, type, race].filter(Boolean).join(' · '),
+    action: { to, children: label, icon },
   }
-
-  if (props.cardId) {
-    const isEditing = props.mode === 'EDITOR'
-    const { rarity, faction, type, race } = card
-    const to = `/card/${props.cardId}` + (isEditing ? '/display' : '')
-    const label = isEditing ? 'Display view' : 'Edit card'
-    const icon = isEditing ? 'eye' : undefined
-
-    return {
-      meta: [rarity, faction, type, race].filter(Boolean).join(' · '),
-      action: { to, children: label, icon },
-    }
-  }
-
-  return {}
 }
 
 export default React.memo(function PageCardBuilder(props) {
@@ -47,7 +35,7 @@ export default React.memo(function PageCardBuilder(props) {
   return (
     <Page {...pageProps} {...metaTags}>
       <Spacing bottom='LARGEST'>
-        <CardDisplay {...card} mode={props.mode} id={props.cardId} />
+        <CardDisplay {...card} mode={props.mode} id={props.id} />
       </Spacing>
 
       {card.hasSingleLevel && (
@@ -63,11 +51,11 @@ export default React.memo(function PageCardBuilder(props) {
           <Row isDesktopOnly>
             <Row.Column>
               <Title>Core attributes</Title>
-              <CoreForm {...card} {...setters} cardId={props.cardId} />
+              <CoreForm {...card} {...setters} />
             </Row.Column>
             <Row.Column>
               <Title>Level-specific attributes</Title>
-              <LevelForm {...card} {...setters} cardId={props.cardId} />
+              <LevelForm {...card} {...setters} />
             </Row.Column>
           </Row>
         </Spacing>

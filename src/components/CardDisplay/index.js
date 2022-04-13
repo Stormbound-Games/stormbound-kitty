@@ -13,54 +13,49 @@ import styles from './styles'
 export default React.memo(function CardDisplay(props) {
   const { css } = useFela()
   const { cardsIndex } = React.useContext(CardsContext)
-  const cardId = props.id
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
-  const { hasDefaultCollection, indexedCollection } =
-    React.useContext(CollectionContext)
-  const cardInCollection =
-    hasDefaultCollection || !cardId || props.mode === 'EDITOR'
-      ? { level: 5 }
-      : indexedCollection[cardId] || { level: 5 }
+  const { indexedCollection } = React.useContext(CollectionContext)
+  const isOfficial = props.id in cardsIndex
+  const cardInCollection = indexedCollection[props.id] || { level: 5 }
 
   return (
     <>
       <Only.Desktop>
         <Spacing bottom='LARGE'>
           <Row isDesktopOnly>
-            {[0, 1, 2, 3, 4].map(level => (
-              <Row.Column width='1/5' key={level}>
-                <div
-                  className={css(
-                    styles.card({
-                      isIrrelevant:
-                        props.hasSingleLevel && props.level !== level + 1,
-                    })
-                  )}
-                  data-testid={`card-preview-${level}`}
-                >
-                  <Card
-                    {...props}
-                    containerWidth={220}
-                    mana={props.mana.values[level]}
-                    strength={props.strength.values[level]}
-                    ability={props.ability.values[level]}
-                    image={
-                      cardsIndex[props.imageCardId]?.image ?? props.imageURL
-                    }
-                    missing={
-                      cardInCollection.missing ||
-                      level + 1 > cardInCollection.level
-                    }
-                    upgradable={isLevelAvailable(
-                      cardsIndex,
-                      cardInCollection,
-                      level + 1
-                    )}
-                    level={level + 1}
-                  />
-                </div>
-              </Row.Column>
-            ))}
+            {[0, 1, 2, 3, 4].map(level => {
+              const isIrrelevant =
+                props.hasSingleLevel && props.level !== level + 1
+              const isMissing = isOfficial
+                ? cardInCollection.missing || level + 1 > cardInCollection.level
+                : false
+              const isUpgradable = isOfficial
+                ? isLevelAvailable(cardsIndex, cardInCollection, level + 1)
+                : false
+
+              return (
+                <Row.Column width='1/5' key={level}>
+                  <div
+                    className={css(styles.card({ isIrrelevant }))}
+                    data-testid={`card-preview-${level}`}
+                  >
+                    <Card
+                      {...props}
+                      containerWidth={220}
+                      mana={props.mana.values[level]}
+                      strength={props.strength.values[level]}
+                      ability={props.ability.values[level]}
+                      image={
+                        cardsIndex[props.imageCardId]?.image ?? props.imageURL
+                      }
+                      missing={isMissing}
+                      upgradable={isUpgradable}
+                      level={level + 1}
+                    />
+                  </div>
+                </Row.Column>
+              )
+            })}
           </Row>
         </Spacing>
       </Only.Desktop>
