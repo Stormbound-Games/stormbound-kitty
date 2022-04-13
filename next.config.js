@@ -9,6 +9,8 @@ const plugins = [
   }),
 ]
 
+const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
+
 module.exports = withPlugins(plugins, {
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
@@ -133,6 +135,36 @@ module.exports = withPlugins(plugins, {
     ]
   },
   async headers() {
+    const SELF = "'self'"
+    const NONE = "'none'"
+    const UNSAFE_INLINE = "'unsafe-inline'"
+    const UNSAFE_EVAL = "'unsafe-eval'"
+    const directives = {
+      'base-uri': [NONE],
+      'child-src': [NONE],
+      'connect-src': [SELF, /* avif check */ 'data:'],
+      'default-src': [SELF],
+      'font-src': [SELF],
+      'form-action': [SELF],
+      'frame-ancestors': [NONE],
+      'frame-src': [/* Brewed Sages podcast player */ 'www.podbean.com'],
+      'img-src': ['data:', /* custom card images */ '*'],
+      'manifest-src': [SELF],
+      'media-src': [NONE],
+      'object-src': [NONE],
+      'prefetch-src': [SELF],
+      'script-src': [
+        SELF,
+        /* Next.js rehydration */ UNSAFE_INLINE,
+        /* react-refresh */ VERCEL_ENV === 'development' ? UNSAFE_EVAL : '',
+      ],
+      'style-src': [/* react-tooltip styles */ SELF, UNSAFE_INLINE],
+      'worker-src': [NONE],
+    }
+    const ContentSecurityPolicy = Object.entries(directives)
+      .map(([key, values]) => `${key} ${values.filter(Boolean).join(' ')}`)
+      .join('; ')
+
     return [
       {
         source: '/(.*)',
@@ -156,6 +188,10 @@ module.exports = withPlugins(plugins, {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: ContentSecurityPolicy,
           },
         ],
       },
