@@ -3,12 +3,12 @@ import serialization from '~/helpers/serialization'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
-  return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
+  return { paths: [{ params: { id: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
-  const [id] = params.rest || []
+  const [id] = params.id || []
   const quest = id ? serialization.quest.deserialize(id) : {}
 
   return {
