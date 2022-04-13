@@ -34,7 +34,7 @@ export default React.memo(function BlockCard(props) {
     </div>
   ) : (
     <PageEmbed>
-      <CardDisplay {...getInitialCardData(cards, id)} />
+      <CardDisplay {...getInitialCardData(cards, id)} id={id} />
     </PageEmbed>
   )
 })
