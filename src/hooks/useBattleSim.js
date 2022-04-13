@@ -18,6 +18,18 @@ const C_KEY = 67
 const V_KEY = 86
 const X_KEY = 88
 
+const DEFAULT_ID = serialization.battle.serialize(
+  DEFAULT_BOARD,
+  { RED: { ...DEFAULT_PLAYER }, BLUE: { ...DEFAULT_PLAYER } },
+  { mana: DEFAULT_MANA, gridMarkers: false },
+  [
+    { ...DEFAULT_CARD },
+    { ...DEFAULT_CARD },
+    { ...DEFAULT_CARD },
+    { ...DEFAULT_CARD },
+  ]
+)
+
 const useBattleSim = props => {
   const navigator = useNavigator()
   const { cardsIndex } = React.useContext(CardsContext)
@@ -175,7 +187,8 @@ const useBattleSim = props => {
       sim.cards
     )
 
-    navigator.replace('/simulators/battle/' + id)
+    if (id === DEFAULT_ID) navigator.replace('/simulators/battle')
+    else navigator.replace('/simulators/battle/' + id)
 
     // If the update was caused by an undo, do not add a new entry into the
     // history and simply mark undo as `false` for the next state update
