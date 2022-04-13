@@ -1,12 +1,13 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 import { sortByMana } from '~/helpers/sortCards'
 import useNavigator from '~/hooks/useNavigator'
-import useQueryParams from '~/hooks/useQueryParams'
 
 const useDeckBuilderPath = (deck, view) => {
-  const { mode } = useQueryParams()
+  const { query } = useRouter()
+  const { mode } = query
   const id = serialization.deck.serialize(deck)
 
   switch (view) {
