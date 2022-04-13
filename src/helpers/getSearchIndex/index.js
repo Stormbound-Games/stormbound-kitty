@@ -122,7 +122,7 @@ const getSearchIndex = async (withEverything = true) => {
   swcc.slice(0, limit).forEach(contest => {
     links.push({
       label: `SWCC S${contest.season}W${contest.week} ${contest.name}`,
-      path: `/card/${contest.winner.id}/display`,
+      path: `/swcc/season/${contest.season}/week/${contest.week}`,
       breadcrumbs: ['Community', 'Contests', 'SWCC'],
       icon: 'trophy',
     })

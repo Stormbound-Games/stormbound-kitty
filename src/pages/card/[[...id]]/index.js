@@ -2,9 +2,7 @@ import PageCardBuilder from '~/components/PageCardBuilder'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import indexArray from '~/helpers/indexArray'
-import getSWCCFromCard from '~/api/swcc/getSWCCFromCard'
 
-// SWCC pages cannot be prerenredered because their URL is too long. :(
 export async function getStaticPaths() {
   return { paths: [{ params: { id: [] } }], fallback: 'blocking' }
 }
@@ -38,10 +36,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   const card = getInitialCardData(settings.cards, cardId)
-  const contest = await getSWCCFromCard({ id: cardId, isPreview })
   const mode = view === 'display' ? 'DISPLAY' : 'EDITOR'
 
-  return { props: { settings, cardId, card, contest, mode, breadcrumbs } }
+  return { props: { settings, id: cardId, card, mode, breadcrumbs } }
 }
 
 export default PageCardBuilder

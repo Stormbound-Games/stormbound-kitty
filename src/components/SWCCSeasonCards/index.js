@@ -27,7 +27,7 @@ export default React.memo(function SWCCSeason(props) {
           in {date}
         </>
       ),
-      to: `/card/${week.winner.id}/display`,
+      to: `/swcc/season/${week.season}/week/${week.week}`,
       excerpt: (
         <>
           <strong className='Highlight'>{cardData.name}</strong> —{' '}
@@ -57,7 +57,7 @@ export default React.memo(function SWCCSeason(props) {
           }
           author={week.winner.user}
           icon='wand'
-          path={`/card/${week.winner.id}/display`}
+          path={`/swcc/season/${week.season}/week/${week.week}`}
           excerpt={
             <>
               <strong className='Highlight'>{cardData.name}</strong> —{' '}
