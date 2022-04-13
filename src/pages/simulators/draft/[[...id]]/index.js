@@ -6,7 +6,7 @@ import getDeckAdvice from '~/helpers/getDeckAdvice'
 import indexArray from '~/helpers/indexArray'
 
 export async function getStaticPaths() {
-  return { paths: [{ params: { id: null } }], fallback: 'blocking' }
+  return { paths: [{ params: { id: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {

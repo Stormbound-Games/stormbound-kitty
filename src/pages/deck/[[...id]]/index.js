@@ -13,11 +13,11 @@ export async function getStaticPaths() {
   const decks = await getDecks()
   const paths = decks
     .map(deck => [
-      { params: { rest: [deck.id] } },
-      { params: { rest: [deck.id, 'detail'] } },
+      { params: { id: [deck.id] } },
+      { params: { id: [deck.id, 'detail'] } },
     ])
     .flat()
-    .concat([{ params: { rest: [] } }])
+    .concat([{ params: { id: [] } }])
 
   return { paths, fallback: 'blocking' }
 }
@@ -27,7 +27,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const cardsIndex = indexArray(settings.cards)
   const cardsIndexBySid = indexArray(settings.cards, 'sid')
-  const [id, view] = params.rest || []
+  const [id, view] = params.id || []
   const resolvedView =
     view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
   const breadcrumbs = ['TOOLS', 'BUILDERS', 'DECK_BUILDER', resolvedView]

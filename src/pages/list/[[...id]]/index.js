@@ -6,38 +6,30 @@ import getSiteSettings from '~/api/misc/getSiteSettings'
 import { DEFAULT_LIST } from '~/constants/list'
 
 export async function getStaticPaths() {
-  return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
+  return { paths: [{ params: { id: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
-  const [id, display] = params.rest || []
+  const [id, view] = params.id || []
   const breadcrumbs = ['TOOLS', 'BUILDERS', 'LIST_BUILDER']
 
-  if (display && display !== 'display') {
+  if (view && view !== 'display') {
     return { notFound: true }
   }
 
   if (!id) {
     return {
-      props: {
-        settings,
-        tiers: DEFAULT_LIST,
-        id: null,
-        mode: 'EDITOR',
-        breadcrumbs,
-      },
+      props: { settings, tiers: DEFAULT_LIST, mode: 'EDITOR', breadcrumbs },
     }
   }
-
-  const tiers = getInitialListData(id)
 
   return {
     props: {
       settings,
-      tiers,
+      tiers: getInitialListData(id),
       id,
-      mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
+      mode: view === 'display' ? 'DISPLAY' : 'EDITOR',
       breadcrumbs,
     },
   }
