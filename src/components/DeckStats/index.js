@@ -87,40 +87,40 @@ export default React.memo(function DeckStats(props) {
 
           <p>
             Its average speed is{' '}
-            <strong className='Highlight'>{averageSpeed}</strong> cell on play.
-            Its average mana cost is{' '}
-            <strong className='Highlight'>{averageMana}</strong>.{' '}
-            <strong
+            <span className='Highlight'>{averageSpeed}</span> cell on play. Its
+            average mana cost is{' '}
+            <span className='Highlight'>{averageMana}</span>.{' '}
+            <span
               className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(playableCards1)}
               onMouseOut={() => props.highlight([])}
             >
               {playableCards1.length}
-            </strong>{' '}
+            </span>{' '}
             cards can be played as the first player (
-            <strong
+            <span
               className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(movingCards1)}
               onMouseOut={() => props.highlight([])}
             >
               {movingCards1.length}
-            </strong>{' '}
+            </span>{' '}
             of them moving the front line),{' '}
-            <strong
+            <span
               className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(playableCards2)}
               onMouseOut={() => props.highlight([])}
             >
               {playableCards2.length}
-            </strong>{' '}
+            </span>{' '}
             as the second player (
-            <strong
+            <span
               className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(movingCards2)}
               onMouseOut={() => props.highlight([])}
             >
               {movingCards2.length}
-            </strong>{' '}
+            </span>{' '}
             of them moving the front line).
           </p>
         </Row.Column>

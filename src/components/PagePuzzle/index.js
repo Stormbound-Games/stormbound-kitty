@@ -36,8 +36,10 @@ export default React.memo(function PagePuzzle(props) {
         <ul>
           {puzzle.restrictions.map(restriction => (
             <li key={restriction}>
-              <strong>{RESTRICTIONS[restriction].name}</strong>:{' '}
-              {RESTRICTIONS[restriction].description}
+              <span className='Highlight'>
+                {RESTRICTIONS[restriction].name}
+              </span>
+              : {RESTRICTIONS[restriction].description}
             </li>
           ))}
         </ul>
@@ -85,7 +87,7 @@ export default React.memo(function PagePuzzle(props) {
                   <Link to={`/members/${puzzle.user.slug}`}>
                     {puzzle.user.name}
                   </Link>{' '}
-                  in <strong>{formatDate(date)}</strong>.{' '}
+                  in <span className='Highlight'>{formatDate(date)}</span>.{' '}
                   {puzzle.solution?.length > 0 ? (
                     <>
                       If you believe the aforementioned solution does not work

@@ -26,10 +26,10 @@ export default React.memo(function News(props) {
           <li className={css(styles.item)} key={index}>
             {news.link ? (
               <Link to={news.link}>
-                <strong className='Highlight'>{news.intro}:</strong>
+                <span className='Highlight'>{news.intro}:</span>
               </Link>
             ) : (
-              <strong className='Highlight'>{news.intro}:</strong>
+              <span className='Highlight'>{news.intro}:</span>
             )}{' '}
             {news.description}
           </li>

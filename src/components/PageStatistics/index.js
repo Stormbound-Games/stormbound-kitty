@@ -50,9 +50,8 @@ export default React.memo(function PageStatistics(props) {
           <Info icon='books' title='Your collection'>
             <p>
               If you happen to be looking for data visualization on{' '}
-              <strong className='Highlight'>your</strong> card collection, head
-              over to <Link to='/collection/stats'>the collection section</Link>
-              .
+              <span className='Highlight'>your</span> card collection, head over
+              to <Link to='/collection/stats'>the collection section</Link>.
             </p>
           </Info>
         </Only.CustomCollection>

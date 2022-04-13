@@ -71,9 +71,9 @@ export default React.memo(function BookOutcome(props) {
         <>
           <p>
             Opening a{' '}
-            <strong className='Highlight' data-testid='book-name'>
+            <span className='Highlight' data-testid='book-name'>
               {props.book.name}
-            </strong>{' '}
+            </span>{' '}
             would yield:
           </p>
           <ul
@@ -84,18 +84,18 @@ export default React.memo(function BookOutcome(props) {
           >
             <li>
               {props.target === 'FUSION_STONES' && '~'}
-              <strong className='Highlight' data-testid='odds-result'>
+              <span className='Highlight' data-testid='odds-result'>
                 {(chances * 100).toFixed(2)}%
-              </strong>{' '}
+              </span>{' '}
               chance of drawing {subject}
             </li>
             <li>
               An average of{' '}
-              <strong className='Highlight' data-testid='average-stones'>
+              <span className='Highlight' data-testid='average-stones'>
                 <Stones
                   amount={getAverageStonesPerBook(props.book).toFixed(2)}
                 />
-              </strong>
+              </span>
             </li>
             <Only.DefaultCollection>
               <li>
@@ -108,9 +108,9 @@ export default React.memo(function BookOutcome(props) {
                 {expectedCoins > 0 ? (
                   <>
                     An average of{' '}
-                    <strong className='Highlight'>
+                    <span className='Highlight'>
                       <Coins amount={expectedCoins.toFixed(2)} />
-                    </strong>
+                    </span>
                   </>
                 ) : (
                   'No coins, because your collection does not have cards level 5 yet'

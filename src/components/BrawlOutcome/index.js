@@ -18,24 +18,23 @@ export default React.memo(function BrawlOutcome(props) {
       </p>
       <ul className={css(styles.list)}>
         <li>
-          <strong className='Highlight'>Milestone completed:</strong>{' '}
+          <span className='Highlight'>Milestone completed:</span>{' '}
           {meta.milestone || 'none'}
         </li>
         <li>
-          <strong className={css({ color: 'var(--light-ironclad)' })}>
+          <span className={css({ color: 'var(--light-ironclad)' })}>
             Coins spent:
-          </strong>{' '}
+          </span>{' '}
           <Coins amount={'-' + meta.coinsSpent} />
         </li>
         <li>
-          <strong className={css({ color: 'var(--light-shadowfen)' })}>
+          <span className={css({ color: 'var(--light-shadowfen)' })}>
             Coins earned:
-          </strong>{' '}
+          </span>{' '}
           <Coins amount={'+' + income} />
         </li>
         <li>
-          <strong className='Highlight'>Balance:</strong>{' '}
-          <Coins amount={balance} />
+          <span className='Highlight'>Balance:</span> <Coins amount={balance} />
         </li>
       </ul>
     </Info>

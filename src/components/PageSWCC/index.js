@@ -26,8 +26,8 @@ export default React.memo(function PageSWCC(props) {
         <p>
           The following is a collection of all of the information to participate
           and/or vote in the weekly card competitions. Would you have any
-          questions or <strong className='Highlight'>want to be a judge</strong>
-          , feel free to message @TaKo_G#0373 on the{' '}
+          questions or <span className='Highlight'>want to be a judge</span>,
+          feel free to message @TaKo_G#0373 on the{' '}
           <Link href='https://discord.gg/stormbound'>Stormbound Discord</Link>.
         </p>
 
@@ -72,11 +72,11 @@ export default React.memo(function PageSWCC(props) {
 
         <Title>Creating your card</Title>
         <p>
-          It is <strong>highly recommended</strong> that you use the{' '}
-          <Link to='/card'>card builder</Link> to create your cards, as it
-          closely resembles what your card would look like in the game. It also
-          allows you to copy and paste a link to the card which is required to
-          submit it for the competition.
+          It is <span className='Highlight'>highly recommended</span> that you
+          use the <Link to='/card'>card builder</Link> to create your cards, as
+          it closely resembles what your card would look like in the game. It
+          also allows you to copy and paste a link to the card which is required
+          to submit it for the competition.
         </p>
 
         <p>

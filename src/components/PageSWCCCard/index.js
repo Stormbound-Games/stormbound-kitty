@@ -44,8 +44,8 @@ export default React.memo(function PageSWCCCard(props) {
           <Link to={`/members/${winner.user.slug}`}>{winner.user.name}</Link>{' '}
           for week {week} of season {season} of the{' '}
           <Link to='/swcc'>Stormbound Weekly Card Contest</Link>. The theme was{' '}
-          <strong>{props.contest.name}</strong>, and this was the winning card
-          for that week.
+          <span className='Highlight'>{props.contest.name}</span>, and this was
+          the winning card for that week.
         </p>
       </Page.Narrow>
     </Page>

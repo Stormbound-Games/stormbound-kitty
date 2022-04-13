@@ -21,7 +21,7 @@ const formatCardStats = state => {
 
   return [
     `${name}: ${faction} ${type}`,
-    `${rarity}${race ? ` · ${race} ` : ' '}${modifiers}`,
+    `${rarity}${race ? ` ${race} ` : ' '}${modifiers}`,
     state.level && `At level ${state.level}:`,
     [mana, strength, movement].filter(Boolean).join(' · '),
     ability,

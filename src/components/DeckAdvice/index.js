@@ -13,7 +13,7 @@ const Advice = props => (
     }
     onMouseOut={props.highlight ? () => props.highlightCards([]) : undefined}
   >
-    <strong className='Highlight'>{props.name}:</strong> {props.description}
+    <span className='Highlight'>{props.name}:</span> {props.description}
   </p>
 )
 
