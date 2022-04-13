@@ -34,7 +34,12 @@ export default React.memo(function BlockCard(props) {
     </div>
   ) : (
     <PageEmbed>
-      <CardDisplay {...getInitialCardData(cards, id)} id={id} />
+      <CardDisplay
+        {...getInitialCardData(cards, id)}
+        // Skip the `id` to avoid showing missing levels in guides and release
+        // notes.
+        id={undefined}
+      />
     </PageEmbed>
   )
 })
