@@ -5,11 +5,9 @@ import Row from '~/components/Row'
 import ShareButton from '~/components/CardBuilderShareButton'
 import Spacing from '~/components/Spacing'
 import formatCardStats from '~/helpers/formatCardStats'
-import useQueryParams from '~/hooks/useQueryParams'
 
 export default React.memo(function CardBuilderLevelForm(props) {
-  const { id: cardId } = useQueryParams()
-  const isPristine = !cardId
+  const isPristine = !props.id
 
   return (
     <>

@@ -55,7 +55,7 @@ export default React.memo(function PageCardBuilder(props) {
             </Row.Column>
             <Row.Column>
               <Title>Level-specific attributes</Title>
-              <LevelForm {...card} {...setters} />
+              <LevelForm {...card} {...setters} id={props.id} />
             </Row.Column>
           </Row>
         </Spacing>
