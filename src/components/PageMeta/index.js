@@ -7,7 +7,8 @@ const DEFAULT_DESCRIPTION =
   'Stormbound-Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
 
 export default React.memo(function PageMeta(props) {
-  const { pathname } = useRouter()
+  const { asPath } = useRouter()
+  const [pathname] = asPath.split('?')
   const description = props.description || DEFAULT_DESCRIPTION
   const title =
     props.metaTitle || props.title
