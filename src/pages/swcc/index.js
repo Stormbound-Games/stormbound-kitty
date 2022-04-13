@@ -11,7 +11,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       settings,
       seasons: seasons.map(season => ({
         number: season.season,
-        duration: season.weeks.length,
+        duration: season.contests.length,
       })),
       breadcrumbs: ['COMMUNITY', 'CONTESTS', 'CARD_CONTEST'],
     },

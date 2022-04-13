@@ -9,14 +9,14 @@ export default React.memo(function PageSWCCSeason(props) {
   const [order, setOrder] = React.useState('DATE')
   const items = React.useMemo(
     () =>
-      props.weeks.slice(0).sort((a, b) => {
+      props.contests.slice(0).sort((a, b) => {
         if (order === 'THEME') return a.name.localeCompare(b.name)
         if (order === 'AUTHOR')
           return a.winner.user.name.localeCompare(b.winner.user.name)
         if (order === 'DATE') return parseDate(b.date) - parseDate(a.date)
         return 0
       }),
-    [props.weeks, order]
+    [props.contests, order]
   )
 
   return (
@@ -28,7 +28,7 @@ export default React.memo(function PageSWCCSeason(props) {
         props.number >= 4 && { name: 'Grimm', slug: 'grimm' },
       ].filter(Boolean)}
       action={{ to: '/swcc', children: 'Back to SWCC' }}
-      meta={`${props.weeks.length} weeks`}
+      meta={`${props.contests.length} weeks`}
       isEditorialContent
     >
       <ListHeader
@@ -45,7 +45,7 @@ export default React.memo(function PageSWCCSeason(props) {
         {items.length} {items.length === 1 ? 'week' : 'weeks'}
       </ListHeader>
 
-      <SWCCSeasonCards layout={layout} weeks={items} />
+      <SWCCSeasonCards layout={layout} contests={items} />
     </Page>
   )
 })

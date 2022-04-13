@@ -91,9 +91,11 @@ const getRedirectUrl = async params => {
     }
 
     case 'SWCC': {
-      const swcc = await getSWCCFromCard(params)
+      const contest = await getSWCCFromCard(params)
 
-      return swcc ? `/swcc/season/${swcc.season}/week/${swcc.week}` : null
+      return contest
+        ? `/swcc/season/${contest.season}/week/${contest.week}`
+        : null
     }
 
     case 'tournament':

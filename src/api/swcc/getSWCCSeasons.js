@@ -1,12 +1,12 @@
 import groupBy from '~/helpers/groupBy'
-import getSWCCWeeks from './getSWCCWeeks'
+import getSWCCContests from './getSWCCContests'
 
 const getSWCCSeasons = async ({ isPreview } = {}) => {
-  const weeks = await getSWCCWeeks({ isPreview })
-  const groups = groupBy(weeks, 'season')
+  const contests = await getSWCCContests({ isPreview })
+  const groups = groupBy(contests, 'season')
 
   return Object.entries(groups)
-    .map(([season, weeks]) => ({ season: +season, weeks }))
+    .map(([season, contests]) => ({ season: +season, contests }))
     .sort((a, b) => b.season - a.season)
 }
 

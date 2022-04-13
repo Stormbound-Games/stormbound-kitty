@@ -5,7 +5,7 @@ import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
 import getGuides from '~/api/guides/getGuides'
 import getStories from '~/api/stories/getStories'
-import getSWCCWeeks from '~/api/swcc/getSWCCWeeks'
+import getSWCCContests from '~/api/swcc/getSWCCContests'
 import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 import getUsers from '~/api/users/getUsers'
@@ -18,11 +18,11 @@ const getSearchIndex = async (withEverything = true) => {
   const stories = await getStories()
   const puzzles = await getPuzzles()
   const releases = await getReleases()
-  const swcc = await getSWCCWeeks()
+  const swcc = await getSWCCContests()
   const users = await getUsers()
   const links = []
   const limit = withEverything ? Infinity : 1
-  const seasons = [...new Set(swcc.map(week => week.season))].sort()
+  const seasons = [...new Set(swcc.map(contest => contest.season))].sort()
 
   links.push({
     label: 'News',

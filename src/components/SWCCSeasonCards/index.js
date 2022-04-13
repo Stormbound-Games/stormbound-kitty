@@ -10,24 +10,24 @@ import { formatDate } from '~/helpers/formatDate'
 
 export default React.memo(function SWCCSeason(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const items = props.weeks.map(week => {
-    const cardData = getSWCCCardData(cardsIndex, week.winner.id)
-    const date = formatDate(parseDate(week.date))
+  const items = props.contests.map(contest => {
+    const cardData = getSWCCCardData(cardsIndex, contest.winner.id)
+    const date = formatDate(parseDate(contest.date))
 
     return {
-      id: week.winner.id,
+      id: contest.winner.id,
       card: cardData,
-      title: week.name,
+      title: contest.name,
       meta: (
         <>
           By{' '}
-          <Link to={`/members/${week.winner.user.slug}`}>
-            {week.winner.user.name}
+          <Link to={`/members/${contest.winner.user.slug}`}>
+            {contest.winner.user.name}
           </Link>{' '}
           in {date}
         </>
       ),
-      to: `/swcc/season/${week.season}/week/${week.week}`,
+      to: `/swcc/season/${contest.season}/week/${contest.week}`,
       excerpt: (
         <>
           <strong className='Highlight'>{cardData.name}</strong> —{' '}
@@ -42,22 +42,22 @@ export default React.memo(function SWCCSeason(props) {
   }
 
   if (props.layout === 'LIST') {
-    return props.weeks.map(week => {
-      const cardData = getSWCCCardData(cardsIndex, week.winner.id)
+    return props.contests.map(contest => {
+      const cardData = getSWCCCardData(cardsIndex, contest.winner.id)
 
       return (
         <ListLayoutItem
-          key={week.winner.id}
-          date={week.date}
+          key={contest.winner.id}
+          date={contest.date}
           dateFormat='LONG'
           title={
             <>
-              Week {week.week}: {week.name}
+              Week {contest.week}: {contest.name}
             </>
           }
-          author={week.winner.user}
+          author={contest.winner.user}
           icon='wand'
-          path={`/swcc/season/${week.season}/week/${week.week}`}
+          path={`/swcc/season/${contest.season}/week/${contest.week}`}
           excerpt={
             <>
               <strong className='Highlight'>{cardData.name}</strong> —{' '}

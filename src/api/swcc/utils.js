@@ -8,8 +8,8 @@ name,
 winner { user -> { name, "slug": slug.current }, id },
 `
 
-export const MAPPER = week => {
-  week.date = serializeDate(week.date, false)
+export const MAPPER = contest => {
+  contest.date = serializeDate(contest.date, false)
 
-  return week
+  return contest
 }

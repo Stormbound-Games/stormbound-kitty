@@ -4,6 +4,7 @@ import Link from '~/components/Link'
 import FeedDetailDisplay from '~/components/FeedDetailDisplay'
 import FeedEntry from '~/components/FeedEntry'
 import Teaser from '~/components/Teaser'
+import microMarkdown from '~/helpers/microMarkdown'
 import serialization from '~/helpers/serialization'
 import getSWCCCardData from '~/helpers/getSWCCCardData'
 
@@ -15,19 +16,24 @@ export default React.memo(function FeedSWCCEntry(props) {
   return (
     <FeedEntry icon='hammer' date={props.date}>
       {props.user.name} has won the 🥇{' '}
-      <Link to='/swcc'>Stormbound Weekly Card Contest</Link> (season{' '}
-      {props.season} week #{props.week}, themed{' '}
-      <span className='Highlight'>{props.name}</span>) with a card called{' '}
-      <Link to={'/card/' + props.winner.id}>{card.name}</Link>.
+      <Link to='/swcc'>Stormbound Weekly Card Contest</Link> (
+      <Link to={`/swcc/season/${props.season}`}>season {props.season}</Link>{' '}
+      week {props.week}, theme <span className='Highlight'>{props.name}</span>)
+      with a card called{' '}
+      <Link to={`/swcc/season/${props.season}/week/${props.week}`}>
+        {card.name}
+      </Link>
+      .
       <FeedDetailDisplay label='card'>
         <Teaser
           card={cardData}
-          title={cardData.name}
-          meta={`Week #${props.id} – ${props.name}`}
-          to={`/card/${props.winner.id}/display`}
+          title={props.name}
+          meta={`Season ${props.season} week ${props.week}`}
+          to={`/swcc/season/${props.season}/week/${props.week}`}
           excerpt={
             <>
-              <strong className='Highlight'>Ability:</strong> {cardData.ability}
+              <strong className='Highlight'>{cardData.name}</strong> —{' '}
+              {microMarkdown(cardData.ability)}
             </>
           }
         />
