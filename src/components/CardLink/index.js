@@ -24,17 +24,7 @@ export default React.memo(function CardLink(props) {
   }
 
   return (
-    <Tooltip
-      label={<Card {...cardData} />}
-      style={{
-        width: '180px',
-        backgroundColor: 'transparent',
-        border: 0,
-        whiteSpace: 'normal',
-        boxShadow: 'none',
-        filter: 'drop-shadow(0 1em 2em #00000033)',
-      }}
-    >
+    <Tooltip label={<Card {...cardData} />} extend={{ width: '180px' }}>
       {trigger => (
         <Link {...trigger} to={slug}>
           {props.children || cardData.name}

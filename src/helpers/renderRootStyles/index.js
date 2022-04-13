@@ -104,6 +104,9 @@ const renderRootStyles = renderer => {
       '--s-large': SPACING_TOKENS.LARGE,
       '--s-larger': SPACING_TOKENS.LARGER,
       '--s-largest': SPACING_TOKENS.LARGEST,
+
+      // Typically injected by @reach/tooltip
+      '--reach-tooltip': 1,
     },
     ':root'
   )
