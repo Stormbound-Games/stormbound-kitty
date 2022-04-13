@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import querystring from 'querystring'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
@@ -22,7 +23,7 @@ import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import serialization from '~/helpers/serialization'
 
 export default React.memo(function PageFeaturedDecks(props) {
-  const query = useQueryParams()
+  const { query } = useRouter()
   const navigator = useNavigator()
   const formRef = React.useRef(null)
   const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
