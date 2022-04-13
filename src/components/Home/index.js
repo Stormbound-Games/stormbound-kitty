@@ -11,7 +11,7 @@ export default React.memo(function Home(props) {
 
   return (
     <>
-      <VisuallyHidden as='h1'>Stormbound-Kitty</VisuallyHidden>
+      <VisuallyHidden as='h1'>Stormbound-Kitty Home</VisuallyHidden>
 
       <div className={css(styles.home)}>
         <HomeNews news={props.news} />
