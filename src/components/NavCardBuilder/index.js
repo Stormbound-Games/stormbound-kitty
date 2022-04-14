@@ -1,11 +1,11 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { CardsContext } from '~/components/CardsProvider'
 import CardSelect from '~/components/CardSelect'
 import SubNav from '~/components/SubNav'
 import track from '~/helpers/track'
 import useViewportSize from '~/hooks/useViewportSize'
 import useQueryParams from '~/hooks/useQueryParams'
-import useNavigator from '~/hooks/useNavigator'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function NavCardBuilder(props) {
@@ -13,7 +13,7 @@ export default React.memo(function NavCardBuilder(props) {
   const isMounted = useIsMounted()
   const { viewportWidth } = useViewportSize()
   const { id } = useQueryParams()
-  const navigator = useNavigator()
+  const router = useRouter()
 
   return (
     <SubNav
@@ -34,9 +34,7 @@ export default React.memo(function NavCardBuilder(props) {
                 track('card_select_navigation', {
                   id: option ? option.value : null,
                 })
-                navigator.push(
-                  option ? `/card/official/${option.value}` : '/card'
-                )
+                router.push(option ? `/card/official/${option.value}` : '/card')
               }}
               withSpells
             />

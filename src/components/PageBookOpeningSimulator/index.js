@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
 import { CardsContext } from '~/components/CardsProvider'
@@ -19,7 +20,6 @@ import openBook from '~/helpers/openBook'
 import serialization from '~/helpers/serialization'
 import indexArray from '~/helpers/indexArray'
 import useViewportSize from '~/hooks/useViewportSize'
-import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
 const ShareButton = ({ disabled }) => (
@@ -143,7 +143,7 @@ const CustomBookFields = ({
 export default React.memo(function PageBookOpeningSimulator(props) {
   const { cards } = React.useContext(CardsContext)
   const { css } = useFela()
-  const navigator = useNavigator()
+  const router = useRouter()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookId, setBookId] = React.useState('')
@@ -186,7 +186,7 @@ export default React.memo(function PageBookOpeningSimulator(props) {
   )
 
   React.useEffect(() => {
-    navigator.replace(
+    router.replace(
       ['/simulators/books', id].filter(Boolean).join('/').toLowerCase()
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps

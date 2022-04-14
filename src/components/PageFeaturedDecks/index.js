@@ -15,16 +15,14 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import FeaturedDecksFilters from '~/components/FeaturedDecksFilters'
 import Title from '~/components/Title'
-import useQueryParams from '~/hooks/useQueryParams'
-import useNavigator from '~/hooks/useNavigator'
 import useFeaturedDecksSorting from '~/hooks/useFeaturedDecksSorting'
 import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import serialization from '~/helpers/serialization'
 
 export default React.memo(function PageFeaturedDecks(props) {
-  const { query } = useRouter()
-  const navigator = useNavigator()
+  const router = useRouter()
+  const { query } = router
   const formRef = React.useRef(null)
   const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const { hasDefaultCollection } = React.useContext(CollectionContext)
@@ -66,9 +64,10 @@ export default React.memo(function PageFeaturedDecks(props) {
           ? '/decks?' + querystring.stringify(parameters)
           : '/decks'
 
-      navigator.replace(path)
+      router.replace(path)
     }
-  }, [navigator, query, tags, faction, authorSlug, including])
+    // eslint-disable-next-line
+  }, [query, tags, faction, authorSlug, including])
 
   const matchesFaction = React.useCallback(
     deck => faction === '*' || getFactionFromDeckID(deck.id) === faction,

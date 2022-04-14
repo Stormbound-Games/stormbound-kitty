@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import {
   TIER_COLORS,
   DEFAULT_LIST,
@@ -14,12 +15,11 @@ import ShareButton from '~/components/ListBuilderShareButton'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import Title from '~/components/Title'
 import serialization from '~/helpers/serialization'
-import useNavigator from '~/hooks/useNavigator'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function PageListBuilderEditor(props) {
   const isMounted = useIsMounted()
-  const navigator = useNavigator()
+  const router = useRouter()
   const [tiers, setTiers] = React.useState(props.tiers)
   const reset = React.useCallback(() => setTiers(DEFAULT_LIST), [])
 
@@ -85,7 +85,7 @@ export default React.memo(function PageListBuilderEditor(props) {
   }, [props.listId, reset])
 
   React.useEffect(() => {
-    navigator.replace('/list/' + serialization.list.serialize(tiers))
+    router.replace('/list/' + serialization.list.serialize(tiers))
     // eslint-disable-next-line
   }, [tiers])
 

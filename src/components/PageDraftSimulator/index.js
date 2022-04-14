@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
@@ -19,7 +20,6 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getOrdinalSuffix from '~/helpers/getOrdinalSuffix'
 import shuffle from '~/helpers/shuffle'
 import serialization from '~/helpers/serialization'
-import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
 const DeckStatsChart = dynamic(() => import('~/components/DeckStatsChart'))
@@ -141,7 +141,7 @@ const useOptions = deck => {
 
 export default React.memo(function PageDraftSimulator(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const navigator = useNavigator()
+  const router = useRouter()
   const { css } = useFela({ cards: props.deck })
   const options = useOptions(props.deck)
   const [highlightedCards, setHighlightedCards] = React.useState([])
@@ -154,7 +154,7 @@ export default React.memo(function PageDraftSimulator(props) {
       ]
       const deckId = serialization.deck.serialize(deck)
 
-      navigator.replace(`/simulators/draft/${deckId}`)
+      router.replace(`/simulators/draft/${deckId}`)
     },
     // eslint-disable-next-line
     [props.deck]
@@ -171,7 +171,7 @@ export default React.memo(function PageDraftSimulator(props) {
           <Deck deck={props.deck} highlightedCards={highlightedCards} />
           <DeckActions
             deck={props.deck}
-            reset={() => navigator.push('/simulators/draft')}
+            reset={() => router.push('/simulators/draft')}
           />
 
           <Info icon='compass' title='Intro to Draft'>

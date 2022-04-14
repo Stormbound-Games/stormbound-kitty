@@ -1,9 +1,9 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import isEqual from 'lodash.isequal'
 import serialization from '~/helpers/serialization'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 import resolveAbility from '~/helpers/resolveAbility'
-import useNavigator from '~/hooks/useNavigator'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -43,7 +43,7 @@ const INITIAL_STATE = {
 }
 
 const useCardBuilder = props => {
-  const navigator = useNavigator()
+  const router = useRouter()
   const imageErrorDialog = React.useRef(null)
   const [cardData, setCardData] = React.useState({
     ...INITIAL_STATE,
@@ -64,7 +64,7 @@ const useCardBuilder = props => {
         ability: cardData.ability.display,
       }
 
-      navigator.replace(
+      router.replace(
         [
           '/card',
           isDefaultState ? '' : serialization.card.serialize(data),

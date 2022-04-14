@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
@@ -31,7 +32,6 @@ import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import usePrevious from '~/hooks/usePrevious'
-import useNavigator from '~/hooks/useNavigator'
 
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
@@ -108,7 +108,7 @@ const getStoredTooltipsSetting = () => {
 }
 
 export default React.memo(function DeckEditorView(props) {
-  const navigator = useNavigator()
+  const router = useRouter()
   const deckId = serialization.deck.serialize(props.deck)
   const { cardsIndex } = React.useContext(CardsContext)
   const { collection, indexedCollection, hasDefaultCollection } =
@@ -172,7 +172,7 @@ export default React.memo(function DeckEditorView(props) {
   React.useEffect(() => {
     if (shouldAdjustDeckToCollection) {
       setOriginalDeckId(deckId)
-      navigator.push(adjustedRedirectPath)
+      router.push(adjustedRedirectPath)
     }
     // There is no need for `history`, `deckId` and `adjustedRedirectPath` to be
     // passed as dependencies.
@@ -188,9 +188,9 @@ export default React.memo(function DeckEditorView(props) {
 
   React.useEffect(() => {
     if (shouldRestoreOriginalDeck) {
-      navigator.push(restoredRedirectPath)
+      router.push(restoredRedirectPath)
     }
-    // There is no need for `navigator` and `restoredRedirectPath` to be passed
+    // There is no need for `router` and `restoredRedirectPath` to be passed
     // as dependencies.
     // eslint-disable-next-line
   }, [shouldRestoreOriginalDeck])

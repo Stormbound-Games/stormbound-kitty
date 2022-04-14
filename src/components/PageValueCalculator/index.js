@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { useFela } from 'react-fela'
 import { CardsContext } from '~/components/CardsProvider'
 import Card from '~/components/Card'
@@ -15,7 +16,6 @@ import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getCardValue from '~/helpers/getCardValue'
 import serialization from '~/helpers/serialization'
-import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
@@ -85,12 +85,12 @@ const CardValue = React.memo(function CardValue(props) {
 export default React.memo(function PageValueCalculator(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
-  const navigator = useNavigator()
+  const router = useRouter()
   const [A, setA] = React.useState(props.deck[0])
   const [B, setB] = React.useState(props.deck[1])
 
   React.useEffect(() => {
-    navigator.replace(
+    router.replace(
       ['/calculators/value', serialization.cards.serialize([A, B])]
         .filter(Boolean)
         .join('/')

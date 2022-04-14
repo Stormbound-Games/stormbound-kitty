@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import serialize from 'form-serialize'
 import {
   DEFAULT_MANA,
@@ -11,7 +12,6 @@ import { CardsContext } from '~/components/CardsProvider'
 import clone from '~/helpers/clone'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import serialization from '~/helpers/serialization'
-import useNavigator from '~/hooks/useNavigator'
 
 const Z_KEY = 90
 const C_KEY = 67
@@ -31,7 +31,7 @@ const DEFAULT_ID = serialization.battle.serialize(
 )
 
 const useBattleSim = props => {
-  const navigator = useNavigator()
+  const router = useRouter()
   const { cardsIndex } = React.useContext(CardsContext)
   const [sim, setSim] = React.useState(props.sim)
   const [activeCell, setActiveCell] = React.useState(null)
@@ -187,8 +187,8 @@ const useBattleSim = props => {
       sim.cards
     )
 
-    if (id === DEFAULT_ID) navigator.replace('/simulators/battle')
-    else navigator.replace('/simulators/battle/' + id)
+    if (id === DEFAULT_ID) router.replace('/simulators/battle')
+    else router.replace('/simulators/battle/' + id)
 
     // If the update was caused by an undo, do not add a new entry into the
     // history and simply mark undo as `false` for the next state update

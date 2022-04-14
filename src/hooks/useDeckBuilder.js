@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 import { sortByMana } from '~/helpers/sortCards'
-import useNavigator from '~/hooks/useNavigator'
 
 const useDeckBuilderPath = (deck, view) => {
   const { query } = useRouter()
@@ -23,7 +22,7 @@ const useDeckBuilderPath = (deck, view) => {
 
 const useDeckBuilder = props => {
   const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
-  const navigator = useNavigator()
+  const router = useRouter()
   const [highlightedCards, setHighlightedCards] = React.useState([])
   const [deck, setDeck] = React.useState(props.deck || [])
   const path = useDeckBuilderPath(deck, props.view)
@@ -51,7 +50,7 @@ const useDeckBuilder = props => {
   )
 
   // eslint-disable-next-line
-  React.useEffect(() => navigator.replace(path), [path])
+  React.useEffect(() => router.replace(path), [path])
 
   React.useEffect(
     () =>
