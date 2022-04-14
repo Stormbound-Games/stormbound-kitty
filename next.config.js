@@ -39,6 +39,11 @@ module.exports = withPlugins(plugins, {
         permanent: true,
       },
       {
+        source: '/deck/collection',
+        destination: '/decks/bookmarks',
+        permanent: true,
+      },
+      {
         source: '/guides/equals-intro',
         destination: '/guides/equals',
         permanent: true,
