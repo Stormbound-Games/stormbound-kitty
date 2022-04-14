@@ -76,12 +76,11 @@ export default React.memo(function PageKnownBugs(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/guides/brawl_debug_view.jpg'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/984b23a417c85703f3681c595942126c4e53c279-710x1262.jpg'
               alt='Debug Brawl view with infinite resources, test name and missing UI elements'
               width={328}
               height={584}
               lazy
-              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -152,12 +151,11 @@ export default React.memo(function PageKnownBugs(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/guides/double_animation_bug.jpg'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/24edaf6d8e0bb0ac6d9ef2e24ab3d04d19576db8-582x1196.jpg'
               alt='All in-game animations are doubled'
               width={329}
               height={675}
               lazy
-              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span>{' '}
@@ -170,12 +168,11 @@ export default React.memo(function PageKnownBugs(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/guides/fusion_stone_reward.jpg'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/03425e71f44ee6e89ae65147ab0d638afd5dc9d2-710x1262.jpg'
               alt='Animation when being rewarded with fusion stones'
               width={328}
               height={584}
               lazy
-              withoutWebp
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -239,7 +236,7 @@ export default React.memo(function PageKnownBugs(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/guides/three_cards_bug.jpg'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/135e870d7eaeb24ae6b272d8724622c8c2e92291-560x1143.jpg'
               alt='Stormbound hand with only 3 cards despite having cycled'
               width={328}
               height={670}
@@ -257,7 +254,7 @@ export default React.memo(function PageKnownBugs(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/guides/challenge_in_deck_selection.jpg'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/5bdd3f0cd7f8d5e5f20f0001f3bcefb7d20685ae-582x1218.jpg'
               alt='Friendly challenge dialog being displayed in the deck view'
               width={329}
               height={687}
@@ -345,7 +342,7 @@ export default React.memo(function PageKnownBugs(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/guides/unwatchable_ads.jpg'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/b85732e32b6845cf62c863f598d29a1bd991954e-620x1263.jpg'
               alt='The reward screen does not allow watching an ad'
               width={329}
               height={669}
@@ -362,7 +359,7 @@ export default React.memo(function PageKnownBugs(props) {
         <Row isDesktopOnly>
           <Row.Column>
             <Image
-              src='/assets/images/guides/friend-list-gaps..j'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/21292a9437a521d528527f666ab258382b7545e3-593x1219.jpg'
               alt='Friend list having odd empty gaps'
               width={329}
               height={675}
@@ -420,7 +417,7 @@ export default React.memo(function PageKnownBugs(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              src='/assets/images/guides/tegor_ever_lasting_skull..j'
+              src='https://cdn.sanity.io/images/5hlpazgd/production/5cc2668301670c0e0270ca96e1e3b9f082131477-399x410.jpg'
               alt='Tegor’s on-death skull floating at the bottom left of the board'
               width={329}
               height={338}
