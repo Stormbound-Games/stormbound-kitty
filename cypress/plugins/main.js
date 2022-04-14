@@ -4,7 +4,7 @@ import preprocessor from '@cypress/webpack-preprocessor'
 import indexArray from '~/helpers/indexArray'
 import getCards from '~/api/cards/getCards'
 
-// For some reason I get a ` Cannot find module 'fs/promises'` error on Cypress
+// For some reason, I get a `Cannot find module 'fs/promises'` error on Cypress
 // so we use a custom promise wrapper. Silly but heh, I don’t have the will to
 // investigate.
 const writeFile = (path, content) =>
@@ -16,13 +16,12 @@ const writeFile = (path, content) =>
   })
 
 const configuration = (on, config) => {
+  const fixturePath = path.resolve('cypress', 'fixtures', 'cards.json')
+
   return getCards()
-    .then(cards =>
-      writeFile(
-        path.resolve('cypress', 'fixtures', 'cards.json'),
-        JSON.stringify(indexArray(cards), null, 2)
-      )
-    )
+    .then(indexArray)
+    .then(cardsIndex => JSON.stringify(cardsIndex, null, 2))
+    .then(json => writeFile(fixturePath, json))
     .then(() => {
       on(
         'file:preprocessor',
