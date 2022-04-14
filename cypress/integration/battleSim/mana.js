@@ -11,10 +11,10 @@ describe('Battle Simulator — Mana', () => {
       .type('9')
       .get(s.MANA)
       .eq(0)
-      .should('have.text', '9')
+      .should('contain', '9')
       .get(s.MANA)
       .eq(1)
-      .should('have.text', '9')
+      .should('contain', '9')
   })
 
   it('should be preserved upon reload', () => {
@@ -24,6 +24,6 @@ describe('Battle Simulator — Mana', () => {
       .reload()
       .get(s.MANA)
       .eq(0)
-      .should('have.text', '9')
+      .should('contain', '9')
   })
 })
