@@ -262,7 +262,7 @@ export default React.memo(function PageKnownBugs(props) {
               withoutWebp
             />
             <p>
-              <span className='Highlight'>Status as of August 2021:</span> open
+              <span className='Highlight'>Status as of April 2022:</span> fixed
             </p>
           </Row.Column>
           <Row.Column>
