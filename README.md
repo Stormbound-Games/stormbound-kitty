@@ -6,6 +6,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
 - [Analytics](./docs/ANALYTICS.md)
 - [CMS](./docs/CMS.md)
+- [Discord BOT](./docs/DISCORD_BOT.md)
 - [Formulas](./docs/FORMULAS.md)
 - [Monitoring](./docs/MONITORING.md)
 - [Workflows](./WORKFLOWS.md)
@@ -59,14 +60,6 @@ For the preview to work locally, both the local website and the local CMS need t
 ```sh
 SANITY_STUDIO_PREVIEW_TOKEN=YourValueHere npm start
 ```
-
-## Bot
-
-For the bot to work properly on a Discord server, it requires:
-
-- A #trivia channel for the `!trivia` command.
-- A #stormbot channel for all the other commands.
-- Ideally some of the roles: Diamond, Platinum, Gold, Silver, Bronze, Iron, Starter, Swarm, Shadowfen, Ironclad, Winter, Neutral, Tournamentee, Artist and Streambound.
 
 ## Acknowledgements
 
