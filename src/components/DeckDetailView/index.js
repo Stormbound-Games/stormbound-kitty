@@ -14,14 +14,12 @@ import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
 import modifyDeck from '~/helpers/modifyDeck'
 import toSentence from '~/helpers/toSentence'
 import indexArray from '~/helpers/indexArray'
-import useNavigator from '~/hooks/useNavigator'
 
 const DeckStatsChart = dynamic(() => import('~/components/DeckStatsChart'))
 
 export default React.memo(function DeckDetailView(props) {
   const { notify } = React.useContext(NotificationContext)
   const { cardsIndex } = React.useContext(CardsContext)
-  const navigator = useNavigator()
   const defaultModifier = props.preset.modifier.includes('MANA')
     ? props.preset.modifier
     : 'NONE'
