@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import CTA from '~/components/CTA'
 import Loader from '~/components/Loader'
@@ -6,12 +7,11 @@ import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
 import useLazyLoad from '~/hooks/useLazyLoad'
 import useViewportSize from '~/hooks/useViewportSize'
-import useNavigator from '~/hooks/useNavigator'
 
 export default React.memo(function Decks(props) {
   const { viewportWidth } = useViewportSize()
   const columns = viewportWidth < 700 ? 1 : props.columns || 2
-  const navigator = useNavigator()
+  const router = useRouter()
   const { loadMore, loading, items } = useLazyLoad(
     props.decks,
     columns * 3,
@@ -20,7 +20,6 @@ export default React.memo(function Decks(props) {
 
   if (props.decks.length === 0) return null
 
-  const navigateToCard = card => navigator.push('/card/official/' + card.id)
   const rows = chunk(items, columns)
 
   return (
@@ -37,7 +36,6 @@ export default React.memo(function Decks(props) {
                   {...row[index]}
                   key={row[index].id}
                   showUpgrades={props.showUpgrades}
-                  onClick={navigateToCard}
                   actions={
                     typeof props.actions === 'function'
                       ? props.actions(row[index])
