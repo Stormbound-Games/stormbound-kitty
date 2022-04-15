@@ -49,6 +49,8 @@ const getRevalidationPaths = body => {
       ]
     case 'news':
       return ['/']
+    case 'page':
+      return [`/${slug.current}`]
     case 'podcast':
       return [
         '/brewed-sages',
