@@ -52,7 +52,7 @@ module.exports = withPlugins(plugins, {
       { source: '/guides', destination: '/guides/essentials', permanent: true },
       { source: '/guides/lexicon', destination: '/lexicon', permanent: true },
       {
-        source: '/guides/drawing-mechanics',
+        source: '/guides/drawing',
         destination: '/drawing-mechanics',
         permanent: true,
       },
