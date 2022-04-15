@@ -6,7 +6,7 @@ import { formatDate } from '~/helpers/formatDate'
 import getBlock from '../richText/block'
 
 const puzzle = {
-  title: 'Puzzle',
+  title: 'Puzzles',
   name: 'puzzle',
   type: 'document',
   icon: MdExtension,

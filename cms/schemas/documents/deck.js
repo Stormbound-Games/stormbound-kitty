@@ -5,7 +5,7 @@ import deckId from '../types/deckId'
 import { formatDate } from '~/helpers/formatDate'
 
 const deck = {
-  title: 'Deck',
+  title: 'Decks',
   name: 'deck',
   type: 'document',
   icon: MdBookmark,

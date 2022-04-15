@@ -4,7 +4,7 @@ import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
 
 const contribution = {
-  title: 'Code contribution',
+  title: 'Code contributions',
   name: 'contribution',
   type: 'document',
   icon: MdCode,

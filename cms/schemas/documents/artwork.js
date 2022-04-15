@@ -5,7 +5,7 @@ import card from '../types/cardRef'
 import { formatDate } from '~/helpers/formatDate'
 
 const artwork = {
-  title: 'Artwork',
+  title: 'Artworks',
   name: 'artwork',
   type: 'document',
   icon: MdBrush,

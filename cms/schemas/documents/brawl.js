@@ -2,7 +2,7 @@ import { MdOutlineLocalFireDepartment } from 'react-icons/md'
 import cardRef from '../types/cardRef'
 
 const brawl = {
-  title: 'Brawl',
+  title: 'Brawls',
   name: 'brawl',
   type: 'document',
   icon: MdOutlineLocalFireDepartment,

@@ -33,7 +33,7 @@ const change = {
 }
 
 const changelog = {
-  title: 'Changelog',
+  title: 'Card changes',
   name: 'changelog',
   type: 'document',
   icon: MdOutlineCompareArrows,

@@ -3,7 +3,7 @@ import { FACTIONS, RACES, TYPES, RARITIES } from '~/constants/game'
 import getBlock from '../richText/block'
 
 const card = {
-  title: 'Card',
+  title: 'Cards',
   name: 'card',
   type: 'document',
   icon: MdWysiwyg,

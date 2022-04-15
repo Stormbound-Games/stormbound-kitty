@@ -9,7 +9,7 @@ import { STORY_CATEGORIES } from '~/constants/stories'
 import { formatDate } from '~/helpers/formatDate'
 
 const story = {
-  title: 'Story',
+  title: 'Stories',
   name: 'story',
   type: 'document',
   icon: MdEditNote,

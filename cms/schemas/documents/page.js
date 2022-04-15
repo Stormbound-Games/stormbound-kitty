@@ -10,7 +10,7 @@ import info from '../richText/info'
 import tableOfContents from '../richText/tableOfContents'
 
 const page = {
-  title: 'Page',
+  title: 'Pages',
   name: 'page',
   type: 'document',
   icon: MdOutlineFeed,

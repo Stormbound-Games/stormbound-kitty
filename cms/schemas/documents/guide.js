@@ -15,7 +15,7 @@ import { CATEGORIES } from '~/constants/guides'
 import { formatDate } from '~/helpers/formatDate'
 
 const guide = {
-  title: 'Guide',
+  title: 'Guides',
   name: 'guide',
   type: 'document',
   icon: MdExplore,

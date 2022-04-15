@@ -123,7 +123,7 @@ const restriction = {
 }
 
 const book = {
-  title: 'Book',
+  title: 'Books',
   name: 'book',
   type: 'document',
   icon: MdMenuBook,

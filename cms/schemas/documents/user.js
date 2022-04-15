@@ -1,7 +1,7 @@
 import { MdPersonOutline } from 'react-icons/md'
 
 const user = {
-  title: 'User',
+  title: 'Users',
   name: 'user',
   type: 'document',
   icon: MdPersonOutline,

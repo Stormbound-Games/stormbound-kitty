@@ -1,7 +1,7 @@
 import { MdWallpaper } from 'react-icons/md'
 
 const wallpaper = {
-  title: 'Wallpaper',
+  title: 'Wallpapers',
   name: 'wallpaper',
   type: 'document',
   icon: MdWallpaper,

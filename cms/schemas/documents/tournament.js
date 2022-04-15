@@ -5,7 +5,7 @@ import deckId from '../types/deckId'
 import { formatDate } from '~/helpers/formatDate'
 
 const tournament = {
-  title: 'Tournament',
+  title: 'Tournaments',
   name: 'tournament',
   type: 'document',
   icon: MdAutoAwesome,

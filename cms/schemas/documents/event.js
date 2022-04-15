@@ -5,7 +5,7 @@ import json from '../types/json'
 import { formatDate } from '~/helpers/formatDate'
 
 const event = {
-  title: 'Event',
+  title: 'Events',
   name: 'event',
   type: 'document',
   icon: MdEvent,
