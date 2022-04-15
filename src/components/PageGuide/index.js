@@ -5,7 +5,6 @@ import Link from '~/components/Link'
 import Page from '~/components/Page'
 import Notice from '~/components/Notice'
 import Only from '~/components/Only'
-import getExcerpt from '~/helpers/getExcerpt'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
 import { CATEGORIES } from '~/constants/guides'
@@ -21,7 +20,7 @@ export default React.memo(function PageGuide(props) {
     <>
       <Page
         title={props.name}
-        description={getExcerpt(props.excerpt, 160)}
+        description={props.excerpt}
         image={props.background}
         authors={props.authors}
         meta={formatDate(date) + ' · ' + CATEGORIES[props.category].name.short}
