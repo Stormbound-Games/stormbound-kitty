@@ -2,11 +2,7 @@ import React from 'react'
 import { MdInfoOutline } from 'react-icons/md'
 import getBlock from './block'
 import blocksToText from '~/helpers/blocksToText'
-
-const ICONS =
-  'arrow-up,arrow-down,arrow-left,arrow-right,books,bullhorn,compass,crown,equalizer,eye,fire,gift,hammer,heart,info,pencil,quill,search,stack,star,super-star,sword,trophy,user,warning'.split(
-    ','
-  )
+import icon from '../types/icon'
 
 const info = {
   title: 'Info',
@@ -20,12 +16,7 @@ const info = {
       type: 'string',
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'Icon',
-      name: 'icon',
-      type: 'string',
-      options: { list: ICONS },
-    },
+    icon,
     {
       title: 'Content',
       name: 'content',

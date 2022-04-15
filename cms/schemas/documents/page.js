@@ -1,5 +1,6 @@
 import { MdOutlineFeed } from 'react-icons/md'
 import banner from '../types/banner'
+import icon from '../types/icon'
 import getBlock from '../richText/block'
 import battleSim from '../richText/battleSim'
 import columns from '../richText/columns'
@@ -59,6 +60,23 @@ const page = {
       options: { layout: 'tags' },
       of: [{ type: 'string' }],
       validation: Rule => Rule.min(1).max(4),
+    },
+    {
+      title: 'Search details',
+      name: 'search',
+      description: 'This information is used to populate the site search.',
+      type: 'object',
+      fields: [
+        {
+          title: 'Breadcrumbs',
+          name: 'breadcrumbs',
+          type: 'array',
+          options: { layout: 'tags' },
+          of: [{ type: 'string' }],
+          validation: Rule => Rule.min(1).max(3),
+        },
+        { ...icon, validation: Rule => Rule.required() },
+      ],
     },
   ],
   preview: {

@@ -4,6 +4,7 @@ import getBrawls from '~/api/brawls/getBrawls'
 import getCards from '~/api/cards/getCards'
 import getDecks from '~/api/decks/getDecks'
 import getGuides from '~/api/guides/getGuides'
+import getPages from '~/api/pages/getPages'
 import getStories from '~/api/stories/getStories'
 import getSWCCContests from '~/api/swcc/getSWCCContests'
 import getPuzzles from '~/api/puzzles/getPuzzles'
@@ -16,6 +17,7 @@ const getSearchIndex = async (withEverything = true) => {
   const decks = await getDecks()
   const guides = await getGuides()
   const stories = await getStories()
+  const pages = await getPages()
   const puzzles = await getPuzzles()
   const releases = await getReleases()
   const swcc = await getSWCCContests()
@@ -31,11 +33,12 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'home',
   })
 
-  links.push({
-    label: 'About',
-    path: '/about',
-    breadcrumbs: ['Home'],
-    icon: 'cat',
+  pages.map(page => {
+    links.push({
+      label: page.title,
+      path: '/' + page.slug,
+      ...page.search,
+    })
   })
 
   links.push({
@@ -258,13 +261,6 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'image',
   })
 
-  links.push({
-    label: 'FAQ',
-    path: '/faq',
-    breadcrumbs: ['Home'],
-    icon: 'info',
-  })
-
   Object.keys(GUIDE_CATEGORIES)
     .slice(0, limit)
     .forEach(name => {
@@ -284,13 +280,6 @@ const getSearchIndex = async (withEverything = true) => {
       breadcrumbs: ['Guides', GUIDE_CATEGORIES[guide.category].name.short],
       icon: 'compass',
     })
-  })
-
-  links.push({
-    label: 'Known Bugs',
-    path: '/known-bugs',
-    breadcrumbs: ['Official', 'Information'],
-    icon: 'library',
   })
 
   links.push({
