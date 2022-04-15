@@ -55,6 +55,7 @@ const page = {
       title: 'Breadcrumbs',
       name: 'breadcrumbs',
       type: 'array',
+      options: { layout: 'tags' },
       of: [{ type: 'string' }],
       validation: Rule => Rule.min(1).max(4),
     },
