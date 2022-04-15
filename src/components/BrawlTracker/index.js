@@ -2,7 +2,6 @@ import React from 'react'
 import BrawlMilestones from '~/components/BrawlMilestones'
 import BrawlMatches from '~/components/BrawlMatches'
 import { BrawlContext } from '~/components/BrawlProvider'
-import BrawlCharts from '~/components/BrawlCharts'
 import BrawlDifficultySelect from '~/components/BrawlDifficultySelect'
 import BrawlOutcome from '~/components/BrawlOutcome'
 import BrawlRecommendedDecks from '~/components/BrawlRecommendedDecks'
@@ -84,10 +83,6 @@ export default React.memo(function BrawlTracker(props) {
       </Row>
 
       <BrawlMatches difficulty={props.difficulty} />
-
-      <Spacing bottom='LARGE'>
-        <BrawlCharts income={income} />
-      </Spacing>
     </div>
   )
 })
