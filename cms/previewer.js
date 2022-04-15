@@ -56,6 +56,7 @@ export default function resolvePageURL(document) {
 
     case 'brawl':
     case 'guide':
+    case 'page':
     case 'puzzle':
     case 'release':
     case 'story':

@@ -3,6 +3,7 @@ import getBrawl from '~/api/brawls/getBrawl'
 import getCard from '~/api/cards/getCard'
 import getDeck from '~/api/decks/getDeck'
 import getGuide from '~/api/guides/getGuide'
+import getPage from '~/api/pages/getPage'
 import getPuzzle from '~/api/puzzles/getPuzzle'
 import getRelease from '~/api/releases/getRelease'
 import getStory from '~/api/stories/getStory'
@@ -68,6 +69,12 @@ const getRedirectUrl = async params => {
 
     case 'podcast':
       return '/brewed-sages'
+
+    case 'page': {
+      const page = await getPage(params)
+
+      return page ? `/${page.slug}` : null
+    }
 
     case 'puzzle': {
       const puzzle = await getPuzzle(params)
