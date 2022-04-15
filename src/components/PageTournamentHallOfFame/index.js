@@ -55,9 +55,8 @@ export default React.memo(function PageTournamentHallOfFame(props) {
       </Spacing>
 
       <Page.Narrow>
+        <Title id='faq'>FAQ</Title>
         <FAQSection
-          id='faq'
-          title='FAQ'
           entries={[
             {
               id: 'about-tournaments',

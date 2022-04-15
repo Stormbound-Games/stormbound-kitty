@@ -12,7 +12,6 @@ import deckTags from './documents/deckTags'
 import donation from './documents/donation'
 import equalTierList from './documents/equalTierList'
 import event from './documents/event'
-import faq from './documents/faq'
 import guide from './documents/guide'
 import news from './documents/news'
 import page from './documents/page'
@@ -43,7 +42,6 @@ export default createSchema({
     deckTags,
     donation,
     event,
-    faq,
     guide,
     news,
     page,

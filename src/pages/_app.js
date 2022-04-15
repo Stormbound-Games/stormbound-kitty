@@ -23,7 +23,7 @@ export function reportWebVitals(metric) {
 }
 
 function App({ Component, pageProps, renderer = fallbackRenderer }) {
-  const { settings: _settings, breadcrumbs = [], ...componentProps } = pageProps
+  const { settings: _settings, breadcrumbs, ...componentProps } = pageProps
   const { cards, ...settings } = _settings
 
   return (
@@ -81,7 +81,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
               <CardsProvider cards={cards}>
                 <CollectionProvider>
                   <PersonalDecksProvider>
-                    <Layout active={breadcrumbs} settings={settings}>
+                    <Layout active={breadcrumbs || []} settings={settings}>
                       <Component {...componentProps} />
                     </Layout>
                   </PersonalDecksProvider>

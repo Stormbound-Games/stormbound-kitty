@@ -60,9 +60,8 @@ export default React.memo(function PagePuzzle(props) {
           </>
         )}
 
+        <Title id='faq'>FAQ</Title>
         <FAQSection
-          id='FAQ'
-          title='FAQ'
           entries={[
             {
               id: 'how-to-play',
