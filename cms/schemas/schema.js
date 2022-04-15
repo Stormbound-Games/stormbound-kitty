@@ -15,6 +15,7 @@ import event from './documents/event'
 import faq from './documents/faq'
 import guide from './documents/guide'
 import news from './documents/news'
+import page from './documents/page'
 import podcast from './documents/podcast'
 import puzzle from './documents/puzzle'
 import release from './documents/release'
@@ -45,6 +46,7 @@ export default createSchema({
     faq,
     guide,
     news,
+    page,
     puzzle,
     release,
     story,
