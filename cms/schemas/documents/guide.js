@@ -101,6 +101,7 @@ const guide = {
         { type: 'table' },
         tierList,
       ],
+      validation: Rule => Rule.required(),
     },
     banner,
   ],

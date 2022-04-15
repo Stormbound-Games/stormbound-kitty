@@ -49,6 +49,7 @@ const page = {
         { type: 'table' },
         battleSim,
       ],
+      validation: Rule => Rule.required(),
     },
     banner,
     {

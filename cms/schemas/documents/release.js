@@ -84,6 +84,7 @@ const release = {
         { type: 'table' },
         battleSim,
       ],
+      validation: Rule => Rule.required(),
     },
     banner,
   ],
