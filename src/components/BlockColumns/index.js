@@ -17,10 +17,15 @@ export default React.memo(function BlockColumns({ value }) {
       <Row isDesktopOnly>
         {columns.map(column => (
           <Row.Column width={'1/' + columns.length} key={column._key}>
-            <BlocksRenderer
-              value={column.content}
-              columns={{ count: columns.length, wide }}
-            />
+            {/* Necessary <div> to avoid content being directly within a flex
+             * container which causes margins not to collapse properly.
+             */}
+            <div>
+              <BlocksRenderer
+                value={column.content}
+                columns={{ count: columns.length, wide }}
+              />
+            </div>
           </Row.Column>
         ))}
       </Row>
