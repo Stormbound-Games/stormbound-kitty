@@ -67,6 +67,28 @@ const getNavigation = async ({ isPreview }) => {
             { label: 'Lexicon', to: '/lexicon', id: 'LEXICON' },
           ],
         },
+        {
+          id: 'RULES',
+          title: 'Rules',
+          icon: 'library',
+          items: [
+            {
+              label: 'Drawing Mechanics',
+              to: '/drawing-mechanics',
+              id: 'DRAWING_MECHANICS',
+            },
+            {
+              label: 'Draft Mode',
+              to: '/draft-mode',
+              id: 'DRAFT_MODE',
+            },
+            {
+              label: 'Brawl Mode',
+              to: '/brawl-mode',
+              id: 'BRAWL_MODE',
+            },
+          ],
+        },
       ],
     },
     {
@@ -86,7 +108,6 @@ const getNavigation = async ({ isPreview }) => {
               id: 'BEGINNER',
             },
             { label: 'Complete Guide', to: '/guides/complete', id: 'COMPLETE' },
-            { label: 'Intro to Draft', to: '/guides/draft', id: 'DRAFT' },
             {
               label: 'Intro to Equals',
               to: '/guides/equals',
@@ -106,11 +127,6 @@ const getNavigation = async ({ isPreview }) => {
           icon: 'power',
           to: '/guides/playstyle',
           items: [
-            {
-              label: 'Guide to Structures',
-              to: '/guides/structures',
-              id: 'STRUCTURES',
-            },
             {
               label: 'Reckless Rush',
               to: '/guides/reckless-rush',
@@ -140,7 +156,6 @@ const getNavigation = async ({ isPreview }) => {
           icon: 'crown',
           to: '/guides/brawl-mode',
           items: [
-            { label: 'Intro to Brawl', to: '/guides/brawl', id: 'BRAWL' },
             {
               label: 'Self-Control',
               to: '/guides/self-control',
@@ -175,11 +190,6 @@ const getNavigation = async ({ isPreview }) => {
           to: '/guides/in-depth',
           items: [
             { label: 'About Triggers', to: '/guides/triggers', id: 'TRIGGERS' },
-            {
-              label: 'Drawing Mechanics',
-              to: '/guides/drawing',
-              id: 'DRAWING_MECHANICS',
-            },
             {
               label: 'Mana Curve Analysis',
               to: '/guides/mana-curve',

@@ -52,6 +52,21 @@ module.exports = withPlugins(plugins, {
       { source: '/guides', destination: '/guides/essentials', permanent: true },
       { source: '/guides/lexicon', destination: '/lexicon', permanent: true },
       {
+        source: '/guides/drawing-mechanics',
+        destination: '/drawing-mechanics',
+        permanent: true,
+      },
+      {
+        source: '/guides/draft',
+        destination: '/draft-mode',
+        permanent: true,
+      },
+      {
+        source: '/guides/brawl',
+        destination: '/brawl-mode',
+        permanent: true,
+      },
+      {
         source: '/guides/known-bugs',
         destination: '/known-bugs',
         permanent: true,
