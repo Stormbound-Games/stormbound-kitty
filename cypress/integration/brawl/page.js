@@ -5,10 +5,7 @@ describe('Brawl — Page', () => {
   afterEach(() => cy.saveLocalStorage())
 
   it('should display only relevant content when no matches are recorded', () => {
-    cy.get(s.CHARTS)
-      .should('not.exist')
-
-      .get(s.RESET_BTN)
+    cy.get(s.RESET_BTN)
       .should('not.exist')
 
       .get(s.MILESTONE)
@@ -61,11 +58,7 @@ describe('Brawl — Page', () => {
   })
 
   it('should display relevant data when there is at least a match', () => {
-    cy.get(s.CHARTS)
-      .should('exist')
-
-      .get(s.RESET_BTN)
-      .should('exist')
+    cy.get(s.RESET_BTN).should('exist')
   })
 
   it('should mark previous milestones as collected', () => {
