@@ -5,7 +5,6 @@
 const root = {
   position: 'relative',
   flex: '1 1 100%',
-  transition: 'transform 0.25s ease-in-out',
   overflowX: 'hidden',
   fontSize: '0.9rem' /* 1 */,
 }
