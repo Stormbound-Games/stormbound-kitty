@@ -4,7 +4,7 @@ import Select from '~/components/Select'
 import Title from '~/components/Title'
 import useIsMounted from '~/hooks/useIsMounted'
 
-const CardChangelogForm = props => {
+export default React.memo(function CardChangelogForm(props) {
   const isMounted = useIsMounted()
 
   if (!isMounted) return null
@@ -41,6 +41,4 @@ const CardChangelogForm = props => {
       </Row>
     </>
   )
-}
-
-export default React.memo(CardChangelogForm)
+})
