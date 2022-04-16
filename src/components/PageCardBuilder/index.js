@@ -48,16 +48,18 @@ export default React.memo(function PageCardBuilder(props) {
 
       {props.mode === 'EDITOR' && (
         <Spacing top='LARGEST'>
-          <Row isDesktopOnly>
-            <Row.Column>
-              <Title>Core attributes</Title>
-              <CoreForm {...card} {...setters} />
-            </Row.Column>
-            <Row.Column>
-              <Title>Level-specific attributes</Title>
-              <LevelForm {...card} {...setters} id={props.id} />
-            </Row.Column>
-          </Row>
+          <form action={event => event.preventDefault()}>
+            <Row isDesktopOnly>
+              <Row.Column>
+                <Title>Core attributes</Title>
+                <CoreForm {...card} {...setters} />
+              </Row.Column>
+              <Row.Column>
+                <Title>Level-specific attributes</Title>
+                <LevelForm {...card} {...setters} id={props.id} />
+              </Row.Column>
+            </Row>
+          </form>
         </Spacing>
       )}
     </Page>
