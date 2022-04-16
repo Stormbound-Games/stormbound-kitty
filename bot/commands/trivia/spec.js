@@ -19,7 +19,13 @@ describe('Bot — !trivia', () => {
     avatar: '<mock>',
     bot: false,
   })
-  const trivia = new Trivia({ guildId: 'guildId', withScores: false })
+  const trivia = new Trivia({
+    guildId: 'guildId',
+    withScores: false,
+    abbreviations: global.__ABBREVIATIONS__,
+    cards: global.__CARDS__,
+    brawls: global.__BRAWLS__,
+  })
 
   it('should ignore invalid commands', () => {
     trivia.start({ author: user, channel, content: '!trivia foo' })
