@@ -36,7 +36,6 @@ export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
           <Link
             to={action.to}
             href={action.href}
-            inNewTab={!!action.href}
             extend={styles.action}
             hideNewTabIndicator
           >

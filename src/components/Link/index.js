@@ -4,16 +4,11 @@ import RouterLink from 'next/link'
 import Icon from '~/components/Icon'
 import styles from './styles'
 
-function Link(
-  { extend, inNewTab, hideNewTabIndicator, scroll, to, ...props },
-  ref
-) {
+function Link({ extend, hideNewTabIndicator, scroll, to, ...props }, ref) {
   const { css } = useFela()
 
   if (props.href) {
-    const shouldUseNewTab =
-      (typeof inNewTab === 'undefined' && props.href.startsWith('http')) ||
-      inNewTab
+    const shouldUseNewTab = props.href.startsWith('http')
 
     return (
       <a
@@ -25,7 +20,10 @@ function Link(
       >
         {props.children}
         {shouldUseNewTab && !hideNewTabIndicator && (
-          <Icon icon='arrow-top-right' extend={styles.newTab} />
+          <>
+             {/* This is a *narrow* non-breaking space (U+202F) */}
+            <Icon icon='arrow-top-right' extend={styles.newTab} />
+          </>
         )}
       </a>
     )

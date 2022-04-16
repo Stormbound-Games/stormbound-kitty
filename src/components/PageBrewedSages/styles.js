@@ -4,12 +4,7 @@ const container = {
 
 const cta = {
   fontSize: '120%',
-  textDecoration: 'none',
-  borderBottom: '1px solid',
-
-  medium: {
-    fontSize: '180%',
-  },
+  medium: { fontSize: '180%' },
 }
 
 const styles = { container, cta }

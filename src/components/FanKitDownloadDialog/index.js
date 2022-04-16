@@ -24,10 +24,8 @@ export default React.memo(function FanKitDownloadDialog(props) {
     >
       {props.image ? (
         <p>
-          <Link href={props.image} inNewTab>
-            Open image in new tab
-          </Link>{' '}
-          or download it as:
+          <Link href={props.image}>Open image in new tab</Link> or download it
+          as:
         </p>
       ) : (
         <p>An error has occurred.</p>

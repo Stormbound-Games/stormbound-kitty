@@ -63,7 +63,6 @@ export default React.memo(
                     <Link
                       href={item.href}
                       to={item.to}
-                      inNewTab={!!item.href}
                       extend={styles.link({
                         isActive: props.active[1] === item.id,
                       })}

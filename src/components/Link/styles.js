@@ -1,5 +1,6 @@
 const link = {
   color: 'currentcolor',
+  textDecoration: 'underline',
   textDecorationSkip: 'skip',
   textDecorationSkipInk: 'auto',
   transition: '250ms',
@@ -31,7 +32,6 @@ const buttonAsLink = {
 
 const newTab = {
   fontSize: '80%',
-  marginLeft: '0.5ch',
   transform: 'translateY(10%)',
   opacity: 0.5,
 }
