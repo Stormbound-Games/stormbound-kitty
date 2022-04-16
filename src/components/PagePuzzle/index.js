@@ -32,17 +32,21 @@ export default React.memo(function PagePuzzle(props) {
       <BattleSimApp {...state} {...props} />
       <Page.Narrow>
         <BlockNotice>{puzzle.objective}</BlockNotice>
-        <p>The following restrictions apply:</p>
-        <ul>
-          {puzzle.restrictions.map(restriction => (
-            <li key={restriction}>
-              <span className='Highlight'>
-                {RESTRICTIONS[restriction].name}
-              </span>
-              : {RESTRICTIONS[restriction].description}
-            </li>
-          ))}
-        </ul>
+        {puzzle.restrictions.length > 0 && (
+          <>
+            <p>The following restrictions apply:</p>
+            <ul>
+              {puzzle.restrictions.map(restriction => (
+                <li key={restriction}>
+                  <span className='Highlight'>
+                    {RESTRICTIONS[restriction].name}
+                  </span>
+                  : {RESTRICTIONS[restriction].description}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         {puzzle.solution?.length > 0 && (
           <>
