@@ -31,7 +31,7 @@ const DEFAULT_FILTERS = {
   elder: false,
 }
 
-const normaliseText = name =>
+const normalizeText = name =>
   name
     // Disregard differences in casing.
     .toLowerCase()
@@ -114,8 +114,8 @@ export default React.memo(function CardsFiltering(props) {
 
       const search = filters.text.trim()
       const abbreviation = abbreviate(card.name)
-      const name = normaliseText(card.name)
-      const ability = normaliseText(card.ability || '')
+      const name = normalizeText(card.name)
+      const ability = normalizeText(card.ability || '')
       // Replace asterisk characters (`*`) with a greedy regular expression
       // token, then make a regular expression from the search input.
       const re = new RegExp(
