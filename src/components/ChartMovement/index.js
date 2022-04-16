@@ -11,7 +11,7 @@ import { CardsContext } from '~/components/CardsProvider'
 import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
-export default React.memo(function ChartMovement(props) {
+export default React.memo(function ChartMovement() {
   const { cards } = React.useContext(CardsContext)
   const data = cards
     .filter(card => !card.token)

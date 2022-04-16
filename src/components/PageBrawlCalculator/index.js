@@ -20,7 +20,7 @@ import { BRAWL_MILESTONES } from '~/constants/brawl'
 import getMilestoneCost from '~/helpers/getMilestoneCost'
 import getResourceLabel from '~/helpers/getResourceLabel'
 
-export default React.memo(function PageBrawlCalculator(props) {
+export default React.memo(function PageBrawlCalculator() {
   const [difficulty, setDifficulty] = React.useState('CASUAL')
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [mode, setMode] = React.useState('')
@@ -80,7 +80,6 @@ export default React.memo(function PageBrawlCalculator(props) {
             <PremiumPassCheckbox
               checked={withPremiumPass}
               onChange={event => setWithPremiumPass(event.target.checked)}
-              withFootnote
             />
             <BrawlCalculatorLegendaryToggle
               mode={mode}

@@ -52,7 +52,7 @@ const useCopiesData = () => {
   })
 }
 
-export default React.memo(function ChartCollectionCardCopy(props) {
+export default React.memo(function ChartCollectionCardCopy() {
   const copiesData = useCopiesData()
 
   return (

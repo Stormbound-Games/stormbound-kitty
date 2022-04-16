@@ -14,7 +14,7 @@ import { TOOLTIP_STYLES } from '~/constants/stats'
 import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
-export default React.memo(function ChartRarity(props) {
+export default React.memo(function ChartRarity() {
   const { cards } = React.useContext(CardsContext)
   const data = RARITIES.map(rarity => ({
     name: capitalize(rarity),

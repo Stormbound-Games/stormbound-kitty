@@ -11,7 +11,7 @@ import { CardsContext } from '~/components/CardsProvider'
 import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
-export default React.memo(function ChartType(props) {
+export default React.memo(function ChartType() {
   const { cards } = React.useContext(CardsContext)
   const types = ['unit', 'spell', 'structure']
   const data = cards

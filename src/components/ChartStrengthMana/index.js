@@ -17,7 +17,7 @@ import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
-export default React.memo(function ChartStrengthMana(props) {
+export default React.memo(function ChartStrengthMana() {
   const { cardsIndex } = React.useContext(CardsContext)
   const [faction, setFaction] = React.useState('neutral')
   const [level, setLevel] = React.useState(5)
@@ -39,19 +39,16 @@ export default React.memo(function ChartStrengthMana(props) {
         .map(card => getResolvedCardData(cardsIndex, { ...card, level })),
     [cardsIndex, level, factions]
   )
-  const getFactionData = React.useCallback(
-    faction => {
-      const entries = cards.reduce((entries, card) => {
-        const key = [card.mana, card.strength].join(',')
-        if (entries[key]) entries[key].z++
-        else entries[key] = { x: card.mana, y: card.strength, z: 1 }
-        return entries
-      }, {})
+  const getFactionData = React.useCallback(() => {
+    const entries = cards.reduce((entries, card) => {
+      const key = [card.mana, card.strength].join(',')
+      if (entries[key]) entries[key].z++
+      else entries[key] = { x: card.mana, y: card.strength, z: 1 }
+      return entries
+    }, {})
 
-      return Object.values(entries)
-    },
-    [cards]
-  )
+    return Object.values(entries)
+  }, [cards])
 
   return (
     <>

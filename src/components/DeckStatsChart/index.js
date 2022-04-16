@@ -39,7 +39,7 @@ export default React.memo(function DeckStatsChart(props) {
             <Tooltip
               {...TOOLTIP_STYLES}
               labelFormatter={mana => 'Mana ' + mana}
-              formatter={(value, entry, index) => `${value}%`}
+              formatter={value => `${value}%`}
             />
             <Legend align='left' wrapperStyle={{ paddingLeft: '40px' }} />
             <Line

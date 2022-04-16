@@ -13,7 +13,7 @@ import capitalize from '~/helpers/capitalize'
 import getCardsByFaction from '~/helpers/getCardsByFaction'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
-export default React.memo(function ChartFactionCard(props) {
+export default React.memo(function ChartFactionCard() {
   const { cards: allCards } = React.useContext(CardsContext)
   const cards = getCardsByFaction(allCards)
   const data = Object.keys(cards)

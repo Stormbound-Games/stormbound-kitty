@@ -7,7 +7,7 @@ import download from '~/helpers/download'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import track from '~/helpers/track'
 
-export default React.memo(function ExportDecks(props) {
+export default React.memo(function ExportDecks() {
   const { decks } = React.useContext(PersonalDecksContext)
   const { notify: sendNotification } = React.useContext(NotificationContext)
 

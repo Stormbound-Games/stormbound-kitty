@@ -17,7 +17,7 @@ import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 
-export default React.memo(function PageCollection(props) {
+export default React.memo(function PageCollection() {
   const { cardsIndex } = React.useContext(CardsContext)
   const { collection, indexedCollection, updateCollection } =
     React.useContext(CollectionContext)

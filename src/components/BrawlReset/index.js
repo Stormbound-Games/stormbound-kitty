@@ -8,7 +8,7 @@ import Info from '~/components/Info'
 import Spacing from '~/components/Spacing'
 import styles from './styles'
 
-export default React.memo(function BrawlReset(props) {
+export default React.memo(function BrawlReset() {
   const { css } = useFela()
   const { session, resetBrawl } = React.useContext(BrawlContext)
   const [discard, setDiscard] = React.useState(false)

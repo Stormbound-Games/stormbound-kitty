@@ -5,7 +5,7 @@ import { NotificationContext } from '~/components/NotificationProvider'
 import download from '~/helpers/download'
 import track from '~/helpers/track'
 
-export default React.memo(function BrawlExport(props) {
+export default React.memo(function BrawlExport() {
   const { notify: sendNotification } = React.useContext(NotificationContext)
 
   const notify = React.useCallback(

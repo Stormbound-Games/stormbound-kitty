@@ -7,7 +7,7 @@ const styles = {
   fontSize: '120%',
 }
 
-export default React.memo(function Asterisk(props) {
+export default React.memo(function Asterisk() {
   const { css } = useFela()
 
   return <span className={css(styles)}>*</span>

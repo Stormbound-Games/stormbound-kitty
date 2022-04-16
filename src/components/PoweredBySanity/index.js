@@ -1,7 +1,7 @@
 import React from 'react'
 import PoweredBy from '~/components/PoweredBy'
 
-export default React.memo(function PoweredBySanity(props) {
+export default React.memo(function PoweredBySanity() {
   return (
     <PoweredBy
       name='Sanity'

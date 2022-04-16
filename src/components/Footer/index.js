@@ -11,7 +11,7 @@ import Row from '~/components/Row'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
-export default React.memo(function Footer(props) {
+export default React.memo(function Footer() {
   const { css } = useFela()
 
   return (

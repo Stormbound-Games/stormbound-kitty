@@ -1,10 +1,8 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Dialog from '~/components/Dialog'
 import Link from '~/components/Link'
 
 export default React.memo(function FanKitDownloadDialog(props) {
-  const { css } = useFela()
   return (
     <Dialog
       id='fan-kit-dialog'

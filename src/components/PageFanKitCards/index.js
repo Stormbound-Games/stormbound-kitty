@@ -11,7 +11,7 @@ import track from '~/helpers/track'
 import useLazyLoad from '~/hooks/useLazyLoad'
 import useIsMounted from '~/hooks/useIsMounted'
 
-export default React.memo(function PageFanKitCards(props) {
+export default React.memo(function PageFanKitCards() {
   const isMounted = useIsMounted()
   const { cards, cardsIndex } = React.useContext(CardsContext)
   const [search, setSearch] = React.useState(null)

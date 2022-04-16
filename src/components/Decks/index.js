@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import CTA from '~/components/CTA'
 import Loader from '~/components/Loader'
@@ -11,7 +10,6 @@ import useViewportSize from '~/hooks/useViewportSize'
 export default React.memo(function Decks(props) {
   const { viewportWidth } = useViewportSize()
   const columns = viewportWidth < 700 ? 1 : props.columns || 2
-  const router = useRouter()
   const { loadMore, loading, items } = useLazyLoad(
     props.decks,
     columns * 3,

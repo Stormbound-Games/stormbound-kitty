@@ -39,7 +39,7 @@ const getImageProps = heart => {
     }
 }
 
-export default React.memo(function BrawlLossCounter(props) {
+export default React.memo(function BrawlLossCounter() {
   const { css } = useFela()
   const { meta } = React.useContext(BrawlContext)
 

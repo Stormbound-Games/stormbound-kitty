@@ -39,7 +39,7 @@ const useRarityData = () => {
   return Object.keys(data).map(rarity => data[rarity])
 }
 
-export default React.memo(function ChartCollectionRarity(props) {
+export default React.memo(function ChartCollectionRarity() {
   const rarityData = useRarityData()
 
   return (

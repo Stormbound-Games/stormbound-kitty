@@ -5,7 +5,6 @@ import getSiteSettings from '~/api/misc/getSiteSettings'
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const releases = await getReleases({ isPreview })
-  const cardIds = releases.map(release => release.cardId)
 
   return {
     props: {

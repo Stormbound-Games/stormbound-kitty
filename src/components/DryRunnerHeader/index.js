@@ -4,7 +4,6 @@ import { useAnimation } from 'framer-motion'
 import CTA from '~/components/CTA'
 import ResetButton from '~/components/ResetButton'
 import Mana from '~/components/Mana'
-import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import styles from './styles'
 

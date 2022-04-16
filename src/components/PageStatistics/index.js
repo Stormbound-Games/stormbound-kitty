@@ -21,7 +21,7 @@ const ChartStrengthMana = dynamic(() =>
 )
 const ChartType = dynamic(() => import('~/components/ChartType'))
 
-export default React.memo(function PageStatistics(props) {
+export default React.memo(function PageStatistics() {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
 
   return (

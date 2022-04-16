@@ -53,7 +53,7 @@ const ITEMS = [
   },
 ]
 
-export default React.memo(function PageFanKit(props) {
+export default React.memo(function PageFanKit() {
   return (
     <Page
       title='Fan-Kit'

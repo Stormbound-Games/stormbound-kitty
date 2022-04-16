@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CTA from '~/components/CTA'
 import Image from '~/components/Image'
 import Link from '~/components/Link'
 import Title from '~/components/Title'

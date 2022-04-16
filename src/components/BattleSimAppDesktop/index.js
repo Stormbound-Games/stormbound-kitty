@@ -48,7 +48,7 @@ export default React.memo(function BattleSimAppDesktop(props) {
   )
 
   const onMouseUp = React.useCallback(
-    (x, y) => () => {
+    () => () => {
       if (props.isDragging) setIsDragging(false)
     },
     [props.isDragging, setIsDragging]

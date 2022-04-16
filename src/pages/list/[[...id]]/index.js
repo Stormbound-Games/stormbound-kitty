@@ -35,7 +35,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-const ListBuilderPage = ({ settings, ...props }) =>
+const ListBuilderPage = props =>
   props.mode === 'DISPLAY' ? (
     <PageListBuilderDisplay {...props} listId={props.id} />
   ) : (

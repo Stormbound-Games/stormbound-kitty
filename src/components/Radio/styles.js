@@ -10,7 +10,7 @@ const radio = {
 /**
  * 1. Arbitrary translate to align the radio icon with its accompanying label.
  */
-const icon = ({ isDisabled }) => ({
+const icon = {
   width: '1.25em',
   height: '1.25em',
   border: '1px solid var(--dark-beige)',
@@ -26,7 +26,7 @@ const icon = ({ isDisabled }) => ({
     opacity: 0.5,
     cursor: 'not-allowed',
   },
-})
+}
 
 const input = {
   opacity: 0,

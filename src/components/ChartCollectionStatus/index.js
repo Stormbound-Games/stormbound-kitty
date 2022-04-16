@@ -36,7 +36,7 @@ const useStatusData = () => {
   return Object.keys(data).map(status => data[status])
 }
 
-export default React.memo(function ChartCollectionStatus(props) {
+export default React.memo(function ChartCollectionStatus() {
   const statusData = useStatusData()
 
   return (

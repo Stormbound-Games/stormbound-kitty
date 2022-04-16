@@ -11,7 +11,6 @@ export default React.memo(function Spacing({
   right,
   bottom,
   left,
-  isBlock,
   ...props
 }) {
   const { css } = useFela()

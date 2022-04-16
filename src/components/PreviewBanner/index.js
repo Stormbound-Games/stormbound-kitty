@@ -2,7 +2,7 @@ import React from 'react'
 import Link from '~/components/Link'
 import Notification from '~/components/Notification'
 
-export default React.memo(function PreviewBanner(props) {
+export default React.memo(function PreviewBanner() {
   return (
     <Notification
       as='div'

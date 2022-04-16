@@ -15,7 +15,7 @@ const ITEMS = Object.keys(STORY_CATEGORIES).map(name => {
   }
 })
 
-export default React.memo(function PageStoryIndex(props) {
+export default React.memo(function PageStoryIndex() {
   return (
     <Page
       title='Stories'

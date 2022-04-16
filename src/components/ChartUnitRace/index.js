@@ -13,7 +13,7 @@ import { TOOLTIP_STYLES } from '~/constants/stats'
 import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
-export default React.memo(function ChartUnitRace(props) {
+export default React.memo(function ChartUnitRace() {
   const { cards } = React.useContext(CardsContext)
   const RACE_COLORS = {
     frostling: 'var(--winter)',

@@ -16,7 +16,7 @@ import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
-export default React.memo(function ChartStrength(props) {
+export default React.memo(function ChartStrength() {
   const { cardsIndex } = React.useContext(CardsContext)
   const [faction, setFaction] = React.useState('*')
   const [level, setLevel] = React.useState(5)

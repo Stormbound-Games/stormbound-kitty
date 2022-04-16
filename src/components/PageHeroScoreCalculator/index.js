@@ -15,7 +15,7 @@ import Spacing from '~/components/Spacing'
 import getHeroScore from '~/helpers/getHeroScore'
 import styles from './styles'
 
-export default React.memo(function PageHeroScoreCalculator(props) {
+export default React.memo(function PageHeroScoreCalculator() {
   const { css } = useFela()
   const [current, setCurrent] = React.useState(1000)
   const [opponent, setOpponent] = React.useState(1000)

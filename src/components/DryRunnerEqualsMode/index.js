@@ -15,7 +15,7 @@ export default React.memo(function DryRunnerEqualsMode(props) {
         id='equals-mode'
         data-testid='equals-mode'
         checked={props.equalsMode}
-        onChange={event => dialogRef.current.show()}
+        onChange={() => dialogRef.current.show()}
       >
         Equal levels
         <span className={css(styles.info)}>Set all cards to level 1</span>

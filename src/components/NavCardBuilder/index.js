@@ -8,7 +8,7 @@ import useViewportSize from '~/hooks/useViewportSize'
 import useQueryParams from '~/hooks/useQueryParams'
 import useIsMounted from '~/hooks/useIsMounted'
 
-export default React.memo(function NavCardBuilder(props) {
+export default React.memo(function NavCardBuilder() {
   const { cardsIndex } = React.useContext(CardsContext)
   const isMounted = useIsMounted()
   const { viewportWidth } = useViewportSize()

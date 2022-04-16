@@ -1,7 +1,7 @@
 import React from 'react'
 import PoweredBy from '~/components/PoweredBy'
 
-export default React.memo(function PoweredByVercel(props) {
+export default React.memo(function PoweredByVercel() {
   return (
     <PoweredBy
       name='Vercel'

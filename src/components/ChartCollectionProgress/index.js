@@ -42,7 +42,7 @@ const useProgressData = () => {
   }).flat()
 }
 
-export default React.memo(function ChartCollectionProgress(props) {
+export default React.memo(function ChartCollectionProgress() {
   const progressData = useProgressData()
 
   return (

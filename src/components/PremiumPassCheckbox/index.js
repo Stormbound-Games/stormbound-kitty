@@ -5,7 +5,6 @@ import { Coins } from '~/components/Resource'
 
 export default React.memo(function PremiumPassCheckbox({
   withExplanation = true,
-  withFootnote = false,
   ...props
 }) {
   const { css } = useFela()

@@ -4,7 +4,6 @@ import PageEmbed from '~/components/PageEmbed'
 import PageHeaderMeta from '~/components/PageHeaderMeta'
 import HeaderBanner from '~/components/HeaderBanner'
 import PageMeta from '~/components/PageMeta'
-import Spacing from '~/components/Spacing'
 import styles from './styles'
 
 export const PageContext = React.createContext({

@@ -45,7 +45,7 @@ const useFactionData = ignoreNeutral => {
     .slice(ignoreNeutral ? 1 : 0)
 }
 
-export default React.memo(function ChartCollectionFaction(props) {
+export default React.memo(function ChartCollectionFaction() {
   const { css } = useFela()
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
   const factionData = useFactionData(ignoreNeutral)

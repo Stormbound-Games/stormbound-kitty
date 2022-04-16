@@ -36,7 +36,7 @@ const useSerializedContent = () => {
   return data
 }
 
-export default React.memo(function CollectionClearHint(props) {
+export default React.memo(function CollectionClearHint() {
   const { resetCollection } = React.useContext(CollectionContext)
   const { notify } = React.useContext(NotificationContext)
   const content = useSerializedContent()
