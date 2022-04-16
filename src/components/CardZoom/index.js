@@ -38,7 +38,7 @@ export default React.memo(function CardZoom(props) {
         <Card
           {...getResolvedCardData(cardsIndex, {
             id: props.cardId,
-            level: props.level || 1,
+            level: props.level,
           })}
           {...props}
         />

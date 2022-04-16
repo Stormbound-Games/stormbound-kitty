@@ -143,12 +143,7 @@ const getRandomDeck = (options = {}) => {
   // The starting deck are the given initial cards (if any), provided they do
   // not conflict with the given faction.
   const deck = options.initialCards
-    .map(card =>
-      getResolvedCardData(cardsIndex, {
-        id: card.id,
-        level: card.level || 1,
-      })
-    )
+    .map(card => getResolvedCardData(cardsIndex, card))
     .filter(isFromExpectedFaction)
 
   // The amount of missing cards is the total length of a deck (12) minus the
@@ -158,12 +153,7 @@ const getRandomDeck = (options = {}) => {
   // The available cards are the provided ones minus all the cards that don’t
   // match the provided faction, as well as the token cards.
   const availableCards = options.availableCards
-    .map(card =>
-      getResolvedCardData(cardsIndex, {
-        id: card.id,
-        level: card.level || 1,
-      })
-    )
+    .map(card => getResolvedCardData(cardsIndex, card))
     .filter(isFromExpectedFaction)
     .filter(card => !card.token)
 

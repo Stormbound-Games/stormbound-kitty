@@ -11,23 +11,19 @@ export default React.memo(function CardLink(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const cardData = getResolvedCardData(cardsIndex, {
     id: props.id,
-    level: props.level || 1,
+    level: props.level,
   })
   const slug = `/card/official/${props.id}`
+  const label = props.children || (cardData?.name ?? null)
 
-  if (!cardData) {
-    return props.children || null
-  }
-
-  if (viewportWidth < 700 || props.noTooltip) {
-    return <Link to={slug}>{props.children || cardData.name}</Link>
-  }
+  if (!cardData) return label
+  if (viewportWidth < 700) return <Link to={slug}>{label}</Link>
 
   return (
     <Tooltip label={<Card {...cardData} />} extend={{ width: '180px' }}>
       {trigger => (
         <Link {...trigger} to={slug}>
-          {props.children || cardData.name}
+          {label}
         </Link>
       )}
     </Tooltip>

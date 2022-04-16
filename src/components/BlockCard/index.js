@@ -13,7 +13,7 @@ export default React.memo(function BlockCard(props) {
   const { cards, cardsIndex } = React.useContext(CardsContext)
   const { columns } = React.useContext(RichTextContext)
   const id = props.value.cardId
-  const level = props.value.level || 1
+  const level = props.value.level
 
   if (!id) {
     console.warn('Could not resolve card for id', id)

@@ -3,7 +3,8 @@ import resolveAbility from '~/helpers/resolveAbility'
 import isCardLevelResolved from '~/helpers/isCardLevelResolved'
 
 const getResolvedCardData = (cardsIndex, card) => {
-  const { id, level, copies, missing } = card || {}
+  const { id, copies, missing } = card || {}
+  const level = card.level || 1
 
   // If no `id` is given, return early.
   if (!id) return null
