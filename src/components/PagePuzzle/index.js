@@ -11,7 +11,6 @@ import Title from '~/components/Title'
 import useBattleSim from '~/hooks/useBattleSim'
 import { formatDate } from '~/helpers/formatDate'
 import parseDate from '~/helpers/parseDate'
-import { RESTRICTIONS } from '~/constants/puzzles'
 
 export default React.memo(function PagePuzzle(props) {
   const puzzle = props.puzzle
@@ -37,11 +36,7 @@ export default React.memo(function PagePuzzle(props) {
             <p>The following restrictions apply:</p>
             <ul>
               {puzzle.restrictions.map(restriction => (
-                <li key={restriction}>
-                  {restriction in RESTRICTIONS
-                    ? `${RESTRICTIONS[restriction].name}: ${RESTRICTIONS[restriction].description}`
-                    : restriction}
-                </li>
+                <li key={restriction}>{restriction}</li>
               ))}
             </ul>
           </>

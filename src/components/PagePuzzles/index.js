@@ -7,19 +7,16 @@ import ListLayoutItem from '~/components/ListLayoutItem'
 import Teasers from '~/components/Teasers'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
-import { RESTRICTIONS } from '~/constants/puzzles'
 
 const getCardForPuzzle = puzzle => ({
   name: puzzle.name,
   type: 'unit',
-  race: puzzle.category,
+  race: puzzle.user.name,
   mana: '0',
   rarity: 'common',
   faction: 'neutral',
   image: puzzle.image,
-  ability: puzzle.restrictions
-    .map(restriction => RESTRICTIONS[restriction]?.name ?? restriction)
-    .join(' '),
+  ability: puzzle.objective,
 })
 
 const getExcerptForPuzzle = puzzle => <>{puzzle.objective}</>
