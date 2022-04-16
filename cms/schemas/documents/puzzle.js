@@ -1,7 +1,7 @@
 import { MdExtension } from 'react-icons/md'
 import user from '../types/user'
 import date from '../types/date'
-import { CATEGORIES, RESTRICTIONS } from '~/constants/puzzles'
+import { RESTRICTIONS } from '~/constants/puzzles'
 import { formatDate } from '~/helpers/formatDate'
 import getBlock from '../richText/block'
 
@@ -29,18 +29,6 @@ const puzzle = {
       name: 'objective',
       type: 'string',
       validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Category',
-      name: 'category',
-      type: 'string',
-      validation: Rule => Rule.required(),
-      options: {
-        list: Object.entries(CATEGORIES).map(([category, description]) => ({
-          title: description,
-          value: category,
-        })),
-      },
     },
     { ...user, title: 'Author' },
     {

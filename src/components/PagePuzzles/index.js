@@ -5,10 +5,9 @@ import Notice from '~/components/Notice'
 import ListHeader from '~/components/ListHeader'
 import ListLayoutItem from '~/components/ListLayoutItem'
 import Teasers from '~/components/Teasers'
-import capitalize from '~/helpers/capitalize'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
-import { CATEGORIES, RESTRICTIONS } from '~/constants/puzzles'
+import { RESTRICTIONS } from '~/constants/puzzles'
 
 const getCardForPuzzle = puzzle => ({
   name: puzzle.name,
@@ -40,8 +39,7 @@ const Restrictions = props =>
 
 const getExcerptForPuzzle = puzzle => (
   <>
-    {CATEGORIES[puzzle.category]}{' '}
-    <Restrictions restrictions={puzzle.restrictions} />.
+    {puzzle.objective} <Restrictions restrictions={puzzle.restrictions} />.
   </>
 )
 

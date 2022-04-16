@@ -11,7 +11,7 @@ import Title from '~/components/Title'
 import useBattleSim from '~/hooks/useBattleSim'
 import { formatDate } from '~/helpers/formatDate'
 import parseDate from '~/helpers/parseDate'
-import { CATEGORIES, RESTRICTIONS } from '~/constants/puzzles'
+import { RESTRICTIONS } from '~/constants/puzzles'
 
 export default React.memo(function PagePuzzle(props) {
   const puzzle = props.puzzle
@@ -31,9 +31,7 @@ export default React.memo(function PagePuzzle(props) {
     >
       <BattleSimApp {...state} {...props} />
       <Page.Narrow>
-        <BlockNotice>
-          {puzzle.objective || CATEGORIES[puzzle.category]}
-        </BlockNotice>
+        <BlockNotice>{puzzle.objective}</BlockNotice>
         <p>The following restrictions apply:</p>
         <ul>
           {puzzle.restrictions.map(restriction => (
