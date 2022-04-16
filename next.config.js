@@ -11,6 +11,47 @@ const plugins = [
 
 const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
 
+const LEGACY_PATHS = {
+  '/card/contest': '/swcc',
+  '/card/stats': '/stats',
+  '/changelog/:id*': '/releases/:id*',
+  '/changelog/cards': '/changelog',
+  '/changelog/releases': '/releases',
+  '/collection/books': '/calculators/books',
+  '/deck/collection': '/decks/bookmarks',
+  '/deck/featured': '/decks',
+  '/deck/suggestions': '/decks',
+  '/donate': '/contribute',
+  '/fan-kit/wallpapers': '/fan-kit/wallpapers/desktop',
+  '/guides/brawl': '/brawl-mode',
+  '/guides/draft': '/draft-mode',
+  '/guides/drawing': '/drawing-mechanics',
+  '/guides/equals-intro': '/guides/equals',
+  '/guides/known-bugs': '/known-bugs',
+  '/guides/lexicon': '/lexicon',
+  '/income-calculator': '/calculators/income',
+  '/list/equals': '/tier-list/equals',
+  '/list/equals/display': '/tier-list/equals',
+  '/list/ranked': '/tier-list/ranked',
+  '/list/ranked/display': '/tier-list/ranked',
+  '/member/:id*': '/members/:id*',
+  '/releases/end-of-2020': '/releases/01-2021',
+  '/sim/:id*': '/simulators/battle/:id*',
+  '/simulators/battle/puzzles': '/puzzles',
+}
+
+const PERMALINKS = {
+  '/guides': '/guides/essentials',
+  '/patch-notes': '/api/patch-notes',
+  '/rr': '/guides/reckless-rush',
+}
+
+const toRedirect = ([source, destination]) => ({
+  source,
+  destination,
+  permanent: true,
+})
+
 module.exports = withPlugins(plugins, {
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
@@ -23,135 +64,8 @@ module.exports = withPlugins(plugins, {
   },
   async redirects() {
     return [
-      {
-        source: '/patch-notes',
-        destination: '/api/patch-notes',
-        permanent: true,
-      },
-      {
-        source: '/deck/suggestions',
-        destination: '/decks',
-        permanent: true,
-      },
-      {
-        source: '/deck/featured',
-        destination: '/decks',
-        permanent: true,
-      },
-      {
-        source: '/deck/collection',
-        destination: '/decks/bookmarks',
-        permanent: true,
-      },
-      {
-        source: '/guides/equals-intro',
-        destination: '/guides/equals',
-        permanent: true,
-      },
-      { source: '/rr', destination: '/guides/reckless-rush', permanent: true },
-      { source: '/guides', destination: '/guides/essentials', permanent: true },
-      { source: '/guides/lexicon', destination: '/lexicon', permanent: true },
-      {
-        source: '/guides/drawing',
-        destination: '/drawing-mechanics',
-        permanent: true,
-      },
-      {
-        source: '/guides/draft',
-        destination: '/draft-mode',
-        permanent: true,
-      },
-      {
-        source: '/guides/brawl',
-        destination: '/brawl-mode',
-        permanent: true,
-      },
-      {
-        source: '/guides/known-bugs',
-        destination: '/known-bugs',
-        permanent: true,
-      },
-      {
-        source: '/list/ranked/display',
-        destination: '/tier-list/ranked',
-        permanent: true,
-      },
-      {
-        source: '/list/ranked',
-        destination: '/tier-list/ranked',
-        permanent: true,
-      },
-      {
-        source: '/list/equals/display',
-        destination: '/tier-list/equals',
-        permanent: true,
-      },
-      {
-        source: '/list/equals',
-        destination: '/tier-list/equals',
-        permanent: true,
-      },
-      {
-        source: '/collection/books',
-        destination: '/calculators/books',
-        permanent: true,
-      },
-      {
-        source: '/income-calculator',
-        destination: '/calculators/income',
-        permanent: true,
-      },
-      {
-        source: '/changelog/releases',
-        destination: '/releases',
-        permanent: true,
-      },
-      {
-        source: '/changelog/cards',
-        destination: '/changelog',
-        permanent: true,
-      },
-      {
-        source: '/changelog/:id*',
-        destination: '/releases/:id*',
-        permanent: true,
-      },
-      { source: '/donate', destination: '/contribute', permanent: true },
-      {
-        source: '/member/:id*',
-        destination: '/members/:id*',
-        permanent: true,
-      },
-      {
-        source: '/sim/:id*',
-        destination: '/simulators/battle/:id*',
-        permanent: true,
-      },
-      {
-        source: '/simulators/battle/puzzles',
-        destination: '/puzzles',
-        permanent: true,
-      },
-      {
-        source: '/fan-kit/wallpapers',
-        destination: '/fan-kit/wallpapers/desktop',
-        permanent: true,
-      },
-      {
-        source: '/releases/end-of-2020',
-        destination: '/releases/01-2021',
-        permanent: true,
-      },
-      {
-        source: '/card/contest',
-        destination: '/swcc',
-        permanent: true,
-      },
-      {
-        source: '/card/stats',
-        destination: '/stats',
-        permanent: true,
-      },
+      ...Object.entries(LEGACY_PATHS).map(toRedirect),
+      ...Object.entries(PERMALINKS).map(toRedirect),
     ]
   },
   async headers() {
