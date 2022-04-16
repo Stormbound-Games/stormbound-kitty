@@ -38,10 +38,9 @@ export default React.memo(function PagePuzzle(props) {
             <ul>
               {puzzle.restrictions.map(restriction => (
                 <li key={restriction}>
-                  <span className='Highlight'>
-                    {RESTRICTIONS[restriction].name}
-                  </span>
-                  : {RESTRICTIONS[restriction].description}
+                  {restriction in RESTRICTIONS
+                    ? `${RESTRICTIONS[restriction].name}: ${RESTRICTIONS[restriction].description}`
+                    : restriction}
                 </li>
               ))}
             </ul>

@@ -18,30 +18,11 @@ const getCardForPuzzle = puzzle => ({
   faction: 'neutral',
   image: puzzle.image,
   ability: puzzle.restrictions
-    .map(restriction => RESTRICTIONS[restriction].name)
-    .join(', '),
+    .map(restriction => RESTRICTIONS[restriction]?.name ?? restriction)
+    .join(' '),
 })
 
-const Restrictions = props =>
-  props.restrictions.length > 0
-    ? props.restrictions
-        .slice(0)
-        .sort()
-        .map((restriction, index) => (
-          <React.Fragment key={restriction}>
-            <span title={RESTRICTIONS[restriction].description}>
-              {RESTRICTIONS[restriction].name}
-            </span>
-            {index !== props.restrictions.length - 1 && ', '}
-          </React.Fragment>
-        ))
-    : 'No restrictions'
-
-const getExcerptForPuzzle = puzzle => (
-  <>
-    {puzzle.objective} <Restrictions restrictions={puzzle.restrictions} />.
-  </>
-)
+const getExcerptForPuzzle = puzzle => <>{puzzle.objective}</>
 
 export default React.memo(function PagePuzzles(props) {
   const [layout, setLayout] = React.useState('GRID')
@@ -95,10 +76,8 @@ export default React.memo(function PagePuzzles(props) {
                 </>
               ),
               to: `/puzzles/${puzzle.slug}`,
-              excerpt: getExcerptForPuzzle(puzzle),
-              'data-testid': `puzzle ${puzzle.name} ${puzzle.category} ${
-                puzzle.difficulty
-              }/3 ${puzzle.restrictions.join(' ')}`,
+              excerpt: puzzle.objective,
+              'data-testid': `puzzle ${puzzle.name}`,
             }))}
           />
         ) : layout === 'LIST' ? (

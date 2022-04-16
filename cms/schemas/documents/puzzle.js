@@ -1,7 +1,6 @@
 import { MdExtension } from 'react-icons/md'
 import user from '../types/user'
 import date from '../types/date'
-import { RESTRICTIONS } from '~/constants/puzzles'
 import { formatDate } from '~/helpers/formatDate'
 import getBlock from '../richText/block'
 
@@ -43,17 +42,7 @@ const puzzle = {
       title: 'Restrictions',
       name: 'restrictions',
       type: 'array',
-      of: [
-        {
-          type: 'string',
-          options: {
-            list: Object.entries(RESTRICTIONS).map(([restriction, data]) => ({
-              title: data.name,
-              value: restriction,
-            })),
-          },
-        },
-      ],
+      of: [{ type: 'string' }],
     },
     date,
     {
