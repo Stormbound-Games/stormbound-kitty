@@ -23,7 +23,8 @@ export default React.memo(function DeckDryRunView(props) {
     dialog: harvestersDialogRef,
   }
 
-  // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
+  // If the deck is saved as brawl/tournament, load the dry-runner in the
+  // correct mode
   React.useEffect(() => {
     if (props.preset.modifier.includes('MANA')) {
       const brawl = props.brawls.find(
