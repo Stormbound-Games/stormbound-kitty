@@ -4,7 +4,7 @@ import isCardLevelResolved from '~/helpers/isCardLevelResolved'
 
 const getResolvedCardData = (cardsIndex, card) => {
   const { id, copies, missing } = card || {}
-  const level = card.level || 1
+  const level = card ? card.level || 1 : 1
 
   // If no `id` is given, return early.
   if (!id) return null
