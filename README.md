@@ -6,7 +6,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
 - [Analytics](./docs/ANALYTICS.md)
 - [CMS](./docs/CMS.md)
-- [Discord BOT](./docs/DISCORD_BOT.md)
+- [Discord Bot](./docs/DISCORD_BOT.md)
 - [Formulas](./docs/FORMULAS.md)
 - [Monitoring](./docs/MONITORING.md)
 - [Workflows](./WORKFLOWS.md)
