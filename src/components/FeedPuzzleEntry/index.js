@@ -5,8 +5,8 @@ import FeedEntry from '~/components/FeedEntry'
 export default React.memo(function FeedPuzzleEntry(props) {
   return (
     <FeedEntry icon='sword' date={props.date}>
-      {props.user.name} has created a {props.category.toLowerCase()} puzzle
-      called <Link to={'/puzzles/' + props.slug}>{props.name}</Link>.
+      {props.user.name} has created a puzzle called{' '}
+      <Link to={'/puzzles/' + props.slug}>{props.name}</Link>.
     </FeedEntry>
   )
 })
