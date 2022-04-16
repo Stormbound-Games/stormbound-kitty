@@ -3,7 +3,6 @@ import serializeDate from '~/helpers/serializeDate'
 export const FIELDS = `
 "user": user -> { name, "slug": slug.current },
 board,
-category,
 objective,
 date,
 image,
