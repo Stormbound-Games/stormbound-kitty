@@ -31,7 +31,9 @@ export default React.memo(function PagePuzzle(props) {
     >
       <BattleSimApp {...state} {...props} />
       <Page.Narrow>
-        <BlockNotice>{CATEGORIES[puzzle.category]}</BlockNotice>
+        <BlockNotice>
+          {puzzle.objective || CATEGORIES[puzzle.category]}
+        </BlockNotice>
         <p>The following restrictions apply:</p>
         <ul>
           {puzzle.restrictions.map(restriction => (

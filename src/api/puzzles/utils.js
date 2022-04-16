@@ -4,6 +4,7 @@ export const FIELDS = `
 "user": user -> { name, "slug": slug.current },
 board,
 category,
+objective,
 date,
 image,
 name,

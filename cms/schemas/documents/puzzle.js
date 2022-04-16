@@ -25,6 +25,12 @@ const puzzle = {
       validation: Rule => Rule.required(),
     },
     {
+      title: 'Objective',
+      name: 'objective',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
       title: 'Category',
       name: 'category',
       type: 'string',
