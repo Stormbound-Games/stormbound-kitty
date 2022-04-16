@@ -2,8 +2,11 @@ import getCards from '~/api/cards/getCards'
 import indexArray from '~/helpers/indexArray'
 import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import { getLongFaction } from '~/helpers/encoding'
+import { getLongFaction, getShortFaction } from '~/helpers/encoding'
+import { FACTIONS } from '~/constants/game'
 import getDecks from '~/api/decks/getDecks'
+
+const SHORT_FACTIONS = FACTIONS.map(getShortFaction)
 
 const getLiveTierList = async ({ isPreview } = {}) => {
   const cards = await getCards({ isPreview })
@@ -62,6 +65,12 @@ const getLiveTierList = async ({ isPreview } = {}) => {
     )
 
     tiers[tier].cards.push(card)
+    // Ideally we’d sort cards properly with the `sortCards` helper, but that
+    // implies resolving cards first, which seems a little unnecessary when all
+    // we want is sorting them by faction.
+    tiers[tier].cards.sort(
+      (a, b) => SHORT_FACTIONS.indexOf(a[0]) - SHORT_FACTIONS.indexOf(b[0])
+    )
   })
 
   // Preserve only tiers that have at least a card
