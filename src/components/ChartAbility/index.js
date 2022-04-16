@@ -12,38 +12,42 @@ import Title from '~/components/Title'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import { CHIP_CARDS } from '~/constants/game'
 
-export default React.memo(function ChartAbility(props) {
+const ABILITIES = {
+  drain: { name: 'Drain', color: 'var(--light-shadowfen)' },
+  command: { name: 'Commanding', color: 'var(--swarm)' },
+  confus: { name: 'Confusion', color: 'var(--confused)' },
+  freeze: { name: 'Freeze', color: 'var(--winter)' },
+  frozen: { name: 'Freeze', color: 'var(--winter)' },
+  poison: { name: 'Poison', color: 'var(--shadowfen)' },
+  pull: { name: 'Push/pull', color: 'var(--ironclad)' },
+  push: { name: 'Push/pull', color: 'var(--ironclad)' },
+  chip: { name: 'Chip', color: 'var(--beige)' },
+  vital: { name: 'Vitality', color: 'var(--vitalized)' },
+  disable: { name: 'Disable', color: 'var(--disabled)' },
+}
+const ABILITY_REGEX = new RegExp(
+  '(' + Object.keys(ABILITIES).join('|') + ')',
+  'i'
+)
+
+export default React.memo(function ChartAbility() {
   const { cards } = React.useContext(CardsContext)
-  const abilities = {
-    drain: { name: 'Drain', color: 'var(--light-shadowfen)' },
-    command: { name: 'Commanding', color: 'var(--swarm)' },
-    confus: { name: 'Confusion', color: 'var(--confused)' },
-    freeze: { name: 'Freeze', color: 'var(--winter)' },
-    frozen: { name: 'Freeze', color: 'var(--winter)' },
-    poison: { name: 'Poison', color: 'var(--shadowfen)' },
-    pull: { name: 'Push/pull', color: 'var(--ironclad)' },
-    push: { name: 'Push/pull', color: 'var(--ironclad)' },
-    chip: { name: 'Chip', color: 'var(--beige)' },
-    vital: { name: 'Vitality', color: 'var(--vitalized)' },
-    disable: { name: 'Disable', color: 'var(--disabled)' },
-  }
-  const regex = new RegExp('(' + Object.keys(abilities).join('|') + ')', 'i')
   const data = Object.values(
     cards.reduce((acc, card) => {
       if (!card.ability) return acc
 
       const isChip = CHIP_CARDS.includes(card.id)
-      const match = card.ability.match(regex)
+      const match = card.ability.match(ABILITY_REGEX)
 
       if (!match && !isChip) return acc
 
       if (match) {
-        const type = abilities[match[1].toLowerCase()].name
+        const type = ABILITIES[match[1].toLowerCase()].name
 
         if (typeof acc[type] === 'undefined') {
           acc[type] = {
             name: type,
-            color: abilities[match[1].toLowerCase()].color,
+            color: ABILITY_REGEX[match[1].toLowerCase()].color,
             value: 0,
           }
         }
@@ -55,7 +59,7 @@ export default React.memo(function ChartAbility(props) {
         if (typeof acc.chip === 'undefined') {
           acc.chip = {
             name: 'Chip',
-            color: abilities.chip.color,
+            color: ABILITIES.chip.color,
             value: 0,
           }
         }
