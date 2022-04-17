@@ -7,7 +7,7 @@ import Notice from '~/components/Notice'
 import Only from '~/components/Only'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
-import { CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 
 export const GuideRenderingContext = React.createContext({
   isWithinGuide: false,
@@ -23,10 +23,12 @@ export default React.memo(function PageGuide(props) {
         description={props.excerpt}
         image={props.background}
         authors={props.authors}
-        meta={formatDate(date) + ' · ' + CATEGORIES[props.category].name.short}
+        meta={
+          formatDate(date) + ' · ' + GUIDE_CATEGORIES[props.category].name.short
+        }
         background={props.background}
         action={{
-          to: '/guides/' + CATEGORIES[props.category].slug,
+          to: '/guides/' + GUIDE_CATEGORIES[props.category].slug,
           children: 'Back to guides',
         }}
         ratio={props.ratio}

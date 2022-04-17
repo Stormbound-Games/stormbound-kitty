@@ -1,11 +1,11 @@
 import PageGuides from '~/components/PageGuides'
-import { CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 import getGuidesFromCategory from '~/api/guides/getGuidesFromCategory'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const name = 'BRAWL_MODE'
-  const category = { ...CATEGORIES[name], id: name }
+  const category = { ...GUIDE_CATEGORIES[name], id: name }
   const guides = await getGuidesFromCategory({ category: name, isPreview })
   const settings = await getSiteSettings({ isPreview })
 

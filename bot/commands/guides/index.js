@@ -1,6 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 import getGuides from '~/api/guides/getGuides'
-import { CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 
 const guides = {
   command: 'guides',
@@ -27,8 +27,8 @@ const guides = {
         .setTitle(`${this.label}`)
         .setURL('https://stormbound-kitty.com/guides')
         .setDescription(
-          Object.keys(CATEGORIES).reduce((desc, category) => {
-            desc += '\n\n**' + CATEGORIES[category].name.long + '**\n'
+          Object.keys(GUIDE_CATEGORIES).reduce((desc, category) => {
+            desc += '\n\n**' + GUIDE_CATEGORIES[category].name.long + '**\n'
             desc += guides
               .filter(guide => guide.category === category)
               .map(

@@ -1,4 +1,4 @@
-import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getBrawls from '~/api/brawls/getBrawls'
 import getCards from '~/api/cards/getCards'

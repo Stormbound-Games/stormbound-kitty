@@ -11,7 +11,7 @@ import card from '../richText/card'
 import info from '../richText/info'
 import tableOfContents from '../richText/tableOfContents'
 import tierList from '../richText/tierList'
-import { CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 import { formatDate } from '~/helpers/formatDate'
 
 const guide = {
@@ -62,7 +62,7 @@ const guide = {
       type: 'string',
       fieldset: 'metadata',
       options: {
-        list: Object.entries(CATEGORIES).map(([category, data]) => ({
+        list: Object.entries(GUIDE_CATEGORIES).map(([category, data]) => ({
           title: data.name.short,
           value: category,
         })),

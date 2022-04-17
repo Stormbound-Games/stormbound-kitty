@@ -1,5 +1,5 @@
 import applyRateLimit from '~/helpers/applyRateLimit'
-import { CATEGORIES as GUIDE_CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 
 const getRevalidationPaths = body => {
   // The path may be passed explicitly, for instance with the `bin/revalidate`

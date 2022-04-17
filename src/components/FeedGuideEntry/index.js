@@ -2,10 +2,10 @@ import React from 'react'
 import Link from '~/components/Link'
 import FeedEntry from '~/components/FeedEntry'
 import MemberList from '~/components/MemberList'
-import { CATEGORIES } from '~/constants/guides'
+import { GUIDE_CATEGORIES } from '~/constants/guides'
 
 export default React.memo(function FeedGuideEntry(props) {
-  const category = CATEGORIES[props.category].name.short.toLowerCase()
+  const category = GUIDE_CATEGORIES[props.category].name.short.toLowerCase()
   const prefix = /^[aeiou]/.test(category) ? 'an' : 'a'
 
   return (

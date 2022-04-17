@@ -1,4 +1,4 @@
-export const CATEGORIES = {
+export const GUIDE_CATEGORIES = {
   ESSENTIALS: {
     slug: 'essentials',
     name: { short: 'Essentials', long: 'Essential Guides' },
