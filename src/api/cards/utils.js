@@ -23,9 +23,13 @@ token,
 `
 
 export const MAPPER = card => {
-  // Some cards have `"null"` movement following an error during the data
-  // migration. @TODO: correct that with another data migration.
-  card.movement = !isNaN(+card.movement) ? +card.movement : null
+  // The movement is recorded as a string in case it needs to change across
+  // levels, but right now the site doesn’t support that and expects a number.
+  if (card.movement) {
+    card.movement = Number(card.movement)
+  } else {
+    card.movement = null
+  }
 
   return card
 }
