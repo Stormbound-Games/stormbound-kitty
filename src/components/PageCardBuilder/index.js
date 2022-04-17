@@ -48,7 +48,7 @@ export default React.memo(function PageCardBuilder(props) {
 
       {props.mode === 'EDITOR' && (
         <Spacing top='LARGEST'>
-          <form action={event => event.preventDefault()}>
+          <form onSubmit={event => event.preventDefault()}>
             <Row isDesktopOnly>
               <Row.Column>
                 <Title>Core attributes</Title>

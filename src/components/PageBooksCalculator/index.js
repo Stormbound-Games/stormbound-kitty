@@ -102,7 +102,7 @@ export default React.memo(function PageBooksCalculator(props) {
           </Info>
 
           <Spacing top='BASE' bottom='LARGER'>
-            <form>
+            <form onSubmit={event => event.preventDefault()}>
               <Row withNarrowGutter>
                 <Row.Column>
                   <Select
