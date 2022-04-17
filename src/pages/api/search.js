@@ -12,7 +12,7 @@ const cache = new LRUCache({
 
 const getRegistry = async () => {
   if (cache.has('registry')) return cache.get('registry')
-  const registry = await getSearchIndex(true)
+  const registry = await getSearchIndex()
   cache.set('registry', registry)
   return registry
 }

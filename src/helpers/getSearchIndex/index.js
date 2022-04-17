@@ -11,7 +11,7 @@ import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 import getUsers from '~/api/users/getUsers'
 
-const getSearchIndex = async (withEverything = true) => {
+const getSearchIndex = async () => {
   const brawls = await getBrawls()
   const cards = await getCards()
   const decks = await getDecks()
@@ -23,7 +23,6 @@ const getSearchIndex = async (withEverything = true) => {
   const swcc = await getSWCCContests()
   const users = await getUsers()
   const links = []
-  const limit = withEverything ? Infinity : 1
   const seasons = [...new Set(swcc.map(contest => contest.season))].sort()
 
   links.push({
@@ -55,7 +54,7 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'crown',
   })
 
-  brawls.slice(0, limit).forEach(brawl => {
+  brawls.forEach(brawl => {
     links.push({
       label: brawl.name,
       path: '/brawl/' + brawl.slug,
@@ -113,7 +112,7 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'hammer',
   })
 
-  cards.slice(0, limit).forEach(card => {
+  cards.forEach(card => {
     links.push({
       label: card.name,
       path: `/card/official/${card.id}`,
@@ -122,7 +121,7 @@ const getSearchIndex = async (withEverything = true) => {
     })
   })
 
-  swcc.slice(0, limit).forEach(contest => {
+  swcc.forEach(contest => {
     links.push({
       label: `SWCC S${contest.season}W${contest.week} ${contest.name}`,
       path: `/swcc/season/${contest.season}/week/${contest.week}`,
@@ -182,7 +181,7 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'stack',
   })
 
-  decks.slice(0, limit).forEach(deck => {
+  decks.forEach(deck => {
     links.push({
       label: deck.name,
       path: `/deck/${deck.id}/detail`,
@@ -261,19 +260,17 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'image',
   })
 
-  Object.keys(GUIDE_CATEGORIES)
-    .slice(0, limit)
-    .forEach(name => {
-      const category = GUIDE_CATEGORIES[name]
-      links.push({
-        label: category.name.long,
-        path: '/guides/' + category.slug,
-        breadcrumbs: ['Guides'],
-        icon: 'compass',
-      })
+  Object.keys(GUIDE_CATEGORIES).forEach(name => {
+    const category = GUIDE_CATEGORIES[name]
+    links.push({
+      label: category.name.long,
+      path: '/guides/' + category.slug,
+      breadcrumbs: ['Guides'],
+      icon: 'compass',
     })
+  })
 
-  guides.slice(0, limit).forEach(guide => {
+  guides.forEach(guide => {
     links.push({
       label: guide.name,
       path: '/guides/' + guide.slug,
@@ -317,7 +314,7 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'users',
   })
 
-  users.slice(0, limit).forEach(user => {
+  users.forEach(user => {
     links.push({
       label: user.name,
       path: '/members/' + user.slug,
@@ -340,7 +337,7 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'bullhorn',
   })
 
-  releases.slice(0, limit).forEach(release => {
+  releases.forEach(release => {
     links.push({
       label: release.title,
       path: '/releases/' + release.slug,
@@ -356,7 +353,7 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'wand',
   })
 
-  puzzles.slice(0, limit).forEach(puzzle => {
+  puzzles.forEach(puzzle => {
     links.push({
       label: puzzle.name,
       path: `/puzzles/${puzzle.slug}`,
@@ -393,18 +390,16 @@ const getSearchIndex = async (withEverything = true) => {
     icon: 'quill',
   })
 
-  Object.keys(STORY_CATEGORIES)
-    .slice(0, limit)
-    .forEach(category => {
-      links.push({
-        label: STORY_CATEGORIES[category].title,
-        path: '/stories/' + category,
-        breadcrumbs: ['Stories'],
-        icon: 'quill',
-      })
+  Object.keys(STORY_CATEGORIES).forEach(category => {
+    links.push({
+      label: STORY_CATEGORIES[category].title,
+      path: '/stories/' + category,
+      breadcrumbs: ['Stories'],
+      icon: 'quill',
     })
+  })
 
-  stories.slice(0, limit).forEach(story => {
+  stories.forEach(story => {
     links.push({
       label: story.title,
       path: `/stories/${story.slug}`,
