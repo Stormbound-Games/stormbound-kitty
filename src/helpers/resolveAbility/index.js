@@ -17,6 +17,12 @@ const resolveAbility = string => {
     return { values: SLOTS, display: null }
   }
 
+  // If the received input is already a resolved ability, return it as is as
+  // there is nothing else to do.
+  if (string.values) {
+    return string
+  }
+
   const variables = string.match(VARIABLES_RE) || []
   const values = SLOTS.map((_, index) =>
     variables.reduce(

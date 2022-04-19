@@ -11,6 +11,10 @@ const formatLevelProp = value => ({
 })
 
 const resolveLevels = (value = '') => {
+  // If the received input is already a resolved value, return it as is as there
+  // is nothing else to do.
+  if (value.values) return value
+
   const chunks = value.split('/')
   const values = Array.from(
     { length: 5 },
@@ -24,7 +28,7 @@ const resolveLevels = (value = '') => {
   return { values, display }
 }
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   name: '',
   imageURL: '',
   imageCardId: null,
