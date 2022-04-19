@@ -13,6 +13,12 @@ const VARIABLES_RE = /([^*\s/]*)\/([^/]*)\/([^/]*)\/([^/]*)\/([^*\s,]*|$)/g
 const SLOTS = [null, null, null, null, null]
 
 const resolveAbility = string => {
+  // If the received input is already a resolved ability, return it as is as
+  // there is nothing else to do.
+  if (string.values) {
+    return string
+  }
+
   if (!string) {
     return { values: SLOTS, display: null }
   }

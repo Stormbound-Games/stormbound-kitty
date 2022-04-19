@@ -1,6 +1,8 @@
 import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import CardDisplay from '~/components/CardDisplay'
+import CTA from '~/components/CTA'
+import Info from '~/components/Info'
 import Page from '~/components/Page'
 import CoreForm from '~/components/CardBuilderCoreForm'
 import Notice from '~/components/Notice'
@@ -9,7 +11,8 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
-import useCardBuilder from '~/hooks/useCardBuilder'
+import randomizeCard from '~/helpers/randomizeCard'
+import useCardBuilder, { INITIAL_STATE } from '~/hooks/useCardBuilder'
 
 const usePageProps = (props, card) => {
   if (!props.cardId) return {}
@@ -32,6 +35,26 @@ export default React.memo(function PageCardBuilder(props) {
   const pageProps = usePageProps(props, card)
   const metaTags = getCardBuilderMetaTags(cardsIndex, card)
 
+  const createRandomCard = React.useCallback(() => {
+    const card = randomizeCard()
+
+    setters.setName(card.name ?? INITIAL_STATE.name)
+    setters.setImageURL(card.imageURL ?? INITIAL_STATE.imageURL)
+    setters.setImageCardId(card.imageCardId ?? INITIAL_STATE.imageCardId)
+    setters.setRarity(card.rarity ?? INITIAL_STATE.rarity)
+    setters.setFaction(card.faction ?? INITIAL_STATE.faction)
+    setters.setRace(card.race ?? INITIAL_STATE.race)
+    setters.setAncient(card.ancient ?? INITIAL_STATE.ancient)
+    setters.setElder(card.elder ?? INITIAL_STATE.elder)
+    setters.setHero(card.hero ?? INITIAL_STATE.hero)
+    setters.setType(card.type ?? INITIAL_STATE.type)
+    setters.setMovement(card.movement ?? INITIAL_STATE.movement)
+    setters.setFixedMovement(card.fixedMovement ?? INITIAL_STATE.fixedMovement)
+    setters.setMana(card.mana ?? INITIAL_STATE.mana)
+    setters.setStrength(card.strength ?? INITIAL_STATE.strength)
+    setters.setAbility(card.ability ?? INITIAL_STATE.ability)
+  }, [setters])
+
   return (
     <Page {...pageProps} {...metaTags}>
       <Spacing bottom='LARGEST'>
@@ -45,6 +68,20 @@ export default React.memo(function PageCardBuilder(props) {
           {props.level} is relevant.
         </Notice>
       )}
+
+      <Page.Narrow>
+        <Info
+          icon='wand'
+          title='Random card'
+          CTA={<CTA onClick={createRandomCard}>Randomize</CTA>}
+        >
+          <p>
+            Don’t know where to start? Try the card randomizer from
+            parchmentEngineer. It should generate a relatively balanced card for
+            you to get started! From there, you can tweak it to suit your needs.
+          </p>
+        </Info>
+      </Page.Narrow>
 
       {props.mode === 'EDITOR' && (
         <Spacing top='LARGEST'>
