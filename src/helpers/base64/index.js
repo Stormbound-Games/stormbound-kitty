@@ -1,13 +1,21 @@
-export const base64Encode = string => {
-  if (typeof window === 'undefined')
-    return Buffer.from(string).toString('base64')
-  else return window.btoa(string)
-}
+export const base64Encode = string =>
+  (typeof window === 'undefined'
+    ? Buffer.from(string).toString('base64')
+    : window.btoa(string)
+  )
+    // Make sure the returned value is URL-safe by excluding forwarded slashes
+    // and plus signs.
+    .replace(/\//g, '_')
+    .replace(/\+/g, '-')
 
-export const base64Decode = string => {
-  if (typeof window === 'undefined')
-    return Buffer.from(string, 'base64').toString('ascii')
-  else return window.atob(string)
+export const base64Decode = blob => {
+  // Restore forward slashes and plus signs as expected by the base64 character
+  // set before decoding the blob.
+  blob = blob.replace(/_/g, '/').replace(/-/g, '+')
+
+  return typeof window === 'undefined'
+    ? Buffer.from(blob, 'base64').toString('ascii')
+    : window.atob(blob)
 }
 
 export function isBase64(string) {
