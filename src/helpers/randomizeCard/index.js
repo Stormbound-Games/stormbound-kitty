@@ -448,11 +448,54 @@ var names = [
 	]
 ]
 
-var statlines = [
+/* var statlinesFast = [
 	[2,4,5,7,8,10,11,13], // 0 Speed
 	[1,2,3,5,6,8,9,11],	 // 1 Speed
 	[0,1,2,3,4,5,6,7],		// 2 Speed
 	[0,0,1,2,3,4,5,6]		 // 3 Speed
+] */
+
+var statlinesFast = [
+	[
+		"2/3/4/5/6",
+		"4/5/6/7/8",
+		"5/6/7/8/10",
+		"7/8/10/12/14",
+		"8/10/12/15/18",
+		"10/13/16/20/24",
+		"11/15/19/23/28",
+		"13/17/21/25/30"
+	],
+	[
+		"1/2/3/4/5",
+		"2/3/4/5/6",
+		"3/4/5/6/8",
+		"5/6/7/8/10",
+		"7/8/10/12/15",
+		"8/10/12/15/18",
+		"10/13/16/20/24",
+		"12/16/20/24/28"
+	],
+	[
+		"0/0/0/0/0",
+		"1/2/3/4/5",
+		"2/3/4/5/6",
+		"3/4/5/6/7",
+		"4/5/6/7/8",
+		"5/6/7/8/10",
+		"6/7/8/10/12",
+		"7/8/10/12/14"
+	],
+	[
+		"0/0/0/0/0",
+		"0/0/0/0/0",
+		"1/2/3/4/5",
+		"2/3/4/5/6",
+		"3/4/5/6/7",
+		"4/5/6/7/8",
+		"5/6/7/9/11",
+		"6/7/8/10/12"
+	]
 ]
 
 //###########################
@@ -516,11 +559,11 @@ class Card {
 		while(true) {
 			this.mana = random(2,9)
 			this.movement = arrayRandom(this.race.movementRange)
-			this.strength = statlines[this.movement][this.mana-2]
+			this.strength = statlinesFast[this.movement][this.mana-2]
 			if (verbose) {console.log(`Base statline: ${this.mana}`)}
 			var strCutoff = 0
 			if (this.subrace == "elder") {strCutoff = 3}
-			if (this.strength > strCutoff) {break}
+			if (parseInt(this.strength) > strCutoff) {break}
 			if (verbose) {console.log("Rerolling statline")}
 		}
 	}
@@ -597,52 +640,25 @@ class Card {
 
 	fillSlots() {
 		while(true) {
-			var foundState = 0
 			var target = ""
-			var char = ""
-			for (let i=0; i<this.ability.length; i++) {
-				char = this.ability[i]
-				if (char == '{') {
-					foundState = 1
-				}
-				if (foundState == 1 && char != '{' && char != '}') {
-					target += char
-				}
-				if (char == '}' && foundState == 1) {
-					foundState = 2
-					break
-				}
-			}
-			
-			if (foundState != 2) {return}
+			const [, target] = this.ability.match(/{([^}]+)}/) || []
+			if (!target) return
 
-			var valid = []
-			slots.forEach((slot) => {
-				if (slot.type == target) {valid.push(slot)}
-			})
-				
-			if (this.faction == "Shadowfen") {
-				slotsShadowfen.forEach((slot) => {
-					if (slot.type == target) {valid.push(slot)}
-				})
+			const valid = slots.filter(slot => slot.type === target)
+			const factionSlots = {
+				Shadowfen: slotsShadowfen,
+				Swarm: slotsSwarm,
+				Ironclad: slotsIronclad,
+				Winter: slotsWinter,
 			}
-			if (this.faction == "Ironclad") {
-				slotsIronclad.forEach((slot) => {
-					if (slot.type == target) {valid.push(slot)}
-				})
+
+			if (this.faction in factionSlots) {
+				valid.push(
+					...factionSlots[this.faction].filter(slot => slot.type === target)
+				)
 			}
-			if (this.faction == "Winter") {
-				slotsWinter.forEach((slot) => {
-					if (slot.type == target) {valid.push(slot)}
-				})
-			}
-			if (this.faction == "Swarm") {
-				slotsSwarm.forEach((slot) => {
-					if (slot.type == target) {valid.push(slot)}
-				})
-			}
-			
-			var targetSlot = arrayRandom(valid)
+
+			const targetSlot = arrayRandom(valid)
 			
 			this.ability = this.ability.replace("{"+target+"}",targetSlot.part1)
 			this.ability = this.ability.replace("{"+target+"2}",targetSlot.part2)
