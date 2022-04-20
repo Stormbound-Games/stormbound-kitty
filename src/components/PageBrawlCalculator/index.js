@@ -69,7 +69,7 @@ export default React.memo(function PageBrawlCalculator() {
             <p>
               To keep track of your expenses and win ratio during the Brawl, use
               the <Link to='/brawl'>Brawl tracker</Link>. New to the Brawl?{' '}
-              <Link to='/guides/brawl'>Read the guide</Link>.
+              <Link to='/brawl-mode'>Read the guide</Link>.
             </p>
           </Info>
         </Row.Column>

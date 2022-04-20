@@ -386,7 +386,7 @@ export default React.memo(function PageIncomeCalculator(props) {
           >
             <p>
               This calculator does not take into consideration{' '}
-              <Link to='/guides/brawl#what-are-victory-bonuses'>
+              <Link to='/brawl-mode#what-are-victory-bonuses'>
                 victory bonuses from the Brawl
               </Link>
               .

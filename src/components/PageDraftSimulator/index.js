@@ -179,7 +179,7 @@ export default React.memo(function PageDraftSimulator(props) {
           <Info icon='compass' title='Intro to Draft'>
             <p>
               If you’re not familiar with the Draft mode, you should first{' '}
-              <Link to='/guides/draft'>read the guide</Link> to get started.
+              <Link to='/draft-mode'>read the guide</Link> to get started.
             </p>
           </Info>
         </Row.Column>
