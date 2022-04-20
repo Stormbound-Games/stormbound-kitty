@@ -48,6 +48,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
             required
             disabled={props.type !== 'unit'}
             data-testid='cb-movement-input'
+            pattern='[0-9]*'
           />
           <Checkbox
             id='fixed-movement'
