@@ -1,57 +1,42 @@
 import { FACTIONS, RACES, TYPES, RARITIES } from '~/constants/game'
 import arrayRandom from '~/helpers/arrayRandom'
-
-//##############
-//# To-Do List #
-//##############
-
-// Add more effects
-// Add effects that target structures
-// Make Satyr self-base destruction less prevalent
-// Add Dragons, Pirates, Felines, and plain Elders/Ancients
-// Add better filters - maybe even filter for effect classes?
-// Add effect classes for different types of effects
-// Add randomly generated names - maybe combo off of effect classes
-// Fix inconsistencies:
-// -- Affecting bordering/surrounding units with no bordering/surrounding units
-// -- Spawning units behind when played bordering the base
-// -- Tweak Convert targeting/conditions a bit - add a new category for Convert targets, and increase the number of conditions
-// -- Fix unspend mana calculations
+import random from '~/helpers/random'
 
 //################################
 //# Settings to mess around with #
 //################################
 
 // Turns on verbose logging, displaying how each card is calculated.
-var verbose = false 
+const verbose = false 
+
+// These parameters can be used to limit the types of cards generated.
+// When the filter buttons are added, they will affect these variables.
 
 // Removes the caps on minimum mana, maximum mana, and effect cost. Can make some funy units.
 var uncapped = false 
 
-// These parameters can be used to limit the types of cards generated.
 // maxEffCost can be used to tweak the maximum power of the effect.v
 // Higher values tend towards smaller units with more potent effects.
-// Be sensible with the faction and tribe requirments. Don't put in anything impossible.
+// Be sensible with the faction and race requirments. Don't put in anything impossible.
 var minMana = 1
 var maxMana = 9
 var maxEffCost = 4.5
 var faction = ""
-var tribe = ""
-var cardsToGenerate = 1
+var race = ""
 
 //#####################
 //# Class definitions #
 //#####################
 
-class Tribe {
+class Race {
 	constructor(name,faction,movRange) {
 		this.name = name
 		this.faction = faction
-		this.movRange = movRange
-		this.effects = []
+		this.movementRange = movRange
+		this.abilitys = []
 	}
 	addEffect(effect) {
-		this.effects.push(effect)
+		this.abilitys.push(effect)
 	}
 }
 
@@ -72,41 +57,31 @@ class Slot {
 	}
 }
  
-function eff(tribeName, effect) {
-	tribes.forEach((tribe) => {
-		if(tribe.name == tribeName) {
-			tribe.addEffect(effect)
-		}
-	})
+function eff(raceName, effect) {
+  races
+    .filter(race => race.name === raceName)
+    .forEach(race => race.addEffect(effect))
 }
 
-function rchoice(arr) {
-	return arr[Math.floor(Math.random() * arr.length)]
-}
-
-function randint(min,max) {
-	return Math.floor(Math.random() * ((max-min)+1))+min
-}
-
-tribe = tribe.toLowerCase()
+race = race.toLowerCase()
 
 //############################
 //# Values for the generator #
 //############################
 
-var tribes = [
-	new Tribe("knight","Neutral",[0,1,2]),
-	new Tribe("pirate","Neutral",[0,1,2]),
-	//Tribe("feline","Neutral",[0,1,2]),
+var races = [
+	new Race("knight","Neutral",[0,1,2]),
+	new Race("pirate","Neutral",[0,1,2]),
+	//Race("feline","Neutral",[0,1,2]),
 	// Pirates, Felines, and Dragons aren't quite implemented yet.
-	new Tribe("raven","Shadowfen",[0,1]),
-	new Tribe("toad","Shadowfen",[1,2]),
-	new Tribe("rodent","Ironclad",[0,1,2,3]),
-	new Tribe("construct","Ironclad",[1]),
-	new Tribe("frostling","Winter",[0,1]),
-	new Tribe("dwarf","Winter",[1,2,3]),
-	new Tribe("satyr","Swarm",[0,1,2]),
-	new Tribe("undead","Swarm",[1,2,3]),
+	new Race("raven","Shadowfen",[0,1]),
+	new Race("toad","Shadowfen",[1,2]),
+	new Race("rodent","Ironclad",[0,1,2,3]),
+	new Race("construct","Ironclad",[1]),
+	new Race("frostling","Winter",[0,1]),
+	new Race("dwarf","Winter",[1,2,3]),
+	new Race("satyr","Swarm",[0,1,2]),
+	new Race("undead","Swarm",[1,2,3]),
 ]
 
 eff("knight",new Effect('spawn a Knight with {value} strength {space}',[3,0,1,1,1],1))
@@ -119,7 +94,7 @@ eff('pirate',new Effect('replace a random non-pirate card from your hand. Reduce
 eff('pirate',new Effect('discard your hand and gain {lowValue} strength for each card discarded',[3,0,3,3,3],1.25))
 eff('pirate',new Effect('discard a random non-Pirate card',[3,3,3,3,3],0.25))
 eff('pirate',new Effect('decrease the cost of a random card in your hand by {lowValue}{pirateForEach}',[3,3,3,3,3],0.75))
-eff("knight",new Effect('deal {value} damage to {target} enemy {target2}{pirateForEach}',[3,0,3,3,3],0.75))
+eff("pirate",new Effect('deal {value} damage to {target} enemy {target2}{pirateForEach}',[3,0,3,3,3],0.75))
 
 eff('feline',new Effect('gain {value} speed{forEach}',[3,0,0,0,0],1.25))
 eff('feline',new Effect('confuse itself',[3,0,0,3,0],-0.75))
@@ -173,7 +148,7 @@ eff('satyr',new Effect('give {value} strength to {target} friendly {target2}{for
 eff('satyr',new Effect('vitalize {target} friendly {target2}',[3,3,3,3,3],0.75))
 eff('satyr',new Effect('deal {value} damage to your base',[3,3,3,3,3],-1))
 
-var slots = [
+const slots = [
 	new Slot('target','a random bordering','unit',1),
 	new Slot('target','a random surrounding','unit',1.25),
 	new Slot('target','bordering','units',1.5),
@@ -231,14 +206,13 @@ var slots = [
 	new Slot('pirateForEach',' for each card in your hand that costs more than this card','',1.75),
 	new Slot('pirateForEach',' for each card in your hand that costs less than this card','',1.75),
 	new Slot('pirateForEach',' for each friendly Pirate','',1.25),
-	new Slot('pirateForEach',' for Pirate you have played this turn','',0.75),
 	
 	new Slot('pirateCondPlay','When played as the last card in your hand','',0.25),
 	new Slot('pirateCondPlay','When played with a full hand','',0.75),
 	new Slot('pirateCondPlay','When played with another Pirate in your hand','',0.5),
 ]
 
-var slotsShadowfen = [
+const slotsShadowfen = [
 	new Slot('target','a random poisoned','unit',0.5),
 	new Slot('target','poisoned','units',1),
 	new Slot('target','the weakest','unit',1),
@@ -264,7 +238,7 @@ var slotsShadowfen = [
 	new Slot('condAttack','Before attacking a unit with no bordering enemy units','',0.5),
 ]
 
-var slotsIronclad = [
+const slotsIronclad = [
 	new Slot('target','the closest','unit in front',1),
 	new Slot('target','the closest','unit behind',1),
 	new Slot('target','all','units in front',1.5),
@@ -289,7 +263,7 @@ var slotsIronclad = [
 	new Slot('condPlay','When played bordering a friendly Construct','',0.5),
 ]
 
-var slotsWinter = [
+const slotsWinter = [
 	new Slot('target','a random frozen','unit',0.5),
 	new Slot('target','frozen','units',1),
 
@@ -311,7 +285,7 @@ var slotsWinter = [
 	new Slot('condAttack','Before attacking a unit bordering any base','',0.5),
 ]
 
-var slotsSwarm = [
+const slotsSwarm = [
 	new Slot('forEach',' for each bordering friendly Saytr','',1),
 	new Slot('forEach',' for each surrounding friendly Saytr','',1),
 	new Slot('forEach',' for each friendly Saytr','',1.25),
@@ -457,20 +431,20 @@ var names = [
 		[" Lackeys"," Purifiers"," Drivers"," Varmints"," Minions"," Launchers"," Chargers"," Agents"," Pupils"," Schemers"," Professors"," Officers"," Workers"," Bombers"]
 	],
 	["construct",
-		["Function","Linked","Finite","Scrapped","Debug","Projected","Plated","Oxidized","Sleek","Automated","Hardwired","Boolean","Software","Motorized","Analog"],
-		[" Prototypes"," Wilds"," Golems"," Loopers"," Servers"," Planners"," Loggers"," Automatons"," Apparati"," Engines"]
+		["Function","Linked","Finite","Scrapped","Debug","Projected","Plated","Oxidized","Sleek","Automated","Hardwired","Boolean","Software","Motorized","Analog","Zinc"],
+		[" Prototypes"," Golems"," Loopers"," Servers"," Planners"," Loggers"," Automatons"," Apparati"," Engines"," Androids"," Chassis"]
 	],
 	["satyr",
 		["Lawless","Restless","Mindless","Pan","Wasteland","Desolate","Arid","Collective","Horned"],
-		[" Herd"," Goats"," Companions"," Horde"," Shepards"," Heralds"," Bucks"," Fawns"]
+		[" Herd"," Goats"," Companions"," Horde"," Shepards"," Heralds"," Bucks"," Fawns"," Rams"]
 	],
 	["undead",
-		["Forgotten","Shady","Mischevious","Petrified","Grim","Vindicative","Lasting"],
-		[" Regrets"," Souls"," Ghouls"," Liches"," Summoners"," Fossils"," Couriers"," Harvesters"," Martyrs"," Remains"]
+		["Forgotten","Shady","Mischevious","Petrified","Grim","Vindicative","Lasting","Feindish","Spectral","Graven","Accursed","Afflicted"],
+		[" Regrets"," Souls"," Ghouls"," Liches"," Summoners"," Fossils"," Couriers"," Harvesters"," Martyrs"," Remains"," Misgivings"," Laments"]
 	],
 	["pirate",
-		["Northsea","Westwind","Cabin","Bluesail","Lucky","Seasick","Starboard"],
-		[" Dogs"," Mutineers"," Looters"," Sailors"," Privaters"," Captains"," Raiders"," Swindlers"," Charmers"," Bouncers"]
+		["Northsea","Westwind","Cabin","Bluesail","Lucky","Seasick","Starboard","Nautical","Seafairing","Abyssal"],
+		[" Dogs"," Mutineers"," Looters"," Sailors"," Privaters"," Captains"," Raiders"," Swindlers"," Charmers"," Bouncers"," Marines"," Swabs"," Navigators"]
 	]
 ]
 
@@ -490,12 +464,12 @@ class Card {
 		this.mana = 0
 		this.effCost = 0
 		this.effCostMult = 0
-		this.str = 0
-		this.mov = 0
-		this.tribe = ""
-		this.subtribe = ""
+		this.strength = 0
+		this.movement = 0
+		this.race = ""
+		this.subrace = ""
 		this.faction = ""
-		this.effect = ""
+		this.ability = ""
 		this.rarity = ""
 		this.firstName = "Random"
 		this.lastName = "unit"
@@ -503,12 +477,12 @@ class Card {
 
 	generate() {
 		while(true) {
-			this.effect = ""
+			this.ability = ""
 			this.effCostMult = 0
 			this.effCost = 0
-			this.subtribe = ""
+			this.subrace = ""
 			
-			this.getTribe()
+			this.getRace()
 			this.getEffect()
 			this.getStatline()
 			if(uncapped) {
@@ -524,93 +498,92 @@ class Card {
 			if (sum > 6) {
 				if (this.effCost < 2) {reroll = true}
 			}
-			if ((this.trigger == 1) && (this.effect.includes('stronger') || this.effect.includes('weaker'))) {reroll = true}
-			if (reroll==false) {break}
-			if (verbose) {print("Rerolling effect\n")}
+			if ((this.trigger == 1) && (this.ability.includes('stronger') || this.ability.includes('weaker'))) {reroll = true}
+			if (!reroll) {break}
+			if (verbose) {console.log("Rerolling effect\n")}
 		}
 		this.getName()
 	}
 
-	getTribe() {
-		this.tribe = rchoice(tribes)
-		this.faction = this.tribe.faction
-		if (faction != "" && this.faction != faction) {this.getTribe()} 
-		if (tribe != "" && this.tribe.name != tribe) {this.getTribe()}
+	getRace() {
+		this.race = arrayRandom(races)
+		this.faction = this.race.faction
+		if (faction !== "" && this.faction !== faction) {this.getRace()} 
+		if (race !== "" && this.race.name !== race) {this.getRace()}
 	}
 
 	getStatline() {
 		while(true) {
-			this.mana = randint(2,9)
-			this.mov = rchoice(this.tribe.movRange)
-			this.str = statlines[this.mov][this.mana-2]
-			if (verbose) {print(`Base statline: ${this.mana}`)}
+			this.mana = random(2,9)
+			this.movement = arrayRandom(this.race.movementRange)
+			this.strength = statlines[this.movement][this.mana-2]
+			if (verbose) {console.log(`Base statline: ${this.mana}`)}
 			var strCutoff = 0
-			if (this.subtribe == "elder") {strCutoff = 3}
-			if (this.str > strCutoff) {break}
-			if (verbose) {print("Rerolling statline")}
+			if (this.subrace == "elder") {strCutoff = 3}
+			if (this.strength > strCutoff) {break}
+			if (verbose) {console.log("Rerolling statline")}
 		}
 	}
 
 	getEffect() {
 		while (true) {
-			this.trigger = rchoice([0,1,2,3,4])
-			this.subtribe = ""
+			this.trigger = arrayRandom([0,1,2,3,4])
+			this.subrace = ""
 			// 0: On play
 			// 1: On death
 			// 2: Before attacking
 			// 3: After surviving damage
 			// 4: Before moving
 			this.effCostMult = [0.75,0.75,1,1.5,1.75][this.trigger]
-			this.effect = ["On play","On death","Before attacking","After surviving damage","Before moving"][this.trigger]
-			if (this.mov == 0 && this.trigger > 1) {this.effCostMult -= 0.5}
-			this.effect += ", "
-			if (this.trigger == 3) {this.subtribe = "elder"}
-			if (this.trigger == 4) {this.subtribe = "ancient"}
+			this.ability = ["On play","On death","Before attacking","After surviving damage","Before moving"][this.trigger]
+			if (this.movement == 0 && this.trigger > 1) {this.effCostMult -= 0.5}
+			this.ability += ", "
+			if (this.trigger == 3) {this.subrace = "elder"}
+			if (this.trigger == 4) {this.subrace = "ancient"}
 
-			var effectText = rchoice(this.tribe.effects)
-			if (randint(1,3) <= effectText.valid[this.trigger]) {break}
+			var effectText = arrayRandom(this.race.abilitys)
+			if (random(1,3) <= effectText.valid[this.trigger]) {break}
 		}
 			
-		this.effect += effectText.desc
+		this.ability += effectText.desc
 		this.effCost = effectText.cost
-		if (verbose) {print(`Base effect cost: ${this.effCost}`)}
+		if (verbose) {console.log(`Base effect cost: ${this.effCost}`)}
 		this.effCost *= this.effCostMult
-		if (verbose) {print(`Adding trigger multiplier of ${this.effCostMult}. New cost: ${this.effCost}`)}
+		if (verbose) {console.log(`Adding trigger multiplier of ${this.effCostMult}. New cost: ${this.effCost}`)}
 
 		// Conditional triggers:
-		if ((this.effect.includes("On play")) && randint(1,3) == 1) {
-		if (this.tribe.name == "pirate") {
-			this.effect = this.effect.replace("On play","{pirateCondPlay}")
-		} else {
-			this.effect = this.effect.replace("On play","{condPlay}")
+		if ((this.ability.includes("On play")) && random(1,3) == 1) {
+			if (this.race.name == "pirate") {
+				this.ability = this.ability.replace("On play","{pirateCondPlay}")
+			} else {
+				this.ability = this.ability.replace("On play","{condPlay}")
+			}
 		}
-			
-		}
-		if ((this.effect.includes("Before attacking")) && randint(1,3) == 1) {
-			this.effect = this.effect.replace("Before attacking","{condAttack}")
+		if ((this.ability.includes("Before attacking")) && random(1,3) == 1) {
+			this.ability = this.ability.replace("Before attacking","{condAttack}")
 		}
 		
 		this.fillSlots()
 		
 		// Unique cases:
-		if ((this.effect.includes(" it")) && (this.effect.includes("units")) && !(this.effect.includes("itself"))) {
-			this.effect = this.effect.replaceAll(" it"," them")
+		if ((this.ability.includes(" it")) && (this.ability.includes("units")) && !(this.ability.includes("itself"))) {
+			this.ability = this.ability.replaceAll(" it"," them")
 		}
-		if (this.effect.includes("poison ") && this.effect.includes("poisoned")) {
-			this.effect = this.effect.replaceAll(" poisoned "," ")
+		if (this.ability.includes("poison ") && this.ability.includes("poisoned")) {
+			this.ability = this.ability.replaceAll(" poisoned "," ")
 		}
-		if (this.effect.includes("freeze ") && this.effect.includes("frozen")) {
-			this.effect = this.effect.replaceAll(" frozen "," ")
+		if (this.ability.includes("freeze ") && this.ability.includes("frozen")) {
+			this.ability = this.ability.replaceAll(" frozen "," ")
 		}
-		if ((this.tribe.name == "construct") && (this.effect.includes("unit")) && (randint(1,2) == 1)) {
-			this.effect = this.effect.slice(0,this.effect.indexOf(",")) + this.effect.slice(this.effect.indexOf(",")).replaceAll("unit","Construct")
+		if ((this.race.name == "construct") && (this.ability.includes("unit")) && (random(1,2) == 1)) {
+			this.ability = this.ability.slice(0,this.ability.indexOf(",")) + this.ability.slice(this.ability.indexOf(",")).replaceAll("unit","Construct")
 			this.effCost *= 0.5
-			if (verbose) print(`Adding Construct-only multiplier of 0.5. New cost: ${this.effCost}`)
+			if (verbose) console.log(`Adding Construct-only multiplier of 0.5. New cost: ${this.effCost}`)
 		}
-		if ((this.tribe.name == "satyr") && (this.effect.includes("unit")) && (randint(1,3) != 1)) {
-			this.effect = this.effect.slice(0,this.effect.indexOf(",")) + this.effect.slice(this.effect.indexOf(",")).replaceAll("unit","Satyr")
+		if ((this.race.name == "satyr") && (this.ability.includes("unit")) && (random(1,3) != 1)) {
+			this.ability = this.ability.slice(0,this.ability.indexOf(",")) + this.ability.slice(this.ability.indexOf(",")).replaceAll("unit","Satyr")
 			this.effCost *= 0.5
-			if (verbose) print(`Adding Satyr-only multiplier of 0.5. New cost: ${this.effCost}`)
+			if (verbose) console.log(`Adding Satyr-only multiplier of 0.5. New cost: ${this.effCost}`)
 		}
 		
 		this.rarity = "Epic"
@@ -627,8 +600,8 @@ class Card {
 			var foundState = 0
 			var target = ""
 			var char = ""
-			for (let i=0; i<this.effect.length; i++) {
-				char = this.effect[i]
+			for (let i=0; i<this.ability.length; i++) {
+				char = this.ability[i]
 				if (char == '{') {
 					foundState = 1
 				}
@@ -669,28 +642,28 @@ class Card {
 				})
 			}
 			
-			var targetSlot = rchoice(valid)
+			var targetSlot = arrayRandom(valid)
 			
-			this.effect = this.effect.replace("{"+target+"}",targetSlot.part1)
-			this.effect = this.effect.replace("{"+target+"2}",targetSlot.part2)
+			this.ability = this.ability.replace("{"+target+"}",targetSlot.part1)
+			this.ability = this.ability.replace("{"+target+"2}",targetSlot.part2)
 			this.effCost *= targetSlot.cost
-			if (verbose) {print(`Adding {target} multiplier of {targetSlot.cost}. New cost: {this.effCost}`)}
+			if (verbose) {console.log(`Adding {target} multiplier of {targetSlot.cost}. New cost: {this.effCost}`)}
 		}
 	}
 
 	getName() {
 		names.forEach((nameList) => {
-			if (nameList[0] == this.tribe.name) {
-				this.firstName = rchoice(nameList[1])
-				this.lastName = rchoice(nameList[2])
+			if (nameList[0] == this.race.name) {
+				this.firstName = arrayRandom(nameList[1])
+				this.lastName = arrayRandom(nameList[2])
 			}
 		})
 	}
 	
 	getImageID() {
-		var imageKey = ["construct","frostling","knight","pirate","raven","rodent","satyr","toad","undead","dwarf","dragon","feline"]
+		var imageKey = ["construct","frostling","knight","pirate","raven","rodent","satyr","toad","undead","dwarf","dragon",null,"feline"]
 		for(var i=0; i<imageKey.length; i++) {
-			if (imageKey[i] == this.tribe.name) {
+			if (imageKey[i] == this.race.name) {
 				return "T"+(i+1).toString()
 			}
 		}
@@ -698,11 +671,11 @@ class Card {
 	}
 	
 	printCard() {
-		this.effect = this.effect.replace("	"," ")
+		this.ability = this.ability.replace("	"," ")
 		console.log(`${this.firstName} ${this.lastName}`)
-		console.log(`${this.mana+Math.floor(this.effCost)} mana - ${this.tribe.name} ${this.subtribe}`)
-		console.log(`|	${this.str} / ${this.mov}`)
-		console.log("| " + this.effect)
+		console.log(`${this.mana+Math.floor(this.effCost)} mana - ${this.race.name} ${this.subrace}`)
+		console.log(`|	${this.strength} / ${this.movement}`)
+		console.log("| " + this.ability)
 		console.log(`${this.faction} - ${this.rarity}`)
 		if (verbose) {console.log(`Actual cost: ${this.mana}+${this.effCost}`)}
 	}
@@ -711,25 +684,20 @@ class Card {
 const randomizeCard = () => {
 	var card = new Card()
 	card.generate()
-	var ancientValue = false
-	var elderValue = false
-	if (card.subtribe == "ancient") {ancientValue = true}
-	if (card.subtribe == "elder") {elderValue = true}
-	var imageID = card.getImageID()
 	return {
 		type: 'unit',
-		race: card.tribe.name,
+		race: card.race.name,
 		rarity: card.rarity.toLowerCase(),
 		faction: card.faction.toLowerCase(),
-	name: card.firstName + "" + card.lastName,
-	//imageCardId: "Token " + card.tribe.name[0].toUpperCase() + card.tribe.name.substring(1),
+	name: card.firstName + card.lastName,
+	//imageCardId: "Token " + card.race.name[0].toUpperCase() + card.race.name.substring(1),
 	mana: (card.mana + Math.floor(card.effCost)).toString(),
-	strength: card.str.toString(),
-	movement: card.mov.toString(),
-	ability: card.effect,
-	imageCardId: imageID,
-	ancient: ancientValue,
-	elder: elderValue
+	strength: card.strength.toString(),
+	movement: card.movement.toString(),
+	ability: card.ability,
+	imageCardId: card.getImageID(),
+	ancient: card.subrace == "ancient",
+	elder: card.subrace == "elder"
 	}
 }
 
