@@ -50,7 +50,7 @@ const useDeckBuilder = props => {
   )
 
   // eslint-disable-next-line
-  React.useEffect(() => router.replace(path), [path])
+  React.useEffect(() => router.replace(path, null, { scroll: false }), [path])
 
   React.useEffect(
     () =>

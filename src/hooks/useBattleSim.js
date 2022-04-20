@@ -187,8 +187,9 @@ const useBattleSim = props => {
       sim.cards
     )
 
-    if (id === DEFAULT_ID) router.replace('/simulators/battle')
-    else router.replace('/simulators/battle/' + id)
+    if (id === DEFAULT_ID)
+      router.replace('/simulators/battle', null, { scroll: false })
+    else router.replace('/simulators/battle/' + id, null, { scroll: false })
 
     // If the update was caused by an undo, do not add a new entry into the
     // history and simply mark undo as `false` for the next state update
@@ -324,7 +325,7 @@ const useBattleSim = props => {
       })
     }
 
-  const onCellClick = (x, y) => event => {
+  const onCellClick = (x, y) => () => {
     const cell = sim.board[x][y]
     const isActiveCell =
       activeCell && x === activeCell[0] && y === activeCell[1]

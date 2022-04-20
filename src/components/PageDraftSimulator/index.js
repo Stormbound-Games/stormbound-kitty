@@ -154,7 +154,7 @@ export default React.memo(function PageDraftSimulator(props) {
       ]
       const deckId = serialization.deck.serialize(deck)
 
-      router.replace(`/simulators/draft/${deckId}`)
+      router.replace(`/simulators/draft/${deckId}`, null, { scroll: false })
     },
     // eslint-disable-next-line
     [props.deck]
@@ -171,7 +171,9 @@ export default React.memo(function PageDraftSimulator(props) {
           <Deck deck={props.deck} highlightedCards={highlightedCards} />
           <DeckActions
             deck={props.deck}
-            reset={() => router.push('/simulators/draft')}
+            reset={() =>
+              router.push('/simulators/draft', null, { scroll: false })
+            }
           />
 
           <Info icon='compass' title='Intro to Draft'>

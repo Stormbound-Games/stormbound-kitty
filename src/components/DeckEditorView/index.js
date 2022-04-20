@@ -172,7 +172,7 @@ export default React.memo(function DeckEditorView(props) {
   React.useEffect(() => {
     if (shouldAdjustDeckToCollection) {
       setOriginalDeckId(deckId)
-      router.push(adjustedRedirectPath)
+      router.push(adjustedRedirectPath, null, { scroll: false })
     }
     // There is no need for `history`, `deckId` and `adjustedRedirectPath` to be
     // passed as dependencies.
@@ -188,7 +188,7 @@ export default React.memo(function DeckEditorView(props) {
 
   React.useEffect(() => {
     if (shouldRestoreOriginalDeck) {
-      router.push(restoredRedirectPath)
+      router.push(restoredRedirectPath, null, { scroll: false })
     }
     // There is no need for `router` and `restoredRedirectPath` to be passed
     // as dependencies.

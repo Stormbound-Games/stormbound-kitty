@@ -64,7 +64,7 @@ export default React.memo(function PageFeaturedDecks(props) {
           ? '/decks?' + querystring.stringify(parameters)
           : '/decks'
 
-      router.replace(path)
+      router.replace(path, null, { scroll: false })
     }
     // eslint-disable-next-line
   }, [query, tags, faction, authorSlug, including])
