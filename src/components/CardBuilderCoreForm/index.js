@@ -41,6 +41,9 @@ export default React.memo(function CardBuilderCoreForm(props) {
             label='Movement'
             id='movement'
             value={props.movement === null ? '' : props.movement}
+            onKeyPress={event =>
+              !/[0-9]/.test(event.key) && event.preventDefault()
+            }
             onChange={event => props.setMovement(event.target.value)}
             required
             disabled={props.type !== 'unit'}
