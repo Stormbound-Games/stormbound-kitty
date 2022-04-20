@@ -7,6 +7,7 @@ import Page from '~/components/Page'
 import CoreForm from '~/components/CardBuilderCoreForm'
 import Notice from '~/components/Notice'
 import LevelForm from '~/components/CardBuilderLevelForm'
+import Link from '~/components/Link'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
@@ -76,9 +77,10 @@ export default React.memo(function PageCardBuilder(props) {
           CTA={<CTA onClick={createRandomCard}>Randomize</CTA>}
         >
           <p>
-            Don’t know where to start? Try the card randomizer from
-            parchmentEngineer. It should generate a relatively balanced card for
-            you to get started! From there, you can tweak it to suit your needs.
+            Don’t know where to start? Try the card randomizer from{' '}
+            <Link to={`/members/parchment-engineer`}>ParchmentEngineer</Link>.
+            It should generate a relatively balanced card for you to get
+            started! From there, you can tweak it to suit your needs.
           </p>
         </Info>
       </Page.Narrow>
