@@ -79,8 +79,7 @@
     "next-sitemap": "^2.5.20",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
-    "svg2png": "^4.1.1",
-    "webpack": "^5.72.0"
+    "svg2png": "^4.1.1"
   },
   "lint-staged": {
     "*.js": [
