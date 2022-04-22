@@ -126,7 +126,7 @@ export default React.memo(function PageFeaturedDecks(props) {
 
   const authorName =
     authorSlug !== '*'
-      ? decks.find(deck => deck.author.slug === authorSlug).author.name
+      ? decks.find(deck => deck.author.slug === authorSlug)?.author.name
       : null
   const author = authorName ? { name: authorName, slug: authorSlug } : null
   const state = {

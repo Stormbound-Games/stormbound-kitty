@@ -8,6 +8,10 @@ import random from '~/helpers/random'
 // Turns on verbose logging, displaying how each card is calculated.
 const verbose = true
 
+function log(...message) {
+  if (verbose) console.log(...message)
+}
+
 // These parameters can be used to limit the types of cards generated.
 // When the filter buttons are added, they will affect these variables.
 
@@ -337,7 +341,7 @@ const slots = [
   new Slot('pirateCondPlay', 'When played immedately after playing another Pirate', '',0.25),
 ]
 
-const slotsShadowfen = [
+const SHADOWFEN_SLOTS = [
   new Slot('targetAny', 'a random poisoned', '[unit]', 0.5),
   new Slot('targetAny', 'poisoned', '[unit]s', 1),
   new Slot('targetAny', 'the weakest', '[unit]', 1),
@@ -381,10 +385,7 @@ const slotsShadowfen = [
   new Slot('condAttack', 'Before attacking a unit with no bordering enemy units', '', 0.5 ),
 ]
 
-const slotsIronclad = [
-  new Slot('targetUnit', 'the closest', '[unit] in front', 1),
-  new Slot('targetUnit', 'the closest', '[unit] behind', 1),
-  new Slot('targetUnit', 'all', '[unit]s in front', 1.5),
+const IRONCLAD_SLOTS = [
 
   new Slot('targetPush', 'a random bordering enemy [unit] away', '', 1),
   new Slot('targetPush', 'bordering enemy [unit]s away', '', 1.25),
@@ -406,7 +407,7 @@ const slotsIronclad = [
   new Slot('condPlay', 'When played bordering a friendly [unit]', '', 0.5),
 ]
 
-const slotsWinter = [
+const WINTER_SLOTS = [
   new Slot('targetAny', 'a random frozen', '[unit]', 0.5),
   new Slot('targetAny', 'frozen', '[unit]s', 1),
   
@@ -437,7 +438,7 @@ const slotsWinter = [
   new Slot('condAttack', 'Before attacking a unit bordering any base', '', 0.5),
 ]
 
-const slotsSwarm = [
+const SWARM_SLOTS = [
   new Slot('forEach', ' for each bordering friendly Saytr', '', 1),
   new Slot('forEach', ' for each surrounding friendly Saytr', '', 1),
   new Slot('forEach', ' for each friendly Saytr', '', 1.25),
@@ -449,59 +450,56 @@ const slotsSwarm = [
   new Slot('condAttack', 'Before attacking the enemy base', '', 0.5),
 ]
 
+const FACTION_SLOTS = {
+  ironclad: IRONCLAD_SLOTS,
+  shadowfen: SHADOWFEN_SLOTS,
+  swarm: SWARM_SLOTS,
+  winter: WINTER_SLOTS,
+}
+
 // prettier-ignore
-const NAMES = [
-  [
-    'knight',
+const NAMES = {
+  knight: [
     ['Gifted', 'Bonded', 'Fierce', 'Terrific', 'Warfront', 'Heroic', 'Victorious', 'Veteran', 'Regal', 'Soverign', 'Champion', 'Trained', 'Glorious', 'Gallant'],
     ['Recruits', 'Slayers', 'Runners', 'Soliders', 'Champions', 'Guardians', 'Couriers', 'Combatants', 'Templars', 'Paladins', 'Squires'],
   ],
-  [
-    'raven',
+  raven: [
     ['Dubious', 'Faithless', 'Hunting', 'Wetland', 'Entwined', 'Wild', 'Feral', 'Avian', 'Blood', 'Untamed', 'Feathered', 'Flocking', 'Corvid', 'Soulless', 'Occult', 'Plumed'],
     ['Hags', 'Prophets', 'Harpies', 'Deceivers', 'Witches', 'Shamans', 'Ministers', 'Cultists', 'Stalkers', 'Augurs', 'Conjurers', 'Harbringers', 'Omens'],
   ],
-  [
-    'toad',
+  toad: [
     ['Brood', 'Copperskin', 'Crimson', 'Lime', 'Azure', 'Obsidian', 'Plagued', 'Hairy', 'Salty', 'Vermilion', 'Viridian', 'Scarlet', 'Malachite', 'Amber', 'Rusthide'],
     ['Sages', 'Rangers', 'Sentries', 'Troopers', 'Hatchers', 'Butchers', 'Chestnuts', 'Tadpoles', 'Polliwogs', 'Sycophants', 'Amphibians', 'Leapers'],
   ],
-  [
-    'frostling',
+  frostling: [
     ['Frosty', 'Fel', 'Orgone', 'Wisp', 'Blizzard', 'Chilled', 'Dawn', 'Iced', 'Calming'],
     ['Hexers', 'Flakes', 'Flares', 'Leechers', 'Clouds', 'Bombs', 'Stonemanes', 'Sparks', 'Droplings', 'Visions', 'Spirits', 'Channelers'],
   ],
-  [
-    'dwarf',
+  dwarf: [
     ['Myst', 'Snow', 'Rock', 'Hearth', 'Wolf', 'Earth', 'Sleet', 'Chill', 'Hail', 'Frost', 'Ore', 'Shale', 'Stone', 'Helm'],
     ['wives', 'masons', 'workers', 'guards', 'cloaks', 'fathers', 'menders', 'stompers', 'beards', 'smiths', 'forgers', 'singers'],
   ],
-  [
-    'rodent',
+  rodent: [
     ['Ozone', 'Sound', 'Absorbing', 'Windy', 'Chaotic', 'Armed', 'Booming', 'Mechanical', 'Crazy'],
     ['Lackeys', 'Purifiers', 'Drivers', 'Varmints', 'Minions', 'Launchers', 'Chargers', 'Agents', 'Pupils', 'Schemers', 'Professors', 'Officers', 'Workers', 'Bombers'],
   ],
-  [
-    'construct',
+  construct: [
     ['Function', 'Linked', 'Finite', 'Scrapped', 'Debug', 'Projected', 'Plated', 'Oxidized', 'Sleek', 'Automated', 'Hardwired', 'Boolean', 'Software', 'Motorized', 'Analog', 'Zinc'],
     ['Prototypes', 'Golems', 'Loopers', 'Servers', 'Planners', 'Loggers', 'Automatons', 'Apparati', 'Engines', 'Androids', 'Chassis'],
   ],
-  [
-    'satyr',
+  satyr: [
     ['Lawless', 'Restless', 'Mindless', 'Pan', 'Wasteland', 'Desolate', 'Arid', 'Collective', 'Horned'],
     ['Herd', 'Goats', 'Companions', 'Horde', 'Shepards', 'Heralds', 'Bucks', 'Fawns', 'Rams'],
   ],
-  [
-    'undead',
+  undead: [
     ['Forgotten', 'Shady', 'Mischevious', 'Petrified', 'Grim', 'Vindicative', 'Lasting', 'Feindish', 'Spectral', 'Graven', 'Accursed', 'Afflicted'],
     ['Regrets', 'Souls', 'Ghouls', 'Liches', 'Summoners', 'Fossils', 'Couriers', 'Harvesters', 'Martyrs', 'Remains', 'Misgivings', 'Laments'],
   ],
-  [
-    'pirate',
+  pirate: [
     ['Northsea', 'Westwind', 'Cabin', 'Bluesail', 'Lucky', 'Seasick', 'Starboard', 'Nautical', 'Seafairing', 'Abyssal'],
     ['Dogs', 'Mutineers', 'Looters', 'Sailors', 'Privaters', 'Captains', 'Raiders', 'Swindlers', 'Charmers', 'Bouncers', 'Marines', 'Swabs', 'Navigators'],
   ],
-]
+}
 
 const STATLINES_NONE = [
   ["2","4","5","7","8","10","11","13"],
@@ -651,10 +649,10 @@ class Card {
             this.ability.includes('weaker')))
 
       if (!reroll) break
-      if (verbose) console.log('Rerolling effect\n')
+      log('Rerolling effect\n')
     }
 
-    this.getName()
+    this.defineName()
   }
 
   getRace() {
@@ -727,11 +725,8 @@ class Card {
 
     // Conditional triggers:
     if (this.ability.includes('On play') && random(1, 3) === 1) {
-      if (this.race.name === 'pirate') {
-        this.ability = this.ability.replace('On play', '{pirateCondPlay}')
-      } else {
-        this.ability = this.ability.replace('On play', '{condPlay}')
-      }
+      const token = this.race.name === 'pirate' ? 'pirateCondPlay' : 'condPlay'
+      this.ability = this.ability.replace('On play', `{${token}}`)
     }
     if (this.ability.includes('Before attacking') && random(1, 3) === 1) {
       this.ability = this.ability.replace('Before attacking', '{condAttack}')
@@ -795,60 +790,44 @@ class Card {
     } else {
       this.ability = this.ability.replaceAll('[unit]', 'unit')
     }
-    
+
     this.rarity = 'epic'
-    if (this.effCost % 1 < 0.66) {
-      this.rarity = 'rare'
-    }
-    if (this.effCost % 1 < 0.33) {
-      this.rarity = 'common'
-    }
+    if (this.effCost % 1 < 0.66) this.rarity = 'rare'
+    if (this.effCost % 1 < 0.33) this.rarity = 'common'
   }
 
   fillSlots() {
     while (true) {
-      var target = ""
       const [, target] = this.ability.match(/{([^}]+)}/) || []
+
       if (!target) return
-      console.log(target)
-      
-      const valid = slots.filter(slot => slot.type === target)
-      const factionSlots = {
-        Shadowfen: slotsShadowfen,
-        Swarm: slotsSwarm,
-        Ironclad: slotsIronclad,
-        Winter: slotsWinter,
-      }
 
-      if (this.faction in factionSlots) {
-        valid.push(
-          ...factionSlots[this.faction].filter(slot => slot.type === target)
-        )
+      const matchesTarget = slot => slot.type === target
+      const validSlots = slots.filter(matchesTarget)
+
+      if (this.faction in FACTION_SLOTS) {
+        validSlots.push(...FACTION_SLOTS[this.faction].filter(matchesTarget))
       }
       
 
-      const targetSlot = arrayRandom(valid)
+      const targetSlot = arrayRandom(validSlots)
 
+      this.effCost *= targetSlot.cost
       this.ability = this.ability
         .replace('{' + target + '}', targetSlot.part1)
         .replace('{' + target + '2}', targetSlot.part2)
-      this.effCost *= targetSlot.cost
 
-      if (verbose) {
-        console.log(
-          `Adding ${target} multiplier of ${targetSlot.cost}. New cost: ${this.effCost}`
-        )
-      }
+      log(
+        `Adding ${target} multiplier of ${targetSlot.cost}. New cost: ${this.effCost}`
+      )
     }
   }
 
-  getName() {
-    NAMES.filter(([race]) => race === this.race.name).forEach(
-      ([, firstNames, lastNames]) => {
-        this.firstName = arrayRandom(firstNames)
-        this.lastName = arrayRandom(lastNames)
-      }
-    )
+  defineName() {
+    const [firstNames, lastNames] = NAMES[this.race.name]
+
+    this.firstName = arrayRandom(firstNames)
+    this.lastName = arrayRandom(lastNames)
   }
 
   getImageID() {
@@ -879,41 +858,29 @@ class Card {
     }
   }
 
-  printCard() {
-    this.ability = this.ability.replace('  ', ' ')
-    console.log(`${this.firstName} ${this.lastName}`)
-    console.log(
-      `${this.mana + Math.floor(this.effCost)} mana - ${this.race.name} ${
-        this.subrace
-      }`
-    )
-    console.log(`|  ${this.strength} / ${this.movement}`)
-    console.log('| ' + this.ability)
-    console.log(`${this.faction} - ${this.rarity}`)
-    if (verbose) {
-      console.log(`Actual cost: ${this.mana}+${this.effCost}`)
+  toObject() {
+    return {
+      type: this.type.toLowerCase(),
+      race: this.race.name,
+      rarity: this.rarity,
+      faction: this.faction,
+      name: this.firstName + (this.race.name === 'dwarf' ? '' : ' ') + this.lastName,
+      mana: (this.mana + Math.floor(this.effCost)).toString(),
+      strength: this.strength.toString(),
+      movement: this.movement.toString(),
+      ability: this.ability,
+      imageCardId: this.getImageID(),
+      ancient: this.subrace === 'ancient',
+      elder: this.subrace === 'elder',
     }
   }
 }
 
 const randomizeCard = () => {
   const card = new Card()
-  card.generate()
 
-  return {
-    type: card.type.toLowerCase(),
-    race: card.race.name,
-    rarity: card.rarity.toLowerCase(),
-    faction: card.faction.toLowerCase(),
-    name: card.firstName + (card.race.name === 'dwarf' ? '' : ' ') + card.lastName,
-    mana: (card.mana + Math.floor(card.effCost)).toString(),
-    strength: card.strength.toString(),
-    movement: card.movement.toString(),
-    ability: card.ability,
-    imageCardId: card.getImageID(),
-    ancient: card.subrace === 'ancient',
-    elder: card.subrace === 'elder',
-  }
+  card.generate()
+  return card.toObject()
 }
 
 export default randomizeCard
