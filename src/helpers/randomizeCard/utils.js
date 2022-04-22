@@ -13,7 +13,7 @@ export class Race {
   }
 
   addEffects(effectList) {
-    effectList.forEach((effect) => {
+    effectList.forEach(effect => {
       this.abilities.push(effect)
     })
   }

@@ -38,7 +38,7 @@ export const RACES_SPELLS = [
   SPELL_SHADOWFEN,
   SPELL_IRONCLAD,
   SPELL_WINTER,
-  SPELL_SWARM
+  SPELL_SWARM,
 ]
 
 export const RACES_STRUCTURES = [STRUCTURE_NEUTRAL]
@@ -194,14 +194,14 @@ export const BASE_SLOTS = [
   new Slot('targetUnit', 'a random surrounding', '[unit]', 1.25),
   new Slot('targetUnit', 'bordering', '[unit]s', 1.5),
   new Slot('targetUnit', 'surrounding', '[unit]s', 1.75),
-  
+
   new Slot('targetAny', 'all', '[unit]s', 2),
   new Slot('targetAny', 'a random', '[unit]', 1),
   new Slot('targetAny', '', '[unit]s bordering your base', 1.25),
   new Slot('targetAny', '', '[unit]s bordering the enemy base', 1.25),
-  
+
   new Slot('targetSpell', 'target', '[unit]', 1.25),
-  
+
   new Slot('targetStructure', 'a random bordering', '[unit]', 1),
   new Slot('targetStructure', 'a random surrounding', '[unit]', 1.25),
   new Slot('targetStructure', 'bordering', '[unit]s', 1.5),
@@ -224,7 +224,7 @@ export const BASE_SLOTS = [
   new Slot('space', 'in front of {targetAny} enemy {targetAny2}', '', 0.75),
   new Slot('space', 'on both sides', '', 1.5),
   new Slot('space', 'on tiles behind', '', 1.75),
-  
+
   new Slot('value', '1', '', 1),
   new Slot('value', '2', '', 2),
   new Slot('value', '3', '', 3),
@@ -236,13 +236,13 @@ export const BASE_SLOTS = [
   new Slot('valueNone', '3', '', 3),
   new Slot('valueNone', '4', '', 4),
   new Slot('valueNone', '5', '', 4.5),
-  
+
   new Slot('valueSlow', '1/1/2/2/3','',1),
   new Slot('valueSlow', '2/2/3/3/4','',2),
   new Slot('valueSlow', '3/3/4/4/5','',3),
   new Slot('valueSlow', '4/4/5/5/6','',4),
   new Slot('valueSlow', '5/5/6/6/7','',4.5),
-  
+
   new Slot('valueFast', '1/2/3/4/5', '', 1),
   new Slot('valueFast', '2/3/4/5/7', '', 2),
   new Slot('valueFast', '3/4/5/6/8', '', 3),
@@ -251,7 +251,7 @@ export const BASE_SLOTS = [
 
   new Slot('lowValue', '1', '', 1),
   new Slot('lowValue', '2', '', 2),
-  
+
   new Slot('valueCostless', '1', '1', 1),
   new Slot('valueCostless', '2', '2', 1),
   new Slot('valueCostless', '3', '3', 1),
@@ -265,19 +265,19 @@ export const BASE_SLOTS = [
   new Slot('forEach', '', '', 1),
   new Slot('forEach', ' for each enemy unit', '', 1.75),
   new Slot('forEach', ' for each other friendly unit', '', 1.5),
-  
+
   new Slot('friendlyAnd', '', '', 1),
   new Slot('friendlyAnd', '', '', 1),
   new Slot('friendlyAnd', ' and vitalize it', '', 1),
   new Slot('friendlyAnd', '. Deal {value} damage to enemy units bordering it', '', 1.25),
   new Slot('friendlyAnd', '. Deal {value} damage to enemy units surrounding it', '', 1.5),
-  
+
   new Slot('enemyAnd', '', '', 1),
   new Slot('enemyAnd', '', '', 1),
   new Slot('enemyAnd', ', then deal {value} damage spread among enemies surrounding it', '', 0.75),
   new Slot('enemyAnd', ' and disable its ability', '', 1.25),
   new Slot('enemyAnd', ' and teleport the strongest friendly unit to the tile in front of it', '', 1),
-  
+
   new Slot('structureThen', '', '', 1),
   new Slot('structureThen', '', '', 1),
   new Slot('structureThen', '. Then, destroy this structure', '', 0.25),
@@ -292,8 +292,8 @@ export const BASE_SLOTS = [
 
   new Slot('template', 'value', 'value', 1),
 
-  new Slot('pirateForEach', ' for each Pirate in your hand', '', 1.5), 
-  new Slot('pirateForEach', ' for each card in your hand that costs more than this card', '', 1.75 ), 
+  new Slot('pirateForEach', ' for each Pirate in your hand', '', 1.5),
+  new Slot('pirateForEach', ' for each card in your hand that costs more than this card', '', 1.75 ),
   new Slot('pirateForEach', ' for each card in your hand that costs less than this card', '', 1.75 ),
   new Slot('pirateForEach', ' for each friendly Pirate', '', 1.25),
 
@@ -309,7 +309,7 @@ export const SHADOWFEN_SLOTS = [
   new Slot('targetAny', 'poisoned', '[unit]s', 1),
   new Slot('targetAny', 'the weakest', '[unit]', 1),
   new Slot('targetAny', 'the strongest', '[unit]', 1),
-  
+
   new Slot('targetUnit', 'weaker', '[unit]s', 1.25),
   new Slot('targetUnit', 'stronger', '[unit]s', 1.75),
 
@@ -321,14 +321,14 @@ export const SHADOWFEN_SLOTS = [
   new Slot('condition', 'weaker than this unit', '', 1),
   new Slot('condition', 'with the lowest strength among all units', '', 1),
   new Slot('condition', 'not bordering another enemy unit', '', 1),
-  
+
   new Slot('friendlyAnd', '. Poison enemy units surrounding it', '', 1.25),
-  
+
   new Slot('enemyAnd', '. Then, if it has {value} or less strength, convert it', '', 1),
   new Slot('enemyAnd', ' and poison it', '', 1.25),
   new Slot('enemyAnd', '. If it dies, {deathEffect}', '', 0.75),
   new Slot('enemyAnd', '. If it dies, {deathEffect}', '', 0.75),
-  
+
   new Slot('deathEffect', 'deal {value} damage to all enemies bordering it', '', 0.75),
   new Slot('deathEffect', 'deal {value} damage to all enemies surrounding it', '', 0.75),
   new Slot('deathEffect', 'poison all enemy units bordering it', '', 1.25),
@@ -350,7 +350,6 @@ export const SHADOWFEN_SLOTS = [
 
 // prettier-ignore
 export const IRONCLAD_SLOTS = [
-
   new Slot('targetPush', 'a random bordering enemy [unit] away', '', 1),
   new Slot('targetPush', 'bordering enemy [unit]s away', '', 1.25),
   new Slot('targetPush', 'the [unit] in front away', '', 1),
@@ -367,7 +366,7 @@ export const IRONCLAD_SLOTS = [
   new Slot('valueHigh', '7', '', 6),
   new Slot('valueHigh', '8', '', 6),
   new Slot('valueHigh', '9', '', 7),
-  
+
   new Slot('condPlay', 'When played bordering a friendly [unit]', '', 0.5),
 ]
 
@@ -375,7 +374,7 @@ export const IRONCLAD_SLOTS = [
 export const WINTER_SLOTS = [
   new Slot('targetAny', 'a random frozen', '[unit]', 0.5),
   new Slot('targetAny', 'frozen', '[unit]s', 1),
-  
+
   new Slot('targetSpell', 'target', '[unit] with {valueNone} or less strength', 0.25),
 
   new Slot('forEach', ' for each bordering frozen enemy unit', '', 1),
@@ -387,11 +386,11 @@ export const WINTER_SLOTS = [
   new Slot('forEach', ' for each surrounding friendly unit', '', 1),
   new Slot('forEach', ' for each enemy unit bordering your base', '', 0.5),
   new Slot('forEach', ' for every {valueCostless} unspent mana', '', 1),
-  
+
   new Slot('friendlyAnd', '. Then, if it has {valueCostless} or less strength, give it {value} strength', '', 0.75),
   new Slot('friendlyAnd', '. Then, if it has {valueCostless} or more strength, all units take {valueCostless2} damage', '', 0.75),
   new Slot('friendlyAnd', ' and freeze enemy units surrounding it', '', 1.5),
-  
+
   new Slot('enemyAnd', '', ' and freeze it', 1.25),
   new Slot('enemyAnd', '', '. Freeze it and all enemy units bordering it', 1.5),
 
@@ -408,7 +407,7 @@ export const SWARM_SLOTS = [
   new Slot('forEach', ' for each bordering friendly Saytr', '', 1),
   new Slot('forEach', ' for each surrounding friendly Saytr', '', 1),
   new Slot('forEach', ' for each friendly Saytr', '', 1.25),
-  
+
   new Slot('friendlyAnd', ' and command it forwards', '', 1.25),
 
   new Slot('condPlay', 'When played with 2 or more bordering friendly [unit]s', '', 0.25 ),
@@ -416,7 +415,6 @@ export const SWARM_SLOTS = [
   new Slot('condAttack', 'Before attacking the enemy base', '', 0.5),
 ]
 
-// prettier-ignore
 export const FACTION_SLOTS = {
   ironclad: IRONCLAD_SLOTS,
   shadowfen: SHADOWFEN_SLOTS,
@@ -477,93 +475,21 @@ export const STATLINES_NONE = [
   ["2","4","5","7","8","10","11","13"],
   ["1","2","3","5","6","8","9","11"],
   ["0","1","2","3","4","5","6","7"],
-  ["0","0","1","2","3","4","5","6"]  
+  ["0","0","1","2","3","4","5","6"]
 ]
 
 // prettier-ignore
 export const STATLINES_SLOW = [
-  [
-    "2/3/3/4/4",
-    "4/5/5/6/6",
-    "5/6/6/7/8",
-    "7/8/9/10/11",
-    "8/9/10/11/13",
-    "10/11/12/14/16",
-    "11/13/15/17/19",
-    "13/15/17/20/24"
-  ],
-  [
-    "1/2/2/3/3",
-    "2/3/3/4/4",
-    "3/4/4/5/5",
-    "5/6/6/7/8",
-    "7/8/9/10/11",
-    "8/9/10/11/13",
-    "10/11/12/14/16",
-    "12/14/16/19/23"
-  ],
-  [
-    "0/0/0/0/0",
-    "1/2/2/3/3",
-    "2/3/3/4/4",
-    "3/4/4/5/5",
-    "4/5/5/6/6",
-    "5/6/6/7/8",
-    "6/7/7/8/9",
-    "7/8/8/9/10"
-  ],
-  [
-    "0/0/0/0/0",
-    "0/0/0/0/0",
-    "1/2/2/3/3",
-    "2/3/3/4/4",
-    "3/4/4/5/5",
-    "4/5/5/6/6",
-    "5/6/6/7/8",
-    "6/7/7/8/9",
-  ]
+  ["2/3/3/4/4", "4/5/5/6/6", "5/6/6/7/8", "7/8/9/10/11", "8/9/10/11/13", "10/11/12/14/16", "11/13/15/17/19", "13/15/17/20/24"],
+  ["1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5", "5/6/6/7/8", "7/8/9/10/11", "8/9/10/11/13", "10/11/12/14/16", "12/14/16/19/23"],
+  ["0/0/0/0/0", "1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5", "4/5/5/6/6", "5/6/6/7/8", "6/7/7/8/9", "7/8/8/9/10"],
+  ["0/0/0/0/0", "0/0/0/0/0", "1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5", "4/5/5/6/6", "5/6/6/7/8", "6/7/7/8/9"],
 ]
 
 // prettier-ignore
 export const STATLINES_FAST = [
-  [
-    "2/3/4/5/6",
-    "4/5/6/7/8",
-    "5/6/7/8/10",
-    "7/8/10/12/14",
-    "8/10/12/15/18",
-    "10/13/16/20/24",
-    "11/15/19/23/28",
-    "13/17/21/25/30"
-  ],
-  [
-    "1/2/3/4/5",
-    "2/3/4/5/6",
-    "3/4/5/6/8",
-    "5/6/7/8/10",
-    "7/8/10/12/15",
-    "8/10/12/15/18",
-    "10/13/16/20/24",
-    "12/16/20/24/28"
-  ],
-  [
-    "0/0/0/0/0",
-    "1/2/3/4/5",
-    "2/3/4/5/6",
-    "3/4/5/6/7",
-    "4/5/6/7/8",
-    "5/6/7/8/10",
-    "6/7/8/10/12",
-    "7/8/10/12/14"
-  ],
-  [
-    "0/0/0/0/0",
-    "0/0/0/0/0",
-    "1/2/3/4/5",
-    "2/3/4/5/6",
-    "3/4/5/6/7",
-    "4/5/6/7/8",
-    "5/6/7/9/11",
-    "6/7/8/10/12"
-  ]
+  ["2/3/4/5/6", "4/5/6/7/8", "5/6/7/8/10", "7/8/10/12/14", "8/10/12/15/18", "10/13/16/20/24", "11/15/19/23/28", "13/17/21/25/30"],
+  ["1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/8", "5/6/7/8/10", "7/8/10/12/15", "8/10/12/15/18", "10/13/16/20/24", "12/16/20/24/28"],
+  ["0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/7", "4/5/6/7/8", "5/6/7/8/10", "6/7/8/10/12", "7/8/10/12/14"],
+  ["0/0/0/0/0", "0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/7", "4/5/6/7/8", "5/6/7/9/11", "6/7/8/10/12"],
 ]
