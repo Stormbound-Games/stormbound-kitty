@@ -242,12 +242,9 @@ class Card {
       if (!target) return
 
       const matchesTarget = slot => slot.type === target
-      const validSlots = BASE_SLOTS.filter(matchesTarget)
-
-      if (this.faction in FACTION_SLOTS) {
-        validSlots.push(...FACTION_SLOTS[this.faction].filter(matchesTarget))
-      }
-
+      const factionSlots = FACTION_SLOTS[this.faction] || []
+      const allSlots = [...BASE_SLOTS, ...factionSlots]
+      const validSlots = allSlots.filter(matchesTarget)
       const targetSlot = arrayRandom(validSlots)
 
       this.effCost *= targetSlot.cost
