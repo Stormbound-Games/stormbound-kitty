@@ -11,7 +11,7 @@ const formula = 'f(w) = ⌊ w × 1.6 + 1'
 const output = path.resolve('./drawing_formula.png')
 
 generateFormulaImage(formula, output)
-  .then(() => console.log('Success'))
+  .then(() => console.log(formula, 'written at', output))
   .catch(() => console.error('Failure'))
 ```
 

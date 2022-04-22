@@ -13,12 +13,18 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const isOfficial = cardId in indexArray(settings.cards)
   const breadcrumbs = ['TOOLS', 'BUILDERS', 'CARD_BUILDER']
 
-  if (
-    (view && view !== 'display') ||
-    // If the path is `/card/official`, it falls onto this route handler and
-    // should yield a 404 since the ID is missing.
-    cardId === 'official'
-  ) {
+  // If the path is `/card/official`, it falls onto this route handler and
+  // should redirect to the first card of the official collection.
+  if (cardId === 'official') {
+    return {
+      redirect: {
+        destination: `/card/official/${settings.cards[0].id}`,
+        permanent: false,
+      },
+    }
+  }
+
+  if (view && view !== 'display') {
     return { notFound: true }
   }
 
