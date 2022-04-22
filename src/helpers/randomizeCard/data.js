@@ -43,12 +43,14 @@ export const RACES_SPELLS = [
 
 export const RACES_STRUCTURES = [STRUCTURE_NEUTRAL]
 
+// prettier-ignore
 KNIGHT.addEffects([
   new Effect('spawn a Knight with {value} strength {space}{friendlyAnd}', [3, 0, 1, 1, 1], 1),
   new Effect('deal {value} damage to {targetUnit} enemy {targetUnit2}{forEach}',[1, 0, 3, 1, 1],0.75),
   new Effect('deal {value} damage to {targetUnit} enemy {targetUnit2}{enemyAnd}',[1, 0, 3, 1, 1],0.75)
 ])
 
+// prettier-ignore
 PIRATE.addEffects([
   new Effect('gain {value} strength{pirateForEach}', [3, 0, 3, 3, 3], 0.75),
   new Effect('replace a random non-pirate card from your hand', [3, 3, 3, 3, 3], 0.5),
@@ -60,6 +62,7 @@ PIRATE.addEffects([
   new Effect('deal {value} damage to {targetUnit} enemy {targetUnit2}{pirateForEach}', [3, 0, 3, 3, 3], 0.75)
 ])
 
+// prettier-ignore
 FELINE.addEffects([
   new Effect('gain {lowValue} speed{forEach}', [3, 0, 0, 0, 0], 1.25),
   new Effect('confuse itself', [3, 0, 0, 3, 0], -0.75),
@@ -68,6 +71,7 @@ FELINE.addEffects([
   new Effect('force {targetUnit} enemy {targetUnit2} to attack a random bordering enemy', [3, 3, 3, 3, 3], 1)
 ])
 
+// prettier-ignore
 RAVEN.addEffects([
   new Effect('convert {targetUnit} enemy {targetUnit2} {condition}', [3, 1, 1, 1, 1], 2),
   new Effect('destroy {targetUnit} enemy {targetUnit2} {condition}', [1, 1, 3, 1, 1], 1.5 ),
@@ -75,6 +79,7 @@ RAVEN.addEffects([
   new Effect('drain {value} strength from {targetUnit} {targetUnit2}', [1, 0, 3, 1, 1], 1.25 )
 ])
 
+// prettier-ignore
 TOAD.addEffects([
   new Effect('poison {targetUnit} friendly {targetUnit2}', [3, 1, 1, 1, 1], -0.5),
   new Effect('poison itself', [3, 0, 0, 0, 0], -0.75),
@@ -87,6 +92,7 @@ TOAD.addEffects([
   new Effect('deal {value} damage to {targetUnit} enemy {targetUnit2}{enemyAnd}', [3, 3, 3, 3, 3], 0.75 )
 ])
 
+// prettier-ignore
 RODENT.addEffects([
   new Effect('push {targetPush}', [3, 3, 3, 3, 3], 0.5),
   new Effect('pull {targetPull}', [3, 0, 3, 3, 3], 0.5),
@@ -98,6 +104,7 @@ RODENT.addEffects([
   new Effect('deal {valueHigh} damage spread randomly among {targetSpread}', [3, 3, 3, 3, 3], 0.75 )
 ])
 
+// prettier-ignore
 CONSTRUCT.addEffects([
   new Effect('give {value} strength to {targetUnit} friendly {targetUnit2}{forEach}', [3, 3, 3, 3, 3], 1 ),
   new Effect('give {value} strength to {targetUnit} friendly {targetUnit2}{friendlyAnd}', [3, 3, 3, 3, 3], 1 ),
@@ -107,6 +114,7 @@ CONSTRUCT.addEffects([
   new Effect('spawn a Construct with {value} strength {space}{friendlyAnd}', [0, 3, 3, 3, 3], 1 )
 ])
 
+// prettier-ignore
 FROSTLING.addEffects([
   new Effect('freeze itself', [1, 0, 0, 1, 0], -0.75),
   new Effect('freeze {targetUnit} friendly {targetUnit2}', [1, 1, 1, 1, 1], -0.75),
@@ -117,6 +125,7 @@ FROSTLING.addEffects([
   new Effect('gain {value} mana{forEach}', [3, 0, 3, 0, 3], 1)
 ])
 
+// prettier-ignore
 DWARF.addEffects([
   new Effect('gain {value} strength{forEach}', [3, 0, 3, 3, 3], 0.75),
   new Effect('give {value} strength to {targetUnit} friendly {targetUnit2}{forEach}', [3, 3, 3, 3, 3], 0.75 ),
@@ -124,6 +133,7 @@ DWARF.addEffects([
   new Effect('lose {valueNone} strength{forEach}', [0, 0, 3, 3, 3], -0.5),
 ])
 
+// prettier-ignore
 UNDEAD.addEffects([
   new Effect('spawn an Undead with {value} strength {space}{friendlyAnd}', [3, 3, 3, 3, 3], 1 ),
   new Effect('deal {value} damage to the enemy base', [3, 3, 3, 3, 3], 1),
@@ -131,6 +141,7 @@ UNDEAD.addEffects([
   new Effect('give {value} strength to {targetUnit} friendly {targetUnit2}{forEach} and command it forward', [3, 3, 3, 3, 3], 1 )
 ])
 
+// prettier-ignore
 SATYR.addEffects([
   new Effect('spawn a Satyr with {value} strength {space}{friendlyAnd}', [3, 0, 3, 3, 3], 1),
   new Effect('give {value} strength to {targetUnit} friendly {targetUnit2}{forEach}', [3, 3, 3, 3, 3], 0.75 ),
@@ -139,38 +150,45 @@ SATYR.addEffects([
   new Effect('deal {valueNone} damage to your base', [3, 3, 3, 3, 3], -1),
 ])
 
+// prettier-ignore
 SPELL_NEUTRAL.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
   new Effect('spawn a friendly Knight with {valueFast} stregnth {space}{friendlyAnd}', [], 1)
 ])
 
+// prettier-ignore
 SPELL_SHADOWFEN.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
 ])
 
+// prettier-ignore
 SPELL_IRONCLAD.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
 ])
 
+// prettier-ignore
 SPELL_WINTER.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
 ])
 
+// prettier-ignore
 SPELL_SWARM.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
 ])
 
+// prettier-ignore
 STRUCTURE_NEUTRAL.addEffects([
   new Effect('give {valueFast} strength to {targetStructure} friendly {targetStructure2}{friendlyAnd}{structureThen}', [], 1),
   new Effect('deal {valueFast} damage to {targetStructure} enemy {targetStructure2}{enemyAnd}{structureThen}', [], 1),
   new Effect('spawn a friendly Knight with {valueFast} stregnth {space}{friendlyAnd}{structureThen}', [], 1)
 ])
 
+// prettier-ignore
 export const BASE_SLOTS = [
   new Slot('targetUnit', 'a random bordering', '[unit]', 1),
   new Slot('targetUnit', 'a random surrounding', '[unit]', 1.25),
@@ -285,6 +303,7 @@ export const BASE_SLOTS = [
   new Slot('pirateCondPlay', 'When played immedately after playing another Pirate', '',0.25),
 ]
 
+// prettier-ignore
 export const SHADOWFEN_SLOTS = [
   new Slot('targetAny', 'a random poisoned', '[unit]', 0.5),
   new Slot('targetAny', 'poisoned', '[unit]s', 1),
@@ -329,6 +348,7 @@ export const SHADOWFEN_SLOTS = [
   new Slot('condAttack', 'Before attacking a unit with no bordering enemy units', '', 0.5 ),
 ]
 
+// prettier-ignore
 export const IRONCLAD_SLOTS = [
 
   new Slot('targetPush', 'a random bordering enemy [unit] away', '', 1),
@@ -347,10 +367,11 @@ export const IRONCLAD_SLOTS = [
   new Slot('valueHigh', '7', '', 6),
   new Slot('valueHigh', '8', '', 6),
   new Slot('valueHigh', '9', '', 7),
-
+  
   new Slot('condPlay', 'When played bordering a friendly [unit]', '', 0.5),
 ]
 
+// prettier-ignore
 export const WINTER_SLOTS = [
   new Slot('targetAny', 'a random frozen', '[unit]', 0.5),
   new Slot('targetAny', 'frozen', '[unit]s', 1),
@@ -382,6 +403,7 @@ export const WINTER_SLOTS = [
   new Slot('condAttack', 'Before attacking a unit bordering any base', '', 0.5),
 ]
 
+// prettier-ignore
 export const SWARM_SLOTS = [
   new Slot('forEach', ' for each bordering friendly Saytr', '', 1),
   new Slot('forEach', ' for each surrounding friendly Saytr', '', 1),
@@ -394,6 +416,7 @@ export const SWARM_SLOTS = [
   new Slot('condAttack', 'Before attacking the enemy base', '', 0.5),
 ]
 
+// prettier-ignore
 export const FACTION_SLOTS = {
   ironclad: IRONCLAD_SLOTS,
   shadowfen: SHADOWFEN_SLOTS,
@@ -449,6 +472,7 @@ export const NAMES = {
   ]
 }
 
+// prettier-ignore
 export const STATLINES_NONE = [
   ["2","4","5","7","8","10","11","13"],
   ["1","2","3","5","6","8","9","11"],
@@ -456,6 +480,7 @@ export const STATLINES_NONE = [
   ["0","0","1","2","3","4","5","6"]  
 ]
 
+// prettier-ignore
 export const STATLINES_SLOW = [
   [
     "2/3/3/4/4",
@@ -499,6 +524,7 @@ export const STATLINES_SLOW = [
   ]
 ]
 
+// prettier-ignore
 export const STATLINES_FAST = [
   [
     "2/3/4/5/6",
