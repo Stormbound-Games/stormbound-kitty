@@ -75,7 +75,9 @@ const useCardBuilder = props => {
           props.mode === 'DISPLAY' ? 'display' : '',
         ]
           .filter(Boolean)
-          .join('/')
+          .join('/'),
+        null,
+        { scroll: false }
       )
     } catch {}
     // eslint-disable-next-line

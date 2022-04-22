@@ -23,11 +23,12 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     fields: '"ref": _id, notes, ' + CARD_FIELDS,
   })
   const settings = await getSiteSettings({ isPreview, cards })
-  const { id: cardId, version: versionId } = params
+  const cardId = params.id.toUpperCase()
+  const versionId = params.version
   const cardsIndex = indexArray(settings.cards)
   const isOfficial = cardId in cardsIndex
 
-  if (!isOfficial) {
+  if (!isOfficial || cardsIndex[cardId].token) {
     return { notFound: true }
   }
 

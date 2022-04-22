@@ -94,7 +94,9 @@ export default React.memo(function PageValueCalculator(props) {
       ['/calculators/value', serialization.cards.serialize([A, B])]
         .filter(Boolean)
         .join('/')
-        .toLowerCase()
+        .toLowerCase(),
+      null,
+      { scroll: false }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [A, B])

@@ -34,7 +34,7 @@ export default React.memo(function PageQuestBuilder(props) {
       !description &&
       difficulty === 1
     )
-      router.replace('/quest')
+      router.replace('/quest', null, { scroll: false })
     else
       router.replace(
         '/quest/' +
@@ -44,7 +44,9 @@ export default React.memo(function PageQuestBuilder(props) {
             name,
             description,
             difficulty,
-          })
+          }),
+        null,
+        { scroll: false }
       )
     // eslint-disable-next-line
   }, [currency, amount, name, description, difficulty])

@@ -187,7 +187,9 @@ export default React.memo(function PageBookOpeningSimulator(props) {
 
   React.useEffect(() => {
     router.replace(
-      ['/simulators/books', id].filter(Boolean).join('/').toLowerCase()
+      ['/simulators/books', id].filter(Boolean).join('/').toLowerCase(),
+      null,
+      { scroll: false }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])

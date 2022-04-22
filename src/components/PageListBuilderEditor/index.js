@@ -85,7 +85,9 @@ export default React.memo(function PageListBuilderEditor(props) {
   }, [props.listId, reset])
 
   React.useEffect(() => {
-    router.replace('/list/' + serialization.list.serialize(tiers))
+    router.replace('/list/' + serialization.list.serialize(tiers), null, {
+      scroll: false,
+    })
     // eslint-disable-next-line
   }, [tiers])
 
