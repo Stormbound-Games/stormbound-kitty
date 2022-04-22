@@ -1,24 +1,24 @@
 import { Race, Effect, Slot } from './utils'
 
-const KNIGHT = new Race('knight', 'Neutral', [0, 1, 2])
-const FELINE = new Race('feline', 'Neutral', [0, 1, 2])
-const PIRATE = new Race('pirate', 'Neutral', [0, 1, 2])
-const RAVEN = new Race('raven', 'Shadowfen', [0, 1])
-const TOAD = new Race('toad', 'Shadowfen', [1, 2])
-const RODENT = new Race('rodent', 'Ironclad', [0, 1, 2, 3])
-const CONSTRUCT = new Race('construct', 'Ironclad', [1])
-const FROSTLING = new Race('frostling', 'Winter', [0, 1])
-const DWARF = new Race('dwarf', 'Winter', [1, 2, 3])
-const SATYR = new Race('satyr', 'Swarm', [0, 1, 2])
-const UNDEAD = new Race('undead', 'Swarm', [1, 2, 3])
+const KNIGHT = new Race('knight', 'neutral', [0, 1, 2])
+const FELINE = new Race('feline', 'neutral', [0, 1, 2])
+const PIRATE = new Race('pirate', 'neutral', [0, 1, 2])
+const RAVEN = new Race('raven', 'shadowfen', [0, 1])
+const TOAD = new Race('toad', 'shadowfen', [1, 2])
+const RODENT = new Race('rodent', 'ironclad', [0, 1, 2, 3])
+const CONSTRUCT = new Race('construct', 'ironclad', [1])
+const FROSTLING = new Race('frostling', 'winter', [0, 1])
+const DWARF = new Race('dwarf', 'winter', [1, 2, 3])
+const SATYR = new Race('satyr', 'swarm', [0, 1, 2])
+const UNDEAD = new Race('undead', 'swarm', [1, 2, 3])
 
-const SPELL_NEUTRAL = new Race('other', 'Neutral', [0])
-const SPELL_SHADOWFEN = new Race('other', 'Shadowfen', [0])
-const SPELL_IRONCLAD = new Race('other', 'Ironclad', [0])
-const SPELL_WINTER = new Race('other', 'Winter', [0])
-const SPELL_SWARM = new Race('other', 'Swarm', [0])
+const SPELL_NEUTRAL = new Race('other', 'neutral', [0])
+const SPELL_SHADOWFEN = new Race('other', 'shadowfen', [0])
+const SPELL_IRONCLAD = new Race('other', 'ironclad', [0])
+const SPELL_WINTER = new Race('other', 'winter', [0])
+const SPELL_SWARM = new Race('other', 'swarm', [0])
 
-const STRUCTURE_NEUTRAL = new Race('', 'Neutral', [0])
+const STRUCTURE_NEUTRAL = new Race('', 'neutral', [0])
 
 export const RACES = [
   KNIGHT,
