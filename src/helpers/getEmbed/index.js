@@ -8,7 +8,7 @@ const getEmbed = ({ withHeader = true } = {}) => {
   if (withHeader) {
     embed.setAuthor(
       'Stormbound-Kitty',
-      'https://stormbound-kitty.com/assets/images/kitty.png',
+      'https://cdn.sanity.io/images/5hlpazgd/production/8fb3c0530531a501d9eb31690b684b40d5761c8a-500x364.png',
       'https://stormbound-kitty.com'
     )
   }
