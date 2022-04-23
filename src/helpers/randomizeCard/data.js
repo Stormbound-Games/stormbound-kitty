@@ -391,7 +391,7 @@ export const BASE_SLOTS = [
   new Slot('pirateCondPlay', 'When played as the last card in your hand', '', 0.25 ),
   new Slot('pirateCondPlay', 'When played with a full hand', '', 0.75),
   new Slot('pirateCondPlay', 'When played with another Pirate in your hand', '', 0.5 ),
-  new Slot('pirateCondPlay', 'When played immedately after playing another Pirate', '',0.25),
+  new Slot('pirateCondPlay', 'When played immediately after playing another Pirate', '',0.25),
 ]
 
 // prettier-ignore
