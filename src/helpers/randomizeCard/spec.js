@@ -14,7 +14,16 @@ describe('The `randomizeCard` helper', () => {
     expect(RARITIES).toContain(randomizeCard().rarity)
   })
 
-  it('should return a valid card race', () => {
-    expect(RACES).toContain(randomizeCard().race)
+  it('should return a valid card race for unit cards', () => {
+    expect(RACES).toContain(randomizeCard({ type: 'unit' }).race)
+  })
+
+  it('should return a capitalized ability', () => {
+    const card = randomizeCard()
+    expect(card.ability[0]).toEqual(card.ability[0].toUpperCase())
+  })
+
+  it('should return a name', () => {
+    expect(randomizeCard().name.length).toBeGreaterThan(0)
   })
 })

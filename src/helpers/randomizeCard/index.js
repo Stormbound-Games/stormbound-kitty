@@ -2,6 +2,7 @@ import rwc from 'random-weighted-choice'
 import arrayRandom from '~/helpers/arrayRandom'
 import random from '~/helpers/random'
 import capitalize from '~/helpers/capitalize'
+import { TYPES } from '~/constants/game'
 import {
   RACES_BY_TYPE,
   BASE_SLOTS,
@@ -16,7 +17,7 @@ import { MIN_MANA, MAX_MANA, MAX_EFF_COST, filters } from './constants'
 import { log, fixWording } from './utils'
 
 class Card {
-  constructor() {
+  constructor(filters = {}) {
     this.mana = 0
     this.effCost = 0
     this.effCostMult = 0
@@ -28,14 +29,16 @@ class Card {
     this.ability = ''
     this.rarity = ''
     this.strengthScaling = STATLINES_FAST
-    // Give more prevalence to units as there are significantly more unit
-    // cards than anything else in the game.
-    // See: https://stormbound-kitty.com/stats
-    this.type = rwc([
-      { weight: 5, id: 'Unit' },
-      { weight: 2, id: 'Spell' },
-      { weight: 1, id: 'Structure' },
-    ])
+    this.type = TYPES.includes(filters.type)
+      ? capitalize(filters.type)
+      : // Give more prevalence to units as there are significantly more unit
+        // cards than anything else in the game.
+        // See: https://stormbound-kitty.com/stats
+        rwc([
+          { weight: 5, id: 'Unit' },
+          { weight: 2, id: 'Spell' },
+          { weight: 1, id: 'Structure' },
+        ])
   }
 
   get name() {
@@ -290,8 +293,8 @@ class Card {
   }
 }
 
-const randomizeCard = () => {
-  const card = new Card()
+const randomizeCard = (filters = {}) => {
+  const card = new Card(filters)
 
   card.generate()
   return card.toObject()
