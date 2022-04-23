@@ -3,43 +3,32 @@ import range from '~/helpers/range'
 
 // The 3rd argument passed to the `Race` constructor is the movement range for
 // that specific race.
-const KNIGHT = new Race('knight', 'neutral', range(0, 2), 'T3')
-const FELINE = new Race('feline', 'neutral', range(0, 2), 'T13')
-const PIRATE = new Race('pirate', 'neutral', range(0, 2), 'T4')
-const RAVEN = new Race('raven', 'shadowfen', range(0, 1), 'T5')
-const TOAD = new Race('toad', 'shadowfen', range(1, 2), 'T8')
-const RODENT = new Race('rodent', 'ironclad', range(0, 3), 'T6')
-const CONSTRUCT = new Race('construct', 'ironclad', range(1), 'T1')
-const FROSTLING = new Race('frostling', 'winter', range(0, 1), 'T2')
-const DWARF = new Race('dwarf', 'winter', range(1, 3), 'T10')
-const SATYR = new Race('satyr', 'swarm', range(0, 2), 'T7')
-const UNDEAD = new Race('undead', 'swarm', range(1, 3), 'T9')
+const KNIGHT = new Race('knight', 'neutral', 'T3', range(0, 2))
+const FELINE = new Race('feline', 'neutral', 'T13', range(0, 2))
+const PIRATE = new Race('pirate', 'neutral', 'T4', range(0, 2))
+const RAVEN = new Race('raven', 'shadowfen', 'T5', range(0, 1))
+const TOAD = new Race('toad', 'shadowfen', 'T8', range(1, 2))
+const CONSTRUCT = new Race('construct', 'ironclad', 'T1', range(1))
+const RODENT = new Race('rodent', 'ironclad', 'T6', range(0, 3))
+const DWARF = new Race('dwarf', 'winter', 'T10', range(1, 3))
+const FROSTLING = new Race('frostling', 'winter', 'T2', range(0, 1))
+const SATYR = new Race('satyr', 'swarm', 'T7', range(0, 2))
+const UNDEAD = new Race('undead', 'swarm', 'T9', range(1, 3))
 
-const SPELL_NEUTRAL = new Race('spell_neutral', 'neutral', [0], 'N15')
-const SPELL_SHADOWFEN = new Race('spell_shadowfen', 'shadowfen', [0], 'F11')
-const SPELL_IRONCLAD = new Race('spell_ironclad', 'ironclad', [0], 'I11')
-const SPELL_WINTER = new Race('spell_winter', 'winter', [0], 'W6')
-const SPELL_SWARM = new Race('spell_swarm', 'swarm', [0], 'S20')
+const SPELL_NEUTRAL = new Race('spell_neutral', 'neutral', 'N15')
+const SPELL_SHADOWFEN = new Race('spell_shadowfen', 'shadowfen', 'F11')
+const SPELL_IRONCLAD = new Race('spell_ironclad', 'ironclad', 'I11')
+const SPELL_WINTER = new Race('spell_winter', 'winter', 'W6')
+const SPELL_SWARM = new Race('spell_swarm', 'swarm', 'S20')
 
-const STRUCTURE_NEUTRAL = new Race('structure_neutral', 'neutral', [0], 'N13')
-const STRUCTURE_SHADOWFEN = new Race('structure_shadowfen', 'shadowfen', [0], 'F13')
-const STRUCTURE_IRONCLAD = new Race('structure_ironclad', 'ironclad', [0], 'I14')
-const STRUCTURE_WINTER = new Race('structure_winter', 'winter', [0], 'W9')
-const STRUCTURE_SWARM = new Race('structure_swarm', 'swarm', [0], 'S7')
+const STRUCTURE_NEUTRAL = new Race('structure_neutral', 'neutral', 'N13')
+const STRUCTURE_SHADOWFEN = new Race('structure_shadowfen', 'shadowfen', 'F13')
+const STRUCTURE_IRONCLAD = new Race('structure_ironclad', 'ironclad', 'I14')
+const STRUCTURE_WINTER = new Race('structure_winter', 'winter', 'W9')
+const STRUCTURE_SWARM = new Race('structure_swarm', 'swarm', 'S7')
 
-
-const RACES = [
-  KNIGHT,
-  PIRATE,
-  RAVEN,
-  TOAD,
-  RODENT,
-  CONSTRUCT,
-  FROSTLING,
-  DWARF,
-  SATYR,
-  UNDEAD,
-]
+// prettier-ignore
+const RACES = [KNIGHT, PIRATE, RAVEN, TOAD, RODENT, CONSTRUCT, FROSTLING, DWARF, SATYR, UNDEAD]
 
 const RACES_SPELLS = [
   SPELL_NEUTRAL,
@@ -75,9 +64,9 @@ KNIGHT.addEffects([
 // prettier-ignore
 PIRATE.addEffects([
   new Effect('gain {value} strength{pirateForEach}', [3, 0, 3, 3, 3], 0.75),
-  new Effect('replace a random non-pirate card from your hand', [3, 3, 3, 3, 3], 0.5),
+  new Effect('replace a random non-Pirate card from your hand', [3, 3, 3, 3, 3], 0.5),
   new Effect('replace all cards that cost {valueNone} or less from your hand', [3, 3, 3, 3, 3], 0.25),
-  new Effect('replace a random non-pirate card from your hand. Reduce the cost of the drawn card by {lowValue}{pirateForEach}', [3, 3, 3, 3, 3], 1),
+  new Effect('replace a random non-Pirate card from your hand. Reduce the cost of the drawn card by {lowValue}{pirateForEach}', [3, 3, 3, 3, 3], 1),
   new Effect('discard your hand and gain {lowValue} strength for each card discarded', [3, 0, 3, 3, 3], 1.25),
   new Effect('discard a random non-Pirate card', [3, 3, 3, 3, 3], 0.25),
   new Effect('decrease the cost of a random card in your hand by {lowValue}{pirateForEach}', [3, 3, 3, 3, 3], 0.75),
@@ -190,7 +179,7 @@ SPELL_SHADOWFEN.addEffects([
   new Effect('poison {targetSpell} enemy {targetSpell2}', [], 0.75),
   new Effect('convert {targetSpell} enemy {targetSpell2} {condition}', [], 2),
   new Effect('destroy {targetSpell} enemy {targetSpell2} {condition}', [], 1.5 ),
-  new Effect('Make {targetSpell} friendly {targetSpell2} drain {valueFast} strength from {targetAny} enemy {targetAny2}{friendlyAnd}', [], 1.5),
+  new Effect('make {targetSpell} friendly {targetSpell2} drain {valueFast} strength from {targetAny} enemy {targetAny2}{friendlyAnd}', [], 1.5),
 ])
 
 // prettier-ignore
@@ -307,12 +296,12 @@ export const BASE_SLOTS = [
   new Slot('space', 'in front of {targetAny} enemy {targetAny2}', '', 0.75),
   new Slot('space', 'on both sides', '', 1.5),
   new Slot('space', 'on tiles behind', '', 1.75),
-  
+
   new Slot('spaceSpell', 'a random tile', '', 1),
   new Slot('spaceSpell', 'a random tile on your frontline', '', 1.25),
   new Slot('spaceSpell', 'a random tile bordering your base', '', 1),
   new Slot('spaceSpell', 'a random tile in front of an enemy unit', '', 1),
-  
+
   new Slot('value', '1', '', 1),
   new Slot('value', '2', '', 2),
   new Slot('value', '3', '', 3),
@@ -345,12 +334,12 @@ export const BASE_SLOTS = [
   new Slot('valueCostless', '3', '3', 1),
   new Slot('valueCostless', '4', '4', 1),
   new Slot('valueCostless', '5', '5', 1),
-  
+
   new Slot('valueSelfDmg', '2', '2', 0.75),
   new Slot('valueSelfDmg', '3', '3', 0.6),
   new Slot('valueSelfDmg', '4', '4', 0.5),
   new Slot('valueSelfDmg', '5', '5', 0.4),
-  
+
   new Slot('valueHigh', '5/6/7/9/11', '', 4.5),
   new Slot('valueHigh', '6/7/9/11/13', '', 5),
   new Slot('valueHigh', '7/8/10/12/15', '', 5.5),
@@ -423,7 +412,7 @@ export const SHADOWFEN_SLOTS = [
   new Slot('condition', 'weaker than this unit', '', 1),
   new Slot('condition', 'with the lowest strength among all units', '', 1),
   new Slot('condition', 'not bordering another enemy unit', '', 1),
-  
+
   new Slot('spaceToads', 'on {valueFast} random tiles', '', 1.25),
   new Slot('spaceToads', 'on all tiles bordering {targetAny} friendly {targetAny2}', '', 2.5),
   //new Slot('spaceToads', 'on all tiles behind your frontline', '', 3.5),
@@ -460,7 +449,7 @@ export const SHADOWFEN_SLOTS = [
 export const IRONCLAD_SLOTS = [
   new Slot('targetSpell', 'all', '[unit]s in the same row as target [unit]', 1.75),
   new Slot('targetSpell', 'all', '[unit]s in the same column as target [unit]', 1.75),
-  
+
   new Slot('targetAny', 'all', '[unit]s bordering a friendly structure', 1.25),
   new Slot('targetAny', 'all', '[unit]s surrounding a friendly structure', 1.5),
 
@@ -475,14 +464,14 @@ export const IRONCLAD_SLOTS = [
   new Slot('targetSpread', 'surrounding enemy [unit]s', '', 1),
   new Slot('targetSpread', 'all enemy [unit]s', '', 1.25),
   new Slot('targetSpread', 'enemy [unit]s in front', '', 0.75),
-  
+
   new Slot('friendlyAnd', ' and trigger the effects of all structures surrounding it', '', 1.75),
   new Slot('friendlyAnd', ' and push it towards the enemy base', '', 1.75),
-  
+
   new Slot('enemyAnd', '. All structures surrounding it gain strength equal to the damage dealt', '', 1.25),
   new Slot('enemyAnd', '. If it dies, trigger the effects of all structures surrouding it', '', 1.5),
   new Slot('enemyAnd', ' and push it away from your base', '', 1.25),
-  
+
   new Slot('structureThen', '. Then, deal {valueSelfDmg} damage to this structure', '', 0.5),
 
   new Slot('condPlay', 'When played bordering a friendly [unit]', '', 0.5),
@@ -512,9 +501,9 @@ export const WINTER_SLOTS = [
   new Slot('enemyAnd', ' and freeze it', '', 1.25),
   new Slot('enemyAnd', '. Freeze it and all enemy units bordering it', '', 1.5),
   new Slot('enemyAnd', '. If it dies, your base gains 1 strength', '', 1.5),
-  
+
   new Slot('structureThen', '. Then, spawn a 1 strength copy of this structure on the tile behind', '', 1.25),
-  
+
   new Slot('manaIf', '', 'if this is not the first card you have played this turn', 0.75),
   new Slot('manaIf', '', 'if you have a friendly unit with {valueCostless} or more strength', 0.5),
   new Slot('manaIf', '', 'if you have exactly 1 friendly unit', 0.5),

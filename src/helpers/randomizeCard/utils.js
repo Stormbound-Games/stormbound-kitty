@@ -36,12 +36,12 @@ export function fixWording(ability) {
 }
 
 export class Race {
-  constructor(name, faction, movementRange = [0], img) {
+  constructor(name, faction, image, movementRange = [0]) {
     this.name = name
     this.faction = faction
     this.movementRange = movementRange
     this.abilities = []
-  this.img = img
+    this.image = image
   }
 
   addEffects(effects = []) {

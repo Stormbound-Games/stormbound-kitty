@@ -43,7 +43,6 @@ class Card {
 
   get name() {
     const [firstNames, lastNames] = NAMES[this.race.name]
-
     const firstName = arrayRandom(firstNames)
     const lastName = arrayRandom(lastNames)
     const joint = this.race.name === 'dwarf' ? '' : ' '
@@ -116,8 +115,9 @@ class Card {
     }
 
     if (this.type === 'Structure') {
+      const strengths = ['2/2/3/3/4', '3/3/4/4/5', '4/4/5/5/6', '5/5/6/7/8']
       this.mana = random(2, 5)
-      this.strength = ['2/2/3/3/4','3/3/4/4/5','4/4/5/5/6','5/5/6/7/8'][this.mana - 2]
+      this.strength = strengths[this.mana - 2]
     }
 
     // Make sure not to produce incorrect cards. Only units can move, and spells
@@ -201,7 +201,7 @@ class Card {
       // step every two levels, and none means it doesn’t increase.
       // So if the ability has fast scaling, then the strength of the unit
       // shouldn't increase, and should have none scaling (like how Shady Ghoul
-      // levels up). Likewise if the ability doesn’t change between levels, 
+      // levels up). Likewise if the ability doesn’t change between levels,
       // then the strength should increase at each level.
       if (chance === 1) {
         this.ability = this.ability.replace('{value}', '{valueNone}')
@@ -220,9 +220,9 @@ class Card {
 
     // Deal with unique cases.
     this.ability = fixWording(this.ability)
-  
-  if (this.ability.includes('destroy this structure')) this.effCost -= 2
-  if (this.ability.includes('damage to this structure')) this.effCost -= 2
+
+    if (this.ability.includes('destroy this structure')) this.effCost -= 2
+    if (this.ability.includes('damage to this structure')) this.effCost -= 2
 
     if (random(1, 2) === 1 && this.ability.includes('friendly')) {
       let replaceText = 'unit'
@@ -291,7 +291,7 @@ class Card {
       strength: this.strength.toString(),
       movement: this.movement.toString(),
       ability: capitalize(this.ability),
-      imageCardId: this.race.img,
+      imageCardId: this.race.image,
       ancient: this.subrace === 'ancient',
       elder: this.subrace === 'elder',
     }
