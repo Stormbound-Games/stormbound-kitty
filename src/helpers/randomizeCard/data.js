@@ -165,7 +165,7 @@ SATYR.addEffects([
 SPELL_NEUTRAL.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
-  new Effect('spawn a friendly Knight with {valueFast} stregnth on {spaceSpell}{friendlyAnd}', [], 1.25),
+  new Effect('spawn a friendly Knight with {valueFast} strength on {spaceSpell}{friendlyAnd}', [], 1.25),
   new Effect('teleport {targetSpell} friendly {targetSpell2} to {spaceSpell}{friendlyAnd}', [], 1),
 ])
 
@@ -188,7 +188,7 @@ SPELL_IRONCLAD.addEffects([
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
   new Effect('destroy {targetSpell} friendly {targetSpell2}. Respawn it with {valueHigh} strength on {spaceSpell}{friendlyAnd}', [], 0.75),
   new Effect('teleport {targetSpell} friendly {targetSpell2} to {spaceSpell}{friendlyAnd}', [], 1),
-  new Effect('spawn a friendly Construct with {valueFast} stregnth on {spaceSpell}{friendlyAnd}', [], 1.25),
+  new Effect('spawn a friendly Construct with {valueFast} strength on {spaceSpell}{friendlyAnd}', [], 1.25),
 ])
 
 // prettier-ignore
@@ -203,17 +203,17 @@ SPELL_WINTER.addEffects([
 SPELL_SWARM.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
-  new Effect('spawn a friendly Satyr with {valueFast} stregnth on {spaceSpell}{friendlyAnd}', [], 1.25),
+  new Effect('spawn a friendly Satyr with {valueFast} strength on {spaceSpell}{friendlyAnd}', [], 1.25),
   new Effect('deal {valueSelfDmg} damage to your base. Give {valueHigh} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 0.75),
   new Effect('deal {valueSelfDmg} damage to your base. Deal {valueHigh} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 0.75),
-  new Effect('deal {valueSelfDmg} damage to your base. Spawn a friendly Satyr with {valueHigh} stregnth on {spaceSpell}{friendlyAnd}', [], 0.75),
+  new Effect('deal {valueSelfDmg} damage to your base. Spawn a friendly Satyr with {valueHigh} strength on {spaceSpell}{friendlyAnd}', [], 0.75),
 ])
 
 // prettier-ignore
 STRUCTURE_NEUTRAL.addEffects([
   new Effect('give {valueFast} strength to {targetStructure} friendly {targetStructure2}{friendlyAnd}{structureThen}', [], 1),
   new Effect('deal {valueFast} damage to {targetStructure} enemy {targetStructure2}{enemyAnd}{structureThen}', [], 1),
-  new Effect('spawn a friendly Knight with {valueFast} stregnth {space}{friendlyAnd}{structureThen}', [], 1)
+  new Effect('spawn a friendly Knight with {valueFast} strength {space}{friendlyAnd}{structureThen}', [], 1)
 ])
 
 // prettier-ignore
@@ -234,7 +234,7 @@ STRUCTURE_IRONCLAD.addEffects([
   new Effect('deal {valueFast} damage to {targetStructure} enemy {targetStructure2}{enemyAnd}{structureThen}', [], 1),
   new Effect('destroy {targetStructure} friendly {targetStructure2}. Respawn it with {valueHigh} strength on {spaceSpell}{friendlyAnd}{structureThen}', [], 0.75),
   new Effect('teleport {targetStructure} friendly {targetStructure2} to {spaceSpell}{friendlyAnd}{structureThen}', [], 1),
-  new Effect('spawn a friendly Construct with {valueFast} stregnth {space}{friendlyAnd}{structureThen}', [], 1.25),
+  new Effect('spawn a friendly Construct with {valueFast} strength {space}{friendlyAnd}{structureThen}', [], 1.25),
 ])
 
 // prettier-ignore
@@ -249,10 +249,10 @@ STRUCTURE_WINTER.addEffects([
 STRUCTURE_SWARM.addEffects([
   new Effect('give {valueFast} strength to {targetStructure} friendly {targetStructure2}{friendlyAnd}{structureThen}', [], 1),
   new Effect('deal {valueFast} damage to {targetStructure} enemy {targetStructure2}{enemyAnd}{structureThen}', [], 1),
-  new Effect('spawn a friendly Satyr with {valueFast} stregnth {space}{friendlyAnd}{structureThen}', [], 1.25),
+  new Effect('spawn a friendly Satyr with {valueFast} strength {space}{friendlyAnd}{structureThen}', [], 1.25),
   new Effect('deal {valueSelfDmg} damage to your base. Give {valueHigh} strength to {targetStructure} friendly {targetStructure2}{friendlyAnd}{structureThen}', [], 0.75),
   new Effect('deal {valueSelfDmg} damage to your base. Deal {valueHigh} damage to {targetStructure} enemy {targetStructure2}{enemyAnd}{structureThen}', [], 0.75),
-  new Effect('deal {valueSelfDmg} damage to your base. Spawn a friendly Satyr with {valueHigh} stregnth {space}{friendlyAnd}{structureThen}', [], 0.75),
+  new Effect('deal {valueSelfDmg} damage to your base. Spawn a friendly Satyr with {valueHigh} strength {space}{friendlyAnd}{structureThen}', [], 0.75),
   new Effect('deal {lowValue} damage to the enemy base{structureThen}', [], 1),
 ])
 
