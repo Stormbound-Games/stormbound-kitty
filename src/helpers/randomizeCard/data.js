@@ -1,26 +1,29 @@
 import { Race, Effect, Slot } from './utils'
+import range from '~/helpers/range'
 
-const KNIGHT = new Race('knight', 'neutral', [0, 1, 2])
-const FELINE = new Race('feline', 'neutral', [0, 1, 2])
-const PIRATE = new Race('pirate', 'neutral', [0, 1, 2])
-const RAVEN = new Race('raven', 'shadowfen', [0, 1])
-const TOAD = new Race('toad', 'shadowfen', [1, 2])
-const RODENT = new Race('rodent', 'ironclad', [0, 1, 2, 3])
-const CONSTRUCT = new Race('construct', 'ironclad', [1])
-const FROSTLING = new Race('frostling', 'winter', [0, 1])
-const DWARF = new Race('dwarf', 'winter', [1, 2, 3])
-const SATYR = new Race('satyr', 'swarm', [0, 1, 2])
-const UNDEAD = new Race('undead', 'swarm', [1, 2, 3])
+// The 3rd argument passed to the `Race` constructor is the movement range for
+// that specific race.
+const KNIGHT = new Race('knight', 'neutral', range(0, 2))
+const FELINE = new Race('feline', 'neutral', range(0, 2))
+const PIRATE = new Race('pirate', 'neutral', range(0, 2))
+const RAVEN = new Race('raven', 'shadowfen', range(0, 1))
+const TOAD = new Race('toad', 'shadowfen', range(1, 2))
+const RODENT = new Race('rodent', 'ironclad', range(0, 3))
+const CONSTRUCT = new Race('construct', 'ironclad', range(1))
+const FROSTLING = new Race('frostling', 'winter', range(0, 1))
+const DWARF = new Race('dwarf', 'winter', range(1, 3))
+const SATYR = new Race('satyr', 'swarm', range(0, 2))
+const UNDEAD = new Race('undead', 'swarm', range(1, 3))
 
-const SPELL_NEUTRAL = new Race('other', 'neutral', [0])
-const SPELL_SHADOWFEN = new Race('other', 'shadowfen', [0])
-const SPELL_IRONCLAD = new Race('other', 'ironclad', [0])
-const SPELL_WINTER = new Race('other', 'winter', [0])
-const SPELL_SWARM = new Race('other', 'swarm', [0])
+const SPELL_NEUTRAL = new Race('other', 'neutral')
+const SPELL_SHADOWFEN = new Race('other', 'shadowfen')
+const SPELL_IRONCLAD = new Race('other', 'ironclad')
+const SPELL_WINTER = new Race('other', 'winter')
+const SPELL_SWARM = new Race('other', 'swarm')
 
-const STRUCTURE_NEUTRAL = new Race('', 'neutral', [0])
+const STRUCTURE_NEUTRAL = new Race('', 'neutral')
 
-export const RACES = [
+const RACES = [
   KNIGHT,
   PIRATE,
   RAVEN,
@@ -33,7 +36,7 @@ export const RACES = [
   UNDEAD,
 ]
 
-export const RACES_SPELLS = [
+const RACES_SPELLS = [
   SPELL_NEUTRAL,
   SPELL_SHADOWFEN,
   SPELL_IRONCLAD,
@@ -41,7 +44,15 @@ export const RACES_SPELLS = [
   SPELL_SWARM,
 ]
 
-export const RACES_STRUCTURES = [STRUCTURE_NEUTRAL]
+const RACES_STRUCTURES = [STRUCTURE_NEUTRAL]
+
+// Types are capitalized in this helper for convenience purposes. Do not attempt
+// to lowercase them.
+export const RACES_BY_TYPE = {
+  Unit: RACES,
+  Spell: RACES_SPELLS,
+  Structure: RACES_STRUCTURES,
+}
 
 // prettier-ignore
 KNIGHT.addEffects([
@@ -53,9 +64,9 @@ KNIGHT.addEffects([
 // prettier-ignore
 PIRATE.addEffects([
   new Effect('gain {value} strength{pirateForEach}', [3, 0, 3, 3, 3], 0.75),
-  new Effect('replace a random non-pirate card from your hand', [3, 3, 3, 3, 3], 0.5),
+  new Effect('replace a random non-Pirate card from your hand', [3, 3, 3, 3, 3], 0.5),
   new Effect('replace all cards that cost {valueNone} or less from your hand', [3, 3, 3, 3, 3], 0.25),
-  new Effect('replace a random non-pirate card from your hand. Reduce the cost of the drawn card by {lowValue}{pirateForEach}', [3, 3, 3, 3, 3], 1),
+  new Effect('replace a random non-Pirate card from your hand. Reduce the cost of the drawn card by {lowValue}{pirateForEach}', [3, 3, 3, 3, 3], 1),
   new Effect('discard your hand and gain {lowValue} strength for each card discarded', [3, 0, 3, 3, 3], 1.25),
   new Effect('discard a random non-Pirate card', [3, 3, 3, 3, 3], 0.25),
   new Effect('decrease the cost of a random card in your hand by {lowValue}{pirateForEach}', [3, 3, 3, 3, 3], 0.75),
@@ -154,7 +165,7 @@ SATYR.addEffects([
 SPELL_NEUTRAL.addEffects([
   new Effect('give {valueFast} strength to {targetSpell} friendly {targetSpell2}{friendlyAnd}', [], 1),
   new Effect('deal {valueFast} damage to {targetSpell} enemy {targetSpell2}{enemyAnd}', [], 1),
-  new Effect('spawn a friendly Knight with {valueFast} stregnth {space}{friendlyAnd}', [], 1)
+  new Effect('spawn a friendly Knight with {valueFast} strength {space}{friendlyAnd}', [], 1)
 ])
 
 // prettier-ignore
@@ -185,7 +196,7 @@ SPELL_SWARM.addEffects([
 STRUCTURE_NEUTRAL.addEffects([
   new Effect('give {valueFast} strength to {targetStructure} friendly {targetStructure2}{friendlyAnd}{structureThen}', [], 1),
   new Effect('deal {valueFast} damage to {targetStructure} enemy {targetStructure2}{enemyAnd}{structureThen}', [], 1),
-  new Effect('spawn a friendly Knight with {valueFast} stregnth {space}{friendlyAnd}{structureThen}', [], 1)
+  new Effect('spawn a friendly Knight with {valueFast} strength {space}{friendlyAnd}{structureThen}', [], 1)
 ])
 
 // prettier-ignore
@@ -464,10 +475,6 @@ export const NAMES = {
     ['Northsea', 'Westwind', 'Cabin', 'Bluesail', 'Lucky', 'Seasick', 'Starboard', 'Nautical', 'Seafairing', 'Abyssal'],
     ['Dogs', 'Mutineers', 'Looters', 'Sailors', 'Privaters', 'Captains', 'Raiders', 'Swindlers', 'Charmers', 'Bouncers', 'Marines', 'Swabs', 'Navigators'],
   ],
-  other: [
-    ['Random'],
-    ['card']
-  ]
 }
 
 // prettier-ignore
@@ -492,4 +499,13 @@ export const STATLINES_FAST = [
   ["1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/8", "5/6/7/8/10", "7/8/10/12/15", "8/10/12/15/18", "10/13/16/20/24", "12/16/20/24/28"],
   ["0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/7", "4/5/6/7/8", "5/6/7/8/10", "6/7/8/10/12", "7/8/10/12/14"],
   ["0/0/0/0/0", "0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/7", "4/5/6/7/8", "5/6/7/9/11", "6/7/8/10/12"],
+]
+
+// prettier-ignore
+export const TRIGGERS = [
+  { id: 0, prefix: 'On play, ', effCostMult: 0.75,  },
+  { id: 1, prefix: 'On death, ', effCostMult: 0.75,  },
+  { id: 2, prefix: 'Before attacking, ', effCostMult: 1,  },
+  { id: 3, prefix: 'After surviving damage, ', effCostMult: 1.5, subrace: 'elder' },
+  { id: 4, prefix: 'Before moving, ', effCostMult: 1.75, subrace: 'ancient' },
 ]
