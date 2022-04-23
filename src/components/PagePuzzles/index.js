@@ -28,7 +28,7 @@ export default React.memo(function PagePuzzles(props) {
     () =>
       props.puzzles.slice(0).sort((a, b) => {
         if (order === 'NAME') return a.name.localeCompare(b.name)
-        if (order === 'CATEGORY') return a.category.localeCompare(b.category)
+        if (order === 'OBJECTIVE') return a.objective.localeCompare(b.objective)
         if (order === 'AUTHOR') return a.user.name.localeCompare(b.user.name)
         if (order === 'DATE') return parseDate(b.date) - parseDate(a.date)
         return 0
@@ -51,7 +51,7 @@ export default React.memo(function PagePuzzles(props) {
           sorting={[
             { title: 'Date', value: 'DATE' },
             { title: 'Name', value: 'NAME' },
-            { title: 'Category', value: 'CATEGORY' },
+            { title: 'Objective', value: 'OBJECTIVE' },
             { title: 'Author', value: 'AUTHOR' },
           ]}
         >
