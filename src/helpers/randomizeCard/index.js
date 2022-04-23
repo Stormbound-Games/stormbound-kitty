@@ -56,6 +56,8 @@ class Card {
   }
 
   get imageCardId() {
+    // T12 is Qordia’s Nest token card, hence the empty slot in the list at this
+    // position.
     // prettier-ignore
     const imageKey = ['construct', 'frostling', 'knight', 'pirate', 'raven', 'rodent', 'satyr', 'toad', 'undead', 'dwarf', 'dragon', '', 'feline']
     const index = imageKey.indexOf(this.race.name)
@@ -75,16 +77,20 @@ class Card {
 
   shouldReroll() {
     const sum = this.mana + this.effCost
+
     if (sum < MIN_MANA) return true
     if (sum > MAX_MANA) return true
     if (this.effCost > MAX_EFF_COST) return true
     if (sum > 6 && this.effCost < 2) return true
-    // @TODO: clarify this reroll condition.
+
+    // This prevents non-sensical abilities such as “On death, destroy stronger/
+    // weaker units” because we can’t do strength comparisons with a dead unit.
     if (
       this.ability.startsWith('On death') &&
       (this.ability.includes('stronger') || this.ability.includes('weaker'))
     )
       return true
+
     return false
   }
 
@@ -120,9 +126,14 @@ class Card {
 
   getStatline() {
     if (this.type === 'Unit') {
+      // This will reroll the elder’s statline if it would be 3 or below. It
+      // will still have a balanced statline, but it just won’t generate with a
+      // statline that makes it unable to survive the damage.
       const strengthThreshold = this.subrace === 'elder' ? 3 : 0
+
       do {
-        this.mana = random(2, 9)
+        // @TODO: figure out whether we could use `MIN_MANA` here as well.
+        this.mana = random(2, MAX_MANA)
         this.movement = arrayRandom(this.race.movementRange)
         this.strength = this.strengthScaling[this.movement][this.mana - 2]
         log(`Base statline: ${this.mana}`)
@@ -155,9 +166,19 @@ class Card {
         this.ability = prefix
         this.subrace = subrace
 
-        // If the trigger is “Before attacking” but the card has 0 initial
-        // movement, the effect is technically less interesting and should be
-        // marked as such.
+        // The `effCost` is representative of how interesting an effect is, but
+        // more accurately represents how much mana value the effect is worth.
+        // For example, “Before Attacking” has a multiplier of x1, because it’s
+        // very easy to trigger, including on the turn you play the card.
+        // However, if it doesn’t have any initial movement, it can’t trigger
+        // when played and has to be set up for a future turn, meaning it gives
+        // less value and has a multiplier of x0.5.
+        // For an example from the base game, if Dawnsparks had 1 movement, it
+        // would have a cost of 6 + (4 x 1) (6 from the base strength, 4 from
+        // the effect strength). However, this would put it at 10 mana, which is
+        // too much and would cause it to be rerolled. However, since it has 0
+        // movement, its value would be 6 + (4 x 0.5), which would put it at 8
+        // mana.
         if (this.movement === 0 && id > 1) {
           this.effCostMult -= 0.5
         }
@@ -201,6 +222,13 @@ class Card {
     if (this.ability.includes('{value}')) {
       const chance = random(1, 5)
 
+      // Note that fast and none are inverted on purose. Fast scaling means it
+      // increases by one step every level, while slow means it increases by one
+      // step every two levels, and none means it doesn’t increase.
+      // So if the ability has fast scaling, then the strength of the unit
+      // shouldn't increase, and should have none scaling (like how Shady Ghoul
+      // levels up). Likewise if the ability doesn’t change through levels, then
+      // the strength should increase at each level.
       if (chance === 1) {
         this.ability = this.ability.replace('{value}', '{valueNone}')
         this.strengthScaling = STATLINES_FAST

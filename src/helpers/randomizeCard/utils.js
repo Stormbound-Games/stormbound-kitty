@@ -53,8 +53,11 @@ export class Effect {
     // The `.valid` key holds an array of 5 items representing the triggers in
     // their definition order (see `TRIGGERS`), and whether that effect is valid
     // for each trigger.
-    // @TODO: clarify why it is an array of integers (1–3) and not an array of
-    // booleans expressing validity.
+    // - `0` means the effect is invalid for that specific trigger, for instance
+    // “On death, gain X strength”.
+    // - `3` means the effect is valid for that specific trigger and will be
+    // chosen.
+    // - `1` means the effect is possible for that specific effect.
     this.valid = valid
     // The `.cast` key does not hold a mana cost. It’s an arbitrary measurement
     // value from which the card rarity gets derivated.
