@@ -1,6 +1,7 @@
+import rwc from 'random-weighted-choice'
 import arrayRandom from '~/helpers/arrayRandom'
 import random from '~/helpers/random'
-
+import capitalize from '~/helpers/capitalize'
 import {
   RACES,
   RACES_SPELLS,
@@ -33,42 +34,41 @@ class Card {
     this.strengthScaling = STATLINES_FAST
   }
 
+  shouldReroll() {
+    const sum = this.mana + this.effCost
+    if (sum < MIN_MANA) return true
+    if (sum > MAX_MANA) return true
+    if (this.effCost > MAX_EFF_COST) return true
+    if (sum > 6 && this.effCost < 2) return true
+    if (
+      this.trigger === 1 &&
+      (this.ability.includes('stronger') || this.ability.includes('weaker'))
+    )
+      return true
+    return false
+  }
+
   generate() {
     while (true) {
       this.ability = ''
       this.effCostMult = 0
       this.effCost = 0
       this.subrace = ''
-
-      this.type = arrayRandom([
-        'Unit',
-        'Unit',
-        'Unit',
-        'Unit',
-        'Unit',
-        'Spell',
-        'Spell',
-        'Structure',
+      this.type = rwc([
+        { weight: 5, id: 'Unit' },
+        { weight: 2, id: 'Spell' },
+        { weight: 1, id: 'Structure' },
       ])
 
       this.getRace()
       this.getEffect()
+      this.getRarity()
       this.getStatline()
 
-      if (this.type != 'Unit') this.movement = ''
-      if (this.type == 'Spell') this.strength = ''
+      if (this.type !== 'Unit') this.movement = ''
+      if (this.type === 'Spell') this.strength = ''
 
-      const sum = this.mana + this.effCost
-      const reroll =
-        sum < MIN_MANA ||
-        sum > MAX_MANA ||
-        this.effCost > MAX_EFF_COST ||
-        (sum > 6 && this.effCost < 2) ||
-        (this.trigger === 1 &&
-          (this.ability.includes('stronger') ||
-            this.ability.includes('weaker')))
-
-      if (!reroll) break
+      if (!this.shouldReroll()) break
       log('Rerolling effect\n')
     }
 
@@ -76,9 +76,9 @@ class Card {
   }
 
   getRace() {
-    if (this.type == 'Unit') this.race = arrayRandom(RACES)
-    if (this.type == 'Spell') this.race = arrayRandom(RACES_SPELLS)
-    if (this.type == 'Structure') this.race = arrayRandom(RACES_STRUCTURES)
+    if (this.type === 'Unit') this.race = arrayRandom(RACES)
+    if (this.type === 'Spell') this.race = arrayRandom(RACES_SPELLS)
+    if (this.type === 'Structure') this.race = arrayRandom(RACES_STRUCTURES)
     this.faction = this.race.faction
     if (filters.faction !== '' && this.faction !== filters.faction)
       this.getRace()
@@ -86,26 +86,28 @@ class Card {
   }
 
   getStatline() {
-    if (this.type == 'Unit') {
+    if (this.type === 'Unit') {
       while (true) {
         this.mana = random(2, 9)
         this.movement = arrayRandom(this.race.movementRange)
         this.strength = this.strengthScaling[this.movement][this.mana - 2]
         log(`Base statline: ${this.mana}`)
-        if (parseInt(this.strength) > (this.subrace === 'elder' ? 3 : 0)) break
+        if (parseInt(this.strength, 10) > (this.subrace === 'elder' ? 3 : 0))
+          break
         log('Rerolling statline')
       }
     }
-    if (this.type == 'Structure') {
+
+    if (this.type === 'Structure') {
       this.mana = random(3, 5)
-      this.strength = this.mana //Temporary logic, will implement better later
+      this.strength = this.mana // Temporary logic, will implement better later
     }
   }
 
   getEffect() {
     let effectText = ''
 
-    if (this.type == 'Unit') {
+    if (this.type === 'Unit') {
       while (true) {
         this.trigger = arrayRandom([0, 1, 2, 3, 4])
         this.subrace = ''
@@ -133,16 +135,12 @@ class Card {
     } else {
       effectText = arrayRandom(this.race.abilities)
       this.effCostMult = 1
-      if (this.type == 'Structure') {
-        this.ability = 'At the start of your turn, '
-      } else {
-        this.ability = ''
-      }
+      this.ability =
+        this.type === 'Structure' ? 'At the start of your turn, ' : ''
     }
 
     this.ability += effectText.desc
-    if (this.type == 'Spell')
-      this.ability = this.ability[0].toUpperCase() + this.ability.substring(1)
+    if (this.type === 'Spell') this.ability = capitalize(this.ability)
 
     this.effCost = effectText.cost
     log(`Base effect cost: ${this.effCost}`)
@@ -157,22 +155,23 @@ class Card {
       const token = this.race.name === 'pirate' ? 'pirateCondPlay' : 'condPlay'
       this.ability = this.ability.replace('On play', `{${token}}`)
     }
+
     if (this.ability.includes('Before attacking') && random(1, 3) === 1) {
       this.ability = this.ability.replace('Before attacking', '{condAttack}')
     }
+
     if (this.ability.includes(`{target${this.type}}`) && random(1, 2) === 1) {
       console.log(`{target${this.type}}`)
-      this.ability = this.ability.replace(`{target${this.type}}`, '{targetAny}')
-      this.ability = this.ability.replace(
-        `{target${this.type}2}`,
-        '{targetAny2}'
-      )
+      this.ability = this.ability
+        .replace(`{target${this.type}}`, '{targetAny}')
+        .replace(`{target${this.type}2}`, '{targetAny2}')
     }
 
-    //Stat scaling
+    // Stat scaling
     this.strengthScaling = STATLINES_FAST
+
     if (this.ability.includes('{value}')) {
-      let chance = random(1, 5)
+      const chance = random(1, 5)
       if (chance <= 1) {
         this.ability = this.ability.replace('{value}', '{valueNone}')
         this.strengthScaling = STATLINES_FAST
@@ -209,19 +208,17 @@ class Card {
     ) {
       this.ability = this.ability.replaceAll(' frozen  ', ' ')
     }
-    this.ability = this.ability.replaceAll('them has', 'they have')
-    this.ability = this.ability.replaceAll('them dies', 'they die')
-    this.ability = this.ability.replaceAll('thems', 'their')
 
-    if (random(1, 2) == 1 && this.ability.includes('friendly')) {
+    this.ability = this.ability
+      .replaceAll('them has', 'they have')
+      .replaceAll('them dies', 'they die')
+      .replaceAll('thems', 'their')
+
+    if (random(1, 2) === 1 && this.ability.includes('friendly')) {
       let replaceText = 'unit'
-      if (this.race.name === 'construct') {
-        replaceText = 'Construct'
-      }
-      if (this.race.name === 'satyr') {
-        replaceText = 'Satyr'
-      }
-      if (replaceText != 'unit') {
+      if (this.race.name === 'construct') replaceText = 'Construct'
+      if (this.race.name === 'satyr') replaceText = 'Satyr'
+      if (replaceText !== 'unit') {
         this.effCost *= 0.5
         log(`Adding specific unit multiplier of 0.5. New cost: ${this.effCost}`)
       }
@@ -229,7 +226,9 @@ class Card {
     } else {
       this.ability = this.ability.replaceAll('[unit]', 'unit')
     }
+  }
 
+  getRarity() {
     this.rarity = 'epic'
     if (this.effCost % 1 < 0.66) this.rarity = 'rare'
     if (this.effCost % 1 < 0.33) this.rarity = 'common'
@@ -259,12 +258,13 @@ class Card {
   }
 
   defineName() {
-    if (this.type == 'Unit') {
+    if (this.type === 'Unit') {
       const [firstNames, lastNames] = NAMES[this.race.name]
 
       this.firstName = arrayRandom(firstNames)
       this.lastName = arrayRandom(lastNames)
-      if (this.race.name == 'other') this.race.name = ''
+
+      if (this.race.name === 'other') this.race.name = ''
     }
   }
 
@@ -287,9 +287,9 @@ class Card {
 
     const index = imageKey.indexOf(this.race.name)
 
-    if (this.type == 'Unit') {
+    if (this.type === 'Unit') {
       return index === -1 ? 'T3' : 'T' + (index + 1)
-    } else if (this.type == 'Spell') {
+    } else if (this.type === 'Spell') {
       return 'N15'
     } else {
       return 'N13'
