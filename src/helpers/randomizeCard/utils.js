@@ -35,6 +35,40 @@ export function fixWording(ability) {
   return ability
 }
 
+// prettier-ignore
+const VERBS = ['build', 'command', 'confuse', 'convert', 'deal', 'deconfuse', 'decrease', 'destroy', 'disable', 'drain', 'draw', 'explode', 'fly', 'force', 'freeze', 'gain', 'give', 'increase', 'jump', 'move', 'play', 'poison', 'pull', 'push', 'reduce', 'remember', 'remove', 'replace', 'restore', 'return', 'set', 'spawn', 'spend', 'split', 'teleport', 'trigger', 'vitalize']
+
+export function highlight(ability) {
+  return (
+    ability
+      // Highlight “bordering” and “surrounding” keywords.
+      .replaceAll('bordering', '*bordering*')
+      .replaceAll('surrounding', '*surrounding*')
+      // Highlight all verbs, provided they are followed by a space. This avoids
+      // highlighting “play” in “On play,” and, “poison” in “poisoned”, or “play”
+      // in “played”.
+      .replace(
+        new RegExp(`(${VERBS.join('|')}) `, 'gi'),
+        chunk => `*${chunk}* `
+      )
+      // In case a verb (represented in the following regular expression by a
+      // closing highlighting star) is followed by a numeric value and a unit
+      // (e.g. “* 5 damage”), move the highlight closure at the end of the whole
+      // expression.
+      //       /                            /    Regular expression delimiters
+      //                                     gi  Global + case-insensitive flags
+      //        \*                               Closing highlighting star
+      //           (a )?                         Optional word “a” followed by
+      //                                         a space to handle cases like
+      //                                         “spawn a 1 strength unit”
+      //                \d+                      At least one digit
+      //                   ((\/\d+){4})?         Optional leveling values such
+      //                                         as `/4/5/6/7`
+      //                                 \w+     Following word
+      .replace(/\* (a )?\d+((\/\d+){4})? \w+/gi, chunk => chunk.slice(1) + '*')
+  )
+}
+
 export class Race {
   constructor(name, faction, image, movementRange = [0]) {
     this.name = name

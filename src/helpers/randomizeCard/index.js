@@ -14,7 +14,7 @@ import {
   TRIGGERS,
 } from './data'
 import { MIN_MANA, MAX_MANA, MAX_EFF_COST, filters } from './constants'
-import { log, fixWording } from './utils'
+import { log, fixWording, highlight } from './utils'
 
 class Card {
   constructor(filters = {}) {
@@ -290,7 +290,7 @@ class Card {
       mana: (this.mana + Math.floor(this.effCost)).toString(),
       strength: this.strength.toString(),
       movement: this.movement.toString(),
-      ability: capitalize(this.ability),
+      ability: highlight(capitalize(this.ability)),
       imageCardId: this.race.image,
       ancient: this.subrace === 'ancient',
       elder: this.subrace === 'elder',
