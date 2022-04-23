@@ -1,4 +1,3 @@
-
 // Turns on verbose logging, displaying how each card is calculated.
 export const VERBOSE = false
 

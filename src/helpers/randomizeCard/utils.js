@@ -5,15 +5,16 @@ export function log(...message) {
 }
 
 export class Race {
-  constructor(name, faction, movementRange) {
+  constructor(name, faction, movementRange, img) {
     this.name = name
     this.faction = faction
     this.movementRange = movementRange
     this.abilities = []
+	this.img = img
   }
 
   addEffects(effectList) {
-    effectList.forEach((effect) => {
+    effectList.forEach(effect => {
       this.abilities.push(effect)
     })
   }
