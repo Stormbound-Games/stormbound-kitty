@@ -1,57 +1,69 @@
 import { Race, Effect, Slot } from './utils'
+import range from '~/helpers/range'
 
-const KNIGHT = new Race('knight', 'neutral', [0, 1, 2], 'T3')
-const FELINE = new Race('feline', 'neutral', [0, 1, 2], 'T13')
-const PIRATE = new Race('pirate', 'neutral', [0, 1, 2], 'T4')
-const RAVEN = new Race('raven', 'shadowfen', [0, 1], 'T5')
-const TOAD = new Race('toad', 'shadowfen', [1, 2], 'T8')
-const RODENT = new Race('rodent', 'ironclad', [0, 1, 2, 3], 'T6')
-const CONSTRUCT = new Race('construct', 'ironclad', [1], 'T1')
-const FROSTLING = new Race('frostling', 'winter', [0, 1], 'T2')
-const DWARF = new Race('dwarf', 'winter', [1, 2, 3], 'T10')
-const SATYR = new Race('satyr', 'swarm', [0, 1, 2], 'T7')
-const UNDEAD = new Race('undead', 'swarm', [1, 2, 3], 'T9')
+// The 3rd argument passed to the `Race` constructor is the movement range for
+// that specific race.
+const KNIGHT = new Race('knight', 'neutral', range(0, 2), 'T3')
+const FELINE = new Race('feline', 'neutral', range(0, 2), 'T13')
+const PIRATE = new Race('pirate', 'neutral', range(0, 2), 'T4')
+const RAVEN = new Race('raven', 'shadowfen', range(0, 1), 'T5')
+const TOAD = new Race('toad', 'shadowfen', range(1, 2), 'T8')
+const RODENT = new Race('rodent', 'ironclad', range(0, 3), 'T6')
+const CONSTRUCT = new Race('construct', 'ironclad', range(1), 'T1')
+const FROSTLING = new Race('frostling', 'winter', range(0, 1), 'T2')
+const DWARF = new Race('dwarf', 'winter', range(1, 3), 'T10')
+const SATYR = new Race('satyr', 'swarm', range(0, 2), 'T7')
+const UNDEAD = new Race('undead', 'swarm', range(1, 3), 'T9')
 
-const SPELL_NEUTRAL = new Race('spell_neutral', 'neutral', [0], 'N15')
-const SPELL_SHADOWFEN = new Race('spell_shadowfen', 'shadowfen', [0], 'F11')
-const SPELL_IRONCLAD = new Race('spell_ironclad', 'ironclad', [0], 'I11')
-const SPELL_WINTER = new Race('spell_winter', 'winter', [0], 'W6')
-const SPELL_SWARM = new Race('spell_swarm', 'swarm', [0], 'S20')
+const SPELL_NEUTRAL = new Race('spell_neutral', 'neutral', 'N15')
+const SPELL_SHADOWFEN = new Race('spell_shadowfen', 'shadowfen', 'F11')
+const SPELL_IRONCLAD = new Race('spell_ironclad', 'ironclad', 'I11')
+const SPELL_WINTER = new Race('spell_winter', 'winter', 'W6')
+const SPELL_SWARM = new Race('spell_swarm', 'swarm', 'S20')
 
-const STRUCTURE_NEUTRAL = new Race('structure_neutral', 'neutral', [0], 'N13')
-const STRUCTURE_SHADOWFEN = new Race('structure_shadowfen', 'shadowfen', [0], 'F13')
-const STRUCTURE_IRONCLAD = new Race('structure_ironclad', 'ironclad', [0], 'I14')
-const STRUCTURE_WINTER = new Race('structure_winter', 'winter', [0], 'W9')
-const STRUCTURE_SWARM = new Race('structure_swarm', 'swarm', [0], 'S7')
+const STRUCTURE_NEUTRAL = new Race('structure_neutral', 'neutral', 'N13')
+const STRUCTURE_SHADOWFEN = new Race('structure_shadowfen', 'shadowfen', 'F13')
+const STRUCTURE_IRONCLAD = new Race('structure_ironclad', 'ironclad', 'I14')
+const STRUCTURE_WINTER = new Race('structure_winter', 'winter', 'W9')
+const STRUCTURE_SWARM = new Race('structure_swarm', 'swarm', 'S7')
 
-export const RACES = [
-	KNIGHT,
-	PIRATE,
-	RAVEN,
-	TOAD,
-	RODENT,
-	CONSTRUCT,
-	FROSTLING,
-	DWARF,
-	SATYR,
-	UNDEAD,
+
+const RACES = [
+  KNIGHT,
+  PIRATE,
+  RAVEN,
+  TOAD,
+  RODENT,
+  CONSTRUCT,
+  FROSTLING,
+  DWARF,
+  SATYR,
+  UNDEAD,
 ]
 
-export const RACES_SPELLS = [
-	SPELL_NEUTRAL,
-	SPELL_SHADOWFEN,
-	SPELL_IRONCLAD,
-	SPELL_WINTER,
-	SPELL_SWARM,
+const RACES_SPELLS = [
+  SPELL_NEUTRAL,
+  SPELL_SHADOWFEN,
+  SPELL_IRONCLAD,
+  SPELL_WINTER,
+  SPELL_SWARM,
 ]
 
-export const RACES_STRUCTURES = [
+const RACES_STRUCTURES = [
 	STRUCTURE_NEUTRAL,
 	STRUCTURE_SHADOWFEN,
 	STRUCTURE_IRONCLAD,
 	STRUCTURE_WINTER,
 	STRUCTURE_SWARM,
 ]
+
+// Types are capitalized in this helper for convenience purposes. Do not attempt
+// to lowercase them.
+export const RACES_BY_TYPE = {
+  Unit: RACES,
+  Spell: RACES_SPELLS,
+  Structure: RACES_STRUCTURES,
+}
 
 // prettier-ignore
 KNIGHT.addEffects([
@@ -607,24 +619,36 @@ export const NAMES = {
 
 // prettier-ignore
 export const STATLINES_NONE = [
-	["2","4","5","7","8","10","11","13"],
-	["1","2","3","5","6","8","9","11"],
-	["0","1","2","3","4","5","6","7"],
-	["0","0","1","2","3","4","5","6"]
+  /* Mana:          2  3  4  5  6  7   8   9 */
+  /* 0 movement */ [2, 4, 5, 7, 8, 10, 11, 13],
+  /* 1 movement */ [1, 2, 3, 5, 6,  8,  9, 11],
+  /* 2 movement */ [0, 1, 2, 3, 4,  5,  6,  7],
+  /* 3 movement */ [0, 0, 1, 2, 3,  4,  5,  6]
 ]
 
 // prettier-ignore
 export const STATLINES_SLOW = [
-	["2/3/3/4/4", "4/5/5/6/6", "5/6/6/7/8", "7/8/9/10/11", "8/9/10/11/13", "10/11/12/14/16", "11/13/15/17/19", "13/15/17/20/24"],
-	["1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5", "5/6/6/7/8", "7/8/9/10/11", "8/9/10/11/13", "10/11/12/14/16", "12/14/16/19/23"],
-	["0/0/0/0/0", "1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5", "4/5/5/6/6", "5/6/6/7/8", "6/7/7/8/9", "7/8/8/9/10"],
-	["0/0/0/0/0", "0/0/0/0/0", "1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5", "4/5/5/6/6", "5/6/6/7/8", "6/7/7/8/9"],
+  /* Mana:           2            3            4            5              6               7                 8                 9              */
+  /* 0 movement */ ["2/3/3/4/4", "4/5/5/6/6", "5/6/6/7/8", "7/8/9/10/11", "8/9/10/11/13", "10/11/12/14/16", "11/13/15/17/19", "13/15/17/20/24"],
+  /* 1 movement */ ["1/2/2/3/3", "2/3/3/4/4", "3/4/4/5/5",   "5/6/6/7/8",  "7/8/9/10/11",   "8/9/10/11/13", "10/11/12/14/16", "12/14/16/19/23"],
+  /* 2 movement */ ["0/0/0/0/0", "1/2/2/3/3", "2/3/3/4/4",   "3/4/4/5/5",    "4/5/5/6/6",      "5/6/6/7/8",      "6/7/7/8/9",     "7/8/8/9/10"],
+  /* 3 movement */ ["0/0/0/0/0", "0/0/0/0/0", "1/2/2/3/3",   "2/3/3/4/4",    "3/4/4/5/5",      "4/5/5/6/6",      "5/6/6/7/8",      "6/7/7/8/9"],
 ]
 
 // prettier-ignore
 export const STATLINES_FAST = [
-	["2/3/4/5/6", "4/5/6/7/8", "5/6/7/8/10", "7/8/10/12/14", "8/10/12/15/18", "10/13/16/20/24", "11/15/19/23/28", "13/17/21/25/30"],
-	["1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/8", "5/6/7/8/10", "7/8/10/12/15", "8/10/12/15/18", "10/13/16/20/24", "12/16/20/24/28"],
-	["0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/7", "4/5/6/7/8", "5/6/7/8/10", "6/7/8/10/12", "7/8/10/12/14"],
-	["0/0/0/0/0", "0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/7", "4/5/6/7/8", "5/6/7/9/11", "6/7/8/10/12"],
+  /* Mana:           2            3            4             5               6                7                 8                 9              */
+  /* 0 movement */ ["2/3/4/5/6", "4/5/6/7/8", "5/6/7/8/10", "7/8/10/12/14", "8/10/12/15/18", "10/13/16/20/24", "11/15/19/23/28", "13/17/21/25/30"],
+  /* 1 movement */ ["1/2/3/4/5", "2/3/4/5/6", "3/4/5/6/8",    "5/6/7/8/10",  "7/8/10/12/15",  "8/10/12/15/18", "10/13/16/20/24", "12/16/20/24/28"],
+  /* 2 movement */ ["0/0/0/0/0", "1/2/3/4/5", "2/3/4/5/6",     "3/4/5/6/7",     "4/5/6/7/8",     "5/6/7/8/10",    "6/7/8/10/12",   "7/8/10/12/14"],
+  /* 3 movement */ ["0/0/0/0/0", "0/0/0/0/0", "1/2/3/4/5",     "2/3/4/5/6",     "3/4/5/6/7",      "4/5/6/7/8",     "5/6/7/9/11",    "6/7/8/10/12"],
+]
+
+// prettier-ignore
+export const TRIGGERS = [
+  { id: 0, prefix: 'On play, ', effCostMult: 0.75,  },
+  { id: 1, prefix: 'On death, ', effCostMult: 0.75,  },
+  { id: 2, prefix: 'Before attacking, ', effCostMult: 1,  },
+  { id: 3, prefix: 'After surviving damage, ', effCostMult: 1.5, subrace: 'elder' },
+  { id: 4, prefix: 'Before moving, ', effCostMult: 1.75, subrace: 'ancient' },
 ]

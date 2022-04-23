@@ -36,5 +36,6 @@ module.exports = async () => {
     },
     transformIgnorePatterns: ['/node_modules/'],
     testTimeout: 10000,
+    setupFilesAfterEnv: ['<rootDir>/src/helpers/jestSetup/index.js'],
   }
 }
