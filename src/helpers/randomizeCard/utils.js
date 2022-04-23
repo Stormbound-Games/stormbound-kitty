@@ -29,6 +29,7 @@ export function fixWording(ability) {
   ability = ability
     .replaceAll('them has', 'they have')
     .replaceAll('them dies', 'they die')
+    .replaceAll('them drains', 'they drain')
     .replaceAll('thems', 'their')
 
   return ability
@@ -40,7 +41,7 @@ export class Race {
     this.faction = faction
     this.movementRange = movementRange
     this.abilities = []
-	this.img = img
+  this.img = img
   }
 
   addEffects(effects = []) {

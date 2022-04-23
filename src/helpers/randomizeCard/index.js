@@ -35,8 +35,8 @@ class Card {
         // cards than anything else in the game.
         // See: https://stormbound-kitty.com/stats
         rwc([
-          { weight: 5, id: 'Unit' },
-          { weight: 2, id: 'Spell' },
+          { weight: 4, id: 'Unit' },
+          { weight: 1, id: 'Spell' },
           { weight: 1, id: 'Structure' },
         ])
   }
@@ -44,7 +44,7 @@ class Card {
   get name() {
     const [firstNames, lastNames] = NAMES[this.race.name]
 
-		const firstName = arrayRandom(firstNames)
+    const firstName = arrayRandom(firstNames)
     const lastName = arrayRandom(lastNames)
     const joint = this.race.name === 'dwarf' ? '' : ' '
 
@@ -116,9 +116,8 @@ class Card {
     }
 
     if (this.type === 'Structure') {
-      this.mana = random(3, 5)
-      // @TODO: implement a better strength resolution for structures.
-      this.strength = this.mana
+      this.mana = random(2, 5)
+      this.strength = ['2/2/3/3/4','3/3/4/4/5','4/4/5/5/6','5/5/6/7/8'][this.mana - 2]
     }
 
     // Make sure not to produce incorrect cards. Only units can move, and spells
@@ -221,6 +220,9 @@ class Card {
 
     // Deal with unique cases.
     this.ability = fixWording(this.ability)
+  
+  if (this.ability.includes('destroy this structure')) this.effCost -= 2
+  if (this.ability.includes('damage to this structure')) this.effCost -= 2
 
     if (random(1, 2) === 1 && this.ability.includes('friendly')) {
       let replaceText = 'unit'
@@ -299,8 +301,8 @@ class Card {
 const randomizeCard = (filters = {}) => {
   const card = new Card(filters)
 
-	card.generate()
-	return card.toObject()
+  card.generate()
+  return card.toObject()
 }
 
 export default randomizeCard
