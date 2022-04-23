@@ -35,11 +35,12 @@ export function fixWording(ability) {
 }
 
 export class Race {
-  constructor(name, faction, movementRange = [0]) {
+  constructor(name, faction, movementRange = [0], img) {
     this.name = name
     this.faction = faction
     this.movementRange = movementRange
     this.abilities = []
+	this.img = img
   }
 
   addEffects(effects = []) {
@@ -59,8 +60,9 @@ export class Effect {
     // chosen.
     // - `1` means the effect is possible for that specific effect.
     this.valid = valid
-    // The `.cast` key does not hold a mana cost. It’s an arbitrary measurement
-    // value from which the card rarity gets derivated.
+    // The `.cost` is the base cost of the effect. It will get multiplied by the
+    // costs of the effect's triggers and slots, then it will be added to the card's
+    // statline cost in order to get the card's true mana cost.
     this.cost = cost
   }
 }

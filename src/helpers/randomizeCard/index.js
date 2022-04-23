@@ -42,37 +42,13 @@ class Card {
   }
 
   get name() {
-    // @TODO: come up with a way to name spells and structures.
-    if (this.type !== 'Unit' || !this.race) {
-      return 'Random card'
-    }
-
     const [firstNames, lastNames] = NAMES[this.race.name]
-    const firstName = arrayRandom(firstNames)
+
+		const firstName = arrayRandom(firstNames)
     const lastName = arrayRandom(lastNames)
     const joint = this.race.name === 'dwarf' ? '' : ' '
 
     return [firstName, lastName].join(joint)
-  }
-
-  get imageCardId() {
-    // T12 is Qordia’s Nest token card, hence the empty slot in the list at this
-    // position.
-    // prettier-ignore
-    const imageKey = ['construct', 'frostling', 'knight', 'pirate', 'raven', 'rodent', 'satyr', 'toad', 'undead', 'dwarf', 'dragon', '', 'feline']
-    const index = imageKey.indexOf(this.race.name)
-
-    if (this.type === 'Unit') {
-      return index === -1 ? 'T3' : 'T' + (index + 1)
-    }
-
-    // @TODO: come up with a bit more variety in spells and structures imagery
-    // by picking from a wider pool of images.
-    else if (this.type === 'Spell') {
-      return 'N15'
-    } else if (this.type === 'Structure') {
-      return 'N13'
-    }
   }
 
   shouldReroll() {
@@ -132,7 +108,6 @@ class Card {
       const strengthThreshold = this.subrace === 'elder' ? 3 : 0
 
       do {
-        // @TODO: figure out whether we could use `MIN_MANA` here as well.
         this.mana = random(2, MAX_MANA)
         this.movement = arrayRandom(this.race.movementRange)
         this.strength = this.strengthScaling[this.movement][this.mana - 2]
@@ -227,8 +202,8 @@ class Card {
       // step every two levels, and none means it doesn’t increase.
       // So if the ability has fast scaling, then the strength of the unit
       // shouldn't increase, and should have none scaling (like how Shady Ghoul
-      // levels up). Likewise if the ability doesn’t change through levels, then
-      // the strength should increase at each level.
+      // levels up). Likewise if the ability doesn’t change between levels, 
+      // then the strength should increase at each level.
       if (chance === 1) {
         this.ability = this.ability.replace('{value}', '{valueNone}')
         this.strengthScaling = STATLINES_FAST
@@ -314,7 +289,7 @@ class Card {
       strength: this.strength.toString(),
       movement: this.movement.toString(),
       ability: capitalize(this.ability),
-      imageCardId: this.imageCardId,
+      imageCardId: this.race.img,
       ancient: this.subrace === 'ancient',
       elder: this.subrace === 'elder',
     }
@@ -324,8 +299,8 @@ class Card {
 const randomizeCard = (filters = {}) => {
   const card = new Card(filters)
 
-  card.generate()
-  return card.toObject()
+	card.generate()
+	return card.toObject()
 }
 
 export default randomizeCard
