@@ -13,6 +13,7 @@ const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
 
 const LEGACY_PATHS = {
   '/card/contest': '/swcc',
+  '/card/official/:id*': '/cards/:id*',
   '/card/stats': '/stats',
   '/changelog/:id*': '/releases/:id*',
   '/changelog/cards': '/changelog',

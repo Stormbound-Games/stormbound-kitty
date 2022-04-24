@@ -1,7 +1,7 @@
 import s from './selectors'
 
 describe('Official card — Navigation', () => {
-  before(() => cy.visit('/card/official/N89'))
+  before(() => cy.visit('/cards/N89'))
 
   it('should be possible to search for an official card', () => {
     cy.get(s.CARD_SELECT)
@@ -18,7 +18,7 @@ describe('Official card — Navigation', () => {
       .click()
 
       .url()
-      .should('match', /\/card\/official\/N89/)
+      .should('match', /\/cards\/N89/)
 
       .get(s.PREV_BTN)
       .should('be.disabled')
@@ -27,6 +27,6 @@ describe('Official card — Navigation', () => {
       .click()
 
       .url()
-      .should('match', /\/card\/official\/N1/)
+      .should('match', /\/cards\/N1/)
   })
 })

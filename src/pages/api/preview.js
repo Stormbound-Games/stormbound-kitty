@@ -33,7 +33,7 @@ const getRedirectUrl = async params => {
     case 'changelog': {
       const card = await getCard(params)
 
-      return card ? `/card/official/${card.id}` : null
+      return card ? `/cards/${card.id}` : null
     }
 
     case 'contribution':

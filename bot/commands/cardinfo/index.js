@@ -19,7 +19,7 @@ const cardinfo = {
     const alias = handleSearchAlias(message)
 
     if (alias[0] === 'id') {
-      return `https://stormbound-kitty.com/card/official/${alias[1]}`
+      return `https://stormbound-kitty.com/cards/${alias[1]}`
     }
 
     const cards = await getCards()
@@ -27,7 +27,7 @@ const cardinfo = {
 
     return (
       searchCards(cards, abbreviations, message)
-        .map(card => `https://stormbound-kitty.com/card/official/${card.id}`)
+        .map(card => `https://stormbound-kitty.com/cards/${card.id}`)
         .slice(0, 3)
         .join('\n') || undefined
     )

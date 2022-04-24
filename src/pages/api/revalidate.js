@@ -23,13 +23,10 @@ const getRevalidationPaths = body => {
     case 'brawl':
       return [`/brawl/${slug.current}`]
     case 'card':
-      return [`/card/official/${id.current}`, '/stats']
+      return [`/cards/${id.current}`, '/stats']
     case 'changelog':
       const timestamp = new Date(date).valueOf()
-      return [
-        `/card/official/${id.current}`,
-        `/card/official/${id.current}/${timestamp}`,
-      ]
+      return [`/cards/${id.current}`, `/cards/${id.current}/${timestamp}`]
     case 'contribution':
     case 'donation':
       return ['/about', '/contribute', `/members/${user.slug.current}`]

@@ -115,7 +115,7 @@ const getSearchIndex = async () => {
   cards.forEach(card => {
     links.push({
       label: card.name,
-      path: `/card/official/${card.id}`,
+      path: `/cards/${card.id}`,
       breadcrumbs: ['Official', 'Information'],
       icon: 'stack',
     })

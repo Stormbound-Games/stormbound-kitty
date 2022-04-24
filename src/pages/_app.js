@@ -55,16 +55,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
         exclude={[
           '/calculators/value/*',
-          // A single star (*) is non-greedy, which means it will take anything
-          // until the next slash (/). Therefore, this path should exclude card
-          // builder paths, without excluding official pages, since they are
-          // formatted as `/card/official/*`. It will exclude anything starting
-          // with `/card` and expressed over a single URL portion though (e.g.
-          // `/card/stats`).
-          '/card/*',
-          '/card/*/display',
-          // Ignore the whole deck builder and list builder and all their sub
-          // paths but the root/blank URL.
+          '/card/**',
           '/deck/**',
           '/list/**',
           '/quest/*',

@@ -5,7 +5,7 @@ import getIgnoredSearch from '~/helpers/getIgnoredSearch'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
 import getCards from '~/api/cards/getCards'
 
-const linkify = card => `https://stormbound-kitty.com/card/official/${card.id}`
+const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 
 const parseMessage = content => {
   const terms = content.split(/\s+/g)

@@ -97,7 +97,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       {props.withCardLink ? (
         <Link
           extend={styles.name({ orientation: props.orientation })}
-          to={'/card/official/' + card.id}
+          to={'/cards/' + card.id}
         >
           {card.name}
         </Link>
