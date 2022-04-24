@@ -1,12 +1,10 @@
-/**
- * 1. Flex context to inline cells in a row
- * 2. Spacing between rows
- * 3. Position context for front-line pseudo-elements
- */
+// 1. Flex context to inline cells in a row
+// 2. Spacing between rows
+// 3. Position context for front-line pseudo-elements
 const row = ({ player, frontRowIndex = 0 }) => ({
-  display: 'flex' /* 1 */,
-  paddingBottom: '3px' /* 2 */,
-  position: 'relative' /* 3 */,
+  display: 'flex', // 1
+  paddingBottom: '3px', // 2
+  position: 'relative', // 3
   counterIncrement: 'row -1',
   transition: 'top 250ms ease-out, bottom 250ms ease-out',
 

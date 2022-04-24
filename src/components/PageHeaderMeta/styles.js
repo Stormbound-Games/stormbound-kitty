@@ -1,7 +1,5 @@
-/**
- * 1. Pull the meta content within the bottom spacing of the `HeaderBanner`
- *    component.
- */
+// 1. Pull the meta content within the bottom spacing of the `HeaderBanner`
+//    component.
 const meta = {
   marginBottom: 'var(--s-larger)',
   textTransform: 'uppercase',
@@ -15,7 +13,7 @@ const meta = {
     display: 'flex',
     fontSize: '120%',
     justifyContent: 'space-between',
-    marginTop: '-2em' /* 1 */,
+    marginTop: '-2em', // 1
     marginBottom: '5em',
   },
 }

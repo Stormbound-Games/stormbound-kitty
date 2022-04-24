@@ -23,12 +23,10 @@ const item = {
   },
 }
 
-/**
- * 1. Pseudo-element used for the active state and for when the dropdown is
- *    open.
- */
+// 1. Pseudo-element used for the active state and for when the dropdown is
+//    open.
 const getInteractiveState = ({ isActive, isOpen }) => ({
-  content: '""' /* 1 */,
+  content: '""', // 1
   width: '1em',
   height: '1em',
   position: 'absolute',
@@ -57,9 +55,7 @@ const action = ({ isActive, isDisabled, isOpen }) => ({
   '::after': getInteractiveState({ isActive, isOpen }),
 })
 
-/**
- * 1. Negate some of the inner spacing of the card select component.
- */
+// 1. Negate some of the inner spacing of the card select component.
 const component = {
   padding: 'var(--s-base)',
   textAlign: 'left',
@@ -68,7 +64,7 @@ const component = {
   medium: {
     paddingTop: 'var(--s-smaller)',
     paddingBottom: 'var(--s-smaller)',
-    paddingLeft: 'calc(var(--s-base) - 3px)' /* 1 */,
+    paddingLeft: 'calc(var(--s-base) - 3px)', // 1
   },
 }
 

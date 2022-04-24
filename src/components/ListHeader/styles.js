@@ -13,7 +13,7 @@ const header = {
 const label = {
   display: 'flex',
   alignItems: 'flex-end',
-  marginBottom: '0.65em' /* 1 */,
+  marginBottom: '0.65em', // 1
 }
 
 const sort = {

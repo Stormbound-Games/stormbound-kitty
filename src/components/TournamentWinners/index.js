@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
+// eslint-disable jsx-a11y/accessible-emoji
 import React from 'react'
 import Link from '~/components/Link'
 import MemberList from '~/components/MemberList'

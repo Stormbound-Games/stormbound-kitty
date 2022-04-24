@@ -31,15 +31,13 @@ const BACKGROUNDS = {
   },
 }
 
-/**
- * 1. When a deck is displayed, it is within a 1/3 column on desktop and full-
- *    width on mobile. By setting the computed width in CSS directly, we can
- *    avoid a slight font-size change when JavaScript kicks in.
- */
+// 1. When a deck is displayed, it is within a 1/3 column on desktop and full-
+//    width on mobile. By setting the computed width in CSS directly, we can
+//    avoid a slight font-size change when JavaScript kicks in.
 const deck = ({ orientation }) => ({
   ...(orientation === 'horizontal'
     ? {
-        fontSize: 'var(--font-size, 9.72488px)' /* 1 */,
+        fontSize: 'var(--font-size, 9.72488px)', // 1
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -47,7 +45,7 @@ const deck = ({ orientation }) => ({
         marginTop: '0.5em',
 
         medium: {
-          fontSize: 'var(--font-size, 13.1507px)' /* 1 */,
+          fontSize: 'var(--font-size, 13.1507px)', // 1
         },
 
         '::before': {
@@ -61,10 +59,10 @@ const deck = ({ orientation }) => ({
   ...(orientation === 'vertical'
     ? {
         marginBottom: '2em',
-        fontSize: 'var(--font-size, 10.9036px)' /* 1 */,
+        fontSize: 'var(--font-size, 10.9036px)', // 1
 
         medium: {
-          fontSize: 'var(--font-size, 13.1507px)' /* 1 */,
+          fontSize: 'var(--font-size, 13.1507px)', // 1
         },
       }
     : {}),

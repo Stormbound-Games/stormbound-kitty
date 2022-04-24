@@ -15,12 +15,10 @@ const name = {
   display: 'block',
 }
 
-/**
- * 1. Pull rarity bar within the bottom margin of the deck itself.
- */
+// 1. Pull rarity bar within the bottom margin of the deck itself.
 const rarityBar = {
   marginBottom: 'var(--s-smaller)',
-  marginTop: 'calc(var(--s-smaller) * -1)' /* 1 */,
+  marginTop: 'calc(var(--s-smaller) * -1)', // 1
 }
 
 const actions = {

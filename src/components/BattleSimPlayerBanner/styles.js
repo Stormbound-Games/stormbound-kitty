@@ -1,15 +1,13 @@
-/**
- * 1. Vertical align mana with content
- * 2. On mobile where it takes the full available width, scale the font size
- *    based on the viewport width
- */
+// 1. Vertical align mana with content
+// 2. On mobile where it takes the full available width, scale the font size
+//    based on the viewport width
 const banner = {
   backgroundImage: 'linear-gradient(to right, #00000000, #00000099, #00000000)',
   padding: '0.3em 2.25em',
-  display: 'flex' /* 1 */,
-  alignItems: 'center' /* 1 */,
+  display: 'flex', // 1
+  alignItems: 'center', // 1
   minWidth: '200px',
-  fontSize: '4vw' /* 2 */,
+  fontSize: '4vw', // 2
   justifyContent: 'flex-start',
   flexDirection: 'row',
 

@@ -1,14 +1,12 @@
-/**
- * 1. Arbitrary dimensions looking fine on both modile and desktop.
- * 2. Usual reflection effect on the box.
- */
+// 1. Arbitrary dimensions looking fine on both modile and desktop.
+// 2. Usual reflection effect on the box.
 const milestone = ({ isCollected }) => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  width: '20em' /* 1 */,
-  height: '20em' /* 1 */,
-  backgroundImage: 'linear-gradient(45deg, #1c4352 50%, #1e4858 50%)' /* 2 */,
+  width: '20em', // 1
+  height: '20em', // 1
+  backgroundImage: 'linear-gradient(45deg, #1c4352 50%, #1e4858 50%)', // 2
   border: '1px solid var(--dark-beige)',
   boxShadow: '0 0 0 5px ' + isCollected ? '#1c435280' : '#1c4352',
   margin: 'auto',
@@ -23,17 +21,15 @@ const header = {
   backgroundColor: '#365c70',
 }
 
-/**
- * 1. Increase bottom spacing as the progress bar is absolutely positioned
- *    at the bottom.
- */
+// 1. Increase bottom spacing as the progress bar is absolutely positioned
+//    at the bottom.
 const body = {
   flex: '1 1 auto',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: 'var(--s-base) var(--s-base) var(--s-large)' /* 2 */,
+  padding: 'var(--s-base) var(--s-base) var(--s-large)', // 2
 }
 
 const overlay = {
@@ -46,14 +42,12 @@ const overlay = {
   zIndex: 2,
 }
 
-/**
- * 1. Negates the 1px border and 5px box-shadow on the top-level container.
- */
+// 1. Negates the 1px border and 5px box-shadow on the top-level container.
 const collected = {
   backgroundImage: 'linear-gradient(45deg, #d2c38d 50%, var(--beige) 50%)',
   position: 'absolute',
-  left: '-6px' /* 1 */,
-  right: '-6px' /* 1 */,
+  left: '-6px', // 1
+  right: '-6px', // 1
   padding: 'var(--s-smaller)',
   top: '50%',
   zIndex: 2,
@@ -75,19 +69,15 @@ const asset = {
   width: '50%',
 }
 
-/**
- * 1. Reverse engineer the width from the ratio of a card.
- */
+// 1. Reverse engineer the width from the ratio of a card.
 const card = {
-  width: 'calc(100% / 168.6 * 100)' /* 1 */,
+  width: 'calc(100% / 168.6 * 100)', // 1
   margin: 'auto',
 }
 
-/**
- * 1. Reverse engineer the width from the ratio of a book.
- */
+// 1. Reverse engineer the width from the ratio of a book.
 const bookImage = {
-  width: 'calc(100% / 146.5 * 100)' /* 1 */,
+  width: 'calc(100% / 146.5 * 100)', // 1
   margin: 'auto',
   display: 'block',
 }

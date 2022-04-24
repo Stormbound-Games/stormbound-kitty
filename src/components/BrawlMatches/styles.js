@@ -9,12 +9,10 @@ const table = {
     medium: { width: '60px' },
   },
 
-  /**
-   * 1. The first table cell of each row contains the match number, and should be
-   *    colored differently like in the game.
-   */
+  // 1. The first table cell of each row contains the match number, and should be
+  //    colored differently like in the game.
   '> tbody > tr > td:first-of-type': {
-    color: 'var(--beige)' /* 1 */,
+    color: 'var(--beige)', // 1
   },
 }
 

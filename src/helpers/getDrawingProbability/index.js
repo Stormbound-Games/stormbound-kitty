@@ -2,13 +2,11 @@ import { RARITIES } from '~/constants/game'
 import countCards from '~/helpers/countCards'
 import getDrawingSequences from '~/helpers/getDrawingSequences'
 
-/**
- * Get the probability of pulling the given sequence
- * @param {Card[]} cards - Cards
- * @param {Book} book - Book object
- * @param {Number[]} expectations - Expectations as rarity array
- * @return {Float} Probability between 0 and 1
- */
+// Get the probability of pulling the given sequence
+// @param {Card[]} cards - Cards
+// @param {Book} book - Book object
+// @param {Number[]} expectations - Expectations as rarity array
+// @return {Float} Probability between 0 and 1
 export const getSequenceProbability = (cards, book, expectations) => {
   const { draws, odds, only } = book
   const cardCounts = RARITIES.map(rarity =>
@@ -31,12 +29,10 @@ export const getSequenceProbability = (cards, book, expectations) => {
   }
 }
 
-/**
- * Get the drawing probability of the given exceptations in the given book type
- * @param {Book} book - Book object
- * @param {Number[]} expectations - Expectations as rarity array
- * @return {Float} Probability between 0 and 1
- */
+// Get the drawing probability of the given exceptations in the given book type
+// @param {Book} book - Book object
+// @param {Number[]} expectations - Expectations as rarity array
+// @return {Float} Probability between 0 and 1
 const getDrawingProbability = (cards, book, expectations) => {
   const { draws, odds } = book
 

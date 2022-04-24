@@ -7,14 +7,12 @@ const radio = {
   color: 'currentcolor',
 }
 
-/**
- * 1. Arbitrary translate to align the radio icon with its accompanying label.
- */
+// 1. Arbitrary translate to align the radio icon with its accompanying label.
 const icon = {
   width: '1.25em',
   height: '1.25em',
   border: '1px solid var(--dark-beige)',
-  transform: 'translate(25%, -50%) rotate(45deg)' /* 1 */,
+  transform: 'translate(25%, -50%) rotate(45deg)', // 1
   display: 'inline-block',
   position: 'absolute',
   borderRadius: '0.25em',
@@ -40,15 +38,10 @@ const input = {
   margin: 0,
   cursor: 'pointer',
 
-  /**
-   * 1. Define the default browser outline on the icon itself so it looks like it
-   *    can be focused.
-   */
+  // 1. Define the default browser outline on the icon itself so it looks like it
+  //    can be focused.
   ':focus + *': {
-    outline: [
-      'auto 2px Highlight',
-      'auto 5px -webkit-focus-ring-color',
-    ] /* 1 */,
+    outline: ['auto 2px Highlight', 'auto 5px -webkit-focus-ring-color'], // 1
   },
 
   ':checked + *::before': {

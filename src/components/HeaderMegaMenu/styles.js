@@ -1,7 +1,5 @@
-/**
- * 1. `--s-base` feels a little tight, and `--s-large` feels a little too spaced
- *    out so sticking to arbitrary values here.
- */
+// 1. `--s-base` feels a little tight, and `--s-large` feels a little too spaced
+//    out so sticking to arbitrary values here.
 const menu = ({ isOpen }) => ({
   position: 'absolute',
   top: '100%',
@@ -11,7 +9,7 @@ const menu = ({ isOpen }) => ({
   border: '1px solid var(--dark-beige)',
   textAlign: 'left',
   left: 0,
-  padding: '1.5rem 1.5rem 0em' /* 1 */,
+  padding: '1.5rem 1.5rem 0em', // 1
   visibility: isOpen ? 'visible' : 'hidden',
   opacity: isOpen ? 1 : 0,
   pointerEvents: isOpen ? 'auto' : 'none',

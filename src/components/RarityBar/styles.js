@@ -5,11 +5,9 @@ const bar = {
   ':hover > * > *': { opacity: 1 },
 }
 
-/**
- * 1. `12` is the amount of cards in a deck.
- */
+// 1. `12` is the amount of cards in a deck.
 const slice = {
-  width: 'calc(100% / 12 * var(--count))' /* 1 */,
+  width: 'calc(100% / 12 * var(--count))', // 1
   backgroundColor: 'var(--color)',
   height: '100%',
   position: 'relative',
@@ -33,13 +31,11 @@ const count = {
   fontSize: '90%',
   opacity: 0,
 
-  /**
-   * 1. There is no elegant way to have a proper text stroke, so we have to place
-   *    a pseudo-element behind the text itself, that repeats the same text with
-   *    an actual stroke.
-   */
+  // 1. There is no elegant way to have a proper text stroke, so we have to place
+  //    a pseudo-element behind the text itself, that repeats the same text with
+  //    an actual stroke.
   '::before': {
-    content: 'attr(title)' /* 1 */,
+    content: 'attr(title)', // 1
     position: 'absolute',
     left: 0,
     zIndex: -1,

@@ -40,7 +40,7 @@ const image = {
   maxHeight: '3em',
   margin: 0,
   objectFit: 'contain',
-  pointerEvents: 'none' /* 1 */,
+  pointerEvents: 'none', // 1
 }
 
 const content = {

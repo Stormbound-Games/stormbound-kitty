@@ -1,10 +1,8 @@
-/**
- * 1. `1.5em` is a magic number that gives enough space on both sides to render
- *    the backgrounds. Safari needs 1px less… :eye-roll:
- */
+// 1. `1.5em` is a magic number that gives enough space on both sides to render
+//    the backgrounds. Safari needs 1px less… :eye-roll:
 const cta = ({ isDisabled, isFullWidthOnMobile }) => ({
   display: 'inline-flex',
-  padding: '0 calc(1.5em - 1px)' /* 1 */,
+  padding: '0 calc(1.5em - 1px)', // 1
   border: 0,
   position: 'relative',
 

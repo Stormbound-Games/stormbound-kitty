@@ -3,13 +3,11 @@ import arrayPad from '~/helpers/arrayPad'
 import countCards from '~/helpers/countCards'
 import getDrawingSequences from '~/helpers/getDrawingSequences'
 
-/**
- * Return an array of sequences filled with 0 and 1 where 0 means the card in
- * the collection is not maxed out and 1 means the card is level 5 in the
- * collection
- * @param {Number} expected
- * @param {Number} length
- */
+// Return an array of sequences filled with 0 and 1 where 0 means the card in
+// the collection is not maxed out and 1 means the card is level 5 in the
+// collection
+// @param {Number} expected
+// @param {Number} length
 const getPossibleSequences = (expected, length) => {
   const sequences = []
 
@@ -36,15 +34,13 @@ const modifySequence = (sequence, rarity, sequenceRarity) => {
   return result
 }
 
-/**
- * @param {Number[]} cardCounts - Amount of cards of each rarity
- * @param {Number} rarity - Rarity index, from 0 to 3
- * @param {Number} cards - ?
- * @param {Number} maxedCards - Amount of cards level 5 for this rarity
- * @param {Number[]} odds - Drawing odds per rarity
- * @param {Number[][]} sequences - Drawing sequences
- * @return {Number} Probability
- */
+// @param {Number[]} cardCounts - Amount of cards of each rarity
+// @param {Number} rarity - Rarity index, from 0 to 3
+// @param {Number} cards - ?
+// @param {Number} maxedCards - Amount of cards level 5 for this rarity
+// @param {Number[]} odds - Drawing odds per rarity
+// @param {Number[][]} sequences - Drawing sequences
+// @return {Number} Probability
 const getProbability = (
   cardCounts,
   rarity,
@@ -87,15 +83,13 @@ const getProbability = (
   return total
 }
 
-/**
- * Return the expected number of maxed out cards we can get, for each rarity
- * @param {Number[]} cardCounts - Amount of cards of each rarity
- * @param {Number} rarityIndex - Rarity index, from 0 to 3
- * @param {Book} book - Book object
- * @param {Number} maxedCards - Amount of cards level 5 for this rarity
- * @param {Number[][]} sequences - Drawing sequences
- * @return {Number}
- */
+// Return the expected number of maxed out cards we can get, for each rarity
+// @param {Number[]} cardCounts - Amount of cards of each rarity
+// @param {Number} rarityIndex - Rarity index, from 0 to 3
+// @param {Book} book - Book object
+// @param {Number} maxedCards - Amount of cards level 5 for this rarity
+// @param {Number[][]} sequences - Drawing sequences
+// @return {Number}
 const countExpectedMaxedCards = (
   cardCounts,
   rarityIndex,
@@ -124,10 +118,8 @@ const countExpectedMaxedCards = (
   return total
 }
 
-/**
- * @param {Card[]} collection - Current collection
- * @return {Number[]} Amount of cards level 5 per rarity
- */
+// @param {Card[]} collection - Current collection
+// @return {Number[]} Amount of cards level 5 per rarity
 const getMaxedCardsPerRarity = collection =>
   RARITIES.map(
     rarity =>
@@ -135,12 +127,10 @@ const getMaxedCardsPerRarity = collection =>
         .length
   )
 
-/**
- * @param {Card[]} cards - All cards data
- * @param {Card[]} collection - Current collection
- * @param {Book} book - Book object
- * @return {Number} Expected coins for given book type
- */
+// @param {Card[]} cards - All cards data
+// @param {Card[]} collection - Current collection
+// @param {Book} book - Book object
+// @return {Number} Expected coins for given book type
 const getExpectedCoinsPerBook = (cards, collection, book) => {
   const allMaxedCardsPerRarity = getMaxedCardsPerRarity(collection)
   const rarities = Object.keys(RARITY_COPIES)

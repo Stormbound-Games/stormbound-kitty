@@ -40,15 +40,10 @@ const input = {
     left: '20%',
   },
 
-  /**
-   * 1. Define the default browser outline on the icon itself so it looks like it
-   *    can be focused.
-   */
+  // 1. Define the default browser outline on the icon itself so it looks like it
+  //    can be focused.
   ':focus + *': {
-    outline: [
-      'auto 2px Highlight',
-      'auto 5px -webkit-focus-ring-color',
-    ] /* 1 */,
+    outline: ['auto 2px Highlight', 'auto 5px -webkit-focus-ring-color'], // 1
   },
 }
 

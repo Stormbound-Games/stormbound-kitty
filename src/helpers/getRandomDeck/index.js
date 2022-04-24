@@ -118,16 +118,14 @@ const getRandomCard = (cards, cardsIndex, deck, options) => {
 const isMatchingFaction = faction => card =>
   card.faction === 'neutral' || (faction ? card.faction === faction : true)
 
-/**
- * Return a random deck (cards not resolved).
- * @param {Object} options - Randomization options
- * @param {String} options.faction - Deck faction
- * @param {Card[]} options.availableCards - Cards than can be picked
- * @param {Number} options.maxLegendaryCards - Maximum amount of legendary cards
- * @param {Number} options.maxEpicCards - Maximum amount of epic cards
- * @param {Number} options.minFactionCards  - Minimum amount of faction cards
- * @param {Card[]} options.initialCards  - Cards to force into the deck
- */
+// Return a random deck (cards not resolved).
+// @param {Object} options - Randomization options
+// @param {String} options.faction - Deck faction
+// @param {Card[]} options.availableCards - Cards than can be picked
+// @param {Number} options.maxLegendaryCards - Maximum amount of legendary cards
+// @param {Number} options.maxEpicCards - Maximum amount of epic cards
+// @param {Number} options.minFactionCards  - Minimum amount of faction cards
+// @param {Card[]} options.initialCards  - Cards to force into the deck
 const getRandomDeck = (options = {}) => {
   const cardsIndex = indexArray(options.availableCards)
 

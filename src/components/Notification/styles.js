@@ -1,9 +1,7 @@
-/**
- * 1. Horizontal pseudo-element at the top and the bottom of the box to give it
- *    these cutted-out corners like in the game.
- */
+// 1. Horizontal pseudo-element at the top and the bottom of the box to give it
+//    these cutted-out corners like in the game.
 const notificationPseudo = {
-  content: '""' /* 1 */,
+  content: '""', // 1
   position: 'absolute',
   left: '0.5em',
   height: '0.5em',

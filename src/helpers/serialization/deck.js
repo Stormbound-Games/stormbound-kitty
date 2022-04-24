@@ -9,11 +9,9 @@ const serializeDeck = cards => {
   return serialization.cards.serialize(cards).toLowerCase()
 }
 
-/**
- * Deserialize a deck into an array of cards
- * @param {String} hash - Either base64 hash (old) or card string (new)
- * @return {Object[]} cards
- */
+// Deserialize a deck into an array of cards
+// @param {String} hash - Either base64 hash (old) or card string (new)
+// @return {Object[]} cards
 const deserializeDeck = (cardsIndexBySid, hash) => {
   try {
     const string = base64Decode(hash)

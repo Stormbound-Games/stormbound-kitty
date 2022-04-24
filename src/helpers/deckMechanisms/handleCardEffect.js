@@ -24,14 +24,12 @@ const FROZEN_ENEMIES_AFTER = {
   W4: [0, 0, 0, 1, 2],
 }
 
-/**
- * Mutate the given state following the given card’s ability.
- * @param {Object} state - State being mutated
- * @param {Object} card - Resolved card being played
- * @param {String} mode - Game mode (MANUAL or AUTOMATIC)
- * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
- * @return {Object} Mutated state
- */
+// Mutate the given state following the given card’s ability.
+// @param {Object} state - State being mutated
+// @param {Object} card - Resolved card being played
+// @param {String} mode - Game mode (MANUAL or AUTOMATIC)
+// @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
+// @return {Object} Mutated state
 const handleCardEffect = (state, card, mode, HoS) => {
   // On turn 1, any 3 mana card can be played since it would be the only one
   // to be played and would not fill the board by itself. Any 2 mana card will

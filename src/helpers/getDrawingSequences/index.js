@@ -8,11 +8,9 @@ const base = index =>
     ? [index]
     : base(Math.floor(index / count)).concat(index % count)
 
-/**
- * Generate a drawing sequence of length `draws` for given index
- * @param {Number} draws - Amount of draws in a book
- * @return {Number[]} Drawing sequence
- */
+// Generate a drawing sequence of length `draws` for given index
+// @param {Number} draws - Amount of draws in a book
+// @return {Number[]} Drawing sequence
 export const getSequence = (index, draws) => arrayPad(base(index), draws, 0)
 
 const getDrawingSequences = draws =>

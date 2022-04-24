@@ -5,15 +5,13 @@ import isCard, { isNotCard } from '~/helpers/isCard'
 
 export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true, modifier: null }
 
-/**
- * Mutate the given state following a cycle.
- * @param {Object} state - State being mutated
- * @param {DRCard} card - Cycled card
- * @param {Object} options - Cycling options
- * @param {Boolean} [options.countAsCycled = true] - Whether it counts as this turn’s cycle
- * @param {Boolean} [options.modifier = null] - Active Brawl modifier
- * @return {Object} Mutated state
- */
+// Mutate the given state following a cycle.
+// @param {Object} state - State being mutated
+// @param {DRCard} card - Cycled card
+// @param {Object} options - Cycling options
+// @param {Boolean} [options.countAsCycled = true] - Whether it counts as this turn’s cycle
+// @param {Boolean} [options.modifier = null] - Active Brawl modifier
+// @return {Object} Mutated state
 const cycle = (state, card, opts) => {
   const options = { ...DEFAULT_CYCLE_OPTIONS, ...opts }
 

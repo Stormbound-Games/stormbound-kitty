@@ -20,20 +20,17 @@ const item = {
   position: 'relative',
 }
 
-/**
- * 1. Simulate a reflection with a sharp split gradient.
- * 2. Same horizontal spacing as the gallery item’s padding (taking into account
- *    the 150% font-size).
- * 3. Arbitrary position to cover the ability.
- */
+// 1. Simulate a reflection with a sharp split gradient.
+// 2. Same horizontal spacing as the gallery item’s padding (taking into account
+//    the 150% font-size).
+// 3. Arbitrary position to cover the ability.
 const inDeck = {
-  backgroundImage:
-    'linear-gradient(45deg, #d2c38d 50%, var(--beige) 50%)' /* 1 */,
+  backgroundImage: 'linear-gradient(45deg, #d2c38d 50%, var(--beige) 50%)', // 1
   position: 'absolute',
-  left: 'calc(0.5em * 100 / 150)' /* 2 */,
-  right: 'calc(0.5em * 100 / 150)' /* 2 */,
+  left: 'calc(0.5em * 100 / 150)', // 2
+  right: 'calc(0.5em * 100 / 150)', // 2
   padding: '0.15em 0.5em',
-  bottom: '20%' /* 3 */,
+  bottom: '20%', // 3
   zIndex: 2,
   textAlign: 'center',
   textTransform: 'uppercase',

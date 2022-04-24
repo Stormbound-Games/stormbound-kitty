@@ -1,12 +1,10 @@
 import rwc from 'random-weighted-choice'
 
-/**
- * Randomly choose a card from the cards array, based on the weights, when cards are
- * uniquely identified by an id and an idx property
- * Note: Use only when the cards contain an idx property
- * @param {Object[]} cards - Cards to choose from
- * @return {Object} Chosen card
- */
+// Randomly choose a card from the cards array, based on the weights, when cards are
+// uniquely identified by an id and an idx property
+// Note: Use only when the cards contain an idx property
+// @param {Object[]} cards - Cards to choose from
+// @return {Object} Chosen card
 const rwcDuplicates = cards => {
   if (!cards.every(card => card.hasOwnProperty('idx'))) {
     const pickId = rwc(cards)

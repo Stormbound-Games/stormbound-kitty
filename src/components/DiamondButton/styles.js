@@ -40,15 +40,10 @@ const button = ({ isActive }) => ({
       '0 0 0 1px var(--beige), 0 0 0 3px var(--black), 0 0 0 4px var(--beige)',
   },
 
-  /**
-   * 1. Define the default browser outline on the diamond itself so it looks
-   *    like it can be focused.
-   */
+  // 1. Define the default browser outline on the diamond itself so it looks
+  //    like it can be focused.
   ':focus::before': {
-    outline: [
-      'auto 2px Highlight',
-      'auto 5px -webkit-focus-ring-color',
-    ] /* 1 */,
+    outline: ['auto 2px Highlight', 'auto 5px -webkit-focus-ring-color'], // 1
   },
 })
 

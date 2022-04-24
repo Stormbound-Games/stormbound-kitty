@@ -4,15 +4,13 @@ const layout = {
   flexDirection: 'column',
 }
 
-/**
- * 1. Kind of a legacy decision from back when only the battle sim existed, and
- *    where a lot of information had to be packed in little space. This
- *    technically should be reverted but is pretty difficult without
- *    meticulously going through everything.
- */
+// 1. Kind of a legacy decision from back when only the battle sim existed, and
+//    where a lot of information had to be packed in little space. This
+//    technically should be reverted but is pretty difficult without
+//    meticulously going through everything.
 const body = {
   padding: 'var(--s-large)',
-  fontSize: '90%' /* 1 */,
+  fontSize: '90%', // 1
   display: 'flex',
   flexDirection: 'column',
   width: '1200px',

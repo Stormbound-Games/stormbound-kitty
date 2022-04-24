@@ -1,22 +1,18 @@
-/**
- * 1. Position context for actual grid
- */
+// 1. Position context for actual grid
 const root = {
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
-  position: 'relative' /* 1 */,
+  position: 'relative', // 1
   overflow: 'hidden',
   width: '100%',
   border: '1px solid #ffffff33',
 
-  /**
-   * 1. Ensure proper ratio based on background size
-   */
+  // 1. Ensure proper ratio based on background size
   '::before': {
-    content: '""' /* 1 */,
-    display: 'block' /* 1 */,
-    paddingTop: '62.5%' /* 1 */,
+    content: '""', // 1
+    display: 'block', // 1
+    paddingTop: '62.5%', // 1
   },
 }
 
@@ -44,16 +40,14 @@ const player = ({ type }) => ({
   top: type === 'RED' ? '8%' : type === 'BLUE' ? '79%' : undefined,
 })
 
-/**
- * 1. Horizontal centering
- * 2. Hard-coded values based on background
- */
+// 1. Horizontal centering
+// 2. Hard-coded values based on background
 const grid = {
-  position: 'absolute' /* 1 */,
-  left: '50%' /* 1 */,
-  transform: 'translateX(-50%)' /* 1 */,
-  width: '23%' /* 2 */,
-  top: '24%' /* 2 */,
+  position: 'absolute', // 1
+  left: '50%', // 1
+  transform: 'translateX(-50%)', // 1
+  width: '23%', // 2
+  top: '24%', // 2
 }
 
 const cards = {

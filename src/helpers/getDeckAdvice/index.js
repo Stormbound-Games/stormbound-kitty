@@ -64,13 +64,11 @@ const ADVICE = [
   UPGRADE_POINT,
 ]
 
-/**
- * Return an array of (unresolved) deck advice as promises.
- * @param {Object} cardsIndex - Index of all cards in the game
- * @param {Card[]} deck - Resolved deck of cards
- * @param {String} modifier - Optional Brawl modifier
- * @return {Promise[]}
- */
+// Return an array of (unresolved) deck advice as promises.
+// @param {Object} cardsIndex - Index of all cards in the game
+// @param {Card[]} deck - Resolved deck of cards
+// @param {String} modifier - Optional Brawl modifier
+// @return {Promise[]}
 const getDeckAdvice = async (cardsIndex, deck, modifier) => {
   if (deck.length < 12) return []
 

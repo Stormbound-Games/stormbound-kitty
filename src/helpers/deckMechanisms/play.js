@@ -11,19 +11,17 @@ export const DEFAULT_PLAY_OPTIONS = {
   modifier: null,
 }
 
-/**
- * Mutate the given state following a play.
- * @param {Object} state - State being mutated
- * @param {DRCard} card - Played card
- * @param {Object} opts - Play options
- * @param {Boolean} [opts.discard = false] - Whether the play is actually a discard
- * @param {Boolean} [opts.free = false] - Whether the play is for free
- * @param {String} [opts.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
- * @param {String} [opts.reweight = true] - Whether to reweight the deck
- * @param {String} [opts.modifier = null] - Active Brawl modifier
- * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
- * @return {Object} Mutated state
- */
+// Mutate the given state following a play.
+// @param {Object} state - State being mutated
+// @param {DRCard} card - Played card
+// @param {Object} opts - Play options
+// @param {Boolean} [opts.discard = false] - Whether the play is actually a discard
+// @param {Boolean} [opts.free = false] - Whether the play is for free
+// @param {String} [opts.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
+// @param {String} [opts.reweight = true] - Whether to reweight the deck
+// @param {String} [opts.modifier = null] - Active Brawl modifier
+// @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
+// @return {Object} Mutated state
 const play = (state, card, opts, HoS) => {
   const options = { ...DEFAULT_PLAY_OPTIONS, ...opts }
 

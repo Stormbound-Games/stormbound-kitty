@@ -62,13 +62,11 @@ const image = {
   },
 }
 
+// 1. Visually align the right button with the edge of the text.
 const actions = {
-  /**
-   * 1. Visually align the right button with the edge of the text.
-   */
   medium: {
     marginTop: 'var(--s-large)',
-    marginLeft: 'calc(var(--s-smaller) * -1)' /* 1 */,
+    marginLeft: 'calc(var(--s-smaller) * -1)', // 1
     marginBottom: 'var(--s-base)',
   },
 }

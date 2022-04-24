@@ -1,66 +1,66 @@
 export const STABLE_FINISHERS = [
-  /* RUNNERS */
-  /* Warfront Runners */ 'N28',
-  /* Bluesail Raiders */ 'N30',
-  /* Hearthguards */ 'N39',
-  /* Tegor the Vengeful */ 'N46',
-  /* Salty Outcasts */ 'N52',
-  /* Joust Champions */ 'N55',
-  /* Siren of the Seas */ 'N58',
-  /* Razor-Sharp Lynxes */ 'N65',
-  /* Chaotic Pupil */ 'I12',
-  /* Agents in Charge */ 'I25',
-  /* Wolfcloaks */ 'W17',
-  /* Fleshmenders */ 'W18',
-  /* Chillbeards */ 'W22',
-  /* Olf The Hammer */ 'W23',
-  /* Sleetstompers */ 'W26',
-  /* Grim Couriers */ 'S17',
-  /* Lasting Remains */ 'S23',
-  /* Obliterators */ 'S26',
-  /* Obsidian Butchers */ 'F17',
+  // RUNNERS
+  'N28', // Warfront Runners
+  'N30', // Bluesail Raiders
+  'N39', // Hearthguards
+  'N46', // Tegor the Vengeful
+  'N52', // Salty Outcasts
+  'N55', // Joust Champions
+  'N58', // Siren of the Seas
+  'N65', // Razor-Sharp Lynxes
+  'I12', // Chaotic Pupil
+  'I25', // Agents in Charge
+  'W17', // Wolfcloaks
+  'W18', // Fleshmenders
+  'W22', // Chillbeards
+  'W23', // Olf The Hammer
+  'W26', // Sleetstompers
+  'S17', // Grim Couriers
+  'S23', // Lasting Remains
+  'S26', // Obliterators
+  'F17', // Obsidian Butchers
 
-  /* CHIP */
-  /* Ubass the Hunter */ 'N35',
-  /* Needle Blast */ 'N44',
-  /* Pillars of Doom */ 'S18',
-  /* Vindicators */ 'S22',
-  /* Dark Harvest */ 'S15',
-  /* Hairy Chestnuts */ 'F28',
-  /* Siege Assembly */ 'I19',
-  /* Booming Professors */ 'I28',
-  /* Visions of the Grove */ 'W21',
+  // CHIP
+  'N35', // Ubass the Hunter
+  'N44', // Needle Blast
+  'S18', // Pillars of Doom
+  'S22', // Vindicators
+  'S15', // Dark Harvest
+  'F28', // Hairy Chestnuts
+  'I19', // Siege Assembly
+  'I28', // Booming Professors
+  'W21', // Visions of the Grove
 
-  /* MISC */
-  /* Forgotten Souls */ 'S6',
-  /* Herald’s Hymn */ 'S20',
+  // MISC
+  'S6', // Forgotten Souls
+  'S20', // Herald’s Hymn
 ]
 
 export const LOW_LEVEL_FINISHERS = [
-  /* Windmakers */ 'I20',
-  /* Draconic Roamers */ 'S12',
+  'I20', // Windmakers
+  'S12', // Draconic Roamers
 ]
 
 export const HIGH_LEVEL_FINISHERS = [
-  /* First Mutineer */ 'N12',
-  /* Rapid Mousers */ 'N71',
-  /* Limelimbs */ 'F25',
-  /* Restless Goats */ 'S2',
-  /* Terrific Slayers */ 'N27',
-  /* Wild Saberpaws */ 'N67',
+  'N12', // First Mutineer
+  'N71', // Rapid Mousers
+  'F25', // Limelimbs
+  'S2', // Restless Goats
+  'N27', // Terrific Slayers
+  'N67', // Wild Saberpaws
 ]
 
 export const DEBATABLE_FINISHERS = [
-  /* Powder Tower */ 'N45',
-  /* Hair-Raising Cats */ 'N61',
-  /* Mischiefs */ 'S13',
-  /* Greengale Serpents */ 'I7',
-  /* Overchargers */ 'I15',
-  /* Dangerous Suiters */ 'N51',
-  /* Lady Rime */ 'W10',
-  /* Lucky Charmers */ 'N42',
-  /* High Priestess Klaxi */ 'F23',
-  /* Petrified Fossils */ 'S27',
+  'N45', // Powder Tower
+  'N61', // Hair-Raising Cats
+  'S13', // Mischiefs
+  'I7', // Greengale Serpents
+  'I15', // Overchargers
+  'N51', // Dangerous Suiters
+  'W10', // Lady Rime
+  'N42', // Lucky Charmers
+  'F23', // High Priestess Klaxi
+  'S27', // Petrified Fossils
 ]
 
 const getDebatableFinishers = cards =>

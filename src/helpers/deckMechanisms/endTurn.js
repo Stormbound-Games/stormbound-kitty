@@ -6,13 +6,11 @@ export const DEFAULT_END_TURN_OPTIONS = {
   modifier: null,
 }
 
-/**
- * Mutate the given state following a turn.
- * @param {Object} state - State being mutated
- * @param {Object} opts - End turn options
- * @param {Boolean} [opts.modifier = null] - Active Brawl modifier
- * @return {Object} Mutated state
- */
+// Mutate the given state following a turn.
+// @param {Object} state - State being mutated
+// @param {Object} opts - End turn options
+// @param {Boolean} [opts.modifier = null] - Active Brawl modifier
+// @return {Object} Mutated state
 const endTurn = (state, opts) => {
   const options = { ...DEFAULT_END_TURN_OPTIONS, ...opts }
 

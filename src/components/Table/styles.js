@@ -8,12 +8,10 @@ const table = ({ isZebra }) => ({
   overflow: isZebra ? 'hidden' : undefined,
   position: isZebra ? 'relative' : undefined,
 
-  /**
-   * 1. Border allowing for seeing the zebra rows a few pixels all around the
-   *    table, effectively an inner border.
-   */
+  // 1. Border allowing for seeing the zebra rows a few pixels all around the
+  //    table, effectively an inner border.
   '::before': {
-    content: isZebra ? '""' : undefined /* 1 */,
+    content: isZebra ? '""' : undefined, // 1
     position: 'absolute',
     top: '3px',
     right: '3px',
@@ -23,17 +21,15 @@ const table = ({ isZebra }) => ({
     pointerEvents: 'none',
   },
 
-  /**
-   * 1. Hide the table headers.
-   */
+  // 1. Hide the table headers.
   '> thead': {
     backgroundColor: isZebra ? 'var(--dark-blue)' : undefined,
 
     small: {
       display: 'block',
-      position: 'absolute' /* 1 */,
-      top: '-9999px' /* 1 */,
-      left: '-9999px' /* 1 */,
+      position: 'absolute', // 1
+      top: '-9999px', // 1
+      left: '-9999px', // 1
     },
 
     '> tr > th': {
@@ -47,21 +43,22 @@ const table = ({ isZebra }) => ({
     },
 
     '> tr:nth-child(odd)': {
-      backgroundColor: isZebra ? 'var(--light-blue)' : undefined /* 1 */,
+      backgroundColor: isZebra ? 'var(--light-blue)' : undefined, // 1
     },
 
     small: { display: 'block' },
   },
 
-  /**
-   * 1. Avoid double borders on the top of the table.
-   */
+  // 1. Avoid double borders on the top of the table.
   '> * > tr': {
     small: {
       display: 'block',
       padding: 'var(--s-smaller) 0',
       border: '1px solid var(--dark-beige)',
-      ':not(:first-child)': { borderTop: 0 /* 1 */ },
+
+      ':not(:first-child)': {
+        borderTop: 0, // 1
+      },
     },
   },
 
@@ -102,12 +99,10 @@ const table = ({ isZebra }) => ({
     textAlign: 'left',
     display: 'block',
 
-    /**
-     * 1. Hide the fake border around the table since table rows are using borders
-     *    on mobile.
-     */
+    // 1. Hide the fake border around the table since table rows are using borders
+    //    on mobile.
     '::before': {
-      content: 'none' /* 1 */,
+      content: 'none', // 1
     },
   },
 })

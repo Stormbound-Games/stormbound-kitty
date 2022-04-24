@@ -1,19 +1,17 @@
 import getBinomialRandomVariableResult from '~/helpers/getBinomialRandomVariableResult'
 import { PROBABILITIES } from '~/constants/dryRunner'
 
-/**
- * Mutate the given state to handle the RNG for Frozen Core and Dawnsparks.
- * If the RNG is:
- * - unfriendly: Frozen Cores and Dawsparks always get destroyed
- * - friendly: no Frozen Cores and Dawsparks get destroyed and all; Dawnsparks
- *   hit an enemy unit, giving 4 mana each
- * - regular: each Frozen Core has a 50% chance of staying on the board (given
- *   by FROZEN_CORE_STAYS) and Dawnsparks units each have a 71% chance of
- *   staying on the board (given by DAWNSPARKS_STAYS), followed by a 71% chance
- *   of hitting an enemy unit (given by DAWSPARKS_HITS) giving 4 mana.
- * @param {Object} state - State being mutated
- * @return {Object} Mutated state
- */
+// Mutate the given state to handle the RNG for Frozen Core and Dawnsparks.
+// If the RNG is:
+// - unfriendly: Frozen Cores and Dawsparks always get destroyed
+// - friendly: no Frozen Cores and Dawsparks get destroyed and all; Dawnsparks
+//   hit an enemy unit, giving 4 mana each
+// - regular: each Frozen Core has a 50% chance of staying on the board (given
+//   by FROZEN_CORE_STAYS) and Dawnsparks units each have a 71% chance of
+//   staying on the board (given by DAWNSPARKS_STAYS), followed by a 71% chance
+//   of hitting an enemy unit (given by DAWSPARKS_HITS) giving 4 mana.
+// @param {Object} state - State being mutated
+// @return {Object} Mutated state
 const resolveManaRNG = state => {
   // Regardless of the RNG setting, we need to reduce the amount of Orgone
   // Leechers as they eventually either die or reach the base.
