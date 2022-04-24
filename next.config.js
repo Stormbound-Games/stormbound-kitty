@@ -87,7 +87,6 @@ module.exports = withPlugins(plugins, {
       'manifest-src': [SELF],
       'media-src': [NONE],
       'object-src': [NONE],
-      'prefetch-src': [SELF],
       'script-src': [
         SELF,
         /* Next.js rehydration */ UNSAFE_INLINE,
