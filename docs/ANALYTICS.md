@@ -11,11 +11,10 @@ The tracking script is proxied on Next.js (see `next.config.js`) to be loaded fr
 To prevent these tools from inflating our stats and pushing us to a more expensive plan, we exclude these paths from tracking entirely. Here are the ignored paths:
 
 - `/calculators/value/*`
-- `/card/*/display`
-- `/card/*`
+- `/card/**`
 - `/deck/**`
-- `/list/*/display`
-- `/quest/*`
+- `/list/**`
+- `/quest/**`
 - `/simulators/battle/*/display`
 - `/simulators/battle/*`
 - `/simulators/books/*`
