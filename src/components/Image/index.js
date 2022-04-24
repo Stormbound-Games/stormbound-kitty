@@ -74,6 +74,7 @@ export default React.memo(function Image(props) {
       data-testid={props['data-testid']}
       onClick={props.onClick}
       onContextMenu={props.onContextMenu}
+      referrerPolicy='no-referrer'
     />
   )
 })

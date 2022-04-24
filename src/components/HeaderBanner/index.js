@@ -42,7 +42,7 @@ export default React.memo(function HeaderBanner(props) {
       >
         <Only.Desktop>
           {/* eslint-disable-next-line */}
-          <img src={background} alt='' hidden />
+          <img src={background} alt='' hidden referrerPolicy='no-referrer' />
         </Only.Desktop>
         <h1 className={css(styles.title)}>{props.title}</h1>
       </div>
