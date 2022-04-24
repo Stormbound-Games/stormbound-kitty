@@ -35,7 +35,7 @@ const changelog = {
 
     const embed = getEmbed()
       .setTitle(`${this.label}: ${card.name}`)
-      .setURL(`https://stormbound-kitty.com/card/official/${card.id}`)
+      .setURL(`https://stormbound-kitty.com/cards/${card.id}`)
 
     const cardChanges = await getChangesFromCard({ id: card.id })
     const changesByDate = cardChanges.reduce(groupByDate, {})

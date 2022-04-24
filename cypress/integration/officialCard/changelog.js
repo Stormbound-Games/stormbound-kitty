@@ -1,7 +1,7 @@
 import s from './selectors'
 
 describe('Official card — Changelog', () => {
-  before(() => cy.visit('/card/official/N1'))
+  before(() => cy.visit('/cards/N1'))
 
   it('should be possible to load previous version', () => {
     cy.get(s.CARD_ABILITY)

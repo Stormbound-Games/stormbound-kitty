@@ -62,7 +62,7 @@ const getNavigation = async ({ isPreview }) => {
               id: 'FAN_KIT',
             },
             { label: 'Known Bugs', to: '/known-bugs', id: 'KNOWN_BUGS' },
-            { label: 'Cards Index', to: '/card/official', id: 'CARDS' },
+            { label: 'Cards Index', to: '/cards/N89', id: 'CARDS' },
             { label: 'Statistics', to: '/stats', id: 'STATISTICS' },
             { label: 'Lexicon', to: '/lexicon', id: 'LEXICON' },
           ],

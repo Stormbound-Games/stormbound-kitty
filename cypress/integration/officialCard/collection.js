@@ -6,7 +6,7 @@ describe('Official card — Collection', () => {
       .get('[data-testid="import-btn"]')
       .importFile('collection.import.csv')
 
-      .visit('/card/official/N1')
+      .visit('/cards/N1')
 
       .get('[role="progressbar"]')
       .should('exist')
@@ -17,7 +17,7 @@ describe('Official card — Collection', () => {
       .get('[data-testid="import-btn"]')
       .importFile('collection.import.csv')
 
-      .visit('/card/official/N1')
+      .visit('/cards/N1')
 
       .get(s.CARD)
       .eq(2)

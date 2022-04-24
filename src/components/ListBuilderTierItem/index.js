@@ -24,7 +24,7 @@ export default React.memo(function ListBuilderTierItem(props) {
           lazy
         />
         <p className={css(styles.content)}>
-          <Link to={`/card/official/${props.id}`} extend={styles.name}>
+          <Link to={`/cards/${props.id}`} extend={styles.name}>
             {props.name}
           </Link>
           <span className={css(styles.meta)}>

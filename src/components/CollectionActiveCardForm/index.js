@@ -67,7 +67,7 @@ export default React.memo(function CollectionActiveCardForm(props) {
         <CardUpgradeStats {...props.activeCard} />
 
         <p>
-          <Link to={`/card/official/${props.activeCard.id}`}>
+          <Link to={`/cards/${props.activeCard.id}`}>
             Open this card in the card builder
           </Link>
           . You will be able to browse your collection from that page as well.

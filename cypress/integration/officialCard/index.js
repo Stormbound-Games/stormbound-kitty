@@ -11,7 +11,7 @@ const resolveCard = id =>
   )
 
 describe('Official card — Index', () => {
-  before(() => cy.visit('/card/official/N1'))
+  before(() => cy.visit('/cards/N1'))
 
   it('should hide the editing interface', () => {
     cy.get('form:not([name="search"])')

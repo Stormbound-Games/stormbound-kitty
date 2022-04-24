@@ -34,11 +34,9 @@ export default React.memo(function NavCardBuilder() {
                 track('card_select_navigation', {
                   id: option ? option.value : null,
                 })
-                router.push(
-                  option ? `/card/official/${option.value}` : '/card',
-                  null,
-                  { scroll: false }
-                )
+                router.push(option ? `/cards/${option.value}` : '/card', null, {
+                  scroll: false,
+                })
               }}
               withSpells
             />

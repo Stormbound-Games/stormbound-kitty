@@ -3,7 +3,7 @@ import command from './'
 
 const randomcard = command.handler.bind(command)
 
-const BASE_URL = 'https://stormbound-kitty.com/card/official/'
+const BASE_URL = 'https://stormbound-kitty.com/cards/'
 const ALIASES = [
   { keyword: 'struct', key: 'type', value: 'structure' },
   { keyword: 'ic', key: 'faction', value: 'ironclad' },
