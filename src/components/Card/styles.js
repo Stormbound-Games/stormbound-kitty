@@ -3,7 +3,7 @@
 // Additionally, `2em` would be fine generally, but spells have a thicker border
 // where additional spacing is needed. If it’s too big for other cards, it could
 // be based on the card type.
-const HORIZONTAL_SPACING = '2.5em'
+const HORIZONTAL_SPACING = '2.35em'
 const MISSING_FILTER = 'contrast(200%) saturate(0.5) grayscale(0.5)'
 const IMAGES = {
   mana: "url('/assets/images/card/mana.png')",
@@ -152,7 +152,7 @@ const header = {
 }
 
 const name = {
-  fontSize: '170%',
+  fontSize: '165%',
   marginBottom: '0.25em',
 }
 
