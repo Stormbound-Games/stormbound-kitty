@@ -2,7 +2,7 @@ import rwc from 'random-weighted-choice'
 import arrayRandom from '~/helpers/arrayRandom'
 import random from '~/helpers/random'
 import capitalize from '~/helpers/capitalize'
-import { TYPES } from '~/constants/game'
+import { FACTIONS, TYPES } from '~/constants/game'
 import {
   RACES_BY_TYPE,
   BASE_SLOTS,
@@ -17,7 +17,7 @@ import { MIN_MANA, MAX_MANA, MAX_EFF_COST, filters } from './constants'
 import { log, fixWording, highlight } from './utils'
 
 class Card {
-  constructor(filters = {}) {
+  constructor() {
     this.mana = 0
     this.effCost = 0
     this.effCostMult = 0
@@ -29,16 +29,7 @@ class Card {
     this.ability = ''
     this.rarity = ''
     this.strengthScaling = STATLINES_FAST
-    this.type = TYPES.includes(filters.type)
-      ? capitalize(filters.type)
-      : // Give more prevalence to units as there are significantly more unit
-        // cards than anything else in the game.
-        // See: https://stormbound-kitty.com/stats
-        rwc([
-          { weight: 4, id: 'Unit' },
-          { weight: 1, id: 'Spell' },
-          { weight: 1, id: 'Structure' },
-        ])
+    this.type = ''
   }
 
   get name() {
@@ -57,6 +48,7 @@ class Card {
     if (sum > MAX_MANA) return true
     if (this.effCost > MAX_EFF_COST) return true
     if (sum > 6 && this.effCost < 2) return true
+    if (this.ability.length > 170) return true
 
     // This prevents non-sensical abilities such as “On death, destroy stronger/
     // weaker units” because we can’t do strength comparisons with a dead unit.
@@ -71,14 +63,27 @@ class Card {
 
   generate() {
     do {
-      this.getRace()
+      this.getArchetype()
       this.getEffect()
       this.getRarity()
       this.getStatline()
     } while (this.shouldReroll())
+
+    return this
   }
 
-  getRace() {
+  getArchetype() {
+    this.type = TYPES.includes(filters.type)
+      ? capitalize(filters.type)
+      : // Give more prevalence to units as there are significantly more unit
+        // cards than anything else in the game.
+        // See: https://stormbound-kitty.com/stats
+        rwc([
+          { weight: 4, id: 'Unit' },
+          { weight: 1, id: 'Spell' },
+          { weight: 1, id: 'Structure' },
+        ])
+
     // `this.race` is set to an instance of the `Race` class, and not a race
     // string descriptor like anywhere else on the site. This is why structures
     // and spells get dealt a race here, although they don’t have normally have
@@ -87,6 +92,11 @@ class Card {
     // as expected.
     this.race = arrayRandom(RACES_BY_TYPE[this.type])
     this.faction = this.race.faction
+
+    if (this.faction === 'any') {
+      this.faction = arrayRandom(FACTIONS)
+    }
+
     // “subrace” holds unit-modifiers such as ancient, elder and hero.
     // @TODO: move that to individual properties so there can be more than one
     // unit modifier defined at a time.
@@ -95,8 +105,9 @@ class Card {
     // @TODO: add support for advanced filters so we can enforce a specific race
     // or faction.
     if (filters.faction !== '' && this.faction !== filters.faction)
-      this.getRace()
-    if (filters.race !== '' && this.race.name !== filters.race) this.getRace()
+      this.getArchetype()
+    if (filters.race !== '' && this.race.name !== filters.race)
+      this.getArchetype()
   }
 
   getStatline() {
@@ -175,13 +186,50 @@ class Card {
     )
 
     // Conditional triggers
+    if (
+      this.ability.startsWith('On play') &&
+      this.race.name === 'dragon' &&
+      random(1, 2) === 1 &&
+      this.movement == 0
+    ) {
+      this.ability = this.ability.replace(
+        'On play, ',
+        'On play, fly to {spaceSpell} and '
+      )
+    }
+
     if (this.ability.startsWith('On play') && random(1, 3) === 1) {
       const token = this.race.name === 'pirate' ? 'pirateCondPlay' : 'condPlay'
       this.ability = this.ability.replace('On play', `{${token}}`)
     }
 
+    if (this.ability.startsWith('On death') && random(1, 3) === 1) {
+      this.ability = this.ability.replace('On death', '{condDeath}')
+    }
+
     if (this.ability.startsWith('Before attacking') && random(1, 3) === 1) {
       this.ability = this.ability.replace('Before attacking', '{condAttack}')
+    } else if (
+      this.ability.startsWith('Before attacking') &&
+      this.ability.includes('{targetUnit} enemy {targetUnit2}') &&
+      random(1, 2) === 1
+    ) {
+      this.ability = this.ability.replace(
+        'Before attacking',
+        'Before attacking an enemy unit'
+      )
+      this.ability = this.ability.replace(
+        '{targetUnit} enemy {targetUnit2}',
+        'it'
+      )
+      this.effCost *= 0.75
+    }
+
+    if (
+      this.race.name === 'feline' &&
+      this.ability.includes('{felineCondPlay}')
+    ) {
+      this.ability = this.ability.replace('On play, ', '')
     }
 
     if (this.ability.includes(`{target${this.type}}`) && random(1, 2) === 1) {
@@ -236,6 +284,13 @@ class Card {
       this.ability = this.ability.replaceAll('[unit]', replaceText)
     } else {
       this.ability = this.ability.replaceAll('[unit]', 'unit')
+    }
+
+    if (this.race.name === 'dragon') {
+      this.ability = this.ability.replace('friendly unit', 'friendly Dragon')
+      this.ability = this.ability.replace('enemy unit', 'non-Dragon unit')
+      this.effCost *= 0.5
+      log(`Adding specific unit multiplier of 0.5. New cost: ${this.effCost}`)
     }
   }
 
@@ -301,8 +356,7 @@ class Card {
 const randomizeCard = (filters = {}) => {
   const card = new Card(filters)
 
-  card.generate()
-  return card.toObject()
+  return card.generate().toObject()
 }
 
 export default randomizeCard
