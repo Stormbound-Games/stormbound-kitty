@@ -8,7 +8,7 @@ export function log(...message) {
 export function fixWording(ability) {
   if (
     ability.includes(' it') &&
-    (ability.includes('[unit]s') || ability.includes('tiles')) &&
+    (ability.includes('[unit]s') || ability.includes('tiles') || ability.includes('sides')) &&
     !ability.includes('itself')
   ) {
     ability = ability.replaceAll(' it', ' them')
