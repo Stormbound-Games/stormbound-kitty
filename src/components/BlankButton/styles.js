@@ -5,6 +5,10 @@ const button = {
   font: 'inherit',
   color: 'inherit',
   cursor: 'pointer',
+
+  ':disabled': {
+    cursor: 'not-allowed',
+  },
 }
 
 const styles = { button }
