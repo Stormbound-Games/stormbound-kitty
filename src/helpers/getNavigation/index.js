@@ -137,11 +137,15 @@ const getNavigation = async ({ isPreview }) => {
               to: '/guides/mias-metropolis',
               id: 'MIAS_METROPOLIS',
             },
-            { label: 'BwB Rush', to: '/guides/bwb-rush', id: 'BWB_RUSH' },
             {
               label: 'Legendaries level 1',
               to: '/guides/legendaries',
               id: 'LEGENDARIES_LEVEL_1',
+            },
+            {
+              label: 'Green Prototypes',
+              to: '/guides/green-prototypes',
+              id: 'GREEN_PROTOTYPES',
             },
             {
               label: 'More playstyle guides',
