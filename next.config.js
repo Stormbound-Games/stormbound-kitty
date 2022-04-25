@@ -15,7 +15,7 @@ const LEGACY_PATHS = {
   '/card/contest': '/swcc',
   '/card/official/:id*': '/cards/:id*',
   '/card/stats': '/stats',
-  '/changelog/:id*': '/releases/:id*',
+  '/changelog/:id': '/releases/:id',
   '/changelog/cards': '/changelog',
   '/changelog/releases': '/releases',
   '/collection/books': '/calculators/books',
