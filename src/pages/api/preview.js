@@ -125,7 +125,7 @@ export default async function handler(request, response) {
   try {
     await applyRateLimit(request, response)
   } catch {
-    return response.status(429).json({ message: 'Too many requests' })
+    return response.status(429).send('Too many requests')
   }
 
   if (parameters.type === 'clear') {
@@ -135,18 +135,20 @@ export default async function handler(request, response) {
   }
 
   if (token !== process.env.SANITY_STUDIO_PREVIEW_TOKEN) {
-    return response.status(401).json({ message: 'Invalid token' })
+    return response.status(401).send('Unauthorized')
   }
 
-  // For the preview mode to be able to find entries that have not been ever
-  // published yet, it needs to force the preview option when querying data from
-  // Sanity.
-  const url = await getRedirectUrl({ ...parameters, isPreview: true })
+  try {
+    // For the preview mode to be able to find entries that have not been ever
+    // published yet, it needs to force the preview option when querying data from
+    // Sanity.
+    const url = await getRedirectUrl({ ...parameters, isPreview: true })
 
-  if (!url) {
-    return response.status(401).json({ message: 'Invalid parameters' })
+    response.setPreviewData({}, { maxAge: PREVIEW_MODE_DURATION })
+    response.redirect(url)
+  } catch (error) {
+    console.error(error)
+
+    return response.status(400).send('Bad request')
   }
-
-  response.setPreviewData({}, { maxAge: PREVIEW_MODE_DURATION })
-  response.redirect(url)
 }
