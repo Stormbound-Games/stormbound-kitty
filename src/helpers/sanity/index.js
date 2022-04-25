@@ -46,7 +46,7 @@ export const getEntry = async ({
     const entries = await previewClient.fetch(query, params)
     const entry = entries.find(isDraftEntry) || entries.find(isPublishedEntry)
 
-    return withoutSanityId(entry)
+    return entry ? withoutSanityId(entry) : null
   }
 
   return client.fetch(query, params)
