@@ -107,11 +107,6 @@ const getNavigation = async ({ isPreview }) => {
           icon: 'shield',
           to: '/guides/essentials',
           items: [
-            {
-              label: 'Beginner’s Guide',
-              to: '/guides/beginner',
-              id: 'BEGINNER',
-            },
             { label: 'Battle Guide', to: '/guides/complete', id: 'COMPLETE' },
             {
               label: 'Intro to Equals',
@@ -119,6 +114,11 @@ const getNavigation = async ({ isPreview }) => {
               id: 'INTRO_TO_EQUALS',
             },
             { label: 'Deck Building', to: '/guides/deck', id: 'DECK_BUILDING' },
+            {
+              label: 'Tempo & Value',
+              to: '/guides/tempo-and-value',
+              id: 'ESSENTIALS',
+            },
             {
               label: 'More essential guides',
               to: '/guides/essentials',
