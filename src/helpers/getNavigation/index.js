@@ -107,7 +107,7 @@ const getNavigation = async ({ isPreview }) => {
           icon: 'shield',
           to: '/guides/essentials',
           items: [
-            { label: 'Battle Guide', to: '/guides/complete', id: 'COMPLETE' },
+            { label: 'Battle Guide', to: '/guides/battle', id: 'BATTLE' },
             {
               label: 'Intro to Equals',
               to: '/guides/equals',

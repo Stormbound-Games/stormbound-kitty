@@ -24,6 +24,7 @@ const LEGACY_PATHS = {
   '/deck/suggestions': '/decks',
   '/donate': '/contribute',
   '/fan-kit/wallpapers': '/fan-kit/wallpapers/desktop',
+  '/guides/complete': '/guides/battle',
   '/guides/beginner': '/rulebook',
   '/guides/brawl': '/brawl-mode',
   '/guides/draft': '/draft-mode',
