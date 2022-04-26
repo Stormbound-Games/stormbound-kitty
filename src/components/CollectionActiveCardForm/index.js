@@ -68,7 +68,7 @@ export default React.memo(function CollectionActiveCardForm(props) {
 
         <p>
           <Link to={`/cards/${props.activeCard.id}`}>
-            Open this card in the card builder
+            Open this card’s page
           </Link>
           . You will be able to browse your collection from that page as well.
         </p>
