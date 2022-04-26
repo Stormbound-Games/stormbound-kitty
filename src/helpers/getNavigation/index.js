@@ -112,7 +112,7 @@ const getNavigation = async ({ isPreview }) => {
               to: '/guides/beginner',
               id: 'BEGINNER',
             },
-            { label: 'Complete Guide', to: '/guides/complete', id: 'COMPLETE' },
+            { label: 'Battle Guide', to: '/guides/complete', id: 'COMPLETE' },
             {
               label: 'Intro to Equals',
               to: '/guides/equals',
