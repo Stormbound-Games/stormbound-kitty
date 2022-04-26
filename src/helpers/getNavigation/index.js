@@ -115,14 +115,9 @@ const getNavigation = async ({ isPreview }) => {
             },
             { label: 'Deck Building', to: '/guides/deck', id: 'DECK_BUILDING' },
             {
-              label: 'Tempo & Value',
-              to: '/guides/tempo-and-value',
-              id: 'ESSENTIALS',
-            },
-            {
-              label: 'More essential guides',
-              to: '/guides/essentials',
-              id: 'ESSENTIALS',
+              label: 'About Structures',
+              to: '/guides/structures',
+              id: 'STRUCTURES',
             },
           ],
         },
@@ -141,11 +136,6 @@ const getNavigation = async ({ isPreview }) => {
               label: 'Mia’s Metropolis',
               to: '/guides/mias-metropolis',
               id: 'MIAS_METROPOLIS',
-            },
-            {
-              label: 'Faithless Prophets',
-              to: '/guides/faithless-prophets',
-              id: 'FAITHLESS_PROPHETS',
             },
             {
               label: 'Green Prototypes',
@@ -170,6 +160,11 @@ const getNavigation = async ({ isPreview }) => {
               label: 'Mana Curve Analysis',
               to: '/guides/mana-curve',
               id: 'MANA_CURVE',
+            },
+            {
+              label: 'Tempo & Value',
+              to: '/guides/tempo-and-value',
+              id: 'ESSENTIALS',
             },
             { label: 'Stormbound Trivia', to: '/guides/trivia', id: 'TRIVIA' },
           ],
