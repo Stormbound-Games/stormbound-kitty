@@ -196,20 +196,6 @@ export default React.memo(function PageIncomeCalculator(props) {
             and <Link to='/members/roman'>Roman</Link> (Roman_NFP#6918) for
             their help in designing and making this simulator possible.
           </p>
-
-          <Info
-            icon='compass'
-            title='Resources Guide'
-            spacing={{ vertical: 'BASE' }}
-          >
-            <p>
-              To learn about the best way to spend resources based on your
-              play-style, <Link to='/members/roman'>Roman</Link> has authored a
-              fantastic{' '}
-              <Link to='/guides/resources'>guides on Stormbound resources</Link>
-              .
-            </p>
-          </Info>
         </Row.Column>
         <Row.Column width='2/3'>
           <Title>Configuration</Title>
