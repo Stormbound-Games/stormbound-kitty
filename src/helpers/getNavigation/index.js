@@ -303,11 +303,6 @@ const getNavigation = async ({ isPreview }) => {
               to: '/tier-list/ranked',
               id: 'RANKED_LIST',
             },
-            {
-              label: 'Reckless Rush',
-              to: '/deck/3xn1n2s1n3s24s2n67s6n24n15s8s11/detail',
-              id: 'RECKLESS_RUSH',
-            },
           ],
         },
         {
