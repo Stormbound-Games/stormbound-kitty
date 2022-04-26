@@ -199,7 +199,6 @@ const getNavigation = async ({ isPreview }) => {
               to: '/guides/mana-curve',
               id: 'MANA_CURVE',
             },
-            { label: 'Card Shop', to: '/guides/card-shop', id: 'CARD_SHOP' },
             { label: 'Stormbound Trivia', to: '/guides/trivia', id: 'TRIVIA' },
           ],
         },
