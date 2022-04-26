@@ -138,9 +138,9 @@ const getNavigation = async ({ isPreview }) => {
               id: 'MIAS_METROPOLIS',
             },
             {
-              label: 'Legendaries level 1',
-              to: '/guides/legendaries',
-              id: 'LEGENDARIES_LEVEL_1',
+              label: 'Faithless Prophets',
+              to: '/guides/faithless-prophets',
+              id: 'FAITHLESS_PROPHETS',
             },
             {
               label: 'Green Prototypes',
