@@ -73,6 +73,11 @@ const getNavigation = async ({ isPreview }) => {
           icon: 'library',
           items: [
             {
+              label: 'Rulebook',
+              to: '/rulebook',
+              id: 'RULEBOOK',
+            },
+            {
               label: 'Drawing Mechanics',
               to: '/drawing-mechanics',
               id: 'DRAWING_MECHANICS',
