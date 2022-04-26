@@ -7,8 +7,6 @@ import BrawlOutcome from '~/components/BrawlOutcome'
 import BrawlRecommendedDecks from '~/components/BrawlRecommendedDecks'
 import BrawlReset from '~/components/BrawlReset'
 import BrawlSetup from '~/components/BrawlSetup'
-import MemberList from '~/components/MemberList'
-import Teaser from '~/components/Teaser'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
@@ -18,7 +16,6 @@ export default React.memo(function BrawlTracker(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
   const { session } = React.useContext(BrawlContext)
-  const { guide } = props
   const wonMatches = session.matches.filter(match =>
     ['WON', 'FORFEIT'].includes(match.status)
   )
@@ -60,20 +57,7 @@ export default React.memo(function BrawlTracker(props) {
           </Spacing>
         </Row.Column>
         <Row.Column width='1/3'>
-          {guide ? (
-            <div>
-              <Teaser
-                {...guide}
-                title={guide.name}
-                meta={
-                  <>
-                    Written by <MemberList members={guide.authors} />
-                  </>
-                }
-                to={'/guides/' + guide.slug}
-              />
-            </div>
-          ) : props.recommendedDeck ? (
+          {props.recommendedDeck ? (
             <BrawlRecommendedDecks
               decks={[props.recommendedDeck]}
               columns={1}
