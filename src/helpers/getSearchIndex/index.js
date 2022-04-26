@@ -11,17 +11,17 @@ import getPuzzles from '~/api/puzzles/getPuzzles'
 import getReleases from '~/api/releases/getReleases'
 import getUsers from '~/api/users/getUsers'
 
-const getSearchIndex = async () => {
-  const brawls = await getBrawls()
-  const cards = await getCards()
-  const decks = await getDecks()
-  const guides = await getGuides()
-  const stories = await getStories()
-  const pages = await getPages()
-  const puzzles = await getPuzzles()
-  const releases = await getReleases()
-  const swcc = await getSWCCContests()
-  const users = await getUsers()
+const getSearchIndex = async ({ isPreview } = {}) => {
+  const brawls = await getBrawls({ isPreview })
+  const cards = await getCards({ isPreview })
+  const decks = await getDecks({ isPreview })
+  const guides = await getGuides({ isPreview })
+  const stories = await getStories({ isPreview })
+  const pages = await getPages({ isPreview })
+  const puzzles = await getPuzzles({ isPreview })
+  const releases = await getReleases({ isPreview })
+  const swcc = await getSWCCContests({ isPreview })
+  const users = await getUsers({ isPreview })
   const links = []
   const seasons = [...new Set(swcc.map(contest => contest.season))].sort()
 

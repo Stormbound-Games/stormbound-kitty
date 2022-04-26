@@ -3,6 +3,8 @@ import getIP from '~/helpers/getIP'
 import getReleases from '~/api/releases/getReleases'
 
 export default async function handler(request, response) {
+  const isPreview = request.preview
+
   try {
     await applyRateLimit(request, response)
   } catch {
@@ -10,7 +12,7 @@ export default async function handler(request, response) {
   }
 
   try {
-    const [{ slug }] = await getReleases()
+    const [{ slug }] = await getReleases({ isPreview })
 
     // Set up a 4 hours cache on the response.
     response.setHeader('Cache-Control', 's-maxage=' + 60 * 60 * 4)
