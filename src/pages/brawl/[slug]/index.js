@@ -1,5 +1,4 @@
 import PageBrawl from '~/components/PageBrawl'
-import getGuide from '~/api/guides/getGuide'
 import getDecksWithTag from '~/api/decks/getDecksWithTag'
 import getBooks from '~/api/books/getBooks'
 import indexArray from '~/helpers/indexArray'
@@ -16,7 +15,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const brawl = await getBrawl({ slug: params.slug, isPreview })
-  const guide = await getGuide({ name: brawl.title, isPreview })
   const recommendedDecks = await getDecksWithTag({ tag: brawl.id, isPreview })
   const books = await getBooks({ isPreview })
   const booksIndex = indexArray(books)
@@ -33,7 +31,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       booksIndex,
       settings,
       brawl,
-      guide,
       recommendedDeck,
       breadcrumbs: ['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER'],
     },

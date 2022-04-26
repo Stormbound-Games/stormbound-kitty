@@ -155,39 +155,6 @@ const getNavigation = async ({ isPreview }) => {
           ],
         },
         {
-          id: 'BRAWL_MODE',
-          title: 'Brawl Guides',
-          icon: 'crown',
-          to: '/guides/brawl-mode',
-          items: [
-            {
-              label: 'Self-Control',
-              to: '/guides/self-control',
-              id: 'BRAWL_SELF_CONTROL',
-            },
-            {
-              label: 'Eye of the Tempest',
-              to: '/guides/eye-of-the-tempest',
-              id: 'BRAWL_EYE_OF_THE_TEMPEST',
-            },
-            {
-              label: 'Freedom Fight',
-              to: '/guides/freedom-fight',
-              id: 'BRAWL_FREEDOM_FIGHT',
-            },
-            {
-              label: 'Noble Coalition',
-              to: '/guides/noble-coalition',
-              id: 'BRAWL_NOBLE_COALITION',
-            },
-            {
-              label: 'More Brawl guides',
-              to: '/guides/brawl-mode',
-              id: 'BRAWL_MODE',
-            },
-          ],
-        },
-        {
           id: 'IN_DEPTH',
           title: 'In-depth Guides',
           icon: 'target',
