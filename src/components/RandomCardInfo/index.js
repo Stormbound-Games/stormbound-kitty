@@ -53,6 +53,7 @@ export default React.memo(function RandomCardInfo(props) {
 
         setHasErrored(false)
       } catch (error) {
+        console.error(error)
         setHasErrored(true)
         setCardData({ ...INITIAL_STATE })
       } finally {
