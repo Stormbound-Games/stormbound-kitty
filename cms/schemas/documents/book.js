@@ -12,16 +12,16 @@ const restriction = {
       type: 'string',
       options: {
         list: [
-          // @TODO: handle unitTypes
-          'ability',
-          'ancient',
-          'elder',
-          'faction',
-          'hero',
-          'name',
-          'race',
-          'rarity',
-          'type',
+          { title: 'Ability', value: 'ability' },
+          { title: 'Ancient', value: 'ancient' },
+          { title: 'Elder', value: 'elder' },
+          { title: 'Faction', value: 'faction' },
+          { title: 'Hero', value: 'hero' },
+          { title: 'Name', value: 'name' },
+          { title: 'Race (legacy)', value: 'race' },
+          { title: 'Rarity', value: 'rarity' },
+          { title: 'Type', value: 'type' },
+          { title: 'Unit type', value: 'unitType' },
         ],
       },
       validation: Rule => Rule.required(),
@@ -35,6 +35,19 @@ const restriction = {
       validation: Rule =>
         Rule.custom((value, context) => {
           if (context.parent?.property !== 'race') return true
+          if (!value) return 'Required'
+          return true
+        }),
+    },
+    {
+      title: 'Value',
+      name: 'value_unitType',
+      type: 'string',
+      options: { list: UNIT_TYPES },
+      hidden: ({ parent }) => parent?.property !== 'unitType',
+      validation: Rule =>
+        Rule.custom((value, context) => {
+          if (context.parent?.property !== 'unitType') return true
           if (!value) return 'Required'
           return true
         }),
