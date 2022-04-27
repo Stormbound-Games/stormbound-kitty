@@ -13,11 +13,11 @@ import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import useCardBuilder from '~/hooks/useCardBuilder'
 
 const usePageProps = (props, card) => {
-  if (!props.cardId) return {}
+  if (!props.id) return {}
 
   const isEditing = props.mode === 'EDITOR'
   const { rarity, faction, type, race } = card
-  const to = `/card/${props.cardId}` + (isEditing ? '/display' : '')
+  const to = `/card/${props.id}` + (isEditing ? '/display' : '')
   const label = isEditing ? 'Display view' : 'Edit card'
   const icon = isEditing ? 'eye' : undefined
 
