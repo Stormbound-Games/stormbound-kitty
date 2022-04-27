@@ -99,11 +99,14 @@ describe('The `getLongRarity` helper', () => {
 
 describe('The `getShortUnitType` helper', () => {
   it('should return single-letter unitType', () => {
+    expect(getShortUnitType('ancient')).toEqual('A')
     expect(getShortUnitType('construct')).toEqual('C')
     expect(getShortUnitType('dragon')).toEqual('D')
     expect(getShortUnitType('dwarf')).toEqual('W')
+    expect(getShortUnitType('elder')).toEqual('L')
     expect(getShortUnitType('frostling')).toEqual('F')
     expect(getShortUnitType('feline')).toEqual('E')
+    expect(getShortUnitType('hero')).toEqual('H')
     expect(getShortUnitType('knight')).toEqual('K')
     expect(getShortUnitType('pirate')).toEqual('P')
     expect(getShortUnitType('raven')).toEqual('R')
@@ -124,11 +127,14 @@ describe('The `getShortUnitType` helper', () => {
 
 describe('The `getLongUnitType` helper', () => {
   it('should return full unit type', () => {
+    expect(getLongUnitType('A')).toEqual('ancient')
     expect(getLongUnitType('C')).toEqual('construct')
     expect(getLongUnitType('D')).toEqual('dragon')
     expect(getLongUnitType('W')).toEqual('dwarf')
+    expect(getLongUnitType('L')).toEqual('elder')
     expect(getLongUnitType('F')).toEqual('frostling')
     expect(getLongUnitType('E')).toEqual('feline')
+    expect(getLongUnitType('H')).toEqual('hero')
     expect(getLongUnitType('K')).toEqual('knight')
     expect(getLongUnitType('P')).toEqual('pirate')
     expect(getLongUnitType('R')).toEqual('raven')
