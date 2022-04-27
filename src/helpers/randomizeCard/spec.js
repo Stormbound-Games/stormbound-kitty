@@ -6,15 +6,27 @@ describe('The `randomizeCard` helper', () => {
     expect(TYPES).toContain(randomizeCard().type)
   })
 
+  it('should allow forcing the type', () => {
+    TYPES.forEach(type => {
+      expect(randomizeCard({ type }).type).toBe(type)
+    })
+  })
+
   it('should return a valid card faction', () => {
     expect(FACTIONS).toContain(randomizeCard().faction)
+  })
+
+  it('should allow forcing the factio', () => {
+    FACTIONS.forEach(faction => {
+      expect(randomizeCard({ faction }).faction).toBe(faction)
+    })
   })
 
   it('should return a valid card rarity', () => {
     expect(RARITIES).toContain(randomizeCard().rarity)
   })
 
-  it.skip('should return a valid card race for unit cards', () => {
+  it('should return a valid card race for unit cards', () => {
     expect(RACES).toContain(randomizeCard({ type: 'unit' }).race)
   })
 

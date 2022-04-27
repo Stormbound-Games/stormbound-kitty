@@ -10,11 +10,3 @@ export const UNCAPPED = false
 export const MIN_MANA = UNCAPPED ? -999 : 1
 export const MAX_MANA = UNCAPPED ? 999 : 9
 export const MAX_EFF_COST = UNCAPPED ? 999 : 6
-
-// These parameters can be used to limit the types of cards generated.
-// When the filter buttons are added, they will affect these variables.
-// Be sensible with these requirments. Don't put in anything impossible.
-export const filters = {
-  faction: '',
-  race: '',
-}

@@ -14,7 +14,7 @@ const DWARF = new Race('dwarf', 'winter', 'T10', range(1, 3))
 const FROSTLING = new Race('frostling', 'winter', 'T2', range(0, 1))
 const SATYR = new Race('satyr', 'swarm', 'T7', range(0, 2))
 const UNDEAD = new Race('undead', 'swarm', 'T9', range(1, 3))
-const DRAGON = new Race('dragon', 'any', 'T11', range(0, 2))
+const DRAGON = new Race('dragon', '*', 'T11', range(0, 2))
 
 const SPELL_NEUTRAL = new Race('spell_neutral', 'neutral', 'N15')
 const SPELL_SHADOWFEN = new Race('spell_shadowfen', 'shadowfen', 'F11')
@@ -634,7 +634,7 @@ export const NAMES = {
   ],
   dragon: [
     ['Conflicted', 'Dreadful', 'Greenscale', 'Wandering', 'Yowling', 'Terrifying', 'Chaotic', 'Ignited', 'Flameless', 'Sunbeam', 'Dangerous', 'Ludic', 'Vengeful'],
-    ['Drakes', 'Keepers', 'Serpents', 'Wyrms', 'Weavers', 'Beasts', 'Roamers', 'Embers', 'Lizards', 'Sutiors', 'Matriarchs']
+    ['Drakes', 'Keepers', 'Serpents', 'Wyrms', 'Weavers', 'Beasts', 'Roamers', 'Embers', 'Lizards', 'Suitors', 'Matriarchs']
   ],
   spell_neutral: [
     ['Infused', 'Rippling', 'Blessed', 'Faithful', 'Wild', 'Channeled',  'Attuned', 'Sealed', 'Arcane'],

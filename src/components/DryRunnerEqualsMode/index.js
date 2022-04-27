@@ -22,7 +22,6 @@ export default React.memo(function DryRunnerEqualsMode(props) {
       </Checkbox>
       <Dialog
         id='equals-mode-dialog'
-        data-testid='equals-mode-dialog'
         title='Equals mode'
         dialogRef={instance => (dialogRef.current = instance)}
         image='https://cdn.sanity.io/images/5hlpazgd/production/3886106424f6a20f584fa658760e7fe46bd35ab5-512x512.png'

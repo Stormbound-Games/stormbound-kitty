@@ -36,7 +36,6 @@ export default React.memo(function BrawlReset() {
       </Info>
       <Dialog
         id='reset-dialog'
-        data-testid='reset-dialog'
         dialogRef={instance => (dialog.current = instance)}
         title='Reset Brawl data'
         close={close}

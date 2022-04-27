@@ -31,7 +31,6 @@ export default React.memo(function ResetButton(props) {
 
       <Dialog
         id='reset-dialog'
-        data-testid='reset-dialog'
         dialogRef={instance => (dialog.current = instance)}
         title={label}
         close={close}
