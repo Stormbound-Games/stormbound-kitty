@@ -18,33 +18,33 @@ export default React.memo(function Home(props) {
 
         <HomeSection
           color='var(--shadowfen)'
+          title='Learn from the warlords'
+          actions={[
+            { to: '/rulebook', children: 'Rulebook' },
+            { to: '/guides', children: 'Guides' },
+            { to: '/cards/N89', children: 'Cards' },
+          ]}
+        >
+          <p>
+            New to the game or looking to perfect your battle strategies, you’ll
+            learn everything you need to know in the rulebook and the guides
+            made by members of the community.
+          </p>
+        </HomeSection>
+
+        <HomeSection
+          color='var(--swarm)'
           title='Prepare your decks'
           actions={[
             { to: '/guides/deck', children: 'Guide' },
             { to: '/deck', children: 'Builder' },
-            { to: '/decks', children: 'Decks' },
+            { to: '/decks', children: 'Featured' },
           ]}
         >
           <p>
             Compose your own decks and perfect them with the insightful
             suggestions from the deck builder and its dry-runner, or try one of
             the many ready-to-go decks from the community.
-          </p>
-        </HomeSection>
-
-        <HomeSection
-          color='var(--swarm)'
-          title='Learn from the warlords'
-          actions={[
-            { to: '/guides/essentials', children: 'Essentials' },
-            { to: '/guides/in-depth', children: 'In-depth' },
-            { to: '/guides/playstyle', children: 'Playstyle' },
-          ]}
-        >
-          <p>
-            New to the game or looking to perfect your battle strategies, you’ll
-            learn everything you need to know in the guides made by members of
-            the community.
           </p>
         </HomeSection>
 
