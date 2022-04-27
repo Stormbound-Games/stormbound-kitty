@@ -94,7 +94,7 @@ class Card {
     this.race = arrayRandom(RACES_BY_TYPE[this.type])
     this.faction = this.race.faction
 
-    if (this.faction === 'any') {
+    if (this.faction === '*') {
       this.faction = arrayRandom(FACTIONS)
     }
 
