@@ -5,7 +5,7 @@ import indexArray from '~/helpers/indexArray'
 import { DEFAULT_SIM } from '~/constants/battle'
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: 'blocking' }
+  return { paths: [{ params: { id: null } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
