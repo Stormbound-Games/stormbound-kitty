@@ -16,22 +16,22 @@ describe('The `ARCHDRUID_EARYN` advice', () => {
     expect(advice(cards)).toEqual(null)
   })
 
-  it('should be returned if there are less than 3 spells for Earyn level 3', () => {
-    const cards = getCards('5n11n25n35n44n51n61n621n631n671n665n123n48')
+  it('should be returned if there are less than 2 spells for Earyn level 3', () => {
+    const cards = getCards('1n895n11n665n35n44n51n61n621n675n121n633n48')
     expect(advice(cards)).not.toEqual(null)
   })
 
-  it('should not be returned if there are 3 or more spells for Earyn level 3', () => {
+  it('should not be returned if there are 2 or more spells for Earyn level 3', () => {
     const cards = getCards('5n11n25n35n44n51n61n621n631n675n121n231n48')
     expect(advice(cards)).toEqual(null)
   })
 
-  it('should be returned if there are less than 4 spells for Earyn level 4', () => {
+  it('should be returned if there are less than 3 spells for Earyn level 4', () => {
     const cards = getCards('5n11n25n35n44n51n61n621n631n671n665n124n48')
     expect(advice(cards)).not.toEqual(null)
   })
 
-  it('should not be returned if there are 4 or more spells for Earyn level 4', () => {
+  it('should not be returned if there are 3 or more spells for Earyn level 4', () => {
     const cards = getCards('5n11n25n35n44n51n61n621n631n671n234n154n48')
     expect(advice(cards)).toEqual(null)
   })

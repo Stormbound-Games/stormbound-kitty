@@ -3,17 +3,17 @@ const getPlayableSpells = (cards, maxManaCost = Infinity) =>
 
 const advice = cards => {
   const archdruidEaryn = cards.find(card => card.id === 'N48')
-  const spells = getPlayableSpells(
-    cards,
-    archdruidEaryn ? archdruidEaryn.mana : undefined
-  )
-  const threshold = archdruidEaryn && archdruidEaryn.level >= 4 ? 4 : 3
+
+  if (!archdruidEaryn) return null
+
+  const spells = getPlayableSpells(cards, archdruidEaryn.mana)
+  const threshold = archdruidEaryn.level >= 4 ? 3 : 2
 
   // Whether Aeryn is effecient depends on her level. If she can play 2 spells
   // from the hand, the deck needs quite some many spells to make sure that one
   // has 2 in hand when playing Aeryn. If she plays only one spell at a time,
   // the threshold can be a little lower.
-  if (!archdruidEaryn || spells.length >= threshold) return null
+  if (spells.length >= threshold) return null
 
   return {
     name: 'Inefficient Archdruid Earyn',
