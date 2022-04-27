@@ -10,24 +10,18 @@ import track from '~/helpers/track'
 
 export default React.memo(function RandomCardInfo(props) {
   const [isLoading, setIsLoading] = React.useState(false)
-  const [error, setError] = React.useState(false)
+  const [hasErrored, setHasErrored] = React.useState(false)
   const { setCardData } = props
 
   const createRandomCard = React.useCallback(async () => {
     setIsLoading(true)
+    setHasErrored(false)
 
     try {
       track('randomize_card')
 
-      const response = await fetch('/api/randomize-card')
-
-      if (!response.ok) {
-        const error = new Error(response.statusText)
-        error.status = 429
-        throw error
-      }
-
-      const card = await response.json()
+      const { default: randomizeCard } = await import('~/helpers/randomizeCard')
+      const card = randomizeCard()
 
       // Use the global setter instead of individual one as it’s more performant
       // and avoid doing a URL rewrite per property—instead it does a single
@@ -52,14 +46,10 @@ export default React.memo(function RandomCardInfo(props) {
         fixedMovement: card.fixedMovement ?? INITIAL_STATE.fixedMovement,
       }))
 
-      setError(false)
+      setHasErrored(false)
     } catch (error) {
+      setHasErrored(true)
       setCardData({ ...INITIAL_STATE })
-      setError(
-        error.status === 429
-          ? 'You have performed too many requests. Please wait a moment before retrying.'
-          : 'An unexpected error occurred. Please try again.'
-      )
     } finally {
       setIsLoading(false)
     }
@@ -74,22 +64,23 @@ export default React.memo(function RandomCardInfo(props) {
           onClick={createRandomCard}
           disabled={isLoading}
           aria-describedby='randomize-card-error'
-          aria-invalid={Boolean(error)}
+          aria-invalid={hasErrored}
         >
           {isLoading ? 'Loading…' : 'Randomize'}
         </CTA>
       }
     >
-      <p style={{ marginBottom: error ? 'var(--s-base)' : '0' }}>
+      <p style={{ marginBottom: hasErrored ? 'var(--s-base)' : '0' }}>
         Don’t know where to start? Try the card randomizer from{' '}
         <Link to={`/members/parchment-engineer`}>ParchmentEngineer</Link>. It
         should generate a relatively balanced card for you to get started! From
         there, you can tweak it to suit your needs.
       </p>
       <p id='randomize-card-error' style={{ color: 'var(--light-ironclad)' }}>
-        {error ? (
+        {hasErrored ? (
           <>
-            <Icon icon='warning' /> {error}
+            <Icon icon='warning' /> An unexpected error occurred. Please try
+            again.
           </>
         ) : null}
       </p>
