@@ -13,7 +13,7 @@ import { TOOLTIP_STYLES } from '~/constants/stats'
 import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
-export default React.memo(function ChartUnitRace() {
+export default React.memo(function ChartUnitType() {
   const { cards } = React.useContext(CardsContext)
   const UNIT_TYPES_COLORS = {
     frostling: 'var(--winter)',
@@ -28,9 +28,9 @@ export default React.memo(function ChartUnitRace() {
     pirate: 'var(--affordable)',
     dragon: 'var(--dark-beige)',
     feline: 'var(--beige)',
-    ancient: '', // @TODO: add color
-    elder: '', // @TODO: add color
-    hero: '', // @TODO: add color
+    ancient: 'var(--poison)',
+    elder: 'var(--vitalized)',
+    hero: 'var(--confused)',
   }
   const data = Object.entries(UNIT_TYPES_COLORS).map(([unitType, color]) => ({
     name: capitalize(unitType),
