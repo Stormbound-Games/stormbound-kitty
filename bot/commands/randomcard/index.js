@@ -62,7 +62,7 @@ const randomcard = {
       .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com')
       .setDescription(
-        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, type, race or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
+        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, card type, unit type or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
       )
   },
   handler: async function (message) {

@@ -19,9 +19,9 @@ const advice = cards => {
 
   return {
     name: 'Inefficient Ubass the Hunter',
-    description: `This deck includes Ubass the Hunter but has only ${racesForUbass} race${
+    description: `This deck includes Ubass the Hunter but has only ${racesForUbass} unit type${
       racesForUbass === 1 ? '' : 's'
-    } (including heroes/elders) which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
+    } (including heroes/elders) which is unusually low. Consider bring more unit types to get the most out of Ubass the Hunter.`,
     highlight: ['N35'],
   }
 }

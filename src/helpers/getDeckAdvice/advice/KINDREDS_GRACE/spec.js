@@ -40,7 +40,7 @@ describe('The `KINDREDS_GRACE` advice', () => {
     )
   })
 
-  it('should not be returned if the deck enough units of the same race are represented', () => {
+  it('should not be returned if the deck enough units of the same unit type are represented', () => {
     const cards = getCards('1n11i11n51n81n111i81i61n241i271i161i211n40')
     expect(advice(cards)).toEqual(null)
   })

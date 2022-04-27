@@ -43,7 +43,7 @@ const card = {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'Race',
+      title: 'Unit type',
       name: 'race',
       type: 'string',
       options: { list: RACES },

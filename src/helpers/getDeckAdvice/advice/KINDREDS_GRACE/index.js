@@ -47,7 +47,7 @@ const advice = cards => {
 
   return {
     name: 'Inefficient Kindred’s Grace',
-    description: `This deck includes Kindred’s Grace but doesn’t include enough units of the same race to be efficient. Consider including more units of the same race.`,
+    description: `This deck includes Kindred’s Grace but doesn’t include enough units of the same unit type to be efficient. Consider including more units of the same unit type.`,
     highlight: ['N40'],
   }
 }

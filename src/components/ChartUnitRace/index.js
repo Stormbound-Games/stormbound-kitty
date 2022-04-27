@@ -37,7 +37,7 @@ export default React.memo(function ChartUnitRace() {
 
   return (
     <>
-      <Title>Unit races</Title>
+      <Title>Unit types</Title>
       <ResponsiveContainer width='100%' height={350}>
         <PieChart>
           <Tooltip {...TOOLTIP_STYLES} />

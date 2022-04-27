@@ -135,7 +135,7 @@ export default React.memo(function CollectionFilters(props) {
                 </Row.Column>
                 <Row.Column>
                   <Select
-                    label='Race'
+                    label='Unit types'
                     id='race'
                     value={props.race}
                     onChange={event => props.setRace(event.target.value)}

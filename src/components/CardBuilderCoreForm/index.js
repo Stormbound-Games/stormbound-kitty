@@ -109,10 +109,10 @@ export default React.memo(function CardBuilderCoreForm(props) {
           />
         </Row.Column>
         <Row.Column>
-          <Label htmlFor='race-input'>Race</Label>
+          <Label htmlFor='race-input'>Unit type</Label>
           <Creatable
             components={{ Input: CustomInput }}
-            label='Race'
+            label='Unit type'
             id='race'
             instanceId='race'
             inputId='race-input'
@@ -201,7 +201,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
       <Row isDesktopOnly>
         <Row.Column>
           <fieldset>
-            <Label as='legend'>Race modifiers</Label>
+            <Label as='legend'>Unit type modifiers</Label>
             <Spacing top={['SMALL', 'NONE']}>
               <Row>
                 <Row.Column width='1/3'>

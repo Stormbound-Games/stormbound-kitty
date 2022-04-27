@@ -35,7 +35,7 @@ export default React.memo(function ChartModifier() {
 
   return (
     <>
-      <Title>Race modifiers</Title>
+      <Title>Unit type modifiers</Title>
       <ResponsiveContainer width='100%' height={300}>
         <PieChart>
           <Tooltip {...TOOLTIP_STYLES} />

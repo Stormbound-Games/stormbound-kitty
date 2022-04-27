@@ -109,7 +109,7 @@ const getTriviaQuestions = (cards, brawls) => {
       const randomCard = arrayRandom(cards.filter(card => Boolean(card.race)))
 
       return {
-        question: `What is the race of ${randomCard.name}?`,
+        question: `What is the unit type of ${randomCard.name}?`,
         answer: capitalize(randomCard.race),
         options: RACES.map(capitalize),
       }
@@ -553,7 +553,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question:
-        'Of which race are Beards of Crowglyphs showing visual elements?',
+        'Of which unit type are Beards of Crowglyphs showing visual elements?',
       answer: 'Dragon',
       options: RACES.map(capitalize),
     },
@@ -703,7 +703,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'How many unit races are there?',
+      question: 'How many primary unit types are there?',
       answer: RACES.length,
       options: rangeAround(RACES.length, 5),
     },
@@ -1135,7 +1135,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     () => ({
       question:
-        'Which other races were possible to vote for for the community created card Harvesters of Souls?',
+        'Which other unit types were possible to vote for for the community created card Harvesters of Souls?',
       answer: 'Pirate and Raven',
       options: Array.from({ length: 20 }, () => {
         const randomRace = arrayRandom(RACES)
@@ -1351,7 +1351,8 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     () => ({
-      question: 'Which race does *not* have a card with an “on death” effect?',
+      question:
+        'Which unit type does *not* have a card with an “on death” effect?',
       answer: capitalize(arrayRandom(racesWithoutOnDeath)),
       options: racesWithOnDeath.map(capitalize),
     }),
@@ -1454,7 +1455,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'Which race cannot spawn units?',
+      question: 'Which unit type cannot spawn units?',
       answer: 'Frostling',
       options: 'Knight,Raven,Rodent,Undead,Dragon,Toad,Satyr,Construct'.split(
         ','

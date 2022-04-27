@@ -82,7 +82,7 @@ export default React.memo(function DeckStats(props) {
               {spells.length}
             </span>{' '}
             {spells.length > 1 ? 'spells' : 'spell'}. It contains {races.length}{' '}
-            {races.length > 1 ? 'different races' : 'single race'}.
+            {races.length > 1 ? 'different unit types' : 'single unit type'}.
           </p>
 
           <p>

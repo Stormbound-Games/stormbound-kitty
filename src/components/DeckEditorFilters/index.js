@@ -139,7 +139,7 @@ export default React.memo(function DeckEditorFilters(props) {
 
                 <Row.Column>
                   <Select
-                    label='Race'
+                    label='Unit type'
                     id='race'
                     value={props.race}
                     onChange={event => props.setRace(event.target.value)}
