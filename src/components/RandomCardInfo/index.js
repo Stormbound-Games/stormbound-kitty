@@ -74,6 +74,7 @@ export default React.memo(function RandomCardInfo(props) {
             disabled={isLoading}
             aria-describedby='randomize-card-error'
             aria-invalid={hasErrored}
+            data-testid='randomize-card-cta'
           >
             {isLoading ? 'Loading…' : 'Randomize'}
           </CTA>
