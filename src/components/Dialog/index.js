@@ -19,6 +19,10 @@ export default React.memo(function Dialog(props) {
   const hideHeader = false
   const allowScroll = false
 
+  // This can be convenient when the dialog contains a <form> element, and the
+  // given CTA should be its submit button.
+  const Body = props.Body || 'div'
+
   const registerDialog = ref => {
     if (ref && !allowScroll) {
       ref
@@ -83,12 +87,12 @@ export default React.memo(function Dialog(props) {
         />
       )}
 
-      <div className={css(styles.body, props.extend?.body)}>
+      <Body className={css(styles.body, props.extend?.body)}>
         <div className={css({ '> :last-child': { marginBottom: 0 } })}>
           {props.children}
         </div>
         {hasCTA && <CTA {...ctaProps} extend={[styles.cta, ctaProps.extend]} />}
-      </div>
+      </Body>
     </A11yDialog>
   )
 })
