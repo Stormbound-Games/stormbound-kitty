@@ -124,7 +124,7 @@ export default class Trivia {
         return searchCards(this.cards, this.abbreviations, content).length > 0
       case 'CARD':
         return (
-          !!parseCardGuess(content)[0] ||
+          !!parseCardGuess(content, true)[0] ||
           searchCards(this.cards, this.abbreviations, content).length > 0
         )
       default:
@@ -134,7 +134,7 @@ export default class Trivia {
 
   guess({ author, content }) {
     if (this.mode === 'IMAGE' || this.mode === 'CARD') {
-      const [key, value] = parseCardGuess(content)
+      const [key, value] = parseCardGuess(content, true)
       const embed = getEmbed({ withHeader: false }).addField(
         'User',
         author.username,
@@ -157,14 +157,15 @@ export default class Trivia {
 
           embed.setTitle(title).setDescription(description)
         } else {
-          const title =
-            this.answer[key] === value
-              ? '👍 Correct guess: ' + value
-              : `👎 Incorrect guess: ~~${value}~~`
-          const description =
-            this.answer[key] === value
-              ? `The card’s *${key}* is indeed “**${value}**”.`
-              : `The card’s *${key}* is not “${value}”.`
+          const isValid = Array.isArray(this.answer[key])
+            ? this.answer[key].includes(value)
+            : this.answer[key] === value
+          const title = isValid
+            ? '👍 Correct guess: ' + value
+            : `👎 Incorrect guess: ~~${value}~~`
+          const description = isValid
+            ? `The card’s *${key}* is indeed “**${value}**”.`
+            : `The card’s *${key}* is not “${value}”.`
 
           embed.setTitle(title).setDescription(description)
         }

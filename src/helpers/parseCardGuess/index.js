@@ -15,14 +15,15 @@ const CARD_KEYS = [
   'ability',
 ]
 
-const parseCardGuess = message => {
+const parseCardGuess = (message, strict = true) => {
   message = message.toLowerCase()
   if (message === 'token') return ['token', true]
   if (RARITIES.includes(message)) return ['rarity', message]
   if (message.split(',').every(chunk => FACTIONS.includes(chunk)))
     return ['faction', message]
   if (TYPES.includes(message)) return ['type', message]
-  if (UNIT_TYPES.includes(message)) return ['unitType', message]
+  if (UNIT_TYPES.includes(message))
+    return [strict ? 'unitTypes' : 'unitType', message]
   const [key, value] = handleSearchAlias(message)
   if (CARD_KEYS.includes(key)) return [key, value]
   return []
