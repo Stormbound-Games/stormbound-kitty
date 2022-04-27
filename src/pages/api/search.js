@@ -35,7 +35,11 @@ export default async function handler(request, response) {
     return response.status(429).json({ message: 'Too many requests' })
   }
 
-  return response
-    .status(200)
-    .json(index.search(request.query.search.trim()).slice(0, 6))
+  const term = (request.query.search || '').trim()
+
+  if (term.length === 0) {
+    return response.status(400).send('Bad request')
+  }
+
+  return response.status(200).json(index.search(term).slice(0, 6))
 }
