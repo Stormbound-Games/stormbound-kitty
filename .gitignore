@@ -17,7 +17,7 @@ out
 .husky/_
 .next
 .vercel
-sanity.js
+/sanity.js
 
 # Artifacts
 cypress/screenshots
