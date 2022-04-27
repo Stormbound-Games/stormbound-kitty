@@ -33,6 +33,7 @@ export default React.memo(function RandomCardInfo(props) {
         // rewrite.
         setCardData(cardData => ({
           ...cardData,
+          type: card.type ?? INITIAL_STATE.type,
           name: card.name ?? INITIAL_STATE.name,
           imageURL: card.imageURL ?? INITIAL_STATE.imageURL,
           imageCardId: card.imageCardId ?? INITIAL_STATE.imageCardId,
