@@ -10,15 +10,13 @@ export default React.memo(function RandomCardFilters(props) {
   const [type, setType] = React.useState('*')
   const [faction, setFaction] = React.useState('*')
   const { createRandomCard } = props
-  const dialog = props.dialog.current
 
   const handleSubmit = React.useCallback(
     event => {
       event.preventDefault()
       createRandomCard({ type, faction })
-      dialog.hide()
     },
-    [dialog, createRandomCard, type, faction]
+    [createRandomCard, type, faction]
   )
 
   return (
@@ -27,7 +25,7 @@ export default React.memo(function RandomCardFilters(props) {
       dialogRef={instance => (props.dialog.current = instance)}
       extend={{ dialog: { textAlign: 'start' } }}
       title='Randomize card'
-      close={() => dialog.hide()}
+      close={() => props.dialog.current.hide()}
       image='https://cdn.sanity.io/images/5hlpazgd/production/d7567c8333cfa033713404794775bc0b939f5715-301x300.png'
       ctaProps={{
         type: 'submit',
