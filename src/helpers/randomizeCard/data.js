@@ -634,7 +634,7 @@ export const NAMES = {
   ],
   dragon: [
     ['Conflicted', 'Dreadful', 'Greenscale', 'Wandering', 'Yowling', 'Terrifying', 'Chaotic', 'Ignited', 'Flameless', 'Sunbeam', 'Dangerous', 'Ludic', 'Vengeful'],
-    ['Drakes', 'Keepers', 'Serpents', 'Wyrms', 'Weavers', 'Beasts', 'Roamers', 'Embers', 'Lizards', 'Sutiors', 'Matriarchs']
+    ['Drakes', 'Keepers', 'Serpents', 'Wyrms', 'Weavers', 'Beasts', 'Roamers', 'Embers', 'Lizards', 'Suitors', 'Matriarchs']
   ],
   spell_neutral: [
     ['Infused', 'Rippling', 'Blessed', 'Faithful', 'Wild', 'Channeled',  'Attuned', 'Sealed', 'Arcane'],
