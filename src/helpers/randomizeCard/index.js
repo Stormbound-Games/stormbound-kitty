@@ -13,11 +13,11 @@ import {
   STATLINES_SLOW,
   TRIGGERS,
 } from './data'
-import { MIN_MANA, MAX_MANA, MAX_EFF_COST, filters } from './constants'
+import { MIN_MANA, MAX_MANA, MAX_EFF_COST } from './constants'
 import { log, fixWording, highlight } from './utils'
 
 class Card {
-  constructor() {
+  constructor(filters = {}) {
     this.mana = 0
     this.effCost = 0
     this.effCostMult = 0
@@ -30,6 +30,7 @@ class Card {
     this.rarity = ''
     this.strengthScaling = STATLINES_FAST
     this.type = ''
+    this.filters = filters
   }
 
   get name() {
@@ -73,8 +74,8 @@ class Card {
   }
 
   getArchetype() {
-    this.type = TYPES.includes(filters.type)
-      ? capitalize(filters.type)
+    this.type = TYPES.includes(this.filters.type)
+      ? capitalize(this.filters.type)
       : // Give more prevalence to units as there are significantly more unit
         // cards than anything else in the game.
         // See: https://stormbound-kitty.com/stats
@@ -104,9 +105,18 @@ class Card {
 
     // @TODO: add support for advanced filters so we can enforce a specific race
     // or faction.
-    if (filters.faction !== '' && this.faction !== filters.faction)
+    if (
+      this.filters.faction &&
+      this.filters.faction !== '*' &&
+      this.faction !== this.filters.faction
+    )
       this.getArchetype()
-    if (filters.race !== '' && this.race.name !== filters.race)
+
+    if (
+      this.filters.race &&
+      this.filters.race !== '*' &&
+      this.race.name !== this.filters.race
+    )
       this.getArchetype()
   }
 
@@ -353,7 +363,7 @@ class Card {
   }
 }
 
-const randomizeCard = (filters = {}) => {
+const randomizeCard = filters => {
   const card = new Card(filters)
 
   return card.generate().toObject()
