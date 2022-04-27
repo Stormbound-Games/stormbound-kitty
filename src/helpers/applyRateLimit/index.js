@@ -18,7 +18,11 @@ const applyMiddleware = middleware => (request, response) =>
   })
 
 const withSlowDown = applyMiddleware(
-  slowDown({ ...MIDDLEWARE_CONFIG, delayAfter: LIMIT_PER_WINDOW, delayMs: 500 })
+  slowDown({
+    ...MIDDLEWARE_CONFIG,
+    delayAfter: Math.round(LIMIT_PER_WINDOW / 2),
+    delayMs: 500,
+  })
 )
 const withRateLimit = applyMiddleware(
   rateLimit({ ...MIDDLEWARE_CONFIG, max: LIMIT_PER_WINDOW })
