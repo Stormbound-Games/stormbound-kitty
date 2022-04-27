@@ -1,5 +1,5 @@
 import PageValueCalculator from '~/components/PageValueCalculator'
-import getCardValue from '~/helpers/getCardValue'
+import { VALUED_CARDS } from '~/helpers/getCardValue'
 import getSiteSettings from '~/api/misc/getSiteSettings'
 import serialization from '~/helpers/serialization'
 import indexArray from '~/helpers/indexArray'
@@ -15,7 +15,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const defaultCard = { id: null, level: 1 }
   const disabledOptions = settings.cards
     .map(card => card.id)
-    .filter(id => !getCardValue(cardsIndex, id))
+    .filter(id => !VALUED_CARDS.includes(id))
   const deck = id ? serialization.cards.deserialize(id) : []
 
   if (deck.some(card => !(card.id in cardsIndex))) {
