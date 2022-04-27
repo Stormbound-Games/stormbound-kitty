@@ -43,6 +43,10 @@ export const getEntry = async ({
   })
 
   if (options.isPreview) {
+    if (!previewClient) {
+      throw new Error('Missing `SANITY_PREVIEW_TOKEN` environment variable')
+    }
+
     const entries = await previewClient.fetch(query, params)
     const entry = entries.find(isDraftEntry) || entries.find(isPublishedEntry)
 
@@ -62,9 +66,15 @@ export const getEntries = async ({
   const sanityClient = options.isPreview ? previewClient : client
   const entries = await sanityClient.fetch(query, params)
 
-  return options.isPreview
-    ? entries.filter(preserveDrafts).map(withoutSanityId)
-    : entries
+  if (options.isPreview) {
+    if (!previewClient) {
+      throw new Error('Missing `SANITY_PREVIEW_TOKEN` environment variable')
+    }
+
+    return entries.filter(preserveDrafts).map(withoutSanityId)
+  }
+
+  return entries
 }
 
 const createQuery = ({ conditions, fields = '...', options = {} }) => {

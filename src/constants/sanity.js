@@ -11,10 +11,12 @@ export const client = sanityClient({
   useCdn: true,
 })
 
-export const previewClient = sanityClient({
-  projectId: PROJECT_ID,
-  dataset: DATASET,
-  useCdn: false,
-  token: process.env.SANITY_PREVIEW_TOKEN,
-  apiVersion: API_VERSION,
-})
+export const previewClient = process.env.SANITY_PREVIEW_TOKEN
+  ? sanityClient({
+      projectId: PROJECT_ID,
+      dataset: DATASET,
+      useCdn: false,
+      token: process.env.SANITY_PREVIEW_TOKEN,
+      apiVersion: API_VERSION,
+    })
+  : null
