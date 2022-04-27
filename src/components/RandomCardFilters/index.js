@@ -1,8 +1,9 @@
 import React from 'react'
 import Dialog from '~/components/Dialog'
+import FactionSelect from '~/components/FactionSelect'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
-import { TYPES, FACTIONS } from '~/constants/game'
+import { TYPES } from '~/constants/game'
 import capitalize from '~/helpers/capitalize'
 
 export default React.memo(function RandomCardFilters(props) {
@@ -59,21 +60,13 @@ export default React.memo(function RandomCardFilters(props) {
           </Select>
         </Row.Column>
         <Row.Column>
-          <Select
-            label='Faction'
-            id='faction'
+          <FactionSelect
             required
             value={faction}
             onChange={event => setFaction(event.target.value)}
+            withNeutral
             data-testid='randomize-card-faction'
-          >
-            <option value='*'>Any</option>
-            {FACTIONS.map(faction => (
-              <option value={faction} key={faction}>
-                {capitalize(faction)}
-              </option>
-            ))}
-          </Select>
+          />
         </Row.Column>
       </Row>
     </Dialog>
