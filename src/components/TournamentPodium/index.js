@@ -69,7 +69,7 @@ const getCard = (cardsIndex, index, user) => ({
   level: index + 1,
   mana: index + 1,
   type: 'unit',
-  race: ['Champion', 'Conqueror', 'Runner-up'][index],
+  unitTypes: [['Champion', 'Conqueror', 'Runner-up'][index]],
   image: cardsIndex[['N54', 'N32', 'N3'][index]].image,
 })
 

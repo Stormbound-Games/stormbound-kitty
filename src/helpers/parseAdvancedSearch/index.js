@@ -82,13 +82,10 @@ const parseAdvancedSearch = value => {
 export const serializeFilters = filters => {
   let search = []
 
-  if (filters.hero) search.push('is:hero')
-  if (filters.elder) search.push('is:elder')
-  if (filters.ancient) search.push('is:ancient')
   if (filters.text) search.push(filters.text)
   if (filters.fixedMovement) search.push('mov:fixed')
   if (filters.faction !== '*') search.push('is:' + filters.faction)
-  if (filters.race !== '*') search.push('is:' + filters.race)
+  if (filters.unitType !== '*') search.push('is:' + filters.unitType)
   if (filters.type !== '*') search.push('is:' + filters.type)
   if (filters.rarity !== '*') search.push('is:' + filters.rarity)
   if (filters.movement !== '*') search.push('mov:' + filters.movement)

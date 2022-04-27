@@ -28,7 +28,12 @@ export default React.memo(function ListBuilderTierItem(props) {
             {props.name}
           </Link>
           <span className={css(styles.meta)}>
-            {[props.rarity, props.faction, props.race, props.type]
+            {[
+              props.rarity,
+              props.faction,
+              props.unitTypes.join(' '),
+              props.type,
+            ]
               .filter(Boolean)
               .join(' · ')}
           </span>
@@ -55,7 +60,7 @@ export default React.memo(function ListBuilderTierItem(props) {
       <p className={css(styles.content)}>
         <span className={css(styles.name)}>{props.name}</span>
         <span className={css(styles.meta)}>
-          {[props.rarity, props.faction, props.race, props.type]
+          {[props.rarity, props.faction, props.unitTypes.join(' '), props.type]
             .filter(Boolean)
             .join(' · ')}
         </span>

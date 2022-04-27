@@ -55,7 +55,7 @@ const play = (state, card, opts, HoS) => {
   // we only increment the amount of ancients if we have other Orgone Leechers
   // on the board otherwise it counts for itself.
   if (
-    cardData.ancient &&
+    cardData.unitTypes.includes('ancient') &&
     (cardData.id !== 'W33' || state.specifics.activeOrgoneLeechers)
   ) {
     state.specifics.activeFriendlyAncients += 1

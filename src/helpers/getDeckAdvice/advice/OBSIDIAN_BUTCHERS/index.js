@@ -1,7 +1,7 @@
 const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
-const getDragons = cards => cards.filter(c => c.race === 'dragon')
+const getDragons = cards => cards.filter(c => c.unitTypes.includes('dragon'))
 
 const advice = cards => {
   const cardIds = cards.map(card => card.id)

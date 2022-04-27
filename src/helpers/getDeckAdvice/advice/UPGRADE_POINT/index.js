@@ -1,4 +1,5 @@
-const getConstructs = cards => cards.filter(card => card.race === 'construct')
+const getConstructs = cards =>
+  cards.filter(card => card.unitTypes.includes('construct'))
 
 const advice = cards => {
   const constructs = getConstructs(cards)

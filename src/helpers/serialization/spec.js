@@ -116,3 +116,45 @@ describe('The `serialization.deck.deserialize` helper', () => {
     ])
   })
 })
+
+describe('The `serialization.card.deserialize` helper', () => {
+  it('should handle old serialization for elder unit type', () => {
+    const oldIdWithElder =
+      'TjtFO1U7RTs2OzA7OC8xMC8xMy8xNy8yMjtndWlkaW5nJTIwZWxkZW50YWlsO2h0dHBzJTNBJTJGJTJGczM2NTM3LnBjZG4uY28lMkZ3cC1jb250ZW50JTJGdXBsb2FkcyUyRjIwMTUlMkYwNiUyRnNlbmlvcl9jYXRfcGVyc2lhbjEuanBnLndlYnA7QWZ0ZXIlMjBzdXJ2aXZpbmclMjBkYW1hZ2UlMkMlMjAqY29uZnVzZSolMjBpdHNlbGYlMjBhbmQlMjAqYm9yZGVyaW5nKiUyMHVuaXRzJTJDJTIwdGhlbiUyMCptb3ZlKjs7RQ'
+
+    expect(
+      serialization.card.deserialize(global.__CARDS_INDEX__, oldIdWithElder)
+        .unitTypes
+    ).toContain('elder')
+  })
+
+  it('should handle old serialization for ancient unit type', () => {
+    const oldIdWithAncient =
+      'Tjs7VTtMOzY7MDs2LzcvOC8xMC8xMjtPc2lyaXM7TjkyO0JlZm9yZSUyMG1vdmluZyUyQyUyMGluY3JlYXNlJTIwdGhlJTIwbGV2ZWwlMjBvZiUyMCoxJTJGMSUyRjIlMkYyJTJGMyolMjBub24tbGVnZW5kYXJ5JTIwcmFuZG9tJTIwdW5pdCUyRnVuaXQlMkZ1bml0cyUyRnVuaXRzJTJGdW5pdHMlMjBpbiUyMHlvdXIlMjBoYW5kJTIwdW50aWwlMjB0aGUlMjBlbmQlMjBvZiUyMHRoZSUyMHR1cm47O0hB'
+
+    expect(
+      serialization.card.deserialize(global.__CARDS_INDEX__, oldIdWithAncient)
+        .unitTypes
+    ).toContain('ancient')
+  })
+
+  it('should handle old serialization for hero unit type', () => {
+    const oldIdWithHero =
+      'Tjs7VTtMOzY7MDs2LzcvOC8xMC8xMjtPc2lyaXM7TjkyO0JlZm9yZSUyMG1vdmluZyUyQyUyMGluY3JlYXNlJTIwdGhlJTIwbGV2ZWwlMjBvZiUyMCoxJTJGMSUyRjIlMkYyJTJGMyolMjBub24tbGVnZW5kYXJ5JTIwcmFuZG9tJTIwdW5pdCUyRnVuaXQlMkZ1bml0cyUyRnVuaXRzJTJGdW5pdHMlMjBpbiUyMHlvdXIlMjBoYW5kJTIwdW50aWwlMjB0aGUlMjBlbmQlMjBvZiUyMHRoZSUyMHR1cm47O0hB'
+
+    expect(
+      serialization.card.deserialize(global.__CARDS_INDEX__, oldIdWithHero)
+        .unitTypes
+    ).toContain('hero')
+  })
+
+  it('should handle custom race', () => {
+    const idWithCustomRace =
+      'TjtSYXZlbiBLbmlnaHQ7VTtDOzc7MDs4LzEwLzExLzEzLzE1O0ZlYXRoZXJlZCUyMENhdmFsaWVycztodHRwcyUzQSUyRiUyRm1lZGlhLmRpc2NvcmRhcHAubmV0JTJGYXR0YWNobWVudHMlMkY5MzU4Mjg4MTk3MDM2NjA1NDQlMkY5NjMxNzQ0OTMxMjIxMDEzMTglMkYxNjQ5NzA5MDUxNjM2LnBuZztPbiUyMHBsYXklMkMlMjBTcGF3biUyMHN1cnJvdW5kaW5nJTIwMSUyMFRva2VuJTIwUmF2ZW4lMjB3aXRoJTIwMyUyRjMlMkY0JTJGNCUyRjUlMjBzdHJlbmd0aC4lMjBJbmNyZWFzZSUyMGJ5JTIwMSUyMHRoZSUyMGFtb3VudCUyMG9mJTIwVG9rZW4lMjBzcGF3bmVkJTIwZm9yJTIwZWFjaCUyMGtuaWdodCUyMGluJTIweW91ciUyMGhhbmQ7Ow'
+
+    expect(
+      serialization.card.deserialize(global.__CARDS_INDEX__, idWithCustomRace)
+        .unitTypes
+    ).toEqual(['Raven Knight'])
+  })
+})

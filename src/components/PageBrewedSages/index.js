@@ -15,7 +15,7 @@ const CARD = {
     'https://cdn.sanity.io/images/5hlpazgd/production/530b731e3badad728e3afef6b7b7bd26cd9acb1a-508x508.png',
   type: 'unit',
   name: 'Brewed Sages',
-  race: 'Podcast',
+  unitTypes: ['Podcast'],
   faction: 'shadowfen',
 }
 

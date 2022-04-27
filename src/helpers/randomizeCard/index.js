@@ -349,7 +349,7 @@ class Card {
   toObject() {
     return {
       type: this.type.toLowerCase(),
-      race: this.race.name,
+      unitTypes: [this.race.name, this.subrace].filter(Boolean),
       rarity: this.rarity,
       faction: this.faction,
       name: this.name,
@@ -358,8 +358,6 @@ class Card {
       movement: this.movement.toString(),
       ability: highlight(capitalize(this.ability)),
       imageCardId: this.race.image,
-      ancient: this.subrace === 'ancient',
-      elder: this.subrace === 'elder',
     }
   }
 }

@@ -1,11 +1,11 @@
 import resolveAbility from '~/helpers/resolveAbility'
 import {
   getLongFaction,
-  getLongRace,
+  getLongUnitType,
   getLongRarity,
   getLongType,
   getShortFaction,
-  getShortRace,
+  getShortUnitType,
   getShortRarity,
   getShortType,
 } from '~/helpers/encoding'
@@ -50,7 +50,6 @@ export const deserializeCard = (cardsIndex, string) => {
 
   card.faction = getLongFaction(chunks[0])
   card.type = getLongType(chunks[2])
-  card.race = card.type === 'unit' ? getLongRace(chunks[1]) : null
   card.rarity = getLongRarity(chunks[3])
   card.mana = resolveMana(chunks[4])
   card.strength = resolveStrength(chunks[6], card.type)
@@ -87,11 +86,15 @@ export const deserializeCard = (cardsIndex, string) => {
     /* Strength */ !chunks[6].includes('/') &&
     /* Ability */ !chunks[9].includes('/')
 
-  card.elder = (chunks[11] || '').includes('E')
-  card.hero = (chunks[11] || '').includes('H')
-  // For a while, “Ancient” was considered a race and not a unit modifier, so
-  // it might have been carried in the race slot.
-  card.ancient = (chunks[11] || '').includes('A') || chunks[1] === 'A'
+  // If the race is a single character long,
+  card.unitTypes = [
+    ...chunks[1].split(',').map(getLongUnitType),
+    // Ancient, Elder and Hero used to be treated differently than other unit
+    // types and stored in the 12th slot (index 11).
+    (chunks[11] || '').includes('A') && 'ancient',
+    (chunks[11] || '').includes('E') && 'elder',
+    (chunks[11] || '').includes('H') && 'hero',
+  ].filter(Boolean)
 
   return card
 }
@@ -99,7 +102,10 @@ export const deserializeCard = (cardsIndex, string) => {
 const serializeCard = formState =>
   [
     getShortFaction(formState.faction),
-    getShortRace(formState.race),
+    // Unit types need to be comma-separated because they could be either a
+    // short unit type (e.g. `A` for “Ancient”) or a custom unit type (e.g.
+    // “Butterfly”)
+    formState.unitTypes.map(getShortUnitType).join(','),
     getShortType(formState.type),
     getShortRarity(formState.rarity),
     formState.mana,
@@ -111,9 +117,7 @@ const serializeCard = formState =>
       encodeURIComponent(formState.imageURL || ''),
     encodeURIComponent(formState.ability || ''),
     formState.level,
-    (formState.elder ? 'E' : '') +
-      (formState.hero ? 'H' : '') +
-      (formState.ancient ? 'A' : ''),
+    '', // Former unit type modifiers
   ].join(';')
 
 const card = {

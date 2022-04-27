@@ -16,13 +16,15 @@ const usePageProps = (props, card) => {
   if (!props.id) return {}
 
   const isEditing = props.mode === 'EDITOR'
-  const { rarity, faction, type, race } = card
+  const { rarity, faction, type, unitTypes } = card
   const to = `/card/${props.id}` + (isEditing ? '/display' : '')
   const label = isEditing ? 'Display view' : 'Edit card'
   const icon = isEditing ? 'eye' : undefined
 
   return {
-    meta: [rarity, faction, type, race].filter(Boolean).join(' · '),
+    meta: [rarity, faction, unitTypes.join(' '), type]
+      .filter(Boolean)
+      .join(' · '),
     action: { to, children: label, icon },
   }
 }

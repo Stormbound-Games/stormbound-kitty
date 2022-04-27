@@ -10,8 +10,8 @@ const isCardMatchingCriteria =
     if (criteria.name && !card.name.includes(criteria.name)) return false
     if (criteria.rarity && card.rarity !== criteria.rarity) return false
     if (criteria.type && card.type !== criteria.type) return false
-    if (criteria.race && card.race !== criteria.race) return false
-    if (criteria.elder && !card.elder) return false
+    if (criteria.unitType && !card.unitTypes.includes(criteria.unitType))
+      return false
     return true
   }
 

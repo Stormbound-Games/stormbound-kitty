@@ -28,7 +28,7 @@ const getPlayableCards = (mana, cards) =>
     })
   )
 
-const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
+const getUnitTypes = cards => [...new Set(cards.flatMap(c => c.unitTypes))]
 
 export default React.memo(function DeckStats(props) {
   const { css } = useFela()
@@ -40,7 +40,7 @@ export default React.memo(function DeckStats(props) {
   const units = cards.filter(c => c.type === 'unit')
   const structures = cards.filter(c => c.type === 'structure')
   const spells = cards.filter(c => c.type === 'spell')
-  const races = getRaces(cards)
+  const unitTypes = getUnitTypes(cards)
   const playableCards1 = getPlayableCards(3, cards)
   const playableCards2 = getPlayableCards(4, cards)
   const movingCards1 = playableCards1.filter(
@@ -81,8 +81,10 @@ export default React.memo(function DeckStats(props) {
             >
               {spells.length}
             </span>{' '}
-            {spells.length > 1 ? 'spells' : 'spell'}. It contains {races.length}{' '}
-            {races.length > 1 ? 'different races' : 'single race'}.
+            {spells.length > 1 ? 'spells' : 'spell'}. It contains{' '}
+            {unitTypes.length}{' '}
+            {unitTypes.length > 1 ? 'different unit types' : 'single unit type'}
+            .
           </p>
 
           <p>

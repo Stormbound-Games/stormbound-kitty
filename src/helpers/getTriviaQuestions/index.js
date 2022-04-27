@@ -1,6 +1,6 @@
 import {
   FACTIONS,
-  RACES,
+  UNIT_TYPES,
   CHIP_CARDS,
   RARITY_COPIES,
   RARITIES,
@@ -23,12 +23,12 @@ const getTriviaQuestions = (cards, brawls) => {
   const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
   const rangeAround = (value, delta) => range(value - delta, value + delta)
   const NEVER_UPDATED = 'N11,N28,N32,N30,N22,N19,N16,S18'.split(',')
-  const racesWithOnDeath = cards
+  const unitTypesWithOnDeath = cards
     .filter(card => (card.ability || '').includes('n death'))
-    .map(card => card.race)
+    .flatMap(card => card.unitTypes)
     .filter(unique)
-  const racesWithoutOnDeath = RACES.filter(
-    race => !racesWithOnDeath.includes(race)
+  const unitTypesWithoutOnDeath = UNIT_TYPES.filter(
+    unitType => !unitTypesWithOnDeath.includes(unitType)
   )
   const cardsPerFaction = FACTIONS.filter(faction => faction !== 'neutral').map(
     faction => cards.filter(card => card.faction === faction).length
@@ -103,16 +103,6 @@ const getTriviaQuestions = (cards, brawls) => {
         'What was the max strength Unhealthy Hysteria could effect when it was first revealed?',
       answer: 3,
       options: range(1, 10),
-    },
-
-    () => {
-      const randomCard = arrayRandom(cards.filter(card => Boolean(card.race)))
-
-      return {
-        question: `What is the race of ${randomCard.name}?`,
-        answer: capitalize(randomCard.race),
-        options: RACES.map(capitalize),
-      }
     },
 
     () => {
@@ -225,13 +215,17 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'Which hero was Edrik’s predecessor on the home menu?',
       answer: 'Wolfcloaks',
-      options: cards.filter(card => card.hero).map(card => card.name),
+      options: cards
+        .filter(card => card.unitTypes.includes('hero'))
+        .map(card => card.name),
     },
 
     {
       question: 'Which hero is guiding new players?',
       answer: 'Edrik the Fierce',
-      options: cards.filter(card => card.hero).map(card => card.name),
+      options: cards
+        .filter(card => card.unitTypes.includes('hero'))
+        .map(card => card.name),
     },
 
     {
@@ -356,7 +350,7 @@ const getTriviaQuestions = (cards, brawls) => {
       question:
         'Which type of tokens did Tegor the Vengeful initially spawned?',
       answer: 'Knight',
-      options: RACES.map(capitalize),
+      options: UNIT_TYPES.map(capitalize),
     },
 
     {
@@ -553,9 +547,9 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question:
-        'Of which race are Beards of Crowglyphs showing visual elements?',
+        'Of which unit type are Beards of Crowglyphs showing visual elements?',
       answer: 'Dragon',
-      options: RACES.map(capitalize),
+      options: UNIT_TYPES.map(capitalize),
     },
 
     {
@@ -576,7 +570,7 @@ const getTriviaQuestions = (cards, brawls) => {
         'Which feline was illustrated after internet legend Grumpy Cat?',
       answer: 'Razor-Sharp Lynxes',
       options: cards
-        .filter(card => card.race === 'feline')
+        .filter(card => card.unitTypes.includes('feline'))
         .map(card => card.name),
     },
 
@@ -621,17 +615,23 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many Elders are there?',
-      answer: cards.filter(card => !card.token && card.elder).length,
+      answer: cards.filter(
+        card => !card.token && card.unitTypes.includes('elder')
+      ).length,
       options: rangeAround(
-        cards.filter(card => !card.token && card.elder).length,
+        cards.filter(card => !card.token && card.unitTypes.includes('elder'))
+          .length,
         10
       ),
     },
 
     {
       question: 'How many heroes are there?',
-      answer: cards.filter(card => card.hero).length,
-      options: rangeAround(cards.filter(card => card.hero).length, 5),
+      answer: cards.filter(card => card.unitTypes.includes('hero')).length,
+      options: rangeAround(
+        cards.filter(card => card.unitTypes.includes('hero')).length,
+        5
+      ),
     },
 
     {
@@ -674,7 +674,7 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'Which unit type is Powder Tower built by?',
       answer: 'Pirate',
-      options: RACES.map(capitalize),
+      options: UNIT_TYPES.map(capitalize),
     },
 
     {
@@ -703,9 +703,9 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'How many unit races are there?',
-      answer: RACES.length,
-      options: rangeAround(RACES.length, 5),
+      question: 'How many unit types are there?',
+      answer: UNIT_TYPES.length,
+      options: rangeAround(UNIT_TYPES.length, 5),
     },
 
     {
@@ -904,7 +904,7 @@ const getTriviaQuestions = (cards, brawls) => {
         'Which of these cards was revealed by Kitty on Stormbound-Kitty?',
       answer: 'Bigthrust Tigers',
       options: cards
-        .filter(card => card.race === 'feline')
+        .filter(card => card.unitTypes.includes('feline'))
         .map(card => card.name),
     },
 
@@ -1004,7 +1004,9 @@ const getTriviaQuestions = (cards, brawls) => {
       question:
         'Which legendary card was originally fetured in the Stormbound app icon?',
       answer: 'Olf the Hammer',
-      options: cards.filter(card => card.hero).map(card => card.name),
+      options: cards
+        .filter(card => card.unitTypes.includes('hero'))
+        .map(card => card.name),
     },
 
     {
@@ -1135,14 +1137,16 @@ const getTriviaQuestions = (cards, brawls) => {
 
     () => ({
       question:
-        'Which other races were possible to vote for for the community created card Harvesters of Souls?',
+        'Which other unit types were possible to vote for for the community created card Harvesters of Souls?',
       answer: 'Pirate and Raven',
       options: Array.from({ length: 20 }, () => {
-        const randomRace = arrayRandom(RACES)
+        const randomUnitType = arrayRandom(UNIT_TYPES)
 
         return [
-          randomRace,
-          arrayRandom(RACES.filter(race => race !== randomRace)),
+          randomUnitType,
+          arrayRandom(
+            UNIT_TYPES.filter(unitType => unitType !== randomUnitType)
+          ),
         ]
           .map(capitalize)
           .join(' and ')
@@ -1275,7 +1279,9 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'Which was the first Elder to be revealed?',
       answer: 'Trekking Aldermen',
-      options: cards.filter(card => card.elder).map(card => card.name),
+      options: cards
+        .filter(card => card.unitTypes.includes('elder'))
+        .map(card => card.name),
     },
 
     {
@@ -1351,9 +1357,10 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     () => ({
-      question: 'Which race does *not* have a card with an “on death” effect?',
-      answer: capitalize(arrayRandom(racesWithoutOnDeath)),
-      options: racesWithOnDeath.map(capitalize),
+      question:
+        'Which unit type does *not* have a card with an “on death” effect?',
+      answer: capitalize(arrayRandom(unitTypesWithoutOnDeath)),
+      options: unitTypesWithOnDeath.map(capitalize),
     }),
 
     {
@@ -1391,7 +1398,7 @@ const getTriviaQuestions = (cards, brawls) => {
       question: 'Which undead does *not* have red horns on their head?',
       answer: 'Lasting Remains',
       options: cards
-        .filter(card => card.race === 'undead' && card.id !== 'N38')
+        .filter(card => card.unitTypes.includes('undead') && card.id !== 'N38')
         .map(card => card.name),
     },
 
@@ -1406,7 +1413,9 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question: 'Which hero’s loading screen text rhymes?',
       answer: 'Lady Rime',
-      options: cards.filter(card => card.hero).map(card => card.name),
+      options: cards
+        .filter(card => card.unitTypes.includes('hero'))
+        .map(card => card.name),
     },
 
     {
@@ -1454,7 +1463,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'Which race cannot spawn units?',
+      question: 'Which unit type cannot spawn units?',
       answer: 'Frostling',
       options: 'Knight,Raven,Rodent,Undead,Dragon,Toad,Satyr,Construct'.split(
         ','

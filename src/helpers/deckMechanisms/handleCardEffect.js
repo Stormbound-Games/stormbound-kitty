@@ -348,7 +348,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
 }
 
 const isNotPirate = state => card =>
-  state.deck.find(isCard(card)).race !== 'pirate'
+  !state.deck.find(isCard(card)).unitTypes.includes('pirate')
 
 const isSatyrInDeck = state => card => {
   const isInHand = state.hand.find(isCard(card))
@@ -356,7 +356,7 @@ const isSatyrInDeck = state => card => {
 
   return (
     !isInHand &&
-    cardInDeck.race === 'satyr' &&
+    cardInDeck.unitTypes.includes('satyr') &&
     ['common', 'rare'].includes(cardInDeck.rarity)
   )
 }

@@ -1,5 +1,5 @@
 import { MdMenuBook } from 'react-icons/md'
-import { FACTIONS, RACES, TYPES, RARITIES } from '~/constants/game'
+import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
 
 const restriction = {
   title: 'Restriction',
@@ -12,6 +12,7 @@ const restriction = {
       type: 'string',
       options: {
         list: [
+          // @TODO: handle unitTypes
           'ability',
           'ancient',
           'elder',
@@ -29,7 +30,7 @@ const restriction = {
       title: 'Value',
       name: 'value_race',
       type: 'string',
-      options: { list: RACES },
+      options: { list: UNIT_TYPES },
       hidden: ({ parent }) => parent?.property !== 'race',
       validation: Rule =>
         Rule.custom((value, context) => {

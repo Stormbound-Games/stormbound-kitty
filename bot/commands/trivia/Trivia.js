@@ -146,15 +146,14 @@ export default class Trivia {
         embed.addField('Value', value, true)
 
         if (value === true) {
-          const lead = key === 'elder' || key === 'ancient' ? 'an' : 'a'
           const title =
             this.answer[key] === value
               ? '👍 Correct guess: ' + key
               : `👎 Incorrect guess: ~~${key}~~`
           const description =
             this.answer[key] === value
-              ? `The card is indeed ${lead} *${key}*.`
-              : `The card is not ${lead} *${key}*.`
+              ? `The card is indeed a *${key}*.`
+              : `The card is not a *${key}*.`
 
           embed.setTitle(title).setDescription(description)
         } else {

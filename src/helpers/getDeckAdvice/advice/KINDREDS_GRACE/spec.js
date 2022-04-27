@@ -21,14 +21,14 @@ const getCards = (id, modifier = 'NONE') =>
   ).map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
 describe('The `KINDREDS_GRACE` advice', () => {
-  it('should be returned if too many races are represented', () => {
+  it('should be returned if too many unit types are represented', () => {
     const cards = getCards('1n11n21f31n31n41n51n621n631n81n111n131n40')
     expect(advice(cards)).not.toEqual(null)
   })
 
   SPAWNS_ARRAY.forEach(cardId => {
-    const race = SPAWNS[cardId][0]
-    const testDeck = BASE_DECKS[race] + '1' + cardId.toLowerCase()
+    const unitType = SPAWNS[cardId][0]
+    const testDeck = BASE_DECKS[unitType] + '1' + cardId.toLowerCase()
 
     it(
       'should not be returned if the deck contains ' +
@@ -40,7 +40,7 @@ describe('The `KINDREDS_GRACE` advice', () => {
     )
   })
 
-  it('should not be returned if the deck enough units of the same race are represented', () => {
+  it('should not be returned if the deck enough units of the same unit type are represented', () => {
     const cards = getCards('1n11i11n51n81n111i81i61n241i271i161i211n40')
     expect(advice(cards)).toEqual(null)
   })

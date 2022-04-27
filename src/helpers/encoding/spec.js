@@ -5,8 +5,8 @@ import {
   getLongType,
   getShortRarity,
   getLongRarity,
-  getShortRace,
-  getLongRace,
+  getShortUnitType,
+  getLongUnitType,
   getShortCurrency,
   getLongCurrency,
   getShortMatchStatus,
@@ -97,53 +97,53 @@ describe('The `getLongRarity` helper', () => {
   })
 })
 
-describe('The `getShortRace` helper', () => {
-  it('should return single-letter race', () => {
-    expect(getShortRace('construct')).toEqual('C')
-    expect(getShortRace('dragon')).toEqual('D')
-    expect(getShortRace('dwarf')).toEqual('W')
-    expect(getShortRace('frostling')).toEqual('F')
-    expect(getShortRace('feline')).toEqual('E')
-    expect(getShortRace('knight')).toEqual('K')
-    expect(getShortRace('pirate')).toEqual('P')
-    expect(getShortRace('raven')).toEqual('R')
-    expect(getShortRace('rodent')).toEqual('O')
-    expect(getShortRace('satyr')).toEqual('S')
-    expect(getShortRace('toad')).toEqual('T')
-    expect(getShortRace('undead')).toEqual('U')
+describe('The `getShortUnitType` helper', () => {
+  it('should return single-letter unitType', () => {
+    expect(getShortUnitType('construct')).toEqual('C')
+    expect(getShortUnitType('dragon')).toEqual('D')
+    expect(getShortUnitType('dwarf')).toEqual('W')
+    expect(getShortUnitType('frostling')).toEqual('F')
+    expect(getShortUnitType('feline')).toEqual('E')
+    expect(getShortUnitType('knight')).toEqual('K')
+    expect(getShortUnitType('pirate')).toEqual('P')
+    expect(getShortUnitType('raven')).toEqual('R')
+    expect(getShortUnitType('rodent')).toEqual('O')
+    expect(getShortUnitType('satyr')).toEqual('S')
+    expect(getShortUnitType('toad')).toEqual('T')
+    expect(getShortUnitType('undead')).toEqual('U')
   })
 
   it('should default to empty', () => {
-    expect(getShortRace()).toEqual('')
+    expect(getShortUnitType()).toEqual('')
   })
 
   it('should support custom values', () => {
-    expect(getShortRace('mldsffkmsd')).toEqual('mldsffkmsd')
+    expect(getShortUnitType('mldsffkmsd')).toEqual('mldsffkmsd')
   })
 })
 
-describe('The `getLongRace` helper', () => {
-  it('should return full race', () => {
-    expect(getLongRace('C')).toEqual('construct')
-    expect(getLongRace('D')).toEqual('dragon')
-    expect(getLongRace('W')).toEqual('dwarf')
-    expect(getLongRace('F')).toEqual('frostling')
-    expect(getLongRace('E')).toEqual('feline')
-    expect(getLongRace('K')).toEqual('knight')
-    expect(getLongRace('P')).toEqual('pirate')
-    expect(getLongRace('R')).toEqual('raven')
-    expect(getLongRace('O')).toEqual('rodent')
-    expect(getLongRace('S')).toEqual('satyr')
-    expect(getLongRace('T')).toEqual('toad')
-    expect(getLongRace('U')).toEqual('undead')
+describe('The `getLongUnitType` helper', () => {
+  it('should return full unit type', () => {
+    expect(getLongUnitType('C')).toEqual('construct')
+    expect(getLongUnitType('D')).toEqual('dragon')
+    expect(getLongUnitType('W')).toEqual('dwarf')
+    expect(getLongUnitType('F')).toEqual('frostling')
+    expect(getLongUnitType('E')).toEqual('feline')
+    expect(getLongUnitType('K')).toEqual('knight')
+    expect(getLongUnitType('P')).toEqual('pirate')
+    expect(getLongUnitType('R')).toEqual('raven')
+    expect(getLongUnitType('O')).toEqual('rodent')
+    expect(getLongUnitType('S')).toEqual('satyr')
+    expect(getLongUnitType('T')).toEqual('toad')
+    expect(getLongUnitType('U')).toEqual('undead')
   })
 
   it('should default to empty', () => {
-    expect(getLongRace()).toEqual('')
+    expect(getLongUnitType()).toEqual('')
   })
 
   it('should support custom values', () => {
-    expect(getLongRace('mldsffkmsd')).toEqual('mldsffkmsd')
+    expect(getLongUnitType('mldsffkmsd')).toEqual('mldsffkmsd')
   })
 })
 

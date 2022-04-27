@@ -1,8 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { TYPES, RARITIES, RACES } from '~/constants/game'
+import { TYPES, RARITIES, UNIT_TYPES } from '~/constants/game'
 import AdvancedCardSearch from '~/components/AdvancedCardSearch'
-import Checkbox from '~/components/Checkbox'
 import FactionSelect from '~/components/FactionSelect'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
@@ -21,11 +20,8 @@ const isButtonDisabled = props =>
   props.level === '*' &&
   props.rarity === '*' &&
   props.type === '*' &&
-  props.race === '*' &&
+  props.unitType === '*' &&
   !props.text &&
-  !props.elder &&
-  !props.ancient &&
-  !props.hero &&
   props.order === 'NATURAL'
 
 export default React.memo(function CollectionFilters(props) {
@@ -135,14 +131,14 @@ export default React.memo(function CollectionFilters(props) {
                 </Row.Column>
                 <Row.Column>
                   <Select
-                    label='Race'
-                    id='race'
-                    value={props.race}
-                    onChange={event => props.setRace(event.target.value)}
+                    label='Unit type'
+                    id='unitType'
+                    value={props.unitType}
+                    onChange={event => props.setUnitType(event.target.value)}
                     data-testid='race-select'
                   >
                     <option value='*'>Any</option>
-                    {RACES.map(race => (
+                    {UNIT_TYPES.map(race => (
                       <option value={race} key={race}>
                         {capitalize(race)}
                       </option>
@@ -184,40 +180,7 @@ export default React.memo(function CollectionFilters(props) {
           </Row>
 
           <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
-            <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row withNarrowGutter>
-                <Row.Column width='1/3'>
-                  <Checkbox
-                    id='elder'
-                    checked={props.elder}
-                    onChange={event => props.setElder(event.target.checked)}
-                    data-testid='elder-checkbox'
-                  >
-                    Elder
-                  </Checkbox>
-                </Row.Column>
-                <Row.Column width='1/3'>
-                  <Checkbox
-                    id='hero'
-                    checked={props.hero}
-                    onChange={event => props.setHero(event.target.checked)}
-                    data-testid='hero-checkbox'
-                  >
-                    Hero
-                  </Checkbox>
-                </Row.Column>
-                <Row.Column width='1/3'>
-                  <Checkbox
-                    id='ancient'
-                    checked={props.ancient}
-                    onChange={event => props.setAncient(event.target.checked)}
-                    data-testid='ancient-checkbox'
-                  >
-                    Ancient
-                  </Checkbox>
-                </Row.Column>
-              </Row>
-            </Row.Column>
+            <Row.Column spacing={{ bottom: 'NONE' }}></Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row withNarrowGutter>
                 <Row.Column extend={{ justifyContent: 'center' }}>

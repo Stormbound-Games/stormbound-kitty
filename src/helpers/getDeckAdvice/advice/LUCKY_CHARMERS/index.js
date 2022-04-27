@@ -1,4 +1,5 @@
-const getPirates = cards => cards.filter(card => card.race === 'pirate')
+const getPirates = cards =>
+  cards.filter(card => card.unitTypes.includes('pirate'))
 
 const advice = cards => {
   const hasCard = id => cards.map(card => card.id).includes(id)

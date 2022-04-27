@@ -1,7 +1,7 @@
 const selectors = {
   CARD: '[data-testid="card"]',
   CARD_ABILITY: '[data-testid="card-ability"]',
-  CARD_RACE: '[data-testid="card-race"]',
+  CARD_UNIT_TYPE: '[data-testid="card-unit-type"]',
   CARD_RARITY: '[data-testid="card-rarity"]',
   CARD_LEVEL: '[data-testid="card-level"]',
 
@@ -11,12 +11,9 @@ const selectors = {
   MANA_SELECT: '[data-testid="mana-select"]',
   MOVEMENT_SELECT: '[data-testid="movement-select"]',
   RARITY_SELECT: '[data-testid="rarity-select"]',
-  RACE_SELECT: '[data-testid="race-select"]',
+  UNIT_TYPE_SELECT: '[data-testid="unit-type-select"]',
   ABILITY_SELECT: '[data-testid="ability-select"]',
   NAME_INPUT: '[data-testid="name-input"]',
-  ANCIENT_CHECKBOX: '[data-testid="ancient-checkbox"]',
-  ELDER_CHECKBOX: '[data-testid="elder-checkbox"]',
-  HERO_CHECKBOX: '[data-testid="hero-checkbox"]',
   RESET_FILTERS_BTN: '[data-testid="reset-filters-btn"]',
 
   RANDOM_BTN: '[data-testid="random-deck-btn"]',

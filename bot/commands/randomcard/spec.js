@@ -1,4 +1,4 @@
-import { FACTIONS, RACES, RARITIES, TYPES } from '~/constants/game'
+import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '~/constants/game'
 import command from './'
 
 const randomcard = command.handler.bind(command)
@@ -60,21 +60,25 @@ describe('Bot — !randomcard', () => {
     })
   })
 
-  it('should handle races', () => {
-    const race = RACES[0]
+  it('should handle unit types', () => {
+    const unitType = UNIT_TYPES[0]
 
-    return randomcard(race).then(output => {
+    return randomcard(unitType).then(output => {
       const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].race).toEqual(race)
+      const card = global.__CARDS_INDEX__[id]
+
+      expect(card.unitTypes).toContain(unitType)
     })
   })
 
-  it('should handle negative races', () => {
-    const race = RACES[0]
+  it('should handle negative unit types', () => {
+    const unitType = UNIT_TYPES[0]
 
-    return randomcard('!' + race).then(output => {
+    return randomcard('!' + unitType).then(output => {
       const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].race).not.toEqual(race)
+      const card = global.__CARDS_INDEX__[id]
+
+      expect(card.unitTypes).not.toContain(unitType)
     })
   })
 
@@ -93,48 +97,6 @@ describe('Bot — !randomcard', () => {
     return randomcard('!' + rarity).then(output => {
       const id = getCardId(output)
       expect(global.__CARDS_INDEX__[id].rarity).not.toEqual(rarity)
-    })
-  })
-
-  it('should handle hero', () => {
-    return randomcard('hero').then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].hero).toEqual(true)
-    })
-  })
-
-  it('should handle negative hero', () => {
-    return randomcard('!hero').then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].hero).toEqual(false)
-    })
-  })
-
-  it('should handle ancient', () => {
-    return randomcard('ancient').then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].ancient).toEqual(true)
-    })
-  })
-
-  it('should handle negative ancient', () => {
-    return randomcard('!ancient').then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].ancient).toEqual(false)
-    })
-  })
-
-  it('should handle elder', () => {
-    return randomcard('elder').then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].elder).toEqual(true)
-    })
-  })
-
-  it('should handle negative elder', () => {
-    return randomcard('!elder').then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].elder).toEqual(false)
     })
   })
 

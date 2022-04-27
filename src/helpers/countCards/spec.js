@@ -16,24 +16,19 @@ describe('The `countCards` helper', () => {
     )
   })
 
-  it('should handle race count + fusion stones', () => {
-    expect(countCards(global.__CARDS__, { race: 'feline' })).toEqual(
-      global.__CARDS__.filter(card => card.race === 'feline').length + 1
-    )
-  })
-
-  it('should handle elder count + fusion stones', () => {
-    expect(countCards(global.__CARDS__, { elder: true })).toEqual(
-      global.__CARDS__.filter(card => card.elder).length + 1
+  it('should handle unit type count + fusion stones', () => {
+    expect(countCards(global.__CARDS__, { unitType: 'feline' })).toEqual(
+      global.__CARDS__.filter(card => card.unitTypes.includes('feline'))
+        .length + 1
     )
   })
 
   it('should handle mix count + fusion stones', () => {
     expect(
-      countCards(global.__CARDS__, { rarity: 'epic', race: 'feline' })
+      countCards(global.__CARDS__, { rarity: 'epic', unitType: 'feline' })
     ).toEqual(
       global.__CARDS__.filter(
-        card => card.rarity === 'epic' && card.race === 'feline'
+        card => card.rarity === 'epic' && card.unitTypes.includes('feline')
       ).length + 1
     )
   })

@@ -24,8 +24,8 @@ describe('The `isCardMatchingCriteria` helper', () => {
     ).toEqual(true)
   })
 
-  it('should handle race', () => {
-    const isConstruct = isCardMatchingCriteria({ race: 'construct' })
+  it('should handle unit types', () => {
+    const isConstruct = isCardMatchingCriteria({ unitType: 'construct' })
 
     expect(
       isConstruct(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }))
@@ -33,10 +33,8 @@ describe('The `isCardMatchingCriteria` helper', () => {
     expect(
       isConstruct(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N2' }))
     ).toEqual(false)
-  })
 
-  it('should handle elder', () => {
-    const isElder = isCardMatchingCriteria({ elder: true })
+    const isElder = isCardMatchingCriteria({ unitType: 'elder' })
 
     expect(
       isElder(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }))
@@ -47,16 +45,16 @@ describe('The `isCardMatchingCriteria` helper', () => {
   })
 
   it('should handle ability', () => {
-    const isElder = isCardMatchingCriteria({ ability: 'a Knight with' })
+    const hasAbility = isCardMatchingCriteria({ ability: 'a Knight with' })
 
     expect(
-      isElder(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }))
+      hasAbility(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1' }))
     ).toEqual(false)
     expect(
-      isElder(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N2' }))
+      hasAbility(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N2' }))
     ).toEqual(true)
     expect(
-      isElder(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N3' }))
+      hasAbility(getResolvedCardData(global.__CARDS_INDEX__, { id: 'N3' }))
     ).toEqual(false)
   })
 
@@ -74,7 +72,7 @@ describe('The `isCardMatchingCriteria` helper', () => {
   it('should handle mix', () => {
     const isRareConstruct = isCardMatchingCriteria({
       rarity: 'rare',
-      race: 'construct',
+      unitType: 'construct',
     })
 
     expect(
