@@ -10,6 +10,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - [Formulas](./docs/FORMULAS.md)
 - [Monitoring](./docs/MONITORING.md)
 - [Performance](./docs/PERFORMANCE.md)
+- [Security](./docs/SECURITY.md)
 - [Technical debt](./docs/TECHNICAL_DEBT.md)
 - [Workflows](./WORKFLOWS.md)
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
