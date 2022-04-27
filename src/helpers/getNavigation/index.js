@@ -52,6 +52,33 @@ const getNavigation = async ({ isPreview }) => {
           ],
         },
         {
+          id: 'RULES',
+          title: 'Rules',
+          icon: 'library',
+          items: [
+            {
+              label: 'Rulebook',
+              to: '/rulebook',
+              id: 'RULEBOOK',
+            },
+            {
+              label: 'Draft Mode',
+              to: '/draft-mode',
+              id: 'DRAFT_MODE',
+            },
+            {
+              label: 'Brawl Mode',
+              to: '/brawl-mode',
+              id: 'BRAWL_MODE',
+            },
+            {
+              label: 'Drawing Mechanics',
+              to: '/drawing-mechanics',
+              id: 'DRAWING_MECHANICS',
+            },
+          ],
+        },
+        {
           id: 'INFORMATION',
           title: 'Information',
           icon: 'star',
@@ -65,33 +92,6 @@ const getNavigation = async ({ isPreview }) => {
             { label: 'Cards Index', to: '/cards/N89', id: 'CARDS' },
             { label: 'Statistics', to: '/stats', id: 'STATISTICS' },
             { label: 'Lexicon', to: '/lexicon', id: 'LEXICON' },
-          ],
-        },
-        {
-          id: 'RULES',
-          title: 'Rules',
-          icon: 'library',
-          items: [
-            {
-              label: 'Rulebook',
-              to: '/rulebook',
-              id: 'RULEBOOK',
-            },
-            {
-              label: 'Drawing Mechanics',
-              to: '/drawing-mechanics',
-              id: 'DRAWING_MECHANICS',
-            },
-            {
-              label: 'Draft Mode',
-              to: '/draft-mode',
-              id: 'DRAFT_MODE',
-            },
-            {
-              label: 'Brawl Mode',
-              to: '/brawl-mode',
-              id: 'BRAWL_MODE',
-            },
           ],
         },
       ],
