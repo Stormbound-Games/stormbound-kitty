@@ -168,6 +168,7 @@ const useCardBuilder = props => {
     setFixedMovement,
     setStrength,
     setAbility,
+    setCardData,
     onImagePaste,
     reset,
     imageErrorDialogRef: dialog => (imageErrorDialog.current = dialog),
