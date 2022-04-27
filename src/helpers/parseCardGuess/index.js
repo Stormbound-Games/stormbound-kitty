@@ -15,7 +15,7 @@ const CARD_KEYS = [
   'ability',
 ]
 
-const parseCardGuess = (message, strict = true) => {
+const parseCardGuess = (message, strict = false) => {
   message = message.toLowerCase()
   if (message === 'token') return ['token', true]
   if (RARITIES.includes(message)) return ['rarity', message]
