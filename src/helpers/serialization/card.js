@@ -86,7 +86,6 @@ export const deserializeCard = (cardsIndex, string) => {
     /* Strength */ !chunks[6].includes('/') &&
     /* Ability */ !chunks[9].includes('/')
 
-  // If the race is a single character long,
   card.unitTypes = [
     ...chunks[1].split(',').map(getLongUnitType),
     // Ancient, Elder and Hero used to be treated differently than other unit

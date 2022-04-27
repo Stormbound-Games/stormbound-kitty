@@ -142,9 +142,9 @@ export default React.memo(function DeckEditorFilters(props) {
                     data-testid='unit-type-select'
                   >
                     <option value='*'>Any</option>
-                    {UNIT_TYPES.map(race => (
-                      <option value={race} key={race}>
-                        {capitalize(race)}
+                    {UNIT_TYPES.map(unitType => (
+                      <option value={unitType} key={unitType}>
+                        {capitalize(unitType)}
                       </option>
                     ))}
                   </Select>

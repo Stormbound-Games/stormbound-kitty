@@ -26,7 +26,7 @@ describe('The `randomizeCard` helper', () => {
     expect(RARITIES).toContain(randomizeCard().rarity)
   })
 
-  it('should return a valid card race for unit cards', () => {
+  it('should return a valid card unit type for unit cards', () => {
     expect(UNIT_TYPES).toContain(randomizeCard({ type: 'unit' }).unitTypes[0])
   })
 

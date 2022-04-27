@@ -23,19 +23,19 @@ const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasKindredsGrace = cardIds.includes('N40')
 
-  const deckRaces = cards.reduce((acc, card) => {
+  const deckUnitTypes = cards.reduce((acc, card) => {
     card.unitTypes.forEach(unitType => {
       acc[unitType] = (acc[unitType] || 0) + 1
     })
 
     if (Object.keys(SPAWNS).includes(card.id)) {
-      const [spawnRace, spawnNum] = SPAWNS[card.id]
-      acc[spawnRace] = (acc[spawnRace] || 0) + spawnNum
+      const [spawnUnitType, spawnNum] = SPAWNS[card.id]
+      acc[spawnUnitType] = (acc[spawnUnitType] || 0) + spawnNum
     }
     return acc
   }, {})
 
-  const maxUnitTypes = Object.values(deckRaces).reduce(
+  const maxUnitTypes = Object.values(deckUnitTypes).reduce(
     (a, b) => Math.max(a, b),
     0
   )

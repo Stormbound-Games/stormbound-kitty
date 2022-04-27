@@ -148,13 +148,15 @@ describe('The `serialization.card.deserialize` helper', () => {
     ).toContain('hero')
   })
 
-  it('should handle custom race', () => {
-    const idWithCustomRace =
+  it('should handle custom unit types', () => {
+    const idWithCustomUnitType =
       'TjtSYXZlbiBLbmlnaHQ7VTtDOzc7MDs4LzEwLzExLzEzLzE1O0ZlYXRoZXJlZCUyMENhdmFsaWVycztodHRwcyUzQSUyRiUyRm1lZGlhLmRpc2NvcmRhcHAubmV0JTJGYXR0YWNobWVudHMlMkY5MzU4Mjg4MTk3MDM2NjA1NDQlMkY5NjMxNzQ0OTMxMjIxMDEzMTglMkYxNjQ5NzA5MDUxNjM2LnBuZztPbiUyMHBsYXklMkMlMjBTcGF3biUyMHN1cnJvdW5kaW5nJTIwMSUyMFRva2VuJTIwUmF2ZW4lMjB3aXRoJTIwMyUyRjMlMkY0JTJGNCUyRjUlMjBzdHJlbmd0aC4lMjBJbmNyZWFzZSUyMGJ5JTIwMSUyMHRoZSUyMGFtb3VudCUyMG9mJTIwVG9rZW4lMjBzcGF3bmVkJTIwZm9yJTIwZWFjaCUyMGtuaWdodCUyMGluJTIweW91ciUyMGhhbmQ7Ow'
 
     expect(
-      serialization.card.deserialize(global.__CARDS_INDEX__, idWithCustomRace)
-        .unitTypes
+      serialization.card.deserialize(
+        global.__CARDS_INDEX__,
+        idWithCustomUnitType
+      ).unitTypes
     ).toEqual(['Raven Knight'])
   })
 })

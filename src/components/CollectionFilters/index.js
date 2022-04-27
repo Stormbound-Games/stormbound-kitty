@@ -135,12 +135,12 @@ export default React.memo(function CollectionFilters(props) {
                     id='unitType'
                     value={props.unitType}
                     onChange={event => props.setUnitType(event.target.value)}
-                    data-testid='race-select'
+                    data-testid='unit-type-select'
                   >
                     <option value='*'>Any</option>
-                    {UNIT_TYPES.map(race => (
-                      <option value={race} key={race}>
-                        {capitalize(race)}
+                    {UNIT_TYPES.map(unitType => (
+                      <option value={unitType} key={unitType}>
+                        {capitalize(unitType)}
                       </option>
                     ))}
                   </Select>
