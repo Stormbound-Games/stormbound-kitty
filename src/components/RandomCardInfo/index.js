@@ -57,7 +57,6 @@ export default React.memo(function RandomCardInfo(props) {
         setCardData({ ...INITIAL_STATE })
       } finally {
         setIsLoading(false)
-        if (dialog) dialog.current.hide()
       }
     },
     [setCardData]
