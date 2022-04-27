@@ -12,7 +12,6 @@ import ChartFactionCard from '../ChartFactionCard'
 
 const ChartAbility = dynamic(() => import('~/components/ChartAbility'))
 const ChartMana = dynamic(() => import('~/components/ChartMana'))
-const ChartModifier = dynamic(() => import('~/components/ChartModifier'))
 const ChartMovement = dynamic(() => import('~/components/ChartMovement'))
 const ChartRarity = dynamic(() => import('~/components/ChartRarity'))
 const ChartStrength = dynamic(() => import('~/components/ChartStrength'))
@@ -83,23 +82,14 @@ export default React.memo(function PageStatistics() {
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartModifier />
-            </Spacing>
-          </Row.Column>
-          <Row.Column>
-            <Spacing vertical='BASE'>
               <ChartUnitRace />
             </Spacing>
           </Row.Column>
-        </Row>
-
-        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartFactionCard />
             </Spacing>
           </Row.Column>
-          <Row.Column />
         </Row>
 
         <Row isDesktopOnly>
