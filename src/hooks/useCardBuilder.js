@@ -2,31 +2,13 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import isEqual from 'lodash.isequal'
 import serialization from '~/helpers/serialization'
-import areAllValuesEqual from '~/helpers/areAllValuesEqual'
+import resolveLeveledProperty from '~/helpers/resolveLeveledProperty'
 import resolveAbility from '~/helpers/resolveAbility'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
   display: value,
 })
-
-const resolveLevels = (value = '') => {
-  // If the received input is already a resolved value, return it as is as there
-  // is nothing else to do.
-  if (value.values) return value
-
-  const chunks = value.split('/')
-  const values = Array.from(
-    { length: 5 },
-    (_, index) => chunks[index] || chunks[0] || null
-  )
-  // If all values are the same, visually shorten it for simplicity
-  // Consider all values to be the same if there are 5 identical of them
-  const allSame = chunks.length === 5 && areAllValuesEqual(chunks)
-  const display = allSame ? chunks[0] : value
-
-  return { values, display }
-}
 
 export const INITIAL_STATE = {
   name: '',
@@ -93,8 +75,8 @@ const useCardBuilder = props => {
   const setMovement = setProperty('movement')
   const setFixedMovement = setProperty('fixedMovement')
   const setFaction = setProperty('faction')
-  const setMana = setProperty('mana', resolveLevels)
-  const setStrength = setProperty('strength', resolveLevels)
+  const setMana = setProperty('mana', resolveLeveledProperty)
+  const setStrength = setProperty('strength', resolveLeveledProperty)
   const setRace = setProperty('race')
   const setAncient = setProperty('ancient')
   const setElder = setProperty('elder')
