@@ -10,6 +10,9 @@ import Loader from '~/components/Loader'
 import PreviewBanner from '~/components/PreviewBanner'
 import styles from './styles'
 
+// The search dialog is dynamically imported both because it used to be very
+// heavy, but also because it doesn’t need to be rendered on the server since
+// it only works with interactivity.
 const SearchDialog = dynamic(() => import('~/components/SearchDialog'), {
   ssr: false,
 })
