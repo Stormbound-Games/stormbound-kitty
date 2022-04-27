@@ -58,7 +58,7 @@ describe('Deck Builder — Search', () => {
     cy.get(s.UNIT_TYPE_SELECT)
       .select('rodent')
       .get(s.CARD)
-      .should('have.attr', 'data-unit-types', 'rodent')
+      .each($card => expect($card.attr('data-unit-types')).to.contain('rodent'))
   })
 
   it('should be able to filter by ability', () => {
