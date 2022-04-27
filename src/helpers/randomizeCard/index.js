@@ -30,7 +30,10 @@ class Card {
     this.rarity = ''
     this.strengthScaling = STATLINES_FAST
     this.type = ''
-    this.filters = filters
+    this.filters = {
+      type: TYPES.includes(filters.type) ? filters.type : '*',
+      faction: FACTIONS.includes(filters.faction) ? filters.faction : '*',
+    }
   }
 
   get name() {
@@ -74,16 +77,26 @@ class Card {
   }
 
   getArchetype() {
-    this.type = TYPES.includes(this.filters.type)
-      ? capitalize(this.filters.type)
-      : // Give more prevalence to units as there are significantly more unit
-        // cards than anything else in the game.
-        // See: https://stormbound-kitty.com/stats
-        rwc([
-          { weight: 4, id: 'Unit' },
-          { weight: 1, id: 'Spell' },
-          { weight: 1, id: 'Structure' },
-        ])
+    this.type =
+      this.filters.type !== '*'
+        ? capitalize(this.filters.type)
+        : // Give more prevalence to units as there are significantly more unit
+          // cards than anything else in the game.
+          // See: https://stormbound-kitty.com/stats
+          rwc([
+            { weight: 4, id: 'Unit' },
+            { weight: 1, id: 'Spell' },
+            { weight: 1, id: 'Structure' },
+          ])
+
+    // Determine which races can be rolled based on the current type and the
+    // faction filter.
+    const races = RACES_BY_TYPE[this.type].filter(
+      race =>
+        this.filters.faction === '*' ||
+        race.faction === '*' ||
+        race.faction === this.filters.faction
+    )
 
     // `this.race` is set to an instance of the `Race` class, and not a race
     // string descriptor like anywhere else on the site. This is why structures
@@ -91,33 +104,21 @@ class Card {
     // one. The `.faction` property holds the faction associated to the race
     // (e.g. Shadowfen for Toads), and the `.name` property holds the race name
     // as expected.
-    this.race = arrayRandom(RACES_BY_TYPE[this.type])
-    this.faction = this.race.faction
+    this.race = arrayRandom(races)
 
-    if (this.faction === '*') {
-      this.faction = arrayRandom(FACTIONS)
+    if (this.filters.faction !== '*') {
+      this.faction = this.filters.faction
+    } else {
+      // Some races might not be bound to a specific faction, such as dragons.
+      // In that case, we can pick a faction at random.
+      this.faction =
+        this.race.faction === '*' ? arrayRandom(FACTIONS) : this.race.faction
     }
 
     // “subrace” holds unit-modifiers such as ancient, elder and hero.
     // @TODO: move that to individual properties so there can be more than one
     // unit modifier defined at a time.
     this.subrace = ''
-
-    // @TODO: add support for advanced filters so we can enforce a specific race
-    // or faction.
-    if (
-      this.filters.faction &&
-      this.filters.faction !== '*' &&
-      this.faction !== this.filters.faction
-    )
-      this.getArchetype()
-
-    if (
-      this.filters.race &&
-      this.filters.race !== '*' &&
-      this.race.name !== this.filters.race
-    )
-      this.getArchetype()
   }
 
   getStatline() {
