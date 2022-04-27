@@ -22,7 +22,6 @@ export default React.memo(function ResetButton(props) {
 
       <Dialog
         id='delete-dialog'
-        data-testid='delete-dialog'
         dialogRef={instance => (dialog.current = instance)}
         title='Delete deck'
         close={close}
