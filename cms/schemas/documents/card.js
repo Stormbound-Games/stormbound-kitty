@@ -213,6 +213,7 @@ const card = {
       rarity: 'rarity',
       faction: 'faction',
       race: 'race',
+      unitTypes: 'unitTypes',
       type: 'type',
     },
     prepare({ name, image, rarity, faction, race, type, unitTypes }) {
