@@ -4,7 +4,6 @@ import { UNIT_TYPES } from '~/constants/game'
 
 export const MAX_MANA = 30
 export const MAX_TILES = 10
-const UNIT_TYPES_COUNT = UNIT_TYPES.length
 export const VALUED_CARDS =
   'N89,N1,N2,N66,N90,N3,N4,N5,N6,N86,N62,N67,N7,N8,N9,N10,N11,N12,N13,N14,N61,N23,N88,N24,N15,N73,N63,N16,N17,N18,N87,N19,N94,N59,N20,N21,N31,N22,N93,N75,N41,N64,N91,N71,N65,N25,N78,N26,N27,N28,N29,N30,N79,N82,N60,N83,N32,N69,N33,N34,N35,N36,N49,N74,N37,N51,N39,N40,N42,N43,N44,N45,N76,N72,N46,N68,N47,N70,N50,N55,N52,N53,N92,N54,N57,N84,N56,N58,T15,T1,T11,T10,T14,T13,T2,T3,T12,T4,T5,T6,T7,T8,T9,W1,W2,W31,W3,W4,W5,W7,W12,W28,W6,W13,W14,W15,W16,W25,W10,W17,W20,W27,W18,W26,W21,W22,W19,W23,I1,I4,I5,I3,I30,I7,I8,I9,I10,I11,I13,I6,I14,I15,I27,I20,I25,I12,I16,I17,I18,I22,I19,I23,I28,I21,I24,I26,F1,F2,F3,F8,F4,F5,F27,F6,F7,F25,F9,F10,F24,F11,F12,F13,F14,F15,F16,F17,F18,F19,F20,F21,F22,F28,F26,F23,S1,S24,S2,S3,S4,S5,S25,S7,S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19,S28,S26,S22,S23,S21'.split(
     ','
@@ -147,8 +146,8 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     case 'N23': /* Hunter’s Vengeance */ {
       const strength = parseAbility(ability)
       return [
-        (strength * -1 * UNIT_TYPES_COUNT) / mana,
-        (strength * UNIT_TYPES_COUNT) / mana,
+        (strength * -1 * UNIT_TYPES.length) / mana,
+        (strength * UNIT_TYPES.length) / mana,
       ]
     }
     case 'N35': /* Ubass the Hunter */ {
