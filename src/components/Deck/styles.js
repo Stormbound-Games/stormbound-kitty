@@ -37,7 +37,7 @@ const BACKGROUNDS = {
 const deck = ({ orientation }) => ({
   ...(orientation === 'horizontal'
     ? {
-        fontSize: 'var(--font-size, 9.72488px)' /* 1 */,
+        fontSize: 'var(--font-size, 9.72488px)', // 1
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -45,7 +45,7 @@ const deck = ({ orientation }) => ({
         marginTop: '0.5em',
 
         medium: {
-          fontSize: 'var(--font-size, 13.1507px)' /* 1 */,
+          fontSize: 'var(--font-size, 13.1507px)', // 1
         },
 
         '::before': {
@@ -59,10 +59,10 @@ const deck = ({ orientation }) => ({
   ...(orientation === 'vertical'
     ? {
         marginBottom: '2em',
-        fontSize: 'var(--font-size, 10.9036px)' /* 1 */,
+        fontSize: 'var(--font-size, 10.9036px)', // 1
 
         medium: {
-          fontSize: 'var(--font-size, 13.1507px)' /* 1 */,
+          fontSize: 'var(--font-size, 13.1507px)', // 1
         },
       }
     : {}),
