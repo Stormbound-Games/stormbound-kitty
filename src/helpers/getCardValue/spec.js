@@ -179,7 +179,7 @@ describe('The `getCardValue` helper', () => {
     expect(value1[0]).toEqual(4 / 4)
     expect(value1[1]).toEqual((4 + 2 * 4) / 4)
     expect(value5[0]).toEqual(8 / 4)
-    expect(value5[1]).toEqual((8 + 4 * 4) / 4)
+    expect(value5[1]).toEqual((8 + 5 * 4) / 4)
   })
 
   it('should return value for Execution', () => {
@@ -1171,10 +1171,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Broodmother Qordia', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F21', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F21', 5)
-    expect(value1[0]).toEqual((5 / 6) * 1)
-    expect(value1[1]).toEqual(((5 + 3 * 3) / 6) * 1)
-    expect(value5[0]).toEqual((10 / 6) * 1)
-    expect(value5[1]).toEqual(((10 + 3 * 7) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 6) * 1)
+    expect(value1[1]).toEqual(((4 + 3 * 2) / 6) * 1)
+    expect(value5[0]).toEqual((9 / 6) * 1)
+    expect(value5[1]).toEqual(((9 + 3 * 6) / 6) * 1)
   })
 
   it('should return value for Curse of Strings', () => {
@@ -1612,10 +1612,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Blessed with Brawn', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W14', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W14', 5)
-    expect(value1[0]).toEqual(8 / 6)
-    expect(value1[1]).toEqual(8 / 6)
-    expect(value5[0]).toEqual(18 / 6)
-    expect(value5[1]).toEqual(18 / 6)
+    expect(value1[0]).toEqual(6 / 5)
+    expect(value1[1]).toEqual(6 / 5)
+    expect(value5[0]).toEqual(15 / 5)
+    expect(value5[1]).toEqual(15 / 5)
   })
 
   it('should return value for Broken Earth Drakes', () => {

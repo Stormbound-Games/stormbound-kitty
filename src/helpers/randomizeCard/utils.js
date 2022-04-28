@@ -38,7 +38,7 @@ export function fixWording(ability) {
 }
 
 // prettier-ignore
-const VERBS = ['build', 'command', 'confuse', 'convert', 'deal', 'deconfuse', 'decrease', 'destroy', 'disable', 'drain', 'draw', 'explode', 'fly', 'force', 'freeze', 'gain', 'give', 'increase', 'jump', 'move', 'play', 'poison', 'pull', 'push', 'reduce', 'remember', 'remove', 'replace', 'restore', 'return', 'set', 'spawn', 'spend', 'split', 'teleport', 'trigger', 'vitalize']
+const VERBS = ['build', 'command', 'confuse', 'convert', 'deal', 'deconfuse', 'decrease', 'destroy', 'disable', 'drain', 'draw', 'explode', 'fly', 'force', 'freeze', 'gain', 'give', 'increase', 'jump', 'move', 'play', 'poison', 'pull', 'push', 'reduce', 'remember', 'remove', 'replace', 'restore', 'return', 'set', 'spawn', 'spend', 'split', 'steal', 'teleport', 'trigger', 'vitalize']
 
 export function highlight(ability) {
   return (

@@ -8,11 +8,15 @@ const getBooks = require('~/api/books/getBooks').default
 const getCards = require('~/api/cards/getCards').default
 
 module.exports = async () => {
-  const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
-  const books = await getBooks()
-  const brawls = await getBrawls()
-  const cards = await getCards()
-  const decks = await getDecks()
+  const isPreview = Boolean(process.env.SANITY_PREVIEW_TOKEN)
+  const abbreviations = await getAbbreviations({
+    isPreview,
+    casing: 'LOWERCASE',
+  })
+  const books = await getBooks({ isPreview })
+  const brawls = await getBrawls({ isPreview })
+  const cards = await getCards({ isPreview })
+  const decks = await getDecks({ isPreview })
 
   return {
     globals: {
