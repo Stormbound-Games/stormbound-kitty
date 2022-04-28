@@ -27,9 +27,6 @@ export default React.memo(function UnitTypeSelect(props) {
 
       <Component
         {...props}
-        onChange={options =>
-          options.length <= (props.max || Infinity) && props.onChange(options)
-        }
         id={id}
         name={props.name || id}
         isMulti

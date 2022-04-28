@@ -107,13 +107,14 @@ export default React.memo(function CardBuilderCoreForm(props) {
         <Row.Column>
           <UnitTypeSelect
             components={{ Input: CustomInput }}
-            max={3}
             value={props.unitTypes}
             disabled={props.type !== 'unit'}
+            menuIsOpen={props.unitTypes.length === 3 ? false : props.menuIsOpen}
             isCreatable
-            onChange={options =>
-              props.setUnitTypes(options.map(option => option.value))
-            }
+            onChange={options => {
+              if (options.length <= 3)
+                props.setUnitTypes(options.map(option => option.value))
+            }}
             data-testid='cb-unit-types-select'
           />
         </Row.Column>
