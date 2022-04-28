@@ -43,17 +43,6 @@ const card = {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'Race (Legacy)',
-      name: 'race',
-      type: 'string',
-      options: {
-        list: UNIT_TYPES.filter(
-          type => !['ancient', 'elder', 'hero'].includes(type)
-        ),
-      },
-      hidden: ({ document }) => Boolean(document?.type !== 'unit'),
-    },
-    {
       title: 'Unit type',
       name: 'unitTypes',
       type: 'array',
@@ -160,26 +149,6 @@ const card = {
         accept: ['image/png'],
       },
       validation: Rule => Rule.required(),
-    },
-    {
-      title: 'Hero (legacy)',
-      name: 'hero',
-      type: 'boolean',
-      initialValue: false,
-      hidden: ({ document }) => document?.type !== 'unit',
-    },
-    {
-      title: 'Elder (legacy)',
-      name: 'elder',
-      type: 'boolean',
-      initialValue: false,
-      hidden: ({ document }) => document?.type !== 'unit',
-    },
-    {
-      title: 'Ancient (legacy)',
-      name: 'ancient',
-      type: 'boolean',
-      initialValue: false,
     },
     {
       title: 'Token',

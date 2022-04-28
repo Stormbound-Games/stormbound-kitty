@@ -6,19 +6,14 @@ name,
 faction,
 type,
 unitTypes,
-race,
 rarity,
+token,
 
 strength,
 mana,
 movement,
 fixedMovement,
 ability,
-
-elder,
-ancient,
-hero,
-token,
 
 "image": image { "url": asset -> url }.url
 `
@@ -31,22 +26,6 @@ export const MAPPER = card => {
   } else {
     card.movement = null
   }
-
-  // @TODO: query the relevant data from the CMS instead of monkey-patching it
-  // on the API layer.
-  if (!Array.isArray(card.unitTypes)) {
-    card.unitTypes = [
-      card.race,
-      card.ancient && 'ancient',
-      card.elder && 'elder',
-      card.hero && 'hero',
-    ].filter(Boolean)
-  }
-
-  delete card.race
-  delete card.ancient
-  delete card.elder
-  delete card.hero
 
   return card
 }

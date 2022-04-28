@@ -13,12 +13,8 @@ const restriction = {
       options: {
         list: [
           { title: 'Ability', value: 'ability' },
-          { title: 'Ancient (legacy)', value: 'ancient' },
-          { title: 'Elder (legacy)', value: 'elder' },
           { title: 'Faction', value: 'faction' },
-          { title: 'Hero (legacy)', value: 'hero' },
           { title: 'Name', value: 'name' },
-          { title: 'Race (legacy)', value: 'race' },
           { title: 'Rarity', value: 'rarity' },
           { title: 'Type', value: 'type' },
           { title: 'Unit type', value: 'unitType' },
