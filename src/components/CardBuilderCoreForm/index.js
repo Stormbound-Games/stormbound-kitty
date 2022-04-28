@@ -108,6 +108,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
           <UnitTypeSelect
             components={{ Input: CustomInput }}
             required
+            max={3}
             value={props.unitTypes}
             disabled={props.type !== 'unit'}
             isClearable
