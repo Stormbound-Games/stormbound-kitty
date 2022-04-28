@@ -64,8 +64,8 @@ export const getRogueSheepCardCopies = (state, level) => {
   const draws = [1, 1, 2, 2, 3][level - 1]
   const deck = shuffle(state.opponentDeck)
   const hand = deck.slice(0, 4)
-  const pool = hand.filter(card => card.race !== 'pirate')
-  const hasPirateInHand = state.hand.some(c => c.race === 'pirate')
+  const pool = hand.filter(card => !card.unitTypes.includes('pirate'))
+  const hasPirateInHand = state.hand.some(c => c.unitTypes.includes('pirate'))
   const copyLevel = ROGUE_SHEEP_RNG.LEVEL[state.RNG]
 
   return pool

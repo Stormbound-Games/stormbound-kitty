@@ -37,7 +37,7 @@ export default React.memo(function Card(props) {
     hasIncreasedStrength: props.strengthIncreased,
     isAffordable: props.affordable,
     isCreated: props.created,
-    isHero: props.hero,
+    isHero: props.unitTypes.includes('hero'),
     isMissing: props.missing,
     isUpgradable: props.upgradable,
     level,
@@ -52,7 +52,7 @@ export default React.memo(function Card(props) {
       data-missing={props.missing || undefined}
       data-faction={props.faction}
       data-rarity={props.rarity}
-      data-race={props.race}
+      data-unit-types={props.unitTypes.join(' ')}
       data-type={props.type}
       ref={ref}
       style={{
@@ -73,9 +73,8 @@ export default React.memo(function Card(props) {
             {props.name}
           </span>
 
-          <span className={css(styles.race)} data-testid='card-race'>
-            {props.race} {props.ancient && 'ancient'} {props.elder && 'elder'}{' '}
-            {props.hero && 'hero'}
+          <span className={css(styles.unitTypes)} data-testid='card-unit-types'>
+            {props.unitTypes.join(' ')}
           </span>
         </div>
 

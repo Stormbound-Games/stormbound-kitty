@@ -1,4 +1,4 @@
-import { RACES } from '~/constants/game'
+import { UNIT_TYPES } from '~/constants/game'
 import getCardValue, { MAX_TILES, MAX_MANA } from './'
 
 describe('The `getCardValue` helper', () => {
@@ -201,7 +201,7 @@ describe('The `getCardValue` helper', () => {
   })
 
   it('should return value for Hunter’s Vengeance', () => {
-    const types = RACES.length + 3
+    const types = UNIT_TYPES.length
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N23', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N23', 5)
     expect(value1[0]).toEqual((-2 * types) / 3)

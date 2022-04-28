@@ -15,7 +15,7 @@ import { CHIP_CARDS } from '~/constants/game'
 
 const DEFAULT_FILTERS = {
   faction: '*',
-  race: '*',
+  unitType: '*',
   type: '*',
   mana: '*',
   strength: '*',
@@ -26,9 +26,6 @@ const DEFAULT_FILTERS = {
   status: '*',
   level: '*',
   ability: '*',
-  ancient: false,
-  hero: false,
-  elder: false,
 }
 
 const normalizeText = name =>
@@ -71,7 +68,7 @@ export default React.memo(function CardsFiltering(props) {
     }))
 
   const setFaction = updateFilter('faction')
-  const setRace = updateFilter('race')
+  const setUnitType = updateFilter('unitType')
   const setMana = updateFilter('mana')
   const setType = type => {
     updateFilter('type')(type)
@@ -98,9 +95,6 @@ export default React.memo(function CardsFiltering(props) {
   const setStatus = updateFilter('status')
   const setLevel = updateFilter('level')
   const setAbility = updateFilter('ability')
-  const setHero = updateFilter('hero')
-  const setAncient = updateFilter('ancient')
-  const setElder = updateFilter('elder')
   const resetFilters = () => setFilters({ ...DEFAULT_FILTERS })
 
   // The text match checks whether the card matches by abbreviation first, so
@@ -147,9 +141,10 @@ export default React.memo(function CardsFiltering(props) {
     [filters.faction]
   )
 
-  const matchesRace = React.useCallback(
-    card => filters.race === '*' || filters.race === card.race,
-    [filters.race]
+  const matchesUnitType = React.useCallback(
+    card =>
+      filters.unitType === '*' || card.unitTypes.includes(filters.unitType),
+    [filters.unitType]
   )
 
   const matchesType = React.useCallback(
@@ -232,21 +227,6 @@ export default React.memo(function CardsFiltering(props) {
     [filters.ability]
   )
 
-  const matchesHero = React.useCallback(
-    card => !filters.hero || Boolean(card.hero) === filters.hero,
-    [filters.hero]
-  )
-
-  const matchesAncient = React.useCallback(
-    card => !filters.ancient || Boolean(card.ancient) === filters.ancient,
-    [filters.ancient]
-  )
-
-  const matchesElder = React.useCallback(
-    card => !filters.elder || Boolean(card.elder) === filters.elder,
-    [filters.elder]
-  )
-
   const toggleAdvancedSearch = () => {
     if (advanced) setFilters({ ...DEFAULT_FILTERS })
     else setSearch(serializeFilters(filters))
@@ -269,7 +249,7 @@ export default React.memo(function CardsFiltering(props) {
   const actions = {
     setFaction,
     setType,
-    setRace,
+    setUnitType,
     setMana,
     setMovement,
     setFixedMovement,
@@ -278,9 +258,6 @@ export default React.memo(function CardsFiltering(props) {
     setStatus,
     setLevel,
     setAbility,
-    setAncient,
-    setHero,
-    setElder,
     // While these are not card filters per se, they are grouped within the
     // actions object to make it more convenient to access them.
     setOrder,
@@ -309,7 +286,7 @@ export default React.memo(function CardsFiltering(props) {
       if (card.token) return false
       if (!matchesText(card)) return false
       if (!matchesFaction(card)) return false
-      if (!matchesRace(card)) return false
+      if (!matchesUnitType(card)) return false
       if (!matchesType(card)) return false
       if (!matchesMana(card)) return false
       if (!matchesStrength(card)) return false
@@ -319,9 +296,6 @@ export default React.memo(function CardsFiltering(props) {
       if (!matchesStatus(card)) return false
       if (!matchesLevel(card)) return false
       if (!matchesAbility(card)) return false
-      if (!matchesAncient(card)) return false
-      if (!matchesHero(card)) return false
-      if (!matchesElder(card)) return false
       return true
     })
     .map(card => getResolvedCardData(cardsIndex, card))

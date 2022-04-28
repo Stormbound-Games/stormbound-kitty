@@ -1,5 +1,5 @@
 import { MdWysiwyg } from 'react-icons/md'
-import { FACTIONS, RACES, TYPES, RARITIES } from '~/constants/game'
+import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
 import getBlock from '../richText/block'
 
 const card = {
@@ -43,10 +43,26 @@ const card = {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'Race',
+      title: 'Race (Legacy)',
       name: 'race',
       type: 'string',
-      options: { list: RACES },
+      options: {
+        list: UNIT_TYPES.filter(
+          type => !['ancient', 'elder', 'hero'].includes(type)
+        ),
+      },
+      hidden: ({ document }) => Boolean(document?.type !== 'unit'),
+    },
+    {
+      title: 'Unit type',
+      name: 'unitTypes',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+          options: { list: UNIT_TYPES.slice().sort() },
+        },
+      ],
       hidden: ({ document }) => Boolean(document?.type !== 'unit'),
     },
     {
@@ -146,21 +162,21 @@ const card = {
       validation: Rule => Rule.required(),
     },
     {
-      title: 'Hero',
+      title: 'Hero (legacy)',
       name: 'hero',
       type: 'boolean',
       initialValue: false,
       hidden: ({ document }) => document?.type !== 'unit',
     },
     {
-      title: 'Elder',
+      title: 'Elder (legacy)',
       name: 'elder',
       type: 'boolean',
       initialValue: false,
       hidden: ({ document }) => document?.type !== 'unit',
     },
     {
-      title: 'Ancient',
+      title: 'Ancient (legacy)',
       name: 'ancient',
       type: 'boolean',
       initialValue: false,
@@ -197,12 +213,17 @@ const card = {
       rarity: 'rarity',
       faction: 'faction',
       race: 'race',
+      unitTypes: 'unitTypes',
       type: 'type',
     },
-    prepare({ name, image, rarity, faction, race, type }) {
+    prepare({ name, image, rarity, faction, race, type, unitTypes }) {
+      const types = unitTypes ? unitTypes : [race]
+
       return {
         title: name,
-        subtitle: [rarity, faction, race, type].filter(Boolean).join(' · '),
+        subtitle: [rarity, faction, types.join(' '), type]
+          .filter(Boolean)
+          .join(' · '),
         media: image,
       }
     },

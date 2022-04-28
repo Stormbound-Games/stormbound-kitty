@@ -61,7 +61,12 @@ export default React.memo(function SWCCSeason(props) {
           excerpt={
             <>
               <strong className='Highlight'>{cardData.name}</strong> —{' '}
-              {[cardData.rarity, cardData.faction, cardData.type, cardData.race]
+              {[
+                cardData.rarity,
+                cardData.faction,
+                cardData.type,
+                cardData.unitTypes.join(' '),
+              ]
                 .filter(Boolean)
                 .join(' · ')}
               <br />

@@ -1,12 +1,15 @@
 export const FACTIONS = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
 export const TYPES = ['unit', 'structure', 'spell']
 export const RARITIES = ['common', 'rare', 'epic', 'legendary']
-export const RACES = [
+export const UNIT_TYPES = [
+  'ancient',
   'construct',
   'dragon',
   'dwarf',
+  'elder',
   'frostling',
   'feline',
+  'hero',
   'knight',
   'pirate',
   'raven',

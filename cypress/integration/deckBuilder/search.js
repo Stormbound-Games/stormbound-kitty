@@ -54,11 +54,11 @@ describe('Deck Builder — Search', () => {
       .should('have.attr', 'data-rarity', 'epic')
   })
 
-  it('should be able to filter by race', () => {
-    cy.get(s.RACE_SELECT)
+  it('should be able to filter by unit type', () => {
+    cy.get(s.UNIT_TYPE_SELECT)
       .select('rodent')
       .get(s.CARD)
-      .should('have.attr', 'data-race', 'rodent')
+      .each($card => expect($card.attr('data-unit-types')).to.contain('rodent'))
   })
 
   it('should be able to filter by ability', () => {
@@ -73,35 +73,5 @@ describe('Deck Builder — Search', () => {
 
   it('should be able to filter by name', () => {
     cy.get(s.NAME_INPUT).type('Kitten').get(s.CARD).should('have.length', 1)
-  })
-
-  it('should be able to filter by hero', () => {
-    cy.get(s.HERO_CHECKBOX)
-      .check()
-      .get(s.CARD)
-      .find(s.CARD_RACE)
-      .each($node => {
-        expect($node.text()).to.contain('hero')
-      })
-  })
-
-  it('should be able to filter by ancient', () => {
-    cy.get(s.ANCIENT_CHECKBOX)
-      .check()
-      .get(s.CARD)
-      .find(s.CARD_RACE)
-      .each($node => {
-        expect($node.text()).to.contain('ancient')
-      })
-  })
-
-  it('should be able to filter by elder', () => {
-    cy.get(s.ELDER_CHECKBOX)
-      .check()
-      .get(s.CARD)
-      .find(s.CARD_RACE)
-      .each($node => {
-        expect($node.text()).to.contain('elder')
-      })
   })
 })

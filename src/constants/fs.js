@@ -1,6 +1,6 @@
 const FUSION_STONES_BASE = {
   name: 'Fusion Stones',
-  race: 'resource',
+  unitTypes: ['resource'],
   level: 1,
   type: 'unit',
   faction: 'neutral',

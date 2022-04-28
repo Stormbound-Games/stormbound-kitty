@@ -39,11 +39,7 @@ export default React.memo(function RandomCardInfo(props) {
           imageCardId: card.imageCardId ?? INITIAL_STATE.imageCardId,
           rarity: card.rarity ?? INITIAL_STATE.rarity,
           faction: card.faction ?? INITIAL_STATE.faction,
-          race: card.race ?? INITIAL_STATE.race,
-          ancient: card.ancient ?? INITIAL_STATE.ancient,
-          elder: card.elder ?? INITIAL_STATE.elder,
-          hero: card.hero ?? INITIAL_STATE.hero,
-          type: card.type ?? INITIAL_STATE.type,
+          unitTypes: card.unitTypes ?? INITIAL_STATE.unitTypes,
           movement: card.movement ?? INITIAL_STATE.movement,
           mana: resolveLeveledProperty(card.mana) ?? INITIAL_STATE.mana,
           strength:

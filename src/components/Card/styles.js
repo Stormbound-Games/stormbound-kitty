@@ -144,11 +144,11 @@ const name = {
   marginBottom: '0.25em',
 }
 
-// 1. Make the race a little less prominent than the header without harcoding
-//    a color as it would need to vary from faction to faction.
+// 1. Make the unit types a little less prominent than the header without
+//    hardcoding a color as it would need to vary from faction to faction.
 // 2. Make sure the element always take the same amount of room regardless of
-//    whether or not the card has a race.
-const race = {
+//    whether or not the card has a unit type.
+const unitTypes = {
   fontSize: '135%',
   opacity: 0.7, // 1
   minHeight: '1.25em', // 2
@@ -292,7 +292,7 @@ const movementContent = ({ hasFixedMovement }) => ({
 //    should not render the rarity however the card layout should remain
 //    unchanged, hence why the image is still rendered but visually hidden.
 // 2. Make sure the element always take the same amount of room regardless of
-//    whether or not the card has a race.
+//    whether or not the card has a unit type.
 const level = ({ isCreated, rarity, isMissing }) => ({
   fontSize: '140%',
   textTransform: 'uppercase',
@@ -312,7 +312,7 @@ const styles = {
   missing,
   header,
   name,
-  race,
+  unitTypes,
   imageWrapper,
   image,
   ability,

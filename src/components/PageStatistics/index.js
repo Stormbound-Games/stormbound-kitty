@@ -7,12 +7,9 @@ import Info from '~/components/Info'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
-import ChartUnitRace from '../ChartUnitRace'
-import ChartFactionCard from '../ChartFactionCard'
 
 const ChartAbility = dynamic(() => import('~/components/ChartAbility'))
 const ChartMana = dynamic(() => import('~/components/ChartMana'))
-const ChartModifier = dynamic(() => import('~/components/ChartModifier'))
 const ChartMovement = dynamic(() => import('~/components/ChartMovement'))
 const ChartRarity = dynamic(() => import('~/components/ChartRarity'))
 const ChartStrength = dynamic(() => import('~/components/ChartStrength'))
@@ -20,6 +17,8 @@ const ChartStrengthMana = dynamic(() =>
   import('~/components/ChartStrengthMana')
 )
 const ChartType = dynamic(() => import('~/components/ChartType'))
+const ChartUnitType = dynamic(() => import('~/components/ChartUnitType'))
+const ChartFactionCard = dynamic(() => import('~/components/ChartFactionCard'))
 
 export default React.memo(function PageStatistics() {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
@@ -83,23 +82,14 @@ export default React.memo(function PageStatistics() {
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartModifier />
+              <ChartUnitType />
             </Spacing>
           </Row.Column>
-          <Row.Column>
-            <Spacing vertical='BASE'>
-              <ChartUnitRace />
-            </Spacing>
-          </Row.Column>
-        </Row>
-
-        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartFactionCard />
             </Spacing>
           </Row.Column>
-          <Row.Column />
         </Row>
 
         <Row isDesktopOnly>

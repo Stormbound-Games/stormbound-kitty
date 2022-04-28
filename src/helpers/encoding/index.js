@@ -2,12 +2,28 @@ import {
   FACTIONS as FACTIONS_LONG,
   TYPES as TYPES_LONG,
   RARITIES as RARITIES_LONG,
-  RACES as RACES_LONG,
+  UNIT_TYPES as UNIT_TYPES_LONG,
   CURRENCIES as CURRENCIES_LONG,
 } from '~/constants/game'
 import { MATCH_STATUSES, VICTORY_BONUSES } from '~/constants/brawl'
 
-const RACES_SHORT = ['C', 'D', 'W', 'F', 'E', 'K', 'P', 'R', 'O', 'S', 'T', 'U']
+const UNIT_TYPES_SHORT = [
+  'A',
+  'C',
+  'D',
+  'W',
+  'L',
+  'F',
+  'E',
+  'H',
+  'K',
+  'P',
+  'R',
+  'O',
+  'S',
+  'T',
+  'U',
+]
 const RARITIES_SHORT = ['C', 'R', 'E', 'L']
 const TYPES_SHORT = ['U', 'S', 'C']
 const FACTIONS_SHORT = ['N', 'W', 'I', 'F', 'S']
@@ -31,10 +47,10 @@ export const getShortRarity = rarity =>
 export const getLongRarity = rarity =>
   RARITIES_LONG[RARITIES_SHORT.indexOf(rarity)] || 'common'
 
-export const getShortRace = race =>
-  RACES_SHORT[RACES_LONG.indexOf(race)] || race || ''
-export const getLongRace = race =>
-  RACES_LONG[RACES_SHORT.indexOf(race)] || race || ''
+export const getShortUnitType = unitType =>
+  UNIT_TYPES_SHORT[UNIT_TYPES_LONG.indexOf(unitType)] || unitType || ''
+export const getLongUnitType = unitType =>
+  UNIT_TYPES_LONG[UNIT_TYPES_SHORT.indexOf(unitType)] || unitType || ''
 
 export const getShortCurrency = currency =>
   CURRENCIES_SHORT[CURRENCIES_LONG.indexOf(currency)] || 'C'

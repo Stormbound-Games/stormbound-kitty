@@ -1,4 +1,5 @@
-const getSatyrs = cards => cards.filter(card => card.race === 'satyr')
+const getSatyrs = cards =>
+  cards.filter(card => card.unitTypes.includes('satyr'))
 
 const advice = cards => {
   const queenOfHerds = cards.find(card => card.id === 'S21')

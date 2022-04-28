@@ -11,7 +11,7 @@ import { formatDate } from '~/helpers/formatDate'
 const getCardForPuzzle = puzzle => ({
   name: puzzle.name,
   type: 'unit',
-  race: puzzle.user.name,
+  unitTypes: [puzzle.user.name],
   mana: '0',
   rarity: 'common',
   faction: 'neutral',

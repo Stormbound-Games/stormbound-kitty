@@ -16,10 +16,7 @@ export const INITIAL_STATE = {
   imageCardId: null,
   rarity: 'common',
   faction: 'neutral',
-  race: null,
-  ancient: false,
-  elder: false,
-  hero: false,
+  unitTypes: [],
   type: 'unit',
   movement: null,
   fixedMovement: false,
@@ -72,42 +69,34 @@ const useCardBuilder = props => {
 
   const setName = setProperty('name')
   const setRarity = setProperty('rarity')
+  const setUnitTypes = setProperty('unitTypes')
   const setMovement = setProperty('movement')
   const setFixedMovement = setProperty('fixedMovement')
   const setFaction = setProperty('faction')
   const setMana = setProperty('mana', resolveLeveledProperty)
   const setStrength = setProperty('strength', resolveLeveledProperty)
-  const setRace = setProperty('race')
-  const setAncient = setProperty('ancient')
-  const setElder = setProperty('elder')
-  const setHero = setProperty('hero')
   const setAbility = setProperty('ability', resolveAbility)
 
   const setType = React.useCallback(type => {
-    // If the new type is a spell, disable movement, strength, race and
-    // modifiers (but *not* ancient)
+    // If the new type is a spell, disable movement, strength and unit types
     if (type === 'spell') {
       setCardData(cardData => ({
         ...cardData,
         type,
-        race: null,
-        elder: false,
-        hero: false,
+        unitTypes: [],
         movement: null,
         fixedMovement: false,
         strength: formatLevelProp(null),
       }))
     }
 
-    // If the new type is a structure, disable movement, race and modifiers (but
-    // *not* ancient) and if the current type is a spell, enable strength
+    // If the new type is a structure, disable movement and unit types and if
+    // the current type is a spell, enable strength
     else if (type === 'structure') {
       setCardData(cardData => ({
         ...cardData,
         type,
-        race: null,
-        elder: false,
-        hero: false,
+        unitTypes: [],
         movement: null,
         fixedMovement: false,
         strength:
@@ -160,10 +149,7 @@ const useCardBuilder = props => {
     setMana,
     setFaction,
     setType,
-    setRace,
-    setAncient,
-    setElder,
-    setHero,
+    setUnitTypes,
     setMovement,
     setFixedMovement,
     setStrength,

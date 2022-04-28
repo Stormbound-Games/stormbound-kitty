@@ -1,7 +1,7 @@
 import toSentence from '~/helpers/toSentence'
 
 const getSatyrs = cards =>
-  cards.filter(card => card.race === 'satyr' || card.id === 'S24')
+  cards.filter(card => card.unitTypes.includes('satyr') || card.id === 'S24')
 export const SATYR_CONSUMERS = ['S5', 'S7', 'S9']
 
 const advice = (cards, modifier, cardsIndex) => {

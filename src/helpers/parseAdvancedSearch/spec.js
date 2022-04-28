@@ -1,14 +1,14 @@
 import parse from './'
-import { RACES, TYPES, FACTIONS, RARITIES } from '~/constants/game'
+import { UNIT_TYPES, TYPES, FACTIONS, RARITIES } from '~/constants/game'
 
 describe('The `parseAdvancedSearch` helper', () => {
   it('should handle empty searches', () => {
     expect(parse('')).toEqual({})
   })
 
-  it('should handle races', () => {
-    RACES.forEach(race => {
-      expect(parse('is:' + race)).toEqual({ race })
+  it('should handle unit types', () => {
+    UNIT_TYPES.forEach(unitType => {
+      expect(parse('is:' + unitType)).toEqual({ unitType })
     })
   })
 
@@ -28,17 +28,6 @@ describe('The `parseAdvancedSearch` helper', () => {
     RARITIES.forEach(rarity => {
       expect(parse('is:' + rarity)).toEqual({ rarity })
     })
-  })
-
-  it('should handle modifiers', () => {
-    expect(parse('is:hero')).toEqual({ hero: true })
-    expect(parse('is:elder')).toEqual({ elder: true })
-    expect(parse('is:ancient')).toEqual({ ancient: true })
-  })
-
-  it('should be case-insensitive', () => {
-    expect(parse('is:HERO')).toEqual({ hero: true })
-    expect(parse('is:eLdEr')).toEqual({ elder: true })
   })
 
   it('should handle aliases', () => {

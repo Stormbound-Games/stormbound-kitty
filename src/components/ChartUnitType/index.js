@@ -13,9 +13,9 @@ import { TOOLTIP_STYLES } from '~/constants/stats'
 import capitalize from '~/helpers/capitalize'
 import countCards from '~/helpers/countCards'
 
-export default React.memo(function ChartUnitRace() {
+export default React.memo(function ChartUnitType() {
   const { cards } = React.useContext(CardsContext)
-  const RACE_COLORS = {
+  const UNIT_TYPES_COLORS = {
     frostling: 'var(--winter)',
     dwarf: 'var(--light-winter)',
     construct: 'var(--ironclad)',
@@ -28,16 +28,19 @@ export default React.memo(function ChartUnitRace() {
     pirate: 'var(--affordable)',
     dragon: 'var(--dark-beige)',
     feline: 'var(--beige)',
+    ancient: 'var(--poison)',
+    elder: 'var(--vitalized)',
+    hero: 'var(--confused)',
   }
-  const data = Object.entries(RACE_COLORS).map(([race, color]) => ({
-    name: capitalize(race),
-    value: countCards(cards, { race }, false),
+  const data = Object.entries(UNIT_TYPES_COLORS).map(([unitType, color]) => ({
+    name: capitalize(unitType),
+    value: countCards(cards, { unitType }, false),
     color,
   }))
 
   return (
     <>
-      <Title>Unit races</Title>
+      <Title>Unit types</Title>
       <ResponsiveContainer width='100%' height={350}>
         <PieChart>
           <Tooltip {...TOOLTIP_STYLES} />

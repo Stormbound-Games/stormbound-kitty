@@ -1,6 +1,7 @@
 import toSentence from '~/helpers/toSentence'
 
-const getDragons = cards => cards.filter(card => card.race === 'dragon')
+const getDragons = cards =>
+  cards.filter(card => card.unitTypes.includes('dragon'))
 export const DRAGON_CONSUMERS = ['N6', 'N43', 'N51', 'F9', 'F19', 'S4']
 
 const advice = (cards, modifier, cardsIndex) => {

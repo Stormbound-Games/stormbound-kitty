@@ -1,4 +1,4 @@
-import { FACTIONS, RACES, RARITIES, TYPES } from '~/constants/game'
+import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '~/constants/game'
 import arrayRandom from '~/helpers/arrayRandom'
 import getEmbed from '~/helpers/getEmbed'
 import getIgnoredSearch from '~/helpers/getIgnoredSearch'
@@ -21,19 +21,10 @@ const parseMessage = content => {
     // Remove any leading bang from the search term to match it
     filter.value = term.replace('!', '')
 
-    if (filter.value === 'hero') {
-      filter.key = 'hero'
-      filter.value = true
-    } else if (filter.value === 'elder') {
-      filter.key = 'elder'
-      filter.value = true
-    } else if (filter.value === 'ancient') {
-      filter.key = 'ancient'
-      filter.value = true
-    } else if (FACTIONS.includes(filter.value)) {
+    if (FACTIONS.includes(filter.value)) {
       filter.key = 'faction'
-    } else if (RACES.includes(filter.value)) {
-      filter.key = 'race'
+    } else if (UNIT_TYPES.includes(filter.value)) {
+      filter.key = 'unitTypes'
     } else if (RARITIES.includes(filter.value)) {
       filter.key = 'rarity'
     } else if (TYPES.includes(filter.value)) {
@@ -62,7 +53,7 @@ const randomcard = {
       .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com')
       .setDescription(
-        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, type, race or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
+        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, card type, unit type or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
       )
   },
   handler: async function (message) {
@@ -80,8 +71,13 @@ const randomcard = {
       .filter(card => !card.token)
       .filter(card => {
         for (const { key, method, value } of filters) {
-          if (method === 'INC' && card[key] !== value) return false
-          if (method === 'EXC' && card[key] === value) return false
+          if (Array.isArray(card[key])) {
+            if (method === 'INC' && !card[key].includes(value)) return false
+            if (method === 'EXC' && card[key].includes(value)) return false
+          } else {
+            if (method === 'INC' && card[key] !== value) return false
+            if (method === 'EXC' && card[key] === value) return false
+          }
         }
 
         return true

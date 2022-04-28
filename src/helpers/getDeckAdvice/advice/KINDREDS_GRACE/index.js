@@ -1,4 +1,4 @@
-const SAME_RACE_THRESHOLD = 3
+const SAME_UNIT_TYPE_THRESHOLD = 3
 
 export const SPAWNS = {
   S1: ['satyr', 1], // Doppelbocks
@@ -23,31 +23,31 @@ const advice = cards => {
   const cardIds = cards.map(card => card.id)
   const hasKindredsGrace = cardIds.includes('N40')
 
-  const deckRaces = cards.reduce((raceObj, card) => {
-    if (card.race) {
-      raceObj[card.race] = (raceObj[card.race] || 0) + 1
-    }
+  const deckUnitTypes = cards.reduce((acc, card) => {
+    card.unitTypes.forEach(unitType => {
+      acc[unitType] = (acc[unitType] || 0) + 1
+    })
 
     if (Object.keys(SPAWNS).includes(card.id)) {
-      const [spawnRace, spawnNum] = SPAWNS[card.id]
-      raceObj[spawnRace] = (raceObj[spawnRace] || 0) + spawnNum
+      const [spawnUnitType, spawnNum] = SPAWNS[card.id]
+      acc[spawnUnitType] = (acc[spawnUnitType] || 0) + spawnNum
     }
-    return raceObj
+    return acc
   }, {})
 
-  const maxRaceNum = Object.values(deckRaces).reduce(
+  const maxUnitTypes = Object.values(deckUnitTypes).reduce(
     (a, b) => Math.max(a, b),
     0
   )
 
   // For Kindred’s Grace to be considered efficient, it requires 3 units
-  // of the same race to be represented, including spawns.
+  // of the same unit type to be represented, including spawns.
 
-  if (!hasKindredsGrace || maxRaceNum >= SAME_RACE_THRESHOLD) return null
+  if (!hasKindredsGrace || maxUnitTypes >= SAME_UNIT_TYPE_THRESHOLD) return null
 
   return {
     name: 'Inefficient Kindred’s Grace',
-    description: `This deck includes Kindred’s Grace but doesn’t include enough units of the same race to be efficient. Consider including more units of the same race.`,
+    description: `This deck includes Kindred’s Grace but doesn’t include enough units of the same unit type to be efficient. Consider including more units of the same unit type.`,
     highlight: ['N40'],
   }
 }

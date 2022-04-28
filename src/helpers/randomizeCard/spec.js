@@ -1,4 +1,4 @@
-import { TYPES, FACTIONS, RARITIES, RACES } from '~/constants/game'
+import { TYPES, FACTIONS, RARITIES, UNIT_TYPES } from '~/constants/game'
 import randomizeCard from './'
 
 describe('The `randomizeCard` helper', () => {
@@ -26,8 +26,8 @@ describe('The `randomizeCard` helper', () => {
     expect(RARITIES).toContain(randomizeCard().rarity)
   })
 
-  it('should return a valid card race for unit cards', () => {
-    expect(RACES).toContain(randomizeCard({ type: 'unit' }).race)
+  it('should return a valid card unit type for unit cards', () => {
+    expect(UNIT_TYPES).toContain(randomizeCard({ type: 'unit' }).unitTypes[0])
   })
 
   it('should return a capitalized ability', () => {

@@ -6,11 +6,8 @@ export default React.memo(function BookExplanation({ book }) {
   const { css } = useFela()
   const qualifier = [
     book.only.rarity,
-    book.only.elder && 'elder',
-    book.only.ancient && 'ancient',
-    book.only.hero && 'hero',
     book.only.faction,
-    book.only.race,
+    book.only.unitType,
     book.only.type,
     book.only.ability,
     book.only.name,

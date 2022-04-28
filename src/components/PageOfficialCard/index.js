@@ -20,7 +20,7 @@ export default React.memo(function PageOfficialCard(props) {
   const meta = [
     cardData.rarity,
     cardData.faction,
-    cardData.race,
+    cardData.unitTypes.join(' '),
     cardData.type,
     date ? 'Prior ' + date : null,
   ]

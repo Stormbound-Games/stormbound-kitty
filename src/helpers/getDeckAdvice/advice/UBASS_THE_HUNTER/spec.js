@@ -25,14 +25,4 @@ describe('The `UBASS_THE_HUNTER` advice', () => {
     const cards = getCards('1n21n31n71n121n141n161n221n641n241n271n281n35')
     expect(advice(cards)).not.toEqual(null)
   })
-
-  it('should count another hero as a trigger', () => {
-    const cards = getCards('1n21n31n71n81n121n141n221n641n241n271n281n35')
-    expect(advice(cards)).toEqual(null)
-  })
-
-  it('should count an elder as a trigger', () => {
-    const cards = getCards('1n21n31n71n121n141n731n221n641n241n271n281n35')
-    expect(advice(cards)).toEqual(null)
-  })
 })
