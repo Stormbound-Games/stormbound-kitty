@@ -27,6 +27,7 @@ const LEGACY_PATHS = {
   '/guides/complete': '/guides/battle',
   '/guides/beginner': '/rulebook',
   '/guides/brawl': '/brawl-mode',
+  '/guides/brawl-mode': '/brawl-mode',
   '/guides/draft': '/draft-mode',
   '/guides/drawing': '/drawing-mechanics',
   '/guides/equals-intro': '/guides/equals',
