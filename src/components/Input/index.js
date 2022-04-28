@@ -15,7 +15,9 @@ function Input({ hideLabel, extend, label, ...props }, ref) {
           {label}
         </VisuallyHidden>
       ) : (
-        <Label htmlFor={props.id}>{label}</Label>
+        <Label htmlFor={props.id} disabled={props.disabled}>
+          {label}
+        </Label>
       )}
       <input
         type='text'

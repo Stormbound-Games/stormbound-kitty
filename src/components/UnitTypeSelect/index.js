@@ -22,7 +22,9 @@ export default React.memo(function UnitTypeSelect(props) {
           {label}
         </VisuallyHidden>
       ) : (
-        <Label htmlFor={props.id + '-input'}>{label}</Label>
+        <Label htmlFor={props.id + '-input'} disabled={props.disabled}>
+          {label}
+        </Label>
       )}
 
       <Component

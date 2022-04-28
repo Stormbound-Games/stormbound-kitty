@@ -181,7 +181,9 @@ export default React.memo(function BattleSimCellForm(props) {
       </div>
 
       <fieldset>
-        <Label as='legend'>Statuses</Label>
+        <Label as='legend' disabled={cardsIndex[card]?.type === 'structure'}>
+          Statuses
+        </Label>
         <Spacing bottom='BASE'>
           <div className={css(styles.checkboxes)}>
             <Checkbox

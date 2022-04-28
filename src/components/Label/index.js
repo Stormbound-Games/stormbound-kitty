@@ -6,9 +6,10 @@ export default React.memo(function Label({
   as: Component = 'label',
   children,
   extend,
+  disabled,
   ...props
 }) {
-  const { css } = useFela()
+  const { css } = useFela({ disabled })
 
   return (
     <Component {...props} className={css(styles.label, extend)}>
