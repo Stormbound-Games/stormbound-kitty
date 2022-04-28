@@ -1,5 +1,6 @@
 import rateLimit from 'express-rate-limit'
 import slowDown from 'express-slow-down'
+import applyMiddleware from '~/helpers/applyMiddleware'
 import getIP from '~/helpers/getIP'
 
 export const LIMIT_PER_WINDOW = 20
@@ -8,14 +9,6 @@ const MIDDLEWARE_CONFIG = {
   windowMs: 60 * 1000,
   keyGenerator: getIP,
 }
-
-// Taken from: https://nextjs.org/docs/api-routes/api-middlewares
-const applyMiddleware = middleware => (request, response) =>
-  new Promise((resolve, reject) => {
-    middleware(request, response, result =>
-      result instanceof Error ? reject(result) : resolve(result)
-    )
-  })
 
 const withSlowDown = applyMiddleware(
   slowDown({
