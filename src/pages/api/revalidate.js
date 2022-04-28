@@ -1,5 +1,5 @@
-import applyRateLimit from '~/helpers/applyRateLimit'
 import { GUIDE_CATEGORIES } from '~/constants/guides'
+import { getRateLimitMiddlewares } from '~/helpers/applyRateLimit'
 
 const getRevalidationPaths = body => {
   // The path may be passed explicitly, for instance with the `bin/revalidate`
@@ -95,9 +95,16 @@ const getRevalidationPaths = body => {
   }
 }
 
+// This endpoint benefits from a higher rate limit as publishing a lot of
+// Sanity documents in a short amount of time is typically what happens when
+// publishing release notes (new cards + balance changes + release publication).
+const middlewares = getRateLimitMiddlewares(40)
+
 export default async function handler(request, response) {
   try {
-    await applyRateLimit(request, response)
+    await Promise.all(
+      middlewares.map(middleware => middleware(request, response))
+    )
   } catch {
     return response.status(429).json({ message: 'Too many requests' })
   }

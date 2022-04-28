@@ -10,20 +10,21 @@ const MIDDLEWARE_CONFIG = {
   keyGenerator: getIP,
 }
 
-const withSlowDown = applyMiddleware(
-  slowDown({
-    ...MIDDLEWARE_CONFIG,
-    delayAfter: Math.round(LIMIT_PER_WINDOW / 2),
-    delayMs: 500,
-  })
-)
-const withRateLimit = applyMiddleware(
-  rateLimit({ ...MIDDLEWARE_CONFIG, max: LIMIT_PER_WINDOW })
-)
+export const getRateLimitMiddlewares = (limit, windowMs = 60 * 1000) => {
+  const config = { ...MIDDLEWARE_CONFIG, windowMs }
+
+  return [
+    slowDown({ ...config, delayAfter: Math.round(limit / 2), delayMs: 500 }),
+    rateLimit({ ...config, max: limit }),
+  ].map(applyMiddleware)
+}
+
+const middlewares = getRateLimitMiddlewares(LIMIT_PER_WINDOW)
 
 async function applyRateLimit(request, response) {
-  await withSlowDown(request, response)
-  await withRateLimit(request, response)
+  await Promise.all(
+    middlewares.map(middleware => middleware(request, response))
+  )
 }
 
 export default applyRateLimit
