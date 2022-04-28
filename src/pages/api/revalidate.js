@@ -113,13 +113,13 @@ export default async function handler(request, response) {
     return response.status(401).json({ message: 'Invalid token' })
   }
 
-  const paths = getRevalidationPaths(request.body)
-
-  if (paths.length === 0) {
-    return response.status(400).json({ message: 'Bad request' })
-  }
-
   try {
+    const paths = getRevalidationPaths(request.body)
+
+    if (paths.length === 0) {
+      return response.status(400).json({ message: 'Bad request' })
+    }
+
     await Promise.all(paths.map(path => response.unstable_revalidate(path)))
     return response.json({ revalidated: true })
   } catch (error) {
