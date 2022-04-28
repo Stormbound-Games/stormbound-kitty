@@ -116,6 +116,10 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
       color: 'var(--black)',
       borderTopLeftRadius: 0,
       borderBottomLeftRadius: 0,
+
+      ':hover': {
+        backgroundColor: 'var(--light-ironclad)',
+      },
     }),
   }
 }
