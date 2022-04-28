@@ -349,7 +349,9 @@ class Card {
   toObject() {
     return {
       type: this.type.toLowerCase(),
-      unitTypes: [this.race.name, this.subrace].filter(Boolean),
+      unitTypes: [this.type === 'Unit' && this.race.name, this.subrace].filter(
+        Boolean
+      ),
       rarity: this.rarity,
       faction: this.faction,
       name: this.name,
