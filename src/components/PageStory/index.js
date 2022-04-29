@@ -52,7 +52,7 @@ export default React.memo(function PageStory(props) {
                 </>
               )}
             </Title>
-            <Stories stories={moreStories} />
+            <Stories stories={moreStories} layout='GRID' />
           </>
         )}
       </div>
