@@ -56,7 +56,7 @@ export default React.memo(function ChartCollectionCardCopy() {
   const copiesData = useCopiesData()
 
   return (
-    <ResponsiveContainer width='100%' height={300}>
+    <ResponsiveContainer width='100%' height={350}>
       <BarChart
         width={500}
         height={300}

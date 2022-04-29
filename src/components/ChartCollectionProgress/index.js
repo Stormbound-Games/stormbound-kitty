@@ -46,7 +46,7 @@ export default React.memo(function ChartCollectionProgress() {
   const progressData = useProgressData()
 
   return (
-    <ResponsiveContainer width='100%' height={300}>
+    <ResponsiveContainer width='100%' height={350}>
       <PieChart>
         <Tooltip {...TOOLTIP_STYLES} />
         <Legend verticalAlign='bottom' />
