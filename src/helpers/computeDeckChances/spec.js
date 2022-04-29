@@ -8,39 +8,24 @@ import {
 import serialization from '~/helpers/serialization'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 
+const resolve = (id, level = 1) =>
+  getResolvedCardData(global.__CARDS_INDEX__, { id, level })
+
 describe('The `getEffectiveManaCost` helper', () => {
   it('should handle Gift of the Wise', () => {
-    expect(
-      getEffectiveManaCost(8)(
-        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W19', level: 1 })
-      )
-    ).toEqual(9)
-    expect(
-      getEffectiveManaCost(9)(
-        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W19', level: 1 })
-      )
-    ).toEqual(-2)
+    expect(getEffectiveManaCost(8)(resolve('W19'))).toEqual(9)
+    expect(getEffectiveManaCost(9)(resolve('W19'))).toEqual(-2)
   })
 
   it('should handle Rimelings', () => {
-    expect(
-      getEffectiveManaCost(4)(
-        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W12', level: 1 })
-      )
-    ).toEqual(4)
-    expect(
-      getEffectiveManaCost(5)(
-        getResolvedCardData(global.__CARDS_INDEX__, { id: 'W12', level: 1 })
-      )
-    ).toEqual(2)
+    const Rimelings = resolve('W12')
+
+    expect(getEffectiveManaCost(3)(Rimelings)).toEqual(4)
+    expect(getEffectiveManaCost(4)(Rimelings)).toEqual(2)
   })
 
   it('should return mana cost otherwise', () => {
-    expect(
-      getEffectiveManaCost(4)(
-        getResolvedCardData(global.__CARDS_INDEX__, { id: 'N1', level: 1 })
-      )
-    ).toEqual(1)
+    expect(getEffectiveManaCost(4)(resolve('N1'))).toEqual(1)
   })
 })
 

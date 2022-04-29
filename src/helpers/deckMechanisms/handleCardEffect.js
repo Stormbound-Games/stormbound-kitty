@@ -169,7 +169,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
 
     // Rimelings
     case 'W12': {
-      state.mana += 3
+      state.mana += +card.ability.match(/\d+/)[0]
       break
     }
 

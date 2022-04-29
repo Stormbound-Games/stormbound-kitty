@@ -9,9 +9,10 @@ export const getEffectiveManaCost = availableMana => card => {
   if (card.id === 'W19' && availableMana >= card.mana)
     return card.mana - [11, 12, 13, 14, 15][card.level - 1]
 
-  // If the card is Rimelings and it can be played, reduced its mana cost by
+  // If the card is Rimelings and it can be played, reduce its mana cost by
   // the amount of mana given by its ability.
-  if (card.id === 'W12' && availableMana >= 5) return 2
+  if (card.id === 'W12' && availableMana >= card.mana)
+    return card.mana - +card.ability.match(/\d+/)[0]
 
   return card.mana
 }
