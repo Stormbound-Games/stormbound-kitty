@@ -2,9 +2,12 @@ import formatCardStats from '~/helpers/formatCardStats'
 
 const isIncomplete = state => {
   if (!state.name) return true
-  if (!state.mana.display && state.mana.display !== 0) return true
-  if (state.type === 'unit' && !state.strength.display) return true
-  if (state.type === 'unit' && typeof state.movement !== 'number') return true
+  if (!state.mana?.display && state.mana?.display !== 0) return true
+  if (
+    state.type === 'unit' &&
+    (!state.strength?.display || typeof state.movement !== 'number')
+  )
+    return true
   return false
 }
 
