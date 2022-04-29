@@ -1,6 +1,5 @@
 import React from 'react'
 import { DEFAULT_MANA } from '~/constants/battle'
-import clone from '~/helpers/clone'
 import isCard from '~/helpers/isCard'
 import canCardBePlayed from '~/helpers/canCardBePlayed'
 import getOpponentDeck from '~/helpers/getOpponentDeck'
@@ -38,14 +37,18 @@ const useDeckMechanisms = props => {
 
   const draw = React.useCallback((card = null) => {
     setState(state =>
-      state.hand.length < 4 ? deckMechanisms.draw(clone(state), card) : state
+      state.hand.length < 4
+        ? deckMechanisms.draw(structuredClone(state), card)
+        : state
     )
   }, [])
 
   const cycle = React.useCallback(
     (card, options = deckMechanisms.DEFAULT_CYCLE_OPTIONS) => {
       const opts = { ...options, modifier: props.modifier }
-      setState(state => deckMechanisms.cycle(clone(state), card, opts))
+      setState(state =>
+        deckMechanisms.cycle(structuredClone(state), card, opts)
+      )
     },
     [props.modifier]
   )
@@ -60,7 +63,7 @@ const useDeckMechanisms = props => {
         // If it’s not a discard move and the card costs more mana than the
         // current round, skip play.
         return options.discard || canAfford
-          ? deckMechanisms.play(clone(state), card, opts, props.HoS)
+          ? deckMechanisms.play(structuredClone(state), card, opts, props.HoS)
           : state
       })
     },
@@ -84,7 +87,9 @@ const useDeckMechanisms = props => {
   const endTurn = React.useCallback(
     () =>
       setState(state =>
-        deckMechanisms.endTurn(clone(state), { modifier: props.modifier })
+        deckMechanisms.endTurn(structuredClone(state), {
+          modifier: props.modifier,
+        })
       ),
     [props.modifier]
   )

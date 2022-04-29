@@ -9,7 +9,6 @@ import {
   DEFAULT_CARD,
 } from '~/constants/battle'
 import { CardsContext } from '~/components/CardsProvider'
-import clone from '~/helpers/clone'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import serialization from '~/helpers/serialization'
 
@@ -73,7 +72,7 @@ const useBattleSim = props => {
           if (!(event.metaKey || event.ctrlKey) || !activeCell || !copiedCard)
             return
 
-          const newBoard = clone(sim.board)
+          const newBoard = structuredClone(sim.board)
 
           copyCell(newBoard[activeCell[0]][activeCell[1]], copiedCard)
           setSim(sim => ({ ...sim, board: newBoard }))
@@ -84,7 +83,7 @@ const useBattleSim = props => {
         case X_KEY: {
           if (!(event.metaKey || event.ctrlKey) || !activeCell) return
 
-          const newBoard = clone(sim.board)
+          const newBoard = structuredClone(sim.board)
 
           copyCell(newBoard[activeCell[0]][activeCell[1]], DEFAULT_CELL)
           setCopiedCard({ ...active })
@@ -109,7 +108,7 @@ const useBattleSim = props => {
     // When dragging end, and provided there is a valid source and a valid
     // target, perform board updates
     if (!isDragging && dndSource && dndTarget) {
-      const newBoard = clone(sim.board)
+      const newBoard = structuredClone(sim.board)
       const sourceCell = newBoard[dndSource[0]][dndSource[1]]
       const targetCell = newBoard[dndTarget[0]][dndTarget[1]]
       const targetCellCopy = { ...targetCell }
@@ -234,7 +233,7 @@ const useBattleSim = props => {
     confused,
     disabled,
   }) => {
-    const newBoard = clone(sim.board)
+    const newBoard = structuredClone(sim.board)
     const cell = newBoard[activeCell[0]][activeCell[1]]
 
     cell.strength = +strength
