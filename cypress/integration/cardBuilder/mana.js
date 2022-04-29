@@ -1,37 +1,29 @@
 import s from './selectors'
 
-describe('Card Builder — Mana', () => {
-  const mana = '5'
-  const assertCardMana = (index, value = mana) =>
-    cy
-      .get(s.CARD_PREVIEW)
-      .eq(index)
-      .find(s.CARD_MANA)
-      .should('have.text', value)
+const assertCardMana = (index, mana) =>
+  cy.get(s.CARD_PREVIEW).eq(index).find(s.CARD_MANA).should('have.text', mana)
 
+describe('Card Builder — Mana', () => {
   before(() => {
     cy.visit('/card')
   })
 
   it('should be empty by default', () => {
     cy.get(s.MANA_INPUT).should('be.empty')
-    for (let i = 0; i < 5; i++) assertCardMana(i, '')
+    assertCardMana(0, '')
   })
 
   it('should be possible to define the card mana', () => {
-    cy.get(s.MANA_INPUT).type(mana).should('have.value', mana)
-  })
-
-  it('should be reflected in all preview', () => {
-    for (let i = 0; i < 5; i++) assertCardMana(i)
+    cy.get(s.MANA_INPUT).type('5').should('have.value', '5')
+    assertCardMana(0, '5')
   })
 
   it('should be preserved upon reload', () => {
     cy.url()
       .should('not.match', /\/card$/)
       .reload()
-    cy.get(s.MANA_INPUT).should('have.value', mana)
-    for (let i = 0; i < 5; i++) assertCardMana(i)
+    cy.get(s.MANA_INPUT).should('have.value', '5')
+    assertCardMana(0, '5')
   })
 
   it('should be possible to define it per level', () => {

@@ -1,13 +1,13 @@
 import s from './selectors'
 
-describe('Card Builder — Ability', () => {
-  const assertCardAbility = (index, ability) =>
-    cy
-      .get(s.CARD_PREVIEW)
-      .eq(index)
-      .find(s.CARD_ABILITY)
-      .should('contain', ability)
+const assertCardAbility = (index, ability) =>
+  cy
+    .get(s.CARD_PREVIEW)
+    .eq(index)
+    .find(s.CARD_ABILITY)
+    .should('contain', ability)
 
+describe('Card Builder — Ability', () => {
   before(() => {
     cy.visit('/card')
   })
@@ -18,10 +18,7 @@ describe('Card Builder — Ability', () => {
 
   it('should be possible to define the card ability', () => {
     cy.get(s.ABILITY_INPUT).type('Sparkles').should('have.value', 'Sparkles')
-  })
-
-  it('should be reflected in all preview', () => {
-    for (let i = 0; i < 5; i++) assertCardAbility(i, 'Sparkles')
+    assertCardAbility(0, 'Sparkles')
   })
 
   it('should be preserved upon reload', () => {
@@ -29,7 +26,7 @@ describe('Card Builder — Ability', () => {
       .should('not.match', /\/card$/)
       .reload()
     cy.get(s.ABILITY_INPUT).should('have.value', 'Sparkles')
-    for (let i = 0; i < 5; i++) assertCardAbility(i, 'Sparkles')
+    assertCardAbility(0, 'Sparkles')
   })
 
   it('should be possible to define it per level', () => {

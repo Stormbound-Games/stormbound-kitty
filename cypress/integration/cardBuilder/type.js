@@ -1,14 +1,13 @@
 import s from './selectors'
 
-describe('Card Builder — Type', () => {
-  const type = 'spell'
-  const assertCardType = index =>
-    cy
-      .get(s.CARD_PREVIEW)
-      .eq(index)
-      .find('[data-testid="card"]')
-      .should('have.attr', 'data-type', type)
+const assertCardType = (index, type) =>
+  cy
+    .get(s.CARD_PREVIEW)
+    .eq(index)
+    .find('[data-testid="card"]')
+    .should('have.attr', 'data-type', type)
 
+describe('Card Builder — Type', () => {
   before(() => {
     cy.visit('/card')
   })
@@ -18,18 +17,18 @@ describe('Card Builder — Type', () => {
   })
 
   it('should be possible to update the card faction', () => {
-    cy.get(s.TYPE_SELECT).select(type).should('have.value', type)
+    cy.get(s.TYPE_SELECT).select('spell').should('have.value', 'spell')
   })
 
   it('should be reflected in all preview', () => {
-    for (let i = 0; i < 5; i++) assertCardType(i)
+    assertCardType(0, 'spell')
   })
 
   it('should be preserved upon reload', () => {
     cy.url()
       .should('not.match', /\/card$/)
       .reload()
-    cy.get(s.TYPE_SELECT).should('have.value', type)
-    for (let i = 0; i < 5; i++) assertCardType(i)
+    cy.get(s.TYPE_SELECT).should('have.value', 'spell')
+    assertCardType(0, 'spell')
   })
 })

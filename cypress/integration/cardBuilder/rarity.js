@@ -1,14 +1,13 @@
 import s from './selectors'
 
-describe('Card Builder — Rarity', () => {
-  const rarity = 'epic'
-  const assertCardRarity = index =>
-    cy
-      .get(s.CARD_PREVIEW)
-      .eq(index)
-      .find(s.CARD_RARITY)
-      .should('have.attr', 'alt', rarity)
+const assertCardRarity = (index, rarity) =>
+  cy
+    .get(s.CARD_PREVIEW)
+    .eq(index)
+    .find(s.CARD_RARITY)
+    .should('have.attr', 'alt', rarity)
 
+describe('Card Builder — Rarity', () => {
   before(() => {
     cy.visit('/card')
   })
@@ -18,18 +17,15 @@ describe('Card Builder — Rarity', () => {
   })
 
   it('should be possible to define the card rarity', () => {
-    cy.get(s.RARITY_SELECT).select(rarity).should('have.value', rarity)
-  })
-
-  it('should be reflected in all preview', () => {
-    for (let i = 0; i < 5; i++) assertCardRarity(i)
+    cy.get(s.RARITY_SELECT).select('epic').should('have.value', 'epic')
+    assertCardRarity(0, 'epic')
   })
 
   it('should be preserved upon reload', () => {
     cy.url()
       .should('not.match', /\/card$/)
       .reload()
-    cy.get(s.RARITY_SELECT).should('have.value', rarity)
-    for (let i = 0; i < 5; i++) assertCardRarity(i)
+    cy.get(s.RARITY_SELECT).should('have.value', 'epic')
+    assertCardRarity(0, 'epic')
   })
 })

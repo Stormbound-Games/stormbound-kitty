@@ -1,14 +1,13 @@
 import s from './selectors'
 
-describe('Card Builder — Strength', () => {
-  const strength = '5'
-  const assertCardStrength = (index, value = strength) =>
-    cy
-      .get(s.CARD_PREVIEW)
-      .eq(index)
-      .find(s.CARD_STRENGTH)
-      .should('have.text', value)
+const assertCardStrength = (index, strength) =>
+  cy
+    .get(s.CARD_PREVIEW)
+    .eq(index)
+    .find(s.CARD_STRENGTH)
+    .should('have.text', strength)
 
+describe('Card Builder — Strength', () => {
   before(() => {
     cy.visit('/card')
   })
@@ -18,19 +17,16 @@ describe('Card Builder — Strength', () => {
   })
 
   it('should be possible to define the card strength', () => {
-    cy.get(s.STRENGTH_INPUT).type(strength).should('have.value', strength)
-  })
-
-  it('should be reflected in all preview', () => {
-    for (let i = 0; i < 5; i++) assertCardStrength(i)
+    cy.get(s.STRENGTH_INPUT).type('5').should('have.value', '5')
+    assertCardStrength(0, '5')
   })
 
   it('should be preserved upon reload', () => {
     cy.url()
       .should('not.match', /\/card$/)
       .reload()
-    cy.get(s.STRENGTH_INPUT).should('have.value', strength)
-    for (let i = 0; i < 5; i++) assertCardStrength(i)
+    cy.get(s.STRENGTH_INPUT).should('have.value', '5')
+    assertCardStrength(0, '5')
   })
 
   it('should be possible to define it per level', () => {

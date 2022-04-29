@@ -1,14 +1,13 @@
 import s from './selectors'
 
-describe('Card Builder — Faction', () => {
-  const faction = 'ironclad'
-  const assertCardFaction = index =>
-    cy
-      .get(s.CARD_PREVIEW)
-      .eq(index)
-      .find('[data-testid="card"]')
-      .should('have.attr', 'data-faction', faction)
+const assertCardFaction = (index, faction) =>
+  cy
+    .get(s.CARD_PREVIEW)
+    .eq(index)
+    .find('[data-testid="card"]')
+    .should('have.attr', 'data-faction', faction)
 
+describe('Card Builder — Faction', () => {
   before(() => {
     cy.visit('/card')
   })
@@ -18,18 +17,15 @@ describe('Card Builder — Faction', () => {
   })
 
   it('should be possible to update the card faction', () => {
-    cy.get(s.FACTION_SELECT).select(faction).should('have.value', faction)
-  })
-
-  it('should be reflected in all preview', () => {
-    for (let i = 0; i < 5; i++) assertCardFaction(i)
+    cy.get(s.FACTION_SELECT).select('ironclad').should('have.value', 'ironclad')
+    assertCardFaction(0, 'ironclad')
   })
 
   it('should be preserved upon reload', () => {
     cy.url()
       .should('not.match', /\/card$/)
       .reload()
-    cy.get(s.FACTION_SELECT).should('have.value', faction)
-    for (let i = 0; i < 5; i++) assertCardFaction(i)
+    cy.get(s.FACTION_SELECT).should('have.value', 'ironclad')
+    assertCardFaction(0, 'ironclad')
   })
 })
