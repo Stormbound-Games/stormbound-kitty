@@ -64,8 +64,13 @@ const getContentFromUser = async ({ slug, isPreview } = {}) => {
   const user = await getUser({
     slug,
     isPreview,
-    fields: `_id, ${USER_FIELDS}`,
+    fields: `"internalId": _id, ${USER_FIELDS}`,
   })
+
+  // Small hack for the `_id` field to be queried even in preview mode where the
+  // `_id` field is automatically added then discarded.
+  user._id = user.internalId
+  delete user.internalId
 
   if (!user) return {}
 
