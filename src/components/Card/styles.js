@@ -1,9 +1,11 @@
 // Horizontal spacing within the card is expressed in `em` instead of using a
 // spacing variable (`rem`) as it needs to scale with the card font size.
-// Additionally, `2em` would be fine generally, but spells have a thicker border
-// where additional spacing is needed. If it’s too big for other cards, it could
-// be based on the card type.
-const HORIZONTAL_SPACING = '2.35em'
+const HORIZONTAL_SPACING = {
+  unit: '2em',
+  structure: '2em',
+  // Spells have a thicker border where additional spacing is needed.
+  spell: '2.35em',
+}
 const MISSING_FILTER = 'contrast(200%) saturate(0.5) grayscale(0.5)'
 const IMAGES = {
   mana: "url('/assets/images/card/mana.png')",
@@ -131,13 +133,13 @@ const missing = {
 }
 
 // 1. Leave some room at the top of the card, below the mana diamond.
-const header = {
+const header = ({ type }) => ({
   display: 'flex',
   flexDirection: 'column',
-  marginTop: '4em', // 1
-  padding: '0 ' + HORIZONTAL_SPACING,
+  marginTop: type === 'spell' ? '4em' : '3.5em', // 1
+  padding: '0 ' + HORIZONTAL_SPACING[type],
   textTransform: 'uppercase',
-}
+})
 
 const name = {
   fontSize: '165%',
@@ -157,8 +159,8 @@ const unitTypes = {
 // 1. Using `max-height` does not work properly in Safari and results in the
 //    image not being properly contained despite `object-fit: contain`.
 // 2. Add a hue animation to hero cards like in the game.
-const imageWrapper = ({ rarity }) => ({
-  width: `calc(100% - ${HORIZONTAL_SPACING} * 2)`,
+const imageWrapper = ({ rarity, type }) => ({
+  width: `calc(100% - ${HORIZONTAL_SPACING[type]} * 2)`,
   margin: 'auto',
   height: '42%', // 1
 
@@ -187,10 +189,10 @@ const ability = {
 
 // 1. Relative positioning for the absolutely positioned strength and movement
 //    markers.
-const footer = {
+const footer = ({ type }) => ({
   position: 'relative', // 1
-  padding: '0 ' + HORIZONTAL_SPACING,
-}
+  padding: '0 ' + HORIZONTAL_SPACING[type],
+})
 
 // 1. Every card rarity icon is slightly off-scale and needs to be adjusted,
 //    with scale to avoid messing with the card layout.

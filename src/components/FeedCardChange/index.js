@@ -2,6 +2,7 @@ import React from 'react'
 import CardLink from '~/components/CardLink'
 import DiamondButton from '~/components/DiamondButton'
 import FeedEntry from '~/components/FeedEntry'
+import Only from '~/components/Only'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
 const ICONS = {
@@ -27,7 +28,14 @@ const Date = props => (
 )
 
 const Current = () => (
-  <span style={{ color: 'var(--light-shadowfen)' }}>(currently displayed)</span>
+  <>
+    <Only.Mobile>
+      <br />
+    </Only.Mobile>
+    <span style={{ color: 'var(--light-shadowfen)' }}>
+      (currently displayed)
+    </span>
+  </>
 )
 
 export default React.memo(function FeedCardChange(props) {

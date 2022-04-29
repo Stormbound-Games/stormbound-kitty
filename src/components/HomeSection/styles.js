@@ -31,7 +31,7 @@ const section = {
 }
 
 const inner = {
-  padding: 'var(--s-base) var(--s-large)',
+  padding: 'var(--s-base) var(--s-large) 0',
   textAlign: 'center',
 
   medium: {

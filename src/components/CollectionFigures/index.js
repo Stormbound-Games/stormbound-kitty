@@ -293,7 +293,7 @@ export default React.memo(function CollectionFigures(props) {
         })}
       </ul>
 
-      <Info icon='equalizer' title='Books & Income Calculators'>
+      <Info icon='equalizer' title='Calculators'>
         <p>
           To figure out the odds of finding a specific card in a certain book,
           be sure to check the{' '}
