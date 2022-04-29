@@ -21,7 +21,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
   const moreStories = (
     await getStoriesFromAuthor({ author: story.author.slug, isPreview })
-  ).filter(story => (story.saga ? story.saga === story.saga : true))
+  ).filter(({ saga }) => (story.saga ? story.saga === saga : true))
 
   if (story.saga) {
     moreStories.sort((a, b) => {
