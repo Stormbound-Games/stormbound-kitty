@@ -5,7 +5,3 @@ breadcrumbs,
 search,
 "slug": slug.current
 `
-
-export const MAPPER = guide => {
-  return guide
-}

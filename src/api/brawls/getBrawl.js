@@ -1,5 +1,5 @@
 import { getEntry } from '~/helpers/sanity'
-import { FIELDS, MAPPER } from './utils'
+import { FIELDS } from './utils'
 
 const getBrawl = async ({ slug, isPreview } = {}) => {
   const brawl = await getEntry({
@@ -9,7 +9,7 @@ const getBrawl = async ({ slug, isPreview } = {}) => {
     options: { isPreview },
   })
 
-  return brawl ? MAPPER(brawl) : null
+  return brawl || null
 }
 
 export default getBrawl

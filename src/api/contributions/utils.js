@@ -8,5 +8,6 @@ entries
 
 export const MAPPER = contribution => {
   contribution.date = serializeDate(contribution.date)
+
   return contribution
 }

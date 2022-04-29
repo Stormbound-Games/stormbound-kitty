@@ -1,5 +1,5 @@
 import { getEntry } from '~/helpers/sanity'
-import blocks from '~/api/users/blocks'
+import blocks from '~/api/blocks'
 import { FIELDS, MAPPER } from './utils'
 
 const getStory = async ({ slug, isPreview } = {}) => {

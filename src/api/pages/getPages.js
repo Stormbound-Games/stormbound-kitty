@@ -1,5 +1,5 @@
 import { getEntries } from '~/helpers/sanity'
-import { FIELDS, MAPPER } from './utils'
+import { FIELDS } from './utils'
 
 const getPages = async ({ isPreview } = {}) => {
   const pages = await getEntries({
@@ -8,7 +8,7 @@ const getPages = async ({ isPreview } = {}) => {
     options: { isPreview },
   })
 
-  return pages.map(MAPPER)
+  return pages
 }
 
 export default getPages

@@ -13,7 +13,6 @@ excerpt
 
 export const MAPPER = guide => {
   guide.date = serializeDate(guide.date)
-  delete guide.text
 
   return guide
 }

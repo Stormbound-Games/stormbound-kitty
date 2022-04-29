@@ -1,6 +1,6 @@
 import { getEntry } from '~/helpers/sanity'
-import blocks from '~/api/users/blocks'
-import { FIELDS, MAPPER } from './utils'
+import blocks from '~/api/blocks'
+import { FIELDS } from './utils'
 
 const getPage = async ({ slug = null, isPreview } = {}) => {
   const page = await getEntry({
@@ -15,7 +15,7 @@ const getPage = async ({ slug = null, isPreview } = {}) => {
     options: { isPreview },
   })
 
-  return page ? MAPPER(page) : null
+  return page || null
 }
 
 export default getPage

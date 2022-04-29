@@ -7,5 +7,6 @@ date
 
 export const MAPPER = donation => {
   donation.date = serializeDate(donation.date)
+
   return donation
 }

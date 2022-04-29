@@ -11,5 +11,6 @@ excerpt
 
 export const MAPPER = podcast => {
   podcast.date = serializeDate(podcast.date)
+
   return podcast
 }
