@@ -9,3 +9,7 @@ Data visualization (statistics, card collection, mana curve…) is handled with 
 `react-select` which is used for advanced dropdowns with autocompletion support is a rather heavy library as well, [clocking at ~26Kb minified and gzipped](https://bundlephobia.com/package/react-select@5.3.0). For that reason, it is lazy-loaded via Next.js only when used.
 
 `html2canvas`, the library used to generate an image from a DOM node, is also very heavy [at ~46Kb minified and gzipped](https://bundlephobia.com/package/html2canvas@1.4.1). It is also dynamically imported when using the image export functionality. This way, it never gets downloaded until explicitly needed.
+
+## Bundle analyzer
+
+The Webpack bundle analyzer can be used locally by defining a `WEBPACK_BUNDLE_ANALYZER=1` environment variable in the `.env` file, and running `npm run build:cra`. This will cause two new tabs to open in the default browser: one for client-side bundles, one for server-side bundles. Only the client-side ones really matter for performance.
