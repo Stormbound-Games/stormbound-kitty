@@ -9,17 +9,15 @@ export default React.memo(function CardBuilderImageErrorDialog(props) {
     dialog.current = instance
 
     if (instance) {
-      instance.originalShow = instance.show
-      instance.show = url => {
+      instance.on('show', (_, url) => {
         try {
           if (new URL(url).host === 'imgur.com') {
             setIsImgurPage(true)
           }
         } catch (error) {}
-
-        instance.originalShow()
-      }
+      })
     }
+
     props.dialogRef(instance)
   }
 
