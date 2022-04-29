@@ -15,10 +15,9 @@ import Filters from '~/components/DeckEditorFilters'
 import ImportCollection from '~/components/ImportCollection'
 import Info from '~/components/Info'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
-import Link from '~/components/Link'
+import RandomDeckInfo from '~/components/RandomDeckInfo'
 import LoadDeck from '~/components/LoadDeck'
 import Only from '~/components/Only'
-import RandomDeckButton from '~/components/RandomDeckButton'
 import ResetButton from '~/components/ResetButton'
 import Row from '~/components/Row'
 import ShareButton from '~/components/DeckShareButton'
@@ -249,7 +248,7 @@ export default React.memo(function DeckEditorView(props) {
           ) : (
             <>
               <LoadInfo defineDeck={props.defineDeck} />
-              <HelpInfo defineDeck={props.defineDeck} />
+              <RandomDeckInfo defineDeck={props.defineDeck} />
             </>
           )}
 
@@ -427,27 +426,6 @@ const LoadInfo = React.memo(function LoadInfo(props) {
         If you export a deck via the game, you can load it directly onto the
         site to tweak and experiment with it. Click the “Load deck” button below
         to get started.
-      </p>
-    </Info>
-  )
-})
-
-const HelpInfo = React.memo(function HelpInfo(props) {
-  return (
-    <Info
-      icon='stack'
-      title='Getting started'
-      CTA={<RandomDeckButton defineDeck={props.defineDeck} />}
-    >
-      <p>
-        If you do not know where to start,{' '}
-        <Link to='/guides/deck'>read the deck-building guide</Link> to learn how
-        to make a viable deck, or try one of the{' '}
-        <Link to='/decks'>ready-to-go featured decks</Link>. Or try generating a
-        random deck below.{' '}
-        <LearnMoreIcon anchor='#random-deck'>
-          Learn more about random decks
-        </LearnMoreIcon>
       </p>
     </Info>
   )
