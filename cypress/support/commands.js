@@ -12,6 +12,7 @@ import drSetRNG from './commands/drSetRNG'
 import exportFile from './commands/exportFile'
 import importFile from './commands/importFile'
 import { restoreLocalStorage, saveLocalStorage } from './commands/localStorage'
+import paste from './commands/paste'
 
 Cypress.Commands.add('brAddMatch', { prevSubject: false }, brAddMatch)
 Cypress.Commands.add('bsDraw', { prevSubject: false }, bsDraw)
@@ -36,3 +37,4 @@ Cypress.Commands.add(
   { prevSubject: false },
   saveLocalStorage
 )
+Cypress.Commands.add('paste', { prevSubject: true }, paste)
