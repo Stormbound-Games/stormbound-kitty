@@ -22,9 +22,9 @@ const suggestdeck = {
       )
   },
   handler: async function (message) {
-    const abbreviations = await getAbbreviations()
-    const availableTags = await getDeckTags()
     const cards = await getCards()
+    const abbreviations = await getAbbreviations({ cards })
+    const availableTags = await getDeckTags()
     const decks = await getDecks()
     const cardsIndexBySid = indexArray(cards, 'sid')
     const { params, ignored } = parseMessage(

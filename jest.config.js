@@ -9,13 +9,14 @@ const getCards = require('~/api/cards/getCards').default
 
 module.exports = async () => {
   const isPreview = Boolean(process.env.SANITY_PREVIEW_TOKEN)
+  const cards = await getCards({ isPreview })
   const abbreviations = await getAbbreviations({
     isPreview,
+    cards,
     casing: 'LOWERCASE',
   })
   const books = await getBooks({ isPreview })
   const brawls = await getBrawls({ isPreview })
-  const cards = await getCards({ isPreview })
   const decks = await getDecks({ isPreview })
 
   return {

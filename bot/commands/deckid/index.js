@@ -31,8 +31,11 @@ const deckid = {
   handler: async function (message) {
     if (message.length === 0) return
 
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
     const allCards = await getCards()
+    const abbreviations = await getAbbreviations({
+      casing: 'LOWERCASE',
+      cards: allCards,
+    })
     const [deckLevel, search] = getLevelOut(message)
     const unknown = []
     const cards = []

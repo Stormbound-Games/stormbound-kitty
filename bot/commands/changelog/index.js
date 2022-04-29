@@ -27,7 +27,7 @@ const changelog = {
   },
   handler: async function (message) {
     const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
     const [card] = searchCards(cards, abbreviations, message)
 
     // If no card was found with the given search, look no further.

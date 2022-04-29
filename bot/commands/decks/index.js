@@ -62,7 +62,7 @@ const decks = {
   handler: async function (message) {
     const tags = await getDeckTags()
     const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
     const cardsIndex = indexArray(cards)
     const embed = getEmbed()
       .setTitle(`${this.label}`)

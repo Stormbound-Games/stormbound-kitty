@@ -101,7 +101,7 @@ const randomdeck = {
       )
   },
   handler: async function (message) {
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
     const cards = await getCards()
     const { faction, including } = parseMessage(
       cards,

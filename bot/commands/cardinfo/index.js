@@ -23,7 +23,7 @@ const cardinfo = {
     }
 
     const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
+    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
 
     return (
       searchCards(cards, abbreviations, message)

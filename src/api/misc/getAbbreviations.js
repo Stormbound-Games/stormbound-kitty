@@ -2,8 +2,12 @@ import { getEntry } from '~/helpers/sanity'
 import getCards from '~/api/cards/getCards'
 import abbreviate from '~/helpers/abbreviate'
 
-const getAbbreviations = async ({ isPreview, casing = 'NATURAL' } = {}) => {
-  const cards = await getCards({ isPreview })
+const getAbbreviations = async ({
+  isPreview,
+  casing = 'NATURAL',
+  cards,
+} = {}) => {
+  if (!cards) cards = await getCards({ isPreview })
   const siteSettings = await getEntry({
     conditions: ['_type == "siteSettings"'],
     fields: `"abbreviations": coalesce(abbreviations, [])`,
