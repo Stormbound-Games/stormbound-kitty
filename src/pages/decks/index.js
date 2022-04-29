@@ -15,7 +15,7 @@ export async function getServerSideProps({
   // This value is considered fresh for 1 minute (s-maxage=60). If a request is
   // repeated within the next 60 seconds, the previously cached value will still
   // be fresh. If the request is repeated before 6 minutes, the cached value
-  // will be stale but still render (stale-while-revalidate=359). In th
+  // will be stale but still render (stale-while-revalidate=359). In the
   // background, a revalidation request will be made to populate the cache with
   // a fresh value. If you refresh the page, you will see the new value.
   response.setHeader(
