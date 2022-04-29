@@ -27,10 +27,17 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { props: { settings, mode: 'EDITOR', breadcrumbs } }
   }
 
-  const card = getInitialCardData(settings.cards, cardId)
-  const mode = view === 'display' ? 'DISPLAY' : 'EDITOR'
+  try {
+    const card = getInitialCardData(settings.cards, cardId)
+    const mode = view === 'display' ? 'DISPLAY' : 'EDITOR'
 
-  return { props: { settings, id: cardId, card, mode, breadcrumbs } }
+    return { props: { settings, id: cardId, card, mode, breadcrumbs } }
+  } catch {
+    // If the deserialization failed for any reason, return a 404 as the request
+    // cannot be resolved. HTTP 400 Bad Request would be more appropriate but
+    // it’s not possible to return that statically.
+    return { notFound: true }
+  }
 }
 
 export default PageCardBuilder
