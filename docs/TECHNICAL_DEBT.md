@@ -1,9 +1,5 @@
 # Technical debt
 
-## Build command
-
-The command to build the website is called `build:cra` instead of simply `build`. This is because Heroku — which is used to host the Discord bot — [automatically executes any command called `build` upon deployment](https://devcenter.heroku.com/changelog-items/1557), which is not what we want. The `:cra` suffix was added to work around that at a time where the site was built with Create-React-App instead of Next. The name stayed, because it would need to be updated on Vercel as well, and I just couldn’t be bothered to do it.
-
 ## Guides’ `user` key
 
 Guides can have multiple authors, and the field that stores that data is inappropriately called `user` instead of `users`. This is just a silly mistake that I never addressed.

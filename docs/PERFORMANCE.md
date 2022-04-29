@@ -12,4 +12,4 @@ Data visualization (statistics, card collection, mana curve…) is handled with 
 
 ## Bundle analyzer
 
-The Webpack bundle analyzer can be used locally by defining a `WEBPACK_BUNDLE_ANALYZER=1` environment variable in the `.env` file, and running `npm run build:cra`. This will cause two new tabs to open in the default browser: one for client-side bundles, one for server-side bundles. Only the client-side ones really matter for performance.
+The Webpack bundle analyzer can be used locally by defining a `WEBPACK_BUNDLE_ANALYZER=1` environment variable in the `.env` file, and running `npm run build-site`. This will cause two new tabs to open in the default browser: one for client-side bundles, one for server-side bundles. Only the client-side ones really matter for performance.
