@@ -1,4 +1,6 @@
 import applyRateLimit from '~/helpers/applyRateLimit'
+import trackAsync from '~/helpers/trackAsync'
+import getPathname from '~/helpers/getPathname'
 import getBrawl from '~/api/brawls/getBrawl'
 import getCard from '~/api/cards/getCard'
 import getDeck from '~/api/decks/getDeck'
@@ -143,6 +145,10 @@ export default async function handler(request, response) {
     // published yet, it needs to force the preview option when querying data from
     // Sanity.
     const url = await getRedirectUrl({ ...parameters, isPreview: true })
+
+    trackAsync(request, 'cms_preview', '/api/preview', {
+      path: getPathname(url),
+    })
 
     response.setPreviewData({}, { maxAge: PREVIEW_MODE_DURATION })
     response.redirect(url)

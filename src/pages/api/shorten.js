@@ -1,5 +1,8 @@
 import fetch from 'node-fetch'
 import applyRateLimit from '~/helpers/applyRateLimit'
+import getPathname from '~/helpers/getPathname'
+import isChecklyRequest from '~/helpers/isChecklyRequest'
+import trackAsync from '~/helpers/trackAsync'
 
 const API_KEY = process.env.CUTTLY_API_KEY
 const API_URL = 'https://cutt.ly/api/api.php'
@@ -32,6 +35,10 @@ export default async function handler(request, response) {
     )
   )
 
+  trackAsync(request, 'shorten_url', '/api/shorten', {
+    path: getPathname(decodeURIComponent(url)),
+  })
+
   if (cache.has(url)) {
     return response.status(200).json(cache.get(url))
   }
@@ -41,8 +48,7 @@ export default async function handler(request, response) {
       url,
       // Avoid Checkly’s automated checks taking custom links from the 1,000
       // monthly quota.
-      // User-Agent: Checkly/1.0 (https://www.checklyhq.com)
-      !/checkly/i.test(request.headers['user-agent'])
+      !isChecklyRequest(request)
     )
 
     // Not super elegant, but when we’ve reached the monthly quota of branded

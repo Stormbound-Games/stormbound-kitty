@@ -24,24 +24,7 @@ To prevent these tools from inflating our stats and pushing us to a more expensi
 
 Custom events can be tracked via the `helpers/track` utility function. This only works on the client though as it relies on the global `window.plausible` function, so make sure to only call it when the app has mounted (e.g. in `useEffect` React hooks).
 
-To track custom events on the server (such as in API routes), the [Plausible REST API](https://plausible.io/docs/events-api) can be used. For instance:
-
-```js
-fetch('https://plausible.io/api/event', {
-  method: 'POST',
-  headers: {
-    'User-Agent': request.headers['user-agent'],
-    'X-Forwarded-For': getIP(request),
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    name: eventName,
-    domain: 'stormbound-kitty.com',
-    url: 'https://stormbound-kitty.com/path/to/relevant/url',
-    props: { path: '/path/to/relevant/url' },
-  }),
-})
-```
+To track custom events on the server (such as in API routes), the `helpers/trackAsync` utility function can be used (which uses the [Plausible REST API](https://plausible.io/docs/events-api)).
 
 To be able to monitor events on Plausible, a [goal](https://plausible.io/docs/goal-conversions) must first be defined in the site settings interface. While Plausible will record all events sent its way, it will only display the ones that are monitored via custom goals.
 
