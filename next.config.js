@@ -104,7 +104,7 @@ module.exports = withPlugins(plugins, {
 
     return [
       {
-        source: '/(.*)',
+        source: '/:path*',
         headers: [
           {
             key: 'X-DNS-Prefetch-Control',
@@ -129,7 +129,7 @@ module.exports = withPlugins(plugins, {
         ],
       },
       {
-        source: '/:all*(woff2)',
+        source: '/:path*(woff2)',
         locale: false,
         headers: [
           {
@@ -139,7 +139,7 @@ module.exports = withPlugins(plugins, {
         ],
       },
       {
-        source: '/:all*(svg|jpg|png|webp|avif)',
+        source: '/:path*(svg|jpg|png|webp|avif)',
         locale: false,
         headers: [
           {
