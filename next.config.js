@@ -149,6 +149,16 @@ module.exports = withPlugins(plugins, {
         ],
       },
       {
+        source: '/manifest.json',
+        locale: false,
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=604800',
+          },
+        ],
+      },
+      {
         source: '/focus-visible.min.js',
         locale: false,
         headers: [
