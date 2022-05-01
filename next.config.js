@@ -144,7 +144,7 @@ module.exports = withPlugins(plugins, {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=86400',
+            value: 'public, max-age=31536000',
           },
         ],
       },
@@ -154,7 +154,7 @@ module.exports = withPlugins(plugins, {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=604800',
+            value: 'public, max-age=31536000',
           },
         ],
       },
