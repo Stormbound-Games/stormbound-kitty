@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Only from '~/components/Only'
 import Spacing from '~/components/Spacing'
 import styles from './styles'
 
@@ -40,10 +39,6 @@ export default React.memo(function HeaderBanner(props) {
         className={css(styles.banner)}
         style={{ '--image': `url(${background})`, '--ratio': props.ratio }}
       >
-        <Only.Desktop>
-          {/* eslint-disable-next-line */}
-          <img src={background} alt='' hidden referrerPolicy='no-referrer' />
-        </Only.Desktop>
         <h1 className={css(styles.title)}>{props.title}</h1>
       </div>
     </Spacing>
