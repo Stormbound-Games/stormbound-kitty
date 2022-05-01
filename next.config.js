@@ -148,6 +148,16 @@ module.exports = withPlugins(plugins, {
           },
         ],
       },
+      {
+        source: '/focus-visible.min.js',
+        locale: false,
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400',
+          },
+        ],
+      },
     ]
   },
 })
