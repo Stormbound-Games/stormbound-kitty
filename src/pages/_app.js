@@ -30,6 +30,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
     <>
       <Head>
         <link rel='preconnect' href='https://cdn.sanity.io' />
+        <link rel='dns-prefetch' href='https://cdn.sanity.io' />
 
         <link
           rel='shortcut icon'
