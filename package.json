@@ -67,7 +67,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "@babel/register": "^7.17.7",
     "@cypress/webpack-preprocessor": "^5.11.1",
-    "cypress": "^9.5.4",
+    "cypress": "^9.6.0",
     "diff": "^5.0.0",
     "eslint": "^8.14.0",
     "eslint-config-next": "^12.1.5",
