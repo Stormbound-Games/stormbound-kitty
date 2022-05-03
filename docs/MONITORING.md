@@ -15,3 +15,31 @@ That being said, internal server errors can happen. When faced such a server err
 To get more information about it, log into Vercel, then open the [Deployments tab for the site](https://vercel.com/stormbound/stormbound-kitty/deployments). Find the latest production deployement, the one marked as “Production (current)” and open it. Finally, open the “Functions” tab, then filter the incoming logs by “Errors”. You should be able to get more information about the error (URL + stack trace).
 
 ![Screenshot of the incoming logs on Vercel showcasing a couple of errors](https://cdn.sanity.io/images/5hlpazgd/production/fdf94b7c66b92774820ce5660ecc8c2a9d96361d-3584x2028.png?w=1200&auto=format)
+
+## Not Found Errors
+
+The site has a lot of pages, and for the most part it does its best to maintain some form of backward compatibility with old URLs. A lot of old URLs are maintained with permanent redirects in `next.config.js`, and some redirects are done at runtime in relevant pages.
+
+404 errors can also be [tracked in Plausible](https://plausible.io/stormbound-kitty.com?goal=404). It should list the paths yielding a proper HTTP 404 in the browser. This is a good way to figure out which path might need to be updated or redirected.
+
+Finding old links can be done in two ways:
+
+- By searching the codebase for hard-coded paths. A search for `to={` or `to='` should yield all links, and then they can be browsed to look for the dead links.
+- By running the following query in Sanity Vision to find links that were authored in rich text fields.
+
+```groq
+*[ defined(content) ] {
+  // Figure out a name, a title or an ID for the document that contains the
+  // links in the rich-text (to be able to find it in the CMS).
+  "id": coalesce(name, title, id),
+  // Find all links within the `content` field.
+  "links": (
+    content[ _type == "block" ]
+    .markDefs[ _type == "link" ]
+    // In case you’re looking for a specific link, you can uncomment the
+    // following line giving it the exact link.
+    // [href == "/your/path"]
+    .href
+  )
+}[count(links) > 0]
+```
