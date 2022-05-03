@@ -17,6 +17,10 @@ export default class Canvas {
 
   setDifficulty(difficulty) {
     this.difficulty = difficulty
+    // Make sure to reset the crop center in case it has been defined. Otherwise
+    // the first image trivia reaching half-time gets a crop center, after which
+    // it’s never unset. This causes further image trivia to have weird cropping.
+    this.cropCenter = null
   }
 
   loadImage(fileName) {
