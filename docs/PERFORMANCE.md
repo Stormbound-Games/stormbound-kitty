@@ -13,3 +13,13 @@ Data visualization (statistics, card collection, mana curve…) is handled with 
 ## Bundle analyzer
 
 The Webpack bundle analyzer can be used locally by defining a `WEBPACK_BUNDLE_ANALYZER=1` environment variable in the `.env` file, and running `npm run build-site`. This will cause two new tabs to open in the default browser: one for client-side bundles, one for server-side bundles. Only the client-side ones really matter for performance.
+
+## Images
+
+Images are typically lazy-loaded with the `lazy` HTML attribute so they are not blocking the critical path. Most images are hosted on the Sanity CDN, which provides a [handy URL API](https://www.sanity.io/docs/image-urls) to manipulate the image for performance benefits.
+
+The `Image` component (and less importantly the `HeaderBanner` component) automatically adds the following query parameters:
+
+- `auto=format` to have Sanity ship WebP (or even Avif in the future) images if the browser requesting them supports this format.
+- `w=` to request the image at a specific width, infered by the `width` prop.
+- `q=90` to slightly lower the image quality in order to save some data.
