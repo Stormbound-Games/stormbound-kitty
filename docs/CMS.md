@@ -4,9 +4,11 @@
 
 In [Sanity](https://www.sanity.io/), documents can either be drafts or published. To preview a newly created document or a content update before it gets published, one can use the content preview mode.
 
-In any document, look at the top right corner of the page for 3 little dots. Clicking it should open a dropdown menu with an “Open preview” link (<kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>o</kbd>). If that option does not exist, it means there is nothing to preview for such a document, but that should be uncommon. Most documents should have that option.
+At the top of the form, you should see two tabs: one called “Editor” (where the form is) and one called “Preview” which you can use to preview the content before publishing it.
 
-Opening that preview will open the official site in a new tab, but with the preview mode enabled. This works by setting a small cookie in your browser to know that you have enabled the preview mode. A banner at the bottom of the page should make that clear as well, as well as offer you a way to turn off the preview mode.
+Switching to that “Preview” tab will open the official site in an iframe, but with the preview mode enabled. This works by setting a small cookie in your browser to know that you have enabled the preview mode. A banner at the bottom of the page should make that clear as well, as well as offer you a way to turn off the preview mode.
+
+Alternatively, look at the top right corner of the page for 3 little dots. Clicking it should open a dropdown menu with an “Open preview” link (<kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>o</kbd>).
 
 In that mode, every request made to the CMS will bypass cache and query draft versions, so you will see unpublished content. You can safely browse the website or refresh the page — the preview mode will remain active for an hour or until the next website deployment (or until you remove it).
 

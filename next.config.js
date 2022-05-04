@@ -84,7 +84,11 @@ module.exports = withPlugins(plugins, {
       'default-src': [SELF],
       'font-src': [SELF],
       'form-action': [SELF],
-      'frame-ancestors': [NONE],
+      'frame-ancestors': [
+        VERCEL_ENV === 'development'
+          ? 'localhost:3333'
+          : 'stormbound-kitty.sanity.studio',
+      ],
       'frame-src': [/* Brewed Sages podcast player */ 'www.podbean.com'],
       'img-src': ['data:', /* custom card images */ '*'],
       'manifest-src': [SELF],

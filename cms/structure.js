@@ -1,5 +1,7 @@
 import { MdGrading, MdSettings } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
+import Iframe from 'sanity-plugin-iframe-pane'
+import preview from './previewer'
 
 const structure = () =>
   S.list()
@@ -22,5 +24,18 @@ const structure = () =>
           !['siteSettings', 'equalTierList'].includes(listItem.getId())
       ),
     ])
+
+export const getDefaultDocumentNode = () => {
+  return S.document().views([
+    S.view.form(),
+    S.view
+      .component(Iframe)
+      .options({
+        url: doc => preview(doc),
+        reload: { button: true, revision: true },
+      })
+      .title('Preview'),
+  ])
+}
 
 export default structure
