@@ -1,4 +1,4 @@
-import { getEntry, getEntries } from '~/helpers/sanity'
+import { getEntries } from '~/helpers/sanity'
 import {
   FIELDS as ARTWORK_FIELDS,
   MAPPER as ARTWORK_MAPPER,
@@ -36,17 +36,15 @@ const getCardFeed = async ({ params, isPreview } = {}) => {
     ],
     fields: `
       _type,
-      _type == "artwork" => { _id, ${ARTWORK_FIELDS} },
-      _type == "story" => { _id, ${STORY_FIELDS} },
-      _type == "guide" => { _id, ${GUIDE_FIELDS} }
+      _type == "artwork" => { ${ARTWORK_FIELDS} },
+      _type == "story" => { ${STORY_FIELDS} },
+      _type == "guide" => { ${GUIDE_FIELDS} }
     `,
     params,
     options: { order: 'date desc', isPreview },
   })
 
-  const feed = references.map(({ _id, ...entry }) =>
-    cleaners[entry._type](entry)
-  )
+  const feed = references.map(entry => cleaners[entry._type](entry))
 
   return feed
 }

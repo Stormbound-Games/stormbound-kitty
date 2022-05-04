@@ -1,8 +1,11 @@
 import { client, previewClient } from '~/constants/sanity'
 
-const isDraftEntry = entry => entry._id.startsWith('drafts.')
-const isPublishedEntry = entry => !entry._id.startsWith('drafts.')
-const isNotSelf = entry => item => item._id !== entry._id
+const ID_FIELD = '_sanity_id'
+
+const isDraftEntry = entry => entry[ID_FIELD].startsWith('drafts.')
+const isPublishedEntry = entry => !entry[ID_FIELD].startsWith('drafts.')
+const isNotSelf = entry => item => item[ID_FIELD] !== entry[ID_FIELD]
+const withoutSanityId = ({ [ID_FIELD]: _, ...entry }) => entry
 
 const findSameEntry = (current, array) => {
   const otherEntries = array.filter(isNotSelf(current))
@@ -12,7 +15,9 @@ const findSameEntry = (current, array) => {
     // with the same ID but without the `drafts.` part. If the current entry is
     // a published version, a duplicate would be a draft version with the same
     // ID starting with the `drafts.` part.
-    isDraft ? current._id.endsWith(entry._id) : entry._id.endsWith(current._id)
+    isDraft
+      ? current[ID_FIELD].endsWith(entry[ID_FIELD])
+      : entry[ID_FIELD].endsWith(current[ID_FIELD])
 
   return otherEntries.find(isSameEntry)
 }
@@ -24,8 +29,6 @@ const findSameEntry = (current, array) => {
 // preserve the draft version (most recent).
 const preserveDrafts = (current, _, array) =>
   findSameEntry(current, array) ? isDraftEntry(current) : true
-
-const withoutSanityId = ({ _id, ...entry }) => entry
 
 export const getEntry = async ({
   conditions,
@@ -85,9 +88,8 @@ const createQuery = ({ conditions, fields = '...', options = {} }) => {
     `*[${conditions.join(' && ')}]`,
     '{',
     // The `_id` field is necessary when the preview mode is enabled, as it is
-    // used to pick drafts over published entries. It’s hard to determine
-    // whether it is already requested or not though, so we always add it.
-    options.isPreview ? '_id, ' : '',
+    // used to pick drafts over published entries.
+    options.isPreview ? `"${ID_FIELD}": _id, ` : '',
     fields,
     '}',
     order,
