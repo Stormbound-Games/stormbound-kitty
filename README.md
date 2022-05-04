@@ -8,6 +8,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - [CMS](./docs/CMS.md)
 - [Discord Bot](./docs/DISCORD_BOT.md)
 - [Formulas](./docs/FORMULAS.md)
+- [Game overlap](./docs/GAME_OVERLAP.md)
 - [Monitoring](./docs/MONITORING.md)
 - [Performance](./docs/PERFORMANCE.md)
 - [Security](./docs/SECURITY.md)
