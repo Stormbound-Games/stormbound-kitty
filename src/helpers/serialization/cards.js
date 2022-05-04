@@ -1,8 +1,7 @@
 import indexOf from '~/helpers/indexOf'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 
-// Exported for testing purposes
-export const serializeCards = cards => {
+const serializeCards = cards => {
   // To be entirely honest I’m not sure I fully remember how we can have cards
   // that do not have an ID here; maybe when passing a deck with empty slots?
   cards = cards.filter(card => card && card.id)
@@ -32,8 +31,7 @@ export const serializeCards = cards => {
     .join('')
 }
 
-// Exported for testing purposes
-export const deserializeCards = string => {
+const deserializeCards = string => {
   let count = 0
 
   // If the base64 decoded string contains commas, it was originally encoded
@@ -46,7 +44,7 @@ export const deserializeCards = string => {
   let globalLevel = null
 
   // If the ID starts with a number followed by a `x`, it uses the global level
-  // to increase compression. The level of every card is therefore the first
+  // to improve compression. The level of every card is therefore the first
   // number, and the actual ID starts at the 3rd slot, after the `x`.
   if (/^([1-5])x/i.test(string)) {
     globalLevel = string[0]
@@ -65,7 +63,7 @@ export const deserializeCards = string => {
     // In case of a token, the strength will always be issued as 2 digits (with
     // a 0 pad if necessary), otherwise the level is stored in a single digit or
     // skipped entirely if the global level is used
-    const offset = globalLevel ? 0 : string[nextFaction] === 'T' ? 2 : 1
+    const offset = globalLevel ? 0 : /t/i.test(string[nextFaction]) ? 2 : 1
     // Anything from the faction to the next faction minus the level offset is
     // the card ID
     const id = string

@@ -115,6 +115,28 @@ describe('The `serialization.deck.deserialize` helper', () => {
       { level: 5, id: 'N2' },
     ])
   })
+
+  it('should handle Stormbound deck IDs', () => {
+    expect(
+      serialization.deck.deserialize(
+        global.__CARDS_INDEX_BY_SID__,
+        'NHUwMDdzMDEydTQxMXU0MDZ1MDAxdTQwMXUwMzR1MDMxdTQwNXU0MDJ1MDMydTAwNA=='
+      )
+    ).toEqual([
+      { level: 1, id: 'N1' },
+      { level: 1, id: 'N2' },
+      { level: 1, id: 'F2' },
+      { level: 1, id: 'F3' },
+      { level: 1, id: 'N3' },
+      { level: 1, id: 'F5' },
+      { level: 1, id: 'N12' },
+      { level: 1, id: 'N16' },
+      { level: 1, id: 'F14' },
+      { level: 1, id: 'F15' },
+      { level: 1, id: 'N30' },
+      { level: 1, id: 'N57' },
+    ])
+  })
 })
 
 describe('The `serialization.card.deserialize` helper', () => {

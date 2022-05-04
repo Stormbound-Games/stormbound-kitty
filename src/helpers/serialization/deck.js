@@ -1,6 +1,6 @@
 import serialization from './'
 import { base64Decode } from '~/helpers/base64'
-import { convertToSkId } from '~/helpers/convertDeckId'
+import { convertToSkId, isDecodedSbId } from '~/helpers/convertDeckId'
 
 const serializeDeck = cards => {
   // Do not en/decode to base64 as the hash ends up being longer than the
@@ -10,36 +10,35 @@ const serializeDeck = cards => {
 }
 
 // Deserialize a deck into an array of cards
-// @param {String} hash - Either base64 hash (old) or card string (new)
+// @param {Object} cardsIndexBySid - Cards index with Stormbound IDs as keys
+// @param {String} input - Either a base64-encoded Stormbound deck ID or a non-
+//                         encoded Stormbound-Kitty deck ID
 // @return {Object[]} cards
-const deserializeDeck = (cardsIndexBySid, hash) => {
+const deserializeDeck = (cardsIndexBySid, input) => {
   try {
-    const string = base64Decode(hash)
+    const decoded = base64Decode(input)
 
     // If the base64 decoded string is a Stormbound deck ID, it should be
-    // converted to a Stormbound-Kitty deck ID before being decoded. Note that
-    // we pass the base64 hash, and not the decoded string, as `convertToSkId`
-    // expects a base 64 value.
-    if (/^\d((b|s|u|ua|ud|ue|ut)\d+)+$/.test(string)) {
-      const deckId = convertToSkId(cardsIndexBySid, hash)
-
-      return serialization.cards.deserialize(deckId)
+    // converted to a Stormbound-Kitty deck ID before being deserialized.
+    // Note that we pass the base64 hash, and not the decoded string, as
+    // `convertToSkId` expects a base64 value.
+    if (isDecodedSbId(decoded)) {
+      return serialization.cards.deserialize(
+        convertToSkId(cardsIndexBySid, input)
+      )
     }
 
     // The card serialization system operates within the base64 range, which
     // means it is technically possible to base64 decode a deck string without
     // an error. Therefore, we check if the base64 decoded string contains only
-    // numbers, faction indicators and comma (for old decks). If it doesn’t, it
-    // means the input was not actually a base64 hash but deck string to be
-    // deserialized.
-    if (!/^[NSFWIT\d,]+$/.test(string)) {
-      return serialization.cards.deserialize(hash.toUpperCase())
-    }
+    // numbers, faction indicators (and comma for old decks). If it doesn’t, it
+    // means the input was not actually a base64 hash to be decoded but the deck
+    // string to be deserialized.
+    const value = /^[NSFWIT\d,]+$/.test(decoded) ? decoded : input
 
-    // Maintain backward compability with decks serialized in base64.
-    return serialization.cards.deserialize(string)
-  } catch (error) {
-    return serialization.cards.deserialize(hash.toUpperCase())
+    return serialization.cards.deserialize(value)
+  } catch {
+    return serialization.cards.deserialize(input)
   }
 }
 
