@@ -17,7 +17,8 @@
     "table",
     "@sanity/dashboard",
     "dashboard-widget-document-list",
-    "order-documents"
+    "order-documents",
+    "iframe-pane"
   ],
   "env": {
     "development": {

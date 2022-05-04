@@ -26,6 +26,7 @@
     "react-dom": "^17.0",
     "react-icons": "^4.3.1",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
+    "sanity-plugin-iframe-pane": "^1.0.16",
     "sanity-plugin-media-library": "^2.0.2",
     "sanity-plugin-order-documents": "^0.0.22",
     "sanity-plugin-table": "^2.3.0",
