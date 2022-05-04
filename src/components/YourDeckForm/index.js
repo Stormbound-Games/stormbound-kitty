@@ -31,9 +31,13 @@ const validateDeckId = (cardsIndex, cardsIndexBySid, id) => {
     }
   }
 
-  return serialization.deck
-    .deserialize(cardsIndexBySid, id)
-    .every(card => card.id in cardsIndex)
+  try {
+    return serialization.deck
+      .deserialize(cardsIndexBySid, id)
+      .every(card => card.id in cardsIndex)
+  } catch {
+    return false
+  }
 }
 
 export default React.memo(function YourDeckForm(props) {
