@@ -2,7 +2,7 @@
 
 ## Development
 
-The bot can be run locally on Kitty’s personal Discord server to test the code before deploying it to production. First, ensure you have a valid [Discord token](https://discordhelp.net/discord-token) set in your `.env` file (`DISCORD_TOKEN`), then run the following command:
+The bot can be run locally on Kitty’s personal Discord server to test the code before deploying it to production. First, ensure you have a valid [Discord token](https://discordhelp.net/discord-token) set in your `.env` file (as `DISCORD_TOKEN`), then run the following command:
 
 ```sh
 npm run bot:dev

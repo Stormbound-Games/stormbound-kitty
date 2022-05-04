@@ -14,9 +14,8 @@ To prevent these tools from inflating our stats and pushing us to a more expensi
 - `/card/**`
 - `/deck/**`
 - `/list/**`
-- `/quest/**`
-- `/simulators/battle/*/display`
-- `/simulators/battle/*`
+- `/quest/*`
+- `/simulators/battle/**`
 - `/simulators/books/*`
 - `/simulators/draft/*`
 
