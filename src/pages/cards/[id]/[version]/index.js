@@ -18,12 +18,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview: isPreview = false }) {
+  const cardId = params.id.toUpperCase()
   const cards = await getCards({
     isPreview,
-    fields: '"ref": _id, notes, ' + CARD_FIELDS,
+    fields: CARD_FIELDS + ', id.current == $id => { _id, notes }',
+    params: { id: cardId },
   })
   const settings = await getSiteSettings({ isPreview, cards })
-  const cardId = params.id.toUpperCase()
   const versionId = params.version
   const cardsIndex = indexArray(settings.cards)
   const isOfficial = cardId in cardsIndex
@@ -33,12 +34,13 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   const notes = cardsIndex[cardId].notes || null
+  const sanityId = cardsIndex[cardId]._id || null
 
-  // Cards notes should not be carried away in the context as they are
-  // unnecessary throughout the codebase except for the official card page.
-  settings.cards.forEach(card => {
-    delete card.notes
-  })
+  // Delete additional fields for the current card as they should not be carried
+  // away in the context as they are unnecessary throughout the codebase except
+  // for the official card page.
+  delete cardsIndex[cardId].notes
+  delete cardsIndex[cardId]._id
 
   const card = getInitialCardData(settings.cards, cardId)
   const versions = await getChangesFromCard({ id: cardId, isPreview })
@@ -48,7 +50,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 
   const feed = await getCardFeed({
-    params: { name: card.name, ref: cardsIndex[cardId].ref },
+    params: { name: card.name, ref: sanityId },
     isPreview,
   })
 
