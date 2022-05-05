@@ -9,6 +9,7 @@ import getCards from '~/api/cards/getCards'
 const deckadvice = {
   command: 'deckadvice',
   label: '💎  Deck Advice',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

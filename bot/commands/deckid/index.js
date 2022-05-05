@@ -20,6 +20,7 @@ const getLevelOut = term => {
 const deckid = {
   command: 'deckid',
   label: '⚙️  Deck ID',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

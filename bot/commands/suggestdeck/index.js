@@ -13,6 +13,7 @@ import { parseMessage } from '../decks'
 const suggestdeck = {
   command: 'suggestdeck',
   label: '✅  Deck Suggestion',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

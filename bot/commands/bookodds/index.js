@@ -71,6 +71,7 @@ const parseMessage = (booksIndex, cards, abbreviations, search) => {
 const bookodds = {
   command: 'bookodds',
   label: '📕  Book Drawing Odds',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

@@ -5,6 +5,7 @@ import { GUIDE_CATEGORIES } from '~/constants/guides'
 const guides = {
   command: 'guides',
   label: '🧭  Guides',
+  aliases: ['guide'],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

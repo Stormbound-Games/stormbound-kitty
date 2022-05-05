@@ -10,6 +10,7 @@ const cache = new Map()
 const trivia = {
   command: 'trivia',
   label: '🔮  Trivia',
+  aliases: [],
   ping: false,
   help: function () {
     return getEmbed({ withHeader: false })

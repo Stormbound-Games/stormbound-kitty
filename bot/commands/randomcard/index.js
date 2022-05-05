@@ -48,6 +48,7 @@ const parseMessage = content => {
 const randomcard = {
   command: 'randomcard',
   label: '🃏  Random Card',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

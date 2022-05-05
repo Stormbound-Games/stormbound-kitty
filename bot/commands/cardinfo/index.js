@@ -7,6 +7,7 @@ import getCards from '~/api/cards/getCards'
 const cardinfo = {
   command: 'cardinfo',
   label: '⚡️  Card Info',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

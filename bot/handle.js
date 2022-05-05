@@ -21,24 +21,25 @@ const handle = client => async message => {
     .filter(term => !term.startsWith('<@'))
     .join(' ')
     .trim()
+  const command =
+    client.commands.get(commandName) || client.aliases.get(commandName)
 
-  if (client.commands.has(commandName)) {
-    const command = client.commands.get(commandName)
-    const user = message.mentions.users.first() || message.author
-    const ping = command.ping === false ? '' : user
-    const channelId = getChannelId(message, command)
-    const answer = /\bhelp\b/.test(content)
-      ? await command.help(content, client, message)
-      : await command.handler(content, client, message)
+  if (!command) return
 
-    if (answer && channelId) {
-      const channel = client.channels.cache.get(channelId)
+  const user = message.mentions.users.first() || message.author
+  const ping = command.ping === false ? '' : user
+  const channelId = getChannelId(message, command)
+  const answer = /\bhelp\b/.test(content)
+    ? await command.help(content, client, message)
+    : await command.handler(content, client, message)
 
-      if (typeof answer === 'string') {
-        channel.send([ping, answer].join(' '))
-      } else {
-        channel.send(ping, answer)
-      }
+  if (answer && channelId) {
+    const channel = client.channels.cache.get(channelId)
+
+    if (typeof answer === 'string') {
+      channel.send([ping, answer].join(' '))
+    } else {
+      channel.send(ping, answer)
     }
   }
 }

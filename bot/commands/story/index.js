@@ -19,6 +19,7 @@ const getEmbedForStory = (cardsIndex, label, story) => {
 const story = {
   command: 'story',
   label: '📝  Story',
+  aliases: ['stories'],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

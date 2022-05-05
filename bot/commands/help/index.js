@@ -3,6 +3,7 @@ import getEmbed from '~/helpers/getEmbed'
 const help = {
   command: 'help',
   label: '🤖  Help',
+  aliases: [],
   help: function (content, client, messageObject) {
     const embed = getEmbed()
       .setTitle(`${this.label}`)

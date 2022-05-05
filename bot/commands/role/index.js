@@ -52,6 +52,7 @@ const hasRole = (member, role) => {
 const role = {
   command: 'role',
   label: '🌟  Role Assignment',
+  aliases: ['roles'],
   help: function (message, client, messageObject) {
     const embed = getEmbed().setTitle(`${this.label}: help`)
 

@@ -34,6 +34,7 @@ const getRandomCardName = cards => {
 const mashup = {
   command: 'mashup',
   label: '🤪  Card Mashup',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
@@ -42,7 +43,7 @@ const mashup = {
         'Randomly generate a random card name from existing ones.'
       )
   },
-  handler: async function (message, client, messageObject) {
+  handler: async function () {
     const cards = await getCards()
     return getEmbed().setTitle(this.label + ': ' + getRandomCardName(cards))
   },
