@@ -92,6 +92,7 @@ export const validateFaction = (faction, including = []) => {
 const randomdeck = {
   command: 'randomdeck',
   label: '🎲  Random Deck',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

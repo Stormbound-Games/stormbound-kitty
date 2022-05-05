@@ -51,6 +51,7 @@ export const parseMessage = (cards, abbreviations, tags, content) => {
 const decks = {
   command: 'decks',
   label: '🔍  Deck Search',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

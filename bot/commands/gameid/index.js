@@ -4,6 +4,7 @@ import api from '~/helpers/triviapi'
 const gameid = {
   command: 'gameid',
   label: '🎮  Game ID',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

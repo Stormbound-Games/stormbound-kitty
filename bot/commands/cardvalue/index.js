@@ -21,6 +21,7 @@ const getLevel = message => {
 const cardvalue = {
   command: 'cardvalue',
   label: '⚖️  Card value',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

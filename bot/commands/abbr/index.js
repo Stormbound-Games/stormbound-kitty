@@ -7,6 +7,7 @@ const quotify = value => `“${value}”`
 const abbr = {
   command: 'abbr',
   label: '❔  Abbreviation',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

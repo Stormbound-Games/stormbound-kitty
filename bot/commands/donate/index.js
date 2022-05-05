@@ -6,6 +6,7 @@ const BASE_MESSAGE =
 const donate = {
   command: 'donate',
   label: '💸  Donate',
+  aliases: ['contribute'],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

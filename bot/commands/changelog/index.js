@@ -17,6 +17,7 @@ const groupByDate = (acc, change) => {
 const changelog = {
   command: 'changelog',
   label: '🛠  Card Changelog',
+  aliases: [],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)

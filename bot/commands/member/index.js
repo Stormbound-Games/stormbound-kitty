@@ -8,6 +8,7 @@ const BASE_URL = 'https://stormbound-kitty.com'
 const member = {
   command: 'member',
   label: '😻  SK member',
+  aliases: ['members'],
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
