@@ -1,34 +1,11 @@
 import { client, previewClient } from '~/constants/sanity'
-
-const ID_FIELD = '_sanity_id'
-
-const isDraftEntry = entry => entry[ID_FIELD].startsWith('drafts.')
-const isPublishedEntry = entry => !entry[ID_FIELD].startsWith('drafts.')
-const isNotSelf = entry => item => item[ID_FIELD] !== entry[ID_FIELD]
-const withoutSanityId = ({ [ID_FIELD]: _, ...entry }) => entry
-
-const findSameEntry = (current, array) => {
-  const otherEntries = array.filter(isNotSelf(current))
-  const isDraft = isDraftEntry(current)
-  const isSameEntry = entry =>
-    // If the current entry is a draft, a duplicate would be a published version
-    // with the same ID but without the `drafts.` part. If the current entry is
-    // a published version, a duplicate would be a draft version with the same
-    // ID starting with the `drafts.` part.
-    isDraft
-      ? current[ID_FIELD].endsWith(entry[ID_FIELD])
-      : entry[ID_FIELD].endsWith(current[ID_FIELD])
-
-  return otherEntries.find(isSameEntry)
-}
-
-// Try to find the current entry in the array with a different publication
-// status (draft if it’s published, or published if it’s draft). If the same
-// entry has been found in the array but with a different publication status,
-// it means it is both published and drafted. In that case, we should only
-// preserve the draft version (most recent).
-const preserveDrafts = (current, _, array) =>
-  findSameEntry(current, array) ? isDraftEntry(current) : true
+import {
+  createQuery,
+  isDraftEntry,
+  isPublishedEntry,
+  preserveDrafts,
+  withoutSanityId,
+} from './utils'
 
 export const getEntry = async ({
   conditions,
@@ -36,8 +13,9 @@ export const getEntry = async ({
   params,
   options = {},
 }) => {
-  // Limit the amount of results to 1 when the preview mode is *not* enabled
-  // since the production Sanity client cannot return draft entries sanyway.
+  // Limit the amount of results to 1 (groq `[0]`) when the preview mode is
+  // *not* enabled since the production Sanity client cannot return draft
+  // entries anyway.
   const slice = options.isPreview ? options.slice : 0
   const query = createQuery({
     conditions,
@@ -66,35 +44,16 @@ export const getEntries = async ({
   options = {},
 }) => {
   const query = createQuery({ conditions, fields, options })
-  const sanityClient = options.isPreview ? previewClient : client
-  const entries = await sanityClient.fetch(query, params)
 
   if (options.isPreview) {
     if (!previewClient) {
       throw new Error('Missing `SANITY_PREVIEW_TOKEN` environment variable')
     }
 
+    const entries = await previewClient.fetch(query, params)
+
     return entries.filter(preserveDrafts).map(withoutSanityId)
   }
 
-  return entries
-}
-
-const createQuery = ({ conditions, fields = '...', options = {} }) => {
-  const slice = typeof options.slice !== 'undefined' ? `[${options.slice}]` : ''
-  const order = options.order ? `| order(${options.order})` : ''
-
-  return [
-    `*[${conditions.join(' && ')}]`,
-    '{',
-    // The `_id` field is necessary when the preview mode is enabled, as it is
-    // used to pick drafts over published entries.
-    options.isPreview ? `"${ID_FIELD}": _id, ` : '',
-    fields,
-    '}',
-    order,
-    slice,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  return client.fetch(query, params)
 }

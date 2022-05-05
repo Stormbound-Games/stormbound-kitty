@@ -1,13 +1,13 @@
 import sanityClient from '@sanity/client'
 
-const PROJECT_ID = '5hlpazgd'
-const DATASET = 'production'
-const API_VERSION = '2022-02-01'
+const configuration = {
+  projectId: '5hlpazgd',
+  dataset: 'production',
+  apiVersion: '2022-02-01',
+}
 
 export const client = sanityClient({
-  projectId: PROJECT_ID,
-  dataset: DATASET,
-  apiVersion: API_VERSION,
+  ...configuration,
   // Using Sanity’s API CDN is generally good for performance, but does not play
   // too nicely with on-demand revalidation. When the Sanity webhook instructs
   // Next.js to rebuild a certain path, data queries to Sanity CDN may return
@@ -19,12 +19,17 @@ export const client = sanityClient({
   useCdn: Boolean(Number(process.env.CI)),
 })
 
+// Explicitly skip the instantiation of the preview client when the token is not
+// defined to let the preview mode crash. Otherwise, the preview client would
+// silently behave like the production client, which would lead to a non-
+// functional preview mode without any error.
 export const previewClient = process.env.SANITY_PREVIEW_TOKEN
   ? sanityClient({
-      projectId: PROJECT_ID,
-      dataset: DATASET,
+      ...configuration,
       useCdn: false,
+      // Passing a token is what makes it possible to retrieve draft documents.
+      // “A draft document does not appear on the APIs to unauthenticated users”
+      // See: https://www.sanity.io/docs/drafts
       token: process.env.SANITY_PREVIEW_TOKEN,
-      apiVersion: API_VERSION,
     })
   : null
