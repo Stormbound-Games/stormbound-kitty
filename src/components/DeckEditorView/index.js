@@ -194,13 +194,15 @@ export default React.memo(function DeckEditorView(props) {
     // eslint-disable-next-line
   }, [shouldRestoreOriginalDeck])
 
-  // Compute the card collection and its level based on whether there is in fact
-  // a custom collection, and whether the levels should be the ones of the
-  // collection.
+  // Compute the card collection, the level of cards and whether they are owned
+  // based on whether there is in fact a custom collection, and whether the
+  // card level field is set to respect the collection.
+  const withCollection = cardLevel === 0 && !hasDefaultCollection
   const cardCollection = collection.map(card =>
     getResolvedCardData(cardsIndex, {
       ...card,
-      level: cardLevel === 0 && !hasDefaultCollection ? card.level : cardLevel,
+      level: withCollection ? card.level : cardLevel,
+      missing: withCollection ? card.missing : false,
     })
   )
 
