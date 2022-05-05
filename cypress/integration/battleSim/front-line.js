@@ -28,6 +28,17 @@ describe('Battle Simulator — Front lines', () => {
       .should('have.attr', 'data-battle-sim-row', 'BLUE-2')
   })
 
+  it('should be preserved upon reload', () => {
+    cy.url()
+      .should('not.match', /battle$/)
+      .get(s.ROWS)
+      .eq(4)
+      .should('have.attr', 'data-battle-sim-row', 'BLUE-2')
+      .get(s.ROWS)
+      .eq(0)
+      .should('have.attr', 'data-battle-sim-row', 'RED-1')
+  })
+
   it('should prevent RED front line from going in BLUE base', () => {
     cy.bsFill('E1', { card: 'Zhev', player: 'RED' })
       .get(s.ROWS)
@@ -40,16 +51,5 @@ describe('Battle Simulator — Front lines', () => {
       .get(s.ROWS)
       .eq(4)
       .should('have.attr', 'data-battle-sim-row', 'BLUE-1')
-  })
-
-  it('should be preserved upon reload', () => {
-    cy.wait(3000)
-      .reload()
-      .get(s.ROWS)
-      .eq(4)
-      .should('have.attr', 'data-battle-sim-row', 'BLUE-1')
-      .get(s.ROWS)
-      .eq(0)
-      .should('have.attr', 'data-battle-sim-row', 'RED-3')
   })
 })

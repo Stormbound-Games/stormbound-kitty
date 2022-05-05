@@ -19,8 +19,7 @@ describe('Battle Simulator — Mana', () => {
 
   it('should be preserved upon reload', () => {
     cy.url()
-      .should('not.match', /\/simulators\/battle$/)
-      .wait(3000)
+      .should('not.match', /battle$/)
       .reload()
       .get(s.MANA)
       .eq(0)
