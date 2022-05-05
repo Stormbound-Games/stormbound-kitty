@@ -173,12 +173,19 @@ export default class Trivia {
         return embed
       }
 
-      const [card] = searchCards(this.cards, this.abbreviations, content)
+      const cards = searchCards(this.cards, this.abbreviations, content)
 
-      if (card) {
-        if (card.name === this.answer.name) {
+      if (cards.length) {
+        // Do not only check the first hit, otherwise it might yield a false
+        // negative in case several cards match the guess. For instance, if the
+        // answer is Excited Mousers and the player says “Mousers”, but the
+        // first card returned is Rapid Mousers, it would count is as a miss,
+        // despite the player having successfully found the card.
+        if (cards.some(card => card.name === this.answer.name)) {
           return this.handleSuccess(author)
         }
+
+        const [card] = cards
 
         return embed
           .setTitle(`❌ Incorrect answer: ~~${card.name}~~`)
