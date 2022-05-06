@@ -14,6 +14,7 @@ const wrapper = {
 
 const item = {
   paddingLeft: 'var(--s-large)',
+  WebkitBackgroundClip: 'padding-box',
   backgroundClip: 'padding-box',
 }
 

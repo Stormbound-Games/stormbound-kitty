@@ -89,6 +89,7 @@ const item = {
     height: '0.3em',
     border: '1px solid var(--beige)',
     backgroundColor: 'var(--beige)', // 1
+    WebkitBackgroundClip: 'content-box', // 1
     backgroundClip: 'content-box', // 1
     padding: '1px', // 1
   },

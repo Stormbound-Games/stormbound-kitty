@@ -5,6 +5,7 @@ const lexicon = {
 
 const column = {
   paddingLeft: 'var(--s-large)',
+  WebkitBackgroundClip: 'padding-box',
   backgroundClip: 'padding-box',
 
   small: { paddingLeft: 0 },

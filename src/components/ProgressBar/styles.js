@@ -10,6 +10,7 @@ const progress = {
   maxWidth: '100%',
   padding: '3px',
   backgroundColor: 'var(--green)',
+  WebkitBackgroundClip: 'content-box', // 2
   backgroundClip: 'content-box', // 2
   border: '1px solid var(--beige)',
   borderRight: 0, // 3
