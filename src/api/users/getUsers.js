@@ -8,7 +8,9 @@ const getUsers = async ({ isPreview } = {}) => {
     options: { order: 'name asc', isPreview },
   })
 
-  return users
+  return users.filter(
+    user => user.contributions.length > 0 || user.channel || user.playerId
+  )
 }
 
 export default getUsers
