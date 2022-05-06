@@ -160,6 +160,10 @@ module.exports = withPlugins(plugins, {
             key: 'Cache-Control',
             value: 'public, max-age=604800',
           },
+          {
+            key: 'Content-Type',
+            value: 'application/manifest+json',
+          },
         ],
       },
       {
