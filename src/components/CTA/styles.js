@@ -22,9 +22,10 @@ const cta = ({ isDisabled, isFullWidthOnMobile }) => ({
   filter: isDisabled ? 'grayscale(1)' : undefined,
   cursor: isDisabled ? 'not-allowed' : 'pointer',
 
-  ':hover': { filter: isDisabled ? 'grayscale(1)' : 'hue-rotate(60deg)' },
-
   small: { width: isFullWidthOnMobile ? '100%' : undefined },
+
+  ':hover': { filter: isDisabled ? 'grayscale(1)' : 'hue-rotate(60deg)' },
+  ':focus': { outlineStyle: 'auto' },
 })
 
 const content = {
