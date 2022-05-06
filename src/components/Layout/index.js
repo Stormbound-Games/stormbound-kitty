@@ -36,7 +36,7 @@ export default React.memo(function Layout(props) {
         openSearch={() => searchDialog.current.show()}
       />
 
-      <main className={css(styles.body)}>
+      <main className={css(styles.body)} id='main'>
         {router.isFallback ? <Loader /> : props.children}
       </main>
 
