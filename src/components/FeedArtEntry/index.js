@@ -1,4 +1,5 @@
 import React from 'react'
+import CardLink from '~/components/CardLink'
 import FeedDetailDisplay from '~/components/FeedDetailDisplay'
 import FeedEntry from '~/components/FeedEntry'
 import Image from '~/components/Image'
@@ -12,7 +13,14 @@ export default React.memo(function FeedArtEntry(props) {
 
   return (
     <FeedEntry icon='image' date={props.date}>
-      {props.user.name} has made some art.
+      {props.user.name} has made some art
+      {props.card ? (
+        <>
+          {' '}
+          about <CardLink id={props.card} />
+        </>
+      ) : null}
+      .
       <FeedDetailDisplay label='artwork'>
         <Image
           extend={{ marginTop: 0 }}

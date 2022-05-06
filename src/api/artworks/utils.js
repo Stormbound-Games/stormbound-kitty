@@ -3,6 +3,7 @@ import serializeDate from '~/helpers/serializeDate'
 export const FIELDS = `
 "user": user -> { name, "slug": slug.current },
 date,
+"card": (card -> { "id": id.current }).id,
 "image": image { "url": asset -> url }.url,
 "dimensions": (image {
   "asset": (asset -> {
