@@ -126,6 +126,31 @@ const action = ({ isActive, isOpen }) => ({
   },
 })
 
+const skipLink = {
+  border: 0,
+  clip: 'rect(1px, 1px, 1px, 1px)',
+  WebkitClipPath: 'inset(50%)',
+  clipPath: 'inset(50%)',
+  height: '1px',
+  overflow: 'hidden',
+  position: 'absolute',
+  left: 0,
+  width: '1px',
+  whiteSpace: 'nowrap',
+
+  ':focus': {
+    width: 'auto',
+    clip: 'auto',
+    WebkitClipPath: 'none',
+    clipPath: 'none',
+    height: 'auto',
+    overflow: 'visible',
+    position: 'static',
+    textDecoration: 'none',
+    outlineStyle: 'auto',
+  },
+}
+
 const icon = {
   fontSize: '80%',
   marginRight: 'var(--s-smallest)',
@@ -142,6 +167,7 @@ const styles = {
   header,
   nav,
   list,
+  skipLink,
   item,
   action,
   icon,

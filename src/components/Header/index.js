@@ -8,6 +8,7 @@ import MobileHeader from '~/components/MobileHeader'
 import NavCardBuilder from '~/components/NavCardBuilder'
 import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
+import Only from '~/components/Only'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
 import useUser from '~/hooks/useUser'
@@ -129,6 +130,13 @@ export default React.memo(function Header(props) {
 
       <nav className={css(styles.nav)}>
         <ul className={css(styles.list)}>
+          <Only.Desktop>
+            <li className={css(styles.item)}>
+              <Link href='#main' extend={[styles.action, styles.skipLink]}>
+                <Icon icon='arrow-down' extend={styles.icon} /> Skip
+              </Link>
+            </li>
+          </Only.Desktop>
           {navigation.map(item => (
             <li key={item.label} className={css(styles.item)}>
               <HeaderItem
