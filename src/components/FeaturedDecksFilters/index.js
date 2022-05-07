@@ -1,5 +1,6 @@
 import React from 'react'
 import { CollectionContext } from '~/components/CollectionProvider'
+import { CardsContext } from '~/components/CardsProvider'
 import CardSelect from '~/components/CardSelect'
 import CTA from '~/components/CTA'
 import FactionSelect from '~/components/FactionSelect'
@@ -24,8 +25,38 @@ const getAuthors = decks => {
 }
 
 export default React.memo(function FeaturedDecksFilters(props) {
+  const { cards, cardsIndex } = React.useContext(CardsContext)
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const authors = React.useMemo(() => getAuthors(props.decks), [props.decks])
+  const isInvalidFaction = React.useCallback(
+    card => !['neutral', props.faction].includes(card.faction),
+    [props.faction]
+  )
+  const disabledOptions = React.useMemo(
+    () =>
+      props.faction !== '*'
+        ? cards.filter(isInvalidFaction).map(card => card.id)
+        : [],
+    [cards, props.faction, isInvalidFaction]
+  )
+
+  const { updateIncluding } = props
+
+  React.useEffect(() => {
+    if (props.faction === '*' || !props.including) return
+
+    // If there is an included card, and the faction gets changed to an invalid
+    // faction for that card, reset the including field.
+    if (isInvalidFaction(cardsIndex[props.including].faction)) {
+      updateIncluding(null)
+    }
+  }, [
+    cardsIndex,
+    props.including,
+    props.faction,
+    isInvalidFaction,
+    updateIncluding,
+  ])
 
   return (
     <MobileTogglableContent label='Display deck filters'>
@@ -86,6 +117,7 @@ export default React.memo(function FeaturedDecksFilters(props) {
               name='including'
               id='including'
               current={props.including}
+              disabledOptions={disabledOptions}
               onChange={option => {
                 props.updateIncluding(option ? option.value : null)
               }}
