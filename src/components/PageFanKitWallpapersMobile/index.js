@@ -15,6 +15,7 @@ const resolveAsset = (wallpaper, index) => {
     name: `Stormbound mobile wallpaper ${index + 1}`,
     id: wallpaper.id,
     image: wallpaper.image,
+    extension: wallpaper.extension,
     aspectRatio: aspectRatio,
     width: 350,
     height: Math.round(height * (350 / width)),
