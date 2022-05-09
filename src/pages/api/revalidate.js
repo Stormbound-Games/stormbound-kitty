@@ -2,7 +2,7 @@ import { GUIDE_CATEGORIES } from '~/constants/guides'
 import { getRateLimitMiddlewares } from '~/helpers/applyRateLimit'
 import uniqueBy from '~/helpers/uniqueBy'
 
-const clean = users => uniqueBy(users.filter(Boolean), 'slug')
+const clean = users => uniqueBy((users || []).filter(Boolean), 'slug')
 const toString = users =>
   users
     .map(user => user.slug)
@@ -10,25 +10,20 @@ const toString = users =>
     .join('')
 
 const getUserPaths = body => {
-  if (body.beforeUsers && body.afterUsers) {
-    const beforeUsers = clean(body.beforeUsers)
-    const afterUsers = clean(body.afterUsers)
+  const beforeUsers = clean(body.beforeUsers)
+  const afterUsers = clean(body.afterUsers)
 
-    // If the users haven’t changed, there is no need to revalidate their page.
-    // Otherwise, their page needs to be revalidated, as well as the users index.
-    return toString(beforeUsers) === toString(afterUsers)
-      ? []
-      : [
-          '/members',
-          ...clean([...beforeUsers, ...afterUsers]).map(
-            user => `/members/${user.slug}`
-          ),
-        ]
+  // If the users haven’t changed, there is no need to revalidate their page.
+  if (toString(beforeUsers) === toString(afterUsers)) {
+    return []
   }
 
-  return body.users
-    ? ['/members', ...clean(body.users).map(user => `/members/${user.slug}`)]
-    : []
+  return [
+    '/members',
+    ...clean([...beforeUsers, ...afterUsers]).map(
+      user => `/members/${user.slug}`
+    ),
+  ]
 }
 
 // The data received from the Sanity API is defined in the webhook settings to
