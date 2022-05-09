@@ -1,11 +1,5 @@
 # Technical debt
 
-## Guides’ `user` key
-
-Guides can have multiple authors, and the field that stores that data is inappropriately called `user` instead of `users`. This is just a silly mistake that I never addressed.
-
-This is currently normalized on the API layer when querying for guides, but it should ideally be addressed via another data migration to fix the problem (exposing the value as `users`, updating the API layer, then another data migration to remove the `user` field).
-
 ## Deck embed naming
 
 Featured decks use the `deck` name as a document type, which is a tad too generic and should have been called `featuredDeck` instead. This caused deck embeds to be called `deckEmbed` when no other embed has the “embed” suffix. Not dramatic, but not incredibly consistent.
