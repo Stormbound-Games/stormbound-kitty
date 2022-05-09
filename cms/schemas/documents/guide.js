@@ -71,8 +71,16 @@ const guide = {
     },
     { ...date, fieldset: 'metadata' },
     {
-      title: 'Authors',
+      title: 'Authors (Legacy)',
       name: 'user',
+      type: 'array',
+      fieldset: 'metadata',
+      of: [{ ...user, title: 'Author' }],
+      validation: Rule => Rule.min(1),
+    },
+    {
+      title: 'Authors',
+      name: 'users',
       type: 'array',
       fieldset: 'metadata',
       of: [{ ...user, title: 'Author' }],
