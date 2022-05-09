@@ -29,7 +29,7 @@ export default React.memo(function FanKitItem(props) {
           href={
             isMounted
               ? undefined
-              : props.image + '?dl=' + encodeURIComponent(props.name)
+              : props.image + '?dl=' + encodeURIComponent(props.name + '.png')
           }
         />
       </span>
