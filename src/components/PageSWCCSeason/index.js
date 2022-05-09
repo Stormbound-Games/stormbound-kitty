@@ -12,7 +12,7 @@ export default React.memo(function PageSWCCSeason(props) {
       props.contests.slice(0).sort((a, b) => {
         if (order === 'THEME') return a.name.localeCompare(b.name)
         if (order === 'AUTHOR')
-          return a.winner.user.name.localeCompare(b.winner.user.name)
+          return a.author.name.localeCompare(b.author.name)
         if (order === 'DATE') return parseDate(b.date) - parseDate(a.date)
         return 0
       }),

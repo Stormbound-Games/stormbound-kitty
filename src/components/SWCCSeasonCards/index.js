@@ -11,18 +11,18 @@ import { formatDate } from '~/helpers/formatDate'
 export default React.memo(function SWCCSeason(props) {
   const { cardsIndex } = React.useContext(CardsContext)
   const items = props.contests.map(contest => {
-    const cardData = getSWCCCardData(cardsIndex, contest.winner.id)
+    const cardData = getSWCCCardData(cardsIndex, contest.id)
     const date = formatDate(parseDate(contest.date))
 
     return {
-      id: contest.winner.id,
+      id: contest.id,
       card: cardData,
       title: contest.name,
       meta: (
         <>
           By{' '}
-          <Link to={`/members/${contest.winner.user.slug}`}>
-            {contest.winner.user.name}
+          <Link to={`/members/${contest.author.slug}`}>
+            {contest.author.name}
           </Link>{' '}
           in {date}
         </>
@@ -43,11 +43,11 @@ export default React.memo(function SWCCSeason(props) {
 
   if (props.layout === 'LIST') {
     return props.contests.map(contest => {
-      const cardData = getSWCCCardData(cardsIndex, contest.winner.id)
+      const cardData = getSWCCCardData(cardsIndex, contest.id)
 
       return (
         <ListLayoutItem
-          key={contest.winner.id}
+          key={contest.id}
           date={contest.date}
           dateFormat='LONG'
           title={
@@ -55,7 +55,7 @@ export default React.memo(function SWCCSeason(props) {
               Week {contest.week}: {contest.name}
             </>
           }
-          author={contest.winner.user}
+          author={contest.author}
           icon='wand'
           path={`/swcc/season/${contest.season}/week/${contest.week}`}
           excerpt={

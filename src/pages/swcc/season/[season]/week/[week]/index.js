@@ -31,7 +31,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     return { notFound: true }
   }
 
-  const card = getInitialCardData(settings.cards, contest.winner.id)
+  const card = getInitialCardData(settings.cards, contest.id)
 
   return {
     props: {

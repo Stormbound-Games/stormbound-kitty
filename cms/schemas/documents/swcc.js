@@ -33,8 +33,15 @@ const swcc = {
       options: { dateFormat: 'DD/MM/YYYY' },
       validation: Rule => Rule.required(),
     },
+    { ...user, title: 'Author' },
     {
-      title: 'Winner',
+      title: 'Card ID',
+      name: 'id',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      title: 'Winner (Legacy)',
       name: 'winner',
       type: 'object',
       fields: [
@@ -59,17 +66,18 @@ const swcc = {
       season: 'season',
       week: 'week',
       name: 'name',
+      user: 'user.name',
       author: 'winner.user.name',
       date: 'date',
     },
-    prepare({ season = '?', week = '?', author, name, date }) {
+    prepare({ season = '?', week = '?', author, user, name, date }) {
       return {
         title: ['Season ' + season, 'Week ' + week, name]
           .filter(Boolean)
           .join(' · '),
         subtitle:
           'By ' +
-          (author || 'missing member') +
+          (user || author || 'missing member') +
           ' in ' +
           (formatDate(date) || 'missing date'),
       }

@@ -10,8 +10,8 @@ import getSWCCCardData from '~/helpers/getSWCCCardData'
 
 export default React.memo(function FeedSWCCEntry(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const card = serialization.card.deserialize(cardsIndex, props.winner.id)
-  const cardData = getSWCCCardData(cardsIndex, props.winner.id)
+  const card = serialization.card.deserialize(cardsIndex, props.id)
+  const cardData = getSWCCCardData(cardsIndex, props.id)
 
   return (
     <FeedEntry icon='hammer' date={props.date}>
