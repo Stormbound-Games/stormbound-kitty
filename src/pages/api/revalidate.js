@@ -2,17 +2,15 @@ import { GUIDE_CATEGORIES } from '~/constants/guides'
 import { getRateLimitMiddlewares } from '~/helpers/applyRateLimit'
 import uniqueBy from '~/helpers/uniqueBy'
 
+// The data received from the Sanity API is defined in the webhook settings to
+// avoid passing unnecessary data. If a new value is needed, reconfigure the
+// webhook first.
 const getRevalidationPaths = body => {
   // The path may be passed explicitly, for instance with the `bin/revalidate`
   // script of the revalidate GitHub Workflow.
   if (body.path) {
     return [body.path]
   }
-
-  // The data received from the Sanity API is defined in the webhook settings
-  // to avoid passing unnecessary data. If a new value is needed, reconfigure
-  // the webhook first.
-  const { category, date, device, id, season, slug } = body
 
   // The `users` field is a composed array (derived from several fields)
   // containing the author(s) *before* the change as well as the author(s)
@@ -22,7 +20,7 @@ const getRevalidationPaths = body => {
   const userPaths = [
     users.length > 0 ? '/members' : null,
     ...users.map(user => `/members/${user.slug}`),
-  ].filter(Boolean)
+  ]
 
   switch (body._type) {
     case 'artwork':
@@ -31,54 +29,82 @@ const getRevalidationPaths = body => {
       return ['/fan-kit/avatars']
     case 'book':
       return ['/fan-kit/books']
-    case 'brawl':
-      return [`/brawl/${slug.current}`]
-    case 'card':
-      return [`/cards/${id.current}`, '/stats']
-    case 'changelog':
-      const timestamp = new Date(date).valueOf()
+    case 'brawl': {
+      const slug = body.slug?.current ?? body.slug
+      return [slug && `/brawl/${slug}`]
+    }
+    case 'card': {
+      const id = body.id?.current ?? body.id
+      return [id && `/cards/${id}`, '/stats']
+    }
+    case 'changelog': {
+      const id = body.id?.current ?? body.id
+      const timestamp = new Date(body.date).valueOf()
       return [
         '/changelog',
-        `/cards/${id.current}`,
-        `/cards/${id.current}/${timestamp}`,
+        id && `/cards/${id}`,
+        id && timestamp && `/cards/${id}/${timestamp}`,
       ]
+    }
     case 'contribution':
     case 'donation':
       return [...userPaths, '/about', '/contribute']
     case 'deck':
-      return [...userPaths, '/decks', `/deck/${id}/detail`]
+      return [...userPaths, '/decks', body.id && `/deck/${body.id}/detail`]
     case 'deckTags':
       return ['/decks', '/decks/bookmarks']
     case 'equalTierList':
       return ['/tier-list/equals']
-    case 'guide':
+    case 'guide': {
+      const slug = body.slug?.current ?? body.slug
+      const category = GUIDE_CATEGORIES[body.category]
       return [
         ...userPaths,
-        `/guides/${slug.current}`,
-        `/guides/${GUIDE_CATEGORIES[category].slug}`,
+        slug && `/guides/${slug}`,
+        category && `/guides/${category.slug}`,
       ]
+    }
     case 'news':
       return ['/']
-    case 'page':
-      return [`/${slug.current}`]
+    case 'page': {
+      const slug = body.slug?.current ?? body.slug
+      return [slug && `/${slug}`]
+    }
     case 'podcast':
       return [...userPaths, '/brewed-sages']
-    case 'puzzle':
-      return [...userPaths, '/puzzles', `/puzzles/${slug.current}`]
-    case 'release':
-      return [...userPaths, '/releases', `/releases/${slug.current}`]
-    case 'story':
-      return [...userPaths, `/stories/${category}`, `/stories/${slug.current}`]
+    case 'puzzle': {
+      const slug = body.slug?.current ?? body.slug
+      return [...userPaths, '/puzzles', slug && `/puzzles/${slug}`]
+    }
+    case 'release': {
+      const slug = body.slug?.current ?? body.slug
+      return [...userPaths, '/releases', slug && `/releases/${slug}`]
+    }
+    case 'story': {
+      const slug = body.slug?.current ?? body.slug
+      return [
+        ...userPaths,
+        body.category && `/stories/${body.category}`,
+        slug && `/stories/${slug}`,
+      ]
+    }
     case 'siteSettings':
       return ['/lexicon']
-    case 'SWCC':
-      return [...userPaths, '/swcc', `/swcc/season/${season}`]
+    case 'SWCC': {
+      const { season, week } = body
+      return [
+        ...userPaths,
+        '/swcc',
+        season && `/swcc/season/${season}`,
+        season && week && `/swcc/season/${season}/week/${week}`,
+      ]
+    }
     case 'tournament':
       return [...userPaths, '/tournaments/hall-of-fame']
     case 'user':
       return [...userPaths]
     case 'wallpaper':
-      return [`/fan-kit/wallpapers/${device.toLowerCase()}`]
+      return [body.device && `/fan-kit/wallpapers/${body.device.toLowerCase()}`]
     default:
       return []
   }
@@ -110,7 +136,7 @@ export default async function handler(request, response) {
   }
 
   try {
-    const paths = getRevalidationPaths(request.body)
+    const paths = getRevalidationPaths(request.body).filter(Boolean)
 
     if (paths.length === 0) {
       return response.status(400).json({ message: 'Bad request' })
