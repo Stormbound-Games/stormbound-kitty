@@ -25,7 +25,7 @@ describe('Members page', () => {
     cy.restoreLocalStorage()
       .wait(1000)
       .get('header nav > ul > li')
-      .eq(4)
+      .eq(5)
       .find('button')
       .first()
       .contains('Kitty')
