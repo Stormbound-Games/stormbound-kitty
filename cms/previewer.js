@@ -64,7 +64,7 @@ export default function resolvePageURL(document) {
       return getPreviewURL({ slug: document.slug?.current })
 
     case 'SWCC':
-      return getPreviewURL({ id: document.id || document.winner.id })
+      return getPreviewURL({ id: document.id })
 
     default:
       return getPreviewURL({})
