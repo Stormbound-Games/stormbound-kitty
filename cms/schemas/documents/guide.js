@@ -84,7 +84,7 @@ const guide = {
       type: 'array',
       fieldset: 'metadata',
       of: [{ ...user, title: 'Author' }],
-      validation: Rule => Rule.min(1),
+      validation: Rule => Rule.required().min(1),
     },
     { ...cardRef, fieldset: 'metadata' },
     {
