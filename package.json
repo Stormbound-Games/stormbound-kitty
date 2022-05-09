@@ -33,7 +33,7 @@
     "fela-plugin-extend": "^12.1.1",
     "fela-plugin-fallback-value": "^12.1.1",
     "fela-plugin-named-keys": "^12.1.1",
-    "fela-plugin-responsive-value": "^12.1.1",
+    "fela-plugin-responsive-value": "^12.1.2",
     "fela-sort-classnames": "^12.1.1",
     "fela-sort-media-query-mobile-first": "^12.1.1",
     "form-serialize": "^0.7.2",
