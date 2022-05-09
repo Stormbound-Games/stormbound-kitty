@@ -5,10 +5,7 @@ name,
 "slug": slug.current,
 id,
 category,
-"authors": coalesce(
-  users[] -> { name, "slug": slug.current },
-  user[] -> { name, "slug": slug.current }
-),
+"authors": users[] -> { name, "slug": slug.current },
 date,
 "cardId": card -> { "id": id.current }.id,
 excerpt
