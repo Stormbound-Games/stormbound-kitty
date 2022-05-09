@@ -23,3 +23,12 @@ The `Image` component (and less importantly the `HeaderBanner` component) automa
 - `auto=format` to have Sanity ship WebP (or even Avif in the future) images if the browser requesting them supports this format.
 - `w=` to request the image at a specific width, infered by the `width` prop.
 - `q=90` to slightly lower the image quality in order to save some data.
+
+## Icons
+
+Icons mainly come from the [Icomoon bank](https://icomoon.io/app) are rendered using SVG. However, [importing SVGs as JSX is damaging to performance](https://twitter.com/_developit/status/1382838799420514317?s=20&t=8Lf2K_1JzWosry5dnbwxvg). Therefore, SVG icons are compiled as a sprite (`sprite.svg`) inlined in the document, and the `Icon` component uses `<use>` to reference the correct symbol.
+
+A couple things to note about this:
+
+- Because SVGs are not embedded as JSX, they are not highly customizable. Their color and size can be controlled with CSS, but individual SVG children cannot be styled.
+- Adding a new icon means manually updating the sprite file to add a new symbol. It can be a little inconvenient, although hopefully new icons are not added every day.

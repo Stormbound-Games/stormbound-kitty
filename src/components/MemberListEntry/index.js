@@ -14,7 +14,9 @@ export default React.memo(function MemberListEntry(props) {
     <div className={css(styles.entry)}>
       <Icon
         icon={
-          props.role === 'SUPER_KAT'
+          props.slug === 'kitty'
+            ? 'cat'
+            : props.role === 'SUPER_KAT'
             ? 'super-star'
             : props.role === 'KAT'
             ? 'star'

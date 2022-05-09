@@ -9,6 +9,7 @@ import ErrorBoundary from '~/components/ErrorBoundary'
 import Layout from '~/components/Layout'
 import NotificationProvider from '~/components/NotificationProvider'
 import createFelaRenderer from '~/helpers/createFelaRenderer'
+import Sprite from '~/components/Sprite/sprite.svg'
 
 const fallbackRenderer = createFelaRenderer()
 
@@ -44,6 +45,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <meta name='twitter:site' content='@stormboundccg' />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
+      <Sprite />
 
       <PlausibleProvider
         domain='stormbound-kitty.com'
