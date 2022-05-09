@@ -168,7 +168,7 @@ module.exports = withPlugins(plugins, {
           },
           {
             key: 'Content-Type',
-            value: 'application/manifest+json',
+            value: 'application/manifest+json; charset=utf-8',
           },
         ],
       },
