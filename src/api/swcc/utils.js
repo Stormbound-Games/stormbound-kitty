@@ -5,7 +5,8 @@ week,
 season,
 date,
 name,
-winner { user -> { name, "slug": slug.current }, id },
+"id": coalesce(id, winner.id),
+"author": coalesce(user, winner.user) -> { name, "slug": slug.current }
 `
 
 export const MAPPER = contest => {

@@ -11,14 +11,14 @@ import { formatPreciseDate } from '~/helpers/formatDate'
 
 export default React.memo(function PageSWCCCard(props) {
   const { cardsIndex } = React.useContext(CardsContext)
-  const { season, week, winner } = props.contest
+  const { season, week, author, id } = props.contest
   const metaTags = getCardBuilderMetaTags(cardsIndex, props.card)
 
   return (
     <Page
       {...metaTags}
       title={`SWCC S${season}W${week}`}
-      author={winner.user}
+      author={author}
       meta={formatPreciseDate(parseDate(props.contest.date))}
       action={{
         to: '/swcc',
@@ -27,7 +27,7 @@ export default React.memo(function PageSWCCCard(props) {
       isEditorialContent
     >
       <Spacing bottom='LARGEST'>
-        <CardDisplay {...props.card} mode='DISPLAY' id={winner.id} />
+        <CardDisplay {...props.card} mode='DISPLAY' id={id} />
       </Spacing>
 
       <Page.Narrow>
@@ -41,8 +41,8 @@ export default React.memo(function PageSWCCCard(props) {
 
         <p>
           This card was created by{' '}
-          <Link to={`/members/${winner.user.slug}`}>{winner.user.name}</Link>{' '}
-          for week {week} of season {season} of the{' '}
+          <Link to={`/members/${author.slug}`}>{author.name}</Link> for week{' '}
+          {week} of season {season} of the{' '}
           <Link to='/swcc'>Stormbound Weekly Card Contest</Link>. The theme was{' '}
           <span className='Highlight'>{props.contest.name}</span>, and this was
           the winning card for that week.
