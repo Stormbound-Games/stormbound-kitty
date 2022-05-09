@@ -1,5 +1,6 @@
 import { GUIDE_CATEGORIES } from '~/constants/guides'
 import { getRateLimitMiddlewares } from '~/helpers/applyRateLimit'
+import uniqueBy from '~/helpers/uniqueBy'
 
 const getRevalidationPaths = body => {
   // The path may be passed explicitly, for instance with the `bin/revalidate`
@@ -11,11 +12,21 @@ const getRevalidationPaths = body => {
   // The data received from the Sanity API is defined in the webhook settings
   // to avoid passing unnecessary data. If a new value is needed, reconfigure
   // the webhook first.
-  const { category, date, device, id, season, slug, user, users } = body
+  const { category, date, device, id, season, slug } = body
+
+  // The `users` field is a composed array (derived from several fields)
+  // containing the author(s) *before* the change as well as the author(s)
+  // *after* the change. This array needs to be cleaned of `null` and duplicate
+  // values.
+  const users = uniqueBy(body.users.filter(Boolean), 'slug')
+  const userPaths = [
+    users.length > 0 ? '/members' : null,
+    ...users.map(user => `/members/${user.slug}`),
+  ].filter(Boolean)
 
   switch (body._type) {
     case 'artwork':
-      return ['/fan-art', `/members/${user.slug.current}`]
+      return [...userPaths, '/fan-art']
     case 'avatar':
       return ['/fan-kit/avatars']
     case 'book':
@@ -33,61 +44,39 @@ const getRevalidationPaths = body => {
       ]
     case 'contribution':
     case 'donation':
-      return ['/about', '/contribute', `/members/${user.slug.current}`]
+      return [...userPaths, '/about', '/contribute']
     case 'deck':
-      return ['/decks', `/deck/${id}/detail`, `/members/${user.slug.current}`]
+      return [...userPaths, '/decks', `/deck/${id}/detail`]
     case 'deckTags':
       return ['/decks', '/decks/bookmarks']
     case 'equalTierList':
       return ['/tier-list/equals']
     case 'guide':
       return [
+        ...userPaths,
         `/guides/${slug.current}`,
         `/guides/${GUIDE_CATEGORIES[category].slug}`,
-        ...users.map(user => `/members/${user.slug.current}`),
       ]
     case 'news':
       return ['/']
     case 'page':
       return [`/${slug.current}`]
     case 'podcast':
-      return [
-        '/brewed-sages',
-        ...users.map(user => `/members/${user.slug.current}`),
-      ]
+      return [...userPaths, '/brewed-sages']
     case 'puzzle':
-      return [
-        '/puzzles',
-        `/puzzles/${slug.current}`,
-        `/members/${user.slug.current}`,
-      ]
+      return [...userPaths, '/puzzles', `/puzzles/${slug.current}`]
     case 'release':
-      return [
-        '/releases',
-        `/releases/${slug.current}`,
-        `/members/${user.slug.current}`,
-      ]
+      return [...userPaths, '/releases', `/releases/${slug.current}`]
     case 'story':
-      return [
-        `/stories/${category}`,
-        `/stories/${slug.current}`,
-        `/members/${user.slug.current}`,
-      ]
+      return [...userPaths, `/stories/${category}`, `/stories/${slug.current}`]
     case 'siteSettings':
       return ['/lexicon']
     case 'SWCC':
-      return [
-        '/swcc',
-        `/swcc/season/${season}`,
-        `/members/${user.slug.current}`,
-      ]
+      return [...userPaths, '/swcc', `/swcc/season/${season}`]
     case 'tournament':
-      return [
-        '/tournaments/hall-of-fame',
-        ...users.map(user => `/members/${user.slug.current}`),
-      ]
+      return [...userPaths, '/tournaments/hall-of-fame']
     case 'user':
-      return ['/members', `/members/${slug.current}`]
+      return [...userPaths]
     case 'wallpaper':
       return [`/fan-kit/wallpapers/${device.toLowerCase()}`]
     default:
