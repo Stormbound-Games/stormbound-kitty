@@ -40,44 +40,23 @@ const swcc = {
       type: 'string',
       validation: Rule => Rule.required(),
     },
-    {
-      title: 'Winner (Legacy)',
-      name: 'winner',
-      type: 'object',
-      fields: [
-        { ...user, title: 'Author' },
-        {
-          title: 'Card ID',
-          name: 'id',
-          type: 'string',
-          validation: Rule => Rule.required(),
-        },
-        {
-          title: 'Second card ID',
-          name: 'id2',
-          type: 'string',
-        },
-      ],
-      validation: Rule => Rule.required(),
-    },
   ],
   preview: {
     select: {
       season: 'season',
       week: 'week',
       name: 'name',
-      user: 'user.name',
-      author: 'winner.user.name',
+      author: 'user.name',
       date: 'date',
     },
-    prepare({ season = '?', week = '?', author, user, name, date }) {
+    prepare({ season = '?', week = '?', author, name, date }) {
       return {
         title: ['Season ' + season, 'Week ' + week, name]
           .filter(Boolean)
           .join(' · '),
         subtitle:
           'By ' +
-          (user || author || 'missing member') +
+          (author || 'missing member') +
           ' in ' +
           (formatDate(date) || 'missing date'),
       }
