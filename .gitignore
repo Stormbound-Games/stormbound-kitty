@@ -18,6 +18,7 @@ out
 .next
 .vercel
 /sanity.js
+.unimportedrc.json
 
 # Artifacts
 cypress/screenshots
