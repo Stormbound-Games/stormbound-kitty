@@ -9,10 +9,10 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - [Discord Bot](./docs/DISCORD_BOT.md)
 - [Formulas](./docs/FORMULAS.md)
 - [Game overlap](./docs/GAME_OVERLAP.md)
+- [Known issues](./docs/KNOWN_ISSUES.md)
 - [Monitoring](./docs/MONITORING.md)
 - [Performance](./docs/PERFORMANCE.md)
 - [Security](./docs/SECURITY.md)
-- [Technical debt](./docs/TECHNICAL_DEBT.md)
 - [Workflows](./WORKFLOWS.md)
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
 
