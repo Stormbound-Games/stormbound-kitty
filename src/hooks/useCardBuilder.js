@@ -1,9 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import isEqual from 'lodash.isequal'
 import serialization from '~/helpers/serialization'
 import resolveLeveledProperty from '~/helpers/resolveLeveledProperty'
 import resolveAbility from '~/helpers/resolveAbility'
+import isDeepEqual from '~/helpers/isDeepEqual'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -39,7 +39,7 @@ const useCardBuilder = props => {
     // Safari has a limit of 100 `history.pushState()` per 30 seconds window, so
     // we should fail silently if it’s not possible to update the URL anymore.
     try {
-      const isDefaultState = isEqual(cardData, INITIAL_STATE)
+      const isDefaultState = isDeepEqual(cardData, INITIAL_STATE)
       const data = {
         ...cardData,
         strength: cardData.strength.display,

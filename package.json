@@ -39,7 +39,6 @@
     "framer-motion": "^6.3.3",
     "fuse.js": "^6.6.1",
     "html2canvas": "^1.4.1",
-    "lodash.isequal": "^4.5.0",
     "module-alias": "^2.2.2",
     "next": "^12.1.6",
     "next-compose-plugins": "^2.2.1",
