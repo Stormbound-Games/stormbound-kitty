@@ -1,5 +1,6 @@
 import AOE from './advice/AOE'
 import ARCHDRUID_EARYN from './advice/ARCHDRUID_EARYN'
+import BOOMING_PROFESSORS from './advice/BOOMING_PROFESSORS'
 import CONFUSION from './advice/CONFUSION'
 import DOCTOR_MIA from './advice/DOCTOR_MIA'
 import DRAGONS from './advice/DRAGONS'
@@ -33,6 +34,7 @@ import UPGRADE_POINT from './advice/UPGRADE_POINT'
 const ADVICE = [
   AOE,
   ARCHDRUID_EARYN,
+  BOOMING_PROFESSORS,
   CONFUSION,
   DOCTOR_MIA,
   DRAGONS,
