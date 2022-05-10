@@ -31,7 +31,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
 ## Development
 
-The site runs with [Next](https://nextjs.org/). Therefore, it uses Node.js (version 14). It is recommended to install [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows)) to manage Node versions, but it’s not mandatory, as long as Node 14 is installed on the machine.
+The site runs with [Next](https://nextjs.org/). Therefore, it uses Node.js (version 16). It is recommended to install [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows)) to manage Node versions, but it’s not mandatory, as long as Node 16 is installed on the machine.
 
 Then run the following commands to install the local dependencies and start the development server:
 
