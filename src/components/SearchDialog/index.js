@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouter } from 'next/router'
-import querystring from 'querystring'
 import Dialog from '~/components/Dialog'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
@@ -14,8 +13,8 @@ import useSearchShortcut from '~/hooks/useSearchShortcut'
 import styles from './styles'
 
 async function runSearch(search) {
-  const query = querystring.stringify({ search })
-  const response = await fetch('/api/search?' + query)
+  const params = new URLSearchParams({ search })
+  const response = await fetch('/api/search?' + params.toString())
   const results = await response.json()
 
   return results.map(entry => ({ ...entry.item, score: entry.score }))

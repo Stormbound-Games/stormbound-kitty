@@ -1,5 +1,4 @@
 import React from 'react'
-import querystring from 'querystring'
 import isCard from '~/helpers/isCard'
 import usePrevious from '~/hooks/usePrevious'
 
@@ -56,10 +55,11 @@ const useDryRunner = props => {
     // When initialising or reseting the game, read the expected game mode from
     // the URL, and set it in the state, as well as pass it to the `reset`
     // function to determine whether the hand should be (re)filled.
-    const query = querystring.parse(window.location.search.replace('?', ''))
+    const query = new URLSearchParams(window.location.search)
+    const mode = query.get('mode')
 
-    reset(query.mode !== 'MANUAL')
-    setMode(query.mode || 'AUTOMATIC')
+    reset(mode !== 'MANUAL')
+    setMode(mode || 'AUTOMATIC')
     setActiveCard(null)
     setTurnsWithLeftOverMana(0)
     setTurnsWithoutCycling(0)
