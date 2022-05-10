@@ -1,4 +1,8 @@
 import fs from 'fs/promises'
+// The following 2 dependencies are rather large and typically unused since they
+// are only needed by this script, so they are actually not part of the project.
+// You will need to install them locally before running the script:
+// `npm install mathjax-node svg2png --no-save`.
 import MathJax from 'mathjax-node'
 import svg2png from 'svg2png'
 

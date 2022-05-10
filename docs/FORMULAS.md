@@ -15,9 +15,10 @@ generateFormulaImage(formula, output)
   .catch(() => console.error('Failure'))
 ```
 
-Then execute it as such:
+It relies on 2 external dependencies that need to be installed first. Then execute it as such:
 
 ```sh
+npm install mathjax-node svg2png --no-save
 node -r esm path/to/formula/script.js
 ```
 

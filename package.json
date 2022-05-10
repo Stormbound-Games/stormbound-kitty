@@ -76,10 +76,8 @@
     "husky": "^8.0.1",
     "jest": "^28.1.0",
     "lint-staged": "^12.4.1",
-    "mathjax-node": "^2.1.1",
     "nodemon": "^2.0.16",
-    "prettier": "^2.6.2",
-    "svg2png": "^4.1.1"
+    "prettier": "^2.6.2"
   },
   "lint-staged": {
     "*.js": [
