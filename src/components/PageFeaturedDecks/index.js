@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import querystring from 'querystring'
 import { CardsContext } from '~/components/CardsProvider'
 import { CollectionContext } from '~/components/CollectionProvider'
 import BookmarkDeckButton from '~/components/BookmarkDeckButton'
@@ -58,10 +57,13 @@ export default React.memo(function PageFeaturedDecks(props) {
     if (including === null) delete parameters.including
     else parameters.including = including
 
-    if (querystring.stringify(parameters) !== querystring.stringify(query)) {
+    if (
+      new URLSearchParams(parameters).toString() !==
+      new URLSearchParams(query).toString()
+    ) {
       const path =
         Object.keys(parameters).length > 0
-          ? '/decks?' + querystring.stringify(parameters)
+          ? '/decks?' + new URLSearchParams(parameters).toString()
           : '/decks'
 
       router.replace(path, null, { scroll: false })

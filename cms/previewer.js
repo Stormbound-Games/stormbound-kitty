@@ -1,4 +1,3 @@
-import querystring from 'querystring'
 import sanityClient from 'part:@sanity/base/client'
 
 const client = sanityClient.withConfig({ apiVersion: '2022-03-01' })
@@ -34,15 +33,14 @@ export default function resolvePageURL(document) {
     )
   }
 
-  const getPreviewURL = args =>
-    PREVIEW_DOMAIN +
-    PREVIEW_PATH +
-    '?' +
-    querystring.stringify({
-      token: PREVIEW_TOKEN,
-      type: document._type,
-      ...args,
-    })
+  const getPreviewURL = args => {
+    const params = new URLSearchParams(args)
+
+    params.set('token', PREVIEW_TOKEN)
+    params.set('type', document._type)
+
+    return PREVIEW_DOMAIN + PREVIEW_PATH + '?' + params.toString()
+  }
 
   switch (document._type) {
     case 'changelog':
