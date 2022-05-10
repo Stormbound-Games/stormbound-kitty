@@ -9,14 +9,11 @@ const getRelease = async ({
   isPreview,
 } = {}) => {
   const release = await getEntry({
-    conditions: [
-      '_type == "release"',
-      '(slug.current == $slug || date == $date)',
-    ],
+    conditions: ['_type == "release"', 'slug.current == $slug'],
     fields: `
       ${FIELDS},
       defined(background.ratio) => { "ratio": string(background.ratio) + "%" },
-      "background": background { "url": asset -> url }.url,
+      "background": background.asset -> url,
       content[] { ${blocks} }
     `,
     params: { id, slug, date },

@@ -15,7 +15,7 @@ movement,
 fixedMovement,
 ability,
 
-"image": image { "url": asset -> url }.url
+"image": image.asset -> url
 `
 
 export const MAPPER = card => {

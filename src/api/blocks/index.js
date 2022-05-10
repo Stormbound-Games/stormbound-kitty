@@ -1,6 +1,6 @@
 const card = `
 "cardId": coalesce(
-  card -> { "id": id.current }.id,
+  card -> id.current,
   *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id.current
 )
 `
@@ -17,7 +17,7 @@ markDefs[] {
 
 const deckTags = `"tags": deckTags[] -> { name, "slug": slug.current }`
 const deckAuthor = `"author": user -> { name, "slug": slug.current }`
-const image = `"src": asset -> { url }.url`
+const image = `"src": asset -> url`
 
 const block = `..., ${markDefs}`
 
@@ -43,7 +43,7 @@ _type == "faq" => { entries[] { "id": id.current, question, answer[] { ${block} 
 _type == "image" => { ${image} },
 _type == "info" => { content[] { ${block} } },
 _type == "manaGraph" => { ..., "modifier": coalesce(modifier, brawl -> id) },
-_type == "nerfCompensation" => { "cards": cards[] -> { "id": id.current }.id },
+_type == "nerfCompensation" => { "cards": cards[] -> id.current },
 `
 
 export default blocks

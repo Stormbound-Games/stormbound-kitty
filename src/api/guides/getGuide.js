@@ -16,7 +16,7 @@ const getGuide = async ({
     fields: `
       ${FIELDS},
       defined(background.ratio) => { "ratio": string(background.ratio) + "%" },
-      "background": background { "url": asset -> url }.url,
+      "background": background.asset -> url,
       content[] { ${blocks} }
     `,
     params: { id, slug, name },

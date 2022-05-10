@@ -5,7 +5,7 @@ const FIELDS = `
 _updatedAt,
 tiers[] {
   name,
-  "cards": cards[] -> { "id": id.current }.id
+  "cards": cards[] -> id.current
 }
 `
 

@@ -29,7 +29,7 @@ const getCardFeed = async ({ params, isPreview } = {}) => {
       '(' +
         [
           '(_type == "artwork")',
-          '(_type == "story" && !defined(saga))',
+          '(_type == "story" && !saga)',
           '(_type == "guide" && name match $name)',
         ].join(' || ') +
         ')',
