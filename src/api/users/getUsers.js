@@ -9,7 +9,7 @@ const getUsers = async ({ isPreview } = {}) => {
   })
 
   return users.filter(
-    user => user.contributions.length > 0 || user.channel || user.playerId
+    user => user.contributions > 0 || user.channel || user.playerId
   )
 }
 
