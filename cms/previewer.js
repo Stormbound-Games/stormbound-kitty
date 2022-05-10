@@ -49,9 +49,10 @@ export default function resolvePageURL(document) {
       return getPreviewURL({ id: CARDS.get(document.card._ref) })
 
     case 'card':
-      return getPreviewURL({ id: document.id.current })
+      return getPreviewURL({ id: document.id?.current })
 
     case 'deck':
+    case 'SWCC':
       return getPreviewURL({ id: document.id })
 
     case 'brawl':
@@ -62,9 +63,6 @@ export default function resolvePageURL(document) {
     case 'story':
     case 'user':
       return getPreviewURL({ slug: document.slug?.current })
-
-    case 'SWCC':
-      return getPreviewURL({ id: document.id })
 
     default:
       return getPreviewURL({})
