@@ -9,6 +9,7 @@ import styles from './styles'
 export default React.memo(function FanKitItem(props) {
   const { css } = useFela()
   const isMounted = useIsMounted()
+  const extension = props.extension || 'png'
 
   return (
     <div
@@ -29,7 +30,9 @@ export default React.memo(function FanKitItem(props) {
           href={
             isMounted
               ? undefined
-              : props.image + '?dl=' + encodeURIComponent(props.name + '.png')
+              : props.image +
+                '?dl=' +
+                encodeURIComponent(props.name + '.' + extension)
           }
         />
       </span>

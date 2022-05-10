@@ -14,6 +14,7 @@ const resolveAsset = (wallpaper, index) => {
     name: `Stormbound desktop wallpaper ${index + 1}`,
     id: wallpaper.id,
     image: wallpaper.image,
+    extension: wallpaper.extension,
     aspectRatio: aspectRatio,
     width: 1200,
     height: Math.round(height * (1200 / width)),

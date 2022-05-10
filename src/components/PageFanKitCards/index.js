@@ -88,7 +88,6 @@ export default React.memo(function PageFanKitCards() {
               {row[index] && (
                 <FanKitItem
                   {...row[index]}
-                  image={row[index].image}
                   key={row[index].id}
                   setActive={setActive}
                   width={280}
