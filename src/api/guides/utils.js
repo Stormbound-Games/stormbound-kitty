@@ -7,7 +7,7 @@ id,
 category,
 "authors": users[] -> { name, "slug": slug.current },
 date,
-"cardId": card -> { "id": id.current }.id,
+"cardId": card -> id.current,
 excerpt
 `
 

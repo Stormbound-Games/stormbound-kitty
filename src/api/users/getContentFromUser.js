@@ -86,8 +86,8 @@ const getContentFromUser = async ({ slug, isPreview } = {}) => {
       _type == "SWCC" => { ${SWCC_FIELDS} },
       _type == "tournament" => {
         ${TOURNAMENT_FIELDS},
-        count(users[@->slug.current match $author]) > 0 => { "_type": "tournament", },
-        count(podium[].team[@->slug.current match $author]) > 0 => { "_type": "podium" }
+        count(users[@ -> slug.current match $author]) > 0 => { "_type": "tournament", },
+        count(podium[].team[@ -> slug.current match $author]) > 0 => { "_type": "podium" }
       },
     `,
     params: { author: slug, id: user._id.replace('drafts.', '') },

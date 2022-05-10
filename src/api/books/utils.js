@@ -4,8 +4,8 @@ name,
 cost { type, amount },
 draws,
 odds,
-restrictions[] { ... },
-"image": image { "url": asset -> url }.url,
+restrictions,
+"image": image.asset -> url,
 `
 
 export const MAPPER = book => {

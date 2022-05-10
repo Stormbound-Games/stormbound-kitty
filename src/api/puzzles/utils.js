@@ -8,14 +8,13 @@ date,
 image,
 name,
 "slug": slug.current,
-restrictions,
+"restrictions": coalesce(restrictions, []),
 solution,
-"image": image { "url": asset -> url }.url
+"image": image.asset -> url
 `
 
 export const MAPPER = puzzle => {
   puzzle.date = serializeDate(puzzle.date)
-  puzzle.restrictions = puzzle.restrictions || []
 
   return puzzle
 }

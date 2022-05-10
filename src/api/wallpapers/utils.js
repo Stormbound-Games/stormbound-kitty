@@ -1,13 +1,11 @@
 export const FIELDS = `
 "id": _id,
 device,
-"image": image { "url": asset -> url }.url,
+"image": image.asset -> url,
 "extension": image.asset -> extension,
-"dimensions": (image {
-  "asset": (asset -> {
-    "metadata": (metadata {
-      "dimensions": (dimensions { width, height, aspectRatio })
-    }).dimensions
-  }).metadata
-}).asset
+"dimensions": {
+  "width": image.asset -> metadata.dimensions.width,
+  "height": image.asset -> metadata.dimensions.height,
+  "aspectRatio": image.asset -> metadata.dimensions.aspectRatio,
+}
 `
