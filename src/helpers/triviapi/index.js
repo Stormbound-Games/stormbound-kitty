@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-import AbortController from 'abort-controller'
 
 const API_TOKEN = process.env.API_TOKEN
 const API_BASE_URL = 'https://jsonbin.org/kittysparkles'
