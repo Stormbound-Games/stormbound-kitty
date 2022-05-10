@@ -47,7 +47,7 @@ export default React.memo(function FeaturedDecksFilters(props) {
 
     // If there is an included card, and the faction gets changed to an invalid
     // faction for that card, reset the including field.
-    if (isInvalidFaction(cardsIndex[props.including].faction)) {
+    if (isInvalidFaction(cardsIndex[props.including])) {
       updateIncluding(null)
     }
   }, [
