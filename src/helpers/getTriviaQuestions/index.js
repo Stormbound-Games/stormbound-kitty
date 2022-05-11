@@ -549,7 +549,7 @@ const getTriviaQuestions = (cards, brawls) => {
       question:
         'Of which unit type are Beards of Crowglyphs showing visual elements?',
       answer: 'Dragon',
-      options: UNIT_TYPES.map(capitalize),
+      options: UNIT_TYPES.filter(type => type !== 'elder').map(capitalize),
     },
 
     {
