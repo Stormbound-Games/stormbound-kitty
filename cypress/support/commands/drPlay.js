@@ -19,7 +19,7 @@ const play = id => {
 
   cy.drSelect(id, { log: false })
     .get(s.PLAY_BTN, { log: false })
-    .should('be.visible', { log: false })
+    .should('be.visible')
     .click({ log: false })
 }
 

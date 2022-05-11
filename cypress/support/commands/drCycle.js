@@ -19,7 +19,7 @@ const cycle = id => {
 
   cy.drSelect(id, { log: false })
     .get(s.CYCLE_BTN, { log: false })
-    .should('be.visible', { log: false })
+    .should('be.visible')
     .click({ log: false })
 }
 
