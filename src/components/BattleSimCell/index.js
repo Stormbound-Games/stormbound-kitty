@@ -15,7 +15,9 @@ const getTitle = props => {
   const statuses = ['poisoned', 'vitalized', 'frozen', 'confused', 'disabled']
     .filter(status => props[status])
     .join(', ')
-  return `${strength}-strength ${side} ${name} (lvl ${level}) (${statuses})`
+  return `${strength}-strength ${side} ${name} (lvl ${level}) ${
+    statuses.length ? `(${statuses})` : ''
+  }`
 }
 
 export default React.memo(function BattleSimCell(props) {
