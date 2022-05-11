@@ -63,8 +63,8 @@ export default React.memo(function BattleSimCell(props) {
           src={props.card.image}
           alt={props.card.name}
           data-testid='cell-image'
-          width={60}
-          height={60}
+          width={120}
+          height={120}
           lazy
         />
       ) : null}
