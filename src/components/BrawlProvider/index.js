@@ -55,7 +55,7 @@ export default React.memo(function BrawlProvider(props) {
     // Brawls, so we need to make sure not to pass `sessions` as a dependency,
     // otherwise this is going to run every time the Brawl data gets updated.
     // eslint-disable-next-line
-  }, [props.brawl.id, notify])
+  }, [])
 
   React.useEffect(() => {
     const data = sessions.map(session => ({
