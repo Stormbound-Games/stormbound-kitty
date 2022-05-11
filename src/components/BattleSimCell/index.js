@@ -72,31 +72,105 @@ export default React.memo(function BattleSimCell(props) {
           className={css(styles.dots)}
           data-testid={props.poisoned ? 'cell-poisoned' : 'cell-vitalized'}
         >
-          <span className={css(styles.dot({ isBubble: true }))} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot({ isBubble: true }))} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot({ isBubble: true }))} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot({ isBubble: true }))} />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+                isBubble: true,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+                isBubble: true,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+                isBubble: true,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+              })
+            )}
+          />
+          <span
+            className={css(
+              styles.dot({
+                isPoisoned: props.poisoned,
+                isVitalized: props.vitalized,
+                isBubble: true,
+              })
+            )}
+          />
         </div>
       )}
 
       {!!props.confused && (
         <div className={css(styles.dots)} data-testid='cell-confused'>
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
-          <span className={css(styles.dot)} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
+          <span className={css(styles.dot({ isConfused: true }))} />
         </div>
       )}
 
