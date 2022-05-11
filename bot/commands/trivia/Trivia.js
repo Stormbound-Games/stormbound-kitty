@@ -18,6 +18,7 @@ const KITTY_ID = '368097495605182483'
 export default class Trivia {
   constructor({
     guildId,
+    books = [],
     cards = [],
     abbreviations = {},
     brawls = [],
@@ -36,7 +37,7 @@ export default class Trivia {
     this.cards = cards
     this.abbreviations = abbreviations
     this.guildId = guildId
-    this.questions = getTriviaQuestions(cards, brawls)
+    this.questions = getTriviaQuestions(cards, brawls, books)
     this.canvas = new Canvas()
   }
 

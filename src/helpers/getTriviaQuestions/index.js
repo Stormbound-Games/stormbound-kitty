@@ -15,7 +15,7 @@ import indexArray from '~/helpers/indexArray'
 import random from '~/helpers/random'
 import { formatPreciseDate } from '~/helpers/formatDate'
 
-const getTriviaQuestions = (cards, brawls) => {
+const getTriviaQuestions = (cards, brawls, books) => {
   const cardsIndex = indexArray(cards)
   const SORTED_CARDS = cards.sort(sortCards())
   const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
@@ -100,7 +100,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question:
-        'What was the max strength Unhealthy Hysteria could effect when it was first revealed?',
+        'What was the max strength Unhealthy Hysteria could affect when it was first revealed?',
       answer: 3,
       options: range(1, 10),
     },
@@ -160,7 +160,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'How green jets are displayed below Xuri?',
+      question: 'How many green jets are displayed below Xuri?',
       answer: 6,
       options: range(1, 8),
     },
@@ -213,7 +213,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'Which hero was Edrik’s predecessor on the home menu?',
+      question: 'Which card was Edrik’s predecessor on the home menu?',
       answer: 'Wolfcloaks',
       options: cards
         .filter(card => card.unitTypes.includes('hero'))
@@ -587,7 +587,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'What impact has Doctor Mia’s ability at level 3?',
+      question: 'What impact has Doctor Mia’s ability at level 2?',
       answer: 'Surrounding structures',
       options: [
         'Bordering structures',
@@ -615,12 +615,9 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many Elders are there?',
-      answer: cards.filter(
-        card => !card.token && card.unitTypes.includes('elder')
-      ).length,
+      answer: cards.filter(card => card.unitTypes.includes('elder')).length,
       options: rangeAround(
-        cards.filter(card => !card.token && card.unitTypes.includes('elder'))
-          .length,
+        cards.filter(card => card.unitTypes.includes('elder')).length,
         10
       ),
     },
@@ -727,8 +724,8 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many different books are there?',
-      answer: 6,
-      options: range(4, 8),
+      answer: books.length,
+      options: rangeAround(books.length, 4),
     },
 
     {
@@ -774,7 +771,7 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question:
         'What is the maximum amount of damage a level 5 Ubass can deal?',
-      answer: 24,
+      answer: 8 * 3,
       options: [15, 18, 21, 30, 27, 33, 36, 39, 42],
     },
 
@@ -809,8 +806,8 @@ const getTriviaQuestions = (cards, brawls) => {
     {
       question:
         'Which of these Discord moderators used to work for Paladin Studios?',
-      answer: 'Kuldotha',
-      options: ['Kahrua', 'Kitty', 'Kepp', 'Brzoza', 'Frozen'],
+      answer: 'Emkaem',
+      options: ['Kahrua', 'Kitty', 'Brzoza', 'Frozen', 'Zyries', 'Freeloader'],
     },
 
     {
@@ -891,10 +888,9 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many cards have a drain ability?',
-      answer: cards.filter(card => (card.ability || '').includes('drain'))
-        .length,
+      answer: cards.filter(card => /drain/i.test(card.ability)).length,
       options: rangeAround(
-        cards.filter(card => (card.ability || '').includes('drain')).length,
+        cards.filter(card => /drain/i.test(card.ability)).length,
         3
       ),
     },
@@ -962,7 +958,11 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many cards can push units?',
-      answer: 5,
+      answer: cards.filter(card => /push/i.test(card.ability)).length,
+      options: rangeAround(
+        cards.filter(card => /push/i.test(card.ability)).length,
+        3
+      ),
       options: range(3, 7),
     },
 
@@ -977,7 +977,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question:
-        'What is the lowest base health someone has reached Diamond with?',
+        'What is the lowest base health someone has reached Heroes League with?',
       answer: 13,
       options: range(10, 20),
     },
@@ -1016,7 +1016,7 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'Which card was first revelaed after a social media voting?',
+      question: 'Which card was first revealed after a social media voting?',
       answer: 'Unstable Build',
       options: ['Blessed with Brawn', 'Heliotroopers', 'Head Start'],
     },
@@ -1050,7 +1050,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question:
-        'What is the maximum amount of strength Sharpfist Exiles can gain at Level 5, *not* counting its base strength?',
+        'What is the maximum amount of strength Sharpfist Exiles can gain at level 5, *not* counting its base strength?',
       answer: 76,
       options: [48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 96],
     },
@@ -1098,15 +1098,15 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      question: 'Which forum member was Spare Dragonlings named after?',
+      question: 'Which forum member was Spare Dragonling named after?',
       answer: 'aspareforyou',
       options: ['asparagus', 'asparemepls', 'asparedr', 'c-asper'],
     },
 
     {
       question: 'What is the “true” daily coin cap?',
-      answer: 265,
-      options: [200, 225, 250, 255, 260, 270, 280, 300],
+      answer: 415,
+      options: [350, 375, 400, 405, 410, 420, 430, 450],
     },
 
     {
@@ -1155,7 +1155,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question:
-        'Which Shadowfen card can have 24 strength value in total at Level 5 at max?',
+        'Which Shadowfen card can have 24 strength value in total at level 5 at max?',
       answer: 'Amberhides',
       options: cards
         .filter(card => card.faction === 'shadowfen')
@@ -1192,7 +1192,6 @@ const getTriviaQuestions = (cards, brawls) => {
     },
 
     {
-      different: 'HARD',
       question:
         'How many copies of a non-missing rare card are required to bring it level 5?',
       answer: RARITY_COPIES.rare.copies.reduce((a, b) => a + b, 0),
@@ -1227,8 +1226,8 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'How many cards are there?',
-      answer: 188,
-      options: range(175, 200),
+      answer: cards.filter(card => !card.token).length,
+      options: rangeAround(cards.filter(card => !card.token).length, 20),
     },
 
     {
@@ -1458,7 +1457,7 @@ const getTriviaQuestions = (cards, brawls) => {
 
     {
       question: 'Which card appears in the “Quit Game” dialog box?',
-      answer: 'Broken Earth Drake',
+      answer: 'Broken Earth Drakes',
       options: CARD_NAMES,
     },
 

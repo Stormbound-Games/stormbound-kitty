@@ -35,6 +35,7 @@ const trivia = {
   },
   handler: async function (message, client, messageObject) {
     const cards = await getCards()
+    const books = await getBooks()
     const abbreviations = await getAbbreviations({ cards })
     const brawls = await getBrawls()
     const channelId = getChannelId(messageObject, this)
@@ -43,7 +44,10 @@ const trivia = {
     if (!channelId) return
 
     if (!cache.has(guildId)) {
-      cache.set(guildId, new Trivia({ cards, abbreviations, brawls, guildId }))
+      cache.set(
+        guildId,
+        new Trivia({ books, cards, abbreviations, brawls, guildId })
+      )
     }
 
     const trivia = cache.get(guildId)
