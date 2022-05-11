@@ -212,15 +212,17 @@ const poison = {
   },
 }
 
+// 1. Have a different direction for confusion and poison so the dots do not
+//    overlap when a unit is afflicted by both.
 const dot = ({ isBubble, isConfused, isPoisoned, isVitalized }) => ({
   position: 'absolute',
   width: '0.6em',
   height: '0.6em',
   display: 'block',
   animationName: poison,
-  animationDuration: '3500ms',
   animationFillMode: 'both',
-  animationDirection: 'alternate-reverse',
+  animationDuration: isConfused ? '3000ms' : '3500ms', // 1
+  animationDirection: isConfused ? 'alternate' : 'alternate-reverse', // 1
   animationIterationCount: 'infinite',
   zIndex: 2,
 
