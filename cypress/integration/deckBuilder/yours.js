@@ -10,6 +10,7 @@ describe('Deck Builder - Personal decks', () => {
       // Wait for the Strict Mode double-mounting to happen otherwise displaying
       // the form doesn’t work properly.
       .wait(2000)
+
       .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
 
