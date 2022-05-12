@@ -12,7 +12,7 @@
   "numTestsKeptInMemory": 10,
   "projectId": "h321g2",
   "retries": {
-    "runMode": 2,
+    "runMode": 3,
     "openMode": 0
   },
   "video": false,
