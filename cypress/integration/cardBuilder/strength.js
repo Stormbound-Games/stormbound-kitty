@@ -17,7 +17,11 @@ describe('Card Builder — Strength', () => {
   })
 
   it('should be possible to define the card strength', () => {
-    cy.get(s.STRENGTH_INPUT).clear().type('5').should('have.value', '5')
+    cy.get(s.STRENGTH_INPUT)
+      .should('be.visible')
+      .clear()
+      .type('5')
+      .should('have.value', '5')
     assertCardStrength(0, '5')
   })
 
