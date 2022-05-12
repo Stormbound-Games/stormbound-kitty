@@ -2,6 +2,7 @@ import React from 'react'
 import { NotificationContext } from '~/components/NotificationProvider'
 import { CardsContext } from '~/components/CardsProvider'
 import indexArray from '~/helpers/indexArray'
+import useOnce from '~/hooks/useOnce'
 
 export const CollectionContext = React.createContext([])
 
@@ -68,7 +69,7 @@ export default React.memo(function CollectionProvider(props) {
     [sendNotification]
   )
 
-  React.useEffect(() => {
+  useOnce(() => {
     const collection = getInitialCollectionData(cardsWithoutTokens)
 
     setCollection(collection)
@@ -76,7 +77,7 @@ export default React.memo(function CollectionProvider(props) {
     if (!isDefaultCollection(collection)) {
       notify('Locally saved collection found and loaded.')
     }
-  }, [notify, cardsWithoutTokens])
+  })
 
   React.useEffect(() => {
     // If the collection is the default one, remove it from the local storage as
