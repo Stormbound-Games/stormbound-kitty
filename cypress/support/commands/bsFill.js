@@ -99,9 +99,6 @@ const bsFill = (
     cy.get(s.CELL_FORM_BTN, { log: false })
       .click({ log: false })
 
-      .get('#cell-form-dialog', { log: false })
-      .should('not.be.visible')
-
       .url({ log: false })
       .should('not.eq', $url)
   })
