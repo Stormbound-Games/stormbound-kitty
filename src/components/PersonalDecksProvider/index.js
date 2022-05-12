@@ -4,6 +4,7 @@ import { NotificationContext } from '~/components/NotificationProvider'
 import serialization from '~/helpers/serialization'
 import capitalize from '~/helpers/capitalize'
 import uuid from '~/helpers/uuid'
+import useOnce from '~/hooks/useOnce'
 
 export const PersonalDecksContext = React.createContext([])
 
@@ -59,7 +60,7 @@ export default React.memo(function PersonalDecksProvider(props) {
     [sendNotification]
   )
 
-  React.useEffect(() => {
+  useOnce(() => {
     const decks = getInitialDecks()
 
     setDecks(decks)
@@ -67,7 +68,7 @@ export default React.memo(function PersonalDecksProvider(props) {
     if (decks.length > 0) {
       notify('Locally saved decks found and loaded.')
     }
-  }, [notify])
+  })
 
   React.useEffect(() => {
     if (decks.length === 0) {

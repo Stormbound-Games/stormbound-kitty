@@ -2,6 +2,7 @@ import React from 'react'
 import { NotificationContext } from '~/components/NotificationProvider'
 import getBrawlStatus from '~/helpers/getBrawlStatus'
 import serialization from '~/helpers/serialization'
+import useOnce from '~/hooks/useOnce'
 
 export const BrawlContext = React.createContext([])
 
@@ -43,7 +44,7 @@ export default React.memo(function BrawlProvider(props) {
     [sendNotification]
   )
 
-  React.useEffect(() => {
+  useOnce(() => {
     const sessions = getInitialBrawlData(props.brawl.id)
 
     setSessions(sessions)
@@ -51,11 +52,7 @@ export default React.memo(function BrawlProvider(props) {
     if (sessions.length > 1) {
       notify('Locally saved Brawl data found and loaded.')
     }
-    // We only want to run that once on page load if there were locally saved
-    // Brawls, so we need to make sure not to pass `sessions` as a dependency,
-    // otherwise this is going to run every time the Brawl data gets updated.
-    // eslint-disable-next-line
-  }, [])
+  })
 
   React.useEffect(() => {
     const data = sessions.map(session => ({
