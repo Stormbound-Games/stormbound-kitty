@@ -1,18 +1,31 @@
 import s from './selectors'
 
 describe('Deck Builder - Personal decks', () => {
-  before(() => cy.visit('/decks/bookmarks'))
+  before(() => {
+    cy.clearLocalStorageSnapshot()
+  })
 
-  it('should display no deck and a ghost', () => {
+  beforeEach(() => {
+    cy.restoreLocalStorage()
+    cy.visit('/decks/bookmarks')
+      // Wait for the Strict Mode double-mounting to happen otherwise displaying
+      // the form doesn’t work properly.
+      .wait(2000)
+  })
+
+  afterEach(() => {
+    cy.saveLocalStorage()
+  })
+
+  it('should be possible to add a deck', () => {
     cy.get(s.PERSONAL_DECKS)
       .should('have.length', 0)
 
       .get(s.GHOST_DECK)
       .should('be.visible')
-  })
 
-  it('should be possible to add a deck', () => {
-    cy.get(s.GHOST_DECK_BTN)
+      .get(s.GHOST_DECK_BTN)
+      .should('be.visible')
       .click()
 
       .get(s.DECK_FORM)
@@ -78,11 +91,9 @@ describe('Deck Builder - Personal decks', () => {
       .first()
       .find('[data-testid="featured-deck-name"]')
       .should('contain', 'Renamed')
-    cy.saveLocalStorage()
   })
 
   it('should be backed up in local storage and offer CSV export', () => {
-    cy.restoreLocalStorage()
     cy.reload()
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)
