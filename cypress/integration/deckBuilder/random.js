@@ -28,6 +28,7 @@ describe('Deck Builder — Random deck', () => {
       .get(s.RANDOM_DIALOG)
       .should('be.visible')
       .get(s.RANDOM_FACTION_SELECT)
+      .should('be.visible')
       .select('winter')
       .get(s.RANDOM_DIALOG_CONFIRM)
       .click()
@@ -94,6 +95,7 @@ describe('Deck Builder — Random deck', () => {
       .select('0')
       .wait(1000)
       .get(s.RANDOM_DIALOG_CONFIRM)
+      .should('be.visible')
       .click()
       .get(s.DECK_CARD)
       .each($card => {
