@@ -21,21 +21,6 @@ describe('Members page', () => {
       .saveLocalStorage()
   })
 
-  it('should be reflected in the navigation', () => {
-    cy.restoreLocalStorage()
-      .wait(1000)
-      .get('header nav > ul > li')
-      .eq(5)
-      .find('button')
-      .first()
-      .contains('Kitty')
-      .next()
-      .find('ul')
-      .children()
-      .should('have.length', 5)
-      .saveLocalStorage()
-  })
-
   it('should be reflected in one’s feed', () => {
     cy.restoreLocalStorage()
       .visit('/members/kitty')
