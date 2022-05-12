@@ -8,7 +8,9 @@ const endTurn = (count = 1) => {
   })
 
   for (let i = 0; i < count; i++) {
-    cy.get(s.END_TURN_BTN, { log: false }).click({ log: false })
+    cy.get(s.END_TURN_BTN, { log: false })
+      .should('be.visible')
+      .click({ log: false })
   }
 }
 

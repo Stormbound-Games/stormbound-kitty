@@ -11,31 +11,36 @@ const reset = ({ equals = false, modifier = 'NONE' } = {}) => {
 
   if (equals) {
     return cy
-      .get(s.EQUALS_MODE_CHECKBOX)
-      .check()
+      .get(s.EQUALS_MODE_CHECKBOX, { log: false })
+      .check({ log: false })
 
-      .get(s.EQUALS_DIALOG)
-      .find(s.RESET_CONFIRM_BTN)
-      .click()
+      .get(s.EQUALS_DIALOG, { log: false })
+      .find(s.RESET_CONFIRM_BTN, { log: false })
+      .should('be.visible')
+      .click({ log: false })
   }
 
   if (modifier === 'NONE') {
     return cy
-      .get(s.RESET_BTN)
-      .click()
+      .get(s.RESET_BTN, { log: false })
+      .should('be.visible')
+      .click({ log: false })
 
-      .get(s.RESET_DIALOG)
-      .find(s.RESET_CONFIRM_BTN)
-      .click()
+      .get(s.RESET_DIALOG, { log: false })
+      .find(s.RESET_CONFIRM_BTN, { log: false })
+      .should('be.visible')
+      .click({ log: false })
   }
 
   return cy
-    .get(s.BRAWL_MODIFIER_SELECT)
-    .select(modifier)
+    .get(s.BRAWL_MODIFIER_SELECT, { log: false })
+    .should('be.visible')
+    .select(modifier, { log: false })
 
-    .get(s.BRAWL_MODIFIER_DIALOG)
-    .find(s.RESET_CONFIRM_BTN)
-    .click()
+    .get(s.BRAWL_MODIFIER_DIALOG, { log: false })
+    .find(s.RESET_CONFIRM_BTN, { log: false })
+    .should('be.visible')
+    .click({ log: false })
 }
 
 export default reset

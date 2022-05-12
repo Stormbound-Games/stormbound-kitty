@@ -80,7 +80,13 @@ const bsFill = (
     cy.get(s.CELL_FORM_DISABLED_CHECKBOX, { log: false }).click({ log: false })
   }
 
-  return cy.get(s.CELL_FORM_BTN, { log: false }).click({ log: false })
+  cy.url({ log: false }).then($url => {
+    cy.get(s.CELL_FORM_BTN, { log: false })
+      .click({ log: false })
+
+      .url({ log: false })
+      .should('not.eq', $url)
+  })
 }
 
 export default bsFill
