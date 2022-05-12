@@ -16,7 +16,9 @@ const useNotificationVisibility = () => {
     timeout.current = setTimeout(() => setIsVisible(false), 8000)
   }, [])
 
-  React.useEffect(() => () => clearTimeout(timeout.current), [])
+  React.useEffect(() => {
+    return () => clearTimeout(timeout.current)
+  }, [])
 
   return { showNotification, isVisible }
 }
@@ -26,7 +28,9 @@ const SelfHidingNotification = React.memo(function SelfHidingNotification(
 ) {
   const { showNotification, isVisible } = useNotificationVisibility()
 
-  React.useEffect(() => showNotification(), [showNotification])
+  React.useEffect(() => {
+    showNotification()
+  }, [showNotification])
 
   return ReactDOM.createPortal(
     <Notification {...props} isVisible={isVisible} />,

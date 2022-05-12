@@ -126,7 +126,9 @@ export default React.memo(function DeckEditorView(props) {
   // deck when the user unchecks said checkbox.
   const [originalDeckId, setOriginalDeckId] = React.useState(null)
 
-  React.useEffect(() => setCardTooltips(getStoredTooltipsSetting()), [])
+  React.useEffect(() => {
+    setCardTooltips(getStoredTooltipsSetting())
+  }, [])
 
   const captureKeyboardEvents = React.useCallback(
     event => {

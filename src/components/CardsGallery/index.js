@@ -55,8 +55,10 @@ export default React.memo(function CardsGallery(props) {
     [activePage, changePage, pages.length]
   )
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  React.useEffect(() => changePage(0), filters)
+  React.useEffect(() => {
+    changePage(0)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, filters)
 
   return (
     <div

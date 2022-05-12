@@ -49,18 +49,16 @@ const useDeckBuilder = props => {
     [deck]
   )
 
-  // eslint-disable-next-line
-  React.useEffect(() => router.replace(path, null, { scroll: false }), [path])
+  React.useEffect(() => {
+    router.replace(path, null, { scroll: false })
+    // eslint-disable-next-line
+  }, [path])
 
-  React.useEffect(
-    () =>
-      setDeck(
-        props.id
-          ? serialization.deck.deserialize(cardsIndexBySid, props.id)
-          : []
-      ),
-    [cardsIndexBySid, props.id]
-  )
+  React.useEffect(() => {
+    setDeck(
+      props.id ? serialization.deck.deserialize(cardsIndexBySid, props.id) : []
+    )
+  }, [cardsIndexBySid, props.id])
 
   return {
     deck,

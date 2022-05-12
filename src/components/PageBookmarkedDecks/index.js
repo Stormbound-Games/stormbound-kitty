@@ -94,7 +94,9 @@ export default React.memo(function PageBookmarkedDecks(props) {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [disabledEditor])
 
-  React.useEffect(() => toggleUnseen(false), [toggleUnseen])
+  React.useEffect(() => {
+    toggleUnseen(false)
+  }, [toggleUnseen])
 
   // If the collection of decks is updated, it is as the result of an addition,
   // a removal or an edition, which means the editing mode can be cancelled.

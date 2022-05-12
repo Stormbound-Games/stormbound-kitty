@@ -100,9 +100,7 @@ const useBattleSim = props => {
   React.useEffect(() => {
     document.addEventListener('keydown', registerShortcuts)
 
-    return () => {
-      document.removeEventListener('keydown', registerShortcuts)
-    }
+    return () => document.removeEventListener('keydown', registerShortcuts)
   }, [registerShortcuts])
 
   React.useEffect(() => {

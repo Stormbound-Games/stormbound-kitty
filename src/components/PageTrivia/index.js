@@ -40,7 +40,9 @@ const Success = () => {
     ],
   }
 
-  React.useEffect(() => setActive(true), [])
+  React.useEffect(() => {
+    setActive(true)
+  }, [])
 
   return (
     <>
@@ -92,10 +94,9 @@ export default React.memo(function PageTrivia(props) {
   const [{ question, choices }, setQuestion] = React.useState({})
   const [status, setStatus] = React.useState('UNANSWERED')
 
-  React.useEffect(
-    () => setQuestion(getRandomQuestion(props.questions)),
-    [props.questions]
-  )
+  React.useEffect(() => {
+    setQuestion(getRandomQuestion(props.questions))
+  }, [props.questions])
 
   const askAgain = React.useCallback(() => {
     setQuestion(getRandomQuestion(props.questions))

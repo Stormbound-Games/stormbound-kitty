@@ -16,6 +16,7 @@ export default React.memo(function CardZoom(props) {
 
   React.useEffect(() => {
     document.addEventListener('keydown', handleESC)
+
     if (props.cardId) {
       document.documentElement.style.overflowY = 'hidden'
     } else {
