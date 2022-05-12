@@ -1,35 +1,57 @@
 import s from './selectors'
 
 describe('Deck Builder — Featured', () => {
-  it('should be possible to bookmark a deck', () => {
+  before(() => {
+    cy.clearLocalStorageSnapshot()
+  })
+
+  beforeEach(() => {
+    cy.restoreLocalStorage()
     cy.visit('/decks')
-      .get(s.DECK_SUGGESTION)
+  })
+
+  afterEach(() => {
+    cy.saveLocalStorage()
+  })
+
+  it('should be possible to bookmark a deck', () => {
+    cy.get(s.DECK_SUGGESTION)
       .first()
       .find(s.BOOKMARK_BTN)
       .click()
       .should('have.attr', 'aria-pressed', 'true')
-      .visit('/decks/bookmarks')
+
+    cy.getLocalStorage('sk.personal_decks').should('not.eq', null)
+
+    // Using `.visit()` doesn’t work as the local storage appears to be lost.
+    cy.get('a[href="/decks/bookmarks"]')
+      .last()
+      .click()
+      .url()
+      .should('match', /bookmarks$/)
+
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)
-      .saveLocalStorage()
   })
 
   it('should be possible to unbookmark a deck', () => {
-    cy.restoreLocalStorage()
-      .visit('/decks')
-      .get(s.DECK_SUGGESTION)
+    cy.getLocalStorage('sk.personal_decks').should('not.eq', null)
+
+    cy.get(s.DECK_SUGGESTION)
       .first()
       .find(s.BOOKMARK_BTN)
       .click()
       .should('have.attr', 'aria-pressed', 'false')
-      .visit('/decks/bookmarks')
+      // Using `.visit()` doesn’t work as the local storage appears to be lost.
+      .get('a[href="/decks/bookmarks"]')
+      .last()
+      .click()
       .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
   })
 
   it('should be possible to filter decks', function () {
-    cy.visit('/decks')
-      .get('[data-testid="page-meta"]')
+    cy.get('[data-testid="page-meta"]')
       .invoke('text')
       .as('meta')
 
