@@ -29,6 +29,7 @@ const select = (id, options = { log: true }) => {
     .filter('#' + id, { log: false })
     .as('card')
     .prev('button', { log: false })
+    .should('be.visible')
     .click({ log: false })
 }
 

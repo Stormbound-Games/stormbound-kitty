@@ -8,17 +8,16 @@ const bsDraw = ({ card, level, slot = 1 }) => {
   })
 
   cy.get(s['CARDS_FORM_SELECT_' + slot], { log: false })
+    .should('be.visible')
     .click({ force: true, log: false })
     .type(card, { force: true, log: false })
     .type('{enter}', { force: true, log: false })
 
-    .then(() => {
-      if (level) {
-        return cy
-          .get(s['CARDS_FORM_LEVEL_' + slot], { log: false })
-          .select(String(level), { log: false })
-      }
-    })
+  if (level) {
+    cy.get(s['CARDS_FORM_LEVEL_' + slot], { log: false })
+      .should('be.visible')
+      .select(String(level), { log: false })
+  }
 }
 
 export default bsDraw

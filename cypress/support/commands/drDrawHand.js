@@ -19,6 +19,7 @@ const drawHand = ids => {
       .filter('[data-testid*="' + id + '"]', { log: false })
       .find('button', { log: false })
       .first({ log: false })
+      .should('be.visible')
       .click({ log: false })
   })
 }

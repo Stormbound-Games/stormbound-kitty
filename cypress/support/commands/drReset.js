@@ -12,29 +12,35 @@ const reset = ({ equals = false, modifier = 'NONE' } = {}) => {
   if (equals) {
     return cy
       .get(s.EQUALS_MODE_CHECKBOX, { log: false })
+      .should('be.visible')
       .check({ log: false })
 
       .get(s.EQUALS_DIALOG, { log: false })
       .find(s.RESET_CONFIRM_BTN, { log: false })
+      .should('be.visible')
       .click({ log: false })
   }
 
   if (modifier === 'NONE') {
     return cy
       .get(s.RESET_BTN, { log: false })
+      .should('be.visible')
       .click({ log: false })
 
       .get(s.RESET_DIALOG, { log: false })
       .find(s.RESET_CONFIRM_BTN, { log: false })
+      .should('be.visible')
       .click({ log: false })
   }
 
   return cy
     .get(s.BRAWL_MODIFIER_SELECT, { log: false })
+    .should('be.visible')
     .select(modifier, { log: false })
 
     .get(s.BRAWL_MODIFIER_DIALOG, { log: false })
     .find(s.RESET_CONFIRM_BTN, { log: false })
+    .should('be.visible')
     .click({ log: false })
 }
 
