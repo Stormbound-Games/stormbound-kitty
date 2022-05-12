@@ -10,7 +10,10 @@ const assertCardUnitTypes = (index, value) =>
     .should('match', new RegExp(value, 'i'))
 
 const fill = value =>
-  cy.get(s.UNIT_TYPES_INPUT).type(value + '{enter}', { force: true })
+  cy
+    .get(s.UNIT_TYPES_INPUT)
+    .clear({ force: true })
+    .type(value + '{enter}', { force: true })
 
 const assertUnitTypeEmpty = () =>
   cy
