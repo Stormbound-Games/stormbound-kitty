@@ -12,7 +12,7 @@ const reset = ({ equals = false, modifier = 'NONE' } = {}) => {
   if (equals) {
     return cy
       .get(s.EQUALS_MODE_CHECKBOX, { log: false })
-      .check({ log: false })
+      .click({ log: false })
 
       .get(s.EQUALS_DIALOG, { log: false })
       .find(s.RESET_CONFIRM_BTN, { log: false })

@@ -40,7 +40,7 @@ describe('Dry-runner — Basics', () => {
     cy.get(s.DECK_CARD)
       .each($card => expect($card.text()).not.to.satisfy(showsDrawingChance))
       .get(s.CHANCES_CHECKBOX)
-      .check()
+      .click()
       .get(s.DECK_CARD)
       .each($card => expect($card.text()).to.satisfy(showsDrawingChance))
   })

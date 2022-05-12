@@ -31,7 +31,7 @@ describe('Card Builder — Movement', () => {
 
   it('should be possible to define fixed movement', () => {
     cy.get(s.MOVEMENT_INPUT).clear().type('2').should('have.value', '2')
-    cy.get(s.FIXED_MOVEMENT_CHECKBOX).check().should('be.checked')
+    cy.get(s.FIXED_MOVEMENT_CHECKBOX).click().should('be.checked')
     assertCardMovement(0, '2', true)
   })
 
@@ -55,7 +55,7 @@ describe('Card Builder — Movement', () => {
   it('should be emptied if picking spell type', () => {
     cy.get(s.TYPE_SELECT).select('unit')
     cy.get(s.MOVEMENT_INPUT).type('2').should('have.value', '2')
-    cy.get(s.FIXED_MOVEMENT_CHECKBOX).check().should('be.checked')
+    cy.get(s.FIXED_MOVEMENT_CHECKBOX).click().should('be.checked')
     cy.get(s.TYPE_SELECT).select('spell')
     cy.get(s.MOVEMENT_INPUT).should('be.empty').and('be.disabled')
     cy.get(s.FIXED_MOVEMENT_CHECKBOX)

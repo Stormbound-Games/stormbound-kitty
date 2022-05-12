@@ -40,7 +40,6 @@ const bsFill = (
   })
 
   cy.get(s.CELL_FORM_CARD_SELECT, { log: false }).type(card + '{enter}', {
-    force: true,
     log: false,
   })
 
@@ -53,7 +52,7 @@ const bsFill = (
   if (player) {
     cy.get(player === 'RED' ? s.CELL_FORM_RED_RADIO : s.CELL_FORM_BLUE_RADIO, {
       log: false,
-    }).click({ force: true, log: false })
+    }).click({ log: false })
   }
 
   if (strength) {
@@ -63,36 +62,21 @@ const bsFill = (
   }
 
   if (poisoned) {
-    cy.get(s.CELL_FORM_POISON_CHECKBOX, { log: false }).click({
-      force: true,
-      log: false,
-    })
+    cy.get(s.CELL_FORM_POISON_CHECKBOX, { log: false }).click({ log: false })
   } else if (vitalized) {
-    cy.get(s.CELL_FORM_VITALITY_CHECKBOX, { log: false }).click({
-      force: true,
-      log: false,
-    })
+    cy.get(s.CELL_FORM_VITALITY_CHECKBOX, { log: false }).click({ log: false })
   }
 
   if (frozen) {
-    cy.get(s.CELL_FORM_FROZEN_CHECKBOX, { log: false }).click({
-      force: true,
-      log: false,
-    })
+    cy.get(s.CELL_FORM_FROZEN_CHECKBOX, { log: false }).click({ log: false })
   }
 
   if (confused) {
-    cy.get(s.CELL_FORM_CONFUSED_CHECKBOX, { log: false }).click({
-      force: true,
-      log: false,
-    })
+    cy.get(s.CELL_FORM_CONFUSED_CHECKBOX, { log: false }).click({ log: false })
   }
 
   if (disabled) {
-    cy.get(s.CELL_FORM_DISABLED_CHECKBOX, { log: false }).click({
-      force: true,
-      log: false,
-    })
+    cy.get(s.CELL_FORM_DISABLED_CHECKBOX, { log: false }).click({ log: false })
   }
 
   cy.url({ log: false }).then($url => {

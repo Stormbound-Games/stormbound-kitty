@@ -41,7 +41,7 @@ describe('Dry-runner — Reset', () => {
 
   it('should not reset the draw chances checkbox', () => {
     cy.get(s.CHANCES_CHECKBOX)
-      .check()
+      .click()
       .drReset()
 
       .get(s.CHANCES_CHECKBOX)
