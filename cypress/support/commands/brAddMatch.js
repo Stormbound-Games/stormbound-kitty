@@ -12,20 +12,20 @@ const addMatch = (
     consoleProps: () => ({ health, faction, outcome, bonus }),
   })
 
-  cy.get(s.OPPONENT_HEALTH_INPUT)
-    .type(health)
+  cy.get(s.OPPONENT_HEALTH_INPUT, { log: false })
+    .type(health, { log: false })
 
-    .get(s.OPPONENT_FACTION_SELECT)
-    .select(faction)
+    .get(s.OPPONENT_FACTION_SELECT, { log: false })
+    .select(faction, { log: false })
 
-    .get(s.OUTCOME_SELECT)
-    .select(outcome)
+    .get(s.OUTCOME_SELECT, { log: false })
+    .select(outcome, { log: false })
 
-    .get(s.BONUS_SELECT)
-    .select(bonus)
+    .get(s.BONUS_SELECT, { log: false })
+    .select(bonus, { log: false })
 
-    .get(s.MATCH_SUBMIT_BTN)
-    .click()
+    .get(s.MATCH_SUBMIT_BTN, { log: false })
+    .click({ log: false })
 }
 
 export default addMatch
