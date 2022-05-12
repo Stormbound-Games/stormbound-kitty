@@ -7,11 +7,11 @@ const reset = () => {
   })
 
   return cy
-    .get(s.RESET_BTN)
-    .click()
+    .get(s.RESET_BTN, { log: false })
+    .click({ log: false })
 
-    .get(s.RESET_CONFIRM_BTN)
-    .click()
+    .get(s.RESET_CONFIRM_BTN, { log: false })
+    .click({ log: false })
 }
 
 export default reset
