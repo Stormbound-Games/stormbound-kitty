@@ -24,7 +24,7 @@ export default React.memo(function EyeCatcher(props) {
     const isCypress = window.Cypress
     const hasBeenSeen = hasBeenShownYet(key)
 
-    setIsVisible(!isCypress & !hasBeenSeen)
+    setIsVisible(!isCypress && !hasBeenSeen)
   }, [key])
 
   React.useEffect(() => {
