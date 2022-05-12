@@ -31,6 +31,7 @@ import serialization from '~/helpers/serialization'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import usePrevious from '~/hooks/usePrevious'
+import useLocalStorage from '~/hooks/useLocalStorage'
 
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
@@ -98,14 +99,6 @@ const usePageProps = (deck, matchedDeck = {}) => {
   return props
 }
 
-const getStoredTooltipsSetting = () => {
-  try {
-    return JSON.parse(localStorage.getItem('sk.db.card_tooltips'))
-  } catch {
-    return false
-  }
-}
-
 export default React.memo(function DeckEditorView(props) {
   const router = useRouter()
   const deckId = serialization.deck.serialize(props.deck)
@@ -117,7 +110,10 @@ export default React.memo(function DeckEditorView(props) {
   // always have a number (0 for custom levels, 1 to 5 for static levels). Note
   // that this is for the card gallery, and not the cards of the deck itself.
   const [cardLevel, setCardLevel] = React.useState(hasDefaultCollection ? 1 : 0)
-  const [cardTooltips, setCardTooltips] = React.useState(false)
+  const [cardTooltips, setCardTooltips] = useLocalStorage(
+    'sk.db.card_tooltips',
+    false
+  )
   const [adjustCardLevels, setAdjustCardLevels] = React.useState(false)
   const previousAdjustCardLevels = usePrevious(adjustCardLevels)
   // The `originalDeckId` contains the deck ID as loaded from the URL before it
@@ -125,10 +121,6 @@ export default React.memo(function DeckEditorView(props) {
   // associated checkbox: this is necessary to be able to restore the original
   // deck when the user unchecks said checkbox.
   const [originalDeckId, setOriginalDeckId] = React.useState(null)
-
-  React.useEffect(() => {
-    setCardTooltips(getStoredTooltipsSetting())
-  }, [])
 
   const captureKeyboardEvents = React.useCallback(
     event => {
@@ -385,12 +377,6 @@ const DeckSettings = React.memo(function DeckSettings(props) {
 })
 
 const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
-  React.useEffect(() => {
-    try {
-      localStorage.setItem('sk.db.card_tooltips', JSON.stringify(props.value))
-    } catch {}
-  }, [props.value])
-
   return (
     <Checkbox
       onChange={event => props.set(event.target.checked)}
