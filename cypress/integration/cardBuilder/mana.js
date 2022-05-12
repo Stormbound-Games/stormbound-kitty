@@ -17,6 +17,7 @@ describe('Card Builder — Mana', () => {
     cy.get(s.MANA_INPUT)
       .should('be.visible')
       .clear()
+      .should('be.visible')
       .type('5')
       .should('have.value', '5')
     assertCardMana(0, '5')

@@ -20,6 +20,7 @@ describe('Card Builder — Ability', () => {
     cy.get(s.ABILITY_INPUT)
       .should('be.visible')
       .clear()
+      .should('be.visible')
       .type('Sparkles')
       .should('have.value', 'Sparkles')
     assertCardAbility(0, 'Sparkles')

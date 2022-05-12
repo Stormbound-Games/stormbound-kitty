@@ -25,6 +25,7 @@ describe('Card Builder — Movement', () => {
     cy.get(s.MOVEMENT_INPUT)
       .should('be.visible')
       .clear()
+      .should('be.visible')
       .type('0')
       .should('have.value', '0')
     assertCardMovement(0, '0')

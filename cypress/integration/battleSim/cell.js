@@ -71,14 +71,18 @@ describe('Battle Simulator — Cells', () => {
 
   it('should be preserved upon reload', () => {
     cy.reload()
-    cy.bsFill('A1', {
-      card: 'Zhev',
-      strength: 5,
-      player: 'RED',
-      poisoned: true,
-      frozen: true,
-      disabled: true,
-      confused: true,
+    cy.url().then(currentUrl => {
+      cy.bsFill('A1', {
+        card: 'Zhev',
+        strength: 5,
+        player: 'RED',
+        poisoned: true,
+        frozen: true,
+        disabled: true,
+        confused: true,
+      })
+        .url()
+        .should('not.eq', currentUrl)
     })
     cy.reload()
     cy.get(s.CELL_A1).should($cell => {
