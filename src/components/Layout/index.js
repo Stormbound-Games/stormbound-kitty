@@ -22,6 +22,10 @@ export default React.memo(function Layout(props) {
   const { css } = useFela()
   const searchDialog = React.useRef(null)
 
+  React.useEffect(() => {
+    searchDialog.current?.hide()
+  }, [router.asPath])
+
   return (
     <div className={css(styles.layout)}>
       {props.settings.eyeCatcher ? (
