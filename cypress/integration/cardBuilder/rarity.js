@@ -17,7 +17,10 @@ describe('Card Builder — Rarity', () => {
   })
 
   it('should be possible to define the card rarity', () => {
-    cy.get(s.RARITY_SELECT).select('epic').should('have.value', 'epic')
+    cy.get(s.RARITY_SELECT)
+      .should('be.visible')
+      .select('epic')
+      .should('have.value', 'epic')
     assertCardRarity(0, 'epic')
   })
 

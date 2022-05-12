@@ -17,7 +17,10 @@ describe('Card Builder — Faction', () => {
   })
 
   it('should be possible to update the card faction', () => {
-    cy.get(s.FACTION_SELECT).select('ironclad').should('have.value', 'ironclad')
+    cy.get(s.FACTION_SELECT)
+      .should('be.visible')
+      .select('ironclad')
+      .should('have.value', 'ironclad')
     assertCardFaction(0, 'ironclad')
   })
 

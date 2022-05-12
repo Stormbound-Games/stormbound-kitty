@@ -17,7 +17,10 @@ describe('Card Builder — Type', () => {
   })
 
   it('should be possible to update the card faction', () => {
-    cy.get(s.TYPE_SELECT).select('spell').should('have.value', 'spell')
+    cy.get(s.TYPE_SELECT)
+      .should('be.visible')
+      .select('spell')
+      .should('have.value', 'spell')
   })
 
   it('should be reflected in all preview', () => {

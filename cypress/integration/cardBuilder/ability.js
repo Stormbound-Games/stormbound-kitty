@@ -17,7 +17,10 @@ describe('Card Builder — Ability', () => {
   })
 
   it('should be possible to define the card ability', () => {
-    cy.get(s.ABILITY_INPUT).type('Sparkles').should('have.value', 'Sparkles')
+    cy.get(s.ABILITY_INPUT)
+      .should('be.visible')
+      .type('Sparkles')
+      .should('have.value', 'Sparkles')
     assertCardAbility(0, 'Sparkles')
   })
 

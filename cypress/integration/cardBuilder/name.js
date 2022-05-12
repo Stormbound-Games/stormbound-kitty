@@ -14,6 +14,7 @@ describe('Card Builder — Name', () => {
 
   it('should be possible to define the card name', () => {
     cy.get(s.NAME_INPUT)
+      .should('be.visible')
       .type('Kitty Sparkles')
       .should('have.value', 'Kitty Sparkles')
     assertCardName(0, 'Kitty Sparkles')
