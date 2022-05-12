@@ -1,6 +1,10 @@
 import s from './selectors'
 
 describe('Deck Builder — Featured', () => {
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
+  afterEach(() => cy.saveLocalStorage())
+
   it('should be possible to bookmark a deck', () => {
     cy.visit('/decks')
       .get(s.DECK_SUGGESTION)
@@ -11,12 +15,10 @@ describe('Deck Builder — Featured', () => {
       .visit('/decks/bookmarks')
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)
-      .saveLocalStorage()
   })
 
   it('should be possible to unbookmark a deck', () => {
-    cy.restoreLocalStorage()
-      .visit('/decks')
+    cy.visit('/decks')
       .get(s.DECK_SUGGESTION)
       .first()
       .find(s.BOOKMARK_BTN)

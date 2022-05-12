@@ -1,3 +1,4 @@
+import 'cypress-localstorage-commands'
 import brAddMatch from './commands/brAddMatch'
 import bsDraw from './commands/bsDraw'
 import bsFill from './commands/bsFill'
@@ -11,7 +12,6 @@ import drSelect from './commands/drSelect'
 import drSetRNG from './commands/drSetRNG'
 import exportFile from './commands/exportFile'
 import importFile from './commands/importFile'
-import { restoreLocalStorage, saveLocalStorage } from './commands/localStorage'
 import paste from './commands/paste'
 
 Cypress.Commands.add('brAddMatch', { prevSubject: false }, brAddMatch)
@@ -27,14 +27,4 @@ Cypress.Commands.add('drSelect', { prevSubject: false }, drSelect)
 Cypress.Commands.add('drSetRNG', { prevSubject: false }, drSetRNG)
 Cypress.Commands.add('exportFile', { prevSubject: true }, exportFile)
 Cypress.Commands.add('importFile', { prevSubject: true }, importFile)
-Cypress.Commands.add(
-  'restoreLocalStorage',
-  { prevSubject: false },
-  restoreLocalStorage
-)
-Cypress.Commands.add(
-  'saveLocalStorage',
-  { prevSubject: false },
-  saveLocalStorage
-)
 Cypress.Commands.add('paste', { prevSubject: true }, paste)

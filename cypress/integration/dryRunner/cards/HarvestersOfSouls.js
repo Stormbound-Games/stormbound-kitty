@@ -51,6 +51,7 @@ describe('Dry-runner — Harvesters of Souls', () => {
 
   it('should be possible to add new level 1 cards to deck with Harvesters of Souls in equals mode', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
+      .wait(1000)
       .drReset({ equals: true })
       .drDrawHand(HAND)
 
