@@ -12,7 +12,6 @@ const reset = ({ equals = false, modifier = 'NONE' } = {}) => {
   if (equals) {
     return cy
       .get(s.EQUALS_MODE_CHECKBOX, { log: false })
-      .should('be.visible')
       .check({ log: false })
 
       .get(s.EQUALS_DIALOG, { log: false })

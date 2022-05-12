@@ -10,7 +10,6 @@ const setRNG = mode => {
   return cy
     .get(s.RNG_INPUT, { log: false })
     .filter(`[value="${mode}"]`, { log: false })
-    .should('be.visible')
     .click({ log: false, force: true })
 }
 

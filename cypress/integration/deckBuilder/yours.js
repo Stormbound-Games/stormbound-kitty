@@ -121,18 +121,7 @@ describe('Deck Builder - Personal decks', () => {
   })
 
   it('should be possible to filter decks', () => {
-    cy.reload()
-      .get(s.PERSONAL_DECKS_NAME_INPUT)
-      .should('not.exist')
-      .get(s.PERSONAL_DECKS_FACTION_SELECT)
-      .should('not.exist')
-      .get(s.PERSONAL_DECKS_TAGS_SELECT)
-      .should('not.exist')
-
-      .get(s.IMPORT_DECKS_BTN)
-      .importFile('decks.import.csv')
-
-      .get(s.PERSONAL_DECKS_NAME_INPUT)
+    cy.get(s.PERSONAL_DECKS_NAME_INPUT)
       .type('goat')
 
       .get(s.PERSONAL_DECKS)
