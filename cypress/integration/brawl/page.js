@@ -1,11 +1,13 @@
 import s from './selectors'
 
 describe('Brawl — Page', () => {
-  before(() => cy.visit('/brawl/construct-movement'))
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
   afterEach(() => cy.saveLocalStorage())
 
   it('should display only relevant content when no matches are recorded', () => {
-    cy.get(s.RESET_BTN)
+    cy.visit('/brawl/construct-movement')
+      .get(s.RESET_BTN)
       .should('not.exist')
 
       .get(s.MILESTONE)
@@ -70,7 +72,6 @@ describe('Brawl — Page', () => {
   })
 
   it('should be backed up in local storage and offer CSV export', () => {
-    cy.restoreLocalStorage()
     cy.reload()
       .get(s.MATCHES)
       .should('have.length', 2)

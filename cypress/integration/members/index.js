@@ -1,4 +1,8 @@
 describe('Members page', () => {
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
+  afterEach(() => cy.saveLocalStorage())
+
   it('should be possible to record oneself', () => {
     cy.visit('/members')
       .get('#user-name')
@@ -9,22 +13,16 @@ describe('Members page', () => {
       .get('#user-name')
       .find('[class$="-singleValue"]')
       .should('contain', 'Kitty')
-      .saveLocalStorage()
   })
 
   it('should be preserved upon reload', () => {
-    cy.restoreLocalStorage()
-      .reload()
+    cy.reload()
       .get('#user-name')
       .find('[class$="-singleValue"]')
       .should('contain', 'Kitty')
-      .saveLocalStorage()
   })
 
   it('should be reflected in one’s feed', () => {
-    cy.restoreLocalStorage()
-      .visit('/members/kitty')
-      .get('h1')
-      .contains('Activity Feed')
+    cy.visit('/members/kitty').get('h1').contains('Activity Feed')
   })
 })

@@ -1,10 +1,13 @@
 import s from './selectors'
 
 describe('Deck Builder - Personal decks', () => {
-  before(() => cy.visit('/decks/bookmarks'))
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
+  afterEach(() => cy.saveLocalStorage())
 
   it('should display no deck and a ghost', () => {
-    cy.get(s.PERSONAL_DECKS)
+    cy.visit('/decks/bookmarks')
+      .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
 
       .get(s.GHOST_DECK)
@@ -78,11 +81,9 @@ describe('Deck Builder - Personal decks', () => {
       .first()
       .find('[data-testid="featured-deck-name"]')
       .should('contain', 'Renamed')
-    cy.saveLocalStorage()
   })
 
   it('should be backed up in local storage and offer CSV export', () => {
-    cy.restoreLocalStorage()
     cy.reload()
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)
@@ -110,18 +111,7 @@ describe('Deck Builder - Personal decks', () => {
   })
 
   it('should be possible to filter decks', () => {
-    cy.reload()
-      .get(s.PERSONAL_DECKS_NAME_INPUT)
-      .should('not.exist')
-      .get(s.PERSONAL_DECKS_FACTION_SELECT)
-      .should('not.exist')
-      .get(s.PERSONAL_DECKS_TAGS_SELECT)
-      .should('not.exist')
-
-      .get(s.IMPORT_DECKS_BTN)
-      .importFile('decks.import.csv')
-
-      .get(s.PERSONAL_DECKS_NAME_INPUT)
+    cy.get(s.PERSONAL_DECKS_NAME_INPUT)
       .type('goat')
 
       .get(s.PERSONAL_DECKS)
