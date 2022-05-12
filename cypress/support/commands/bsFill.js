@@ -40,6 +40,7 @@ const bsFill = (
   })
 
   cy.get(s.CELL_FORM_CARD_SELECT, { log: false }).type(card + '{enter}', {
+    force: true,
     log: false,
   })
 

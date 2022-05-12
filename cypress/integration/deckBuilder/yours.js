@@ -1,24 +1,16 @@
 import s from './selectors'
 
 describe('Deck Builder - Personal decks', () => {
-  before(() => {
-    cy.clearLocalStorageSnapshot()
-  })
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
+  afterEach(() => cy.saveLocalStorage())
 
-  beforeEach(() => {
-    cy.restoreLocalStorage()
+  it('should be possible to add a deck', () => {
     cy.visit('/decks/bookmarks')
       // Wait for the Strict Mode double-mounting to happen otherwise displaying
       // the form doesn’t work properly.
       .wait(2000)
-  })
-
-  afterEach(() => {
-    cy.saveLocalStorage()
-  })
-
-  it('should be possible to add a deck', () => {
-    cy.get(s.PERSONAL_DECKS)
+      .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
 
       .get(s.GHOST_DECK)

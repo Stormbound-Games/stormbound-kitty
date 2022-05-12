@@ -1,20 +1,11 @@
 describe('Members page', () => {
-  before(() => {
-    cy.clearLocalStorageSnapshot()
-  })
-
-  beforeEach(() => {
-    cy.restoreLocalStorage()
-    cy.visit('/members')
-  })
-
-  afterEach(() => {
-    cy.saveLocalStorage()
-  })
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
+  afterEach(() => cy.saveLocalStorage())
 
   it('should be possible to record oneself', () => {
-    cy.get('#user-name')
-      .should('be.visible')
+    cy.visit('/members')
+      .get('#user-name')
       .find('input')
       .first()
       .type('Kitt', { force: true })
@@ -25,11 +16,10 @@ describe('Members page', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.get('#user-name')
-      .should('be.visible')
+    cy.reload()
+      .get('#user-name')
       .find('[class$="-singleValue"]')
       .should('contain', 'Kitty')
-      .saveLocalStorage()
   })
 
   it('should be reflected in one’s feed', () => {

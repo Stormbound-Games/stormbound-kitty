@@ -1,8 +1,18 @@
 import s from './selectors'
 
 describe('Brawl — Page', () => {
-  before(() => {
-    cy.clearLocalStorageSnapshot()
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage())
+  afterEach(() => cy.saveLocalStorage())
+
+  it('should display only relevant content when no matches are recorded', () => {
+    cy.visit('/brawl/construct-movement')
+      .get(s.RESET_BTN)
+      .should('not.exist')
+
+      .get(s.MILESTONE)
+      .eq(0)
+      .should('be.visible')
   })
 
   beforeEach(() => {
