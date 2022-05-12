@@ -5,17 +5,17 @@ describe('Deck Builder - Personal decks', () => {
   beforeEach(() => cy.restoreLocalStorage())
   afterEach(() => cy.saveLocalStorage())
 
-  it('should display no deck and a ghost', () => {
+  it('should be possible to add a deck', () => {
     cy.visit('/decks/bookmarks')
+
       .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
 
       .get(s.GHOST_DECK)
       .should('be.visible')
-  })
 
-  it('should be possible to add a deck', () => {
-    cy.get(s.GHOST_DECK_BTN)
+      .get(s.GHOST_DECK_BTN)
+      .should('be.visible')
       .click()
 
       .get(s.DECK_FORM)

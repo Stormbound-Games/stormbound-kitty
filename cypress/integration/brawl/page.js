@@ -87,8 +87,6 @@ describe('Brawl — Page', () => {
       .should('have.length', 5)
   })
 
-  // Somehow this test fails on CI with this error:
-  // Uncaught Error: ResizeObserver loop limit exceeded
   it('should be possible to reset brawl data', () => {
     cy.get(s.RESET_BTN)
       .click()
