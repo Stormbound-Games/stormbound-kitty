@@ -14,16 +14,14 @@ export default React.memo(function YourDeckGhost(props) {
   return (
     <Spacing bottom='LARGE'>
       <div className={css(styles.ghost)} data-testid='ghost-deck'>
+        <Deck deck={[]} orientation='horizontal' />
         <BlankButton
           extend={styles.button}
           onClick={props.onClick}
           data-testid='ghost-deck-btn'
-          label={label}
-        />
-        <Deck deck={[]} orientation='horizontal' />
-        <span className={css(styles.name)} aria-hidden>
+        >
           {label}
-        </span>
+        </BlankButton>
       </div>
     </Spacing>
   )
