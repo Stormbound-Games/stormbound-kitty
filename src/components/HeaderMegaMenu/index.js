@@ -13,7 +13,13 @@ const useOutsideAlerter = (props, ref) => {
 
   const handleClickOutside = React.useCallback(
     event => {
-      if (open && ref.current && !ref.current.contains(event.target)) close()
+      if (
+        open &&
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        typeof close === 'function'
+      )
+        close()
     },
     [ref, open, close]
   )
