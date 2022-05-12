@@ -25,13 +25,18 @@ describe('Battle Simulator — Drag and drop', () => {
       .then($strength => expect($strength).to.have.text('1'))
   })
 
-  it('should be able to swap to filled cells', () => {
+  it('should be able to swap two filled cells', () => {
     cy.bsFill('A1', { card: 'Ubass', strength: 10 })
-      .get(s.CELL_A1)
-      .trigger('mousedown')
-      .get(s.CELL_B1)
-      .trigger('mouseover')
-      .trigger('mouseup')
+      .url()
+      .then(currentUrl => {
+        cy.get(s.CELL_A1)
+          .trigger('mousedown')
+          .get(s.CELL_B1)
+          .trigger('mouseover')
+          .trigger('mouseup')
+          .url()
+          .should('not.eq', currentUrl)
+      })
 
       .get(s.CELL_A1)
       .find(s.CELL_STRENGTH)
