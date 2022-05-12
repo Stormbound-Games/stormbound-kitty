@@ -45,7 +45,8 @@ describe('Deck Builder — Featured', () => {
   })
 
   it('should be possible to filter decks', function () {
-    cy.get('[data-testid="page-meta"]')
+    cy.visit('/decks')
+      .get('[data-testid="page-meta"]')
       .invoke('text')
       .as('meta')
 
