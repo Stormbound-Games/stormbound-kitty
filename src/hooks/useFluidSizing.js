@@ -3,7 +3,7 @@ import useViewportSize from './useViewportSize'
 
 const useFluidSizing = (ratio, defaultWidth = undefined) => {
   const { viewportWidth } = useViewportSize()
-  const ref = React.createRef()
+  const ref = React.useRef(null)
   const [fontSize, setFontSize] = React.useState(
     defaultWidth ? defaultWidth * ratio + 'px' : undefined
   )
