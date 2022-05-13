@@ -24,7 +24,6 @@ describe('Battle Simulator — Cells', () => {
 
   it('should be possible to update a filled cell', () => {
     cy.get(s.CELL_A1).click()
-
     cy.get(s.CELL_FORM_CARD_SELECT)
       .click({ force: true })
       .type('Sparkl', { force: true })
@@ -53,24 +52,30 @@ describe('Battle Simulator — Cells', () => {
   })
 
   it('should be possible to update the vitality status of a filled cell', () => {
-    cy.get(s.CELL_A1).click().click() // Don’t ask me…
-    cy.get(s.CELL_FORM_VITALITY_CHECKBOX).click({ force: true })
-    cy.get(s.CELL_FORM_BTN).should('be.visible').click()
-    cy.get(s.CELL_A1).should($cell => {
-      expect($cell.attr('title')).not.to.match(/poisoned/)
-      expect($cell.attr('title')).to.match(/vitalized/)
+    cy.url().then(currentUrl => {
+      cy.get(s.CELL_A1).click().click() // Don’t ask me…
+      cy.get(s.CELL_FORM_VITALITY_CHECKBOX).click({ force: true })
+      cy.get(s.CELL_FORM_BTN).should('be.visible').click()
+      cy.get(s.CELL_A1).should($cell => {
+        expect($cell.attr('title')).not.to.match(/poisoned/)
+        expect($cell.attr('title')).to.match(/vitalized/)
+      })
+      cy.url().should('not.eq', currentUrl)
     })
   })
 
   it('should be possible to empty a filled cell', () => {
-    cy.get(s.CELL_A1).click().click() // Don’t ask me…
-    cy.get(s.CELL_FORM_REMOVE_BTN).should('be.visible').click()
-    cy.get(s.CELL_A1).find(s.CELL_IMAGE).should('not.exist')
-    cy.get(s.CELL_A1).find(s.CELL_STRENGTH).should('not.exist')
+    cy.url().then(currentUrl => {
+      cy.get(s.CELL_A1).click().click() // Don’t ask me…
+      cy.get(s.CELL_FORM_REMOVE_BTN).should('be.visible').click()
+      cy.get(s.CELL_A1).find(s.CELL_IMAGE).should('not.exist')
+      cy.get(s.CELL_A1).find(s.CELL_STRENGTH).should('not.exist')
+      cy.url().should('not.eq', currentUrl)
+    })
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.reload() // Don’t ask me…
     cy.url().then(currentUrl => {
       cy.bsFill('A1', {
         card: 'Zhev',
