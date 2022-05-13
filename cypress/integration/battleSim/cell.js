@@ -5,16 +5,10 @@ describe('Battle Simulator — Cells', () => {
     cy.visit('/simulators/battle')
   })
 
-  it('should be possible to select an empty cell', () => {
+  it('should be possible to select and unselect an cell', () => {
     cy.get(s.CELL_A1).click().should('have.attr', 'aria-pressed', 'true')
-  })
-
-  it('should be possible to unselect a selected cell', () => {
-    cy.get('#cell-form-dialog [data-testid="cell-form-dialog-close"]')
-      .click()
-      .get(s.CELL_A1)
-      .click()
-      .should('not.have.attr', 'aria-pressed')
+    cy.get('#cell-form-dialog [data-testid="cell-form-dialog-close"]').click()
+    cy.get(s.CELL_A1).should('not.have.attr', 'aria-pressed')
   })
 
   it('should enable the cell settings', () => {
