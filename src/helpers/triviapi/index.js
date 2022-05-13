@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch-native'
 
 const API_TOKEN = process.env.API_TOKEN
 const API_BASE_URL = 'https://jsonbin.org/kittysparkles'
