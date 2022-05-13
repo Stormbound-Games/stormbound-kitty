@@ -177,7 +177,7 @@ export default React.memo(function DeckEditorView(props) {
     }
     // There is no need for `history`, `deckId` and `adjustedRedirectPath` to be
     // passed as dependencies.
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldAdjustDeckToCollection])
 
   // If the `adjustCardLevels` option is turn off, and we have the original deck
@@ -193,7 +193,7 @@ export default React.memo(function DeckEditorView(props) {
     }
     // There is no need for `router` and `restoredRedirectPath` to be passed
     // as dependencies.
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldRestoreOriginalDeck])
 
   // Compute the card collection, the level of cards and whether they are owned

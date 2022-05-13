@@ -48,7 +48,7 @@ export default React.memo(function PageQuestBuilder(props) {
         null,
         { scroll: false }
       )
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency, amount, name, description, difficulty])
 
   return (

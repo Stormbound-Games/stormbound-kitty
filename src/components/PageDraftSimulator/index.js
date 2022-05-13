@@ -156,7 +156,7 @@ export default React.memo(function PageDraftSimulator(props) {
 
       router.replace(`/simulators/draft/${deckId}`, null, { scroll: false })
     },
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [props.deck]
   )
 

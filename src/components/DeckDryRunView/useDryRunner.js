@@ -88,7 +88,7 @@ const useDryRunner = props => {
     () => {
       resetGame()
     },
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [props.equalsMode, props.modifier]
   )
 

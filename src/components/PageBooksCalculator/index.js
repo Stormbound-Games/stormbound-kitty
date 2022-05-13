@@ -52,22 +52,22 @@ export default React.memo(function PageBooksCalculator(props) {
 
   const setCommonExpectation = React.useCallback(
     value => setExpectation(0, value),
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
   const setRareExpectation = React.useCallback(
     value => setExpectation(1, value),
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
   const setEpicExpectation = React.useCallback(
     value => setExpectation(2, value),
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
   const setLegendaryExpectation = React.useCallback(
     value => setExpectation(3, value),
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 

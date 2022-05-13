@@ -64,7 +64,7 @@ export default React.memo(function SearchDialog(props) {
   React.useEffect(() => {
     props.dialogRef.current?.hide()
     setIsLoading(false)
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath])
 
   const registerDialog = instance => {

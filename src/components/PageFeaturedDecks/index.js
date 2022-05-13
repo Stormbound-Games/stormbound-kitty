@@ -68,7 +68,7 @@ export default React.memo(function PageFeaturedDecks(props) {
 
       router.replace(path, null, { scroll: false, shallow: true })
     }
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, tags, faction, authorSlug, including])
 
   const matchesFaction = React.useCallback(

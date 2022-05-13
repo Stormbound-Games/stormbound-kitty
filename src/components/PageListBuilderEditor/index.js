@@ -88,7 +88,7 @@ export default React.memo(function PageListBuilderEditor(props) {
     router.replace('/list/' + serialization.list.serialize(tiers), null, {
       scroll: false,
     })
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tiers])
 
   return (
