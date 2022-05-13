@@ -11,13 +11,16 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import useCardBuilder from '~/hooks/useCardBuilder'
+import useRouteId from '~/hooks/useRouteId'
 
 const usePageProps = (props, card) => {
-  if (!props.id) return {}
+  const id = useRouteId()
+
+  if (!id) return {}
 
   const isEditing = props.mode === 'EDITOR'
   const { rarity, faction, type, unitTypes } = card
-  const to = `/card/${props.id}` + (isEditing ? '/display' : '')
+  const to = `/card/${id}` + (isEditing ? '/display' : '')
   const label = isEditing ? 'Display view' : 'Edit card'
   const icon = isEditing ? 'eye' : undefined
 
@@ -38,7 +41,7 @@ export default React.memo(function PageCardBuilder(props) {
   return (
     <Page {...pageProps} {...metaTags}>
       <Spacing bottom='LARGEST'>
-        <CardDisplay {...card} mode={props.mode} id={props.id} />
+        <CardDisplay {...card} mode={props.mode} />
       </Spacing>
 
       {card.hasSingleLevel && (
@@ -65,7 +68,7 @@ export default React.memo(function PageCardBuilder(props) {
               </Row.Column>
               <Row.Column>
                 <Title>Level-specific attributes</Title>
-                <LevelForm {...card} {...setters} id={props.id} />
+                <LevelForm {...card} {...setters} />
               </Row.Column>
             </Row>
           </form>

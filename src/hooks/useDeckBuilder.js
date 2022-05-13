@@ -3,29 +3,31 @@ import { useRouter } from 'next/router'
 import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 import { sortByMana } from '~/helpers/sortCards'
+import useRouteId from '~/hooks/useRouteId'
+import useDidUpdateEffect from '~/hooks/useDidUpdateEffect'
 
-const useDeckBuilderPath = (deck, view) => {
-  const { query } = useRouter()
-  const { mode } = query
+const getDeckBuilderPath = (deck, view) => {
   const id = serialization.deck.serialize(deck)
 
   switch (view) {
     case 'DETAIL':
-      return `/deck/${id}/detail` + (mode ? `?mode=${mode}` : '')
+      return `/deck/${id}/detail`
     case 'DRY_RUN':
+      const params = new URLSearchParams(window.location.search)
+      const mode = params.get('mode')
       return `/deck/${id}/dry-run` + (mode ? `?mode=${mode}` : '')
     default:
     case 'EDITOR':
-      return `/deck/${id}` + (mode ? `?mode=${mode}` : '')
+      return `/deck/${id}`
   }
 }
 
 const useDeckBuilder = props => {
+  const id = useRouteId()
   const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const router = useRouter()
   const [highlightedCards, setHighlightedCards] = React.useState([])
   const [deck, setDeck] = React.useState(props.deck || [])
-  const path = useDeckBuilderPath(deck, props.view)
 
   const reset = React.useCallback(() => setDeck([]), [])
 
@@ -49,23 +51,20 @@ const useDeckBuilder = props => {
     [deck]
   )
 
-  React.useEffect(() => {
-    router.replace(path, null, { scroll: false })
-    // eslint-disable-next-line
-  }, [path])
+  useDidUpdateEffect(() => {
+    const path = getDeckBuilderPath(deck, props.view)
+    router.replace(path, null, { scroll: false, shallow: true })
+  }, [deck, props.view])
 
-  React.useEffect(() => {
-    setDeck(
-      props.id ? serialization.deck.deserialize(cardsIndexBySid, props.id) : []
-    )
-  }, [cardsIndexBySid, props.id])
+  useDidUpdateEffect(() => {
+    setDeck(id ? serialization.deck.deserialize(cardsIndexBySid, id) : [])
+  }, [cardsIndexBySid, id])
 
   return {
     deck,
     suggestedDeck: props.suggestedDeck,
     advice: props.advice,
     preset: props.preset,
-    deckId: props.id,
     reset,
     addCardToDeck,
     defineDeck: setDeck,

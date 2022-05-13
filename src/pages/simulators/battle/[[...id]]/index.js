@@ -27,6 +27,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   return {
     props: {
       settings,
+      // The ID is needed for the battle sim history (and only for that).
       id: decodeURIComponent(id),
       sim: serialization.battle.deserialize(cardsIndex, decodeURIComponent(id)),
       mode: view === 'display' ? 'DISPLAY' : 'EDITOR',

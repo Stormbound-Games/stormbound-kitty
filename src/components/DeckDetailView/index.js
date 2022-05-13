@@ -14,10 +14,12 @@ import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
 import modifyDeck from '~/helpers/modifyDeck'
 import toSentence from '~/helpers/toSentence'
 import indexArray from '~/helpers/indexArray'
+import useRouteId from '~/hooks/useRouteId'
 
 const DeckStatsChart = dynamic(() => import('~/components/DeckStatsChart'))
 
 export default React.memo(function DeckDetailView(props) {
+  const id = useRouteId()
   const { notify } = React.useContext(NotificationContext)
   const { cardsIndex } = React.useContext(CardsContext)
   const defaultModifier = props.preset.modifier.includes('MANA')
@@ -60,7 +62,7 @@ export default React.memo(function DeckDetailView(props) {
             )
           : undefined
       }
-      action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
+      action={{ to: '/deck/' + id, children: 'Edit deck' }}
     >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>

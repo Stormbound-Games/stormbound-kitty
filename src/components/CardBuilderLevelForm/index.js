@@ -5,9 +5,10 @@ import Row from '~/components/Row'
 import ShareButton from '~/components/CardBuilderShareButton'
 import Spacing from '~/components/Spacing'
 import formatCardStats from '~/helpers/formatCardStats'
+import useRouteId from '~/hooks/useRouteId'
 
 export default React.memo(function CardBuilderLevelForm(props) {
-  const isPristine = !props.id
+  const isPristine = !useRouteId()
 
   return (
     <>

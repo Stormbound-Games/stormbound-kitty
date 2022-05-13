@@ -36,8 +36,6 @@ const useCardBuilder = props => {
   const reset = React.useCallback(() => setCardData(INITIAL_STATE), [])
 
   React.useEffect(() => {
-    // Safari has a limit of 100 `history.pushState()` per 30 seconds window, so
-    // we should fail silently if it’s not possible to update the URL anymore.
     try {
       const isDefaultState = isDeepEqual(cardData, INITIAL_STATE)
       const data = {
@@ -46,16 +44,17 @@ const useCardBuilder = props => {
         mana: cardData.mana.display,
         ability: cardData.ability.display,
       }
+      const id = isDefaultState ? '' : serialization.card.serialize(data)
 
-      router.replace(
-        ['/card', isDefaultState ? '' : serialization.card.serialize(data)]
-          .filter(Boolean)
-          .join('/'),
-        null,
-        { scroll: false }
-      )
+      router.replace(['/card', id].filter(Boolean).join('/'), null, {
+        scroll: false,
+        shallow: true,
+      })
+
+      // Safari has a limit of 100 `history.pushState()` per 30 seconds window,
+      // so we should fail silently if it’s not possible to update the URL.
     } catch {}
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardData])
 
   const setProperty =

@@ -28,6 +28,7 @@ export default React.memo(function PageQuestBuilder(props) {
         description,
         difficulty,
       })
+
   const reset = React.useCallback(() => {
     setCurrency('coins')
     setAmount(0)
@@ -39,6 +40,7 @@ export default React.memo(function PageQuestBuilder(props) {
   React.useEffect(() => {
     router.replace(['/quest', id].filter(Boolean).join('/'), null, {
       scroll: false,
+      shallow: true,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
