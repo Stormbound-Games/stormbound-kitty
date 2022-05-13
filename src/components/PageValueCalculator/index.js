@@ -88,18 +88,16 @@ export default React.memo(function PageValueCalculator(props) {
   const router = useRouter()
   const [A, setA] = React.useState(props.deck[0])
   const [B, setB] = React.useState(props.deck[1])
+  const id = serialization.cards.serialize([A, B])
 
   React.useEffect(() => {
     router.replace(
-      ['/calculators/value', serialization.cards.serialize([A, B])]
-        .filter(Boolean)
-        .join('/')
-        .toLowerCase(),
+      ['/calculators/value', id].filter(Boolean).join('/').toLowerCase(),
       null,
       { scroll: false }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [A, B])
+  }, [id])
 
   return (
     <Page

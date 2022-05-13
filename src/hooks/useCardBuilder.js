@@ -48,11 +48,7 @@ const useCardBuilder = props => {
       }
 
       router.replace(
-        [
-          '/card',
-          isDefaultState ? '' : serialization.card.serialize(data),
-          props.mode === 'DISPLAY' ? 'display' : '',
-        ]
+        ['/card', isDefaultState ? '' : serialization.card.serialize(data)]
           .filter(Boolean)
           .join('/'),
         null,
@@ -60,7 +56,7 @@ const useCardBuilder = props => {
       )
     } catch {}
     // eslint-disable-next-line
-  }, [cardData, props.mode])
+  }, [cardData])
 
   const setProperty =
     (key, transform = v => v) =>
