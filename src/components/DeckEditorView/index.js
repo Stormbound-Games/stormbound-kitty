@@ -101,7 +101,9 @@ const usePageProps = (deck, matchedDeck = {}) => {
 
 export default React.memo(function DeckEditorView(props) {
   const router = useRouter()
-  const deckId = serialization.deck.serialize(props.deck)
+  const deck = useModifiedDeck(props.brawls, props.deck, props.suggestedDeck)
+  const articleProps = usePageProps(deck, props.suggestedDeck)
+  const deckId = serialization.deck.serialize(deck)
   const { cardsIndex } = React.useContext(CardsContext)
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
@@ -149,8 +151,8 @@ export default React.memo(function DeckEditorView(props) {
   // of the collection. Therefore, when the collection is the default one, the
   // adjusted deck ID is the same as the deck ID.
   const adjustedDeck = hasDefaultCollection
-    ? props.deck
-    : props.deck.map(adjustCardToCollection(indexedCollection)).filter(Boolean)
+    ? deck
+    : deck.map(adjustCardToCollection(indexedCollection)).filter(Boolean)
   const adjustedDeckId = hasDefaultCollection
     ? deckId
     : serialization.deck.serialize(adjustedDeck)
@@ -165,11 +167,11 @@ export default React.memo(function DeckEditorView(props) {
   React.useEffect(() => {
     if (shouldAdjustDeckToCollection) {
       setOriginalDeckId(deckId)
-      router.push(adjustedRedirectPath, null, { scroll: false })
+      router.push(adjustedRedirectPath, null, { scroll: false, shallow: true })
     }
     // There is no need for `history`, `deckId` and `adjustedRedirectPath` to be
     // passed as dependencies.
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldAdjustDeckToCollection])
 
   // If the `adjustCardLevels` option is turn off, and we have the original deck
@@ -181,11 +183,11 @@ export default React.memo(function DeckEditorView(props) {
 
   React.useEffect(() => {
     if (shouldRestoreOriginalDeck) {
-      router.push(restoredRedirectPath, null, { scroll: false })
+      router.push(restoredRedirectPath, null, { scroll: false, shallow: true })
     }
     // There is no need for `router` and `restoredRedirectPath` to be passed
     // as dependencies.
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldRestoreOriginalDeck])
 
   // Compute the card collection, the level of cards and whether they are owned
@@ -199,9 +201,6 @@ export default React.memo(function DeckEditorView(props) {
       missing: withCollection ? card.missing : false,
     })
   )
-
-  const deck = useModifiedDeck(props.brawls, props.deck, props.suggestedDeck)
-  const articleProps = usePageProps(deck, props.suggestedDeck)
 
   return (
     <Page
@@ -275,7 +274,7 @@ export default React.memo(function DeckEditorView(props) {
                     cardsPerPage={cardsPerPage}
                     cardLevel={cardLevel}
                     setCardLevel={setCardLevel}
-                    deck={props.deck}
+                    deck={deck}
                   />
                 ) : (
                   <EmptySearch

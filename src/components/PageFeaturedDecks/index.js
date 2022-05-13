@@ -66,9 +66,9 @@ export default React.memo(function PageFeaturedDecks(props) {
           ? '/decks?' + new URLSearchParams(parameters).toString()
           : '/decks'
 
-      router.replace(path, null, { scroll: false })
+      router.replace(path, null, { scroll: false, shallow: true })
     }
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, tags, faction, authorSlug, including])
 
   const matchesFaction = React.useCallback(

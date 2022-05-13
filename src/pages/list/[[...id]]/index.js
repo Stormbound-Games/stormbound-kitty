@@ -28,7 +28,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     props: {
       settings,
       tiers: getInitialListData(id),
-      id,
       mode: view === 'display' ? 'DISPLAY' : 'EDITOR',
       breadcrumbs,
     },
@@ -37,9 +36,9 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
 
 const ListBuilderPage = props =>
   props.mode === 'DISPLAY' ? (
-    <PageListBuilderDisplay {...props} listId={props.id} />
+    <PageListBuilderDisplay {...props} />
   ) : (
-    <PageListBuilderEditor {...props} listId={props.id} />
+    <PageListBuilderEditor {...props} />
   )
 
 export default ListBuilderPage

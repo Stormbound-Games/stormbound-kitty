@@ -17,6 +17,17 @@ export default React.memo(function PageQuestBuilder(props) {
   const [name, setName] = React.useState(quest.name || '')
   const [description, setDescription] = React.useState(quest.description || '')
   const [difficulty, setDifficulty] = React.useState(quest.difficulty || 1)
+  const isPristine =
+    currency === 'coins' && !amount && !name && !description && difficulty === 1
+  const id = isPristine
+    ? null
+    : serialization.quest.serialize({
+        currency,
+        amount,
+        name,
+        description,
+        difficulty,
+      })
 
   const reset = React.useCallback(() => {
     setCurrency('coins')
@@ -27,29 +38,12 @@ export default React.memo(function PageQuestBuilder(props) {
   }, [])
 
   React.useEffect(() => {
-    if (
-      currency === 'coins' &&
-      !amount &&
-      !name &&
-      !description &&
-      difficulty === 1
-    )
-      router.replace('/quest', null, { scroll: false })
-    else
-      router.replace(
-        '/quest/' +
-          serialization.quest.serialize({
-            currency,
-            amount,
-            name,
-            description,
-            difficulty,
-          }),
-        null,
-        { scroll: false }
-      )
-    // eslint-disable-next-line
-  }, [currency, amount, name, description, difficulty])
+    router.replace(['/quest', id].filter(Boolean).join('/'), null, {
+      scroll: false,
+      shallow: true,
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
 
   return (
     <Page

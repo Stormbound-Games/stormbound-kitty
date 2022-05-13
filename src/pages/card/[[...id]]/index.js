@@ -31,7 +31,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     const card = getInitialCardData(settings.cards, cardId)
     const mode = view === 'display' ? 'DISPLAY' : 'EDITOR'
 
-    return { props: { settings, id: cardId, card, mode, breadcrumbs } }
+    return { props: { settings, card, mode, breadcrumbs } }
   } catch {
     // If the deserialization failed for any reason, return a 404 as the request
     // cannot be resolved. HTTP 400 Bad Request would be more appropriate but

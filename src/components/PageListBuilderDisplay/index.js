@@ -8,9 +8,11 @@ import ListBuilderTier from '~/components/ListBuilderTier'
 import ListBuilderToc from '~/components/ListBuilderToc'
 import Title from '~/components/Title'
 import toSentence from '~/helpers/toSentence'
+import useRouteId from '~/hooks/useRouteId'
 
 export default React.memo(function PageListBuilderDisplay(props) {
-  const { tiers, listId: id } = props
+  const id = useRouteId()
+  const { tiers } = props
   const description = `This list features ${tiers
     .map(tier => tier.cards.length)
     .reduce((a, b) => a + b, 0)} cards across the following ${
