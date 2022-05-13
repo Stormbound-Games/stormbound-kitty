@@ -14,13 +14,16 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import isCard from '~/helpers/isCard'
+import useRouteId from '~/hooks/useRouteId'
 
 export default React.memo(function DryRunner(props) {
+  const id = useRouteId()
+
   return (
     <Page
       title='Deck Dry-Run'
       description='Try your deck with actual in-game mechanisms to test its mana curve and the likelihood of having cards combos'
-      action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
+      action={{ to: '/deck/' + id, children: 'Edit deck' }}
     >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>

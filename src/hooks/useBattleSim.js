@@ -186,15 +186,22 @@ const useBattleSim = props => {
     )
 
     if (id === DEFAULT_ID)
-      router.replace('/simulators/battle', null, { scroll: false })
-    else router.replace('/simulators/battle/' + id, null, { scroll: false })
+      router.replace('/simulators/battle', null, {
+        scroll: false,
+        shallow: true,
+      })
+    else
+      router.replace('/simulators/battle/' + id, null, {
+        scroll: false,
+        shallow: true,
+      })
 
     // If the update was caused by an undo, do not add a new entry into the
     // history and simply mark undo as `false` for the next state update
     if (undo) setUndo(false)
     else setHistory(history => [...history, id].slice(-20))
 
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sim, undo])
 
   React.useEffect(() => {
@@ -381,7 +388,6 @@ const useBattleSim = props => {
     },
     environment: props.environment,
     mode: props.mode,
-    id: props.id,
     resetBoard: resetBoard,
     setActivePlayer: setActivePlayer,
     setActiveCell: setActiveCell,

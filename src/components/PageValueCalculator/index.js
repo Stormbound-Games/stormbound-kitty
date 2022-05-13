@@ -94,7 +94,7 @@ export default React.memo(function PageValueCalculator(props) {
     router.replace(
       ['/calculators/value', id].filter(Boolean).join('/').toLowerCase(),
       null,
-      { scroll: false }
+      { scroll: false, shallow: true }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])

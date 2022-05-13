@@ -44,7 +44,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
       props: {
         brawls: brawls.map(brawl => ({ id: brawl.id })),
         settings,
-        id: null,
         deck: [],
         advice: [],
         view: 'EDITOR',
@@ -70,7 +69,6 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
     props: {
       brawls: view ? brawls : [],
       settings,
-      id,
       deck,
       advice,
       view: resolvedView,

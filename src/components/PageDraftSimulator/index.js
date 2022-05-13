@@ -154,6 +154,9 @@ export default React.memo(function PageDraftSimulator(props) {
       ]
       const deckId = serialization.deck.serialize(deck)
 
+      // This cannot use shallow routing, since adding a card to the deck relies
+      // on running the `getStaticProps` function again to get new data—it’s not
+      // done solely on the client (which it admittedly could).
       router.replace(`/simulators/draft/${deckId}`, null, { scroll: false })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -22,6 +22,7 @@ export default React.memo(function PageListBuilderEditor(props) {
   const router = useRouter()
   const [tiers, setTiers] = React.useState(props.tiers)
   const reset = React.useCallback(() => setTiers(DEFAULT_LIST), [])
+  const id = serialization.list.serialize(tiers)
 
   const updateTier = React.useCallback(
     (index, update) =>
@@ -80,24 +81,20 @@ export default React.memo(function PageListBuilderEditor(props) {
   const addTier = () => setTiers(tiers => [...tiers, { ...DEFAULT_TIER }])
 
   React.useEffect(() => {
-    if (props.listId) setTiers(serialization.list.deserialize(props.listId))
-    else reset()
-  }, [props.listId, reset])
-
-  React.useEffect(() => {
-    router.replace('/list/' + serialization.list.serialize(tiers), null, {
+    router.replace(['/list', id].filter(Boolean).join('/'), null, {
       scroll: false,
+      shallow: true,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tiers])
+  }, [id])
 
   return (
     <Page
       title='Create your list'
       description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
       action={
-        props.listId && {
-          to: `/list/${props.listId}/display`,
+        id && {
+          to: `/list/${id}/display`,
           children: 'Display view',
           icon: 'eye',
         }
@@ -119,11 +116,11 @@ export default React.memo(function PageListBuilderEditor(props) {
                 label='Reset list'
                 confirm='Are you sure you want to reset the list to its initial state?'
                 reset={reset}
-                disabled={!props.listId}
+                disabled={!id}
               />
             </Row.Column>
             <Row.Column>
-              <ShareButton title='Share tier list' disabled={!props.listId} />
+              <ShareButton title='Share tier list' disabled={!id} />
             </Row.Column>
           </Row>
         </Row.Column>
