@@ -22,6 +22,11 @@ export default React.memo(function Layout(props) {
   const { css } = useFela()
   const searchDialog = React.useRef(null)
 
+  // Hide the dialog when the URL changes (after navigating to a result).
+  React.useEffect(() => {
+    searchDialog.current?.hide()
+  }, [router.asPath])
+
   return (
     <div className={css(styles.layout)}>
       {props.settings.eyeCatcher ? (

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouter } from 'next/router'
 import Dialog from '~/components/Dialog'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
@@ -38,7 +37,6 @@ const Breadcrumbs = React.memo(function Breadcrumbs(props) {
 })
 
 export default React.memo(function SearchDialog(props) {
-  const router = useRouter()
   const { css } = useFela()
   const input = React.useRef(null)
   const [search, setSearch] = React.useState('')
@@ -59,13 +57,6 @@ export default React.memo(function SearchDialog(props) {
       setIsLoading(false)
     }
   }, [debouncedSearch])
-
-  // Hide the dialog when the URL changes (after navigating to a result).
-  React.useEffect(() => {
-    props.dialogRef.current?.hide()
-    setIsLoading(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.asPath])
 
   const registerDialog = instance => {
     props.dialogRef.current = instance
@@ -133,7 +124,9 @@ export default React.memo(function SearchDialog(props) {
                   </span>
                 }
               >
-                <Link to={result.path}>{result.label}</Link>
+                <Link to={result.path} onClick={() => setIsLoading(false)}>
+                  {result.label}
+                </Link>
                 <span className={css(styles.meta)}>
                   In <Breadcrumbs breadcrumbs={result.breadcrumbs} />
                 </span>
