@@ -49,9 +49,11 @@ export default React.memo(function PageCardBuilder(props) {
         </Notice>
       )}
 
-      <Page.Narrow>
-        <RandomCardInfo setCardData={setters.setCardData} />
-      </Page.Narrow>
+      {props.mode === 'EDITOR' && (
+        <Page.Narrow>
+          <RandomCardInfo setCardData={setters.setCardData} />
+        </Page.Narrow>
+      )}
 
       {props.mode === 'EDITOR' && (
         <Spacing top='LARGEST'>
