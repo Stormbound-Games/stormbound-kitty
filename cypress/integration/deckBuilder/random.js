@@ -3,7 +3,7 @@ import { getCardData } from '../../utils'
 
 describe('Deck Builder — Random deck', () => {
   before(() => {
-    cy.visit('/deck')
+    cy.visit('/deck').wait(2000)
   })
 
   afterEach(() => {
@@ -28,7 +28,7 @@ describe('Deck Builder — Random deck', () => {
       .get(s.RANDOM_DIALOG)
       .should('be.visible')
       .get(s.RANDOM_FACTION_SELECT)
-      .should('be.visible')
+      .should('not.be.disabled')
       .select('winter')
       .get(s.RANDOM_DIALOG_CONFIRM)
       .click()
@@ -49,6 +49,7 @@ describe('Deck Builder — Random deck', () => {
       .get(s.RANDOM_DIALOG)
       .should('be.visible')
       .get(s.RANDOM_FACTION_SELECT)
+      .should('be.visible')
       .select('winter')
       .get(s.RANDOM_MIN_FACTION_SELECT)
       .select('6')
@@ -92,8 +93,8 @@ describe('Deck Builder — Random deck', () => {
       .get(s.RANDOM_DIALOG)
       .should('be.visible')
       .get(s.RANDOM_MAX_LEGENDARY_SELECT)
+      .should('be.visible')
       .select('0')
-      .wait(1000)
       .get(s.RANDOM_DIALOG_CONFIRM)
       .should('be.visible')
       .click()
