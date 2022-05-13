@@ -180,7 +180,10 @@ export default React.memo(function BattleSimCellForm(props) {
         </Row>
       </div>
 
-      <fieldset>
+      <fieldset
+        data-testid='cell-status-effects'
+        disabled={cardsIndex[card]?.type === 'structure'}
+      >
         <Label as='legend' disabled={cardsIndex[card]?.type === 'structure'}>
           Statuses
         </Label>
