@@ -4,6 +4,7 @@ import { NotificationContext } from '~/components/NotificationProvider'
 import serialization from '~/helpers/serialization'
 import capitalize from '~/helpers/capitalize'
 import uuid from '~/helpers/uuid'
+import useLocalStorage from '~/hooks/useLocalStorage'
 import useOnce from '~/hooks/useOnce'
 
 export const PersonalDecksContext = React.createContext([])
@@ -52,7 +53,7 @@ const getInitialDecks = () => {
 
 export default React.memo(function PersonalDecksProvider(props) {
   const { cardsIndexBySid } = React.useContext(CardsContext)
-  const [decks, setDecks] = React.useState([])
+  const [decks, setDecks] = useLocalStorage(STORAGE_KEY, [])
   const [isUnseen, toggleUnseen] = React.useState(false)
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
@@ -69,14 +70,6 @@ export default React.memo(function PersonalDecksProvider(props) {
       notify('Locally saved decks found and loaded.')
     }
   })
-
-  React.useEffect(() => {
-    if (decks.length === 0) {
-      localStorage.removeItem(STORAGE_KEY)
-    } else {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(decks))
-    }
-  }, [decks])
 
   const resetDecks = () => {
     if (
