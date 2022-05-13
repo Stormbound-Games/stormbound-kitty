@@ -74,6 +74,20 @@ export default React.memo(function BattleSimAppDesktop(props) {
     [props.mode, props.isDragging, onMouseDown, onMouseOver, onMouseUp]
   )
 
+  const { setActiveCell } = props
+  const registerDialog = React.useCallback(
+    instance => {
+      dialog.current = instance
+
+      if (instance) {
+        // When the dialog gets closed (either via ESC, the close button or
+        // the form submission), reset the active cell.
+        instance.on('hide', () => setActiveCell(null))
+      }
+    },
+    [setActiveCell]
+  )
+
   return (
     <div className={css(styles.root)}>
       <Board {...props} dndProps={dndProps} />
@@ -83,7 +97,7 @@ export default React.memo(function BattleSimAppDesktop(props) {
           {...props}
           close={() => dialog.current.hide()}
           coords={coords}
-          dialogRef={instance => (dialog.current = instance)}
+          dialogRef={registerDialog}
         />
       )}
 
