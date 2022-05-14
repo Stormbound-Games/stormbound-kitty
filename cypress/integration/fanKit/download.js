@@ -3,10 +3,6 @@ import s from './selectors'
 describe('Fan-kit', () => {
   before(() => cy.visit('/fan-kit/cards'))
 
-  it('should display images', () => {
-    cy.get(s.ITEMS).should('exist')
-  })
-
   it('should be possible to download an image in PNG', () => {
     cy.get(s.ITEMS)
       .first()
