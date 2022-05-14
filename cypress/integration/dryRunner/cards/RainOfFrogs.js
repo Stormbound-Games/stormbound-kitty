@@ -7,20 +7,13 @@ describe('Dry-runner — Rain of Frogs', () => {
     const HAND = ['N2', 'I5', 'N3', 'F8']
 
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-
-      .drDrawHand(HAND)
-
-      .drPlay('F8')
-
-      .drSelect('I5')
-      .get(s.PLAY_BTN)
-      .should('be.disabled')
-
-      .drSelect('N3')
-      .get(s.PLAY_BTN)
-      .should('be.disabled')
-
-      .drPlay('N2')
+    cy.drDrawHand(HAND)
+    cy.drPlay('F8')
+    cy.drSelect('I5')
+    cy.get(s.PLAY_BTN).should('be.disabled')
+    cy.drSelect('N3')
+    cy.get(s.PLAY_BTN).should('be.disabled')
+    cy.drPlay('N2')
   })
 
   // Technically still valid, but with Toxic Sacrifice costing 2 mana instead of
@@ -30,17 +23,11 @@ describe('Dry-runner — Rain of Frogs', () => {
     const HAND = ['N1', 'N2', 'F4', 'F8']
 
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-
-      .drDrawHand(HAND)
-
-      .drPlay('F8')
-
-      .drSelect('N1')
-      .get(s.PLAY_BTN)
-      .should('be.disabled')
-
-      .drPlay('F4')
-
-      .drPlay('N1')
+    cy.drDrawHand(HAND)
+    cy.drPlay('F8')
+    cy.drSelect('N1')
+    cy.get(s.PLAY_BTN).should('be.disabled')
+    cy.drPlay('F4')
+    cy.drPlay('N1')
   })
 })

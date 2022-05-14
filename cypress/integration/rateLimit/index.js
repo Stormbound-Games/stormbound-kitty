@@ -12,8 +12,6 @@ describe('Brute-force protection', () => {
     cy.request({ url: '/api/search', method: 'GET', failOnStatusCode: false })
       .its('headers')
       .its('x-ratelimit-remaining')
-      .should(count => {
-        expect(Number(count)).to.be.lessThan(LIMIT_PER_WINDOW)
-      })
+      .should(count => expect(Number(count)).to.be.lessThan(LIMIT_PER_WINDOW))
   })
 })

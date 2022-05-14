@@ -25,9 +25,8 @@ describe('Card Builder — Ability', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
+    cy.url().should('not.match', /\/card$/)
+    cy.reload()
     cy.get(s.ABILITY_INPUT).should('have.value', 'Sparkles')
     assertCardAbility(0, 'Sparkles')
   })
@@ -42,10 +41,8 @@ describe('Card Builder — Ability', () => {
   })
 
   it('should support Markdown bold stars', () => {
-    cy.get(s.ABILITY_INPUT)
-      .clear()
-      .type('Sparkles *forever*')
-      .get(s.CARD_PREVIEW)
+    cy.get(s.ABILITY_INPUT).clear().type('Sparkles *forever*')
+    cy.get(s.CARD_PREVIEW)
       .eq(0)
       .find(s.CARD_ABILITY)
       .find('strong')

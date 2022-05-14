@@ -13,12 +13,9 @@ describe('Dry-runner — Toxic Sacrifice', () => {
   ].forEach(({ id, name, action }) => {
     it(`should not be possible to play Toxic Sacrifice without ${action}ing a unit before, with ${name} for example`, () => {
       cy.drSelect('F4')
-        .get(s.PLAY_BTN)
-        .should('be.disabled')
-
-        .drPlay(id)
-
-        .drPlay('F4')
+      cy.get(s.PLAY_BTN).should('be.disabled')
+      cy.drPlay(id)
+      cy.drPlay('F4')
     })
   })
 })

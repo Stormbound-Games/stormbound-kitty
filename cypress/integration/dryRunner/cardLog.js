@@ -9,31 +9,24 @@ describe('Dry-runner — Card Log', () => {
 
   it('should log a card when played', () => {
     cy.drPlay('N1')
-      .get(s.CARD_LOG_IMAGE)
+    cy.get(s.CARD_LOG_IMAGE)
       .first()
       .should('have.attr', 'alt', 'Green Prototypes')
   })
 
   it('should log the second card played as such', () => {
     cy.drPlay('N3')
-      .get(s.CARD_LOG_IMAGE)
+    cy.get(s.CARD_LOG_IMAGE)
       .first()
       .should('have.attr', 'alt', 'Gifted Recruits')
   })
 
   it('should not display more than 6 cards at once', () => {
-    cy.drEndTurn()
-      .drPlay(0)
-      .drEndTurn()
-      .drPlay(0)
-      .drEndTurn()
-      .drPlay(0)
-      .drEndTurn()
-      .drPlay(0)
-      .drEndTurn()
-      .drPlay(0)
-
-      .get(s.CARD_LOG_IMAGE)
-      .should('have.length', 6)
+    cy.drEndTurn().drPlay(0)
+    cy.drEndTurn().drPlay(0)
+    cy.drEndTurn().drPlay(0)
+    cy.drEndTurn().drPlay(0)
+    cy.drEndTurn().drPlay(0)
+    cy.get(s.CARD_LOG_IMAGE).should('have.length', 6)
   })
 })

@@ -25,9 +25,8 @@ describe('Card Builder — Faction', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
+    cy.url().should('not.match', /\/card$/)
+    cy.reload()
     cy.get(s.FACTION_SELECT).should('have.value', 'ironclad')
     assertCardFaction(0, 'ironclad')
   })

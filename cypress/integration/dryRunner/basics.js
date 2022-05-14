@@ -37,12 +37,13 @@ describe('Dry-runner — Basics', () => {
   })
 
   it('should be possible to display drawing chances', () => {
-    cy.get(s.DECK_CARD)
-      .each($card => expect($card.text()).not.to.satisfy(showsDrawingChance))
-      .get(s.CHANCES_CHECKBOX)
-      .check()
-      .get(s.DECK_CARD)
-      .each($card => expect($card.text()).to.satisfy(showsDrawingChance))
+    cy.get(s.DECK_CARD).each($card =>
+      expect($card.text()).not.to.satisfy(showsDrawingChance)
+    )
+    cy.get(s.CHANCES_CHECKBOX).check()
+    cy.get(s.DECK_CARD).each($card =>
+      expect($card.text()).to.satisfy(showsDrawingChance)
+    )
   })
 
   it('should mark playable cards as such', () => {
@@ -51,45 +52,27 @@ describe('Dry-runner — Basics', () => {
 
   it('should be possible to cycle a single card', () => {
     cy.drCycle(0)
-
-      .get('@card')
-      .should('not.exist')
-
-      .get(s.CARD)
-      .should('have.length', 4)
-
-      .drSelect(0)
-
-      .get(s.CYCLE_BTN)
-      .and('be.disabled')
+    cy.get('@card').should('not.exist')
+    cy.get(s.CARD).should('have.length', 4)
+    cy.drSelect(0)
+    cy.get(s.CYCLE_BTN).and('be.disabled')
   })
 
   it('should be possible to play an affordable card', () => {
     cy.drPlay(0)
-
-      .get('@card')
-      .should('not.exist')
-
-      .get(s.CARD)
-      .should('have.length', 3)
+    cy.get('@card').should('not.exist')
+    cy.get(s.CARD).should('have.length', 3)
   })
 
   it('should be possible to end turn', () => {
     cy.drEndTurn()
-
-      .get(s.MANA)
-      .should('contain', 4)
-
-      .get(s.CARD)
-      .should('have.length', 4)
+    cy.get(s.MANA).should('contain', 4)
+    cy.get(s.CARD).should('have.length', 4)
   })
 
   it('should not be possible to play a card costing too much mana', () => {
     cy.visit(`/deck/${EXPENSIVE_DECK}/dry-run`)
-
-      .drSelect(0)
-
-      .get(s.PLAY_BTN)
-      .and('be.disabled')
+    cy.drSelect(0)
+    cy.get(s.PLAY_BTN).and('be.disabled')
   })
 })

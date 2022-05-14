@@ -6,28 +6,19 @@ describe('Dry-runner — Queen of Herds', () => {
   it('should be possible to play satyrs with Queen of Herds', () => {
     const HAND = ['S21', 'N1', 'N2', 'N3']
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-      .drDrawHand(HAND)
-
-      .drEndTurn(7)
-
-      .drPlay('S21')
-
-      .get(s.CARD_LOG_IMAGE)
-      .should('have.length', 3)
+    cy.drDrawHand(HAND)
+    cy.drEndTurn(7)
+    cy.drPlay('S21')
+    cy.get(s.CARD_LOG_IMAGE).should('have.length', 3)
   })
 
   it('should not be possible to play satyrs from the hand with Queen of Herds', () => {
     const HAND = ['S21', 'N1', 'N2', 'S1']
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-      .drDrawHand(HAND)
-      .drEndTurn(7)
-
-      .drPlay('S21')
-
-      .get(s.CARD)
-      .should('have.length', 3)
-
-      .get(s.CARD_LOG_IMAGE)
-      .should('have.length', 2)
+    cy.drDrawHand(HAND)
+    cy.drEndTurn(7)
+    cy.drPlay('S21')
+    cy.get(s.CARD).should('have.length', 3)
+    cy.get(s.CARD_LOG_IMAGE).should('have.length', 2)
   })
 })

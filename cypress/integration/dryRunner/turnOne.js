@@ -15,12 +15,9 @@ describe('Dry-runner — Turn one', () => {
   ].forEach(({ name, id }) => {
     it(`should not be possible to play ${name} before turn 2`, () => {
       cy.drSelect(id)
-        .get(s.PLAY_BTN)
-        .should('be.disabled')
-
-        .drEndTurn()
-
-        .drPlay(id)
+      cy.get(s.PLAY_BTN).should('be.disabled')
+      cy.drEndTurn()
+      cy.drPlay(id)
     })
   })
 })

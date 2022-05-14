@@ -8,13 +8,10 @@ describe('Official card — Changelog', () => {
       .first()
       .invoke('text')
       .then(ability => {
-        cy.get(s.VERSION_BTN)
-          .last()
-          .click()
-          .url()
-          // Do not test for the timestamp as the conversion is done on the
-          // client, which can result in some subtle timezone differences.
-          .should('not.match', /N1$/)
+        cy.get(s.VERSION_BTN).last().click()
+        // Do not test for the timestamp as the conversion is done on the
+        // client, which can result in some subtle timezone differences.
+        cy.url().should('not.match', /N1$/)
         cy.get(s.CARD_ABILITY)
           .first()
           .invoke('text')
@@ -23,10 +20,8 @@ describe('Official card — Changelog', () => {
   })
 
   it('should mention the version in page meta', () => {
-    cy.get('title')
-      .should('contain', 'prior')
-      .get('[data-testid="page-meta"]')
-      .should('contain', 'Prior')
+    cy.get('title').should('contain', 'prior')
+    cy.get('[data-testid="page-meta"]').should('contain', 'Prior')
   })
 
   it('should be possible to unload previous version', () => {
@@ -34,7 +29,8 @@ describe('Official card — Changelog', () => {
       .first()
       .invoke('text')
       .then(ability => {
-        cy.get(s.VERSION_BTN).last().click().url().should('match', /N1$/)
+        cy.get(s.VERSION_BTN).last().click()
+        cy.url().should('match', /N1$/)
         cy.get(s.CARD_ABILITY)
           .first()
           .invoke('text')

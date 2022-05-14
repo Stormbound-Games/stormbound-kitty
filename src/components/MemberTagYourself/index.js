@@ -15,6 +15,7 @@ const UserSelect = props => {
   return (
     <Select
       id='user-name'
+      inputId='user-name-input'
       isClearable
       value={user ? { value: user.slug, label: user.name } : null}
       onChange={option => {

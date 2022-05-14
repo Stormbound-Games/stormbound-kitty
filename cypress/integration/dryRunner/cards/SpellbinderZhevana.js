@@ -10,11 +10,8 @@ describe('Dry-runner — Spellbinder Zhevana', () => {
 
   it('should be possible to get mana from Spellbinder Zhevana', () => {
     cy.drEndTurn(3)
-
-      .drPlay('W2')
-      .drPlay('W8')
-
-      .get(s.MANA)
-      .should('contain', 4)
+    cy.drPlay('W2')
+    cy.drPlay('W8')
+    cy.get(s.MANA).should('contain', 4)
   })
 })

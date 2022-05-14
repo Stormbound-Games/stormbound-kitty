@@ -1,9 +1,11 @@
 const selectors = {
   CARD: '[data-testid="card"]',
   CARD_ABILITY: '[data-testid="card-ability"]',
-  CARD_UNIT_TYPE: '[data-testid="card-unit-type"]',
-  CARD_RARITY: '[data-testid="card-rarity"]',
   CARD_LEVEL: '[data-testid="card-level"]',
+  CARD_MANA: '[data-testid="card-mana"]',
+  CARD_MOVEMENT: '[data-testid="card-movement"]',
+  CARD_RARITY: '[data-testid="card-rarity"]',
+  CARD_UNIT_TYPE: '[data-testid="card-unit-type"]',
 
   LEVEL_SELECT: '[data-testid="level-select"]',
   FACTION_SELECT: '[data-testid="faction-select"]',
@@ -50,6 +52,8 @@ const selectors = {
 
   DECK_SUGGESTION: '[data-testid="featured-deck"]',
   BOOKMARK_BTN: '[data-testid="bookmark-btn"]',
+
+  PAGE_META: '[data-testid="page-meta"]',
 }
 
 export default selectors

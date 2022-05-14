@@ -22,10 +22,8 @@ describe('Card Builder — Image', () => {
     cy.get(s.IMAGE_SELECT)
       .find('input')
       .first()
-      .click({ force: true })
-      .type('Restl', { force: true })
-      .type('{enter}', { force: true })
-      .get(s.IMAGE_SELECT)
+      .type('Restl{enter}', { force: true })
+    cy.get(s.IMAGE_SELECT)
       .find('.CardSelect__single-value')
       .should('contain', 'Restless Goats')
     assertCardImage(
@@ -35,9 +33,8 @@ describe('Card Builder — Image', () => {
   })
 
   it.skip('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
+    cy.url().should('not.match', /\/card$/)
+    cy.reload()
     assertCardImage(
       0,
       'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300&q=90'

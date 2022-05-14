@@ -26,30 +26,23 @@ describe('Battle Simulator — Players', () => {
 
   it('should be possible to update players faction', () => {
     cy.url().then(currentUrl => {
-      cy.get(s.RED_FACTION_SELECT)
-        .select('swarm')
-        .get(s.RED_FACTION)
-        .then($faction => expect($faction).to.have.text('swarm'))
-
-        .get(s.BLUE_FACTION_SELECT)
-        .select('ironclad')
-        .get(s.BLUE_FACTION)
-        .then($faction => expect($faction).to.have.text('ironclad'))
-
-        .url()
-        .should('not.eq', currentUrl)
+      cy.get(s.RED_FACTION_SELECT).select('swarm')
+      cy.get(s.RED_FACTION).then($faction =>
+        expect($faction).to.have.text('swarm')
+      )
+      cy.get(s.BLUE_FACTION_SELECT).select('ironclad')
+      cy.get(s.BLUE_FACTION).then($faction =>
+        expect($faction).to.have.text('ironclad')
+      )
+      cy.url().should('not.eq', currentUrl)
     })
   })
 
   it('should be preserved upon reload', () => {
     cy.reload()
-      .get(s.RED_HEALTH)
-      .should('have.text', '9')
-      .get(s.BLUE_HEALTH)
-      .should('have.text', '8')
-      .get(s.RED_FACTION)
-      .should('have.text', 'swarm')
-      .get(s.BLUE_FACTION)
-      .should('have.text', 'ironclad')
+    cy.get(s.RED_HEALTH).should('have.text', '9')
+    cy.get(s.BLUE_HEALTH).should('have.text', '8')
+    cy.get(s.RED_FACTION).should('have.text', 'swarm')
+    cy.get(s.BLUE_FACTION).should('have.text', 'ironclad')
   })
 })

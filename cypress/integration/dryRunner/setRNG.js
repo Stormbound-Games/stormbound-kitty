@@ -10,51 +10,37 @@ describe('Dry-runner — Set RNG', () => {
   ].forEach(({ name, id, mana }) => {
     it(`should only be possible to update mana from ${name} that have not been destroyed yet`, () => {
       cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-        .drDrawHand(HAND)
-        .drEndTurn(3)
-
-        .drSetRNG('FRIENDLY')
-        .drPlay(id)
-
-        .drEndTurn()
-        .get(s.MANA)
-        .should('contain', 7 + mana)
-
-        .drSetRNG('UNFRIENDLY')
-
-        .drEndTurn()
-        .get(s.MANA)
-        .should('contain', 8)
+      cy.drDrawHand(HAND)
+      cy.drEndTurn(3)
+      cy.drSetRNG('FRIENDLY')
+      cy.drPlay(id)
+      cy.drEndTurn()
+      cy.get(s.MANA).should('contain', 7 + mana)
+      cy.drSetRNG('UNFRIENDLY')
+      cy.drEndTurn()
+      cy.get(s.MANA).should('contain', 8)
     })
   })
 
   it('should only be possible to get Ahmi back in hand in FRIENDLY mode', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-      .drDrawHand(HAND)
-      .drEndTurn(3)
-
-      .drSetRNG('FRIENDLY')
-      .drPlay('S3')
-
-      .drSetRNG('UNFRIENDLY')
-      .drPlay('S3')
-
-      .get('S3')
-      .should('not.exist')
+    cy.drDrawHand(HAND)
+    cy.drEndTurn(3)
+    cy.drSetRNG('FRIENDLY')
+    cy.drPlay('S3')
+    cy.drSetRNG('UNFRIENDLY')
+    cy.drPlay('S3')
+    cy.get('S3').should('not.exist')
   })
 
   it('should only be possible to get Temple of Space back in hand in FRIENDLY mode', () => {
     cy.visit(`/deck/${DECK_ID.replace('5s3', '5i29')}/dry-run?mode=MANUAL`)
-      .drDrawHand(['W9', 'W16', 'N12', 'I29'])
-      .drEndTurn(3)
-
-      .drSetRNG('FRIENDLY')
-      .drPlay('I29')
-
-      .drSetRNG('UNFRIENDLY')
-      .drPlay('I29')
-
-      .get('I29')
-      .should('not.exist')
+    cy.drDrawHand(['W9', 'W16', 'N12', 'I29'])
+    cy.drEndTurn(3)
+    cy.drSetRNG('FRIENDLY')
+    cy.drPlay('I29')
+    cy.drSetRNG('UNFRIENDLY')
+    cy.drPlay('I29')
+    cy.get('I29').should('not.exist')
   })
 })

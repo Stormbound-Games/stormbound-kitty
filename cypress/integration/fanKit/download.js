@@ -4,11 +4,8 @@ describe('Fan-kit — Download', () => {
   before(() => cy.visit('/fan-kit/cards'))
 
   it('should be possible to download an image in PNG', () => {
-    cy.get(s.ITEMS)
-      .first()
-      .find(s.DOWNLOAD_BTN)
-      .click()
-      .get(s.DIALOG)
+    cy.get(s.ITEMS).first().find(s.DOWNLOAD_BTN).click()
+    cy.get(s.DIALOG)
       .should('be.visible')
       .find(s.DOWNLOAD_LINK)
       .filter('[href*=".png"]')
