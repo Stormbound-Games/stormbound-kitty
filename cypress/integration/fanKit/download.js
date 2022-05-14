@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Fan-kit', () => {
+describe('Fan-kit — Download', () => {
   before(() => cy.visit('/fan-kit/cards'))
 
   it('should be possible to download an image in PNG', () => {
