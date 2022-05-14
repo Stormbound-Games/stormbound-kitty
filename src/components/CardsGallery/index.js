@@ -111,7 +111,7 @@ export default React.memo(function CardsGallery(props) {
                     isInDeck: props.isCardInDeck && props.isCardInDeck(card.id),
                   })}
                   onClick={() => props.onCardClick(card.id)}
-                  label='Add card to deck'
+                  label={`Add ${card.name} to deck`}
                 />
               )}
 
