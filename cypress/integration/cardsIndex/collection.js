@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Official card — Collection', () => {
+describe('Cards Index — Collection', () => {
   before(() => cy.clearLocalStorageSnapshot())
   beforeEach(() => cy.restoreLocalStorage())
   afterEach(() => cy.saveLocalStorage())

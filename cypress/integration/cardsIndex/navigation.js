@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Official card — Navigation', () => {
+describe('Cards Index — Navigation', () => {
   before(() => cy.visit('/cards/N89'))
 
   it('should be possible to search for an official card', () => {

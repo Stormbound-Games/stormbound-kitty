@@ -10,7 +10,7 @@ const resolveCard = id =>
     serialization.card.serialize(cardsIndex[id])
   )
 
-describe('Official card — Index', () => {
+describe('Cards Index — Index', () => {
   before(() => cy.visit('/cards/N1'))
 
   it('should hide the editing interface', () => {

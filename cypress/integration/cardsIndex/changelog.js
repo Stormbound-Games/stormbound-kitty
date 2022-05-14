@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Official card — Changelog', () => {
+describe('Cards Index — Changelog', () => {
   before(() => cy.visit('/cards/N1'))
 
   it('should be possible to load previous version', () => {
