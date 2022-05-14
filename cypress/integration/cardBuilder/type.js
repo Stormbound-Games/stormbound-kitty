@@ -28,9 +28,8 @@ describe('Card Builder — Type', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
+    cy.url().should('not.match', /\/card$/)
+    cy.reload()
     cy.get(s.TYPE_SELECT).should('have.value', 'spell')
     assertCardType(0, 'spell')
   })

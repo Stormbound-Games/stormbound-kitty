@@ -3,22 +3,14 @@ import s from './selectors'
 describe('Collection — Import/export', () => {
   it('should be possible to import a CSV', () => {
     cy.visit('/collection')
-      .get(s.IMPORT_BTN)
-      .importFile('collection.import.csv')
-      .get(s.CARD)
-      .filter('#N1')
-      .find(s.CARD_LEVEL)
-      .should('contain', 'Level 2')
+    cy.get(s.IMPORT_BTN).importFile('collection.import.csv')
+    cy.get(s.CARD).filter('#N1').find(s.CARD_LEVEL).should('contain', 'Level 2')
   })
 
   it('should be possible to import an incomplete collection', () => {
     cy.visit('/collection')
-      .get(s.IMPORT_BTN)
-      .importFile('collection.import2.csv')
-      .get(s.CARD)
-      .filter('#N1')
-      .find(s.CARD_LEVEL)
-      .should('contain', 'Level 3')
+    cy.get(s.IMPORT_BTN).importFile('collection.import2.csv')
+    cy.get(s.CARD).filter('#N1').find(s.CARD_LEVEL).should('contain', 'Level 3')
   })
 
   it('should mark missing rows as missing cards', () => {

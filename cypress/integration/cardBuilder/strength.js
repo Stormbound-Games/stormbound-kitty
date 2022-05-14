@@ -25,9 +25,8 @@ describe('Card Builder — Strength', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
+    cy.url().should('not.match', /\/card$/)
+    cy.reload()
     cy.get(s.STRENGTH_INPUT).should('have.value', '5')
     assertCardStrength(0, '5')
   })

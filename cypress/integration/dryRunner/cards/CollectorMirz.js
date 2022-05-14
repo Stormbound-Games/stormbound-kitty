@@ -6,11 +6,9 @@ const HAND = ['N8', 'N1', 'N4', 'N3']
 describe('Dry-runner — Collector Mirz', () => {
   it('should be possible to get tokens with Collector Mirz', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-      .drDrawHand(HAND)
-
-      .drPlay('N8')
-
-      .get(s.DECK_CARD)
+    cy.drDrawHand(HAND)
+    cy.drPlay('N8')
+    cy.get(s.DECK_CARD)
       .should('have.length', 13)
       .then($cards => {
         const tokens = $cards.filter((index, $card) => {

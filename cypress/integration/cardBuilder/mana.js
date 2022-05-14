@@ -22,9 +22,8 @@ describe('Card Builder — Mana', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
+    cy.url().should('not.match', /\/card$/)
+    cy.reload()
     cy.get(s.MANA_INPUT).should('have.value', '5')
     assertCardMana(0, '5')
   })

@@ -23,9 +23,7 @@ describe('Battle Simulator — Cells', () => {
   it('should be possible to update a filled cell', () => {
     cy.url().then(currentUrl => {
       cy.get(s.CELL_A1).click()
-      cy.get(s.CELL_FORM_CARD_SELECT)
-        .click({ force: true })
-        .type('Sparkl{enter}', { force: true })
+      cy.get(s.CELL_FORM_CARD_SELECT).type('Sparkl{enter}', { force: true })
       cy.get(s.CELL_FORM_LEVEL).select('5')
       cy.get(s.CELL_FORM_STRENGTH).clear().type('10')
       cy.get(s.CELL_FORM_RED_RADIO).click({ force: true })
@@ -33,11 +31,8 @@ describe('Battle Simulator — Cells', () => {
       cy.get(s.CELL_FORM_FROZEN_CHECKBOX).click({ force: true })
       cy.get(s.CELL_FORM_CONFUSED_CHECKBOX).click({ force: true })
       cy.get(s.CELL_FORM_DISABLED_CHECKBOX).click({ force: true })
-
       cy.get(s.CELL_FORM_BTN).click()
-
       cy.url().should('not.eq', currentUrl)
-
       cy.get(s.CELL_A1).should($cell => {
         const title = $cell.attr('title')
         expect(title).to.match(/Sparkl/)
@@ -107,9 +102,7 @@ describe('Battle Simulator — Cells', () => {
 
   it('should be impossible to update the frozen/vitality/poisoned statuses of a structure', () => {
     cy.get(s.CELL_A1).click()
-    cy.get(s.CELL_FORM_CARD_SELECT)
-      .click({ force: true })
-      .type('Moonlit{enter}', { force: true })
+    cy.get(s.CELL_FORM_CARD_SELECT).type('Moonlit{enter}', { force: true })
     cy.get('[data-testid="cell-status-effects"]').should('be.disabled')
   })
 })

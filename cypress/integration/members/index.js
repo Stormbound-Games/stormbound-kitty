@@ -5,24 +5,21 @@ describe('Members page', () => {
 
   it('should be possible to record oneself', () => {
     cy.visit('/members')
-      .get('#user-name')
-      .find('input')
-      .first()
-      .type('Kitt', { force: true })
-      .type('{enter}', { force: true })
-      .get('#user-name')
+    cy.get('#user-name-input').type('Kitt{enter}', { force: true })
+    cy.get('#user-name')
       .find('[class$="-singleValue"]')
       .should('contain', 'Kitty')
   })
 
   it('should be preserved upon reload', () => {
     cy.reload()
-      .get('#user-name')
+    cy.get('#user-name')
       .find('[class$="-singleValue"]')
       .should('contain', 'Kitty')
   })
 
   it('should be reflected in one’s feed', () => {
-    cy.visit('/members/kitty').get('h1').contains('Activity Feed')
+    cy.visit('/members/kitty')
+    cy.get('h1').contains('Activity Feed')
   })
 })

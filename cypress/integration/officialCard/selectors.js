@@ -1,6 +1,6 @@
 const selectors = {
   CARD: '[data-testid="card"]',
-  CARD_SELECT: 'header .CardSelect',
+  CARD_SELECT: 'header #card-select-input',
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_NAME: '[data-testid="card-name"]',
   CARD_LEVEL: '[data-testid="card-level"]',

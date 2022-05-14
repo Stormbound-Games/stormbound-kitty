@@ -7,27 +7,17 @@ describe('Dry-runner — Archdruid Earyn', () => {
 
   it('should be possible to play spells with Archdruid Earyn', () => {
     cy.drDrawHand(['N1', 'N44', 'N29', 'N48'])
-      .drEndTurn(4)
-
-      .drPlay('N48')
-
-      .get(s.MANA)
-      .should('contain', 0)
-
-      .get(s.CARD)
-      .should('have.length', 1)
+    cy.drEndTurn(4)
+    cy.drPlay('N48')
+    cy.get(s.MANA).should('contain', 0)
+    cy.get(s.CARD).should('have.length', 1)
   })
 
   it('should not be able to play Gift of the Wise', () => {
     cy.drDrawHand(['N1', 'N44', 'W19', 'N48'])
-      .drEndTurn(4)
-
-      .drPlay('N48')
-
-      .get(s.MANA)
-      .should('contain', 0)
-
-      .get(s.CARD)
-      .should('have.length', 2)
+    cy.drEndTurn(4)
+    cy.drPlay('N48')
+    cy.get(s.MANA).should('contain', 0)
+    cy.get(s.CARD).should('have.length', 2)
   })
 })

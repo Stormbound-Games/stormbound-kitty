@@ -6,8 +6,7 @@ const STRUCTURES_DECK = '1i51n131w31i101n201i141w241f131w91i191n341n45'
 describe('Dry-runner — Brawl', () => {
   it('should be able to reset a game with knight mana cost modifier', () => {
     cy.visit(`/deck/${KNIGHTS_DECK}/dry-run`)
-
-      .get(s.DECK_CARD)
+    cy.get(s.DECK_CARD)
       .find(s.MANA_COST)
       .then($cards => {
         const deckCost = Array.from($cards).reduce(
@@ -16,8 +15,7 @@ describe('Dry-runner — Brawl', () => {
         )
 
         cy.drReset({ modifier: 'KNIGHT_MANA' })
-
-          .get(s.DECK_CARD)
+        cy.get(s.DECK_CARD)
           .find(s.MANA_COST)
           .then($cards => {
             const newDeckCost = Array.from($cards).reduce(
@@ -31,8 +29,7 @@ describe('Dry-runner — Brawl', () => {
 
   it('should be able to reset a game with structure mana cost modifier', () => {
     cy.visit(`/deck/${STRUCTURES_DECK}/dry-run`)
-
-      .get(s.DECK_CARD)
+    cy.get(s.DECK_CARD)
       .find(s.MANA_COST)
       .then($cards => {
         const deckCost = Array.from($cards).reduce(
@@ -41,8 +38,7 @@ describe('Dry-runner — Brawl', () => {
         )
 
         cy.drReset({ modifier: 'STRUCTURE_MANA' })
-
-          .get(s.DECK_CARD)
+        cy.get(s.DECK_CARD)
           .find(s.MANA_COST)
           .then($cards => {
             const newDeckCost = Array.from($cards).reduce(

@@ -5,10 +5,7 @@ describe('Fan-kit — Card Search', () => {
 
   it('should be possible to search for cards', function () {
     cy.get(s.ITEMS).its('length').as('count')
-    cy.get(s.IMAGE_INPUT)
-      .find('input')
-      .first()
-      .type('Gift{enter}', { force: true })
+    cy.get(s.IMAGE_INPUT).type('Gift{enter}', { force: true })
     cy.get('@count').then(count => {
       cy.get(s.ITEMS).its('length').should('not.eq', count)
     })
