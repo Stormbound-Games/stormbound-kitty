@@ -47,7 +47,7 @@ export default React.memo(function PageQuestBuilder(props) {
 
   return (
     <Page
-      title='Create Your Quest'
+      title='Quest Builder'
       description='Design your very own Stormbound quest'
     >
       <div

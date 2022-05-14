@@ -90,7 +90,7 @@ export default React.memo(function PageListBuilderEditor(props) {
 
   return (
     <Page
-      title='Create your list'
+      title='List Builder'
       description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
       action={
         id && {
