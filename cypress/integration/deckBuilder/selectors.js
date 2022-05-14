@@ -28,6 +28,8 @@ const selectors = {
   IMPORT_BTN: '[data-testid="import-btn"]',
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
+
+  IN_DECK: '[data-testid="card-in-deck"]',
 }
 
 export default selectors

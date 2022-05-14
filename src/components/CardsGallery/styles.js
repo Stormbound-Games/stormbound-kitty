@@ -38,7 +38,7 @@ const inDeck = {
   color: 'var(--black)',
 }
 
-const button = ({ isInDeck }) => ({
+const button = ({ isDisabled }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -49,7 +49,7 @@ const button = ({ isInDeck }) => ({
   zIndex: 2,
 
   ':hover + *': {
-    transform: !isInDeck ? 'scale(1.08)' : undefined,
+    transform: isDisabled ? undefined : 'scale(1.08)',
   },
 })
 

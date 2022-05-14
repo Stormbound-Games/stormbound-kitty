@@ -90,6 +90,18 @@ export default React.memo(function CardsGallery(props) {
       >
         {page.map((card, index) => {
           const key = [card.id, index].join('_')
+          const isInDeck = props.isCardInDeck && props.isCardInDeck(card.id)
+          const isMissing = props.isCardMissing && props.isCardMissing(card.id)
+          const title = isMissing
+            ? `You do not possess ${card.name}.`
+            : isInDeck
+            ? `${card.name} is already in the deck.`
+            : undefined
+          const isDisabled = isMissing || isInDeck
+          const onClick = isDisabled
+            ? undefined
+            : () => props.onCardClick(card.id)
+
           return (
             <motion.li
               className={css(styles.item, props.extend?.item)}
@@ -107,10 +119,10 @@ export default React.memo(function CardsGallery(props) {
             >
               {props.onCardClick && (
                 <BlankButton
-                  extend={styles.button({
-                    isInDeck: props.isCardInDeck && props.isCardInDeck(card.id),
-                  })}
-                  onClick={() => props.onCardClick(card.id)}
+                  extend={styles.button({ isDisabled })}
+                  title={title}
+                  disabled={isDisabled}
+                  onClick={onClick}
                   label={`Add ${card.name} to deck`}
                 />
               )}
@@ -134,7 +146,9 @@ export default React.memo(function CardsGallery(props) {
               />
 
               {props.isCardInDeck && props.isCardInDeck(card.id) && (
-                <span className={css(styles.inDeck)}>In deck</span>
+                <span className={css(styles.inDeck)} data-testid='card-in-deck'>
+                  In deck
+                </span>
               )}
             </motion.li>
           )
