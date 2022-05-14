@@ -1,7 +1,9 @@
 import s from './selectors'
 
 describe('Deck Builder - Bookmarks', () => {
-  before(() => cy.clearLocalStorageSnapshot())
+  before(() =>
+    cy.clearLocalStorageSnapshot().visit('/decks/bookmarks').wait(2000)
+  )
   beforeEach(() => cy.restoreLocalStorage())
   afterEach(() => cy.saveLocalStorage())
 
@@ -9,7 +11,6 @@ describe('Deck Builder - Bookmarks', () => {
     const url =
       'https://stormbound-kitty.com/deck/5n15n35n675n145n165w55w95w125w195n575w235n58'
 
-    cy.visit('/decks/bookmarks')
     cy.get(s.PERSONAL_DECKS).should('have.length', 0)
     cy.get(s.GHOST_DECK).should('be.visible')
     cy.get(s.GHOST_DECK_BTN).should('be.visible').click()
