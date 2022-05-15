@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Print context
         run: |
-          echo ${{ github.event.deployment_status.state }}
-          echo ${{ github.event.deployment_status.target_url }}
-          echo ${{ github.event.deployment.environment }}
+          echo "State: ${{ github.event.deployment_status.state }}"
+          echo "URL: ${{ github.event.deployment_status.target_url }}"
+          echo "Environment: ${{ github.event.deployment.environment }}"
 
   install:
     # Only run if the build was successful and coming from Vercel
