@@ -141,31 +141,31 @@ export default async function handler(request, response) {
       middlewares.map(middleware => middleware(request, response))
     )
   } catch {
-    return response.status(429).json({ message: 'Too many requests' })
+    return response.status(429).send('Too Many Requests')
   }
 
   if (request.method !== 'POST') {
-    return response.status(405).json({ message: 'Method not allowed' })
+    return response.status(405).send('Method Not Allowed')
   }
 
   const Authorization = request.headers.authorization || ''
   const token = Authorization.replace(/bearer/i, '').trim()
 
   if (token !== process.env.NEXT_REVALIDATION_TOKEN) {
-    return response.status(401).json({ message: 'Invalid token' })
+    return response.status(401).send('Unauthorized')
   }
 
   try {
     const paths = getRevalidationPaths(request.body).filter(Boolean)
 
     if (paths.length === 0) {
-      return response.status(400).json({ message: 'Bad request' })
+      return response.status(400).send('Bad Request')
     }
 
     await Promise.all(paths.map(path => response.unstable_revalidate(path)))
-    return response.json({ revalidated: true })
+    return response.status(204).send('No Content')
   } catch (error) {
     console.error(error)
-    return response.status(500).send('Error revalidating')
+    return response.status(500).send('Internal Server Error')
   }
 }
