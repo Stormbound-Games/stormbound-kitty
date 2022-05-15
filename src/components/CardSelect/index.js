@@ -18,6 +18,7 @@ export default React.memo(function CardSelect(props) {
     noBorder: props.noBorder,
     withClear: props.withClear,
   })
+  const placeholder = props.placeholder || 'Pick a card'
 
   return (
     <>
@@ -41,12 +42,12 @@ export default React.memo(function CardSelect(props) {
         isClearable={props.withClear}
         value={{
           id: props.current,
-          label: cardsIndex[props.current]?.name ?? 'Pick a card',
+          label: cardsIndex[props.current]?.name ?? placeholder,
         }}
         onChange={props.onChange}
         onFocus={props.onFocus}
         onBlur={props.onBlur}
-        placeholder='Pick a card'
+        placeholder={placeholder}
         styles={styles}
         className={['CardSelect', props.className].filter(Boolean).join(' ')}
         classNamePrefix='CardSelect'
