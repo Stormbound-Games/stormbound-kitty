@@ -14,8 +14,11 @@ jobs:
       contains(github.event.deployment_status.target_url, 'heroku') != true
     runs-on: ubuntu-latest
     steps:
-      - name: Print URL
-        run: echo ${{ github.event.deployment_status.target_url }}
+      - name: Print GitHub event
+        env:
+          GITHUB_EVENT_PAYLOAD: ${{ toJson(github.event) }}
+        run: |
+          echo "$GITHUB_EVENT_PAYLOAD"
 
       - name: Check out repository
         uses: actions/checkout@v2
