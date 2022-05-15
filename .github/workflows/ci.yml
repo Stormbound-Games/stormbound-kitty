@@ -39,23 +39,10 @@ jobs:
       github.event.deployment_status.state == 'success' &&
       github.event.deployment.environment == 'Preview' &&
       contains(github.event.deployment_status.target_url, 'vercel') == true
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          record: true
-          parallel: true
-          group: 'Integration tests'
-        env:
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        timeout-minutes: 30
+    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
+    with:
+      n: 9
+      group: 'Integration tests'
+      config: baseUrl=${{ github.event.deployment_status.target_url }}
+    secrets:
+      recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}
