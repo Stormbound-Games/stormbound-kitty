@@ -97,7 +97,8 @@ export default React.memo(function CardsGallery(props) {
             : isInDeck
             ? `${card.name} is already in the deck.`
             : undefined
-          const isDisabled = isMissing || isInDeck
+          const isDisabled =
+            isInDeck || (props.withDisabledMissing && isMissing)
           const onClick = isDisabled
             ? undefined
             : () => props.onCardClick(card.id)

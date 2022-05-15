@@ -334,6 +334,7 @@ const Gallery = React.memo(function Gallery(props) {
       navChildren={
         <CardLevelField cardLevel={cardLevel} setCardLevel={setCardLevel} />
       }
+      withDisabledMissing
     />
   )
 })
