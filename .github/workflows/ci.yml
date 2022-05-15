@@ -36,7 +36,6 @@ jobs:
       github.event.deployment_status.state == 'success' &&
       github.event.deployment.environment == 'Preview' &&
       contains(github.event.deployment_status.target_url, 'heroku') != true
-    needs: install
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
