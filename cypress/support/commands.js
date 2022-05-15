@@ -13,6 +13,8 @@ import drSetRNG from './commands/drSetRNG'
 import exportFile from './commands/exportFile'
 import importFile from './commands/importFile'
 import paste from './commands/paste'
+import reload from './commands/reload'
+import visit from './commands/visit'
 
 Cypress.Commands.add('brAddMatch', { prevSubject: false }, brAddMatch)
 Cypress.Commands.add('bsDraw', { prevSubject: false }, bsDraw)
@@ -28,3 +30,6 @@ Cypress.Commands.add('drSetRNG', { prevSubject: false }, drSetRNG)
 Cypress.Commands.add('exportFile', { prevSubject: true }, exportFile)
 Cypress.Commands.add('importFile', { prevSubject: true }, importFile)
 Cypress.Commands.add('paste', { prevSubject: true }, paste)
+
+Cypress.Commands.overwrite('reload', reload)
+Cypress.Commands.overwrite('visit', visit)
