@@ -6,20 +6,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print context
+        run: |
+          echo ${{ github.event.deployment_status.state }}
+          echo ${{ github.event.deployment_status.target_url }}
+          echo ${{ github.event.deployment.environment }}
+
   install:
-    # Only run if the build was successful and not coming from Heroku
-    # (Discord bot).
+    # Only run if the build was successful and coming from Vercel
     if: |
       github.event.deployment_status.state == 'success' &&
       contains(github.event.deployment_status.target_url, 'vercel') == true
     runs-on: ubuntu-latest
     steps:
-      - name: Print GitHub event
-        env:
-          GITHUB_EVENT_PAYLOAD: ${{ toJson(github.event) }}
-        run: |
-          echo "$GITHUB_EVENT_PAYLOAD"
-
       - name: Check out repository
         uses: actions/checkout@v2
 
@@ -30,8 +32,7 @@ jobs:
         run: npm test
 
   tests:
-    # Only run if the build was successful, not a production build, and not
-    # coming from Heroku (Discord bot).
+    # Only run if the build was a successful preview from Vercel
     if: |
       github.event.deployment_status.state == 'success' &&
       github.event.deployment.environment == 'Preview' &&
