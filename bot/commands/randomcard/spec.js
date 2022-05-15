@@ -100,18 +100,26 @@ describe('Bot — !randomcard', () => {
     })
   })
 
-  it.skip('should handle aliases', () => {
-    ALIASES.forEach(test => {
-      const id = getCardId(randomcard(test.keyword))
-      expect(global.__CARDS_INDEX__[id][test.key]).toEqual(test.value)
-    })
+  it('should handle aliases', () => {
+    return Promise.all(
+      ALIASES.map(test => {
+        return randomcard(test.keyword).then(output => {
+          const id = getCardId(output)
+          expect(global.__CARDS_INDEX__[id][test.key]).toEqual(test.value)
+        })
+      })
+    )
   })
 
-  it.skip('should handle negative aliases', () => {
-    ALIASES.forEach(test => {
-      const id = getCardId(randomcard('!' + test.keyword))
-      expect(global.__CARDS_INDEX__[id][test.key]).not.toEqual(test.value)
-    })
+  it('should handle negative aliases', () => {
+    return Promise.all(
+      ALIASES.map(test => {
+        return randomcard('!' + test.keyword).then(output => {
+          const id = getCardId(output)
+          expect(global.__CARDS_INDEX__[id][test.key]).not.toEqual(test.value)
+        })
+      })
+    )
   })
 
   it('should handle multi-searches', () => {
