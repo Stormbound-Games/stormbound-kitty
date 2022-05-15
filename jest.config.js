@@ -35,7 +35,15 @@ module.exports = async () => {
     moduleNameMapper: {
       '^~/(.*)$': '<rootDir>/src/$1',
     },
-    testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+    testPathIgnorePatterns: [
+      '<rootDir>/.next/',
+      '<rootDir>/bin/',
+      '<rootDir>/cms/',
+      '<rootDir>/cypress/',
+      '<rootDir>/docs/',
+      '<rootDir>/node_modules/',
+      '<rootDir>/public/',
+    ],
     transform: {
       '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
     },
