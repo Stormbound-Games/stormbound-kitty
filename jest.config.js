@@ -4,6 +4,7 @@ const indexArray = require('~/helpers/indexArray').default
 const getAbbreviations = require('~/api/misc/getAbbreviations').default
 const getBrawls = require('~/api/brawls/getBrawls').default
 const getDecks = require('~/api/decks/getDecks').default
+const getDeckTags = require('~/api/decks/getDeckTags').default
 const getBooks = require('~/api/books/getBooks').default
 const getCards = require('~/api/cards/getCards').default
 
@@ -18,6 +19,7 @@ module.exports = async () => {
   const books = await getBooks({ isPreview })
   const brawls = await getBrawls({ isPreview })
   const decks = await getDecks({ isPreview })
+  const deckTags = await getDeckTags({ isPreview })
 
   return {
     globals: {
@@ -30,6 +32,7 @@ module.exports = async () => {
       __CARDS_INDEX_BY_SID__: indexArray(cards, 'sid'),
       __DECKS__: decks,
       __DECKS_INDEX__: indexArray(decks),
+      __DECK_TAGS__: deckTags,
     },
     testEnvironment: 'node',
     moduleNameMapper: {
