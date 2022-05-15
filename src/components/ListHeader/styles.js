@@ -17,9 +17,13 @@ const label = {
 }
 
 const sort = {
-  marginLeft: 'auto',
   marginRight: 'var(--s-base)',
   position: 'relative',
+}
+
+const filter = {
+  marginLeft: 'auto',
+  minWidth: '180px',
 }
 
 const select = {
@@ -42,6 +46,6 @@ const layoutButton = {
   },
 }
 
-const styles = { header, label, layout, select, sort, layoutButton }
+const styles = { header, label, layout, select, sort, layoutButton, filter }
 
 export default styles

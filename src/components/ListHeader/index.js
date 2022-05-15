@@ -13,6 +13,7 @@ export default React.memo(function ListHeader(props) {
   return (
     <div className={css(styles.header)}>
       <p className={css(styles.label)}>{props.children}</p>
+      <div className={css(styles.filter)}>{props.filtering}</div>
       <div className={css(styles.sort)}>
         {sorting.length > 0 && (
           <Select
