@@ -62,7 +62,6 @@ const toRedirect = ([source, destination]) => ({
 })
 
 module.exports = withPlugins(plugins, {
-  staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
   compiler: {
