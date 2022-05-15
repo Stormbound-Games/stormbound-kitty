@@ -15,7 +15,7 @@ jobs:
           echo "URL: ${{ github.event.deployment_status.target_url }}"
           echo "Environment: ${{ github.event.deployment.environment }}"
 
-  install:
+  unit_tests:
     # Only run if the build was successful and coming from Vercel
     if: |
       github.event.deployment_status.state == 'success' &&
@@ -33,7 +33,7 @@ jobs:
       - name: Run unit tests
         run: npm test
 
-  tests:
+  cypress_tests:
     # Only run if the build was a successful preview from Vercel
     if: |
       github.event.deployment_status.state == 'success' &&
