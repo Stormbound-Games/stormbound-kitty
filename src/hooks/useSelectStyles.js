@@ -45,19 +45,12 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
       ':hover': { color: 'var(--beige)' },
     }),
 
-    control: (provided, { isFocused, isDisabled, selectProps }) => ({
+    control: (provided, { isFocused, isDisabled }) => ({
       ...provided,
 
       opacity: isDisabled ? 0.5 : 1,
       cursor: isDisabled ? 'not-allowed' : provided.cursor,
 
-      // When there is no border, the width of the field should adapt to the
-      // currently selected value.
-      width: noBorder
-        ? `calc(${selectProps.value.label.length}ch + ${
-            selectProps.value.id ? '25px' : 0
-          })`
-        : provided.width,
       backgroundColor: 'transparent',
       color: 'var(--white)',
       boxShadow: 'none',
