@@ -21,7 +21,9 @@ export default React.memo(function ListLayoutItem(props) {
         dateFormat={props.dateFormat}
       >
         <p className={css(styles.primary)}>
-          <Link to={props.path}>{props.title}</Link>
+          <Link to={props.path} onClick={props.onClick}>
+            {props.title}
+          </Link>
           {authors.length > 0 ? (
             <>
               &nbsp;by <MemberList members={authors} />
