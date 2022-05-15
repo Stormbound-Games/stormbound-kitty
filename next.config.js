@@ -62,23 +62,38 @@ const toRedirect = ([source, destination]) => ({
 })
 
 module.exports = withPlugins(plugins, {
+  // Disable x-powered-by header
+  // Ref: https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
   poweredByHeader: false,
+
+  // Enable React strict mode
+  // Ref: https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
   reactStrictMode: true,
-  compiler: {
-    reactRemoveProperties: VERCEL_ENV === 'production',
-  },
-  env: {
-    NEXT_PUBLIC_VERCEL_ENV: VERCEL_ENV,
-  },
-  images: {
-    domains: ['cdn.sanity.io'],
-  },
+
+  // Remove `data-testid` attributes in production
+  // Ref: https://nextjs.org/docs/advanced-features/compiler#remove-react-properties
+  compiler: { reactRemoveProperties: VERCEL_ENV === 'production' },
+
+  // Expose the Vercel environment to the client
+  // Ref: https://nextjs.org/docs/api-reference/next.config.js/environment-variables
+  env: { NEXT_PUBLIC_VERCEL_ENV: VERCEL_ENV },
+
+  // Allow Sanity CDN to be used with next/image
+  // Ref: https://nextjs.org/docs/basic-features/image-optimization#domains
+  images: { domains: ['cdn.sanity.io'] },
+
+  // Set up the legacy and permalink redirects
+  // Ref: https://nextjs.org/docs/api-reference/next.config.js/redirects
   async redirects() {
     return [
       ...Object.entries(LEGACY_PATHS).map(toRedirect),
       ...Object.entries(PERMALINKS).map(toRedirect),
     ]
   },
+
+  // Set up the right headers for all resources
+  // Ref: https://nextjs.org/docs/api-reference/next.config.js/headers
+  // Ref: https://nextjs.org/docs/advanced-features/security-headers
   async headers() {
     const SELF = "'self'"
     const NONE = "'none'"
@@ -203,6 +218,9 @@ module.exports = withPlugins(plugins, {
       },
     ]
   },
+
+  // Customize the webpack configuration to support SVG imports
+  // Ref: https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
