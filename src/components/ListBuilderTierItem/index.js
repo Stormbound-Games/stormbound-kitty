@@ -14,6 +14,7 @@ export default React.memo(function ListBuilderTierItem(props) {
       <li
         className={css(styles.item)}
         style={{ '--color': `var(--${props.faction})` }}
+        data-testid='tier-card'
       >
         <Image
           src={props.image}
@@ -48,6 +49,7 @@ export default React.memo(function ListBuilderTierItem(props) {
       className={css(styles.item)}
       style={{ '--color': `var(--${props.faction})` }}
       drag
+      data-testid='tier-card'
     >
       <Image
         src={props.image}
@@ -70,6 +72,7 @@ export default React.memo(function ListBuilderTierItem(props) {
         onClick={() => props.removeCard(props.id)}
         icon='bin'
         label={'Remove ' + props.name + ' from tier'}
+        data-testid='tier-card-remove'
       />
     </Reorder.Item>
   )

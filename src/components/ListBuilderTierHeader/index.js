@@ -17,9 +17,10 @@ const TierName = props => {
       onChange={event => props.updateName(event.target.value)}
       maxLength={30}
       placeholder='Unnamed tier'
+      data-testid='tier-name-input'
     />
   ) : (
-    <Label as='h3' id={generateId(props.name)}>
+    <Label as='h3' id={generateId(props.name)} data-testid='tier-name'>
       {props.name}
     </Label>
   )
@@ -28,6 +29,7 @@ const TierName = props => {
 const CardPicker = props => (
   <CardSelect
     label='Add card to tier'
+    placeholder='Add card to tier'
     name='newCard'
     id={`${props.prefix}listName`}
     current=''
@@ -35,6 +37,7 @@ const CardPicker = props => (
     disabledOptions={props.cards}
     withSpells
     withClear
+    data-testid='tier-card-field'
   />
 )
 
@@ -45,6 +48,7 @@ const TierMoveButtons = props => (
       onClick={props.moveUp}
       disabled={!props.isEditable || !props.canMoveUp}
       extend={styles.move}
+      data-testid='tier-up'
     >
       <Icon icon='arrow-up' /> Move tier up
     </Link>
@@ -53,6 +57,7 @@ const TierMoveButtons = props => (
       onClick={props.moveDown}
       disabled={!props.isEditable || !props.canMoveDown}
       extend={styles.move}
+      data-testid='tier-down'
     >
       <Icon icon='arrow-down' /> Move tier down
     </Link>

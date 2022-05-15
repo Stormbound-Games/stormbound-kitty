@@ -16,7 +16,7 @@ export default React.memo(function ListBuilderTier(props) {
       : props.withHeader
 
   return (
-    <Spacing bottom='LARGE'>
+    <Spacing bottom='LARGE' data-testid='tier'>
       {shouldRenderHeader && (
         <ListBuilderTierHeader {...props} cards={props.cards} />
       )}
