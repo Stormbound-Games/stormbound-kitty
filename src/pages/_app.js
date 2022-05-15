@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import PlausibleProvider from 'next-plausible'
 import Script from 'next/script'
@@ -26,6 +27,15 @@ export function reportWebVitals(metric) {
 function App({ Component, pageProps, renderer = fallbackRenderer }) {
   const { settings: _settings, breadcrumbs, ...componentProps } = pageProps
   const { cards, ...settings } = _settings
+
+  React.useEffect(() => {
+    // Once the app has mounted, assign a specific property on the window object
+    // that Cypress will check as part of the visit/relod commands.
+    // See: https://glebbahmutov.com/blog/app-loaded/
+    if (window.Cypress) {
+      window.__cypress_ready = true
+    }
+  }, [])
 
   return (
     <>
