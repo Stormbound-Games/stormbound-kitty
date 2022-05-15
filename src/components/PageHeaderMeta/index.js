@@ -26,6 +26,7 @@ export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
             onClick={action.onClick}
             disabled={action.disabled}
             extend={styles.action}
+            data-testid='page-meta-action'
           >
             {action.icon && (
               <Icon icon={action.icon} extend={styles.actionIcon} />
@@ -38,6 +39,7 @@ export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
             href={action.href}
             extend={styles.action}
             hideNewTabIndicator
+            data-testid='page-meta-action'
           >
             {action.to && action.icon !== 'arrow-right' && (
               <Icon
