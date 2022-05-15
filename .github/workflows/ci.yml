@@ -6,13 +6,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  install:
-    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
+  debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Print URL
-        run: echo ${{ github.event.deployment_status.target_url }}
+      - name: Print context
+        run: |
+          echo ${{ github.event.deployment_status.state }}
+          echo ${{ github.event.deployment_status.target_url }}
+          echo ${{ github.event.deployment.environment }}
 
+  install:
+    # Only run if the build was successful and coming from Vercel
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      contains(github.event.deployment_status.target_url, 'vercel') == true
+    runs-on: ubuntu-latest
+    steps:
       - name: Check out repository
         uses: actions/checkout@v2
 
@@ -23,8 +32,11 @@ jobs:
         run: npm test
 
   tests:
-    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
-    needs: install
+    # Only run if the build was a successful preview from Vercel
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Preview' &&
+      contains(github.event.deployment_status.target_url, 'vercel') == true
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

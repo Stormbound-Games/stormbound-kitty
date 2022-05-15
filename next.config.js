@@ -65,8 +65,11 @@ module.exports = withPlugins(plugins, {
   staticPageGenerationTimeout: 90,
   poweredByHeader: false,
   reactStrictMode: true,
+  compiler: {
+    reactRemoveProperties: VERCEL_ENV === 'production',
+  },
   env: {
-    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV,
+    NEXT_PUBLIC_VERCEL_ENV: VERCEL_ENV,
   },
   images: {
     domains: ['cdn.sanity.io'],
