@@ -153,6 +153,7 @@ export default React.memo(function PageListBuilderEditor(props) {
             onClick={addTier}
             disabled={!isMounted || tiers.length === MAX_TIERS}
             extend={{ margin: '0 auto' }}
+            data-testid='list-add-tier'
           >
             Add a new tier
           </CTA>
