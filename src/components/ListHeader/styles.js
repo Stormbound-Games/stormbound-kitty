@@ -19,11 +19,15 @@ const label = {
 const sort = {
   marginRight: 'var(--s-base)',
   position: 'relative',
+  marginLeft: 'auto',
+  medium: { marginLeft: 0 },
 }
 
 const filter = {
   marginLeft: 'auto',
   minWidth: '180px',
+  display: 'none',
+  medium: { display: 'block' },
 }
 
 const select = {
