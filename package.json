@@ -37,7 +37,7 @@
     "fela-sort-media-query-mobile-first": "^12.1.2",
     "form-serialize": "^0.7.2",
     "framer-motion": "^6.3.3",
-    "fuse.js": "^6.6.1",
+    "fuse.js": "^6.6.2",
     "html2canvas": "^1.4.1",
     "module-alias": "^2.2.2",
     "next": "^12.1.6",
