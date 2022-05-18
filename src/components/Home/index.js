@@ -21,7 +21,7 @@ export default React.memo(function Home(props) {
           title='Learn from the warlords'
           actions={[
             { to: '/rulebook', children: 'Rulebook' },
-            { to: '/guides', children: 'Guides' },
+            { to: '/guides/essentials', children: 'Guides' },
             { to: '/cards/N89', children: 'Cards' },
           ]}
         >
