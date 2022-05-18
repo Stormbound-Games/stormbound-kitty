@@ -10,7 +10,10 @@ const formatCardStats = state => {
   const mana = `${state.mana.display} mana`
   const strength =
     state.type !== 'spell' ? `${state.strength.display} strength` : ''
-  const movement = state.type === 'unit' ? `${state.movement} movement` : ''
+  let movement = state.type === 'unit' ? `${state.movement} movement` : ''
+  if (state.fixedMovement) {
+    movement += ' (fixedly forward)'
+  }
 
   return [
     `${name}: ${faction} ${type}`,
