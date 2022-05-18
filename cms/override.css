@@ -1,5 +1,12 @@
 :root {
   --black: #101f26;
+  --text-color: var(--brand-secondary--inverted);
+  --brand-primary: #36786d;
+  --brand-primary--inverted: #f5f2e5;
+  --brand-secondary: #101f26;
+  --brand-secondary--inverted: #e2d7af;
+  --main-navigation-color: var(--brand-secondary);
+  --main-navigation-color--inverted: var(--brand-secondary--inverted);
 }
 
 fieldset legend {
