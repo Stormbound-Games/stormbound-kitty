@@ -1,7 +1,16 @@
 import { MdGrading, MdSettings } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
+import userStore from 'part:@sanity/base/user'
 import Iframe from 'sanity-plugin-iframe-pane'
 import preview from './previewer'
+
+const getCurrentUser = () => {
+  userStore.me.subscribe(user => {
+    window._sanityUser = user || undefined
+  })
+}
+
+getCurrentUser()
 
 const structure = () =>
   S.list()
