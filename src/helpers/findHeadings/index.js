@@ -1,23 +1,23 @@
 import speakingurl from 'speakingurl'
 import getChildrenText from '~/helpers/getChildrenText'
 
-const findHeadings = (ast, deep = false) =>
+const filter = (ast, match) =>
   ast.reduce((acc, node) => {
-    if (node.style === 'h2') {
-      const text = getChildrenText(node)
-      const id = speakingurl(text)
-      acc.push({ _key: node._key, text, id, subtitles: [] })
-    } else if (deep && node.style === 'h3' && acc.length) {
-      const parent = acc.pop()
-      const text = getChildrenText(node)
-      const id = speakingurl(text)
-      parent.subtitles.push({ _key: node._key, text, id })
-      acc.push(parent)
-    } else if (node.children) {
-      acc.push(...findHeadings(node.children))
-    }
-
+    if (match(node)) acc.push(node)
+    if (node.children) acc.push(...filter(node.children, match))
     return acc
   }, [])
+
+const findHeadings = (ast, isDeep = false) =>
+  filter(
+    ast,
+    isDeep ? node => /h\d/.test(node.style) : node => /h2/.test(node.style)
+  ).map(node => {
+    const text = getChildrenText(node)
+    const slug = speakingurl(text)
+    const level = Number(node.style.slice(1))
+
+    return { ...node, text, slug, level, subheadings: [] }
+  })
 
 export default findHeadings
