@@ -33,7 +33,7 @@ export default React.memo(function BlockTableOfContents(props) {
   return (
     <TableOfContents extend={styles.list}>
       {headings.map(heading => (
-        <ToCItem key={heading._key} {...heading} extend={styles.item} />
+        <ToCItem key={heading._key} {...heading} />
       ))}
     </TableOfContents>
   )
