@@ -25,7 +25,10 @@ const ToCItem = props => {
 
 export default React.memo(function BlockTableOfContents(props) {
   const { ast } = React.useContext(RichTextContext)
-  const headings = parseOutline(ast, props.value.deep)
+  const headings = React.useMemo(
+    () => parseOutline(ast, props.value.deep),
+    [ast, props.value.deep]
+  )
 
   return (
     <TableOfContents extend={styles.list}>
