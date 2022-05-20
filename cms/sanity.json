@@ -51,6 +51,10 @@
     {
       "name": "part:@sanity/base/new-document-structure",
       "path": "./new.js"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "actions.js"
     }
   ]
 }
