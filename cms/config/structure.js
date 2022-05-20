@@ -14,7 +14,7 @@ getCurrentUser()
 
 // Document types that can be managed by moderators and community members.
 // Anything non listed underneath will be restricted to administrators only.
-const COMMUNITY_STRUCTURE = [
+export const COMMUNITY_STRUCTURE = [
   'artwork',
   'podcast',
   'deck',
@@ -27,14 +27,16 @@ const COMMUNITY_STRUCTURE = [
   'user',
 ]
 
-const structure = () => {
-  const isAdmin = window._sanityUser?.role === 'administrator'
+export const SINGLETON_TYPES = ['siteSettings', 'equalTierList']
 
+export const isAdmin = () => window._sanityUser?.role === 'administrator'
+
+const structure = () => {
   return S.list()
     .title('Content')
     .items(
       [
-        isAdmin &&
+        isAdmin() &&
           S.listItem()
             .title('Site settings')
             .icon(MdSettings)
@@ -50,8 +52,8 @@ const structure = () => {
         ...S.documentTypeListItems().filter(listItem => {
           const id = listItem.getId()
 
-          return isAdmin
-            ? !['siteSettings', 'equalTierList'].includes(id)
+          return isAdmin()
+            ? !SINGLETON_TYPES.includes(id)
             : COMMUNITY_STRUCTURE.includes(id)
         }),
       ].filter(Boolean)
