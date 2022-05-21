@@ -39,6 +39,8 @@ const guide = {
       type: 'slug',
       options: { source: 'name' },
       fieldset: 'metadata',
+      readOnly: ({ currentUser }) =>
+        !currentUser.roles.some(role => role.name === 'administrator'),
       validation: Rule => Rule.required(),
     },
     {
@@ -48,6 +50,8 @@ const guide = {
       description:
         'The identifier is used to map this guide’s metadata to the actual content.',
       type: 'string',
+      readOnly: ({ currentUser }) =>
+        !currentUser.roles.some(role => role.name === 'administrator'),
       validation: Rule =>
         Rule.required()
           .uppercase()
