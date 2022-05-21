@@ -5,7 +5,7 @@ export const FIELDS = `
 name,
 faction,
 type,
-unitTypes,
+"unitTypes": coalesce(unitTypes, []),
 rarity,
 token,
 
