@@ -37,6 +37,7 @@ export default React.memo(function PageStoryCategory(props) {
         title={viewportWidth >= 700 ? title : shortName}
         description={`Read immersive stories from the community about ${title}`}
         action={{ to: '/stories', children: 'Back to stories' }}
+        author={props.author}
         isEditorialContent
       >
         <ListHeader

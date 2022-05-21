@@ -19,6 +19,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
       stories,
       isSaga: true,
       breadcrumbs: ['STORIES', 'SAGAS', category.id],
+      author: stories[0].author,
     },
   }
 }
