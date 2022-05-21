@@ -1,12 +1,18 @@
 import { MdGrading, MdSettings } from 'react-icons/md'
 import S from '@sanity/desk-tool/structure-builder'
+import tools from 'all:part:@sanity/base/tool'
 import userStore from 'part:@sanity/base/user'
 import Iframe from 'sanity-plugin-iframe-pane'
 import preview from './previewer'
 
+let currentUser = null
+
 const getCurrentUser = () => {
   userStore.me.subscribe(user => {
-    window._sanityUser = user || undefined
+    currentUser = user || undefined
+
+    // Hide all tools but the desk.
+    if (currentUser?.role !== 'administrator') tools.splice(1)
   })
 }
 
@@ -28,7 +34,7 @@ export const COMMUNITY_TYPES = [
   'user',
 ]
 
-export const isAdmin = () => window._sanityUser?.role === 'administrator'
+export const isAdmin = () => currentUser?.role === 'administrator'
 
 const EqualTierList = S.listItem()
   .title('Equal tier list')
