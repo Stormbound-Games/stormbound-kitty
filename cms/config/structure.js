@@ -3,16 +3,15 @@ import S from '@sanity/desk-tool/structure-builder'
 import tools from 'all:part:@sanity/base/tool'
 import userStore from 'part:@sanity/base/user'
 import Iframe from 'sanity-plugin-iframe-pane'
+import { isAdmin, isNotAdmin } from '~/helpers/sanityRoles'
 import preview from './previewer'
-
-let currentUser = null
 
 const getCurrentUser = () => {
   userStore.me.subscribe(user => {
-    currentUser = user || undefined
+    window._sanityUser = user || undefined
 
     // Hide all tools but the desk.
-    if (currentUser?.role !== 'administrator') tools.splice(1)
+    if (isNotAdmin({ currentUser: user })) tools.splice(1)
   })
 }
 
@@ -33,8 +32,6 @@ export const COMMUNITY_TYPES = [
   'tournament',
   'user',
 ]
-
-export const isAdmin = () => currentUser?.role === 'administrator'
 
 const EqualTierList = S.listItem()
   .title('Equal tier list')
@@ -66,7 +63,7 @@ const ADMIN_ITEMS = S.documentTypeListItems()
   .sort(sortByTitle)
 
 const structure = () => {
-  const admin = isAdmin()
+  const admin = isAdmin({ currentUser: window._sanityUser })
   const title = admin ? 'Content' : 'Community content'
 
   return S.list()

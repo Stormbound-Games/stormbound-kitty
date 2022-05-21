@@ -1,6 +1,6 @@
 import { MdOutlineLocalFireDepartment } from 'react-icons/md'
 import cardRef from '../types/cardRef'
-import isNotAdmin from '~/helpers/isNotAdmin'
+import { isNotAdmin } from '~/helpers/sanityRoles'
 
 // All fields are marked as readonly for non-admins because while the structure
 // doesn’t show this type, references to this type can be open in a side-panel.

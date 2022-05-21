@@ -1,5 +1,6 @@
 import S from '@sanity/base/structure-builder'
-import { isAdmin, COMMUNITY_TYPES, SINGLETON_TYPES } from './structure'
+import { COMMUNITY_TYPES, SINGLETON_TYPES } from './structure'
+import { isAdmin } from '~/helpers/sanityRoles'
 
 const newDocumentMenu = S.defaultInitialValueTemplateItems().filter(
   template =>

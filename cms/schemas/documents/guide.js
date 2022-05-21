@@ -13,7 +13,7 @@ import tableOfContents from '../richText/tableOfContents'
 import tierList from '../richText/tierList'
 import { GUIDE_CATEGORIES } from '~/constants/guides'
 import { formatDate } from '~/helpers/formatDate'
-import isNotAdmin from '~/helpers/isNotAdmin'
+import { isNotAdmin } from '~/helpers/sanityRoles'
 
 const guide = {
   title: 'Guides',

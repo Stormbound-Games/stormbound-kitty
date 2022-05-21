@@ -1,7 +1,7 @@
 import { MdWysiwyg } from 'react-icons/md'
 import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
 import getBlock from '../richText/block'
-import isNotAdmin from '~/helpers/isNotAdmin'
+import { isNotAdmin } from '~/helpers/sanityRoles'
 
 // All fields are marked as readonly for non-admins because while the structure
 // doesn’t show this type, references to this type can be open in a side-panel.
