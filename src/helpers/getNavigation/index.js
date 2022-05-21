@@ -391,13 +391,18 @@ const getNavigation = async ({ isPreview }) => {
           items: [
             {
               label: STORY_CATEGORIES['eastern-heat'].title,
-              to: `/stories/eastern-heat`,
+              to: '/stories/eastern-heat',
               id: 'eastern-heat',
             },
             {
               label: STORY_CATEGORIES['march-of-fauns'].title,
-              to: `/stories/march-of-fauns`,
+              to: '/stories/march-of-fauns',
               id: 'march-of-fauns',
+            },
+            {
+              label: STORY_CATEGORIES['the-second-storm'].title,
+              to: '/stories/the-second-storm',
+              id: 'the-second-storm',
             },
           ],
         },
