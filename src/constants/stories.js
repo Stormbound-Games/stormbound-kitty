@@ -76,4 +76,13 @@ export const STORY_CATEGORIES = {
     cardId: 'S25',
     category: 'SAGAS',
   },
+  'the-second-storm': {
+    background:
+      'https://cdn.sanity.io/images/5hlpazgd/production/00b57f7f7e9e39eadbfada5fb53c5210bba46024-3840x2160.png',
+    content: 'The epic Second Storm saga by ChickenCurry.',
+    title: 'The Second Storm',
+    shortName: 'Second Storm',
+    cardId: 'S2',
+    category: 'SAGAS',
+  },
 }
