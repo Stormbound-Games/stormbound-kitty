@@ -133,10 +133,10 @@ export default React.memo(function PageContribute(props) {
             </li>
 
             <li>
-              <Link to='/guides'>Guides</Link> tend to be outdated as time goes
-              by and the game gets updated. Having them reviewed every now and
-              then ensures the information they contain remains valuable and
-              helpful for people relying on these guides.
+              <Link to='/guides/essentials'>Guides</Link> tend to be outdated as
+              time goes by and the game gets updated. Having them reviewed every
+              now and then ensures the information they contain remains valuable
+              and helpful for people relying on these guides.
             </li>
 
             <li>
