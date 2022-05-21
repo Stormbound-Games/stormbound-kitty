@@ -41,3 +41,11 @@ fieldset legend button:hover::after {
 button:not(:disabled) {
   cursor: pointer !important;
 }
+
+/**
+ * Increase the maximum width of rich text containers when expanded (which is
+ * characterized by being rendered inside this “document-panel-portal” node).
+ */
+[data-testid='document-panel-portal'] [data-ui='Container'] {
+  max-width: 80ch;
+}
