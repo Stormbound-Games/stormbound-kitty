@@ -45,7 +45,6 @@ const LEGACY_PATHS = {
 }
 
 const PERMALINKS = {
-  '/guides': '/guides/essentials',
   '/patch-notes': '/api/patch-notes',
   '/rr': '/guides/reckless-rush',
 }
