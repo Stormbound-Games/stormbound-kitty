@@ -62,10 +62,9 @@ const story = {
       type: 'string',
       fieldset: 'saga',
       options: {
-        list: [
-          { title: 'Eastern Heat', value: 'eastern-heat' },
-          { title: 'March of Fauns', value: 'march-of-fauns' },
-        ],
+        list: Object.entries(STORY_CATEGORIES)
+          .filter(([, { category }]) => category === 'SAGAS')
+          .map(([value, { title }]) => ({ title, value })),
       },
     },
     {
