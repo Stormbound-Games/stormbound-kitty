@@ -32,10 +32,11 @@ export default React.memo(function PageBrawlCalculator() {
   const [discount, setDiscount] = React.useState(0)
   const [hasLegendary5, setHasLegendary5] = React.useState(false)
 
-  React.useEffect(() => {
+  const updateMode = React.useCallback(mode => {
+    setMode(mode)
     setMilestone('')
     setCoins('')
-  }, [mode])
+  }, [])
 
   return (
     <Page
@@ -52,7 +53,7 @@ export default React.memo(function PageBrawlCalculator() {
               onChange={event => setDifficulty(event.target.value)}
             />
           </Spacing>
-          <BrawlCalculatorMode mode={mode} setMode={setMode} />
+          <BrawlCalculatorMode mode={mode} setMode={updateMode} />
           <BrawlCalculatorSettings
             difficulty={difficulty}
             mode={mode}
