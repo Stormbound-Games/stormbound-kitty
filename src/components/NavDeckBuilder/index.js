@@ -2,10 +2,10 @@ import React from 'react'
 import { CardsContext } from '~/components/CardsProvider'
 import SubNav from '~/components/SubNav'
 import serialization from '~/helpers/serialization'
-import useQueryParams from '~/hooks/useQueryParams'
+import useRouteId from '~/hooks/useRouteId'
 
 export default React.memo(function NavDeckBuilder(props) {
-  const { id } = useQueryParams()
+  const id = useRouteId()
   const { cardsIndexBySid } = React.useContext(CardsContext)
   const deck = React.useMemo(
     () => (id ? serialization.deck.deserialize(cardsIndexBySid, id) : []),

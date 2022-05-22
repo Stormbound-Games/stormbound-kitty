@@ -5,14 +5,14 @@ import CardSelect from '~/components/CardSelect'
 import SubNav from '~/components/SubNav'
 import track from '~/helpers/track'
 import useViewportSize from '~/hooks/useViewportSize'
-import useQueryParams from '~/hooks/useQueryParams'
+import useRouteId from '~/hooks/useRouteId'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function NavCardBuilder() {
   const { cardsIndex } = React.useContext(CardsContext)
   const isMounted = useIsMounted()
   const { viewportWidth } = useViewportSize()
-  const { id } = useQueryParams()
+  const id = useRouteId()
   const router = useRouter()
 
   return (
