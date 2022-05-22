@@ -57,6 +57,9 @@ export const deserializeCard = (cardsIndex, string) => {
 
   // If the card is a unit and movement is defined, return it
   if (card.type === 'unit' && chunks[5]) {
+    // Note: due to a serialization mistake, some cards end with `'null'` as a
+    // string in that position. Fortunately, `parseInt('null', 10)` yields `NaN`
+    // which is handled in the following ternary.
     const value = parseInt(chunks[5], 10)
     card.movement = isNaN(value) ? null : value
     card.fixedMovement = chunks[5].endsWith('F')
@@ -108,7 +111,7 @@ const serializeCard = formState =>
     getShortType(formState.type),
     getShortRarity(formState.rarity),
     formState.mana,
-    formState.movement + (formState.fixedMovement ? 'F' : ''),
+    (formState.movement || '') + (formState.fixedMovement ? 'F' : ''),
     formState.strength,
     encodeURIComponent(formState.name),
     formState.id ||
