@@ -47,6 +47,9 @@ describe('Sanity utilities', () => {
     expect(createQuery({ options: { order: 'foo asc' } })).toEqual(
       `*[] { ... } | order(foo asc)`
     )
+    expect(createQuery({ options: { score: 'foo asc' } })).toEqual(
+      `*[] | score(foo asc) { ... }`
+    )
     expect(createQuery({ options: { isPreview: true } })).toEqual(
       `*[] { "${ID_FIELD}": _id, ... }`
     )

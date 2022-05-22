@@ -36,6 +36,7 @@ export const createQuery = ({
   options = {},
 } = {}) => {
   const grep = `*[${conditions.join(' && ')}]`
+  const score = options.score ? `| score(${options.score})` : ''
   const order = options.order ? `| order(${options.order})` : ''
   const slice = typeof options.slice !== 'undefined' ? `[${options.slice}]` : ''
 
@@ -43,5 +44,5 @@ export const createQuery = ({
     fields = `"${ID_FIELD}": _id, ` + fields
   }
 
-  return [grep, '{', fields, '}', order, slice].filter(Boolean).join(' ')
+  return [grep, score, '{', fields, '}', order, slice].filter(Boolean).join(' ')
 }
