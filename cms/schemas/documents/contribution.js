@@ -8,6 +8,7 @@ const contribution = {
   name: 'contribution',
   type: 'document',
   icon: MdCode,
+  __experimental_search: [],
   fields: [
     { ...user, title: 'Contributor' },
     date,

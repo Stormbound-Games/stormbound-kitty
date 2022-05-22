@@ -5,6 +5,7 @@ const abbreviation = {
   title: 'Abbreviation',
   name: 'abbreviation',
   type: 'object',
+  __experimental_search: [],
   fields: [
     {
       title: 'Short version',

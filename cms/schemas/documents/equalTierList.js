@@ -6,6 +6,7 @@ const tier = {
   name: 'tier',
   type: 'object',
   icon: MdLineWeight,
+  __experimental_search: [],
   fields: [
     {
       title: 'Name',

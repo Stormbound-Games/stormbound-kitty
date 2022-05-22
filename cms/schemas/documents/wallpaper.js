@@ -5,6 +5,7 @@ const wallpaper = {
   name: 'wallpaper',
   type: 'document',
   icon: MdWallpaper,
+  __experimental_search: [],
   fields: [
     {
       title: 'Type',

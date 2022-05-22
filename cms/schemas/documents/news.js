@@ -5,6 +5,7 @@ const news = {
   name: 'news',
   type: 'document',
   icon: MdOutlineFiberNew,
+  __experimental_search: [],
   fields: [
     {
       title: 'Intro',

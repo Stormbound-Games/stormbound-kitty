@@ -15,6 +15,7 @@ const page = {
   name: 'page',
   type: 'document',
   icon: MdOutlineFeed,
+  __experimental_search: [{ path: 'title' }],
   fields: [
     {
       title: 'Title',

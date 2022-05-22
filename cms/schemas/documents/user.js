@@ -5,6 +5,7 @@ const user = {
   name: 'user',
   type: 'document',
   icon: MdPersonOutline,
+  __experimental_search: [{ path: 'name' }],
   fields: [
     {
       title: 'Name',

@@ -20,6 +20,7 @@ const guide = {
   name: 'guide',
   type: 'document',
   icon: MdExplore,
+  __experimental_search: [{ path: 'name' }],
   fieldsets: [
     {
       name: 'metadata',

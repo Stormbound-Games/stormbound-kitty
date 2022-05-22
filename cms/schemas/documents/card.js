@@ -7,6 +7,7 @@ const card = {
   name: 'card',
   type: 'document',
   icon: MdWysiwyg,
+  __experimental_search: [{ weight: 2, path: 'name' }],
   fields: [
     {
       title: 'Name',

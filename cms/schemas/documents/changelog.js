@@ -37,6 +37,7 @@ const changelog = {
   name: 'changelog',
   type: 'document',
   icon: MdOutlineCompareArrows,
+  __experimental_search: [],
   fields: [
     cardRef,
     {

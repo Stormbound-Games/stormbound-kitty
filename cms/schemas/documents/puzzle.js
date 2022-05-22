@@ -9,6 +9,7 @@ const puzzle = {
   name: 'puzzle',
   type: 'document',
   icon: MdExtension,
+  __experimental_search: [{ path: 'name' }],
   fields: [
     {
       title: 'Name',

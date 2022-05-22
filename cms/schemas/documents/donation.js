@@ -8,6 +8,7 @@ const donation = {
   name: 'donation',
   type: 'document',
   icon: MdAttachMoney,
+  __experimental_search: [],
   fields: [{ ...user, title: 'Donator' }, date],
   orderings: [
     {

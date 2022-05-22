@@ -9,6 +9,7 @@ const event = {
   name: 'event',
   type: 'document',
   icon: MdEvent,
+  __experimental_search: [],
   fields: [
     {
       title: 'Type',

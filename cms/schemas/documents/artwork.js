@@ -9,6 +9,7 @@ const artwork = {
   name: 'artwork',
   type: 'document',
   icon: MdBrush,
+  __experimental_search: [],
   fields: [
     { ...user, title: 'Author' },
     date,

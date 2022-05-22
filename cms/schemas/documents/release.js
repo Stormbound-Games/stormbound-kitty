@@ -20,6 +20,7 @@ const release = {
   name: 'release',
   type: 'document',
   icon: MdOutlineNewReleases,
+  __experimental_search: [{ path: 'title' }],
   fieldsets: [
     {
       name: 'metadata',

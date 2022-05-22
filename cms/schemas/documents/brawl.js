@@ -6,6 +6,7 @@ const brawl = {
   name: 'brawl',
   type: 'document',
   icon: MdOutlineLocalFireDepartment,
+  __experimental_search: [],
   fields: [
     {
       title: 'Name',

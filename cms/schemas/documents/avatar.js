@@ -5,6 +5,7 @@ const avatar = {
   name: 'avatar',
   type: 'document',
   icon: MdFace,
+  __experimental_search: [],
   fields: [
     {
       title: 'Name',

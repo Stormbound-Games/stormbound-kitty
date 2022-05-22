@@ -9,6 +9,7 @@ const tournament = {
   name: 'tournament',
   type: 'document',
   icon: MdAutoAwesome,
+  __experimental_search: [],
   fields: [
     {
       title: 'Name',

@@ -7,6 +7,7 @@ const swcc = {
   name: 'SWCC',
   type: 'document',
   icon: MdAutoFixNormal,
+  __experimental_search: [],
   fields: [
     {
       title: 'Season number',

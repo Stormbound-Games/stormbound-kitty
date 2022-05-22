@@ -9,6 +9,7 @@ const podcast = {
   name: 'podcast',
   type: 'document',
   icon: MdPodcasts,
+  __experimental_search: [],
   fields: [
     {
       title: 'Title',

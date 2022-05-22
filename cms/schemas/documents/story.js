@@ -13,6 +13,7 @@ const story = {
   name: 'story',
   type: 'document',
   icon: MdEditNote,
+  __experimental_search: [{ path: 'title' }],
   fieldsets: [
     {
       name: 'saga',

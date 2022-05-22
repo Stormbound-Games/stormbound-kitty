@@ -5,6 +5,7 @@ const deckTags = {
   name: 'deckTag',
   type: 'document',
   icon: MdOutlineLabel,
+  __experimental_search: [],
   fields: [
     {
       title: 'Name',

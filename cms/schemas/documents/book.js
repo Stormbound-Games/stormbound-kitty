@@ -137,6 +137,7 @@ const book = {
   name: 'book',
   type: 'document',
   icon: MdMenuBook,
+  __experimental_search: [],
   fields: [
     {
       title: 'Name',

@@ -9,6 +9,7 @@ const deck = {
   name: 'deck',
   type: 'document',
   icon: MdBookmark,
+  __experimental_search: [{ path: 'name' }],
   fields: [
     {
       title: 'Name',
