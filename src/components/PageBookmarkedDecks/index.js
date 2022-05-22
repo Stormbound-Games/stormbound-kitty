@@ -76,7 +76,7 @@ export default React.memo(function PageBookmarkedDecks(props) {
     [sendNotification]
   )
 
-  const disabledEditor = React.useCallback(() => {
+  const disableEditor = React.useCallback(() => {
     setMode('INITIAL')
     setEditedDeckUUID(null)
   }, [])
@@ -87,12 +87,12 @@ export default React.memo(function PageBookmarkedDecks(props) {
   }, [])
 
   React.useEffect(() => {
-    const handleKeyDown = event => event.which === 27 && disabledEditor()
+    const handleKeyDown = event => event.which === 27 && disableEditor()
 
     document.addEventListener('keydown', handleKeyDown)
 
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [disabledEditor])
+  }, [disableEditor])
 
   React.useEffect(() => {
     toggleUnseen(false)
@@ -100,7 +100,7 @@ export default React.memo(function PageBookmarkedDecks(props) {
 
   // If the collection of decks is updated, it is as the result of an addition,
   // a removal or an edition, which means the editing mode can be cancelled.
-  React.useEffect(disabledEditor, [context.decks, disabledEditor])
+  React.useEffect(disableEditor, [context.decks, disableEditor])
 
   const addDeck = React.useCallback(
     event => {
@@ -182,7 +182,7 @@ export default React.memo(function PageBookmarkedDecks(props) {
           <YourDecks
             decks={displayedDecks}
             onEdit={uuid => enableEditor(uuid)}
-            disabledEditor={disabledEditor}
+            disableEditor={disableEditor}
             editedDeckUUID={editedDeckUUID}
             editDeck={editDeck}
             mode={mode}

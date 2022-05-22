@@ -30,7 +30,7 @@ export default React.memo(function YourDecks(props) {
               onEdit={() => props.onEdit(row[0].uuid)}
               isEdited={row[0].uuid === props.editedDeckUUID}
               handleEdit={props.editDeck}
-              cancelEdit={props.disabledEditor}
+              cancelEdit={props.disableEditor}
               availableTags={props.availableTags}
             />
           </Row.Column>
@@ -41,7 +41,7 @@ export default React.memo(function YourDecks(props) {
                 onEdit={() => props.onEdit(row[1].uuid)}
                 isEdited={row[1].uuid === props.editedDeckUUID}
                 handleEdit={props.editDeck}
-                cancelEdit={props.disabledEditor}
+                cancelEdit={props.disableEditor}
                 availableTags={props.availableTags}
               />
             ) : (
@@ -50,7 +50,7 @@ export default React.memo(function YourDecks(props) {
                 mode={props.mode}
                 setMode={props.setMode}
                 addDeck={props.addDeck}
-                cancel={props.disabledEditor}
+                cancel={props.disableEditor}
                 availableTags={props.availableTags}
               />
             )}
@@ -66,7 +66,7 @@ export default React.memo(function YourDecks(props) {
               mode={props.mode}
               setMode={props.setMode}
               addDeck={props.addDeck}
-              cancel={props.disabledEditor}
+              cancel={props.disableEditor}
               availableTags={props.availableTags}
             />
           </Row.Column>
