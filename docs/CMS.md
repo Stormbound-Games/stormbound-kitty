@@ -1,5 +1,11 @@
 # CMS
 
+## Content types
+
+Conceptually, there are two types of content on the site: community content such as guides, decks, users, stories, artworks and so on, and site- or game-related content like cards, books, release notes, donations, etc.
+
+The latter is only available to administrators (Sheepyard staff) to minimize risks and impact on the site. Editors (Discord moderators and other trusted community contributors) can access and edit all the community content.
+
 ## Previewing content
 
 In [Sanity](https://www.sanity.io/), documents can either be drafts or published. To preview a newly created document or a content update before it gets published, one can use the content preview mode.
