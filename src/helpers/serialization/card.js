@@ -101,6 +101,7 @@ export const deserializeCard = (cardsIndex, string) => {
   return card
 }
 
+const trim = value => String(value || '').trim()
 const serializeCard = formState =>
   [
     getShortFaction(formState.faction),
@@ -110,17 +111,17 @@ const serializeCard = formState =>
     formState.unitTypes.map(getShortUnitType).join(','),
     getShortType(formState.type),
     getShortRarity(formState.rarity),
-    formState.mana,
+    trim(formState.mana),
     // It’s important to check `null` or `undefined` and not just truthiness as
     // `0` is a valid movement value and should be serialized as such.
     (formState.movement == null ? '' : formState.movement) +
       (formState.fixedMovement ? 'F' : ''),
-    formState.strength,
-    encodeURIComponent(formState.name),
+    trim(formState.strength),
+    encodeURIComponent(trim(formState.name)),
     formState.id ||
       formState.imageCardId ||
-      encodeURIComponent(formState.imageURL || ''),
-    encodeURIComponent(formState.ability || ''),
+      encodeURIComponent(trim(formState.imageURL)),
+    encodeURIComponent(trim(formState.ability)),
     formState.level,
     '', // Former unit type modifiers
   ].join(';')
