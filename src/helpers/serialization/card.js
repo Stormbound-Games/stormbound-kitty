@@ -111,7 +111,10 @@ const serializeCard = formState =>
     getShortType(formState.type),
     getShortRarity(formState.rarity),
     formState.mana,
-    (formState.movement || '') + (formState.fixedMovement ? 'F' : ''),
+    // It’s important to check `null` or `undefined` and not just truthiness as
+    // `0` is a valid movement value and should be serialized as such.
+    (formState.movement == null ? '' : formState.movement) +
+      (formState.fixedMovement ? 'F' : ''),
     formState.strength,
     encodeURIComponent(formState.name),
     formState.id ||
