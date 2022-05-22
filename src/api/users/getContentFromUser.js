@@ -1,4 +1,3 @@
-import { getEntries } from '~/helpers/sanity'
 import getUser from '~/api/users/getUser'
 import { FIELDS as USER_FIELDS } from '~/api/users/utils'
 import {
@@ -61,54 +60,44 @@ const cleaners = {
 }
 
 const getContentFromUser = async ({ slug, isPreview } = {}) => {
-  const user = await getUser({
+  const { user, feed } = await getUser({
     slug,
     isPreview,
-    fields: `_id, ${USER_FIELDS}`,
-  })
-
-  if (!user) return {}
-
-  const entries = await getEntries({
-    conditions: ['references($id)'],
     fields: `
-      _type,
-      _type == "artwork" => { ${ARTWORK_FIELDS} },
-      _type == "contribution" => { ${CONTRIBUTION_FIELDS} },
-      _type == "deck" => { ${DECK_FIELDS} },
-      _type == "donation" => { ${DONATION_FIELDS} },
-      _type == "event" => { ${EVENT_FIELDS} },
-      _type == "guide" => { ${GUIDE_FIELDS} },
-      _type == "podcast" => { ${PODCAST_FIELDS} },
-      _type == "puzzle" => { ${PUZZLE_FIELDS} },
-      _type == "release" => { ${RELEASE_FIELDS} },
-      _type == "story" => { ${STORY_FIELDS} },
-      _type == "SWCC" => { ${SWCC_FIELDS} },
-      _type == "tournament" => {
-        ${TOURNAMENT_FIELDS},
-        count(users[@ -> slug.current match $author]) > 0 => { "_type": "tournament", },
-        count(podium[].team[@ -> slug.current match $author]) > 0 => { "_type": "podium" }
-      },
+      "user": { _id, ${USER_FIELDS} },
+      "feed": *[ references(^._id) ] {
+        _type,
+        _type == "artwork" => { ${ARTWORK_FIELDS} },
+        _type == "contribution" => { ${CONTRIBUTION_FIELDS} },
+        _type == "deck" => { ${DECK_FIELDS} },
+        _type == "donation" => { ${DONATION_FIELDS} },
+        _type == "event" => { ${EVENT_FIELDS} },
+        _type == "guide" => { ${GUIDE_FIELDS} },
+        _type == "podcast" => { ${PODCAST_FIELDS} },
+        _type == "puzzle" => { ${PUZZLE_FIELDS} },
+        _type == "release" => { ${RELEASE_FIELDS} },
+        _type == "story" => { ${STORY_FIELDS} },
+        _type == "SWCC" => { ${SWCC_FIELDS} },
+        _type == "tournament" => {
+          ${TOURNAMENT_FIELDS},
+          count(users[@ -> slug.current match $slug]) > 0 => { "_type": "tournament", },
+          count(podium[].team[@ -> slug.current match $slug]) > 0 => { "_type": "podium" }
+        }
+      } | order(date desc)
     `,
-    params: { author: slug, id: user._id.replace('drafts.', '') },
-    options: { order: 'date desc', isPreview },
   })
 
   // If there’s nothing in the feed and there is no relevant meta data, it means
   // there is nothing to display.
-  if (entries.length === 0 && !user.channel && !user.playerId) {
+  if (!user || (feed.length === 0 && !user.channel && !user.playerId)) {
     return {}
   }
 
-  const hasDonated = entries.some(entry => entry._type === 'donation')
-  const hasContributed = entries.some(entry => entry._type === 'contribution')
-  const feed = entries.map(entry => cleaners[entry._type](entry))
-
   return {
     user,
-    feed,
-    hasDonated,
-    hasContributed,
+    feed: feed.map(entry => cleaners[entry._type](entry)),
+    hasDonated: feed.some(entry => entry._type === 'donation'),
+    hasContributed: feed.some(entry => entry._type === 'contribution'),
   }
 }
 
