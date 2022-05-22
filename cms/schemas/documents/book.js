@@ -1,5 +1,6 @@
 import { MdMenuBook } from 'react-icons/md'
 import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
+import capitalize from '~/helpers/capitalize'
 
 const restriction = {
   title: 'Restriction',
@@ -227,6 +228,27 @@ const book = {
       hidden: true,
     },
   ],
+  preview: {
+    select: {
+      cost: 'cost',
+      image: 'image',
+      name: 'name',
+      odds: 'odds',
+    },
+    prepare({ cost, image, name, odds }) {
+      return {
+        title: name,
+        subtitle:
+          cost.amount +
+          ' ' +
+          capitalize(cost.type.toLowerCase()) +
+          ' · ' +
+          odds.map(o => +o * 100).join('/') +
+          ' (%)',
+        media: image,
+      }
+    },
+  },
 }
 
 export default book

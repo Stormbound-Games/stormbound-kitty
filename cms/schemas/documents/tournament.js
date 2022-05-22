@@ -121,13 +121,18 @@ const tournament = {
   ],
   preview: {
     select: {
+      author: 'users.0.name',
       name: 'name',
       date: 'date',
     },
-    prepare({ name, date }) {
+    prepare({ author, name, date }) {
       return {
         title: name || 'Missing name',
-        subtitle: formatDate(date) || 'Missing date',
+        subtitle:
+          'By ' +
+          (author || 'missing author') +
+          ' in ' +
+          (formatDate(date) || 'missing date'),
       }
     },
   },

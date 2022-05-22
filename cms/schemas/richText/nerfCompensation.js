@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdHealing } from 'react-icons/md'
+import cardRef from '../types/cardRef'
 
 const nerfCompensation = {
   title: 'Nerf compensation',
@@ -13,22 +14,16 @@ const nerfCompensation = {
       description:
         'Optional list of cards that are nerfed, otherwise display generic information.',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'card' }] }],
+      of: [cardRef],
     },
   ],
   preview: {
-    select: {
-      cards: 'cards',
-      ...Array.from({ length: 10 }, (_, i) => i).reduce(
-        (acc, i) => ({
-          ...acc,
-          ['cardName' + i]: `cards.${i}.name`,
-        }),
-        {}
-      ),
-    },
-    prepare({ ids = [], ...rest }) {
-      const cardNames = Object.entries(rest)
+    select: Array.from({ length: 10 }, (_, i) => i).reduce(
+      (acc, i) => ({ ...acc, ['cardName' + i]: `cards.${i}.name` }),
+      {}
+    ),
+    prepare(params) {
+      const cardNames = Object.entries(params)
         .filter(([key, value]) => key.startsWith('cardName') && Boolean(value))
         .map(entry => entry[1])
         .sort()

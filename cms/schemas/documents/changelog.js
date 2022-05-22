@@ -3,6 +3,7 @@ import { MdOutlineCompareArrows, MdOutlineUndo } from 'react-icons/md'
 import cardRef from '../types/cardRef'
 import date from '../types/date'
 import { formatDate } from '~/helpers/formatDate'
+import capitalize from '~/helpers/capitalize'
 
 const change = {
   title: 'Change',
@@ -95,8 +96,10 @@ const changelog = {
     prepare({ name, type, date, image }) {
       return {
         title: name || 'Missing card',
-        subtitle:
-          (formatDate(date) || 'Missing date') + (type ? ` (${type})` : ''),
+        subtitle: [
+          formatDate(date) || 'Missing date',
+          type ? capitalize(type.toLowerCase()) : '',
+        ].join(' · '),
         media: image ? (
           <img src={image + '?auto=format&w=70&q=90'} alt='' />
         ) : null,

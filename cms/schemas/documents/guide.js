@@ -118,14 +118,19 @@ const guide = {
   ],
   preview: {
     select: {
+      author: 'users.0.name',
       name: 'name',
       date: 'date',
       background: 'background',
     },
-    prepare({ name, date, background }) {
+    prepare({ author, name, date, background }) {
       return {
         title: name || 'Missing name',
-        subtitle: formatDate(date) || 'Missing date',
+        subtitle:
+          'By ' +
+          (author || 'missing author') +
+          ' in ' +
+          (formatDate(date) || 'missing date'),
         media: background,
       }
     },
