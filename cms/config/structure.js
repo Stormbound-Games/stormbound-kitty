@@ -6,6 +6,9 @@ import preview from './previewer'
 
 getCurrentUser()
 
+// Define the `lang` attribute manually as Sanity doesn’t set it.
+document.documentElement.lang = 'en'
+
 const EqualTierList = S.listItem()
   .title('Equal tier list')
   .icon(MdGrading)
