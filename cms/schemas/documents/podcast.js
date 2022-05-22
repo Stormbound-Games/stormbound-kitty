@@ -38,7 +38,7 @@ const podcast = {
       name: 'href',
       type: 'url',
       description: 'Typically a link to podbean.',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required().uri({ scheme: ['https'] }),
     },
     {
       title: 'Excerpt',
