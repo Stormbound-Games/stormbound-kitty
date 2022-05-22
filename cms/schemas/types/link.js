@@ -4,14 +4,13 @@ const link = {
   type: 'object',
   fields: [
     {
-      title: 'Path or URL',
+      title: 'Link',
       name: 'href',
-      type: 'string',
+      type: 'url',
       validation: Rule =>
-        Rule.required().custom(value => {
-          if (value && value.includes('localhost')) return 'Invalid local link.'
-          return true
-        }),
+        Rule.required()
+          .uri({ scheme: ['http', 'https'], allowRelative: true })
+          .custom(value => !value?.includes('localhost')),
     },
   ],
 }
