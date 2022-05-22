@@ -24,33 +24,58 @@ import swcc from './documents/swcc'
 import tournament from './documents/tournament'
 import user from './documents/user'
 import wallpaper from './documents/wallpaper'
+import { isNotAdmin, COMMUNITY_TYPES } from '../config/access'
 
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([
-    siteSettings,
-    equalTierList,
-    artwork,
-    avatar,
-    book,
-    brawl,
-    podcast,
-    card,
-    changelog,
-    contribution,
-    deck,
-    deckTags,
-    donation,
-    event,
-    guide,
-    news,
-    page,
-    puzzle,
-    release,
-    story,
-    swcc,
-    tournament,
-    user,
-    wallpaper,
-  ]),
+  types: schemaTypes.concat(
+    Object.entries({
+      artwork,
+      avatar,
+      book,
+      brawl,
+      card,
+      changelog,
+      contribution,
+      deck,
+      deckTags,
+      donation,
+      equalTierList,
+      event,
+      guide,
+      news,
+      page,
+      podcast,
+      puzzle,
+      release,
+      siteSettings,
+      story,
+      swcc,
+      tournament,
+      user,
+      wallpaper,
+    }).map(([type, document]) => ({
+      ...document,
+      fields: document.fields.map(addReadOnly(type)),
+    }))
+  ),
 })
+
+function addReadOnly(type) {
+  return function (field) {
+    if (field.type === 'block') return field
+
+    if (
+      typeof field.readOnly === 'undefined' &&
+      !COMMUNITY_TYPES.includes(type)
+    ) {
+      field.readOnly = isNotAdmin
+    }
+
+    if (typeof field.of !== 'undefined') {
+      field.of.forEach(addReadOnly(type))
+    }
+
+    return field
+  }
+}

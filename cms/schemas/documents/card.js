@@ -1,10 +1,7 @@
 import { MdWysiwyg } from 'react-icons/md'
 import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
 import getBlock from '../richText/block'
-import { isNotAdmin } from '~/helpers/sanityRoles'
 
-// All fields are marked as readonly for non-admins because while the structure
-// doesn’t show this type, references to this type can be open in a side-panel.
 const card = {
   title: 'Cards',
   name: 'card',
@@ -16,14 +13,12 @@ const card = {
       name: 'name',
       type: 'string',
       validation: Rule => Rule.required(),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Stormbound-Kitty ID',
       name: 'id',
       type: 'slug',
       validation: Rule => Rule.required(),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Stormbound ID',
@@ -32,7 +27,6 @@ const card = {
       description:
         'The card ID used by the game itself, provided by Sheepyard.',
       validation: Rule => Rule.required(),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Type',
@@ -40,7 +34,6 @@ const card = {
       type: 'string',
       options: { list: TYPES },
       validation: Rule => Rule.required(),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Faction',
@@ -48,7 +41,6 @@ const card = {
       type: 'string',
       options: { list: FACTIONS },
       validation: Rule => Rule.required(),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Unit type',
@@ -61,7 +53,6 @@ const card = {
         },
       ],
       hidden: ({ document }) => Boolean(document?.type !== 'unit'),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Rarity',
@@ -73,7 +64,6 @@ const card = {
           if (!context.document?.token && !value) return 'Required'
           return true
         }),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Mana',
@@ -87,7 +77,6 @@ const card = {
           if (/^\d+\/\d+\/\d+\/\d+\/\d+$/.test(value)) return true
           return 'Invalid'
         }),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Strength',
@@ -104,7 +93,6 @@ const card = {
           if (/^\d+\/\d+\/\d+\/\d+\/\d+$/.test(value)) return true
           return 'Invalid'
         }),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Movement',
@@ -121,7 +109,6 @@ const card = {
           if (/^\d+\/\d+\/\d+\/\d+\/\d+$/.test(value)) return true
           return 'Invalid'
         }),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Fixed movement',
@@ -130,7 +117,6 @@ const card = {
       description: 'Whether the card has fixed movement.',
       hidden: ({ document }) => Boolean(document?.type !== 'unit'),
       defaultValue: false,
-      readOnly: isNotAdmin,
     },
     {
       title: 'Ability',
@@ -153,7 +139,6 @@ const card = {
 
           return true
         }),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Image',
@@ -164,7 +149,6 @@ const card = {
         accept: ['image/png'],
       },
       validation: Rule => Rule.required(),
-      readOnly: isNotAdmin,
     },
     {
       title: 'Token',
@@ -172,14 +156,12 @@ const card = {
       type: 'boolean',
       initialValue: false,
       hidden: ({ document }) => document?.type !== 'unit',
-      readOnly: isNotAdmin,
     },
     {
       title: 'Additional notes',
       name: 'notes',
       type: 'array',
       of: [getBlock()],
-      readOnly: isNotAdmin,
     },
   ],
   orderings: [
