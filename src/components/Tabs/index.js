@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import BlankButton from '~/components/BlankButton'
-import useDidUpdateEffect from '~/hooks/useDidUpdateEffect'
+import useOnUpdate from '~/hooks/useOnUpdate'
 
 const Tab = React.memo(function Tab(props) {
   return (
@@ -60,7 +60,7 @@ const Tabs = React.memo(function Tabs(props) {
   // Custom hook instead of regular `useEffect` to avoid the function from
   // running on initial render as this causes the page to be scrolled to the
   // active tab, which is not desired.
-  useDidUpdateEffect(() => {
+  useOnUpdate(() => {
     const index = props.tabs.findIndex(tab => tab.id === active)
     document.querySelector('#' + props.tabs[index].id).focus()
   }, [active, props.tabs])

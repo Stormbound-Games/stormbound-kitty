@@ -4,7 +4,7 @@ import { CardsContext } from '~/components/CardsProvider'
 import serialization from '~/helpers/serialization'
 import { sortByMana } from '~/helpers/sortCards'
 import useRouteId from '~/hooks/useRouteId'
-import useDidUpdateEffect from '~/hooks/useDidUpdateEffect'
+import useOnUpdate from '~/hooks/useOnUpdate'
 
 const getDeckBuilderPath = (deck, view) => {
   const id = serialization.deck.serialize(deck)
@@ -51,12 +51,12 @@ const useDeckBuilder = props => {
     [deck]
   )
 
-  useDidUpdateEffect(() => {
+  useOnUpdate(() => {
     const path = getDeckBuilderPath(deck, props.view)
     router.replace(path, null, { scroll: false, shallow: true })
   }, [deck, props.view])
 
-  useDidUpdateEffect(() => {
+  useOnUpdate(() => {
     setDeck(id ? serialization.deck.deserialize(cardsIndexBySid, id) : [])
   }, [cardsIndexBySid, id])
 

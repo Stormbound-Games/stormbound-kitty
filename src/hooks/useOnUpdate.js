@@ -2,7 +2,7 @@ import React from 'react'
 
 // Custom hook to avoid the wrapped `useEffect` hook from firing on initial
 // render.
-function useDidUpdateEffect(callback, dependencies) {
+function useOnUpdate(callback, dependencies) {
   const didMountRef = React.useRef(false)
 
   React.useEffect(() => {
@@ -12,4 +12,4 @@ function useDidUpdateEffect(callback, dependencies) {
   }, dependencies)
 }
 
-export default useDidUpdateEffect
+export default useOnUpdate
