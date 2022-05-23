@@ -13,7 +13,7 @@ describe('Battle Simulator — Layout', () => {
   })
 
   it('should display the cell panel when clicking a cell', () => {
-    cy.get(s.CELL_A1).click()
+    cy.get(s.CELL_A1).should('be.visible').click()
     cy.get(s.CELL_PANEL).should('be.visible')
   })
 
