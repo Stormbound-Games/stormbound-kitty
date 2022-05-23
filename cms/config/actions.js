@@ -3,10 +3,15 @@ import defaultResolve, {
   PublishAction,
   DiscardChangesAction,
 } from 'part:@sanity/base/document-actions'
+import { isNotAdmin, COMMUNITY_TYPES } from './access'
 
 export default function resolveDocumentActions(props) {
   if (['siteSettings', 'equalTierList'].includes(props.type)) {
     return [PublishAction, DiscardChangesAction]
+  }
+
+  if (isNotAdmin() && !COMMUNITY_TYPES.includes(props.type)) {
+    return []
   }
 
   // Make sure cards and books documents cannot be deleted, as it would be
