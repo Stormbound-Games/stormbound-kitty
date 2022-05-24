@@ -62,6 +62,7 @@ export default React.memo(function RandomCardFilters(props) {
             required
             value={faction}
             onChange={event => setFaction(event.target.value)}
+            withAny
             withNeutral
             data-testid='randomize-card-faction'
           />
