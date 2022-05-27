@@ -42,9 +42,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N5', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N5', 5)
     expect(value1[0]).toEqual((1 / 2) * 0.5)
-    expect(value1[1]).toEqual(((1 + 5) / 2) * 0.5)
+    expect(value1[1]).toEqual(((1 + 6) / 2) * 0.5)
     expect(value5[0]).toEqual((1 / 2) * 0.5)
-    expect(value5[1]).toEqual(((1 + 10) / 2) * 0.5)
+    expect(value5[1]).toEqual(((1 + 12) / 2) * 0.5)
   })
 
   it('should return value for Spare Dragonling', () => {
@@ -331,9 +331,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N37', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N37', 5)
     expect(value1[0]).toEqual((5 / 6) * 1)
-    expect(value1[1]).toEqual(((5 + 4) / 6) * 1)
+    expect(value1[1]).toEqual(((5 + 5) / 6) * 1)
     expect(value5[0]).toEqual((10 / 6) * 1)
-    expect(value5[1]).toEqual(((10 + 8) / 6) * 1)
+    expect(value5[1]).toEqual(((10 + 10) / 6) * 1)
   })
 
   it.skip('should return value for Harvesters of Souls', () => {
@@ -449,10 +449,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Call for Aid', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N50', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N50', 5)
-    expect(value1[0]).toEqual(3 / 7)
-    expect(value1[1]).toEqual((3 * 4) / 7)
-    expect(value5[0]).toEqual(7 / 7)
-    expect(value5[1]).toEqual((7 * 4) / 7)
+    expect(value1[0]).toEqual(4 / 7)
+    expect(value1[1]).toEqual((4 * 4) / 7)
+    expect(value5[0]).toEqual(8 / 7)
+    expect(value5[1]).toEqual((8 * 4) / 7)
   })
 
   it('should return value for Dangerous Suitors', () => {
@@ -1054,10 +1054,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Rain of Frogs', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F8', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F8', 5)
-    expect(value1[0]).toEqual((3 * 1) / 2)
-    expect(value1[1]).toEqual((3 * 1) / 2)
-    expect(value5[0]).toEqual((6 * 1) / 2)
-    expect(value5[1]).toEqual((6 * 1) / 2)
+    expect(value1[0]).toEqual((3 * 1) / 3)
+    expect(value1[1]).toEqual((3 * 1) / 3)
+    expect(value5[0]).toEqual((6 * 1) / 3)
+    expect(value5[1]).toEqual((6 * 1) / 3)
   })
 
   it('should return value for Wandering Wyrms', () => {
