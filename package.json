@@ -69,7 +69,7 @@
     "@svgr/webpack": "^6.2.1",
     "cypress": "^9.6.1",
     "cypress-localstorage-commands": "^1.7.0",
-    "diff": "^5.0.0",
+    "diff": "^5.1.0",
     "eslint": "^8.16.0",
     "eslint-config-next": "^12.1.6",
     "eslint-plugin-unused-imports": "^2.0.0",
