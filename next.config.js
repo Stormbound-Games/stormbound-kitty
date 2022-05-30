@@ -82,6 +82,14 @@ module.exports = withPlugins(plugins, {
   // Ref: https://nextjs.org/docs/basic-features/image-optimization#domains
   images: { domains: ['cdn.sanity.io'] },
 
+  // Next.js has not yet switched to bundling for modern browsers by default.
+  // Not a huge deal, but it bloats the generated code a bit.
+  // Ref: https://twitter.com/dan_abramov/status/1529679646257733635?s=20&t=a2p7F1aQG3NEUpSiKuVeHg
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+  },
+
   // Set up the legacy and permalink redirects
   // Ref: https://nextjs.org/docs/api-reference/next.config.js/redirects
   async redirects() {
