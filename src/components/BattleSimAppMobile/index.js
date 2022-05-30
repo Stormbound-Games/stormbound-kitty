@@ -172,7 +172,10 @@ export default React.memo(function BattleSimAppMobile(props) {
               title='Active cell'
               isMobile={true}
               isPanelOpen={mode === MODES.CELL}
-              closePanel={() => setMode(MODES.GAME)}
+              closePanel={() => {
+                setMode(MODES.GAME)
+                props.setActiveCell(null)
+              }}
               data-testid='cell-panel'
             >
               {!!props.activePlayer && !!props.activeCell && (
