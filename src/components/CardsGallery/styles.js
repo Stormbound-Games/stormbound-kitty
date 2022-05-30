@@ -18,6 +18,7 @@ const item = {
   flexBasis: 'calc(100% / var(--cards-per-row))',
   padding: 'var(--s-base) var(--s-smaller)',
   position: 'relative',
+  willChange: 'transform, opacity',
 }
 
 // 1. Simulate a reflection with a sharp split gradient.
