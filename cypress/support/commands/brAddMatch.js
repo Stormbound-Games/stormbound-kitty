@@ -1,4 +1,4 @@
-import s from '../../integration/brawl/selectors'
+import s from '../../e2e/brawl/selectors'
 
 const addMatch = (
   outcome,

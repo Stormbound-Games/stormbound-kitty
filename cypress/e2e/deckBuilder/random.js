@@ -1,5 +1,4 @@
 import s from './selectors'
-import { getCardData } from '../../utils'
 
 describe('Deck Builder — Random deck', () => {
   before(() => cy.visit('/deck/1n1'))
@@ -18,11 +17,8 @@ describe('Deck Builder — Random deck', () => {
     cy.get(s.RANDOM_FACTION_SELECT).should('not.be.disabled').select('winter')
     cy.get(s.RANDOM_DIALOG_CONFIRM).click()
     cy.get(s.DECK_CARD).each($card => {
-      const id = $card.attr('data-testid').replace('deck-slot', '')
-      const card = getCardData(id)
-
-      expect(card.faction).to.satisfy(faction =>
-        ['winter', 'neutral'].includes(faction)
+      expect($card.attr('data-testid')).to.satisfy(
+        testId => testId.includes('winter') || testId.includes('neutral')
       )
     })
   })
@@ -35,11 +31,8 @@ describe('Deck Builder — Random deck', () => {
     cy.get(s.RANDOM_DIALOG_CONFIRM).click()
     cy.get(s.DECK_CARD).then($cards => {
       const winterCards = $cards
-        .map((_, card) =>
-          card.getAttribute('data-testid').replace('deck-slot', '')
-        )
-        .map((_, id) => getCardData(id))
-        .filter((_, card) => card.faction === 'winter')
+        .map((_, card) => card.getAttribute('data-testid'))
+        .filter((_, testId) => testId.includes('winter'))
 
       expect(winterCards.length).to.be.at.least(6)
     })
@@ -50,10 +43,7 @@ describe('Deck Builder — Random deck', () => {
     cy.get(s.RANDOM_MAX_EPIC_SELECT).should('not.be.disabled').select('0')
     cy.get(s.RANDOM_DIALOG_CONFIRM).should('be.visible').click()
     cy.get(s.DECK_CARD).each($card => {
-      const id = $card.attr('data-testid').replace('deck-slot', '')
-      const card = getCardData(id)
-
-      expect(card.rarity).to.not.equal('epic')
+      expect($card.attr('data-testid')).to.not.include('epic')
     })
   })
 
@@ -62,10 +52,7 @@ describe('Deck Builder — Random deck', () => {
     cy.get(s.RANDOM_MAX_LEGENDARY_SELECT).should('be.visible').select('0')
     cy.get(s.RANDOM_DIALOG_CONFIRM).should('be.visible').click()
     cy.get(s.DECK_CARD).each($card => {
-      const id = $card.attr('data-testid').replace('deck-slot', '')
-      const card = getCardData(id)
-
-      expect(card.rarity).to.not.equal('legendary')
+      expect($card.attr('data-testid')).to.not.include('legendary')
     })
   })
 })

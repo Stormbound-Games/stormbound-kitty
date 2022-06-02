@@ -83,7 +83,12 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
     <li
       {...props.trigger}
       className={css(styles.card)}
-      data-testid={[card.id, card.idx].filter(Boolean).join('_') + ' deck-slot'}
+      data-testid={[
+        [card.id, card.idx].filter(Boolean).join('_'),
+        'deck-slot',
+        card.faction,
+        card.rarity,
+      ].join(' ')}
     >
       <Mana
         mana={card.mana}

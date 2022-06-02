@@ -1,4 +1,4 @@
-import s from '../../integration/battleSim/selectors'
+import s from '../../e2e/battleSim/selectors'
 
 const bsDraw = ({ card, level, slot = 1 }) => {
   Cypress.log({

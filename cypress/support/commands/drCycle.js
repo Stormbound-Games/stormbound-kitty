@@ -1,5 +1,4 @@
-import s from '../../integration/dryRunner/selectors'
-import { getCardData } from '../../utils'
+import s from '../../e2e/dryRunner/selectors'
 
 const cycle = id => {
   if (typeof id === 'number') {
@@ -9,12 +8,10 @@ const cycle = id => {
       .then($card => cy.drCycle($card.attr('id')))
   }
 
-  const { name } = getCardData(id)
-
   Cypress.log({
     name: 'CYCLE',
-    message: `Cycle ‘${name}’ ${id}`,
-    consoleProps: () => ({ id, name }),
+    message: `Cycle ${id}`,
+    consoleProps: () => ({ id }),
   })
 
   cy.drSelect(id, { log: false })

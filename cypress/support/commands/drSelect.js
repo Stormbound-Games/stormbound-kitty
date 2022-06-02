@@ -1,5 +1,4 @@
-import s from '../../integration/dryRunner/selectors'
-import { getCardData } from '../../utils'
+import s from '../../e2e/dryRunner/selectors'
 
 const select = (id, options = { log: true }) => {
   if (typeof id === 'number') {
@@ -14,13 +13,12 @@ const select = (id, options = { log: true }) => {
   }
 
   const { log } = options
-  const { name } = getCardData(id)
 
   if (log) {
     Cypress.log({
       name: 'SELECT',
-      message: `Select ‘${name}’ (${id})`,
-      consoleProps: () => ({ id, name }),
+      message: `Select ${id}`,
+      consoleProps: () => ({ id }),
     })
   }
 
