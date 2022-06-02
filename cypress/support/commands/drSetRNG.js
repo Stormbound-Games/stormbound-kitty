@@ -1,4 +1,4 @@
-import s from '../../integration/dryRunner/selectors'
+import s from '../../e2e/dryRunner/selectors'
 
 const setRNG = mode => {
   Cypress.log({

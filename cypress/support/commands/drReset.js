@@ -1,4 +1,4 @@
-import s from '../../integration/dryRunner/selectors'
+import s from '../../e2e/dryRunner/selectors'
 
 const reset = ({ equals = false, modifier = 'NONE' } = {}) => {
   Cypress.log({

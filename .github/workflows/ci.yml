@@ -44,5 +44,6 @@ jobs:
       n: 9
       group: 'Integration tests'
       config: baseUrl=${{ github.event.deployment_status.target_url }}
+      config-file: ./cypress.config.js
     secrets:
       recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}

@@ -1,14 +1,28 @@
 import s from './selectors'
-import cardsIndex from '../../fixtures/cards.json'
-import { getCardData } from '../../utils'
 import formatCardStats from '~/helpers/formatCardStats'
 import serialization from '~/helpers/serialization'
 
-const resolveCard = id =>
-  serialization.card.deserialize(
-    cardsIndex,
-    serialization.card.serialize(cardsIndex[id])
-  )
+const N1 = {
+  ability:
+    'On death, *give 1/2/3/4/5 strength* to a random *surrounding* enemy unit and *vitalize* it',
+  faction: 'neutral',
+  id: 'N1',
+  image:
+    'https://cdn.sanity.io/images/5hlpazgd/production/74d169c287905be1edd33c81c09e87a62e485648-512x512.png',
+  mana: '1',
+  movement: 1,
+  name: 'Green Prototypes',
+  rarity: 'rare',
+  sid: 'u007',
+  strength: '1/2/3/4/5',
+  type: 'unit',
+  unitTypes: ['construct'],
+}
+
+const RESOLVED_N1 = serialization.card.deserialize(
+  { N1 },
+  serialization.card.serialize(N1)
+)
 
 describe('Cards Index — Index', () => {
   before(() => cy.visit('/cards/N1'))
@@ -26,13 +40,9 @@ describe('Cards Index — Index', () => {
     cy.get('meta[name="description"]').should(
       'have.attr',
       'content',
-      formatCardStats(resolveCard('N1'))
+      formatCardStats(RESOLVED_N1)
     )
-    cy.get('meta[property="og:image"]').should(
-      'have.attr',
-      'content',
-      getCardData('N1').image
-    )
+    cy.get('meta[property="og:image"]').should('have.attr', 'content', N1.image)
     cy.get('[rel="canonical"]')
       .invoke('attr', 'href')
       .should('not.contain', '[')

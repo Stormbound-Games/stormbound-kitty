@@ -1,4 +1,4 @@
-import s from '../../integration/deckBuilder/selectors'
+import s from '../../e2e/deckBuilder/selectors'
 
 const reset = () => {
   Cypress.log({
