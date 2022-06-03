@@ -60,7 +60,7 @@ const cleaners = {
 }
 
 const getContentFromUser = async ({ slug, isPreview } = {}) => {
-  const { user, feed } = await getUser({
+  const data = await getUser({
     slug,
     isPreview,
     fields: `
@@ -86,6 +86,12 @@ const getContentFromUser = async ({ slug, isPreview } = {}) => {
       } | order(date desc)
     `,
   })
+
+  if (!data) {
+    return {}
+  }
+
+  const { user, feed } = data
 
   // If there’s nothing in the feed and there is no relevant meta data, it means
   // there is nothing to display.
