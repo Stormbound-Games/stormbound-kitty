@@ -9,14 +9,35 @@ getCurrentUser()
 // Define the `lang` attribute manually as Sanity doesn’t set it.
 document.documentElement.lang = 'en'
 
+const VIEWS = [
+  S.view.form(),
+  S.view
+    .component(Iframe)
+    .options({
+      url: doc => preview(doc),
+      reload: { button: true, revision: true },
+    })
+    .title('Preview'),
+]
+
 const EqualTierList = S.listItem()
   .title('Equal tier list')
   .icon(MdGrading)
-  .child(S.document().schemaType('equalTierList').documentId('equalTierList'))
+  .child(
+    S.document()
+      .views(VIEWS)
+      .schemaType('equalTierList')
+      .documentId('equalTierList')
+  )
 const SiteSettings = S.listItem()
   .title('Site settings')
   .icon(MdSettings)
-  .child(S.document().schemaType('siteSettings').documentId('siteSettings'))
+  .child(
+    S.document()
+      .views(VIEWS)
+      .schemaType('siteSettings')
+      .documentId('siteSettings')
+  )
 
 // Types that are manually added to the structure as they are singleton
 // documents.
@@ -42,17 +63,6 @@ const structure = () => {
     .items(items.filter(isCommunity).sort(sortByTitle))
 }
 
-export const getDefaultDocumentNode = () => {
-  return S.document().views([
-    S.view.form(),
-    S.view
-      .component(Iframe)
-      .options({
-        url: doc => preview(doc),
-        reload: { button: true, revision: true },
-      })
-      .title('Preview'),
-  ])
-}
+export const getDefaultDocumentNode = () => S.document().views(VIEWS)
 
 export default structure
