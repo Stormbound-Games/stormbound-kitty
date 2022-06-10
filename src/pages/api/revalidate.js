@@ -18,12 +18,14 @@ const getUserPaths = body => {
     return []
   }
 
+  const users = clean([...beforeUsers, ...afterUsers])
+  const withChannel = users.some(user => user.channel)
+
   return [
     '/members',
-    ...clean([...beforeUsers, ...afterUsers]).map(
-      user => `/members/${user.slug}`
-    ),
-  ]
+    ...users.map(user => `/members/${user.slug}`),
+    withChannel && '/videos',
+  ].filter(Boolean)
 }
 
 // The data received from the Sanity API is defined in the webhook settings to
