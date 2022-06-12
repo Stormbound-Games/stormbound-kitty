@@ -231,23 +231,6 @@ module.exports = withPlugins(plugins, {
           },
         ],
       },
-      {
-        // For some reason, this script has `public, max-age=3600` by default
-        // and I cannot figure out where this is coming from. Still, an hour
-        // feels a bit short so this extends the cache duration.
-        source: '/js/script.exclusions.js',
-        locale: false,
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=604800',
-          },
-          {
-            key: 'Content-Type',
-            value: 'application/javascript; charset=utf-8',
-          },
-        ],
-      },
     ]
   },
 
