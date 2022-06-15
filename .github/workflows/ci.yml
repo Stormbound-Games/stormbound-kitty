@@ -45,5 +45,6 @@ jobs:
       group: 'Integration tests'
       config: baseUrl=${{ github.event.deployment_status.target_url }}
       config-file: ./cypress.config.js
+      install-command: npm ci --legacy-peer-deps
     secrets:
       recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}
