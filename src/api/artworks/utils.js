@@ -5,10 +5,10 @@ export const FIELDS = `
 date,
 "card": card -> id.current,
 "image": image.asset -> url,
-"dimensions": {
-  "width": image.asset -> metadata.dimensions.width,
-  "height": image.asset -> metadata.dimensions.height,
-  "aspectRatio": image.asset -> metadata.dimensions.aspectRatio,
+"dimensions": image.asset -> {
+  "width": metadata.dimensions.width,
+  "height": metadata.dimensions.height,
+  "aspectRatio": metadata.dimensions.aspectRatio,
 }
 `
 
