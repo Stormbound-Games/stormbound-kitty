@@ -28,6 +28,10 @@ const useSource = props => {
       source += (source.includes('?') ? '&' : '?') + 'auto=format'
     }
 
+    if (!source.includes('fit=')) {
+      source += (source.includes('?') ? '&' : '?') + 'fit=max'
+    }
+
     if (!source.includes('w=') && props.width) {
       source += (source.includes('?') ? '&' : '?') + 'w=' + props.width
     }
