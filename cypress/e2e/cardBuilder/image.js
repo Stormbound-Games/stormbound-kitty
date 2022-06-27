@@ -28,7 +28,7 @@ describe('Card Builder — Image', () => {
       .should('contain', 'Restless Goats')
     assertCardImage(
       0,
-      'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300&q=90'
+      'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&fit=max&w=300&q=90'
     )
   })
 
@@ -37,7 +37,7 @@ describe('Card Builder — Image', () => {
     cy.reload()
     assertCardImage(
       0,
-      'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&w=300&q=90'
+      'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&fit=max&w=300&q=90'
     )
   })
 
