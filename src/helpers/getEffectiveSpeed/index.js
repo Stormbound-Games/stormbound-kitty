@@ -3,12 +3,6 @@ const getEffectiveSpeed = card => {
     // Doppelbocks effectively advances the frontline.
     case 'S1':
       return 1
-    // Rockworkers has an average speed of ~0.32. Out of the 16 slots it can be
-    // played on, 2 of them have 50% chance of moving the line, 6 of them have
-    // 25% chance of moving the line and 8 of them have 33% chance of moving the
-    // line.
-    case 'W13':
-      return (2 * (1 / 2) + 6 * (1 / 4) + 8 * (1 / 3)) / 16
     // Iceflakes not only does not have initial movement, but it’s also frozen
     // for a turn, which essentially negate its natural movement from the next
     // turn.

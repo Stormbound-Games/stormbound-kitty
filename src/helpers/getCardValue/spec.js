@@ -1603,10 +1603,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Rockworkers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W13', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W13', 5)
-    expect(value1[0]).toEqual((4 / 5) * 0.5)
-    expect(value1[1]).toEqual(((4 + 4) / 5) * 1)
-    expect(value5[0]).toEqual((8 / 5) * 0.5)
-    expect(value5[1]).toEqual(((8 + 8) / 5) * 1)
+    expect(value1[0]).toEqual((3 / 5) * 1)
+    expect(value1[1]).toEqual(((3 + 4) / 5) * 1)
+    expect(value5[0]).toEqual((7 / 5) * 1)
+    expect(value5[1]).toEqual(((7 + 8) / 5) * 1)
   })
 
   it('should return value for Blessed with Brawn', () => {
@@ -1693,10 +1693,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Olf the Hammer', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W23', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W23', 5)
-    expect(value1[0]).toEqual((6 / 9) * 1.5)
-    expect(value1[1]).toEqual(((6 + 3) / 9) * 1.5)
-    expect(value5[0]).toEqual((12 / 9) * 1.5)
-    expect(value5[1]).toEqual(((12 + 6) / 9) * 1.5)
+    expect(value1[0]).toEqual((7 / 9) * 1.5)
+    expect(value1[1]).toEqual(((7 + 3) / 9) * 1.5)
+    expect(value5[0]).toEqual((13 / 9) * 1.5)
+    expect(value5[1]).toEqual(((13 + 6) / 9) * 1.5)
   })
 
   it.skip('should return value for Underground Spring', () => {
@@ -1738,10 +1738,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Chilled Stonedames', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W28', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W28', 5)
-    expect(value1[0]).toEqual((4 / 5) * 1)
-    expect(value1[1]).toEqual(((4 + 2 * 4) / 5) * 1)
-    expect(value5[0]).toEqual((8 / 5) * 1)
-    expect(value5[1]).toEqual(((8 + 6 * 4) / 5) * 1)
+    expect(value1[0]).toEqual((5 / 5) * 1)
+    expect(value1[1]).toEqual(((5 + 3 * 4) / 5) * 1)
+    expect(value5[0]).toEqual((9 / 5) * 1)
+    expect(value5[1]).toEqual(((9 + 7 * 4) / 5) * 1)
   })
 
   it('should return value for Iceflakes', () => {

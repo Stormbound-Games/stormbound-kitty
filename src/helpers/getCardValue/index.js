@@ -79,8 +79,8 @@ const getCardValue = (cardsIndex, id, level = 1) => {
     }
     case 'W13': /* Rockworkers */ {
       return [
-        (strength / mana) * getSpeedFactor(0),
-        ((strength + parseAbility(ability)) / mana) * getSpeedFactor(1),
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability)) / mana) * speed,
       ]
     }
     case 'S16': /* Dreadfauns */ {
