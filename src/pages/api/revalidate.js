@@ -172,7 +172,7 @@ export default async function handler(request, response) {
       return response.status(400).send('Bad Request')
     }
 
-    await Promise.all(paths.map(path => response.unstable_revalidate(path)))
+    await Promise.all(paths.map(path => response.revalidate(path)))
     return response.status(204).send('No Content')
   } catch (error) {
     console.error(error)
