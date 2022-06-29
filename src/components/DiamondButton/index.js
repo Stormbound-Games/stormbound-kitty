@@ -16,15 +16,17 @@ export default React.memo(function DiamondButton({
   const { css } = useFela({ isActive })
 
   return props.to ? (
-    <RouterLink href={props.to} passHref scroll={scroll} prefetch={false}>
-      <a
-        className={css(styles.button, extend)}
-        data-testid={props['data-testid']}
-        title={label}
-      >
-        <Icon icon={icon} />
-        <VisuallyHidden>{label}</VisuallyHidden>
-      </a>
+    <RouterLink
+      href={props.to}
+      scroll={scroll}
+      prefetch={false}
+      legacyBehavior={false}
+      className={css(styles.button, extend)}
+      data-testid={props['data-testid']}
+      title={label}
+    >
+      <Icon icon={icon} />
+      <VisuallyHidden>{label}</VisuallyHidden>
     </RouterLink>
   ) : props.href ? (
     <a

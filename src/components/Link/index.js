@@ -31,10 +31,16 @@ function Link({ extend, hideNewTabIndicator, scroll, to, ...props }, ref) {
 
   if (to) {
     return (
-      <RouterLink href={to} passHref scroll={scroll} prefetch={false}>
-        <a {...props} ref={ref} className={css(styles.link, extend)}>
-          {props.children}
-        </a>
+      <RouterLink
+        {...props}
+        href={to}
+        scroll={scroll}
+        prefetch={false}
+        legacyBehavior={false}
+        ref={ref}
+        className={css(styles.link, extend)}
+      >
+        {props.children}
       </RouterLink>
     )
   }

@@ -38,14 +38,16 @@ export default React.memo(function CTA({
       <span className={css(styles.content)}>{props.children}</span>
     </a>
   ) : props.to ? (
-    <RouterLink href={props.to} passHref scroll={scroll} prefetch={false}>
-      <a
-        data-testid={props['data-testid']}
-        className={css(styles.cta, extend)}
-        aria-label={props['aria-label']}
-      >
-        <span className={css(styles.content)}>{props.children}</span>
-      </a>
+    <RouterLink
+      href={props.to}
+      scroll={scroll}
+      prefetch={false}
+      legacyBehavior={false}
+      data-testid={props['data-testid']}
+      aria-label={props['aria-label']}
+      className={css(styles.cta, extend)}
+    >
+      <span className={css(styles.content)}>{props.children}</span>
     </RouterLink>
   ) : (
     <button {...props} className={css(styles.cta, extend)}>
