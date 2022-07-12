@@ -28,7 +28,7 @@
     "express-rate-limit": "^6.4.0",
     "express-slow-down": "^1.4.0",
     "fela": "^12.1.1",
-    "fela-enforce-longhands": "^12.1.2",
+    "fela-enforce-longhands": "^12.2.0",
     "fela-plugin-embedded": "^12.2.0",
     "fela-plugin-extend": "^12.2.0",
     "fela-plugin-fallback-value": "^12.2.0",
