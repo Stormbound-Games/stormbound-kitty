@@ -1,11 +1,4 @@
-const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@next/bundle-analyzer')
-
-const plugins = [
-  withBundleAnalyzer({
-    enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1',
-  }),
-]
 
 const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
 
@@ -59,7 +52,9 @@ const toRedirect = ([source, destination]) => ({
   permanent: true,
 })
 
-module.exports = withPlugins(plugins, {
+module.exports = withBundleAnalyzer({
+  enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1',
+})({
   // Disable x-powered-by header
   // Ref: https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
   poweredByHeader: false,

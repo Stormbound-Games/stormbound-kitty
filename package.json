@@ -42,7 +42,6 @@
     "html2canvas": "^1.4.1",
     "module-alias": "^2.2.2",
     "next": "12.2",
-    "next-compose-plugins": "^2.2.1",
     "next-plausible": "^3.2.0",
     "next-sitemap": "^3.1.12",
     "node-fetch": "^2.6.7",
