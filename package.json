@@ -16,7 +16,7 @@
     "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^12.2.2",
+    "@next/bundle-analyzer": "^12.2.3",
     "@portabletext/react": "^1.0.6",
     "@reach/tooltip": "^0.17.0",
     "@sanity/client": "^3.3.2",
