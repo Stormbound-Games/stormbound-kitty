@@ -15,7 +15,7 @@ const useFeaturedDecksSorting = order => {
 
   switch (order) {
     case 'DATE':
-      return (a, b) => 0
+      return () => 0
 
     case 'FEASIBILITY':
       return (a, b) => {
