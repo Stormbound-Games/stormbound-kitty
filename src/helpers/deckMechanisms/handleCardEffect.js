@@ -232,11 +232,16 @@ const handleCardEffect = (state, card, mode, HoS) => {
 
     // Goldgrubbers
     case 'N22': {
-      const nonPirates = state.hand.filter(isNotPirate(state))
+      const count = card.level >= 4 ? 2 : 1
 
-      if (mode !== 'MANUAL' && nonPirates.length > 0) {
-        cycle(state, arrayRandom(nonPirates), { countAsCycled: false })
+      for (let i = 0; i < count; i++) {
+        const nonPirates = state.hand.filter(isNotPirate(state))
+
+        if (mode !== 'MANUAL' && nonPirates.length > 0) {
+          cycle(state, arrayRandom(nonPirates), { countAsCycled: false })
+        }
       }
+
       break
     }
 
