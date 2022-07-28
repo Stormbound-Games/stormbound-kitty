@@ -294,10 +294,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Snake Eyes', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N33', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N33', 5)
-    expect(value1[0]).toEqual((6 / 5) * 0.5)
-    expect(value1[1]).toEqual((6 / 5) * 0.5)
-    expect(value5[0]).toEqual((12 / 5) * 0.5)
-    expect(value5[1]).toEqual((12 / 5) * 0.5)
+    expect(value1[0]).toEqual((4 / 4) * 0.5)
+    expect(value1[1]).toEqual((4 / 4) * 0.5)
+    expect(value5[0]).toEqual((9 / 4) * 0.5)
+    expect(value5[1]).toEqual((9 / 4) * 0.5)
   })
 
   it('should return value for Trueshot Post', () => {
@@ -883,19 +883,19 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Eloth the Ignited', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I17', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I17', 5)
-    expect(value1[0]).toEqual((5 / 5) * 0.5)
-    expect(value1[1]).toEqual(((5 + 3) / 5) * 2)
-    expect(value5[0]).toEqual((10 / 5) * 0.5)
-    expect(value5[1]).toEqual(((10 + 7) / 5) * 2)
+    expect(value1[0]).toEqual((3 / 4) * 0.5)
+    expect(value1[1]).toEqual(((3 + 2) / 4) * 2)
+    expect(value5[0]).toEqual((7 / 4) * 0.5)
+    expect(value5[1]).toEqual(((7 + 6) / 4) * 2)
   })
 
   it('should return value for Flaming Stream', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I18', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I18', 5)
-    expect(value1[0]).toEqual((4 * 1) / 5)
-    expect(value1[1]).toEqual((4 * 5) / 5)
-    expect(value5[0]).toEqual((8 * 1) / 5)
-    expect(value5[1]).toEqual((8 * 5) / 5)
+    expect(value1[0]).toEqual((3 * 1) / 4)
+    expect(value1[1]).toEqual((3 * 5) / 4)
+    expect(value5[0]).toEqual((7 * 1) / 4)
+    expect(value5[1]).toEqual((7 * 5) / 4)
   })
 
   it('should return value for Siege Assembly', () => {
@@ -1675,10 +1675,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Visions of the Grove', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W21', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W21', 5)
-    expect(value1[0]).toEqual((8 / 8) * 0.5)
-    expect(value1[1]).toEqual(((8 + ((MAX_MANA - 8) / 4) * 5) / 8) * 0.5)
-    expect(value5[0]).toEqual((18 / 8) * 0.5)
-    expect(value5[1]).toEqual(((18 + ((MAX_MANA - 8) / 2) * 5) / 8) * 0.5)
+    expect(value1[0]).toEqual((6 / 6) * 1)
+    expect(value1[1]).toEqual(((6 + ((MAX_MANA - 6) / 3) * 5) / 6) * 1)
+    expect(value5[0]).toEqual((10 / 6) * 1)
+    expect(value5[1]).toEqual(((10 + ((MAX_MANA - 6) / 3) * 5) / 6) * 1)
   })
 
   it('should return value for Chillbeards', () => {
