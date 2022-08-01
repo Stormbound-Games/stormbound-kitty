@@ -76,7 +76,7 @@
     "lint-staged": "^13.0.3",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
-    "webpack": "^5.73.0"
+    "webpack": "^5.74.0"
   },
   "lint-staged": {
     "*.js": [
