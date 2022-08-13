@@ -8,8 +8,23 @@ const getChangesFromCard = async ({ id, isPreview } = {}) => {
     fields: FIELDS,
     options: { order: 'date desc', isPreview },
   })
+  const hasReleaseChange = changes.some(
+    change =>
+      change.description === 'Added to the game' ||
+      change.description === 'Added in Brawl mode'
+  )
 
-  return changes.map(MAPPER)
+  if (!hasReleaseChange) {
+    changes.push({
+      date: '2017-09-18',
+      description: 'Released with the game',
+      id: id,
+      type: 'INFO',
+      timestamp: 1505728800000,
+    })
+  }
+
+  return changes.map(MAPPER).sort((a, b) => b.timestamp - a.timestamp)
 }
 
 export default getChangesFromCard

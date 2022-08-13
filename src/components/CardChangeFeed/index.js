@@ -10,21 +10,6 @@ export default React.memo(function CardChangeFeed(props) {
   const { css } = useFela()
   const changes = props.changes.slice(0)
   const currentVersionId = props.versionId
-  const hasReleaseChange = changes.some(
-    change =>
-      change.description === 'Added to the game' ||
-      change.description === 'Added in Brawl mode'
-  )
-
-  if (!hasReleaseChange) {
-    changes.push({
-      timestamp: 1505728800000,
-      date: '18/09/2017',
-      description: 'Released with the game',
-      id: props.id,
-      type: 'INFO',
-    })
-  }
 
   if (changes.length === 0) return null
 
