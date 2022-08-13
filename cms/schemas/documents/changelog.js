@@ -85,6 +85,11 @@ const changelog = {
       name: 'dateDesc',
       by: [{ field: 'date', direction: 'desc' }],
     },
+    {
+      title: 'Card name, Asc',
+      name: 'cardNameAsc',
+      by: [{ field: 'card->name', direction: 'asc' }],
+    },
   ],
   preview: {
     select: {
