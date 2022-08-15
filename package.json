@@ -22,7 +22,7 @@
     "@sanity/client": "^3.3.3",
     "canvas": "^2.9.3",
     "copy-to-clipboard": "^3.3.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^14.2.0",
     "dotenv": "^16.0.1",
     "esm": "^3.2.25",
     "express-rate-limit": "^6.5.1",
