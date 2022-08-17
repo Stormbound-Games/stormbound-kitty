@@ -37,7 +37,7 @@ const trivia = {
   handler: async function (message, client, messageObject) {
     const cards = await getCards()
     const books = await getBooks()
-    const abbreviations = await getAbbreviations({ cards })
+    const abbreviations = await getAbbreviations({ cards, casing: 'LOWERCASE' })
     const brawls = await getBrawls()
     const channelId = getChannelId(messageObject, this)
     const guildId = messageObject.channel.guild.id
