@@ -47,7 +47,7 @@ export default React.memo(function PageFanKitCards() {
   return (
     <Page
       title='Cards Fan-Kit'
-      description='Find all the cards assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+      description='Find all the cards assets from Stormbound used on Stormbound-Kitty, courtesy of the official development studio'
       action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
     >
       <ListHeader

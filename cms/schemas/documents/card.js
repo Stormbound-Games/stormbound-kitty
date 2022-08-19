@@ -25,8 +25,7 @@ const card = {
       title: 'Stormbound ID',
       name: 'sid',
       type: 'slug',
-      description:
-        'The card ID used by the game itself, provided by Sheepyard.',
+      description: 'The card ID used by the game itself, provided by the team.',
       validation: Rule => Rule.required(),
     },
     {

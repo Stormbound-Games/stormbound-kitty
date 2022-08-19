@@ -57,7 +57,7 @@ export default React.memo(function PageFanKit() {
   return (
     <Page
       title='Fan-Kit'
-      description='Find all the assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+      description='Find all the assets from Stormbound used on Stormbound-Kitty, courtesy of the official development studio'
     >
       <Teasers items={ITEMS} />
     </Page>

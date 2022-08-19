@@ -41,7 +41,7 @@ export default React.memo(function PageFanKitWallpapersMobile(props) {
   return (
     <Page
       title='Mobile Wallpapers'
-      description='Find all the mobile wallpapers from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+      description='Find all the mobile wallpapers from Stormbound used on Stormbound-Kitty, courtesy of the official development studio'
       action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
     >
       <FanKitDownloadDialog

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 const SITE_URL = 'https://stormbound-kitty.com'
 const DEFAULT_DESCRIPTION =
-  'Stormbound-Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
+  'Stormbound-Kitty aims at providing tools and information about Stormbound, and extending its players’ experience outside the game'
 
 export default React.memo(function PageMeta(props) {
   const { asPath } = useRouter()

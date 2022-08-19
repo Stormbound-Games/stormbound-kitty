@@ -4,7 +4,7 @@
 
 Conceptually, there are two types of content on the site: community content such as guides, decks, users, stories, artworks and so on, and site- or game-related content like cards, books, release notes, donations, etc.
 
-The latter is only available to administrators (Sheepyard staff) to minimize risks and impact on the site. Editors (Discord moderators and other trusted community contributors) can access and edit all the community content.
+The latter is only available to administrators (official staff) to minimize risks and impact on the site. Editors (Discord moderators and other trusted community contributors) can access and edit all the community content.
 
 ## Previewing content
 

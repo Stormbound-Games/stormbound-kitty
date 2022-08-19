@@ -33,7 +33,7 @@ export default React.memo(function PageFanKitAvatars(props) {
   return (
     <Page
       title='Avatars Fan-Kit'
-      description='Find all the avatars assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+      description='Find all the avatars assets from Stormbound used on Stormbound-Kitty, courtesy of the official development studio'
       action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
     >
       <FanKitDownloadDialog

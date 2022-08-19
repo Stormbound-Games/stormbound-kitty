@@ -29,8 +29,8 @@ export default React.memo(function Footer() {
               Stormbound community. <Link to='/contribute'>Want to help?</Link>
             </p>
             <p className={css(styles.info)}>
-              Official Stormbound game content courtesy of{' '}
-              <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>.
+              Official Stormbound game content courtesy of the development
+              studio.
             </p>
             <p className={css(styles.sponsors)}>
               <PoweredBySanity />
@@ -45,9 +45,6 @@ export default React.memo(function Footer() {
                 <Row.Column width='1/3'>
                   <span className={css(styles.heading)}>Stormbound</span>
                   <ul className={css(styles.list)}>
-                    <li className={css(styles.item)}>
-                      <Link href='https://sheepyard.pl/'>Sheepyard</Link>
-                    </li>
                     <li className={css(styles.item)}>
                       <Link href='https://twitter.com/stormboundccg'>
                         Twitter
@@ -85,9 +82,6 @@ export default React.memo(function Footer() {
                       <Link to='/contribute'>Contribute</Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link to='/faq'>FAQ</Link>
-                    </li>
-                    <li className={css(styles.item)}>
                       <Link to='/fan-kit'>Fan-kit</Link>
                     </li>
                     <li className={css(styles.item)}>
@@ -118,12 +112,6 @@ export default React.memo(function Footer() {
                     <li className={css(styles.item)}>
                       <Link href='https://stormboundkingdomwars.fandom.com'>
                         Wiki
-                      </Link>
-                    </li>
-
-                    <li className={css(styles.item)}>
-                      <Link href='https://www.youtube.com/results?search_query=stormbound&sp=CAI%253D'>
-                        Youtube
                       </Link>
                     </li>
 

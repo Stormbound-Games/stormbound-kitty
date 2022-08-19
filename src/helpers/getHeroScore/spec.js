@@ -15,7 +15,7 @@ const CASES = [
 ]
 
 describe.only('The `getHeroScore` helper', () => {
-  it('should pass Sheepyard-provided test cases', () => {
+  it('should pass dev-provided test cases', () => {
     CASES.forEach(([variables, expected]) => {
       const [current, opponent, coefficient, won] = variables
       expect(getHeroScore({ current, opponent, coefficient, won })).toEqual(
