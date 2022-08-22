@@ -24,7 +24,7 @@ When a document gets published in the CMS, the cache for relevant pages gets inv
 
 When updating card documents however, the site will need to be rebuilt, because cards are used all over the site, and therefore require an entire rebuild to be accurate everywhere. This can be done by pushing some code to the `main` branch or redeploying via the interface on Vercel (or asking Kitty).
 
-If necessary, a specific path can be revalidated at any time via the `bin/revalidate.js` script or the [dedicated GitHub Workflow](https://github.com/sheepyard/stormbound-kitty/actions/workflows/revalidate.yml) that can be triggered manually (and uses the same Node script under the hood).
+If necessary, a specific path can be revalidated at any time via the `bin/revalidate.js` script or the [dedicated GitHub Workflow](https://github.com/Stormbound-Games/stormbound-kitty/actions/workflows/revalidate.yml) that can be triggered manually (and uses the same Node script under the hood).
 
 ## Undoing mistakes
 

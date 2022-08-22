@@ -4,7 +4,7 @@
 
 The `backup.yml` workflow is a CRON job performing a backup of the whole Sanity dataset every 3 days. This makes sure we can restore a former clean version of the site if a problem occurs. Each backup is preserved for 7 days on GitHub.
 
-To download a database backup, open the latest [backup workflow run](https://github.com/sheepyard/stormbound-kitty/actions/workflows/backup.yml), and download the `production-dataset` archive.
+To download a database backup, open the latest [backup workflow run](https://github.com/Stormbound-Games/stormbound-kitty/actions/workflows/backup.yml), and download the `production-dataset` archive.
 
 ## ci.yml
 

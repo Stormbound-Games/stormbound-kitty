@@ -88,7 +88,7 @@ export default React.memo(function Footer() {
                       <Link to='/releases'>Patch notes</Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link href='https://github.com/sheepyard/stormbound-kitty'>
+                      <Link href='https://github.com/Stormbound-Games/stormbound-kitty'>
                         GitHub
                       </Link>
                     </li>

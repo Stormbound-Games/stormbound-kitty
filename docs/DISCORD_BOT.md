@@ -10,7 +10,7 @@ npm run bot:dev
 
 ## Deployment
 
-The bot is automatically deployed on Heroku with every commit that gets pushed to the `main` branch. This environment is named [stormbound-kitty-bot](https://github.com/sheepyard/stormbound-kitty/deployments/activity_log?environment=stormbound-kitty-bot) on GitHub.
+The bot is automatically deployed on Heroku with every commit that gets pushed to the `main` branch. This environment is named [stormbound-kitty-bot](https://github.com/Stormbound-Games/stormbound-kitty/deployments/activity_log?environment=stormbound-kitty-bot) on GitHub.
 
 ## Setup
 

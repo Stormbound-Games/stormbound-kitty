@@ -14,7 +14,7 @@ export default React.memo(function FeedContributionEntry(props) {
             {acc}
             {index !== 0 ? ', ' : ''}
             <Link
-              href={`https://github.com/sheepyard/stormbound-kitty/pull/${pr}`}
+              href={`https://github.com/Stormbound-Games/stormbound-kitty/pull/${pr}`}
             >
               #{pr}
             </Link>
