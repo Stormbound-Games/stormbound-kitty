@@ -19,11 +19,12 @@ export default React.memo(function Teaser(props) {
       <div
         className={css(styles.header)}
         style={{
-          '--color': `var(--light-${card.faction}, var(--dark-beige))`,
+          '--color': `var(--light-${card?.faction}, var(--dark-beige))`,
         }}
       >
         <div className={css(styles.card)}>
-          <Card {...card} containerWidth={230} />
+          {/* In case the card has not been published yet */}
+          {card && <Card {...card} containerWidth={230} />}
         </div>
       </div>
       <div className={css(styles.body)}>
