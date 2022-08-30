@@ -238,13 +238,14 @@ const book = {
     prepare({ cost, image, name, odds }) {
       return {
         title: name,
-        subtitle:
-          cost.amount +
-          ' ' +
-          capitalize(cost.type.toLowerCase()) +
-          ' · ' +
-          odds.map(o => +o * 100).join('/') +
-          ' (%)',
+        subtitle: cost
+          ? cost.amount +
+            ' ' +
+            capitalize(cost.type.toLowerCase()) +
+            ' · ' +
+            odds.map(o => +o * 100).join('/') +
+            ' (%)'
+          : undefined,
         media: image,
       }
     },
