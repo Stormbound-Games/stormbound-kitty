@@ -50,3 +50,11 @@ Summary:
 2. Publish everything when finally ready so things show up on the website.
 3. Update the tests on the `main` branch.
 4. This will cause a deployment that renews the last remaining bits of the content.
+
+## Pulling cards data
+
+To export the cards data as a JSON file, run the following command (after having installed Node modules):
+
+```
+node -r esm ./bin/export-cards.js
+```
