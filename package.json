@@ -42,7 +42,7 @@
     "html2canvas": "^1.4.1",
     "module-alias": "^2.2.2",
     "next": "12.2",
-    "next-plausible": "^3.3.1",
+    "next-plausible": "^3.5.0",
     "next-sitemap": "^3.1.21",
     "node-fetch": "^2.6.7",
     "random-weighted-choice": "^0.1.4",
