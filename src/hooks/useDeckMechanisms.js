@@ -5,7 +5,6 @@ import isCard from '~/helpers/isCard'
 import canCardBePlayed from '~/helpers/canCardBePlayed'
 import getOpponentDeck from '~/helpers/getOpponentDeck'
 import resolveDeckWeight from '~/helpers/resolveDeckWeight'
-import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
 import deckMechanisms from '~/helpers/deckMechanisms'
 
 const getDefaultState = props => ({
@@ -72,15 +71,6 @@ const useDeckMechanisms = props => {
     []
   )
 
-  const increaseDeckWeight = React.useCallback(
-    ({ reset }) =>
-      setState(state => ({
-        ...state,
-        deck: getIncreasedDeckWeight({ ...state, reset }),
-      })),
-    []
-  )
-
   const endTurn = React.useCallback(
     () =>
       setState(state =>
@@ -140,7 +130,6 @@ const useDeckMechanisms = props => {
     reset: reset,
     endTurn: endTurn,
     addCardToDeck: addCardToDeck,
-    increaseDeckWeight: increaseDeckWeight,
     setRNG: RNG => setState(state => ({ ...state, RNG })),
   }
 }
