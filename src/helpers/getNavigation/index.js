@@ -298,6 +298,11 @@ const getNavigation = async ({ isPreview }) => {
               to: '/tier-list/ranked',
               id: 'RANKED_LIST',
             },
+            {
+              label: 'Draft Tier List',
+              href: 'https://docs.google.com/spreadsheets/d/1hzDmUxjgvzB_WFQhaKWrpUmCm4Zc-2TqGfWdIJzJrkQ/edit',
+              id: 'DRAFT_LIST',
+            },
           ],
         },
         {
