@@ -23,7 +23,7 @@
     "canvas": "^2.9.3",
     "copy-to-clipboard": "^3.3.2",
     "discord.js": "^12.5.3",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "esm": "^3.2.25",
     "express-rate-limit": "^6.6.0",
     "express-slow-down": "^1.4.0",
