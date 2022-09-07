@@ -3,23 +3,21 @@
 To generate a PNG image of a mathjax formula, use the `generateFormulaImage` helper in a Node script like illustrated below.
 
 ```js
-require('module-alias/register')
+import path from 'path'
+import generateFormulaImage from './bin/generateFormulaImage.mjs'
 
-const path = require('path')
-const generateFormulaImage = require('~/helpers/generateFormulaImage').default
 const formula = 'f(w) = ⌊ w × 1.6 + 1'
 const output = path.resolve('./drawing_formula.png')
 
 generateFormulaImage(formula, output)
   .then(() => console.log(formula, 'written at', output))
-  .catch(() => console.error('Failure'))
+  .catch(error => console.error('Failure', error))
 ```
 
-It relies on 2 external dependencies that need to be installed first. Then execute it as such:
+Then execute it as such with Node 16 and npm 8 (be sure to make it a `.mjs` file):
 
 ```sh
-npm install mathjax-node svg2png --no-save
-node -r esm path/to/formula/script.js
+node path/to/formula/script.mjs
 ```
 
 Existing formulas:
