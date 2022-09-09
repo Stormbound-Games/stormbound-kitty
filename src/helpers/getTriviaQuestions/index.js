@@ -120,8 +120,8 @@ const getTriviaQuestions = (cards, brawls, books) => {
 
       return {
         question: `What is the cost of ${randomCard.name}?`,
-        answer: randomCard.mana,
-        options: rangeAround(randomCard.mana, 3).filter(mana => mana > 0),
+        answer: +randomCard.mana,
+        options: rangeAround(+randomCard.mana, 3).filter(mana => mana > 0),
       }
     },
 
