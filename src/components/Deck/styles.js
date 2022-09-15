@@ -167,7 +167,8 @@ const mana = ({ isDecreased, isIncreased, orientation }) => ({
   ...(orientation === 'vertical'
     ? {
         transform: 'scale(1.2)',
-        left: '-2em',
+        marginLeft: '-2em',
+        marginRight: '1em',
       }
     : {}),
 
