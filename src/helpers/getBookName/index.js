@@ -51,6 +51,9 @@ const getBookName = (bookType, plural = false) => {
     case 'ELDER':
     case 'ELDER_BOOK':
       return `Book${plural ? 's' : ''} of Elders`
+    case 'ANCIENT':
+    case 'ANCIENT_BOOK':
+      return `Book${plural ? 's' : ''} of Ancients`
     case 'TEMPLE':
     case 'TEMPLE_BOOK':
       return `Book${plural ? 's' : ''} of Temples`
