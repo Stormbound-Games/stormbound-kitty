@@ -5,6 +5,7 @@ cost { type, amount },
 draws,
 odds,
 restrictions,
+allowDuplicates,
 "image": image.asset -> url,
 `
 

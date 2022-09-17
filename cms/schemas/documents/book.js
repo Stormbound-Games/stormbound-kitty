@@ -222,6 +222,13 @@ const book = {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'allowDuplicates',
+      title: 'Allow duplicates',
+      type: 'boolean',
+      description: 'Whether the same card can be drawn more than once.',
+      initialValue: false,
+    },
+    {
       name: 'order',
       title: 'Order',
       type: 'number',

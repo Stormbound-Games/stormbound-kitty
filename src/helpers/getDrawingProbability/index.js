@@ -22,7 +22,9 @@ export const getSequenceProbability = (cards, book, expectations) => {
       if (pools[rarity] === 0) return 0
       probability *= odds[rarity]
       probability *= (pools[rarity] - expectations[rarity]) / pools[rarity]
-      pools[rarity] -= 1
+      // If the book does not allow for duplicates, decrease the rarity pool by
+      // 1 now that that card has been drawn
+      if (!book.allowDuplicates) pools[rarity] -= 1
     }
 
     return probability
