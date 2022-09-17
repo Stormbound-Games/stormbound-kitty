@@ -20,7 +20,9 @@ export default React.memo(function BookExplanation({ book }) {
       <p>
         A {book.name} contains {book.draws} {qualifier}{' '}
         {book.draws > 1 ? 'cards' : 'card'} and potentially some Fusion stones.
-        It cannot yield more than a single copy of a single card.
+        {book.allowDuplicates
+          ? ' It is possible, albeit unlikely, for a given card to be drawn more than once.'
+          : ' It cannot yield more than a single copy of a single card.'}
       </p>
       <p>The chances of drawing are as follow:</p>
       <ul className={css({ margin: 0, paddingLeft: 'var(--s-base)' })}>
