@@ -36,3 +36,21 @@ To do so, I wrote a React hook (`useFluidSizing`) that sets the right font size 
 The data sent from the server to the client is quite heavy, regardless of which page you check. That’s because the whole card collection is _always_ fetched and passed down in the React context. Cards are used all over the place, and one way or another, every page needs access to the card collection.
 
 This adds an extra ~80Kb on the initial payload, which is certainly not great but kind of unavoidable.
+
+## Discord dependency
+
+The Discord dependency is stuck in version 12 because it is impossible to upgrade it without a major refactoring of the codebase.
+
+Running Discord.js 14+ on Node 16.6 (the minimum required version) causes the following error: `Error: Cannot find module 'node:events'`. This happens because [the `esm` module does not support the `node:` protocol](https://github.com/standard-things/esm/issues/904). This means we need _not_ to use `esm` for the bot and rely solely on native Node.
+
+Removing `-r esm` from the bot process causes the following error: `SyntaxError: Cannot use import statement outside a module`. This is because `import` statements are not natively supported outside of a project with `"type": "module"` or `.mjs` files. Either solution works to move on.
+
+Then, running the bot command causes the following error: `ReferenceError: require is not defined in ES module scope, you can use import instead`. This is because the entry point contains `require` statements. Updating them to use `import` is enough to move on.
+
+The next error is: `Error [ERR_MODULE_NOT_FOUND]: Cannot find package '~' imported from /Users/kitty/Sites/stormbound-kitty/bot/handle.mjs`. That’s because the `~` alias is not handled. This means we need to integrate `module-alias`. We can do so with `-r module-alias/register` in the Node process.
+
+This does change the error to: `Error [ERR_MODULE_NOT_FOUND]: Cannot find package '~' imported from /Users/kitty/Sites/stormbound-kitty/bot/handle.mjs. Did you mean to import /Users/kitty/Sites/stormbound-kitty/src/helpers/getChannelId/index.js?`. It means the aliasing somewhat works, but it still doesn’t fully resolve the problem.
+
+And I believe this is because [module-alias does not work with ESM](https://github.com/ilearnio/module-alias/search?q=esm&type=issues). Not just the `esm` polyfilling module but actual native ESM as well.
+
+The solution would be to rely on [native import mapping](https://github.com/ilearnio/module-alias/issues/113) but this involves replacing module-alias with it across the entire code base. This is also not exactly enough as all things around it (tests, bot, scripts) also need to be updated.
