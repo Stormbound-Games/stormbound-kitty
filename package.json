@@ -19,7 +19,7 @@
     "@next/bundle-analyzer": "^12.2.5",
     "@portabletext/react": "^1.0.6",
     "@reach/tooltip": "^0.17.0",
-    "@sanity/client": "^3.3.5",
+    "@sanity/client": "^3.4.1",
     "canvas": "^2.10.1",
     "copy-to-clipboard": "^3.3.2",
     "discord.js": "^12.5.3",
