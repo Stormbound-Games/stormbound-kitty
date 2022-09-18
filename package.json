@@ -16,7 +16,6 @@
     "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^12.2.5",
     "@portabletext/react": "^1.0.6",
     "@reach/tooltip": "^0.17.0",
     "@sanity/client": "^3.4.1",
@@ -64,6 +63,7 @@
   ],
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.12.2",
+    "@next/bundle-analyzer": "^12.3.0",
     "@svgr/webpack": "^6.3.1",
     "cypress": "^10.8.0",
     "cypress-localstorage-commands": "^2.2.1",
