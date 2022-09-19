@@ -206,6 +206,12 @@ const book = {
       validation: Rule => Rule.required().min(4).max(4),
     },
     {
+      title: 'Fusion stones odds',
+      name: 'fsOdds',
+      type: 'number',
+      validation: Rule => Rule.required().positive().precision(2).min(0).max(1),
+    },
+    {
       title: 'Restrictions',
       name: 'restrictions',
       type: 'array',
