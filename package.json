@@ -9,7 +9,7 @@
   "scripts": {
     "start": "next dev",
     "build-site": "next build && next-sitemap",
-    "test": "node -r esm $(npm bin)/jest --forceExit",
+    "test": "jest --forceExit --runInBand",
     "bot": "node -r esm bot/cli.js",
     "bot:dev": "nodemon -x \"node -r esm\" bot/cli.js --watch src --watch bot",
     "prepare": "husky install",
