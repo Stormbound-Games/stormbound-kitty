@@ -195,6 +195,8 @@ const book = {
     {
       title: 'Odds',
       name: 'odds',
+      description:
+        'Odds are expressed as numbers between 0 and 1 (e.g. 0.1 means 10%).',
       type: 'array',
       of: [
         {
@@ -207,6 +209,8 @@ const book = {
     {
       title: 'Fusion stones odds',
       name: 'fsOdds',
+      description:
+        'Odds are expressed as a number between 0 and 1 (e.g. 0.1 means 10%).',
       type: 'number',
       validation: Rule => Rule.required().positive().precision(2).max(1),
     },
