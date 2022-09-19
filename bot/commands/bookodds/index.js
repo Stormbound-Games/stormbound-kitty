@@ -41,7 +41,7 @@ const getEmbedFields = (cards, book) => {
 
   fields.push({
     name: 'Fusion stones',
-    value: '~10%',
+    value: book.fsOdds * 100 + '%',
     inline: true,
   })
 
@@ -105,7 +105,8 @@ const bookodds = {
     if (target === 'FUSION_STONES') {
       embed.setTitle(embed.title + ' · Fusion stones')
       embed.setDescription(
-        intro.slice(0, -1) + ` ~10% chance of drawing **Fusion stones**`
+        intro.slice(0, -1) +
+          ` ${book.fsOdds * 100}% chance of drawing **Fusion stones**`
       )
 
       return embed
