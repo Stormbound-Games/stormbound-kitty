@@ -31,7 +31,7 @@ export default React.memo(function BrawlMatchForm(props) {
   }, [isEdit, editedBonus])
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode='wait'>
       <motion.tr
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
