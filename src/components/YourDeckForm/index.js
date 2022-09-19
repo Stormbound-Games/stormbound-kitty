@@ -7,7 +7,7 @@ import Row from '~/components/Row'
 import TagsSelect from '~/components/TagsSelect'
 import serialization from '~/helpers/serialization'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
-import { convertToSkId } from '~/helpers/convertDeckId'
+import { convertToSkId, isSbId } from '~/helpers/convertDeckId'
 
 const validateDeckId = (cardsIndex, cardsIndexBySid, id) => {
   if (!id) return false
@@ -15,13 +15,9 @@ const validateDeckId = (cardsIndex, cardsIndexBySid, id) => {
   // In case the given string is a URL, trim everything but the ID.
   id = getDeckIDFromURL(id)
 
-  // This is not an incredibly elegant check to determine whether the id is a
-  // SBID or SKID. The thing is, SBIDs are technically valid base64 since they
-  // operate within the same character set. However, SBIDs are always lowercase
-  // and the chances of a SBID having 0 uppercase are pretty much null, so this
-  // is Good Enough™. Anyway, if it’s a SBID, convert it to a SKID and call the
-  // function again to check if it’s valid.
-  if (/[=+]/.test(id) || /[A-Z]/.test(id)) {
+  // If it’s a SBID, convert it to a SKID and call the function again to check
+  // if it’s valid.
+  if (isSbId(id)) {
     try {
       const skid = convertToSkId(cardsIndexBySid, id)
 

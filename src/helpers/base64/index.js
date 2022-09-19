@@ -17,15 +17,3 @@ export const base64Decode = blob => {
     ? Buffer.from(blob, 'base64').toString('ascii')
     : window.atob(blob)
 }
-
-export function isBase64(string) {
-  if (string === '' || string.trim() === '') {
-    return false
-  }
-
-  try {
-    return base64Encode(base64Decode(string)) === string
-  } catch (error) {
-    return false
-  }
-}
