@@ -36,4 +36,12 @@ describe('The `getFactionFromDeckID` helper', () => {
       getFactionFromDeckID('3n664n34n44n53n64n623n674n74n93n104f53s4')
     ).toEqual('multi-factions')
   })
+
+  it('should handle faction from a Stormbound deck ID', () => {
+    expect(
+      getFactionFromDeckID(
+        'M3UwMDd1MzA5dTMwNnUzMDViMzAzdWUzMWIwMDJiMzAxdTAwMXUwNTNzMDEzdTA2MQ=='
+      )
+    ).toEqual('ironclad')
+  })
 })

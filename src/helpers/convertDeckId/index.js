@@ -46,3 +46,10 @@ export const isDecodedSbId = value => {
   //          (b|s|u|ua|ud|ue|ut)\d+     Stormbound card ID syntax
   return /^\d((b|s|u|ua|ud|ue|ut)\d+)+$/.test(value)
 }
+
+// This is not an incredibly elegant check to determine whether the id is a SBID
+// or SKID. The thing is, SBIDs are technically valid base64 since they operate
+// within the same character set. However, SBIDs are always lowercase and the
+// chances of a SBID having 0 uppercase are pretty much null, so this is Good
+// Enough™.
+export const isSbId = id => /[=+]/.test(id) || /[A-Z]/.test(id)
