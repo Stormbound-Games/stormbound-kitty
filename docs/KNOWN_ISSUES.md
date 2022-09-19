@@ -54,3 +54,9 @@ This does change the error to: `Error [ERR_MODULE_NOT_FOUND]: Cannot find packag
 And I believe this is because [module-alias does not work with ESM](https://github.com/ilearnio/module-alias/search?q=esm&type=issues). Not just the `esm` polyfilling module but actual native ESM as well.
 
 The solution would be to rely on [native import mapping](https://github.com/ilearnio/module-alias/issues/113) but this involves replacing module-alias with it across the entire code base. This is also not exactly enough as all things around it (tests, bot, scripts) also need to be updated.
+
+## Jest parallelization
+
+The unit test runner (Jest) runs on a single worker (via [`--runInBand`](https://jestjs.io/docs/cli#--runinband)) because there is no way to define per-worker setup code (see [related issue](https://github.com/facebook/jest/issues/8708)). This causes unit tests to be a little slower than they could theoretically be.
+
+What I believe happens is that one of the workers executes the global setup (`jestSetup/globalSetup.js`) which exposes the CMS data as global variables. At the same time, other workers start loading some test files and use the global data to moch some API helpers (`jestSetup/setupFilesAfterEnv.js`). Unfortunately at this stage the global data may or may not be ready. I am unsure why Jest is designed this way.
