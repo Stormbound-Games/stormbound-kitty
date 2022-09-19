@@ -51,7 +51,10 @@ const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
       missing: resolvedCollection[card.id].missing,
     }
   })
-  const distance = getDeckDistanceToMax(resolvedCollection)({ id })
+  const distance = getDeckDistanceToMax(
+    resolvedCollection,
+    cardsIndexBySid
+  )({ id })
 
   return { deck, id: serialization.deck.serialize(deck), distance }
 }

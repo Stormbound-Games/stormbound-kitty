@@ -8,7 +8,7 @@ import resolveCollection from '~/helpers/resolveCollection'
 const useFeaturedDecksSorting = order => {
   const { hasDefaultCollection, collection } =
     React.useContext(CollectionContext)
-  const { cardsIndex } = React.useContext(CardsContext)
+  const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const resolvedCollection = !hasDefaultCollection
     ? resolveCollection(collection, cardsIndex)
     : null
@@ -19,8 +19,14 @@ const useFeaturedDecksSorting = order => {
 
     case 'FEASIBILITY':
       return (a, b) => {
-        const distanceA = getDeckDistanceToMax(resolvedCollection)(a)
-        const distanceB = getDeckDistanceToMax(resolvedCollection)(b)
+        const distanceA = getDeckDistanceToMax(
+          resolvedCollection,
+          cardsIndexBySid
+        )(a)
+        const distanceB = getDeckDistanceToMax(
+          resolvedCollection,
+          cardsIndexBySid
+        )(b)
 
         if (distanceA < distanceB) return -1
         if (distanceA > distanceB) return +1
