@@ -6,6 +6,7 @@ import Only from '~/components/Only'
 import FileUpload from '~/components/FileUpload'
 import uuid from '~/helpers/uuid'
 import capitalize from '~/helpers/capitalize'
+import chunk from '~/helpers/chunk'
 
 const parseCSVData = data => {
   return data
@@ -14,18 +15,27 @@ const parseCSVData = data => {
     .filter(Boolean)
     .map(item => {
       // prettier-ignore
-      const [id, name, /* faction */, tags] = item.split(',')
+      const [id, name, /* faction */, tagString] = item.split(',')
+      // Tags used to be split on spaces which is an issue since their label
+      // part can contain spaces (e.g `HIGH_LEVELS/High Levels`). This fix
+      // captures groups of a constant case followed by a slash, then group
+      // results by chunks of 2 ([ID, label]). This is ugly, but this way we
+      // don’t break any existing CSV and solve the issue with a parsing rule.
+      const tags = chunk(
+        tagString
+          .split(/([A-Z_]+)\//)
+          .map(value => value.trim())
+          .filter(Boolean),
+        2
+      )
+
       return {
         id,
         name,
-        tags: tags.split(' ').map(tag => {
-          const [slug, name] = tag.split('/')
-          return {
-            slug,
-            name:
-              name || slug.toLowerCase().split('_').map(capitalize).join(' '),
-          }
-        }),
+        tags: tags.map(([slug, name]) => ({
+          slug,
+          name: name || slug.toLowerCase().split('_').map(capitalize).join(' '),
+        })),
         uuid: uuid(),
       }
     })
