@@ -12,7 +12,7 @@ export default React.memo(function PageFanKitBooks(props) {
   const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const index = indexArray(props.books)
+  const index = React.useMemo(() => indexArray(props.books), [props.books])
   const activeBook = index[active]
   const {
     loading,

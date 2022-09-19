@@ -151,7 +151,7 @@ export default React.memo(function PageBookOpeningSimulator(props) {
   const [amount, setAmount] = React.useState(1)
   const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
   const id = serialization.cards.serialize(deck)
-  const booksIndex = indexArray(props.books)
+  const booksIndex = React.useMemo(() => indexArray(props.books), [props.books])
 
   const isFormValid = React.useMemo(
     () =>
