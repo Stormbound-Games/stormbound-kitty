@@ -6,6 +6,7 @@ draws,
 odds,
 restrictions,
 allowDuplicates,
+fsOdds,
 "image": image.asset -> url,
 `
 

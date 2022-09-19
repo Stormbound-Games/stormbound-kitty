@@ -44,11 +44,8 @@ export default React.memo(function BookOutcome(props) {
     props.book.only
   )
   const chances =
-    // The odds of drawing fusion stones in *any* book are roughly of 1 in 10.
-    // This has nothing to do with the amount of cards or the rarity of cards
-    // or the type of cards.
     props.target === 'FUSION_STONES'
-      ? 0.1
+      ? props.book.fsOdds
       : getDrawingProbability(
           cards,
           props.book,
@@ -83,7 +80,6 @@ export default React.memo(function BookOutcome(props) {
             })}
           >
             <li>
-              {props.target === 'FUSION_STONES' && '~'}
               <span className='Highlight' data-testid='odds-result'>
                 {(chances * 100).toFixed(2)}%
               </span>{' '}
