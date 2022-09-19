@@ -9,6 +9,7 @@ import Row from '~/components/Row'
 import Stats from '~/components/DeckStats'
 import Title from '~/components/Title'
 import { CardsContext } from '~/components/CardsProvider'
+import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
 import { NotificationContext } from '~/components/NotificationProvider'
 import getDeckBuilderMetaTags from '~/helpers/getDeckBuilderMetaTags'
 import modifyDeck from '~/helpers/modifyDeck'
@@ -22,10 +23,14 @@ export default React.memo(function DeckDetailView(props) {
   const id = useRouteId()
   const { notify } = React.useContext(NotificationContext)
   const { cardsIndex } = React.useContext(CardsContext)
-  const defaultModifier = props.preset.modifier.includes('MANA')
-    ? props.preset.modifier
-    : 'NONE'
-  const [modifier, setModifier] = React.useState(defaultModifier)
+  const { decks } = React.useContext(PersonalDecksContext)
+  const brawlsIndex = React.useMemo(
+    () => indexArray(props.brawls),
+    [props.brawls]
+  )
+  const [modifier, setModifier] = React.useState(
+    props.preset.modifier in brawlsIndex ? props.preset.modifier : 'NONE'
+  )
   const deck = React.useMemo(
     () => modifyDeck(cardsIndex, props.deck, modifier),
     [cardsIndex, modifier, props.deck]
@@ -35,14 +40,23 @@ export default React.memo(function DeckDetailView(props) {
     message => notify({ icon: 'stack', children: message }),
     [notify]
   )
-  const brawlsIndex = indexArray(props.brawls)
 
   React.useEffect(() => {
-    if (defaultModifier !== 'NONE') {
-      const brawl = brawlsIndex[defaultModifier]
-      sendNotification(`Brawl deck found. Loaded with modifier ${brawl.name}.`)
+    if (modifier in brawlsIndex) {
+      sendNotification(
+        `Deck loaded with modifier ${brawlsIndex[modifier].name}.`
+      )
     }
-  }, [defaultModifier, brawlsIndex, sendNotification])
+  }, [modifier, brawlsIndex, sendNotification])
+
+  React.useEffect(() => {
+    const bookmarkedDeck = decks.find(deck => deck.id === id)
+
+    if (bookmarkedDeck) {
+      const brawlTag = bookmarkedDeck.tags.find(tag => tag.slug in brawlsIndex)
+      if (brawlTag) setModifier(brawlTag.slug)
+    }
+  }, [decks, id, brawlsIndex])
 
   return (
     <Page
