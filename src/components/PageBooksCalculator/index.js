@@ -28,7 +28,7 @@ export default React.memo(function PageBooksCalculator(props) {
   const [bookId, setBookId] = React.useState(props.books[0].id)
   const [target, setTarget] = React.useState('FUSION_STONES')
   const [expectations, setExpectations] = React.useState([0, 0, 0, 0])
-  const booksIndex = indexArray(props.books)
+  const booksIndex = React.useMemo(() => indexArray(props.books), [props.books])
 
   // Reset the default state of each mode when toggling between the 2
   React.useEffect(() => {

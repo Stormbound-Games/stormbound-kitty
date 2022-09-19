@@ -25,7 +25,10 @@ export default React.memo(function PageFanKitWallpapersDesktop(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const desktopWallpapers = props.wallpapers.map(resolveAsset)
-  const WALLPAPERS_INDEX = indexArray(desktopWallpapers)
+  const WALLPAPERS_INDEX = React.useMemo(
+    () => indexArray(desktopWallpapers),
+    [desktopWallpapers]
+  )
   const activeWallpaper = WALLPAPERS_INDEX[active]
   const { loading, items, ref } = useLazyLoad(desktopWallpapers, 1)
 

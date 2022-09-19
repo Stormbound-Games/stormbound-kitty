@@ -26,7 +26,10 @@ export default React.memo(function PageFanKitWallpapersMobile(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const mobileWallpapers = props.wallpapers.map(resolveAsset)
-  const WALLPAPERS_INDEX = indexArray(mobileWallpapers)
+  const WALLPAPERS_INDEX = React.useMemo(
+    () => indexArray(mobileWallpapers),
+    [mobileWallpapers]
+  )
   const activeWallpaper = WALLPAPERS_INDEX[active]
   const { loading, items, ref } = useLazyLoad(mobileWallpapers, 3)
   const rows = chunk(items, 3)

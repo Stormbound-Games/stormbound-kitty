@@ -14,7 +14,10 @@ export default React.memo(function PageFanKitAvatars(props) {
   const columns = viewportWidth >= 700 ? 8 : 2
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const AVATARS_INDEX = indexArray(props.avatars)
+  const AVATARS_INDEX = React.useMemo(
+    () => indexArray(props.avatars),
+    [props.avatars]
+  )
   const activeAvatar = AVATARS_INDEX[active]
   const {
     loading,
