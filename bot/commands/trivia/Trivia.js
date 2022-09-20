@@ -78,10 +78,10 @@ export default class Trivia {
 
   createCollector(channel) {
     const options = { time: this.duration * 1000 }
-    const collector = channel.createMessageCollector(
-      message => this.shouldCollect(message),
-      options
-    )
+    const collector = channel.createMessageCollector({
+      ...options,
+      filter: message => this.shouldCollect(message),
+    })
 
     collector.on('collect', message => {
       const output =
