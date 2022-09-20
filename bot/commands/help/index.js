@@ -15,7 +15,11 @@ const help = {
 
     for (let [, command] of client.commands) {
       if (command.command !== 'help') {
-        embed.addField(command.label, `\`!${command.command} help\``, true)
+        embed.addFields({
+          name: command.label,
+          value: `\`!${command.command} help\``,
+          inline: true,
+        })
       }
     }
 

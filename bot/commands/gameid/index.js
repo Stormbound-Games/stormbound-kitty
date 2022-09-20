@@ -11,8 +11,16 @@ const gameid = {
       .setDescription(
         'Record your Stormbound game ID so people can look it up directly from Discord and add you in game to do friendly battles.'
       )
-      .addField('Set your game ID', '`!gameid 1234567890`', true)
-      .addField('Get someone’s game ID', '`!gameid @mention`', true)
+      .addFields({
+        name: 'Set your game ID',
+        value: '`!gameid 1234567890`',
+        inline: true,
+      })
+      .addFields({
+        name: 'Get someone’s game ID',
+        value: '`!gameid @mention`',
+        inline: true,
+      })
   },
   handler: async function (message, client, messageObject) {
     const embed = getEmbed()

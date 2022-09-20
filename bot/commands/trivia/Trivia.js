@@ -136,15 +136,15 @@ export default class Trivia {
   guess({ author, content }) {
     if (this.mode === 'IMAGE' || this.mode === 'CARD') {
       const [key, value] = parseCardGuess(content, true)
-      const embed = getEmbed({ withHeader: false }).addField(
-        'User',
-        author.username,
-        true
-      )
+      const embed = getEmbed({ withHeader: false }).addFields({
+        name: 'User',
+        value: author.username,
+        inline: true,
+      })
 
       if (this.mode === 'CARD' && key) {
-        embed.addField('Property', key, true)
-        embed.addField('Value', value, true)
+        embed.addFields({ name: 'Property', value: key, inline: true })
+        embed.addFields({ name: 'Value', value: value, inline: true })
 
         if (value === true) {
           const title =
@@ -191,8 +191,8 @@ export default class Trivia {
         return embed
           .setTitle(`❌ Incorrect answer: ~~${card.name}~~`)
           .setDescription(`The card is not ${card.name}, try again!`)
-          .addField('Guess', content, true)
-          .addField('Found', card.name, true)
+          .addFields({ name: 'Guess', value: content, inline: true })
+          .addFields({ name: 'Found', value: card.name, inline: true })
       }
     } else if (this.mode === 'QUESTION') {
       const letter = content.toUpperCase().trim()
@@ -216,8 +216,8 @@ export default class Trivia {
     const increment = this.difficulty === 'HARD' ? +2 : +1
     const embed = getEmbed({ withHeader: false })
       .setTitle('🎉 Correct answer: ' + this.answer.name)
-      .addField('Winner', author.username, true)
-      .addField('Points', '+' + increment, true)
+      .addFields({ name: 'Winner', value: author.username, inline: true })
+      .addFields({ name: 'Points', value: '+' + increment, inline: true })
 
     this.streaks[author.id] = (this.streaks[author.id] || 0) + 1
     this.withScores && this.updateScore(author, increment)
@@ -254,8 +254,12 @@ export default class Trivia {
     const answer = this.mode !== 'QUESTION' ? this.answer.name : '***'
     const embed = getEmbed({ withHeader: false })
       .setTitle('🔌 Trivia stopped')
-      .addField('Initiator', this.initiator.username, true)
-      .addField('Answer', answer, true)
+      .addFields({
+        name: 'Initiator',
+        value: this.initiator.username,
+        inline: true,
+      })
+      .addFields({ name: 'Answer', value: answer, inline: true })
 
     this.stop('ABORT')
 
@@ -277,8 +281,16 @@ export default class Trivia {
 
   getTriviaDisplay(channel) {
     const embed = getEmbed({ withHeader: false })
-      .addField('Initiator', this.initiator.username, true)
-      .addField('Duration', this.duration + ' seconds', true)
+      .addFields({
+        name: 'Initiator',
+        value: this.initiator.username,
+        inline: true,
+      })
+      .addFields({
+        name: 'Duration',
+        value: this.duration + ' seconds',
+        inline: true,
+      })
 
     if (this.mode === 'CARD') {
       return channel.send(
@@ -295,7 +307,11 @@ export default class Trivia {
         embed
           .setTitle('🔮  Image trivia started')
           .setDescription(`You can issue guesses like \`gifted\` or  \`rof\`.`)
-          .addField('Difficulty', difficulty || 'Regular', true)
+          .addFields({
+            name: 'Difficulty',
+            value: difficulty || 'Regular',
+            inline: true,
+          })
 
         return channel.send({ files: [attachment], embed })
       })
@@ -308,7 +324,7 @@ export default class Trivia {
               .map(letter => ' ' + letter + '. ' + this.answer.choices[letter])
               .join('\n')
           )
-          .addField('Attempts', 1, true)
+          .addFields({ name: 'Attempts', value: 1, inline: true })
       )
     }
   }
@@ -323,7 +339,7 @@ export default class Trivia {
   score({ author }) {
     const embed = getEmbed({ withHeader: false })
       .setTitle('Current trivia score')
-      .addField('Member', author.username, true)
+      .addFields({ name: 'Member', value: author.username, inline: true })
 
     return api
       .getScores(this.guildId)
@@ -338,7 +354,11 @@ export default class Trivia {
           .findIndex(score => scoresByPoints[score].includes(author.id))
 
         if (position > -1)
-          embed.addField('Position', getOrdinalSuffix(position + 1), true)
+          embed.addFields({
+            name: 'Position',
+            value: getOrdinalSuffix(position + 1),
+            inline: true,
+          })
 
         return embed.setDescription(
           score ? `🏅 Your score is ${score}.` : '🏅 No scores yet.'
