@@ -60,3 +60,13 @@ The solution would be to rely on [native import mapping](https://github.com/ilea
 The unit test runner (Jest) runs on a single worker (via [`--runInBand`](https://jestjs.io/docs/cli#--runinband)) because there is no way to define per-worker setup code (see [related issue](https://github.com/facebook/jest/issues/8708)). This causes unit tests to be a little slower than they could theoretically be.
 
 What I believe happens is that one of the workers executes the global setup (`jestSetup/globalSetup.js`) which exposes the CMS data as global variables. At the same time, other workers start loading some test files and use the global data to moch some API helpers (`jestSetup/setupFilesAfterEnv.js`). Unfortunately at this stage the global data may or may not be ready. I am unsure why Jest is designed this way.
+
+## Discord bot pre-script
+
+To avoid having to rely on [module-alias](https://github.com/ilearnio/module-alias) for aliased paths, the project uses [native import mapping](https://github.com/ilearnio/module-alias/issues/113). With some configuration, this enables Next.js, Jest, Node scripts and the Discord bot to all understand aliased paths.
+
+For `import` and `export` to be understood on all contexts, we used to rely on [esm](https://github.com/standard-things/esm) when executing the bot script. Unfortunately that dependency is outdated, unmaintained and doesn’t play well with newer features from the language.
+
+The native way to add support for `import` and `export` is to use `.mjs` files or to set `"type": "module"` in the package.json. Unfortunately both options cause problems with Next.js, which inherently uses CommonJS. Therefore, the bot script automatically injects `"type": "module"` onto the package.json before starting so its context is ESM.
+
+To prevent risking committing that modification when running the bot locally, a pre-commit hook checks the package.json to make sure it doesn’t contain that property. If it does, it blocks the commit with an error.
