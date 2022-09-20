@@ -1,6 +1,6 @@
 import React from 'react'
-import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
-import DiamondButton from '~/components/DiamondButton'
+import { PersonalDecksContext } from '#components/PersonalDecksProvider'
+import DiamondButton from '#components/DiamondButton'
 
 export default React.memo(function BookmarkDeckButton(props) {
   const { decks, addDeck, removeDeck, toggleUnseen } =

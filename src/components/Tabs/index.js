@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BlankButton from '~/components/BlankButton'
-import useOnUpdate from '~/hooks/useOnUpdate'
+import BlankButton from '#components/BlankButton'
+import useOnUpdate from '#hooks/useOnUpdate'
 
 const Tab = React.memo(function Tab(props) {
   return (

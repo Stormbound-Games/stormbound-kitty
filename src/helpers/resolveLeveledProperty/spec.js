@@ -1,4 +1,4 @@
-import resolveLeveledProperty from './'
+import resolveLeveledProperty from './index.js'
 
 describe('The `resolveLeveledProperty` helper', () => {
   it('should return argument if already resolved', () => {

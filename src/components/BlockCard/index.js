@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { RichTextContext } from '~/components/BlocksRenderer'
-import { CardsContext } from '~/components/CardsProvider'
-import Card from '~/components/Card'
-import CardDisplay from '~/components/CardDisplay'
-import PageEmbed from '~/components/PageEmbed'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getInitialCardData from '~/helpers/getInitialCardData'
+import { RichTextContext } from '#components/BlocksRenderer'
+import { CardsContext } from '#components/CardsProvider'
+import Card from '#components/Card'
+import CardDisplay from '#components/CardDisplay'
+import PageEmbed from '#components/PageEmbed'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import getInitialCardData from '#helpers/getInitialCardData'
 
 export default React.memo(function BlockCard(props) {
   const { css } = useFela()

@@ -1,5 +1,5 @@
-import countCards from '~/helpers/countCards'
-import { RARITIES } from '~/constants/game'
+import countCards from '#helpers/countCards'
+import { RARITIES } from '#constants/game'
 
 const getDrawingExpectations = type => {
   if (type === 'FUSION_STONES') {

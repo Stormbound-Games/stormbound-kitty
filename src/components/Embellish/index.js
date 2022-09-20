@@ -1,8 +1,8 @@
 import React from 'react'
-import iconify from '~/helpers/iconify'
-import replaceInString from '~/helpers/replaceInString'
-import { CardsContext } from '~/components/CardsProvider'
-import CardLink from '~/components/CardLink'
+import iconify from '#helpers/iconify'
+import replaceInString from '#helpers/replaceInString'
+import { CardsContext } from '#components/CardsProvider'
+import CardLink from '#components/CardLink'
 
 export default React.memo(function Embellish(props) {
   const { cards, cardsIndexByName } = React.useContext(CardsContext)

@@ -1,3 +1,8 @@
 #!/bin/sh
 
 npx --no-install lint-staged
+
+if grep -q "\"type\": \"module\"" "package.json"; then
+  echo "(!) Discard \`\"type\": \"module\"\` from the package.json file before committing."
+  exit 1
+fi

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Spacing from '~/components/Spacing'
-import FeedEntry from '~/components/FeedEntry'
-import Link from '~/components/Link'
-import MemberList from '~/components/MemberList'
+import Spacing from '#components/Spacing'
+import FeedEntry from '#components/FeedEntry'
+import Link from '#components/Link'
+import MemberList from '#components/MemberList'
 import styles from './styles'
 
 export default React.memo(function ListLayoutItem(props) {

@@ -7,11 +7,11 @@ import {
   Pie,
   Cell,
 } from 'recharts'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import { TOOLTIP_STYLES } from '~/constants/stats'
-import { RARITIES } from '~/constants/game'
-import capitalize from '~/helpers/capitalize'
+import { CollectionContext } from '#components/CollectionProvider'
+import { CardsContext } from '#components/CardsProvider'
+import { TOOLTIP_STYLES } from '#constants/stats'
+import { RARITIES } from '#constants/game'
+import capitalize from '#helpers/capitalize'
 
 const useProgressData = () => {
   const { cardsIndex } = React.useContext(CardsContext)

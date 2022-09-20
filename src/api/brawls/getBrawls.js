@@ -1,5 +1,5 @@
-import { getEntries } from '~/helpers/sanity'
-import { FIELDS } from './utils'
+import { getEntries } from '#helpers/sanity'
+import { FIELDS } from './utils.js'
 
 const getBrawls = async ({ isPreview } = {}) => {
   const books = await getEntries({

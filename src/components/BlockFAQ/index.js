@@ -1,5 +1,5 @@
 import React from 'react'
-import FAQEntry from '~/components/FAQEntry'
+import FAQEntry from '#components/FAQEntry'
 
 export default React.memo(function BlockFAQ(props) {
   const entries = props.value.entries || []

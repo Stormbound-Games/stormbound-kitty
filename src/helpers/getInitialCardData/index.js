@@ -1,5 +1,5 @@
-import serialization from '~/helpers/serialization'
-import indexArray from '~/helpers/indexArray'
+import serialization from '#helpers/serialization'
+import indexArray from '#helpers/indexArray'
 
 const getInitialCardData = (cards, card) => {
   const cardsIndex = indexArray(cards)

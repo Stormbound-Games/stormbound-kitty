@@ -1,9 +1,9 @@
 import React from 'react'
-import { BrawlContext } from '~/components/BrawlProvider'
-import { NotificationContext } from '~/components/NotificationProvider'
-import CTA from '~/components/CTA'
-import FileUpload from '~/components/FileUpload'
-import Only from '~/components/Only'
+import { BrawlContext } from '#components/BrawlProvider'
+import { NotificationContext } from '#components/NotificationProvider'
+import CTA from '#components/CTA'
+import FileUpload from '#components/FileUpload'
+import Only from '#components/Only'
 
 const parseCSVData = data => {
   const items = data.split('\n').slice(1).filter(Boolean)

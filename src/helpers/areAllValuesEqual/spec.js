@@ -1,4 +1,4 @@
-import areAllValuesEqual from './'
+import areAllValuesEqual from './index.js'
 
 describe('The `areAllValuesEqual` helper', () => {
   it('should return true for an empty array', () => {

@@ -1,10 +1,10 @@
-import PageBrawl from '~/components/PageBrawl'
-import getDecksWithTag from '~/api/decks/getDecksWithTag'
-import getBooks from '~/api/books/getBooks'
-import indexArray from '~/helpers/indexArray'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getBrawl from '~/api/brawls/getBrawl'
-import getBrawls from '~/api/brawls/getBrawls'
+import PageBrawl from '#components/PageBrawl'
+import getDecksWithTag from '#api/decks/getDecksWithTag'
+import getBooks from '#api/books/getBooks'
+import indexArray from '#helpers/indexArray'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getBrawl from '#api/brawls/getBrawl'
+import getBrawls from '#api/brawls/getBrawls'
 
 export async function getStaticPaths() {
   const brawls = await getBrawls()

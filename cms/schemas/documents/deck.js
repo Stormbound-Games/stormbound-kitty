@@ -2,7 +2,7 @@ import { MdBookmark } from 'react-icons/md'
 import user from '../types/user'
 import date from '../types/date'
 import deckId from '../types/deckId'
-import { formatDate } from '~/helpers/formatDate'
+import { formatDate } from '#helpers/formatDate'
 
 const deck = {
   title: 'Decks',

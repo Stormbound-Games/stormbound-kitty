@@ -1,5 +1,5 @@
-import indexOf from '~/helpers/indexOf'
-import areAllValuesEqual from '~/helpers/areAllValuesEqual'
+import indexOf from '#helpers/indexOf'
+import areAllValuesEqual from '#helpers/areAllValuesEqual'
 
 const serializeCards = cards => {
   // To be entirely honest I’m not sure I fully remember how we can have cards

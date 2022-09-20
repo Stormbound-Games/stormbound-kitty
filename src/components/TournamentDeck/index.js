@@ -1,7 +1,7 @@
 import React from 'react'
-import FeaturedDeck from '~/components/FeaturedDeck'
-import MemberList from '~/components/MemberList'
-import parseDate from '~/helpers/parseDate'
+import FeaturedDeck from '#components/FeaturedDeck'
+import MemberList from '#components/MemberList'
+import parseDate from '#helpers/parseDate'
 
 export default React.memo(function TournamentDeck(props) {
   const [index, setIndex] = React.useState(0)

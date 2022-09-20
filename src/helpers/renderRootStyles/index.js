@@ -1,4 +1,4 @@
-import { SPACING_TOKENS } from '~/constants/styles'
+import { SPACING_TOKENS } from '#constants/styles'
 
 const renderRootStyles = renderer => {
   renderer.renderFont('Nunito', ['/assets/fonts/nunito-700.woff2'], {

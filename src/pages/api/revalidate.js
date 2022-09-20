@@ -1,6 +1,6 @@
-import { GUIDE_CATEGORIES } from '~/constants/guides'
-import { getRateLimitMiddlewares } from '~/helpers/applyRateLimit'
-import uniqueBy from '~/helpers/uniqueBy'
+import { GUIDE_CATEGORIES } from '#constants/guides'
+import { getRateLimitMiddlewares } from '#helpers/applyRateLimit'
+import uniqueBy from '#helpers/uniqueBy'
 
 const clean = users => uniqueBy((users || []).filter(Boolean), 'slug')
 const toString = users =>

@@ -1,4 +1,4 @@
-import canCardBePlayed from './'
+import canCardBePlayed from './index.js'
 
 describe('The `canCardBePlayed` helper', () => {
   it('should return false if the card costs too much mana', () => {

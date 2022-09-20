@@ -1,6 +1,6 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import serialization from '~/helpers/serialization'
+import { CardsContext } from '#components/CardsProvider'
+import serialization from '#helpers/serialization'
 
 const useVersionedCardData = ({ card, id, versions, versionId }) => {
   const { cardsIndex } = React.useContext(CardsContext)

@@ -1,10 +1,10 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import Link from '~/components/Link'
-import Card from '~/components/Card'
-import Tooltip from '~/components/Tooltip'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import useViewportSize from '~/hooks/useViewportSize'
+import { CardsContext } from '#components/CardsProvider'
+import Link from '#components/Link'
+import Card from '#components/Card'
+import Tooltip from '#components/Tooltip'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import useViewportSize from '#hooks/useViewportSize'
 
 export default React.memo(function CardLink(props) {
   const { viewportWidth } = useViewportSize()

@@ -1,4 +1,4 @@
-import capitalize from './'
+import capitalize from './index.js'
 
 describe('The `capitalize` helper', () => {
   it('should put the first letter uppercase', () => {

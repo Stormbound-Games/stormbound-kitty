@@ -1,5 +1,5 @@
-import { TYPES, FACTIONS, RARITIES, UNIT_TYPES } from '~/constants/game'
-import randomizeCard from './'
+import { TYPES, FACTIONS, RARITIES, UNIT_TYPES } from '#constants/game'
+import randomizeCard from './index.js'
 
 describe('The `randomizeCard` helper', () => {
   it('should return a valid card type', () => {

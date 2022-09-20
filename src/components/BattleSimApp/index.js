@@ -1,7 +1,7 @@
 import React from 'react'
-import AppDesktop from '~/components/BattleSimAppDesktop'
-import AppMobile from '~/components/BattleSimAppMobile'
-import Only from '~/components/Only'
+import AppDesktop from '#components/BattleSimAppDesktop'
+import AppMobile from '#components/BattleSimAppMobile'
+import Only from '#components/Only'
 
 export default React.memo(function BattleSimApp(props) {
   const shouldRenderLeftPanel = props.mode === 'EDITOR'

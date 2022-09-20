@@ -1,10 +1,10 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import Info from '~/components/Info'
-import useSelectStyles from '~/hooks/useSelectStyles'
-import useIsMounted from '~/hooks/useIsMounted'
-import useUser from '~/hooks/useUser'
-import track from '~/helpers/track'
+import Info from '#components/Info'
+import useSelectStyles from '#hooks/useSelectStyles'
+import useIsMounted from '#hooks/useIsMounted'
+import useUser from '#hooks/useUser'
+import track from '#helpers/track'
 
 const Select = dynamic(() => import('react-select'), { ssr: false })
 

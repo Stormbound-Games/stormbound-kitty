@@ -1,8 +1,8 @@
 import React from 'react'
-import DeckEditorView from '~/components/DeckEditorView'
-import DeckDetailView from '~/components/DeckDetailView'
-import DeckDryRunView from '~/components/DeckDryRunView'
-import useDeckBuilder from '~/hooks/useDeckBuilder'
+import DeckEditorView from '#components/DeckEditorView'
+import DeckDetailView from '#components/DeckDetailView'
+import DeckDryRunView from '#components/DeckDryRunView'
+import useDeckBuilder from '#hooks/useDeckBuilder'
 
 const COMPONENTS = {
   DRY_RUN: DeckDryRunView,

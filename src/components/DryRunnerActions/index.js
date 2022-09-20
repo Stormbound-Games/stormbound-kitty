@@ -1,8 +1,8 @@
 import React from 'react'
-import CTA from '~/components/CTA'
-import Only from '~/components/Only'
-import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
+import CTA from '#components/CTA'
+import Only from '#components/Only'
+import Row from '#components/Row'
+import Spacing from '#components/Spacing'
 
 export default React.memo(function DryRunnerActions(props) {
   if (!props.activeCard) return null

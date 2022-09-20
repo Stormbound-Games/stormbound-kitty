@@ -1,7 +1,7 @@
 import React from 'react'
-import Select from '~/components/Select'
-import { FACTIONS } from '~/constants/game'
-import capitalize from '~/helpers/capitalize'
+import Select from '#components/Select'
+import { FACTIONS } from '#constants/game'
+import capitalize from '#helpers/capitalize'
 
 export default React.memo(function FactionSelect({
   anyLabel,

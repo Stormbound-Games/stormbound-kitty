@@ -1,4 +1,4 @@
-import groupBy from '~/helpers/groupBy'
+import groupBy from '#helpers/groupBy'
 import getSWCCContests from './getSWCCContests'
 
 const getSWCCSeasons = async ({ isPreview } = {}) => {

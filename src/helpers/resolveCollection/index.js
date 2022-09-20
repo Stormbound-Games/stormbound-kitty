@@ -1,5 +1,5 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import { getCardCost } from '~/helpers/getCollectionCost'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import { getCardCost } from '#helpers/getCollectionCost'
 
 const resolveCollection = (collection, cardsIndex) => {
   return collection.reduce((acc, card) => {

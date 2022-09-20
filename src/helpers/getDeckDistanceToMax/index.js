@@ -1,4 +1,4 @@
-import serialization from '~/helpers/serialization'
+import serialization from '#helpers/serialization'
 
 const getDeckDistanceToMax = (collection, cardsIndexBySid) => deck => {
   const cards = serialization.deck.deserialize(cardsIndexBySid, deck.id)

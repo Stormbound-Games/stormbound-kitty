@@ -1,11 +1,11 @@
 import React from 'react'
-import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
-import Input from '~/components/Input'
-import FactionSelect from '~/components/FactionSelect'
-import MobileTogglableContent from '~/components/MobileTogglableContent'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import TagsSelect from '~/components/TagsSelect'
+import { PersonalDecksContext } from '#components/PersonalDecksProvider'
+import Input from '#components/Input'
+import FactionSelect from '#components/FactionSelect'
+import MobileTogglableContent from '#components/MobileTogglableContent'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import TagsSelect from '#components/TagsSelect'
 
 export default React.memo(function YourDecksFilters(props) {
   const { decks } = React.useContext(PersonalDecksContext)

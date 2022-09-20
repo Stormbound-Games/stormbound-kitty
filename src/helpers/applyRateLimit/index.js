@@ -1,7 +1,7 @@
 import rateLimit from 'express-rate-limit'
 import slowDown from 'express-slow-down'
-import applyMiddleware from '~/helpers/applyMiddleware'
-import getIP from '~/helpers/getIP'
+import applyMiddleware from '#helpers/applyMiddleware'
+import getIP from '#helpers/getIP'
 
 export const LIMIT_PER_WINDOW = 20
 const MIDDLEWARE_CONFIG = {

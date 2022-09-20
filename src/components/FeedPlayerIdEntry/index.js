@@ -1,5 +1,5 @@
 import React from 'react'
-import FeedEntry from '~/components/FeedEntry'
+import FeedEntry from '#components/FeedEntry'
 
 export default React.memo(function FeedYouTubeEntry(props) {
   return (

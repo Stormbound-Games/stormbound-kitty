@@ -1,4 +1,4 @@
-import formatCardStats from '~/helpers/formatCardStats'
+import formatCardStats from '#helpers/formatCardStats'
 
 const isIncomplete = state => {
   if (!state.name) return true

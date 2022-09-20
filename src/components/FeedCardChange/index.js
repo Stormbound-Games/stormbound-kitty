@@ -1,9 +1,9 @@
 import React from 'react'
-import CardLink from '~/components/CardLink'
-import DiamondButton from '~/components/DiamondButton'
-import FeedEntry from '~/components/FeedEntry'
-import Only from '~/components/Only'
-import { formatPreciseDate } from '~/helpers/formatDate'
+import CardLink from '#components/CardLink'
+import DiamondButton from '#components/DiamondButton'
+import FeedEntry from '#components/FeedEntry'
+import Only from '#components/Only'
+import { formatPreciseDate } from '#helpers/formatDate'
 
 const ICONS = {
   INFO: { icon: 'info', color: 'var(--freeze)' },

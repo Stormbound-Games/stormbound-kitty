@@ -1,24 +1,22 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import { CollectionContext } from '~/components/CollectionProvider'
-import Info from '~/components/Info'
-import Only from '~/components/Only'
-import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import { CollectionContext } from '#components/CollectionProvider'
+import Info from '#components/Info'
+import Only from '#components/Only'
+import Row from '#components/Row'
+import Spacing from '#components/Spacing'
 
-const ChartAbility = dynamic(() => import('~/components/ChartAbility'))
-const ChartMana = dynamic(() => import('~/components/ChartMana'))
-const ChartMovement = dynamic(() => import('~/components/ChartMovement'))
-const ChartRarity = dynamic(() => import('~/components/ChartRarity'))
-const ChartStrength = dynamic(() => import('~/components/ChartStrength'))
-const ChartStrengthMana = dynamic(() =>
-  import('~/components/ChartStrengthMana')
-)
-const ChartType = dynamic(() => import('~/components/ChartType'))
-const ChartUnitType = dynamic(() => import('~/components/ChartUnitType'))
-const ChartFactionCard = dynamic(() => import('~/components/ChartFactionCard'))
+const ChartAbility = dynamic(() => import('#components/ChartAbility'))
+const ChartMana = dynamic(() => import('#components/ChartMana'))
+const ChartMovement = dynamic(() => import('#components/ChartMovement'))
+const ChartRarity = dynamic(() => import('#components/ChartRarity'))
+const ChartStrength = dynamic(() => import('#components/ChartStrength'))
+const ChartStrengthMana = dynamic(() => import('#components/ChartStrengthMana'))
+const ChartType = dynamic(() => import('#components/ChartType'))
+const ChartUnitType = dynamic(() => import('#components/ChartUnitType'))
+const ChartFactionCard = dynamic(() => import('#components/ChartFactionCard'))
 
 export default React.memo(function PageStatistics() {
   const { hasDefaultCollection } = React.useContext(CollectionContext)

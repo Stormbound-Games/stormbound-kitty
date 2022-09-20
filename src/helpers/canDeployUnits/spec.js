@@ -1,5 +1,5 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import canDeployUnits from './'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import canDeployUnits from './index.js'
 
 describe('The `canDeployUnits` helper', () => {
   it('should return true if a unit can be played', () => {

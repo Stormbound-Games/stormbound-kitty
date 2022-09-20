@@ -1,4 +1,4 @@
-import clamp from './'
+import clamp from './index.js'
 
 describe('The `clamp` helper', () => {
   it('should leave a valid value untouched', () => {

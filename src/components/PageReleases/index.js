@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import ListHeader from '~/components/ListHeader'
-import ListLayoutItem from '~/components/ListLayoutItem'
-import Notice from '~/components/Notice'
-import Teasers from '~/components/Teasers'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import ListHeader from '#components/ListHeader'
+import ListLayoutItem from '#components/ListLayoutItem'
+import Notice from '#components/Notice'
+import Teasers from '#components/Teasers'
 
 export default React.memo(function PageReleases(props) {
   const [layout, setLayout] = React.useState('GRID')

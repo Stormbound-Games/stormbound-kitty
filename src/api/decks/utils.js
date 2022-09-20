@@ -1,4 +1,4 @@
-import serializeDate from '~/helpers/serializeDate'
+import serializeDate from '#helpers/serializeDate'
 
 export const FIELDS = `
 "author": user -> { name, "slug": slug.current },

@@ -1,4 +1,4 @@
-import unfoldValue from './'
+import unfoldValue from './index.js'
 
 describe('The `unfoldValue` helper', () => {
   it('should stringify and split on slashes', () => {

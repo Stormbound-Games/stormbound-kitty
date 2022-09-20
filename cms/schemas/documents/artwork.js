@@ -2,7 +2,7 @@ import { MdBrush } from 'react-icons/md'
 import user from '../types/user'
 import date from '../types/date'
 import card from '../types/cardRef'
-import { formatDate } from '~/helpers/formatDate'
+import { formatDate } from '#helpers/formatDate'
 
 const artwork = {
   title: 'Artworks',

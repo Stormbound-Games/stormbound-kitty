@@ -7,11 +7,11 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import { CardsContext } from '~/components/CardsProvider'
-import Title from '~/components/Title'
-import capitalize from '~/helpers/capitalize'
-import getCardsByFaction from '~/helpers/getCardsByFaction'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CardsContext } from '#components/CardsProvider'
+import Title from '#components/Title'
+import capitalize from '#helpers/capitalize'
+import getCardsByFaction from '#helpers/getCardsByFaction'
+import { TOOLTIP_STYLES } from '#constants/stats'
 
 export default React.memo(function ChartFactionCard() {
   const { cards: allCards } = React.useContext(CardsContext)

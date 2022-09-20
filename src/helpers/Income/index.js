@@ -1,5 +1,5 @@
-import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
-import getPeriodMultiplier from '~/helpers/getPeriodMultiplier'
+import getAverageStonesPerBook from '#helpers/getAverageStonesPerBook'
+import getPeriodMultiplier from '#helpers/getPeriodMultiplier'
 
 const getRubyConversionMap = (books = []) =>
   books.reduce(

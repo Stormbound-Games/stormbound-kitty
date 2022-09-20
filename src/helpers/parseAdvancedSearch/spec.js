@@ -1,5 +1,5 @@
-import parse from './'
-import { UNIT_TYPES, TYPES, FACTIONS, RARITIES } from '~/constants/game'
+import parse from './index.js'
+import { UNIT_TYPES, TYPES, FACTIONS, RARITIES } from '#constants/game'
 
 describe('The `parseAdvancedSearch` helper', () => {
   it('should handle empty searches', () => {

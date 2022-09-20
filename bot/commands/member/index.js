@@ -1,7 +1,7 @@
-import getEmbed from '~/helpers/getEmbed'
-import capitalize from '~/helpers/capitalize'
-import groupBy from '~/helpers/groupBy'
-import getContentFromUser from '~/api/users/getContentFromUser'
+import getEmbed from '#helpers/getEmbed'
+import capitalize from '#helpers/capitalize'
+import groupBy from '#helpers/groupBy'
+import getContentFromUser from '#api/users/getContentFromUser'
 
 const BASE_URL = 'https://stormbound-kitty.com'
 

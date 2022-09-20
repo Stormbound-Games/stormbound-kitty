@@ -1,5 +1,5 @@
-import { getEntry } from '~/helpers/sanity'
-import { FIELDS, MAPPER } from './utils'
+import { getEntry } from '#helpers/sanity'
+import { FIELDS, MAPPER } from './utils.js'
 
 const getCard = async ({ id, isPreview } = {}) => {
   const card = await getEntry({

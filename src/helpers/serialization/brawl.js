@@ -5,7 +5,7 @@ import {
   getLongMatchStatus,
   getShortVictoryBonus,
   getLongVictoryBonus,
-} from '~/helpers/encoding'
+} from '#helpers/encoding'
 
 const serializeMatch = match =>
   [

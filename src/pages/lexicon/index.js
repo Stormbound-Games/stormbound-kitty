@@ -1,6 +1,6 @@
-import PageLexicon from '~/components/PageLexicon'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getAbbreviations from '~/api/misc/getAbbreviations'
+import PageLexicon from '#components/PageLexicon'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getAbbreviations from '#api/misc/getAbbreviations'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

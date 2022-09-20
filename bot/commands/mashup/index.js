@@ -1,6 +1,6 @@
-import arrayRandom from '~/helpers/arrayRandom'
-import getEmbed from '~/helpers/getEmbed'
-import getCards from '~/api/cards/getCards'
+import arrayRandom from '#helpers/arrayRandom'
+import getEmbed from '#helpers/getEmbed'
+import getCards from '#api/cards/getCards'
 
 const getChunks = cards => {
   const starts = []

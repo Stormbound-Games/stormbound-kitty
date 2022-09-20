@@ -1,4 +1,4 @@
-import getExpectedCoinsPerBook from './'
+import getExpectedCoinsPerBook from './index.js'
 
 const LEVEL_5_COLLECTION = global.__CARDS__.map(card => ({
   id: card.id,

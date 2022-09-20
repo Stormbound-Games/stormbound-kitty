@@ -1,6 +1,6 @@
 import React from 'react'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import Info from '~/components/Info'
+import BlocksRenderer from '#components/BlocksRenderer'
+import Info from '#components/Info'
 
 export default React.memo(function BlockInfo(props) {
   return (

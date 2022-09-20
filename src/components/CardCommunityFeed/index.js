@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CardFeedItem from '~/components/CardFeedItem'
-import Spacing from '~/components/Spacing'
-import Title from '~/components/Title'
+import CardFeedItem from '#components/CardFeedItem'
+import Spacing from '#components/Spacing'
+import Title from '#components/Title'
 import styles from './styles'
 
 export default React.memo(function CardCommunityFeed(props) {

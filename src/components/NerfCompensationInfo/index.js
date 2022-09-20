@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { CardsContext } from '~/components/CardsProvider'
-import Info from '~/components/Info'
-import ResourceIcon from '~/components/ResourceIcon'
-import { Coins, Stones } from '~/components/Resource'
-import { RARITIES } from '~/constants/game'
-import capitalize from '~/helpers/capitalize'
-import toSentence from '~/helpers/toSentence'
+import { CardsContext } from '#components/CardsProvider'
+import Info from '#components/Info'
+import ResourceIcon from '#components/ResourceIcon'
+import { Coins, Stones } from '#components/Resource'
+import { RARITIES } from '#constants/game'
+import capitalize from '#helpers/capitalize'
+import toSentence from '#helpers/toSentence'
 
 const COMPENSATION = {
   common: [

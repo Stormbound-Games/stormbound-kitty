@@ -1,4 +1,4 @@
-import command, { validateFaction, parseMessage } from './'
+import command, { validateFaction, parseMessage } from './index.js'
 const randomdeck = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'

@@ -1,4 +1,4 @@
-import range from './'
+import range from './index.js'
 
 describe('The `range` helper', () => {
   it('should return the range between two values', () => {

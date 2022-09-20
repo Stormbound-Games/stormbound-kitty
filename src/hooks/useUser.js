@@ -1,4 +1,4 @@
-import useLocalStorage from '~/hooks/useLocalStorage'
+import useLocalStorage from '#hooks/useLocalStorage'
 
 const useUser = (initialValue = null) =>
   useLocalStorage('sk.user', initialValue)

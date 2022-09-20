@@ -1,6 +1,6 @@
 import s from './selectors'
-import formatCardStats from '~/helpers/formatCardStats'
-import serialization from '~/helpers/serialization'
+import formatCardStats from '#helpers/formatCardStats'
+import serialization from '#helpers/serialization'
 
 const N1 = {
   ability:

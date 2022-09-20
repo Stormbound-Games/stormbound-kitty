@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
-import BlocksRenderer from '~/components/BlocksRenderer'
+import Link from '#components/Link'
+import BlocksRenderer from '#components/BlocksRenderer'
 import styles from './styles'
 
 export default React.memo(function FAQEntry(props) {

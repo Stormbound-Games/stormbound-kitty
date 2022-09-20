@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
-import Icon from '~/components/Icon'
-import useUser from '~/hooks/useUser'
+import Link from '#components/Link'
+import Icon from '#components/Icon'
+import useUser from '#hooks/useUser'
 import styles from './styles'
 
 export default React.memo(function MemberListEntry(props) {

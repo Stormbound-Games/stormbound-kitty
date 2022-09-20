@@ -1,8 +1,8 @@
 import rwc from 'random-weighted-choice'
-import arrayRandom from '~/helpers/arrayRandom'
-import random from '~/helpers/random'
-import capitalize from '~/helpers/capitalize'
-import { FACTIONS, TYPES } from '~/constants/game'
+import arrayRandom from '#helpers/arrayRandom'
+import random from '#helpers/random'
+import capitalize from '#helpers/capitalize'
+import { FACTIONS, TYPES } from '#constants/game'
 import {
   RACES_BY_TYPE,
   BASE_SLOTS,
@@ -14,7 +14,7 @@ import {
   TRIGGERS,
 } from './data'
 import { MIN_MANA, MAX_MANA, MAX_EFF_COST } from './constants'
-import { log, fixWording, highlight } from './utils'
+import { log, fixWording, highlight } from './utils.js'
 
 class Card {
   constructor(filters = {}) {

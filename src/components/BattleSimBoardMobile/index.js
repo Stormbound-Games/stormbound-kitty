@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Image from 'next/image'
-import BaseHealth from '~/components/BattleSimBaseHealth'
-import Cards from '~/components/BattleSimCards'
-import CardZoom from '~/components/CardZoom'
-import Grid from '~/components/BattleSimGrid'
-import PlayerBanner from '~/components/BattleSimPlayerBanner'
+import BaseHealth from '#components/BattleSimBaseHealth'
+import Cards from '#components/BattleSimCards'
+import CardZoom from '#components/CardZoom'
+import Grid from '#components/BattleSimGrid'
+import PlayerBanner from '#components/BattleSimPlayerBanner'
 import styles from './styles'
 
 export default React.memo(function BattleSimBoardMobile(props) {

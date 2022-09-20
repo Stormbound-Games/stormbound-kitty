@@ -1,6 +1,6 @@
-import PageYouTubeChannels from '~/components/PageYouTubeChannels'
-import getChannels from '~/api/users/getChannels'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageYouTubeChannels from '#components/PageYouTubeChannels'
+import getChannels from '#api/users/getChannels'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const channels = await getChannels({ isPreview })

@@ -1,5 +1,5 @@
-import getIP from '~/helpers/getIP'
-import isChecklyRequest from '~/helpers/isChecklyRequest'
+import getIP from '#helpers/getIP'
+import isChecklyRequest from '#helpers/isChecklyRequest'
 
 const API_URL = 'https://plausible.io/api/event'
 

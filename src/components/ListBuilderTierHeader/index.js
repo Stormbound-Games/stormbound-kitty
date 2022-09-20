@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CardSelect from '~/components/CardSelect'
-import Label from '~/components/Label'
-import Link from '~/components/Link'
-import Icon from '~/components/Icon'
-import Input from '~/components/Input'
-import generateId from '~/helpers/generateId'
+import CardSelect from '#components/CardSelect'
+import Label from '#components/Label'
+import Link from '#components/Link'
+import Icon from '#components/Icon'
+import Input from '#components/Input'
+import generateId from '#helpers/generateId'
 import styles from './styles'
 
 const TierName = props => {

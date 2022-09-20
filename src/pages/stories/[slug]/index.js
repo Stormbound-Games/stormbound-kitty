@@ -1,9 +1,9 @@
-import PageStory from '~/components/PageStory'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getStory from '~/api/stories/getStory'
-import getStories from '~/api/stories/getStories'
-import getStoriesFromAuthor from '~/api/stories/getStoriesFromAuthor'
-import { STORY_CATEGORIES } from '~/constants/stories'
+import PageStory from '#components/PageStory'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getStory from '#api/stories/getStory'
+import getStories from '#api/stories/getStories'
+import getStoriesFromAuthor from '#api/stories/getStoriesFromAuthor'
+import { STORY_CATEGORIES } from '#constants/stories'
 
 export async function getStaticPaths({ preview: isPreview = false }) {
   const stories = await getStories({ isPreview })

@@ -1,7 +1,7 @@
 // eslint-disable jsx-a11y/accessible-emoji
 import React from 'react'
-import Link from '~/components/Link'
-import MemberList from '~/components/MemberList'
+import Link from '#components/Link'
+import MemberList from '#components/MemberList'
 
 export default React.memo(function TournamentWinners(props) {
   const isTeamTournament = props.podium.some(step => step.length > 1)

@@ -1,10 +1,10 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import ListHeader from '~/components/ListHeader'
-import ListLayoutItem from '~/components/ListLayoutItem'
-import Page from '~/components/Page'
-import Teasers from '~/components/Teasers'
-import microMarkdown from '~/helpers/microMarkdown'
+import { CardsContext } from '#components/CardsProvider'
+import ListHeader from '#components/ListHeader'
+import ListLayoutItem from '#components/ListLayoutItem'
+import Page from '#components/Page'
+import Teasers from '#components/Teasers'
+import microMarkdown from '#helpers/microMarkdown'
 
 export default React.memo(function PageBrawlIndex(props) {
   const { cardsIndex } = React.useContext(CardsContext)

@@ -1,4 +1,4 @@
-import getPeriodMultiplier from './'
+import getPeriodMultiplier from './index.js'
 
 describe('The `getPeriodMultiplier` helper', () => {
   it('should handle YEARLY', () => {

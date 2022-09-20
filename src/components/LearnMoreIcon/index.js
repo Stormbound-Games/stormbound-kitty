@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from '~/components/Link'
-import QuestionMark from '~/components/QuestionMark'
-import VisuallyHidden from '~/components/VisuallyHidden'
+import Link from '#components/Link'
+import QuestionMark from '#components/QuestionMark'
+import VisuallyHidden from '#components/VisuallyHidden'
 
 export default React.memo(function LearnMoreIcon(props) {
   return (

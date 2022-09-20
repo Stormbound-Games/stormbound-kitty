@@ -1,5 +1,5 @@
-import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import command from './'
+import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
+import command from './index.js'
 const suggestdeck = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'

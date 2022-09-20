@@ -1,9 +1,9 @@
-import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '~/constants/game'
-import arrayRandom from '~/helpers/arrayRandom'
-import getEmbed from '~/helpers/getEmbed'
-import getIgnoredSearch from '~/helpers/getIgnoredSearch'
-import handleSearchAlias from '~/helpers/handleSearchAlias'
-import getCards from '~/api/cards/getCards'
+import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
+import arrayRandom from '#helpers/arrayRandom'
+import getEmbed from '#helpers/getEmbed'
+import getIgnoredSearch from '#helpers/getIgnoredSearch'
+import handleSearchAlias from '#helpers/handleSearchAlias'
+import getCards from '#api/cards/getCards'
 
 const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 

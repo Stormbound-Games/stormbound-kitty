@@ -1,9 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import serialization from '~/helpers/serialization'
-import resolveLeveledProperty from '~/helpers/resolveLeveledProperty'
-import resolveAbility from '~/helpers/resolveAbility'
-import isDeepEqual from '~/helpers/isDeepEqual'
+import serialization from '#helpers/serialization'
+import resolveLeveledProperty from '#helpers/resolveLeveledProperty'
+import resolveAbility from '#helpers/resolveAbility'
+import isDeepEqual from '#helpers/isDeepEqual'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),

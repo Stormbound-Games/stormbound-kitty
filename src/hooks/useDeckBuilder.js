@@ -1,10 +1,10 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { CardsContext } from '~/components/CardsProvider'
-import serialization from '~/helpers/serialization'
-import { sortByMana } from '~/helpers/sortCards'
-import useRouteId from '~/hooks/useRouteId'
-import useOnUpdate from '~/hooks/useOnUpdate'
+import { CardsContext } from '#components/CardsProvider'
+import serialization from '#helpers/serialization'
+import { sortByMana } from '#helpers/sortCards'
+import useRouteId from '#hooks/useRouteId'
+import useOnUpdate from '#hooks/useOnUpdate'
 
 const getDeckBuilderPath = (deck, view) => {
   const id = serialization.deck.serialize(deck)

@@ -1,9 +1,9 @@
 import React from 'react'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import getDeckDistanceToMax from '~/helpers/getDeckDistanceToMax'
-import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import resolveCollection from '~/helpers/resolveCollection'
+import { CollectionContext } from '#components/CollectionProvider'
+import { CardsContext } from '#components/CardsProvider'
+import getDeckDistanceToMax from '#helpers/getDeckDistanceToMax'
+import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
+import resolveCollection from '#helpers/resolveCollection'
 
 const useFeaturedDecksSorting = order => {
   const { hasDefaultCollection, collection } =

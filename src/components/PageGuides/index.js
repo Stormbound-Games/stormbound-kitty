@@ -1,13 +1,13 @@
 import React from 'react'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import ListHeader from '~/components/ListHeader'
-import ListLayoutItem from '~/components/ListLayoutItem'
-import MemberList from '~/components/MemberList'
-import Notice from '~/components/Notice'
-import Only from '~/components/Only'
-import Teasers from '~/components/Teasers'
-import parseDate from '~/helpers/parseDate'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import ListHeader from '#components/ListHeader'
+import ListLayoutItem from '#components/ListLayoutItem'
+import MemberList from '#components/MemberList'
+import Notice from '#components/Notice'
+import Only from '#components/Only'
+import Teasers from '#components/Teasers'
+import parseDate from '#helpers/parseDate'
 
 export default React.memo(function PageGuides(props) {
   const [layout, setLayout] = React.useState('GRID')

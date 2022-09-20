@@ -4,8 +4,8 @@ import {
   RARITIES as RARITIES_LONG,
   UNIT_TYPES as UNIT_TYPES_LONG,
   CURRENCIES as CURRENCIES_LONG,
-} from '~/constants/game'
-import { MATCH_STATUSES, VICTORY_BONUSES } from '~/constants/brawl'
+} from '#constants/game'
+import { MATCH_STATUSES, VICTORY_BONUSES } from '#constants/brawl'
 
 const UNIT_TYPES_SHORT = [
   'A',

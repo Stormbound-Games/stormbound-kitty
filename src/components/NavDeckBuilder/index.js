@@ -1,8 +1,8 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import SubNav from '~/components/SubNav'
-import serialization from '~/helpers/serialization'
-import useRouteId from '~/hooks/useRouteId'
+import { CardsContext } from '#components/CardsProvider'
+import SubNav from '#components/SubNav'
+import serialization from '#helpers/serialization'
+import useRouteId from '#hooks/useRouteId'
 
 export default React.memo(function NavDeckBuilder(props) {
   const id = useRouteId()

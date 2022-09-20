@@ -11,7 +11,7 @@ import {
   getLongCurrency,
   getShortMatchStatus,
   getLongMatchStatus,
-} from './'
+} from './index.js'
 
 describe('The `getShortFaction` helper', () => {
   it('should return single-letter faction', () => {

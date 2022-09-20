@@ -1,12 +1,12 @@
 import React from 'react'
-import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
-import { NotificationContext } from '~/components/NotificationProvider'
-import CTA from '~/components/CTA'
-import Only from '~/components/Only'
-import FileUpload from '~/components/FileUpload'
-import uuid from '~/helpers/uuid'
-import capitalize from '~/helpers/capitalize'
-import chunk from '~/helpers/chunk'
+import { PersonalDecksContext } from '#components/PersonalDecksProvider'
+import { NotificationContext } from '#components/NotificationProvider'
+import CTA from '#components/CTA'
+import Only from '#components/Only'
+import FileUpload from '#components/FileUpload'
+import uuid from '#helpers/uuid'
+import capitalize from '#helpers/capitalize'
+import chunk from '#helpers/chunk'
 
 const parseCSVData = data => {
   return data

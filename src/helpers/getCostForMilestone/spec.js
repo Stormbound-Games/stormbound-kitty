@@ -1,4 +1,4 @@
-import getCostForMilestone from './'
+import getCostForMilestone from './index.js'
 
 describe('The `getCostForMilestone` helper', () => {
   it('should return 0 coins for the first milestone', () => {

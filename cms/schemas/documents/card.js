@@ -1,5 +1,5 @@
 import { MdWysiwyg } from 'react-icons/md'
-import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
+import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '#constants/game'
 import getBlock from '../richText/block'
 
 const card = {

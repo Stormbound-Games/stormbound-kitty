@@ -1,4 +1,4 @@
-import abbreviate from './'
+import abbreviate from './index.js'
 
 describe('The `abbreviate` helper', () => {
   it('should abbreviate a card name', () => {

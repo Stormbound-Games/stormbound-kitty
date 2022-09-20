@@ -1,8 +1,8 @@
 import React from 'react'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import Title from '~/components/Title'
-import useIsMounted from '~/hooks/useIsMounted'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import Title from '#components/Title'
+import useIsMounted from '#hooks/useIsMounted'
 
 export default React.memo(function CardChangelogForm(props) {
   const isMounted = useIsMounted()

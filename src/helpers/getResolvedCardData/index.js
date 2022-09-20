@@ -1,6 +1,6 @@
-import unfoldValue from '~/helpers/unfoldValue'
-import resolveAbility from '~/helpers/resolveAbility'
-import isCardLevelResolved from '~/helpers/isCardLevelResolved'
+import unfoldValue from '#helpers/unfoldValue'
+import resolveAbility from '#helpers/resolveAbility'
+import isCardLevelResolved from '#helpers/isCardLevelResolved'
 
 const getResolvedCardData = (cardsIndex, card) => {
   const { id, copies, missing } = card || {}

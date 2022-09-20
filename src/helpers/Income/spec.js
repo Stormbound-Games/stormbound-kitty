@@ -1,4 +1,9 @@
-import { DailyIncome, WeeklyIncome, MonthlyIncome, YearlyIncome } from './'
+import {
+  DailyIncome,
+  WeeklyIncome,
+  MonthlyIncome,
+  YearlyIncome,
+} from './index.js'
 
 describe('The `Income` class', () => {
   it('should provide all resources', () => {

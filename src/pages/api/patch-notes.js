@@ -1,6 +1,6 @@
-import applyRateLimit from '~/helpers/applyRateLimit'
-import trackAsync from '~/helpers/trackAsync'
-import getReleases from '~/api/releases/getReleases'
+import applyRateLimit from '#helpers/applyRateLimit'
+import trackAsync from '#helpers/trackAsync'
+import getReleases from '#api/releases/getReleases'
 
 export default async function handler(request, response) {
   const isPreview = request.preview

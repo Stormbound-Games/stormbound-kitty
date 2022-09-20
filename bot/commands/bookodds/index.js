@@ -1,12 +1,12 @@
-import { RARITIES } from '~/constants/game'
-import getDrawingExpectations from '~/helpers/getDrawingExpectations'
-import getDrawingProbability from '~/helpers/getDrawingProbability'
-import searchCards from '~/helpers/searchCards'
-import indexArray from '~/helpers/indexArray'
-import getEmbed from '~/helpers/getEmbed'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
-import getBooks from '~/api/books/getBooks'
+import { RARITIES } from '#constants/game'
+import getDrawingExpectations from '#helpers/getDrawingExpectations'
+import getDrawingProbability from '#helpers/getDrawingProbability'
+import searchCards from '#helpers/searchCards'
+import indexArray from '#helpers/indexArray'
+import getEmbed from '#helpers/getEmbed'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
+import getBooks from '#api/books/getBooks'
 
 const getEmbedFields = (cards, book) => {
   const fields = []

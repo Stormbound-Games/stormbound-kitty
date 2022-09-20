@@ -1,4 +1,4 @@
-import { MonthlyIncome } from '~/helpers/Income'
+import { MonthlyIncome } from '#helpers/Income'
 
 const getHeroesLeagueRewards = (books, position) => {
   const rewards = new MonthlyIncome(books)

@@ -1,4 +1,4 @@
-import computeDeckChances from '~/helpers/computeDeckChances'
+import computeDeckChances from '#helpers/computeDeckChances'
 
 const computeDeckChartData = (deck, modifier) => {
   const data = []

@@ -1,6 +1,6 @@
-import { WeeklyIncome } from '~/helpers/Income'
-import { BRAWL_MILESTONES } from '~/constants/brawl'
-import getRewardFromMilestone from '~/helpers/getRewardFromMilestone'
+import { WeeklyIncome } from '#helpers/Income'
+import { BRAWL_MILESTONES } from '#constants/brawl'
+import getRewardFromMilestone from '#helpers/getRewardFromMilestone'
 
 const getBrawlRewards = (books, { casual, warrior, ultimate }) => {
   const rewards = new WeeklyIncome(books)

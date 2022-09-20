@@ -1,7 +1,7 @@
-import advice, { SPAWNS } from './'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialization from '~/helpers/serialization'
-import modifyDeck from '~/helpers/modifyDeck'
+import advice, { SPAWNS } from './index.js'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import serialization from '#helpers/serialization'
+import modifyDeck from '#helpers/modifyDeck'
 
 const SPAWNS_ARRAY = Object.keys(SPAWNS)
 const BASE_DECKS = {

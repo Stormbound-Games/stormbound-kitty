@@ -1,6 +1,6 @@
-import Home from '~/components/Home'
-import getNews from '~/api/news/getNews'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import Home from '#components/Home'
+import getNews from '#api/news/getNews'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

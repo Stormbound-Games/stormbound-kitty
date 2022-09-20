@@ -1,5 +1,5 @@
-import { DailyIncome } from '~/helpers/Income'
-import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
+import { DailyIncome } from '#helpers/Income'
+import getDailyCoinsCounter from '#helpers/getDailyCoinsCounter'
 
 const getActivityRewards = (
   books,

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { BrawlContext } from '~/components/BrawlProvider'
-import Checkbox from '~/components/Checkbox'
-import CTA from '~/components/CTA'
-import Dialog from '~/components/Dialog'
-import Info from '~/components/Info'
-import Spacing from '~/components/Spacing'
+import { BrawlContext } from '#components/BrawlProvider'
+import Checkbox from '#components/Checkbox'
+import CTA from '#components/CTA'
+import Dialog from '#components/Dialog'
+import Info from '#components/Info'
+import Spacing from '#components/Spacing'
 import styles from './styles'
 
 export default React.memo(function BrawlReset() {

@@ -1,7 +1,7 @@
-import PageGuides from '~/components/PageGuides'
-import { GUIDE_CATEGORIES } from '~/constants/guides'
-import getGuidesFromCategory from '~/api/guides/getGuidesFromCategory'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageGuides from '#components/PageGuides'
+import { GUIDE_CATEGORIES } from '#constants/guides'
+import getGuidesFromCategory from '#api/guides/getGuidesFromCategory'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const name = 'ESSENTIALS'

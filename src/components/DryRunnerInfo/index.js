@@ -1,8 +1,8 @@
 import React from 'react'
-import CardLink from '~/components/CardLink'
-import DryRunnerSettings from '~/components/DryRunnerSettings'
-import Row from '~/components/Row'
-import Title from '~/components/Title'
+import CardLink from '#components/CardLink'
+import DryRunnerSettings from '#components/DryRunnerSettings'
+import Row from '#components/Row'
+import Title from '#components/Title'
 
 const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11', 'W32', 'W33']
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { useAnimation } from 'framer-motion'
-import CTA from '~/components/CTA'
-import ResetButton from '~/components/ResetButton'
-import Mana from '~/components/Mana'
-import Spacing from '~/components/Spacing'
+import CTA from '#components/CTA'
+import ResetButton from '#components/ResetButton'
+import Mana from '#components/Mana'
+import Spacing from '#components/Spacing'
 import styles from './styles'
 
 export default React.memo(function DryRunnerHeader(props) {

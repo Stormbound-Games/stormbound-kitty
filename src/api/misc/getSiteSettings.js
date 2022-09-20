@@ -1,6 +1,6 @@
-import { getEntry } from '~/helpers/sanity'
-import getNavigation from '~/helpers/getNavigation'
-import getCards from '~/api/cards/getCards'
+import { getEntry } from '#helpers/sanity'
+import getNavigation from '#helpers/getNavigation'
+import getCards from '#api/cards/getCards'
 
 const getSiteSettings = async ({ isPreview, cards } = {}) => {
   if (!cards) cards = await getCards({ isPreview })

@@ -1,9 +1,9 @@
-import PagePuzzle from '~/components/PagePuzzle'
-import getPuzzle from '~/api/puzzles/getPuzzle'
-import getPuzzles from '~/api/puzzles/getPuzzles'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
-import serialization from '~/helpers/serialization'
+import PagePuzzle from '#components/PagePuzzle'
+import getPuzzle from '#api/puzzles/getPuzzle'
+import getPuzzles from '#api/puzzles/getPuzzles'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
+import serialization from '#helpers/serialization'
 
 export async function getStaticPaths() {
   const puzzles = await getPuzzles()

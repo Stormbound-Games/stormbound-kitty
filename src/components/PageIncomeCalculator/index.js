@@ -1,20 +1,20 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
-import Checkbox from '~/components/Checkbox'
-import Page from '~/components/Page'
-import Info from '~/components/Info'
-import Label from '~/components/Label'
-import LeagueSelect from '~/components/LeagueSelect'
-import NumberInput from '~/components/NumberInput'
-import Only from '~/components/Only'
-import PremiumPassCheckbox from '~/components/PremiumPassCheckbox'
-import ResourceIcon from '~/components/ResourceIcon'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import Spacing from '~/components/Spacing'
-import Title from '~/components/Title'
-import { BRAWL_MILESTONES } from '~/constants/brawl'
+import Link from '#components/Link'
+import Checkbox from '#components/Checkbox'
+import Page from '#components/Page'
+import Info from '#components/Info'
+import Label from '#components/Label'
+import LeagueSelect from '#components/LeagueSelect'
+import NumberInput from '#components/NumberInput'
+import Only from '#components/Only'
+import PremiumPassCheckbox from '#components/PremiumPassCheckbox'
+import ResourceIcon from '#components/ResourceIcon'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import Spacing from '#components/Spacing'
+import Title from '#components/Title'
+import { BRAWL_MILESTONES } from '#constants/brawl'
 import {
   Common,
   Rare,
@@ -23,23 +23,23 @@ import {
   Coins,
   Rubies,
   Stones,
-} from '~/components/Resource'
-import capitalize from '~/helpers/capitalize'
-import clamp from '~/helpers/clamp'
-import getActivityRewards from '~/helpers/getActivityRewards'
-import getBrawlRewards from '~/helpers/getBrawlRewards'
-import getClimbingRewards from '~/helpers/getClimbingRewards'
-import getDraftRewards from '~/helpers/getDraftRewards'
-import getHeroesLeagueRewards from '~/helpers/getHeroesLeagueRewards'
-import getLeagueChestRewards from '~/helpers/getLeagueChestRewards'
-import getResourceLabel from '~/helpers/getResourceLabel'
-import getVictoryCoins from '~/helpers/getVictoryCoins'
+} from '#components/Resource'
+import capitalize from '#helpers/capitalize'
+import clamp from '#helpers/clamp'
+import getActivityRewards from '#helpers/getActivityRewards'
+import getBrawlRewards from '#helpers/getBrawlRewards'
+import getClimbingRewards from '#helpers/getClimbingRewards'
+import getDraftRewards from '#helpers/getDraftRewards'
+import getHeroesLeagueRewards from '#helpers/getHeroesLeagueRewards'
+import getLeagueChestRewards from '#helpers/getLeagueChestRewards'
+import getResourceLabel from '#helpers/getResourceLabel'
+import getVictoryCoins from '#helpers/getVictoryCoins'
 import {
   DailyIncome,
   WeeklyIncome,
   MonthlyIncome,
   YearlyIncome,
-} from '~/helpers/Income'
+} from '#helpers/Income'
 import styles from './styles'
 
 const PERIODS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY']

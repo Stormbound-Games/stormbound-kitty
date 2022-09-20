@@ -7,11 +7,11 @@ import {
   Pie,
   Cell,
 } from 'recharts'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import { getCardCost } from '~/helpers/getCollectionCost'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CollectionContext } from '#components/CollectionProvider'
+import { CardsContext } from '#components/CardsProvider'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import { getCardCost } from '#helpers/getCollectionCost'
+import { TOOLTIP_STYLES } from '#constants/stats'
 
 const useRarityData = () => {
   const { collection } = React.useContext(CollectionContext)

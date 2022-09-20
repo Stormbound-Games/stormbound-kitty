@@ -1,12 +1,12 @@
 import React from 'react'
-import Link from '~/components/Link'
-import ListLayoutItem from '~/components/ListLayoutItem'
-import Teasers from '~/components/Teasers'
-import { CardsContext } from '~/components/CardsProvider'
-import parseDate from '~/helpers/parseDate'
-import microMarkdown from '~/helpers/microMarkdown'
-import getSWCCCardData from '~/helpers/getSWCCCardData'
-import { formatDate } from '~/helpers/formatDate'
+import Link from '#components/Link'
+import ListLayoutItem from '#components/ListLayoutItem'
+import Teasers from '#components/Teasers'
+import { CardsContext } from '#components/CardsProvider'
+import parseDate from '#helpers/parseDate'
+import microMarkdown from '#helpers/microMarkdown'
+import getSWCCCardData from '#helpers/getSWCCCardData'
+import { formatDate } from '#helpers/formatDate'
 
 export default React.memo(function SWCCSeason(props) {
   const { cardsIndex } = React.useContext(CardsContext)

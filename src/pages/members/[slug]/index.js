@@ -1,7 +1,7 @@
-import PageMember from '~/components/PageMember'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getContentFromUser from '~/api/users/getContentFromUser'
-import getUsers from '~/api/users/getUsers'
+import PageMember from '#components/PageMember'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getContentFromUser from '#api/users/getContentFromUser'
+import getUsers from '#api/users/getUsers'
 
 export async function getStaticPaths() {
   const paths = (await getUsers()).map(user => ({

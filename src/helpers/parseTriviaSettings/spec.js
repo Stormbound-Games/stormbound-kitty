@@ -1,4 +1,4 @@
-import parseTriviaSettings from './'
+import parseTriviaSettings from './index.js'
 
 describe('The `parseTriviaSettings` helper', () => {
   it('should return an empty object if no mode found', () => {

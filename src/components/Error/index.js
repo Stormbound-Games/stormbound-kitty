@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '~/components/Image'
-import Link from '~/components/Link'
-import Title from '~/components/Title'
+import Image from '#components/Image'
+import Link from '#components/Link'
+import Title from '#components/Title'
 import styles from './styles'
 
 export default React.memo(function Error(props) {

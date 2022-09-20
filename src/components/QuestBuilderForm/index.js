@@ -1,11 +1,11 @@
 import React from 'react'
-import Input from '~/components/Input'
-import NumberInput from '~/components/NumberInput'
-import ResetButton from '~/components/ResetButton'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import ShareButton from '~/components/QuestBuilderShareButton'
-import Spacing from '~/components/Spacing'
+import Input from '#components/Input'
+import NumberInput from '#components/NumberInput'
+import ResetButton from '#components/ResetButton'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import ShareButton from '#components/QuestBuilderShareButton'
+import Spacing from '#components/Spacing'
 
 export default React.memo(function QuestBuilderForm(props) {
   return (

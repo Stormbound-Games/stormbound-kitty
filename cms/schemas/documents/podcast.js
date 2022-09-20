@@ -2,7 +2,7 @@ import { MdPodcasts } from 'react-icons/md'
 import React from 'react'
 import user from '../types/user'
 import date from '../types/date'
-import { formatDate } from '~/helpers/formatDate'
+import { formatDate } from '#helpers/formatDate'
 
 const podcast = {
   title: 'Brewed Sages podcasts',

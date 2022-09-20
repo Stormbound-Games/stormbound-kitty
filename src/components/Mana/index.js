@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
-import Image from '~/components/Image'
-import VisuallyHidden from '~/components/VisuallyHidden'
+import Image from '#components/Image'
+import VisuallyHidden from '#components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Mana(props) {

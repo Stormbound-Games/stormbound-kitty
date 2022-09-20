@@ -1,8 +1,8 @@
-import getEmbed from '~/helpers/getEmbed'
-import searchCards from '~/helpers/searchCards'
-import handleSearchAlias from '~/helpers/handleSearchAlias'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
+import getEmbed from '#helpers/getEmbed'
+import searchCards from '#helpers/searchCards'
+import handleSearchAlias from '#helpers/handleSearchAlias'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
 
 const cardinfo = {
   command: 'cardinfo',

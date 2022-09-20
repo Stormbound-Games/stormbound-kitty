@@ -1,5 +1,5 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import { sortByMana } from '~/helpers/sortCards'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import { sortByMana } from '#helpers/sortCards'
 
 const getDeckBuilderMetaTags = (
   cardsIndex,

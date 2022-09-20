@@ -8,12 +8,12 @@ import {
   YAxis,
   Bar,
 } from 'recharts'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import { TOOLTIP_STYLES } from '~/constants/stats'
-import capitalize from '~/helpers/capitalize'
-import countCards from '~/helpers/countCards'
-import { RARITIES, RARITY_COPIES } from '~/constants/game'
+import { CollectionContext } from '#components/CollectionProvider'
+import { CardsContext } from '#components/CardsProvider'
+import { TOOLTIP_STYLES } from '#constants/stats'
+import capitalize from '#helpers/capitalize'
+import countCards from '#helpers/countCards'
+import { RARITIES, RARITY_COPIES } from '#constants/game'
 
 const getTotalCopiesForCard = (card, rarity) => {
   if (card.missing) return 0

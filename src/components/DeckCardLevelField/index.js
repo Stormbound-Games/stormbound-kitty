@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Only from '~/components/Only'
-import Select from '~/components/Select'
+import Only from '#components/Only'
+import Select from '#components/Select'
 import styles from './styles'
 
 export default React.memo(function DeckCardLevelField(props) {

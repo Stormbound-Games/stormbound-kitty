@@ -1,7 +1,7 @@
-import PageCardBuilder from '~/components/PageCardBuilder'
-import getInitialCardData from '~/helpers/getInitialCardData'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
+import PageCardBuilder from '#components/PageCardBuilder'
+import getInitialCardData from '#helpers/getInitialCardData'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: [] } }], fallback: 'blocking' }

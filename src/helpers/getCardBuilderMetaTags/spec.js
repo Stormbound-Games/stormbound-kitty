@@ -1,4 +1,4 @@
-import getCardBuilderMetaTags from './'
+import getCardBuilderMetaTags from './index.js'
 
 describe('The `getCardBuilderMetaTags` helper', () => {
   it('should return the name as title if provided', () => {

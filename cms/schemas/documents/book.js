@@ -1,6 +1,6 @@
 import { MdMenuBook } from 'react-icons/md'
-import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '~/constants/game'
-import capitalize from '~/helpers/capitalize'
+import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '#constants/game'
+import capitalize from '#helpers/capitalize'
 
 const restriction = {
   title: 'Restriction',

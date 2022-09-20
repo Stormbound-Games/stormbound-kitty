@@ -1,4 +1,4 @@
-import command from './'
+import command from './index.js'
 const role = command.handler.bind(command)
 
 const guild = { roles: new Map() }

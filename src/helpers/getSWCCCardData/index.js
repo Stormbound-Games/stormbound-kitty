@@ -1,4 +1,4 @@
-import serialization from '~/helpers/serialization'
+import serialization from '#helpers/serialization'
 
 const getSWCCCardData = (cardsIndex, id) => {
   const data = serialization.card.deserialize(cardsIndex, id)

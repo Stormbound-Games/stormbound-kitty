@@ -1,5 +1,5 @@
 import React from 'react'
-import useLocalStorage from '~/hooks/useLocalStorage'
+import useLocalStorage from '#hooks/useLocalStorage'
 
 // Synchronous way (which is better to avoid extra HTTP requests)
 const supportsWebpFormat = () => {

@@ -1,4 +1,4 @@
-import getExcerpt from './'
+import getExcerpt from './index.js'
 
 describe('The `getExcerpt` helper', () => {
   it('should slice a string at correct length', () => {

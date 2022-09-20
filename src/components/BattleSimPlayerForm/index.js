@@ -1,7 +1,7 @@
 import React from 'react'
-import FactionSelect from '~/components/FactionSelect'
-import NumberInput from '~/components/NumberInput'
-import Row from '~/components/Row'
+import FactionSelect from '#components/FactionSelect'
+import NumberInput from '#components/NumberInput'
+import Row from '#components/Row'
 
 export default React.memo(function BattleSimPlayerForm(props) {
   return (

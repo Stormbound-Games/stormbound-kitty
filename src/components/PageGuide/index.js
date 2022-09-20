@@ -1,13 +1,13 @@
 import React from 'react'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import HorizontalRule from '~/components/HorizontalRule'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import Notice from '~/components/Notice'
-import Only from '~/components/Only'
-import parseDate from '~/helpers/parseDate'
-import { formatDate } from '~/helpers/formatDate'
-import { GUIDE_CATEGORIES } from '~/constants/guides'
+import BlocksRenderer from '#components/BlocksRenderer'
+import HorizontalRule from '#components/HorizontalRule'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import Notice from '#components/Notice'
+import Only from '#components/Only'
+import parseDate from '#helpers/parseDate'
+import { formatDate } from '#helpers/formatDate'
+import { GUIDE_CATEGORIES } from '#constants/guides'
 
 export const GuideRenderingContext = React.createContext({
   isWithinGuide: false,

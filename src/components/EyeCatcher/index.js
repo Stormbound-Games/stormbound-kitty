@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BlankButton from '~/components/BlankButton'
-import Icon from '~/components/Icon'
-import Link from '~/components/Link'
-import VisuallyHidden from '~/components/VisuallyHidden'
-import Notification from '~/components/Notification'
+import BlankButton from '#components/BlankButton'
+import Icon from '#components/Icon'
+import Link from '#components/Link'
+import VisuallyHidden from '#components/VisuallyHidden'
+import Notification from '#components/Notification'
 import styles from './styles'
 
 const hasBeenShownYet = key => {

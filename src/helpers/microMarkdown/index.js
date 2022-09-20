@@ -1,5 +1,5 @@
 import React from 'react'
-import replaceInString from '~/helpers/replaceInString'
+import replaceInString from '#helpers/replaceInString'
 
 const microMarkdown = string => {
   if (typeof string !== 'string') {

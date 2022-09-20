@@ -1,9 +1,11 @@
-require('module-alias/register')
-
 module.exports = {
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/src/$1',
+    '^#api/(.*)$': '<rootDir>/src/api/$1',
+    '^#components/(.*)$': '<rootDir>/src/components/$1',
+    '^#constants/(.*)$': '<rootDir>/src/constants/$1',
+    '^#helpers/(.*)$': '<rootDir>/src/helpers/$1',
+    '^#hooks/(.*)$': '<rootDir>/src/hooks/$1',
   },
   testPathIgnorePatterns: [
     '<rootDir>/.next/',

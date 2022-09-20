@@ -1,7 +1,7 @@
-import PageSWCCSeason from '~/components/PageSWCCSeason'
-import getSWCCSeason from '~/api/swcc/getSWCCSeason'
-import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageSWCCSeason from '#components/PageSWCCSeason'
+import getSWCCSeason from '#api/swcc/getSWCCSeason'
+import getSWCCSeasons from '#api/swcc/getSWCCSeasons'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
   const seasons = await getSWCCSeasons()

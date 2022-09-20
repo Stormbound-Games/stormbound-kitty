@@ -1,31 +1,31 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import CollectionFigures from '~/components/CollectionFigures'
-import Only from '~/components/Only'
-import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
-import Title from '~/components/Title'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import CollectionFigures from '#components/CollectionFigures'
+import Only from '#components/Only'
+import Row from '#components/Row'
+import Spacing from '#components/Spacing'
+import Title from '#components/Title'
 import styles from './styles'
 
 const ChartCollectionLevel = dynamic(() =>
-  import('~/components/ChartCollectionLevel')
+  import('#components/ChartCollectionLevel')
 )
 const ChartCollectionFaction = dynamic(() =>
-  import('~/components/ChartCollectionFaction')
+  import('#components/ChartCollectionFaction')
 )
 const ChartCollectionRarity = dynamic(() =>
-  import('~/components/ChartCollectionRarity')
+  import('#components/ChartCollectionRarity')
 )
 const ChartCollectionStatus = dynamic(() =>
-  import('~/components/ChartCollectionStatus')
+  import('#components/ChartCollectionStatus')
 )
 const ChartCollectionCardCopy = dynamic(() =>
-  import('~/components/ChartCollectionCardCopy')
+  import('#components/ChartCollectionCardCopy')
 )
 const ChartCollectionProgress = dynamic(() =>
-  import('~/components/ChartCollectionProgress')
+  import('#components/ChartCollectionProgress')
 )
 
 export default React.memo(function PageCollectionStats(props) {

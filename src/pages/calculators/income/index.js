@@ -1,6 +1,6 @@
-import PageIncomeCalculator from '~/components/PageIncomeCalculator'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getBooks from '~/api/books/getBooks'
+import PageIncomeCalculator from '#components/PageIncomeCalculator'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getBooks from '#api/books/getBooks'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

@@ -1,4 +1,4 @@
-import toSentence from '~/helpers/toSentence'
+import toSentence from '#helpers/toSentence'
 
 const MANA_CONSUMERS = ['W10', 'W21']
 const MANA_PRODUCERS = ['W9', 'W19']

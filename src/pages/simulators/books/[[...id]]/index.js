@@ -1,10 +1,10 @@
-import PageBookOpeningSimulator from '~/components/PageBookOpeningSimulator'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialization from '~/helpers/serialization'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
-import getBooks from '~/api/books/getBooks'
-import FUSION_STONES from '~/constants/fs'
+import PageBookOpeningSimulator from '#components/PageBookOpeningSimulator'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import serialization from '#helpers/serialization'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
+import getBooks from '#api/books/getBooks'
+import FUSION_STONES from '#constants/fs'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }
