@@ -26,8 +26,6 @@ const handle = client => async message => {
 
   if (!command) return
 
-  const user = message.mentions.users.first() || message.author
-  const ping = command.ping === false ? '' : user
   const channelId = getChannelId(message, command)
   const answer = /\bhelp\b/.test(content)
     ? await command.help(content, client, message)
@@ -37,9 +35,15 @@ const handle = client => async message => {
     const channel = client.channels.cache.get(channelId)
 
     if (typeof answer === 'string') {
-      channel.send({ content: [ping, answer].join(' ') })
+      channel.send({
+        content: answer,
+        reply: { messageReference: command.ping ? message.id : undefined },
+      })
     } else {
-      channel.send({ content: ping, embeds: [answer] })
+      channel.send({
+        embeds: [answer],
+        reply: { messageReference: command.ping ? message.id : undefined },
+      })
     }
   }
 }
