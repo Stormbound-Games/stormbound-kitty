@@ -15,5 +15,5 @@ fs.readdirSync('./bot/commands').forEach(async name => {
 })
 
 client.on('ready', () => console.log(`Logged in as ${client.user.tag}!`))
-client.on('message', handleMessage(client))
+client.on('messageCreate', handleMessage(client))
 client.login(process.env.DISCORD_TOKEN)
