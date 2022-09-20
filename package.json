@@ -7,13 +7,16 @@
     "npm": "7"
   },
   "scripts": {
+    "modulify": "node bin/modulify.mjs",
     "start": "next dev",
     "build-site": "next build && next-sitemap",
     "test": "jest --forceExit --runInBand",
-    "bot": "node bin/modulify.mjs && node bot/cli.js",
-    "bot:dev": "node bin/modulify.mjs && nodemon bot/cli.js --watch src --watch bot",
+    "bot": "npm run modulify && node bot/cli.js",
+    "bot:dev": "npm run modulify && nodemon bot/cli.js --watch src --watch bot",
     "prepare": "husky install",
-    "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js"
+    "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js",
+    "check-decks": "npm run modulify && node bin/deck-checker.js",
+    "export-cards": "npm run modulify && node bin/export-cards.js"
   },
   "dependencies": {
     "@portabletext/react": "^1.0.6",

@@ -1,8 +1,8 @@
 import parseDate from '#helpers/parseDate'
 import toSentence from '#helpers/toSentence'
 import groupBy from '#helpers/groupBy'
-import { formatDate } from '#helpers/formatDate'
 import getDecks from '#api/decks/getDecks'
+import { formatDate } from '#helpers/formatDate'
 
 const now = new Date()
 const BOUNDARY_DATE = new Date(now.getFullYear() - 1, now.getMonth(), 15)
