@@ -37,9 +37,9 @@ const handle = client => async message => {
     const channel = client.channels.cache.get(channelId)
 
     if (typeof answer === 'string') {
-      channel.send([ping, answer].join(' '))
+      channel.send({ content: [ping, answer].join(' ') })
     } else {
-      channel.send(ping, answer)
+      channel.send({ content: ping, embeds: [answer] })
     }
   }
 }

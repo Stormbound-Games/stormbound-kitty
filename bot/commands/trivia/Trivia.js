@@ -68,9 +68,11 @@ export default class Trivia {
     if (this.mode === 'IMAGE') {
       this.canvas
         .getAttachment(this.answer.image, 1.75)
-        .then(attachment => channel.send({ files: [attachment], embed }))
+        .then(attachment =>
+          channel.send({ files: [attachment], embeds: [embed] })
+        )
     } else {
-      channel.send(embed)
+      channel.send({ embeds: [embed] })
     }
   }
 
@@ -87,7 +89,7 @@ export default class Trivia {
           ? this.handleAbort(message)
           : this.guess(message)
 
-      message.channel.send(output)
+      message.channel.send({ embeds: [output] })
     })
 
     collector.on('end', (collected, reason) => {
@@ -98,7 +100,7 @@ export default class Trivia {
           embed.setDescription(`The answer was “**${this.answer.name}**”!`)
         }
 
-        channel.send(embed)
+        channel.send({ embeds: [embed] })
         this.stop('TIMEOUT')
       }
     })
@@ -293,13 +295,15 @@ export default class Trivia {
       })
 
     if (this.mode === 'CARD') {
-      return channel.send(
-        embed
-          .setTitle('🔮  Card trivia started')
-          .setDescription(
-            `You can ask for hints like \`pirate\` or \`neutral\`, and issue guesses like \`gifted\` or \`rof\`.`
-          )
-      )
+      return channel.send({
+        embeds: [
+          embed
+            .setTitle('🔮  Card trivia started')
+            .setDescription(
+              `You can ask for hints like \`pirate\` or \`neutral\`, and issue guesses like \`gifted\` or \`rof\`.`
+            ),
+        ],
+      })
     } else if (this.mode === 'IMAGE') {
       return this.canvas.getAttachment(this.answer.image).then(attachment => {
         const difficulty = capitalize((this.difficulty || '').toLowerCase())
@@ -313,19 +317,23 @@ export default class Trivia {
             inline: true,
           })
 
-        return channel.send({ files: [attachment], embed })
+        return channel.send({ files: [attachment], embeds: [embed] })
       })
     } else if (this.mode === 'QUESTION') {
-      return channel.send(
-        embed
-          .setTitle('🔮  ' + this.answer.question)
-          .setDescription(
-            Object.keys(this.answer.choices)
-              .map(letter => ' ' + letter + '. ' + this.answer.choices[letter])
-              .join('\n')
-          )
-          .addFields({ name: 'Attempts', value: 1, inline: true })
-      )
+      return channel.send({
+        embeds: [
+          embed
+            .setTitle('🔮  ' + this.answer.question)
+            .setDescription(
+              Object.keys(this.answer.choices)
+                .map(
+                  letter => ' ' + letter + '. ' + this.answer.choices[letter]
+                )
+                .join('\n')
+            )
+            .addFields({ name: 'Attempts', value: 1, inline: true }),
+        ],
+      })
     }
   }
 
