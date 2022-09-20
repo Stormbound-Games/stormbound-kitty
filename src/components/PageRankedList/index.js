@@ -1,13 +1,13 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import Spacing from '~/components/Spacing'
-import ListBuilderTierList from '~/components/ListBuilderTierList'
-import ListBuilderToc from '~/components/ListBuilderToc'
-import useIsMounted from '~/hooks/useIsMounted'
+import { CardsContext } from '#components/CardsProvider'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import Spacing from '#components/Spacing'
+import ListBuilderTierList from '#components/ListBuilderTierList'
+import ListBuilderToc from '#components/ListBuilderToc'
+import useIsMounted from '#hooks/useIsMounted'
 
 export default React.memo(function PageRankedList(props) {
   const { cardsIndex } = React.useContext(CardsContext)

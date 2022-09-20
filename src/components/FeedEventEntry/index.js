@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from '~/components/Link'
-import FeedEntry from '~/components/FeedEntry'
-import MemberList from '~/components/MemberList'
+import Link from '#components/Link'
+import FeedEntry from '#components/FeedEntry'
+import MemberList from '#components/MemberList'
 
 export default React.memo(function FeedEventEntry(props) {
   const verb = props.users.length === 1 ? 'has' : 'have'

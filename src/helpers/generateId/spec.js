@@ -1,4 +1,4 @@
-import generateId from './'
+import generateId from './index.js'
 
 describe('The `generateId` helper', () => {
   it('should lowercase the content', () => {

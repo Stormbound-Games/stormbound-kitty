@@ -1,5 +1,5 @@
-import { convertToSkId } from './'
-import { base64Encode } from '~/helpers/base64'
+import { convertToSkId } from './index.js'
+import { base64Encode } from '#helpers/base64'
 
 describe('The `convertToSkId` helper', () => {
   const cards = global.__CARDS__.filter(card => card.sid).slice(0, 12)

@@ -1,10 +1,10 @@
-import getChannelId from '~/helpers/getChannelId'
-import getEmbed from '~/helpers/getEmbed'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getBooks from '~/api/books/getBooks'
-import getBrawls from '~/api/brawls/getBrawls'
-import getCards from '~/api/cards/getCards'
-import Trivia from './Trivia'
+import getChannelId from '#helpers/getChannelId'
+import getEmbed from '#helpers/getEmbed'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getBooks from '#api/books/getBooks'
+import getBrawls from '#api/brawls/getBrawls'
+import getCards from '#api/cards/getCards'
+import Trivia from './Trivia.js'
 
 const cache = new Map()
 

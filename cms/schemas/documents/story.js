@@ -5,8 +5,8 @@ import date from '../types/date'
 import json from '../types/json'
 import cardRef from '../types/cardRef'
 import getBlock from '../richText/block'
-import { STORY_CATEGORIES } from '~/constants/stories'
-import { formatDate } from '~/helpers/formatDate'
+import { STORY_CATEGORIES } from '#constants/stories'
+import { formatDate } from '#helpers/formatDate'
 
 const story = {
   title: 'Stories',

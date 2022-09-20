@@ -1,13 +1,13 @@
-import { FACTIONS } from '~/constants/game'
-import areAllValuesEqual from '~/helpers/areAllValuesEqual'
-import arrayRandom from '~/helpers/arrayRandom'
-import searchCards from '~/helpers/searchCards'
-import getEmbed from '~/helpers/getEmbed'
-import getRandomDeck from '~/helpers/getRandomDeck'
-import handleSearchAlias from '~/helpers/handleSearchAlias'
-import serialization from '~/helpers/serialization'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
+import { FACTIONS } from '#constants/game'
+import areAllValuesEqual from '#helpers/areAllValuesEqual'
+import arrayRandom from '#helpers/arrayRandom'
+import searchCards from '#helpers/searchCards'
+import getEmbed from '#helpers/getEmbed'
+import getRandomDeck from '#helpers/getRandomDeck'
+import handleSearchAlias from '#helpers/handleSearchAlias'
+import serialization from '#helpers/serialization'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
 
 const ALLOWED_FACTIONS = FACTIONS.filter(faction => faction !== 'neutral')
 

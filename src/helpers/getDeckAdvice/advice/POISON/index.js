@@ -1,4 +1,4 @@
-import toSentence from '~/helpers/toSentence'
+import toSentence from '#helpers/toSentence'
 
 const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))

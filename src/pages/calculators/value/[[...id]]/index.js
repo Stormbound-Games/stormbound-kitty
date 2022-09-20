@@ -1,8 +1,8 @@
-import PageValueCalculator from '~/components/PageValueCalculator'
-import { VALUED_CARDS } from '~/helpers/getCardValue'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import serialization from '~/helpers/serialization'
-import indexArray from '~/helpers/indexArray'
+import PageValueCalculator from '#components/PageValueCalculator'
+import { VALUED_CARDS } from '#helpers/getCardValue'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import serialization from '#helpers/serialization'
+import indexArray from '#helpers/indexArray'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }

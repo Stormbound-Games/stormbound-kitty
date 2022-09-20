@@ -1,4 +1,4 @@
-import { LIMIT_PER_WINDOW } from '~/helpers/applyRateLimit'
+import { LIMIT_PER_WINDOW } from '#helpers/applyRateLimit'
 
 describe('Brute-force protection', () => {
   it('should return the rate-limiting upper limit as a header', () => {

@@ -1,8 +1,8 @@
 import React from 'react'
-import { NotificationContext } from '~/components/NotificationProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import indexArray from '~/helpers/indexArray'
-import useOnce from '~/hooks/useOnce'
+import { NotificationContext } from '#components/NotificationProvider'
+import { CardsContext } from '#components/CardsProvider'
+import indexArray from '#helpers/indexArray'
+import useOnce from '#hooks/useOnce'
 
 export const CollectionContext = React.createContext([])
 

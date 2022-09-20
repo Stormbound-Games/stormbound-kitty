@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from '~/components/Link'
-import Notification from '~/components/Notification'
+import Link from '#components/Link'
+import Notification from '#components/Notification'
 
 export default React.memo(function PreviewBanner() {
   const [withTurnOff, setWithTurnOff] = React.useState(false)

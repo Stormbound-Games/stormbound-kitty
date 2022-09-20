@@ -1,8 +1,8 @@
-import PageBattleSim from '~/components/PageBattleSim'
-import serialization from '~/helpers/serialization'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
-import { DEFAULT_SIM } from '~/constants/battle'
+import PageBattleSim from '#components/PageBattleSim'
+import serialization from '#helpers/serialization'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
+import { DEFAULT_SIM } from '#constants/battle'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: null } }], fallback: 'blocking' }

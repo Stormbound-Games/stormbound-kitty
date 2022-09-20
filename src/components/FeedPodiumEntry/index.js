@@ -1,10 +1,10 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import Deck from '~/components/Deck'
-import FeedDetailDisplay from '~/components/FeedDetailDisplay'
-import FeedEntry from '~/components/FeedEntry'
-import MemberList from '~/components/MemberList'
-import serialization from '~/helpers/serialization'
+import { CardsContext } from '#components/CardsProvider'
+import Deck from '#components/Deck'
+import FeedDetailDisplay from '#components/FeedDetailDisplay'
+import FeedEntry from '#components/FeedEntry'
+import MemberList from '#components/MemberList'
+import serialization from '#helpers/serialization'
 
 export default React.memo(function FeedPodiumEntry(props) {
   const { cardsIndexBySid } = React.useContext(CardsContext)

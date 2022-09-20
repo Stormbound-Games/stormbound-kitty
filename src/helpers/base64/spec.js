@@ -1,4 +1,4 @@
-import { base64Encode, base64Decode } from './'
+import { base64Encode, base64Decode } from './index.js'
 
 describe('The `base64Encode` helpers', () => {
   it('should encode to base64', () => {

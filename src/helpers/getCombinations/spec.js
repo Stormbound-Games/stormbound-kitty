@@ -1,4 +1,4 @@
-import getPermutations from './'
+import getPermutations from './index.js'
 
 describe('The `getPermutations` helper', () => {
   it('should work', () => {

@@ -1,9 +1,9 @@
-import PageDraftSimulator from '~/components/PageDraftSimulator'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialization from '~/helpers/serialization'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getDeckAdvice from '~/helpers/getDeckAdvice'
-import indexArray from '~/helpers/indexArray'
+import PageDraftSimulator from '#components/PageDraftSimulator'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import serialization from '#helpers/serialization'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getDeckAdvice from '#helpers/getDeckAdvice'
+import indexArray from '#helpers/indexArray'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: [] } }], fallback: 'blocking' }

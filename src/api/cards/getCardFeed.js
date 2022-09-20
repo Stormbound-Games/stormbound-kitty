@@ -1,16 +1,16 @@
-import { getEntries } from '~/helpers/sanity'
+import { getEntries } from '#helpers/sanity'
 import {
   FIELDS as ARTWORK_FIELDS,
   MAPPER as ARTWORK_MAPPER,
-} from '~/api/artworks/utils'
+} from '#api/artworks/utils'
 import {
   FIELDS as STORY_FIELDS,
   MAPPER as STORY_MAPPER,
-} from '~/api/stories/utils'
+} from '#api/stories/utils'
 import {
   FIELDS as GUIDE_FIELDS,
   MAPPER as GUIDE_MAPPER,
-} from '~/api/guides/utils'
+} from '#api/guides/utils'
 
 const cleaners = {
   artwork: ARTWORK_MAPPER,

@@ -9,12 +9,12 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import Link from '~/components/Link'
-import Select from '~/components/Select'
-import Spacing from '~/components/Spacing'
-import computeDeckChartData from '~/helpers/computeDeckChartData'
-import useIsMounted from '~/hooks/useIsMounted'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import Link from '#components/Link'
+import Select from '#components/Select'
+import Spacing from '#components/Spacing'
+import computeDeckChartData from '#helpers/computeDeckChartData'
+import useIsMounted from '#hooks/useIsMounted'
+import { TOOLTIP_STYLES } from '#constants/stats'
 import styles from './styles'
 
 export default React.memo(function DeckStatsChart(props) {

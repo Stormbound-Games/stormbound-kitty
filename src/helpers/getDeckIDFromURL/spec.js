@@ -1,4 +1,4 @@
-import getDeckIDFromURL from './'
+import getDeckIDFromURL from './index.js'
 
 describe('The `getDeckIDFromURL` helper', () => {
   it('should remove base URL', () => {

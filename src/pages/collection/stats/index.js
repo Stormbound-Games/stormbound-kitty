@@ -1,7 +1,7 @@
-import PageCollectionStats from '~/components/PageCollectionStats'
-import getCollectionCost from '~/helpers/getCollectionCost'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
+import PageCollectionStats from '#components/PageCollectionStats'
+import getCollectionCost from '#helpers/getCollectionCost'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
 
 const asCollectionItem = card => ({ id: card.id, level: 5, copies: 0 })
 

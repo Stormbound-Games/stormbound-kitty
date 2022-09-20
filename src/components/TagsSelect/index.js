@@ -1,8 +1,8 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import Label from '~/components/Label'
-import useSelectStyles from '~/hooks/useSelectStyles'
-import indexArray from '~/helpers/indexArray'
+import Label from '#components/Label'
+import useSelectStyles from '#hooks/useSelectStyles'
+import indexArray from '#helpers/indexArray'
 
 const Select = dynamic(() => import('react-select'), { ssr: false })
 

@@ -1,10 +1,10 @@
-import indexArray from '~/helpers/indexArray'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getBrawls from '~/api/brawls/getBrawls'
-import getDecks from '~/api/decks/getDecks'
-import getDeckTags from '~/api/decks/getDeckTags'
-import getBooks from '~/api/books/getBooks'
-import getCards from '~/api/cards/getCards'
+import indexArray from '#helpers/indexArray'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getBrawls from '#api/brawls/getBrawls'
+import getDecks from '#api/decks/getDecks'
+import getDeckTags from '#api/decks/getDeckTags'
+import getBooks from '#api/books/getBooks'
+import getCards from '#api/cards/getCards'
 
 module.exports = async function () {
   const isPreview = Boolean(process.env.SANITY_PREVIEW_TOKEN)

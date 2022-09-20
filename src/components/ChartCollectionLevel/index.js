@@ -7,8 +7,8 @@ import {
   Legend,
   Cell,
 } from 'recharts'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CollectionContext } from '#components/CollectionProvider'
+import { TOOLTIP_STYLES } from '#constants/stats'
 
 const COLORS = [
   '#ded7a4',

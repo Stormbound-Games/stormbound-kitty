@@ -1,8 +1,8 @@
-import PageStoryCategory from '~/components/PageStoryCategory'
-import { STORY_CATEGORIES } from '~/constants/stories'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import sortSaga from '~/helpers/sortSaga'
-import getStoriesFromCategory from '~/api/stories/getStoriesFromCategory'
+import PageStoryCategory from '#components/PageStoryCategory'
+import { STORY_CATEGORIES } from '#constants/stories'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import sortSaga from '#helpers/sortSaga'
+import getStoriesFromCategory from '#api/stories/getStoriesFromCategory'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const name = 'march-of-fauns'

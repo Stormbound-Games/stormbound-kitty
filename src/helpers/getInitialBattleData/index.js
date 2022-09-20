@@ -1,5 +1,5 @@
-import serialization from '~/helpers/serialization'
-import { DEFAULT_SIM } from '~/constants/battle'
+import serialization from '#helpers/serialization'
+import { DEFAULT_SIM } from '#constants/battle'
 
 const getInitialBattleData = (cardsIndex, sim) =>
   sim

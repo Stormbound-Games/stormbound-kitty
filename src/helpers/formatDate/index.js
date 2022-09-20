@@ -1,4 +1,4 @@
-import getOrdinalSuffix from '~/helpers/getOrdinalSuffix'
+import getOrdinalSuffix from '#helpers/getOrdinalSuffix'
 
 export const formatPreciseDate = date => {
   if (!date) return null

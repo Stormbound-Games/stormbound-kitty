@@ -11,8 +11,8 @@ import card from '../richText/card'
 import info from '../richText/info'
 import tableOfContents from '../richText/tableOfContents'
 import tierList from '../richText/tierList'
-import { GUIDE_CATEGORIES } from '~/constants/guides'
-import { formatDate } from '~/helpers/formatDate'
+import { GUIDE_CATEGORIES } from '#constants/guides'
+import { formatDate } from '#helpers/formatDate'
 import { isNotAdmin } from '../../config/access'
 
 const guide = {

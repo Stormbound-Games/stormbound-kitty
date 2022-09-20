@@ -9,8 +9,8 @@ import {
   Stones,
   Crowns,
   HeroCrowns,
-} from '~/components/Resource'
-import replaceInString from '~/helpers/replaceInString'
+} from '#components/Resource'
+import replaceInString from '#helpers/replaceInString'
 
 const iconify = input => {
   let output = input

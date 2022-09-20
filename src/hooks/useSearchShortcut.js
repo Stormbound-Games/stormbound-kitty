@@ -1,5 +1,5 @@
 import React from 'react'
-import isSearchShortcut from '~/helpers/isSearchShortcut'
+import isSearchShortcut from '#helpers/isSearchShortcut'
 
 const useSearchShortcut = setIsOpen => {
   const handleKeyUp = React.useCallback(

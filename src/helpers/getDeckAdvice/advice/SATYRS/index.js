@@ -1,4 +1,4 @@
-import toSentence from '~/helpers/toSentence'
+import toSentence from '#helpers/toSentence'
 
 const getSatyrs = cards =>
   cards.filter(card => card.unitTypes.includes('satyr') || card.id === 'S24')

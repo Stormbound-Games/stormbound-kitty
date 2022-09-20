@@ -1,10 +1,10 @@
 import React from 'react'
-import Dialog from '~/components/Dialog'
-import FactionSelect from '~/components/FactionSelect'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import { TYPES } from '~/constants/game'
-import capitalize from '~/helpers/capitalize'
+import Dialog from '#components/Dialog'
+import FactionSelect from '#components/FactionSelect'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import { TYPES } from '#constants/game'
+import capitalize from '#helpers/capitalize'
 
 export default React.memo(function RandomCardFilters(props) {
   const [type, setType] = React.useState('*')

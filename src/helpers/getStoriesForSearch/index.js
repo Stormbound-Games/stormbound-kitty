@@ -1,6 +1,6 @@
-import searchCards from '~/helpers/searchCards'
-import searchStories from '~/api/stories/searchStories'
-import getAbbreviations from '~/api/misc/getAbbreviations'
+import searchCards from '#helpers/searchCards'
+import searchStories from '#api/stories/searchStories'
+import getAbbreviations from '#api/misc/getAbbreviations'
 
 const getStoriesForSearch = async (cards, search) => {
   if (search.length < 2) return []

@@ -1,4 +1,4 @@
-import arrayPad from './'
+import arrayPad from './index.js'
 
 describe('The `arrayPad` helper', () => {
   it('should pad an array', () => {

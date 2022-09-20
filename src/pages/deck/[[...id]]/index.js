@@ -1,13 +1,13 @@
-import PageDeckBuilder from '~/components/PageDeckBuilder'
-import getDeck from '~/api/decks/getDeck'
-import getDecks from '~/api/decks/getDecks'
-import getDeckAdvice from '~/helpers/getDeckAdvice'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
-import getDeckPresets from '~/helpers/getDeckPresets'
-import serialization from '~/helpers/serialization'
-import getBrawls from '~/api/brawls/getBrawls'
+import PageDeckBuilder from '#components/PageDeckBuilder'
+import getDeck from '#api/decks/getDeck'
+import getDecks from '#api/decks/getDecks'
+import getDeckAdvice from '#helpers/getDeckAdvice'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
+import getDeckPresets from '#helpers/getDeckPresets'
+import serialization from '#helpers/serialization'
+import getBrawls from '#api/brawls/getBrawls'
 
 export async function getStaticPaths() {
   const decks = await getDecks()

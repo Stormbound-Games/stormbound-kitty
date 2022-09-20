@@ -1,5 +1,5 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import isCardMatchingCriteria from './'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import isCardMatchingCriteria from './index.js'
 
 describe('The `isCardMatchingCriteria` helper', () => {
   it('should handle rarity', () => {

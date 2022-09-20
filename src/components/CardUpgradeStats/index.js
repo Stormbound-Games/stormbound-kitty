@@ -1,9 +1,9 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import { Coins, Stones } from '~/components/Resource'
-import getCostForLevel from '~/helpers/getCostForLevel'
-import getExtraAfterMax from '~/helpers/getExtraAfterMax'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
+import { CardsContext } from '#components/CardsProvider'
+import { Coins, Stones } from '#components/Resource'
+import getCostForLevel from '#helpers/getCostForLevel'
+import getExtraAfterMax from '#helpers/getExtraAfterMax'
+import getResolvedCardData from '#helpers/getResolvedCardData'
 
 export default React.memo(function CardUpgradeStats(props) {
   const { cardsIndex } = React.useContext(CardsContext)

@@ -1,4 +1,4 @@
-import getVictoryCoins from '~/helpers/getVictoryCoins'
+import getVictoryCoins from '#helpers/getVictoryCoins'
 
 const getDailyCoinsCounter = ({ setup, league, withPremiumPass = false }) => {
   const cap = withPremiumPass ? 700 : 400

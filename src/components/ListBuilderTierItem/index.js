@@ -1,9 +1,9 @@
 import React from 'react'
 import { Reorder } from 'framer-motion'
 import { useFela } from 'react-fela'
-import DiamondButton from '~/components/DiamondButton'
-import Link from '~/components/Link'
-import Image from '~/components/Image'
+import DiamondButton from '#components/DiamondButton'
+import Link from '#components/Link'
+import Image from '#components/Image'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTierItem(props) {

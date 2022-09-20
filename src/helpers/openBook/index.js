@@ -1,13 +1,13 @@
 import rwc from 'random-weighted-choice'
-import arrayRandom from '~/helpers/arrayRandom'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import isCardMatchingCriteria from '~/helpers/isCardMatchingCriteria'
-import { getSequenceProbability } from '~/helpers/getDrawingProbability'
-import getDrawingSequences from '~/helpers/getDrawingSequences'
-import FUSION_STONES from '~/constants/fs'
-import random from '~/helpers/random'
-import indexArray from '~/helpers/indexArray'
-import { RARITIES } from '~/constants/game'
+import arrayRandom from '#helpers/arrayRandom'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import isCardMatchingCriteria from '#helpers/isCardMatchingCriteria'
+import { getSequenceProbability } from '#helpers/getDrawingProbability'
+import getDrawingSequences from '#helpers/getDrawingSequences'
+import FUSION_STONES from '#constants/fs'
+import random from '#helpers/random'
+import indexArray from '#helpers/indexArray'
+import { RARITIES } from '#constants/game'
 
 const getRarityPool = (cards, rarity, only = {}) =>
   cards.filter(isCardMatchingCriteria({ ...only, rarity })).map(card => card.id)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Spacing from '~/components/Spacing'
+import Spacing from '#components/Spacing'
 import styles from './styles'
 
 const DEFAULT_BANNER =

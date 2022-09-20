@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '~/components/Link'
+import Link from '#components/Link'
 
 export default React.memo(function MemberList(props) {
   const members = Array.isArray(props.members) ? props.members : [props.members]

@@ -1,8 +1,8 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import Dialog from '~/components/Dialog'
-import Select from '~/components/Select'
-import Spacing from '~/components/Spacing'
+import { CardsContext } from '#components/CardsProvider'
+import Dialog from '#components/Dialog'
+import Select from '#components/Select'
+import Spacing from '#components/Spacing'
 
 const getDialogImage = (brawls, cardsIndex, modifier) => {
   if (!modifier || modifier === 'NONE') {

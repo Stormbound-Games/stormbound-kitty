@@ -1,4 +1,4 @@
-import areAllValuesEqual from '~/helpers/areAllValuesEqual'
+import areAllValuesEqual from '#helpers/areAllValuesEqual'
 
 const resolveLeveledProperty = (value = '') => {
   // If the received input is already a resolved value, return it as is as there

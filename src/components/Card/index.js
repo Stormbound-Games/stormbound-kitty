@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '~/components/Image'
-import microMarkdown from '~/helpers/microMarkdown'
-import clamp from '~/helpers/clamp'
-import useFluidSizing from '~/hooks/useFluidSizing'
-import useImageSupport from '~/hooks/useImageSupport'
+import Image from '#components/Image'
+import microMarkdown from '#helpers/microMarkdown'
+import clamp from '#helpers/clamp'
+import useFluidSizing from '#hooks/useFluidSizing'
+import useImageSupport from '#hooks/useImageSupport'
 import styles, { getOutlineColor } from './styles'
 
 const useCardBackground = ({ missing, rarity, type, faction }) => {

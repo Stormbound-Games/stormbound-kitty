@@ -1,5 +1,5 @@
-import { Race, Effect, Slot } from './utils'
-import range from '~/helpers/range'
+import { Race, Effect, Slot } from './utils.js'
+import range from '#helpers/range'
 
 // The 3rd argument passed to the `Race` constructor is the movement range for
 // that specific race.

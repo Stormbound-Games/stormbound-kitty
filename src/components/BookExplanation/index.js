@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { RARITIES } from '~/constants/game'
+import { RARITIES } from '#constants/game'
 
 export default React.memo(function BookExplanation({ book }) {
   const { css } = useFela()

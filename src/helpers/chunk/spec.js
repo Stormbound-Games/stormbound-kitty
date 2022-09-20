@@ -1,4 +1,4 @@
-import chunk from './'
+import chunk from './index.js'
 
 describe('The `chunk` helper', () => {
   it('should leave an empty array untouched', () => {

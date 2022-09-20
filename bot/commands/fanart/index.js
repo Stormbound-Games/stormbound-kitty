@@ -1,6 +1,6 @@
-import getEmbed from '~/helpers/getEmbed'
-import arrayRandom from '~/helpers/arrayRandom'
-import getArtworks from '~/api/artworks/getArtworks'
+import getEmbed from '#helpers/getEmbed'
+import arrayRandom from '#helpers/arrayRandom'
+import getArtworks from '#api/artworks/getArtworks'
 
 const fanart = {
   command: 'fanart',

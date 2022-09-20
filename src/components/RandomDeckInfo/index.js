@@ -1,16 +1,16 @@
 import React from 'react'
-import { FACTIONS } from '~/constants/game'
-import { CardsContext } from '~/components/CardsProvider'
-import { CollectionContext } from '~/components/CollectionProvider'
-import CTA from '~/components/CTA'
-import Icon from '~/components/Icon'
-import Info from '~/components/Info'
-import Link from '~/components/Link'
-import LearnMoreIcon from '~/components/LearnMoreIcon'
-import RandomDeckFilters from '~/components/RandomDeckFilters'
-import arrayRandom from '~/helpers/arrayRandom'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import track from '~/helpers/track'
+import { FACTIONS } from '#constants/game'
+import { CardsContext } from '#components/CardsProvider'
+import { CollectionContext } from '#components/CollectionProvider'
+import CTA from '#components/CTA'
+import Icon from '#components/Icon'
+import Info from '#components/Info'
+import Link from '#components/Link'
+import LearnMoreIcon from '#components/LearnMoreIcon'
+import RandomDeckFilters from '#components/RandomDeckFilters'
+import arrayRandom from '#helpers/arrayRandom'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import track from '#helpers/track'
 
 const getRandomFaction = () =>
   arrayRandom(FACTIONS.filter(faction => faction !== 'neutral'))
@@ -45,7 +45,7 @@ export default React.memo(function HelpInfo(props) {
 
       try {
         const { default: getRandomDeck } = await import(
-          '~/helpers/getRandomDeck'
+          '#helpers/getRandomDeck'
         )
         const options = resolveOptions(filters)
         const deck = getRandomDeck({ availableCards, ...options })

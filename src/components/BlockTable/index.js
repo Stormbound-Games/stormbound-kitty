@@ -1,7 +1,7 @@
 import React from 'react'
-import PageEmbed from '~/components/PageEmbed'
-import Table from '~/components/Table'
-import iconify from '~/helpers/iconify'
+import PageEmbed from '#components/PageEmbed'
+import Table from '#components/Table'
+import iconify from '#helpers/iconify'
 
 export default React.memo(function BlockTable(props) {
   const [head, ...rows] = props.value.rows

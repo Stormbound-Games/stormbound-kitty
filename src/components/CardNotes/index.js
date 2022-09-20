@@ -1,7 +1,7 @@
 import React from 'react'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import Spacing from '~/components/Spacing'
-import Title from '~/components/Title'
+import BlocksRenderer from '#components/BlocksRenderer'
+import Spacing from '#components/Spacing'
+import Title from '#components/Title'
 
 export default React.memo(function CardNotes(props) {
   if (!props.notes) {

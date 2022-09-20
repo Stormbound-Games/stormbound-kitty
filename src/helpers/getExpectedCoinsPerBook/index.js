@@ -1,7 +1,7 @@
-import { RARITIES, RARITY_COPIES } from '~/constants/game'
-import arrayPad from '~/helpers/arrayPad'
-import countCards from '~/helpers/countCards'
-import getDrawingSequences from '~/helpers/getDrawingSequences'
+import { RARITIES, RARITY_COPIES } from '#constants/game'
+import arrayPad from '#helpers/arrayPad'
+import countCards from '#helpers/countCards'
+import getDrawingSequences from '#helpers/getDrawingSequences'
 
 // Return an array of sequences filled with 0 and 1 where 0 means the card in
 // the collection is not maxed out and 1 means the card is level 5 in the

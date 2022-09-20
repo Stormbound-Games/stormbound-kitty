@@ -1,5 +1,5 @@
-import capitalize from '~/helpers/capitalize'
-import toSentence from '~/helpers/toSentence'
+import capitalize from '#helpers/capitalize'
+import toSentence from '#helpers/toSentence'
 
 const getDeckSearchDescription = (cardsIndex = {}, state = {}) => {
   const cardData = cardsIndex[state.including] || {}

@@ -1,9 +1,9 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import LearnMoreIcon from '~/components/LearnMoreIcon'
-import Title from '~/components/Title'
-import getDeckAdvice from '~/helpers/getDeckAdvice'
-import useOnUpdate from '~/hooks/useOnUpdate'
+import { CardsContext } from '#components/CardsProvider'
+import LearnMoreIcon from '#components/LearnMoreIcon'
+import Title from '#components/Title'
+import getDeckAdvice from '#helpers/getDeckAdvice'
+import useOnUpdate from '#hooks/useOnUpdate'
 
 const Advice = props => (
   <p

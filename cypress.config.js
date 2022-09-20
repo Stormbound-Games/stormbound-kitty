@@ -23,7 +23,17 @@ module.exports = defineConfig({
       on(
         'file:preprocessor',
         preprocessor({
-          webpackOptions: { resolve: { alias: { '~': path.resolve('src') } } },
+          webpackOptions: {
+            resolve: {
+              alias: {
+                '#api': path.resolve('./src/api'),
+                '#components': path.resolve('./src/components'),
+                '#constants': path.resolve('./src/constants'),
+                '#helpers': path.resolve('./src/helpers'),
+                '#hooks': path.resolve('./src/hooks'),
+              },
+            },
+          },
         })
       )
 

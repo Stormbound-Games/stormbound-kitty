@@ -1,8 +1,8 @@
 import React from 'react'
-import ListHeader from '~/components/ListHeader'
-import Page from '~/components/Page'
-import SWCCSeasonCards from '~/components/SWCCSeasonCards'
-import parseDate from '~/helpers/parseDate'
+import ListHeader from '#components/ListHeader'
+import Page from '#components/Page'
+import SWCCSeasonCards from '#components/SWCCSeasonCards'
+import parseDate from '#helpers/parseDate'
 
 export default React.memo(function PageSWCCSeason(props) {
   const [layout, setLayout] = React.useState('GRID')

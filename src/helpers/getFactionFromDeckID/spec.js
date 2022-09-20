@@ -1,4 +1,4 @@
-import getFactionFromDeckID from './'
+import getFactionFromDeckID from './index.js'
 
 describe('The `getFactionFromDeckID` helper', () => {
   it('should recognize shadowfen', () => {

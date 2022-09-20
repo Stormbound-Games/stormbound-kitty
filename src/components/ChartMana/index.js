@@ -8,13 +8,13 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import { CardsContext } from '~/components/CardsProvider'
-import FactionSelect from '~/components/FactionSelect'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
-import Title from '~/components/Title'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CardsContext } from '#components/CardsProvider'
+import FactionSelect from '#components/FactionSelect'
+import Row from '#components/Row'
+import Select from '#components/Select'
+import Title from '#components/Title'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import { TOOLTIP_STYLES } from '#constants/stats'
 
 export default React.memo(function ChartMana() {
   const { cardsIndex } = React.useContext(CardsContext)

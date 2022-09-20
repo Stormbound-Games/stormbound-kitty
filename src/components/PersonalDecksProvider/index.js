@@ -1,11 +1,11 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import { NotificationContext } from '~/components/NotificationProvider'
-import serialization from '~/helpers/serialization'
-import capitalize from '~/helpers/capitalize'
-import uuid from '~/helpers/uuid'
-import useLocalStorage from '~/hooks/useLocalStorage'
-import useOnce from '~/hooks/useOnce'
+import { CardsContext } from '#components/CardsProvider'
+import { NotificationContext } from '#components/NotificationProvider'
+import serialization from '#helpers/serialization'
+import capitalize from '#helpers/capitalize'
+import uuid from '#helpers/uuid'
+import useLocalStorage from '#hooks/useLocalStorage'
+import useOnce from '#hooks/useOnce'
 
 export const PersonalDecksContext = React.createContext([])
 

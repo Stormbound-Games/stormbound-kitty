@@ -1,4 +1,4 @@
-import getDailyCoinsCounter from './'
+import getDailyCoinsCounter from './index.js'
 
 describe('The `getDailyCoinsCounter` helper', () => {
   it('should cap gains at 400 (with ads)', () => {

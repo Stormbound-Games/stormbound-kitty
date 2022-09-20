@@ -1,8 +1,8 @@
 import React from 'react'
-import Page from '~/components/Page'
-import BattleSimApp from '~/components/BattleSimApp'
-import useBattleSim from '~/hooks/useBattleSim'
-import useRouteId from '~/hooks/useRouteId'
+import Page from '#components/Page'
+import BattleSimApp from '#components/BattleSimApp'
+import useBattleSim from '#hooks/useBattleSim'
+import useRouteId from '#hooks/useRouteId'
 
 export default React.memo(function PageBattleSim(props) {
   const state = useBattleSim(props)

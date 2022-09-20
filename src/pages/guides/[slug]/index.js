@@ -1,7 +1,7 @@
-import PageGuide from '~/components/PageGuide'
-import getGuide from '~/api/guides/getGuide'
-import getGuides from '~/api/guides/getGuides'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageGuide from '#components/PageGuide'
+import getGuide from '#api/guides/getGuide'
+import getGuides from '#api/guides/getGuides'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
   const guides = await getGuides()

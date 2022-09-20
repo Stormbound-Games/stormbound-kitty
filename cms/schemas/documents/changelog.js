@@ -2,8 +2,8 @@ import React from 'react'
 import { MdOutlineCompareArrows, MdOutlineUndo } from 'react-icons/md'
 import cardRef from '../types/cardRef'
 import date from '../types/date'
-import { formatDate } from '~/helpers/formatDate'
-import capitalize from '~/helpers/capitalize'
+import { formatDate } from '#helpers/formatDate'
+import capitalize from '#helpers/capitalize'
 
 const change = {
   title: 'Change',

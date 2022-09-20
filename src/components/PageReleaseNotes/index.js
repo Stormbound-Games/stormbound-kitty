@@ -1,6 +1,6 @@
 import React from 'react'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import Page from '~/components/Page'
+import BlocksRenderer from '#components/BlocksRenderer'
+import Page from '#components/Page'
 
 export default React.memo(function PageReleaseNotes(props) {
   return (

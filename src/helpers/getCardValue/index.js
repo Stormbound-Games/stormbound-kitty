@@ -1,6 +1,6 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getEffectiveSpeed from '~/helpers/getEffectiveSpeed'
-import { UNIT_TYPES } from '~/constants/game'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import getEffectiveSpeed from '#helpers/getEffectiveSpeed'
+import { UNIT_TYPES } from '#constants/game'
 
 export const MAX_MANA = 30
 export const MAX_TILES = 10

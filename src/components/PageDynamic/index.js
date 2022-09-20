@@ -1,6 +1,6 @@
 import React from 'react'
-import Page from '~/components/Page'
-import BlocksRenderer from '~/components/BlocksRenderer'
+import Page from '#components/Page'
+import BlocksRenderer from '#components/BlocksRenderer'
 
 export default React.memo(function PageDynamic(props) {
   return (

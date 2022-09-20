@@ -1,18 +1,15 @@
-require('module-alias').addAlias('~', __dirname + '/../src')
-require('dotenv').config()
-
-const fs = require('fs')
-const Discord = require('discord.js')
-const handleMessage = require('./handle').default
+import 'dotenv/config'
+import fs from 'fs'
+import Discord from 'discord.js'
+import handleMessage from './handle.js'
 
 const client = new Discord.Client()
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 
-fs.readdirSync('./bot/commands').forEach(name => {
-  const { default: command } = require('./commands/' + name)
+fs.readdirSync('./bot/commands').forEach(async name => {
+  const { default: command } = await import(`./commands/${name}/index.js`)
   const aliases = command.aliases || []
-
   client.commands.set(command.command, command)
   aliases.forEach(alias => client.aliases.set(alias, command))
 })

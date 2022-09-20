@@ -1,12 +1,12 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import Link from '~/components/Link'
-import FeedDetailDisplay from '~/components/FeedDetailDisplay'
-import FeedEntry from '~/components/FeedEntry'
-import Teaser from '~/components/Teaser'
-import microMarkdown from '~/helpers/microMarkdown'
-import serialization from '~/helpers/serialization'
-import getSWCCCardData from '~/helpers/getSWCCCardData'
+import { CardsContext } from '#components/CardsProvider'
+import Link from '#components/Link'
+import FeedDetailDisplay from '#components/FeedDetailDisplay'
+import FeedEntry from '#components/FeedEntry'
+import Teaser from '#components/Teaser'
+import microMarkdown from '#helpers/microMarkdown'
+import serialization from '#helpers/serialization'
+import getSWCCCardData from '#helpers/getSWCCCardData'
 
 export default React.memo(function FeedSWCCEntry(props) {
   const { cardsIndex } = React.useContext(CardsContext)

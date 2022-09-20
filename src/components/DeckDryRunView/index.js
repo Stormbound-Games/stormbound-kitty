@@ -1,9 +1,9 @@
 import React from 'react'
-import modifyDeck from '~/helpers/modifyDeck'
-import DryRunner from '~/components/DryRunner'
-import { CardsContext } from '~/components/CardsProvider'
-import { NotificationContext } from '~/components/NotificationProvider'
-import useDeckMechanisms from '~/hooks/useDeckMechanisms'
+import modifyDeck from '#helpers/modifyDeck'
+import DryRunner from '#components/DryRunner'
+import { CardsContext } from '#components/CardsProvider'
+import { NotificationContext } from '#components/NotificationProvider'
+import useDeckMechanisms from '#hooks/useDeckMechanisms'
 import useDryRunner from './useDryRunner'
 
 export default React.memo(function DeckDryRunView(props) {

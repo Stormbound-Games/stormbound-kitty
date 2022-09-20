@@ -1,4 +1,4 @@
-import getBookName from './'
+import getBookName from './index.js'
 
 describe('The `getBookName` helper', () => {
   it('should handle singular', () => {

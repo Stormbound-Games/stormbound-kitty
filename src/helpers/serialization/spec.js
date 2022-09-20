@@ -1,5 +1,5 @@
-import { base64Encode } from '~/helpers/base64'
-import serialization from './'
+import { base64Encode } from '#helpers/base64'
+import serialization from './index.js'
 
 describe('The `serialization.deck.serialize` helper', () => {
   it('should serialize some cards', () => {

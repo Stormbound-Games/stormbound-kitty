@@ -7,9 +7,9 @@ import {
   Rare,
   Epic,
   Legendary,
-} from '~/components/Resource'
-import Icon from '~/components/Icon'
-import getBookName from '~/helpers/getBookName'
+} from '#components/Resource'
+import Icon from '#components/Icon'
+import getBookName from '#helpers/getBookName'
 
 const getResourceLabel = (entry, enhanced = false) => {
   const amount = entry.rewardAmount || entry.amount

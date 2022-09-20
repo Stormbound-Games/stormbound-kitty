@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import { Rubies } from '~/components/Resource'
-import TableOfContents from '~/components/TableOfContents'
-import Title from '~/components/Title'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import { Rubies } from '#components/Resource'
+import TableOfContents from '#components/TableOfContents'
+import Title from '#components/Title'
 import styles from './styles'
 
 export default React.memo(function PageSWCC(props) {

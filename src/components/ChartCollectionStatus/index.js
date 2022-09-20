@@ -7,10 +7,10 @@ import {
   Pie,
   Cell,
 } from 'recharts'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import isCardUpgradable from '~/helpers/isCardUpgradable'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CollectionContext } from '#components/CollectionProvider'
+import { CardsContext } from '#components/CardsProvider'
+import isCardUpgradable from '#helpers/isCardUpgradable'
+import { TOOLTIP_STYLES } from '#constants/stats'
 
 const useStatusData = () => {
   const { collection } = React.useContext(CollectionContext)

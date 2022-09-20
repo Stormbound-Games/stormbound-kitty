@@ -1,4 +1,4 @@
-import { WeeklyIncome } from '~/helpers/Income'
+import { WeeklyIncome } from '#helpers/Income'
 
 const WINS = [
   { cards: [2, 1, 0, 0] },

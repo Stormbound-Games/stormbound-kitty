@@ -1,6 +1,6 @@
-import serialization from './'
-import { base64Decode } from '~/helpers/base64'
-import { convertToSkId, isDecodedSbId } from '~/helpers/convertDeckId'
+import serialization from './index.js'
+import { base64Decode } from '#helpers/base64'
+import { convertToSkId, isDecodedSbId } from '#helpers/convertDeckId'
 
 const serializeDeck = cards => {
   // Do not en/decode to base64 as the hash ends up being longer than the

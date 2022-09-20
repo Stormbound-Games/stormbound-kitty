@@ -1,11 +1,11 @@
 import React from 'react'
-import { DEFAULT_MANA } from '~/constants/battle'
-import clone from '~/helpers/clone'
-import isCard from '~/helpers/isCard'
-import canCardBePlayed from '~/helpers/canCardBePlayed'
-import getOpponentDeck from '~/helpers/getOpponentDeck'
-import resolveDeckWeight from '~/helpers/resolveDeckWeight'
-import deckMechanisms from '~/helpers/deckMechanisms'
+import { DEFAULT_MANA } from '#constants/battle'
+import clone from '#helpers/clone'
+import isCard from '#helpers/isCard'
+import canCardBePlayed from '#helpers/canCardBePlayed'
+import getOpponentDeck from '#helpers/getOpponentDeck'
+import resolveDeckWeight from '#helpers/resolveDeckWeight'
+import deckMechanisms from '#helpers/deckMechanisms'
 
 const getDefaultState = props => ({
   hand: [],

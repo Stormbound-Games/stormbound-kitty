@@ -1,4 +1,4 @@
-import parseCardGuess from '~/helpers/parseCardGuess'
+import parseCardGuess from '#helpers/parseCardGuess'
 
 const IS_TOKEN = /^is[:=]/
 const HAS_TOKEN = /^has[:=]/

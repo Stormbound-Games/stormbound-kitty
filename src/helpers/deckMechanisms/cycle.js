@@ -1,7 +1,7 @@
-import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
-import rwcDuplicates from '~/helpers/rwcDuplicates'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import isCard, { isNotCard } from '~/helpers/isCard'
+import getIncreasedDeckWeight from '#helpers/getIncreasedDeckWeight'
+import rwcDuplicates from '#helpers/rwcDuplicates'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import isCard, { isNotCard } from '#helpers/isCard'
 
 export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true, modifier: null }
 

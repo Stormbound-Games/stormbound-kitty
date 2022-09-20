@@ -1,11 +1,11 @@
-import { client, previewClient } from '~/constants/sanity'
+import { client, previewClient } from '#constants/sanity'
 import {
   createQuery,
   isDraftEntry,
   isPublishedEntry,
   preserveDrafts,
   withoutSanityId,
-} from './utils'
+} from './utils.js'
 
 export const getEntry = async ({
   conditions,

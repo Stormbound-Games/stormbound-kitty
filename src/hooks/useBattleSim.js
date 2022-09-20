@@ -7,11 +7,11 @@ import {
   DEFAULT_PLAYER,
   DEFAULT_BOARD,
   DEFAULT_CARD,
-} from '~/constants/battle'
-import { CardsContext } from '~/components/CardsProvider'
-import clone from '~/helpers/clone'
-import getInitialBattleData from '~/helpers/getInitialBattleData'
-import serialization from '~/helpers/serialization'
+} from '#constants/battle'
+import { CardsContext } from '#components/CardsProvider'
+import clone from '#helpers/clone'
+import getInitialBattleData from '#helpers/getInitialBattleData'
+import serialization from '#helpers/serialization'
 
 const Z_KEY = 90
 const C_KEY = 67

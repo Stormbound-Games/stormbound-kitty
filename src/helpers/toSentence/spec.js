@@ -1,4 +1,4 @@
-import toSentence from './'
+import toSentence from './index.js'
 
 describe('The `toSentence` helper', () => {
   it('should turn an array into a sentence', () => {

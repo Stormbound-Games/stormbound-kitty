@@ -1,8 +1,8 @@
 import React from 'react'
-import CardLink from '~/components/CardLink'
-import FeedDetailDisplay from '~/components/FeedDetailDisplay'
-import FeedEntry from '~/components/FeedEntry'
-import Image from '~/components/Image'
+import CardLink from '#components/CardLink'
+import FeedDetailDisplay from '#components/FeedDetailDisplay'
+import FeedEntry from '#components/FeedEntry'
+import Image from '#components/Image'
 
 export default React.memo(function FeedArtEntry(props) {
   const { width, height } = props.dimensions

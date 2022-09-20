@@ -1,4 +1,4 @@
-import getFactionWeights from './'
+import getFactionWeights from './index.js'
 
 describe('The `getFactionWeights` helper', () => {
   it(`should return an array with constant weigths with no modifier`, () => {

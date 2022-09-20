@@ -1,4 +1,4 @@
-import getOrdinalSuffix from './'
+import getOrdinalSuffix from './index.js'
 
 describe('The `getOrdinalSuffix` helper', () => {
   it('should handle 1, 2, 3', () => {

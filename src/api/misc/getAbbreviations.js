@@ -1,6 +1,6 @@
-import { getEntry } from '~/helpers/sanity'
-import getCards from '~/api/cards/getCards'
-import abbreviate from '~/helpers/abbreviate'
+import { getEntry } from '#helpers/sanity'
+import getCards from '#api/cards/getCards'
+import abbreviate from '#helpers/abbreviate'
 
 const getAbbreviations = async ({
   isPreview,

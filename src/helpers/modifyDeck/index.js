@@ -1,4 +1,4 @@
-import getResolvedCardData from '~/helpers/getResolvedCardData'
+import getResolvedCardData from '#helpers/getResolvedCardData'
 
 const setToLevel1 = card => ({ ...card, level: card.token ? card.level : 1 })
 

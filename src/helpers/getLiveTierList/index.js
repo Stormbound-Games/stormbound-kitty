@@ -1,10 +1,10 @@
-import getCards from '~/api/cards/getCards'
-import indexArray from '~/helpers/indexArray'
-import serialization from '~/helpers/serialization'
-import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import { getLongFaction, getShortFaction } from '~/helpers/encoding'
-import { FACTIONS } from '~/constants/game'
-import getDecks from '~/api/decks/getDecks'
+import getCards from '#api/cards/getCards'
+import indexArray from '#helpers/indexArray'
+import serialization from '#helpers/serialization'
+import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
+import { getLongFaction, getShortFaction } from '#helpers/encoding'
+import { FACTIONS } from '#constants/game'
+import getDecks from '#api/decks/getDecks'
 
 const SHORT_FACTIONS = FACTIONS.map(getShortFaction)
 

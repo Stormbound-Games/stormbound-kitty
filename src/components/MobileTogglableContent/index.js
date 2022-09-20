@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Label from '~/components/Label'
-import Only from '~/components/Only'
+import Label from '#components/Label'
+import Only from '#components/Only'
 import styles from './styles'
 
 export default React.memo(function MobileTogglableContent(props) {

@@ -1,11 +1,11 @@
-import PageOfficialCard from '~/components/PageOfficialCard'
-import getInitialCardData from '~/helpers/getInitialCardData'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import indexArray from '~/helpers/indexArray'
-import getChangesFromCard from '~/api/changes/getChangesFromCard'
-import getCards from '~/api/cards/getCards'
-import getCardFeed from '~/api/cards/getCardFeed'
-import { FIELDS as CARD_FIELDS } from '~/api/cards/utils'
+import PageOfficialCard from '#components/PageOfficialCard'
+import getInitialCardData from '#helpers/getInitialCardData'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import indexArray from '#helpers/indexArray'
+import getChangesFromCard from '#api/changes/getChangesFromCard'
+import getCards from '#api/cards/getCards'
+import getCardFeed from '#api/cards/getCardFeed'
+import { FIELDS as CARD_FIELDS } from '#api/cards/utils'
 
 export async function getStaticPaths() {
   const cards = (await getCards()).filter(card => !card.token)

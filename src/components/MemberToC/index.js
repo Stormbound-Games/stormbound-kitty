@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Icon from '~/components/Icon'
-import groupBy from '~/helpers/groupBy'
+import Icon from '#components/Icon'
+import groupBy from '#helpers/groupBy'
 import styles from './styles'
 
 export default React.memo(function MemberToC(props) {

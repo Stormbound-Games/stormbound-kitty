@@ -1,7 +1,7 @@
-import PageFeaturedDecks from '~/components/PageFeaturedDecks'
-import getDecks from '~/api/decks/getDecks'
-import getDeckTags from '~/api/decks/getDeckTags'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageFeaturedDecks from '#components/PageFeaturedDecks'
+import getDecks from '#api/decks/getDecks'
+import getDeckTags from '#api/decks/getDeckTags'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 // This page uses server-side rendering instead of static rendering because it
 // receives query parameters (for filtering) that need to be handled on the

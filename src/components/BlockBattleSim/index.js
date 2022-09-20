@@ -1,6 +1,6 @@
 import React from 'react'
-import BattleSimEmbed from '~/components/BattleSimEmbed'
-import BlocksRenderer from '~/components/BlocksRenderer'
+import BattleSimEmbed from '#components/BattleSimEmbed'
+import BlocksRenderer from '#components/BlocksRenderer'
 
 export default React.memo(function BlockBattleSim(props) {
   return (

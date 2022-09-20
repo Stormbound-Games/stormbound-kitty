@@ -8,12 +8,12 @@ import {
   Tooltip,
   Cell,
 } from 'recharts'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import Checkbox from '~/components/Checkbox'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import { getCardCost } from '~/helpers/getCollectionCost'
-import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CollectionContext } from '#components/CollectionProvider'
+import { CardsContext } from '#components/CardsProvider'
+import Checkbox from '#components/Checkbox'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import { getCardCost } from '#helpers/getCollectionCost'
+import { TOOLTIP_STYLES } from '#constants/stats'
 import styles from './styles'
 
 const useFactionData = ignoreNeutral => {

@@ -1,7 +1,7 @@
-import advice from './'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialization from '~/helpers/serialization'
-import modifyDeck from '~/helpers/modifyDeck'
+import advice from './index.js'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import serialization from '#helpers/serialization'
+import modifyDeck from '#helpers/modifyDeck'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(

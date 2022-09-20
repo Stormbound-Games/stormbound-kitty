@@ -1,4 +1,4 @@
-import command from './'
+import command from './index.js'
 const cardinfo = command.handler.bind(command)
 
 describe('Bot — !cardinfo', () => {

@@ -1,4 +1,4 @@
-import findHeadings from '~/helpers/findHeadings'
+import findHeadings from '#helpers/findHeadings'
 
 const get = (object, path) => path.reduce((prev, curr) => prev[curr], object)
 const getObjectPath = path =>

@@ -1,9 +1,9 @@
-import { DEFAULT_CELL, DEFAULT_CARD } from '~/constants/battle'
-import arrayPad from '~/helpers/arrayPad'
-import chunk from '~/helpers/chunk'
-import { base64Decode, base64Encode } from '~/helpers/base64'
-import { getShortFaction, getLongFaction } from '~/helpers/encoding'
-import serialization from './'
+import { DEFAULT_CELL, DEFAULT_CARD } from '#constants/battle'
+import arrayPad from '#helpers/arrayPad'
+import chunk from '#helpers/chunk'
+import { base64Decode, base64Encode } from '#helpers/base64'
+import { getShortFaction, getLongFaction } from '#helpers/encoding'
+import serialization from './index.js'
 
 const serializeBoard = board =>
   board

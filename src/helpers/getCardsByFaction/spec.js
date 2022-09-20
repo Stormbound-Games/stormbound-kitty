@@ -1,4 +1,4 @@
-import getCardsByFaction from './'
+import getCardsByFaction from './index.js'
 
 describe('The `getCardsByFaction` helper', () => {
   const output = getCardsByFaction(global.__CARDS__)

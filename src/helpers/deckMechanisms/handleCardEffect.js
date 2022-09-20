@@ -1,7 +1,7 @@
-import { PROBABILITIES } from '~/constants/dryRunner'
-import arrayRandom from '~/helpers/arrayRandom'
-import isCard, { isNotCard } from '~/helpers/isCard'
-import shuffle from '~/helpers/shuffle'
+import { PROBABILITIES } from '#constants/dryRunner'
+import arrayRandom from '#helpers/arrayRandom'
+import isCard, { isNotCard } from '#helpers/isCard'
+import shuffle from '#helpers/shuffle'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
@@ -10,7 +10,7 @@ import {
   getHarvestersOfSoulsPossibleCards,
   getRogueSheepCardCopies,
   isPlayableSpell,
-} from './utils'
+} from './utils.js'
 
 // Frozen enemies left after a card's ability has been resolved, in regular RNG mode
 const FROZEN_ENEMIES_AFTER = {

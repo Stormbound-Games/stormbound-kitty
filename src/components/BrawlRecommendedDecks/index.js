@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
-import { BrawlContext } from '~/components/BrawlProvider'
-import Decks from '~/components/Decks'
-import Icon from '~/components/Icon'
-import Title from '~/components/Title'
+import Link from '#components/Link'
+import { BrawlContext } from '#components/BrawlProvider'
+import Decks from '#components/Decks'
+import Icon from '#components/Icon'
+import Title from '#components/Title'
 
 export default React.memo(function BrawlRecommendedDecks(props) {
   const { css } = useFela()

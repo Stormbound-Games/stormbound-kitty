@@ -1,5 +1,5 @@
-import { STORY_CATEGORIES } from '~/constants/stories'
-import getReleases from '~/api/releases/getReleases'
+import { STORY_CATEGORIES } from '#constants/stories'
+import getReleases from '#api/releases/getReleases'
 
 const getNavigation = async ({ isPreview }) => {
   const releases = await getReleases({ isPreview, limit: 3 })

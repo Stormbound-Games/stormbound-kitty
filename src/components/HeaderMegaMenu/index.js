@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BlankButton from '~/components/BlankButton'
-import Link from '~/components/Link'
-import Icon from '~/components/Icon'
-import Label from '~/components/Label'
-import NewPulse from '~/components/NewPulse'
-import Row from '~/components/Row'
+import BlankButton from '#components/BlankButton'
+import Link from '#components/Link'
+import Icon from '#components/Icon'
+import Label from '#components/Label'
+import NewPulse from '#components/NewPulse'
+import Row from '#components/Row'
 import styles from './styles'
 
 const useOutsideAlerter = (props, ref) => {

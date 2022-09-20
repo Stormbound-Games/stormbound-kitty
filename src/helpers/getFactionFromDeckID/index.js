@@ -1,5 +1,5 @@
-import { isSbId } from '~/helpers/convertDeckId'
-import { base64Decode } from '~/helpers/base64'
+import { isSbId } from '#helpers/convertDeckId'
+import { base64Decode } from '#helpers/base64'
 
 const getFactionFromDeckID = id => {
   // If the deck ID is a Stormbound ID, the faction is encoded as a number at

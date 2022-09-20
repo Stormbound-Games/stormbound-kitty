@@ -1,4 +1,4 @@
-import resolveAbility from './'
+import resolveAbility from './index.js'
 
 describe('The `resolveAbility` helper', () => {
   it('should handle null case', () => {

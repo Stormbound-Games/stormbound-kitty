@@ -1,4 +1,4 @@
-import countCards from './'
+import countCards from './index.js'
 
 describe('The `countCards` helper', () => {
   it('should handle rarity count + fusion stones', () => {

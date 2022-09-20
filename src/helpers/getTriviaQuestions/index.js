@@ -4,16 +4,16 @@ import {
   CHIP_CARDS,
   RARITY_COPIES,
   RARITIES,
-} from '~/constants/game'
-import arrayRandom from '~/helpers/arrayRandom'
-import capitalize from '~/helpers/capitalize'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import abbreviate from '~/helpers/abbreviate'
-import shuffle from '~/helpers/shuffle'
-import sortCards from '~/helpers/sortCards'
-import indexArray from '~/helpers/indexArray'
-import random from '~/helpers/random'
-import { formatPreciseDate } from '~/helpers/formatDate'
+} from '#constants/game'
+import arrayRandom from '#helpers/arrayRandom'
+import capitalize from '#helpers/capitalize'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import abbreviate from '#helpers/abbreviate'
+import shuffle from '#helpers/shuffle'
+import sortCards from '#helpers/sortCards'
+import indexArray from '#helpers/indexArray'
+import random from '#helpers/random'
+import { formatPreciseDate } from '#helpers/formatDate'
 
 const getTriviaQuestions = (cards, brawls, books) => {
   const cardsIndex = indexArray(cards)

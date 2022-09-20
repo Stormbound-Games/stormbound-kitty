@@ -1,4 +1,4 @@
-import { computeBaseHealth, computeProgress } from './'
+import { computeBaseHealth, computeProgress } from './index.js'
 
 describe('The `computeBaseHealth` helper', () => {
   it('should handle 20 BH', () => {

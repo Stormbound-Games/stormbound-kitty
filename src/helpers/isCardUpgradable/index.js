@@ -1,4 +1,4 @@
-import getCostForLevel from '~/helpers/getCostForLevel'
+import getCostForLevel from '#helpers/getCostForLevel'
 
 const isCardUpgradable = (cardsIndex, { id, level, copies, missing } = {}) => {
   if (level === 5 || !(id in cardsIndex)) return false

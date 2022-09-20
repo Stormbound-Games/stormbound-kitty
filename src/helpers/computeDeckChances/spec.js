@@ -4,9 +4,9 @@ import {
   getCycledHands,
   getEffectiveManaCost,
   getHandCost,
-} from './'
-import serialization from '~/helpers/serialization'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
+} from './index.js'
+import serialization from '#helpers/serialization'
+import getResolvedCardData from '#helpers/getResolvedCardData'
 
 const resolve = (id, level = 1) =>
   getResolvedCardData(global.__CARDS_INDEX__, { id, level })

@@ -5,17 +5,17 @@ import {
   DEFAULT_LIST,
   DEFAULT_TIER,
   MAX_TIERS,
-} from '~/constants/list'
-import Page from '~/components/Page'
-import CTA from '~/components/CTA'
-import HorizontalRule from '~/components/HorizontalRule'
-import ResetButton from '~/components/ResetButton'
-import Row from '~/components/Row'
-import ShareButton from '~/components/ListBuilderShareButton'
-import ListBuilderTier from '~/components/ListBuilderTier'
-import Title from '~/components/Title'
-import serialization from '~/helpers/serialization'
-import useIsMounted from '~/hooks/useIsMounted'
+} from '#constants/list'
+import Page from '#components/Page'
+import CTA from '#components/CTA'
+import HorizontalRule from '#components/HorizontalRule'
+import ResetButton from '#components/ResetButton'
+import Row from '#components/Row'
+import ShareButton from '#components/ListBuilderShareButton'
+import ListBuilderTier from '#components/ListBuilderTier'
+import Title from '#components/Title'
+import serialization from '#helpers/serialization'
+import useIsMounted from '#hooks/useIsMounted'
 
 export default React.memo(function PageListBuilderEditor(props) {
   const isMounted = useIsMounted()

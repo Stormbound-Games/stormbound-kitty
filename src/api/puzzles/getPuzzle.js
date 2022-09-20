@@ -1,5 +1,5 @@
-import { getEntry } from '~/helpers/sanity'
-import { FIELDS, MAPPER } from './utils'
+import { getEntry } from '#helpers/sanity'
+import { FIELDS, MAPPER } from './utils.js'
 
 const getPuzzle = async ({ slug, isPreview } = {}) => {
   const puzzle = await getEntry({

@@ -1,5 +1,5 @@
-import { RARITIES } from '~/constants/game'
-import arrayPad from '~/helpers/arrayPad'
+import { RARITIES } from '#constants/game'
+import arrayPad from '#helpers/arrayPad'
 
 const count = RARITIES.length
 

@@ -1,4 +1,4 @@
-import getMilestoneForCrowns from '~/helpers/getMilestoneForCrowns'
+import getMilestoneForCrowns from '#helpers/getMilestoneForCrowns'
 
 export const MILESTONES_LEGACY = [
   { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },

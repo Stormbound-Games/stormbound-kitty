@@ -1,6 +1,6 @@
 import React from 'react'
-import Dialog from '~/components/Dialog'
-import Link from '~/components/Link'
+import Dialog from '#components/Dialog'
+import Link from '#components/Link'
 
 export default React.memo(function FanKitDownloadDialog(props) {
   return (

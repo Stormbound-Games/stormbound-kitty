@@ -1,6 +1,6 @@
 import React from 'react'
-import FeedEntry from '~/components/FeedEntry'
-import MemberList from '~/components/MemberList'
+import FeedEntry from '#components/FeedEntry'
+import MemberList from '#components/MemberList'
 
 export default React.memo(function FeedHostEntry(props) {
   return (

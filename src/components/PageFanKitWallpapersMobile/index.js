@@ -1,12 +1,12 @@
 import React from 'react'
-import FanKitDownloadDialog from '~/components/FanKitDownloadDialog'
-import FanKitItem from '~/components/FanKitItem'
-import Loader from '~/components/Loader'
-import Page from '~/components/Page'
-import Row from '~/components/Row'
-import chunk from '~/helpers/chunk'
-import indexArray from '~/helpers/indexArray'
-import useLazyLoad from '~/hooks/useLazyLoad'
+import FanKitDownloadDialog from '#components/FanKitDownloadDialog'
+import FanKitItem from '#components/FanKitItem'
+import Loader from '#components/Loader'
+import Page from '#components/Page'
+import Row from '#components/Row'
+import chunk from '#helpers/chunk'
+import indexArray from '#helpers/indexArray'
+import useLazyLoad from '#hooks/useLazyLoad'
 
 const resolveAsset = (wallpaper, index) => {
   const { width, height, aspectRatio } = wallpaper.dimensions

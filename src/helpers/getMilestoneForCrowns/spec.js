@@ -1,5 +1,5 @@
-import { BRAWL_MILESTONES } from '~/constants/brawl'
-import getMilestoneForCrowns from './'
+import { BRAWL_MILESTONES } from '#constants/brawl'
+import getMilestoneForCrowns from './index.js'
 
 describe('The `getMilestoneForCrowns` helper', () => {
   it('should handle 0 crowns', () => {

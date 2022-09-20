@@ -1,5 +1,5 @@
-import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '~/constants/game'
-import handleSearchAlias from '~/helpers/handleSearchAlias'
+import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
+import handleSearchAlias from '#helpers/handleSearchAlias'
 
 const CARD_KEYS = [
   'name',

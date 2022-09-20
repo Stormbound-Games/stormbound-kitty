@@ -1,10 +1,10 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { UNIT_TYPES } from '~/constants/game'
-import Label from '~/components/Label'
-import VisuallyHidden from '~/components/VisuallyHidden'
-import useSelectStyles from '~/hooks/useSelectStyles'
-import capitalize from '~/helpers/capitalize'
+import { UNIT_TYPES } from '#constants/game'
+import Label from '#components/Label'
+import VisuallyHidden from '#components/VisuallyHidden'
+import useSelectStyles from '#hooks/useSelectStyles'
+import capitalize from '#helpers/capitalize'
 
 const Select = dynamic(() => import('react-select'))
 const Creatable = dynamic(() => import('react-select/creatable'))

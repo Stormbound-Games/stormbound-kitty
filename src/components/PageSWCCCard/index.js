@@ -1,13 +1,13 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import CardDisplay from '~/components/CardDisplay'
-import Link from '~/components/Link'
-import Info from '~/components/Info'
-import Page from '~/components/Page'
-import Spacing from '~/components/Spacing'
-import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
-import parseDate from '~/helpers/parseDate'
-import { formatPreciseDate } from '~/helpers/formatDate'
+import { CardsContext } from '#components/CardsProvider'
+import CardDisplay from '#components/CardDisplay'
+import Link from '#components/Link'
+import Info from '#components/Info'
+import Page from '#components/Page'
+import Spacing from '#components/Spacing'
+import getCardBuilderMetaTags from '#helpers/getCardBuilderMetaTags'
+import parseDate from '#helpers/parseDate'
+import { formatPreciseDate } from '#helpers/formatDate'
 
 export default React.memo(function PageSWCCCard(props) {
   const { cardsIndex } = React.useContext(CardsContext)

@@ -1,9 +1,9 @@
 import React from 'react'
-import PageListBuilderDisplay from '~/components/PageListBuilderDisplay'
-import PageListBuilderEditor from '~/components/PageListBuilderEditor'
-import getInitialListData from '~/helpers/getInitialListData'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import { DEFAULT_LIST } from '~/constants/list'
+import PageListBuilderDisplay from '#components/PageListBuilderDisplay'
+import PageListBuilderEditor from '#components/PageListBuilderEditor'
+import getInitialListData from '#helpers/getInitialListData'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import { DEFAULT_LIST } from '#constants/list'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: [] } }], fallback: 'blocking' }

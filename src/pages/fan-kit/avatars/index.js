@@ -1,6 +1,6 @@
-import PageFanKitAvatars from '~/components/PageFanKitAvatars'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getAvatars from '~/api/avatars/getAvatars'
+import PageFanKitAvatars from '#components/PageFanKitAvatars'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getAvatars from '#api/avatars/getAvatars'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const avatars = await getAvatars({ isPreview })

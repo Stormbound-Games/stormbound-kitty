@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { CardsContext } from '~/components/CardsProvider'
-import Image from '~/components/Image'
-import ProgressBar from '~/components/ProgressBar'
-import { RARITY_COPIES } from '~/constants/game'
+import { CardsContext } from '#components/CardsProvider'
+import Image from '#components/Image'
+import ProgressBar from '#components/ProgressBar'
+import { RARITY_COPIES } from '#constants/game'
 import styles from './styles'
 
 export default React.memo(function CardProgress(props) {

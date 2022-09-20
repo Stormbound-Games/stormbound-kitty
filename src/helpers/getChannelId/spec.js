@@ -1,4 +1,4 @@
-import getChannelId, { KITTY_SERVER } from './'
+import getChannelId, { KITTY_SERVER } from './index.js'
 
 const getMessage = () => {
   const message = {}

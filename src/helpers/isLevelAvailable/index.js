@@ -1,4 +1,4 @@
-import { RARITY_COPIES } from '~/constants/game'
+import { RARITY_COPIES } from '#constants/game'
 
 const isLevelAvailable = (cardsIndex, card, level) => {
   // If the card is missing from the collection, it means there are 0 extra

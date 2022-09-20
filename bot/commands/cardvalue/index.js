@@ -1,10 +1,10 @@
-import getEmbed from '~/helpers/getEmbed'
-import clamp from '~/helpers/clamp'
-import getCardValue from '~/helpers/getCardValue'
-import searchCards from '~/helpers/searchCards'
-import indexArray from '~/helpers/indexArray'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
+import getEmbed from '#helpers/getEmbed'
+import clamp from '#helpers/clamp'
+import getCardValue from '#helpers/getCardValue'
+import searchCards from '#helpers/searchCards'
+import indexArray from '#helpers/indexArray'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
 
 const getLevel = message => {
   message = message.trim()

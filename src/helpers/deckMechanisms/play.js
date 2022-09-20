@@ -1,6 +1,6 @@
 import handleCardEffect from './handleCardEffect'
-import isCard, { isNotCard } from '~/helpers/isCard'
-import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
+import isCard, { isNotCard } from '#helpers/isCard'
+import getIncreasedDeckWeight from '#helpers/getIncreasedDeckWeight'
 import refill from './refill'
 
 export const DEFAULT_PLAY_OPTIONS = {

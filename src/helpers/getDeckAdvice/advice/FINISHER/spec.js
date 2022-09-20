@@ -3,10 +3,10 @@ import advice, {
   STABLE_FINISHERS,
   LOW_LEVEL_FINISHERS,
   HIGH_LEVEL_FINISHERS,
-} from './'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialization from '~/helpers/serialization'
-import modifyDeck from '~/helpers/modifyDeck'
+} from './index.js'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import serialization from '#helpers/serialization'
+import modifyDeck from '#helpers/modifyDeck'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(

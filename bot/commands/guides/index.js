@@ -1,6 +1,6 @@
-import getEmbed from '~/helpers/getEmbed'
-import getGuides from '~/api/guides/getGuides'
-import { GUIDE_CATEGORIES } from '~/constants/guides'
+import getEmbed from '#helpers/getEmbed'
+import getGuides from '#api/guides/getGuides'
+import { GUIDE_CATEGORIES } from '#constants/guides'
 
 const guides = {
   command: 'guides',

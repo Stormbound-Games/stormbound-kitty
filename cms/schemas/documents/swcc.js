@@ -1,6 +1,6 @@
 import { MdAutoFixNormal } from 'react-icons/md'
 import user from '../types/user'
-import { formatDate } from '~/helpers/formatDate'
+import { formatDate } from '#helpers/formatDate'
 
 const swcc = {
   title: 'SWCC',
