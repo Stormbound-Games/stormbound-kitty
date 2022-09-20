@@ -1,6 +1,6 @@
-import replace from 'replace-in-file'
 import fs from 'fs'
 import path from 'path'
+import replace from 'replace-in-file'
 
 const pkg = JSON.parse(fs.readFileSync(path.resolve('./package.json'), 'utf8'))
 const options = {
