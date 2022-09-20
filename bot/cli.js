@@ -1,9 +1,9 @@
 import 'dotenv/config'
 import fs from 'fs'
-import Discord from 'discord.js'
+import Discord, { GatewayIntentBits } from 'discord.js'
 import handleMessage from './handle.js'
 
-const client = new Discord.Client()
+const client = new Discord.Client({ intents: [GatewayIntentBits.Guilds] })
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 
