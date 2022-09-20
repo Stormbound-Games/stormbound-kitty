@@ -1,9 +1,9 @@
-import serialization from '~/helpers/serialization'
-import searchCards from '~/helpers/searchCards'
-import getEmbed from '~/helpers/getEmbed'
-import clamp from '~/helpers/clamp'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
+import serialization from '#helpers/serialization'
+import searchCards from '#helpers/searchCards'
+import getEmbed from '#helpers/getEmbed'
+import clamp from '#helpers/clamp'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
 
 const getLevelOut = term => {
   term = term.trim()

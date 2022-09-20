@@ -1,5 +1,5 @@
-import { FACTIONS } from '~/constants/game'
-import { getLongFaction } from '~/helpers/encoding'
+import { FACTIONS } from '#constants/game'
+import { getLongFaction } from '#helpers/encoding'
 
 const getFactionWeights = (brawls, modifier) => {
   const factions = FACTIONS.filter(faction => faction !== 'neutral')

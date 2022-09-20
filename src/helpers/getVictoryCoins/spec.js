@@ -1,4 +1,4 @@
-import getVictoryCoins from './'
+import getVictoryCoins from './index.js'
 
 describe('The `getVictoryCoins` helper', () => {
   it('should handle MOBILE_WITHOUT_ADS', () => {

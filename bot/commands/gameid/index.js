@@ -1,5 +1,5 @@
-import getEmbed from '~/helpers/getEmbed'
-import api from '~/helpers/triviapi'
+import getEmbed from '#helpers/getEmbed'
+import api from '#helpers/triviapi'
 
 const gameid = {
   command: 'gameid',

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { CardsContext } from '~/components/CardsProvider'
-import Card from '~/components/Card'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
+import { CardsContext } from '#components/CardsProvider'
+import Card from '#components/Card'
+import getResolvedCardData from '#helpers/getResolvedCardData'
 import styles from './styles'
 
 export default React.memo(function CardZoom(props) {

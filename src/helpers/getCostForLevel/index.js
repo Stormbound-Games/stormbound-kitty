@@ -1,4 +1,4 @@
-import { RARITY_COPIES, UPGRADE_COST } from '~/constants/game'
+import { RARITY_COPIES, UPGRADE_COST } from '#constants/game'
 
 const getCostForLevel =
   target =>

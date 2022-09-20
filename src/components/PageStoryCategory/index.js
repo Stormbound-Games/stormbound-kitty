@@ -1,12 +1,12 @@
 import React from 'react'
-import Link from '~/components/Link'
-import Page from '~/components/Page'
-import Notice from '~/components/Notice'
-import Only from '~/components/Only'
-import ListHeader from '~/components/ListHeader'
-import Stories from '~/components/Stories'
-import parseDate from '~/helpers/parseDate'
-import useViewportSize from '~/hooks/useViewportSize'
+import Link from '#components/Link'
+import Page from '#components/Page'
+import Notice from '#components/Notice'
+import Only from '#components/Only'
+import ListHeader from '#components/ListHeader'
+import Stories from '#components/Stories'
+import parseDate from '#helpers/parseDate'
+import useViewportSize from '#hooks/useViewportSize'
 
 export default React.memo(function PageStoryCategory(props) {
   const { viewportWidth } = useViewportSize()

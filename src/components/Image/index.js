@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { PageContext } from '~/components/Page'
-import useImageSupport from '~/hooks/useImageSupport'
+import { PageContext } from '#components/Page'
+import useImageSupport from '#hooks/useImageSupport'
 
 const useFileExtension = ({ withAvif, withoutWebp }) => {
   const { supportsWebp, supportsAvif } = useImageSupport()

@@ -1,7 +1,7 @@
 import React from 'react'
 import Script from 'next/script'
-import Error from '~/components/Error'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import Error from '#components/Error'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

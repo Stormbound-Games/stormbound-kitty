@@ -1,6 +1,6 @@
-import toSentence from '~/helpers/toSentence'
-import getEmbed from '~/helpers/getEmbed'
-import getAbbreviations from '~/api/misc/getAbbreviations'
+import toSentence from '#helpers/toSentence'
+import getEmbed from '#helpers/getEmbed'
+import getAbbreviations from '#api/misc/getAbbreviations'
 
 const quotify = value => `“${value}”`
 

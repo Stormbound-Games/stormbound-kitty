@@ -13,7 +13,7 @@ import image from '../richText/image'
 import info from '../richText/info'
 import nerfCompensation from '../richText/nerfCompensation'
 import tableOfContents from '../richText/tableOfContents'
-import { formatDate } from '~/helpers/formatDate'
+import { formatDate } from '#helpers/formatDate'
 
 const release = {
   title: 'Releases',

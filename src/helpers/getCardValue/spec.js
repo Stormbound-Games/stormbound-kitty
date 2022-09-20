@@ -1,5 +1,5 @@
-import { UNIT_TYPES } from '~/constants/game'
-import getCardValue, { MAX_TILES, MAX_MANA } from './'
+import { UNIT_TYPES } from '#constants/game'
+import getCardValue, { MAX_TILES, MAX_MANA } from './index.js'
 
 describe('The `getCardValue` helper', () => {
   it('should return value for Green Prototypes', () => {

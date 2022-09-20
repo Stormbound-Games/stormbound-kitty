@@ -1,11 +1,11 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { CardsContext } from '~/components/CardsProvider'
-import Label from '~/components/Label'
-import VisuallyHidden from '~/components/VisuallyHidden'
-import { FACTIONS } from '~/constants/game'
-import getCardsByFaction from '~/helpers/getCardsByFaction'
-import useSelectStyles from '~/hooks/useSelectStyles'
+import { CardsContext } from '#components/CardsProvider'
+import Label from '#components/Label'
+import VisuallyHidden from '#components/VisuallyHidden'
+import { FACTIONS } from '#constants/game'
+import getCardsByFaction from '#helpers/getCardsByFaction'
+import useSelectStyles from '#hooks/useSelectStyles'
 
 const Select = dynamic(() => import('react-select'))
 

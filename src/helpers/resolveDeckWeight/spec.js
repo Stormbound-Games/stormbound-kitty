@@ -1,4 +1,4 @@
-import resolveDeckWeight from './'
+import resolveDeckWeight from './index.js'
 
 describe('The `resolveDeckWeight` helper', () => {
   const deck = [

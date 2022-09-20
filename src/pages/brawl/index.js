@@ -1,6 +1,6 @@
-import PageBrawlIndex from '~/components/PageBrawlIndex'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getBrawls from '~/api/brawls/getBrawls'
+import PageBrawlIndex from '#components/PageBrawlIndex'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getBrawls from '#api/brawls/getBrawls'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const brawls = await getBrawls({ isPreview })

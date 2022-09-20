@@ -1,6 +1,6 @@
-import PageBrewedSages from '~/components/PageBrewedSages'
-import getPodcasts from '~/api/podcasts/getPodcasts'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageBrewedSages from '#components/PageBrewedSages'
+import getPodcasts from '#api/podcasts/getPodcasts'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

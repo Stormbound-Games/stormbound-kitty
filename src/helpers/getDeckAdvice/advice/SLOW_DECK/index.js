@@ -1,4 +1,4 @@
-import getEffectiveSpeed from '~/helpers/getEffectiveSpeed'
+import getEffectiveSpeed from '#helpers/getEffectiveSpeed'
 
 const advice = cards => {
   const staticCards = cards.filter(card => getEffectiveSpeed(card) === 0)

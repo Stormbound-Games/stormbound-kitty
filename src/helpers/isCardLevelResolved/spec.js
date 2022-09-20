@@ -1,4 +1,4 @@
-import isCardLevelResolved from './'
+import isCardLevelResolved from './index.js'
 
 describe('The `isCardLevelResolved` helper', () => {
   it('should return false if there is no card name', () => {

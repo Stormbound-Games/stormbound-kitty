@@ -1,7 +1,7 @@
 import React from 'react'
-import ListBuilderTier from '~/components/ListBuilderTier'
-import getInitialListData from '~/helpers/getInitialListData'
-import { TIER_COLORS } from '~/constants/list'
+import ListBuilderTier from '#components/ListBuilderTier'
+import getInitialListData from '#helpers/getInitialListData'
+import { TIER_COLORS } from '#constants/list'
 
 export default React.memo(function BlockTierList(props) {
   const { id } = props.value

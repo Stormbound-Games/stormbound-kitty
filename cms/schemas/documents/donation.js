@@ -1,7 +1,7 @@
 import { MdAttachMoney } from 'react-icons/md'
 import user from '../types/user'
 import date from '../types/date'
-import { formatDate } from '~/helpers/formatDate'
+import { formatDate } from '#helpers/formatDate'
 
 const donation = {
   title: 'Donations',

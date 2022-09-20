@@ -1,4 +1,4 @@
-import isCard from './'
+import isCard from './index.js'
 
 describe('The `isCard` helper', () => {
   ;[

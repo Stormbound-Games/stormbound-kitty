@@ -1,5 +1,5 @@
-import { getEntry } from '~/helpers/sanity'
-import { FIELDS } from './utils'
+import { getEntry } from '#helpers/sanity'
+import { FIELDS } from './utils.js'
 
 const getUser = async ({ slug, isPreview, fields = FIELDS } = {}) => {
   const user = await getEntry({

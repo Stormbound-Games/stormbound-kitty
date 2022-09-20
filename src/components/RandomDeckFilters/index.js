@@ -1,9 +1,9 @@
 import React from 'react'
-import Dialog from '~/components/Dialog'
-import FactionSelect from '~/components/FactionSelect'
-import Only from '~/components/Only'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
+import Dialog from '#components/Dialog'
+import FactionSelect from '#components/FactionSelect'
+import Only from '#components/Only'
+import Row from '#components/Row'
+import Select from '#components/Select'
 
 export default React.memo(function RandomDeckFilters(props) {
   const [faction, setFaction] = React.useState('*')

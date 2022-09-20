@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '~/components/Link'
-import { RichTextContext } from '~/components/BlocksRenderer'
-import TableOfContents from '~/components/TableOfContents'
-import parseOutline from '~/helpers/parseOutline'
+import Link from '#components/Link'
+import { RichTextContext } from '#components/BlocksRenderer'
+import TableOfContents from '#components/TableOfContents'
+import parseOutline from '#helpers/parseOutline'
 import styles from './styles'
 
 const ToCItem = props => {

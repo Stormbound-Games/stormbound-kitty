@@ -1,7 +1,7 @@
-import PageReleaseNotes from '~/components/PageReleaseNotes'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getRelease from '~/api/releases/getRelease'
-import getReleases from '~/api/releases/getReleases'
+import PageReleaseNotes from '#components/PageReleaseNotes'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getRelease from '#api/releases/getRelease'
+import getReleases from '#api/releases/getReleases'
 
 export async function getStaticPaths() {
   const releases = await getReleases()

@@ -1,12 +1,12 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useFela } from 'react-fela'
-import Form from '~/components/QuestBuilderForm'
-import Row from '~/components/Row'
-import Title from '~/components/Title'
-import Quest from '~/components/Quest'
-import Page from '~/components/Page'
-import serialization from '~/helpers/serialization'
+import Form from '#components/QuestBuilderForm'
+import Row from '#components/Row'
+import Title from '#components/Title'
+import Quest from '#components/Quest'
+import Page from '#components/Page'
+import serialization from '#helpers/serialization'
 
 export default React.memo(function PageQuestBuilder(props) {
   const { css } = useFela()

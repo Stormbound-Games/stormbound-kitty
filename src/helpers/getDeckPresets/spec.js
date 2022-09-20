@@ -1,4 +1,4 @@
-import getDeckPresets from './'
+import getDeckPresets from './index.js'
 
 describe('The `getDeckPresets` helper', () => {
   it('should return default presets for a non-suggested deck', () => {

@@ -1,13 +1,13 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import CTA from '~/components/CTA'
-import Input from '~/components/Input'
-import Link from '~/components/Link'
-import Row from '~/components/Row'
-import TagsSelect from '~/components/TagsSelect'
-import serialization from '~/helpers/serialization'
-import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
-import { convertToSkId, isSbId } from '~/helpers/convertDeckId'
+import { CardsContext } from '#components/CardsProvider'
+import CTA from '#components/CTA'
+import Input from '#components/Input'
+import Link from '#components/Link'
+import Row from '#components/Row'
+import TagsSelect from '#components/TagsSelect'
+import serialization from '#helpers/serialization'
+import getDeckIDFromURL from '#helpers/getDeckIDFromURL'
+import { convertToSkId, isSbId } from '#helpers/convertDeckId'
 
 const validateDeckId = (cardsIndex, cardsIndexBySid, id) => {
   if (!id) return false

@@ -1,4 +1,4 @@
-import { getEntries } from '~/helpers/sanity'
+import { getEntries } from '#helpers/sanity'
 
 const getChannels = async ({ isPreview } = {}) => {
   const users = await getEntries({

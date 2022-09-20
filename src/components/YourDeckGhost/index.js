@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Deck from '~/components/Deck'
-import Spacing from '~/components/Spacing'
-import BlankButton from '~/components/BlankButton'
-import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
+import Deck from '#components/Deck'
+import Spacing from '#components/Spacing'
+import BlankButton from '#components/BlankButton'
+import { PersonalDecksContext } from '#components/PersonalDecksProvider'
 import styles from './styles'
 
 export default React.memo(function YourDeckGhost(props) {

@@ -1,10 +1,10 @@
-import getEmbed from '~/helpers/getEmbed'
-import searchCards from '~/helpers/searchCards'
-import parseDate from '~/helpers/parseDate'
-import getChangesFromCard from '~/api/changes/getChangesFromCard'
-import { formatPreciseDate } from '~/helpers/formatDate'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
+import getEmbed from '#helpers/getEmbed'
+import searchCards from '#helpers/searchCards'
+import parseDate from '#helpers/parseDate'
+import getChangesFromCard from '#api/changes/getChangesFromCard'
+import { formatPreciseDate } from '#helpers/formatDate'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {

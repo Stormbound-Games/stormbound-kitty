@@ -1,5 +1,5 @@
 import speakingurl from 'speakingurl'
-import getChildrenText from '~/helpers/getChildrenText'
+import getChildrenText from '#helpers/getChildrenText'
 
 const filter = (ast, match) =>
   ast.reduce((acc, node) => {

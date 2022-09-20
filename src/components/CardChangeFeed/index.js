@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import parseDate from '~/helpers/parseDate'
-import FeedCardChange from '~/components/FeedCardChange'
-import Spacing from '~/components/Spacing'
-import Title from '~/components/Title'
+import parseDate from '#helpers/parseDate'
+import FeedCardChange from '#components/FeedCardChange'
+import Spacing from '#components/Spacing'
+import Title from '#components/Title'
 import styles from './styles'
 
 export default React.memo(function CardChangeFeed(props) {

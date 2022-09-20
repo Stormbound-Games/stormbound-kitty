@@ -1,4 +1,4 @@
-import computeDeckChances from '~/helpers/computeDeckChances'
+import computeDeckChances from '#helpers/computeDeckChances'
 
 const getManaCurveIntersection = (deck, modifier) => {
   // 8 is a decent starting point to avoid unnecessary computations before that.

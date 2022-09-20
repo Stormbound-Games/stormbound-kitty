@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { AnimatePresence, motion } from 'framer-motion'
-import CardZoom from '~/components/CardZoom'
-import Image from '~/components/Image'
-import arrayPad from '~/helpers/arrayPad'
+import CardZoom from '#components/CardZoom'
+import Image from '#components/Image'
+import arrayPad from '#helpers/arrayPad'
 import styles from './styles'
 
 export default React.memo(function DryRunnerCardLog(props) {

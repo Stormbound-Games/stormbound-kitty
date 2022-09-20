@@ -1,8 +1,8 @@
-import { getEntry } from '~/helpers/sanity'
-import serialization from '~/helpers/serialization'
-import indexArray from '~/helpers/indexArray'
-import getCards from '~/api/cards/getCards'
-import { FIELDS, MAPPER } from './utils'
+import { getEntry } from '#helpers/sanity'
+import serialization from '#helpers/serialization'
+import indexArray from '#helpers/indexArray'
+import getCards from '#api/cards/getCards'
+import { FIELDS, MAPPER } from './utils.js'
 
 const getDeck = async ({ id, isPreview } = {}) => {
   const cards = await getCards({ isPreview })

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Icon from '~/components/Icon'
-import Label from '~/components/Label'
-import useSpacing from '~/hooks/useSpacing'
+import Icon from '#components/Icon'
+import Label from '#components/Label'
+import useSpacing from '#hooks/useSpacing'
 import styles from './styles'
 
 export default React.memo(function Info(props) {

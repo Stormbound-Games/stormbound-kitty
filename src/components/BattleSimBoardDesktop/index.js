@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BaseHealth from '~/components/BattleSimBaseHealth'
-import Cards from '~/components/BattleSimCards'
-import CardZoom from '~/components/CardZoom'
-import Grid from '~/components/BattleSimGrid'
-import PlayerBanner from '~/components/BattleSimPlayerBanner'
-import useIsMounted from '~/hooks/useIsMounted'
+import BaseHealth from '#components/BattleSimBaseHealth'
+import Cards from '#components/BattleSimCards'
+import CardZoom from '#components/CardZoom'
+import Grid from '#components/BattleSimGrid'
+import PlayerBanner from '#components/BattleSimPlayerBanner'
+import useIsMounted from '#hooks/useIsMounted'
 import styles from './styles'
 
 const POSITIONS = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import indexArray from '~/helpers/indexArray'
+import indexArray from '#helpers/indexArray'
 
 export const CardsContext = React.createContext({ cards: [], index: {} })
 

@@ -1,6 +1,6 @@
-import PageCardChangelog from '~/components/PageCardChangelog'
-import getChanges from '~/api/changes/getChanges'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageCardChangelog from '#components/PageCardChangelog'
+import getChanges from '#api/changes/getChanges'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const changelog = await getChanges({ isPreview })

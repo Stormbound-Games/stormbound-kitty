@@ -1,5 +1,5 @@
 import { writeFile } from 'fs/promises'
-import { client } from '../src/constants/sanity'
+import { client } from '#constants/sanity'
 
 const OUT = './cards.json'
 const FACTIONS = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']

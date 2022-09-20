@@ -1,6 +1,6 @@
 import React from 'react'
 import speakingurl from 'speakingurl'
-import getChildrenText from '~/helpers/getChildrenText'
+import getChildrenText from '#helpers/getChildrenText'
 
 const asHeading = Component =>
   function Heading(props) {

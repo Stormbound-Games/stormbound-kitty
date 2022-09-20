@@ -2,18 +2,18 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import EyeCatcher from '~/components/EyeCatcher'
-import Footer from '~/components/Footer'
-import Header from '~/components/Header'
-import BlocksRenderer from '~/components/BlocksRenderer'
-import Loader from '~/components/Loader'
-import PreviewBanner from '~/components/PreviewBanner'
+import EyeCatcher from '#components/EyeCatcher'
+import Footer from '#components/Footer'
+import Header from '#components/Header'
+import BlocksRenderer from '#components/BlocksRenderer'
+import Loader from '#components/Loader'
+import PreviewBanner from '#components/PreviewBanner'
 import styles from './styles'
 
 // The search dialog is dynamically imported both because it used to be very
 // heavy, but also because it doesn’t need to be rendered on the server since
 // it only works with interactivity.
-const SearchDialog = dynamic(() => import('~/components/SearchDialog'), {
+const SearchDialog = dynamic(() => import('#components/SearchDialog'), {
   ssr: false,
 })
 

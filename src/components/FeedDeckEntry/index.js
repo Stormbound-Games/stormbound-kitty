@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from '~/components/Link'
-import FeedDetailDisplay from '~/components/FeedDetailDisplay'
-import FeaturedDeck from '~/components/FeaturedDeck'
-import FeedEntry from '~/components/FeedEntry'
-import Tags from '~/components/Tags'
-import capitalize from '~/helpers/capitalize'
-import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import Link from '#components/Link'
+import FeedDetailDisplay from '#components/FeedDetailDisplay'
+import FeaturedDeck from '#components/FeaturedDeck'
+import FeedEntry from '#components/FeedEntry'
+import Tags from '#components/Tags'
+import capitalize from '#helpers/capitalize'
+import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
 
 export default React.memo(function FeedDeckEntry(props) {
   const faction = getFactionFromDeckID(props.id)

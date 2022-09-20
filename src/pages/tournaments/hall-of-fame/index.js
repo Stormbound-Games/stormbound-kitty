@@ -1,6 +1,6 @@
-import PageTournamentHallOfFame from '~/components/PageTournamentHallOfFame'
-import getTournaments from '~/api/tournaments/getTournaments'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageTournamentHallOfFame from '#components/PageTournamentHallOfFame'
+import getTournaments from '#api/tournaments/getTournaments'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

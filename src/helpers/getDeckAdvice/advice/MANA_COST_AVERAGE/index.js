@@ -1,4 +1,4 @@
-import capitalize from '~/helpers/capitalize'
+import capitalize from '#helpers/capitalize'
 
 const getAverageManaCost = cards =>
   cards.map(card => card.mana).reduce((a, b) => a + b, 0) / cards.length

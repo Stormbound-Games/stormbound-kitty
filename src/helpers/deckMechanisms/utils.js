@@ -2,12 +2,12 @@ import {
   PROBABILITIES,
   ROGUE_SHEEP_RNG,
   HARVESTERS_OF_SOULS_RNG,
-} from '~/constants/dryRunner'
-import arrayRandom from '~/helpers/arrayRandom'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import modifyDeck from '~/helpers/modifyDeck'
-import shuffle from '~/helpers/shuffle'
-import isCard, { isNotCard } from '~/helpers/isCard'
+} from '#constants/dryRunner'
+import arrayRandom from '#helpers/arrayRandom'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import modifyDeck from '#helpers/modifyDeck'
+import shuffle from '#helpers/shuffle'
+import isCard, { isNotCard } from '#helpers/isCard'
 
 const getHarvestersOfSoulsCopiedCard = (state, pool, harvestersLevel) => {
   // The RNG for Harvesters of Souls is determined by first choosing a level for

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BlankButton from '~/components/BlankButton'
-import Icon from '~/components/Icon'
-import Link from '~/components/Link'
-import VisuallyHidden from '~/components/VisuallyHidden'
-import useIsMounted from '~/hooks/useIsMounted'
+import BlankButton from '#components/BlankButton'
+import Icon from '#components/Icon'
+import Link from '#components/Link'
+import VisuallyHidden from '#components/VisuallyHidden'
+import useIsMounted from '#hooks/useIsMounted'
 import styles from './styles'
 
 export default React.memo(function MobileHeader(props) {

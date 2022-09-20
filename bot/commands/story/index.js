@@ -1,9 +1,9 @@
-import getStoriesForSearch from '~/helpers/getStoriesForSearch'
-import getEmbed from '~/helpers/getEmbed'
-import arrayRandom from '~/helpers/arrayRandom'
-import indexArray from '~/helpers/indexArray'
-import getStories from '~/api/stories/getStories'
-import getCards from '~/api/cards/getCards'
+import getStoriesForSearch from '#helpers/getStoriesForSearch'
+import getEmbed from '#helpers/getEmbed'
+import arrayRandom from '#helpers/arrayRandom'
+import indexArray from '#helpers/indexArray'
+import getStories from '#api/stories/getStories'
+import getCards from '#api/cards/getCards'
 
 const getEmbedForStory = (cardsIndex, label, story) => {
   return getEmbed()

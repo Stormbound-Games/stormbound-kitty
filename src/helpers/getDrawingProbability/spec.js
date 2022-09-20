@@ -1,4 +1,4 @@
-import getDrawingProbability from './'
+import getDrawingProbability from './index.js'
 
 describe('The `getDrawingProbability` helper', () => {
   it('should return 0 for a specific common card in a Mythic Tome', () => {

@@ -1,12 +1,12 @@
 import React from 'react'
-import { CardsContext } from '~/components/CardsProvider'
-import CTA from '~/components/CTA'
-import Dialog from '~/components/Dialog'
-import Icon from '~/components/Icon'
-import Input from '~/components/Input'
-import Spacing from '~/components/Spacing'
-import { convertToSkId } from '~/helpers/convertDeckId'
-import serialization from '~/helpers/serialization'
+import { CardsContext } from '#components/CardsProvider'
+import CTA from '#components/CTA'
+import Dialog from '#components/Dialog'
+import Icon from '#components/Icon'
+import Input from '#components/Input'
+import Spacing from '#components/Spacing'
+import { convertToSkId } from '#helpers/convertDeckId'
+import serialization from '#helpers/serialization'
 
 export default React.memo(function RandomDeckButton(props) {
   const { cardsIndexBySid } = React.useContext(CardsContext)

@@ -1,6 +1,6 @@
-import { RARITIES } from '~/constants/game'
-import countCards from '~/helpers/countCards'
-import getDrawingSequences from '~/helpers/getDrawingSequences'
+import { RARITIES } from '#constants/game'
+import countCards from '#helpers/countCards'
+import getDrawingSequences from '#helpers/getDrawingSequences'
 
 // Get the probability of pulling the given sequence
 // @param {Card[]} cards - Cards

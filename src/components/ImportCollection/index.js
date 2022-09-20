@@ -1,12 +1,12 @@
 import React from 'react'
-import { CollectionContext } from '~/components/CollectionProvider'
-import { NotificationContext } from '~/components/NotificationProvider'
-import { CardsContext } from '~/components/CardsProvider'
-import CTA from '~/components/CTA'
-import FileUpload from '~/components/FileUpload'
-import Only from '~/components/Only'
-import chunk from '~/helpers/chunk'
-import useIsMounted from '~/hooks/useIsMounted'
+import { CollectionContext } from '#components/CollectionProvider'
+import { NotificationContext } from '#components/NotificationProvider'
+import { CardsContext } from '#components/CardsProvider'
+import CTA from '#components/CTA'
+import FileUpload from '#components/FileUpload'
+import Only from '#components/Only'
+import chunk from '#helpers/chunk'
+import useIsMounted from '#hooks/useIsMounted'
 
 const parseCSVData = cards => data => {
   // The former CSV exporting didn’t use line breaks to split lines, therefore

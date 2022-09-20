@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import RouterLink from 'next/link'
-import Icon from '~/components/Icon'
+import Icon from '#components/Icon'
 import styles from './styles'
 
 function Link({ extend, hideNewTabIndicator, scroll, to, ...props }, ref) {

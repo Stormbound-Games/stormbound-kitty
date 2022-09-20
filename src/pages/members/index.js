@@ -1,6 +1,6 @@
-import PageMembers from '~/components/PageMembers'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getUsers from '~/api/users/getUsers'
+import PageMembers from '#components/PageMembers'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getUsers from '#api/users/getUsers'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const members = await getUsers({ isPreview })

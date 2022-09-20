@@ -1,13 +1,13 @@
 import React from 'react'
-import CTA from '~/components/CTA'
-import Icon from '~/components/Icon'
-import Info from '~/components/Info'
-import Link from '~/components/Link'
-import RandomCardFilters from '~/components/RandomCardFilters'
-import { INITIAL_STATE } from '~/hooks/useCardBuilder'
-import resolveAbility from '~/helpers/resolveAbility'
-import resolveLeveledProperty from '~/helpers/resolveLeveledProperty'
-import track from '~/helpers/track'
+import CTA from '#components/CTA'
+import Icon from '#components/Icon'
+import Info from '#components/Info'
+import Link from '#components/Link'
+import RandomCardFilters from '#components/RandomCardFilters'
+import { INITIAL_STATE } from '#hooks/useCardBuilder'
+import resolveAbility from '#helpers/resolveAbility'
+import resolveLeveledProperty from '#helpers/resolveLeveledProperty'
+import track from '#helpers/track'
 
 export default React.memo(function RandomCardInfo(props) {
   const [isLoading, setIsLoading] = React.useState(false)
@@ -24,7 +24,7 @@ export default React.memo(function RandomCardInfo(props) {
         track('randomize_card')
 
         const { default: randomizeCard } = await import(
-          '~/helpers/randomizeCard'
+          '#helpers/randomizeCard'
         )
         const card = randomizeCard(filters)
 

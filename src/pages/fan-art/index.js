@@ -1,6 +1,6 @@
-import PageFanArt from '~/components/PageFanArt'
-import getArtworks from '~/api/artworks/getArtworks'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageFanArt from '#components/PageFanArt'
+import getArtworks from '#api/artworks/getArtworks'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const artworks = await getArtworks({ isPreview })

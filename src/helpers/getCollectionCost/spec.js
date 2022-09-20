@@ -1,4 +1,4 @@
-import { getCardCost } from './'
+import { getCardCost } from './index.js'
 
 describe('The `getCardCost` helper', () => {
   const rarities = ['common', 'rare', 'epic', 'legendary']

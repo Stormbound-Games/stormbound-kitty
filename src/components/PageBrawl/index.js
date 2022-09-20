@@ -1,7 +1,7 @@
 import React from 'react'
-import Page from '~/components/Page'
-import BrawlProvider from '~/components/BrawlProvider'
-import BrawlTracker from '~/components/BrawlTracker'
+import Page from '#components/Page'
+import BrawlProvider from '#components/BrawlProvider'
+import BrawlTracker from '#components/BrawlTracker'
 
 const BACKGROUNDS = {
   I: 'https://cdn.sanity.io/images/5hlpazgd/production/7405fd6a6d522ca4a89b6d9ad87b8bf6f30a125c-1024x576.png',

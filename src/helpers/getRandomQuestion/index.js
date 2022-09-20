@@ -1,5 +1,5 @@
-import arrayRandom from '~/helpers/arrayRandom'
-import shuffle from '~/helpers/shuffle'
+import arrayRandom from '#helpers/arrayRandom'
+import shuffle from '#helpers/shuffle'
 
 const MAX_CHOICES = 5
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')

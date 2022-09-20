@@ -1,7 +1,7 @@
-import applyRateLimit from '~/helpers/applyRateLimit'
-import getPathname from '~/helpers/getPathname'
-import isChecklyRequest from '~/helpers/isChecklyRequest'
-import trackAsync from '~/helpers/trackAsync'
+import applyRateLimit from '#helpers/applyRateLimit'
+import getPathname from '#helpers/getPathname'
+import isChecklyRequest from '#helpers/isChecklyRequest'
+import trackAsync from '#helpers/trackAsync'
 
 const API_KEY = process.env.CUTTLY_API_KEY
 const API_URL = 'https://cutt.ly/api/api.php'

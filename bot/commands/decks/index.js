@@ -1,12 +1,12 @@
-import { FACTIONS } from '~/constants/game'
-import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
-import getEmbed from '~/helpers/getEmbed'
-import handleSearchAlias from '~/helpers/handleSearchAlias'
-import searchCards from '~/helpers/searchCards'
-import indexArray from '~/helpers/indexArray'
-import getDeckTags from '~/api/decks/getDeckTags'
-import getAbbreviations from '~/api/misc/getAbbreviations'
-import getCards from '~/api/cards/getCards'
+import { FACTIONS } from '#constants/game'
+import getDeckSearchDescription from '#helpers/getDeckSearchDescription'
+import getEmbed from '#helpers/getEmbed'
+import handleSearchAlias from '#helpers/handleSearchAlias'
+import searchCards from '#helpers/searchCards'
+import indexArray from '#helpers/indexArray'
+import getDeckTags from '#api/decks/getDeckTags'
+import getAbbreviations from '#api/misc/getAbbreviations'
+import getCards from '#api/cards/getCards'
 
 export const parseMessage = (cards, abbreviations, tags, content) => {
   const terms = content.split(/\s+/g)

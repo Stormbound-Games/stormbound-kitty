@@ -1,7 +1,7 @@
-import PageDynamic from '~/components/PageDynamic'
-import getPage from '~/api/pages/getPage'
-import getPages from '~/api/pages/getPages'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageDynamic from '#components/PageDynamic'
+import getPage from '#api/pages/getPage'
+import getPages from '#api/pages/getPages'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
   const pages = await getPages()

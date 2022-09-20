@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdInfoOutline } from 'react-icons/md'
 import getBlock from './block'
-import blocksToText from '~/helpers/blocksToText'
+import blocksToText from '#helpers/blocksToText'
 import icon from '../types/icon'
 
 const info = {

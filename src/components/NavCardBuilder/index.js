@@ -1,12 +1,12 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { CardsContext } from '~/components/CardsProvider'
-import CardSelect from '~/components/CardSelect'
-import SubNav from '~/components/SubNav'
-import track from '~/helpers/track'
-import useViewportSize from '~/hooks/useViewportSize'
-import useRouteId from '~/hooks/useRouteId'
-import useIsMounted from '~/hooks/useIsMounted'
+import { CardsContext } from '#components/CardsProvider'
+import CardSelect from '#components/CardSelect'
+import SubNav from '#components/SubNav'
+import track from '#helpers/track'
+import useViewportSize from '#hooks/useViewportSize'
+import useRouteId from '#hooks/useRouteId'
+import useIsMounted from '#hooks/useIsMounted'
 
 export default React.memo(function NavCardBuilder() {
   const { cardsIndex } = React.useContext(CardsContext)

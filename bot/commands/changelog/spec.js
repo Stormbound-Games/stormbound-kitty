@@ -1,4 +1,4 @@
-import command from './'
+import command from './index.js'
 const changelog = command.handler.bind(command)
 
 describe('Bot — !changelog', () => {

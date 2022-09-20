@@ -1,8 +1,8 @@
 import React from 'react'
-import { NotificationContext } from '~/components/NotificationProvider'
-import getBrawlStatus from '~/helpers/getBrawlStatus'
-import serialization from '~/helpers/serialization'
-import useOnce from '~/hooks/useOnce'
+import { NotificationContext } from '#components/NotificationProvider'
+import getBrawlStatus from '#helpers/getBrawlStatus'
+import serialization from '#helpers/serialization'
+import useOnce from '#hooks/useOnce'
 
 export const BrawlContext = React.createContext([])
 

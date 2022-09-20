@@ -1,6 +1,6 @@
-import { getEntry } from '~/helpers/sanity'
-import blocks from '~/api/blocks'
-import { FIELDS, MAPPER } from './utils'
+import { getEntry } from '#helpers/sanity'
+import blocks from '#api/blocks/index'
+import { FIELDS, MAPPER } from './utils.js'
 
 const getGuide = async ({
   id = null,

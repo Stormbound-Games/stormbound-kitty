@@ -1,6 +1,6 @@
-import { getEntries } from '~/helpers/sanity'
-import sortCards from '~/helpers/sortCards'
-import { FIELDS, MAPPER } from './utils'
+import { getEntries } from '#helpers/sanity'
+import sortCards from '#helpers/sortCards'
+import { FIELDS, MAPPER } from './utils.js'
 
 const getCards = async ({ isPreview, fields = FIELDS, params } = {}) => {
   const cards = await getEntries({

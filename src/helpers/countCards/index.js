@@ -1,4 +1,4 @@
-import isCardMatchingCriteria from '~/helpers/isCardMatchingCriteria'
+import isCardMatchingCriteria from '#helpers/isCardMatchingCriteria'
 
 const cache = new Map()
 

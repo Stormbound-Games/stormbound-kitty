@@ -1,6 +1,6 @@
-import serializeDate from '~/helpers/serializeDate'
-import getReadingTime from '~/helpers/getReadingTime'
-import getExcerpt from '~/helpers/getExcerpt'
+import serializeDate from '#helpers/serializeDate'
+import getReadingTime from '#helpers/getReadingTime'
+import getExcerpt from '#helpers/getExcerpt'
 
 export const FIELDS = `
 title,

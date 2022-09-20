@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Page from '~/components/Page'
-import Icon from '~/components/Icon'
-import MemberListEntry from '~/components/MemberListEntry'
-import MemberTagYourself from '~/components/MemberTagYourself'
-import Row from '~/components/Row'
+import Page from '#components/Page'
+import Icon from '#components/Icon'
+import MemberListEntry from '#components/MemberListEntry'
+import MemberTagYourself from '#components/MemberTagYourself'
+import Row from '#components/Row'
 import styles from './styles'
 
 export default React.memo(function PageMembers(props) {

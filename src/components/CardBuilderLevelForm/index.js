@@ -1,11 +1,11 @@
 import React from 'react'
-import Input from '~/components/Input'
-import ResetButton from '~/components/ResetButton'
-import Row from '~/components/Row'
-import ShareButton from '~/components/CardBuilderShareButton'
-import Spacing from '~/components/Spacing'
-import formatCardStats from '~/helpers/formatCardStats'
-import useRouteId from '~/hooks/useRouteId'
+import Input from '#components/Input'
+import ResetButton from '#components/ResetButton'
+import Row from '#components/Row'
+import ShareButton from '#components/CardBuilderShareButton'
+import Spacing from '#components/Spacing'
+import formatCardStats from '#helpers/formatCardStats'
+import useRouteId from '#hooks/useRouteId'
 
 export default React.memo(function CardBuilderLevelForm(props) {
   const isPristine = !useRouteId()

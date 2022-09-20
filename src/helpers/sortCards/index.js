@@ -1,7 +1,7 @@
-import { FACTIONS, RARITIES } from '~/constants/game'
-import unfoldValue from '~/helpers/unfoldValue'
-import { getCardCost } from '~/helpers/getCollectionCost'
-import getExtraAfterMax from '~/helpers/getExtraAfterMax'
+import { FACTIONS, RARITIES } from '#constants/game'
+import unfoldValue from '#helpers/unfoldValue'
+import { getCardCost } from '#helpers/getCollectionCost'
+import getExtraAfterMax from '#helpers/getExtraAfterMax'
 
 export const sortByLockedCoins = (a, b) => {
   const { coins: extraA } = getExtraAfterMax(a)

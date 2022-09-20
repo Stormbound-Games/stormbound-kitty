@@ -1,6 +1,6 @@
 import React from 'react'
-import isCard from '~/helpers/isCard'
-import usePrevious from '~/hooks/usePrevious'
+import isCard from '#helpers/isCard'
+import usePrevious from '#hooks/usePrevious'
 
 const useDryRunner = props => {
   // The mode is theoretically not quite supposed to be changed at run time, but

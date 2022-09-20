@@ -2,8 +2,20 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./src/*"
+      "#api/*": [
+        "./src/api/*.js"
+      ],
+      "#components/*": [
+        "./src/components/*/index.js"
+      ],
+      "#constants/*": [
+        "./src/constants/*.js"
+      ],
+      "#helpers/*": [
+        "./src/helpers/*/index.js"
+      ],
+      "#hooks/*": [
+        "./src/hooks/*.js"
       ]
     }
   }

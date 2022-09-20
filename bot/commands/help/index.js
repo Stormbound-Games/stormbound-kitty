@@ -1,4 +1,4 @@
-import getEmbed from '~/helpers/getEmbed'
+import getEmbed from '#helpers/getEmbed'
 
 const help = {
   command: 'help',

@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '~/components/Image'
-import Link from '~/components/Link'
+import Image from '#components/Image'
+import Link from '#components/Link'
 import Masonry from 'react-masonry-css'
-import Page from '~/components/Page'
-import Spacing from '~/components/Spacing'
-import parseDate from '~/helpers/parseDate'
-import { formatDate } from '~/helpers/formatDate'
+import Page from '#components/Page'
+import Spacing from '#components/Spacing'
+import parseDate from '#helpers/parseDate'
+import { formatDate } from '#helpers/formatDate'
 import styles from './styles'
 
 const pad = value => String(value).padStart(2, '0')

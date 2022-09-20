@@ -1,7 +1,7 @@
 import React from 'react'
-import Label from '~/components/Label'
-import Radio from '~/components/Radio'
-import Spacing from '~/components/Spacing'
+import Label from '#components/Label'
+import Radio from '#components/Radio'
+import Spacing from '#components/Spacing'
 
 export default React.memo(function BrawlCalculatorMode(props) {
   return (

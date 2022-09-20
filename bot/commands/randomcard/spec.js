@@ -1,5 +1,5 @@
-import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '~/constants/game'
-import command from './'
+import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
+import command from './index.js'
 
 const randomcard = command.handler.bind(command)
 

@@ -1,6 +1,6 @@
-import PagePuzzles from '~/components/PagePuzzles'
-import getPuzzles from '~/api/puzzles/getPuzzles'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PagePuzzles from '#components/PagePuzzles'
+import getPuzzles from '#api/puzzles/getPuzzles'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

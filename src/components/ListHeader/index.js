@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BlankButton from '~/components/BlankButton'
-import Icon from '~/components/Icon'
-import Select from '~/components/Select'
-import VisuallyHidden from '~/components/VisuallyHidden'
+import BlankButton from '#components/BlankButton'
+import Icon from '#components/Icon'
+import Select from '#components/Select'
+import VisuallyHidden from '#components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function ListHeader(props) {

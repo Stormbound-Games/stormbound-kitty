@@ -1,4 +1,4 @@
-import getHeroScore from './'
+import getHeroScore from './index.js'
 
 const CASES = [
   // [Current, Opponent, Coefficient, Won] -> New

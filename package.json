@@ -7,13 +7,16 @@
     "npm": "7"
   },
   "scripts": {
+    "modulify": "node bin/modulify.mjs",
     "start": "next dev",
     "build-site": "next build && next-sitemap",
     "test": "jest --forceExit --runInBand",
-    "bot": "node -r esm bot/cli.js",
-    "bot:dev": "nodemon -x \"node -r esm\" bot/cli.js --watch src --watch bot",
+    "bot": "npm run modulify && node bot/cli.js",
+    "bot:dev": "npm run modulify && nodemon bot/cli.js --watch src --watch bot",
     "prepare": "husky install",
-    "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js"
+    "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js",
+    "check-decks": "npm run modulify && node bin/deck-checker.js",
+    "export-cards": "npm run modulify && node bin/export-cards.js"
   },
   "dependencies": {
     "@portabletext/react": "^1.0.6",
@@ -23,7 +26,6 @@
     "copy-to-clipboard": "^3.3.2",
     "discord.js": "^12.5.3",
     "dotenv": "^16.0.2",
-    "esm": "^3.2.25",
     "express-rate-limit": "^6.6.0",
     "express-slow-down": "^1.4.1",
     "fela": "^12.1.1",
@@ -39,7 +41,6 @@
     "framer-motion": "^7.3.5",
     "fuse.js": "^6.6.2",
     "html2canvas": "^1.4.1",
-    "module-alias": "^2.2.2",
     "next": "12.3",
     "next-plausible": "^3.6.2",
     "next-sitemap": "^3.1.22",
@@ -77,6 +78,7 @@
     "nodemon": "^2.0.20",
     "npx-import": "^1.1.3",
     "prettier": "^2.7.1",
+    "replace-in-file": "^6.3.5",
     "webpack": "^5.74.0"
   },
   "lint-staged": {
@@ -88,7 +90,11 @@
       "prettier --write"
     ]
   },
-  "_moduleAliases": {
-    "~": "./src/"
+  "imports": {
+    "#api/*": "./src/api/*.js",
+    "#components/*": "./src/components/*/index.js",
+    "#constants/*": "./src/constants/*.js",
+    "#helpers/*": "./src/helpers/*/index.js",
+    "#hooks/*": "./src/hooks/*.js"
   }
 }

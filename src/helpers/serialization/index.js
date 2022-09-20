@@ -1,10 +1,10 @@
-import battle from './battle'
-import brawl from './brawl'
-import card from './card'
-import cards from './cards'
-import deck from './deck'
-import list from './list'
-import quest from './quest'
+import battle from './battle.js'
+import brawl from './brawl.js'
+import card from './card.js'
+import cards from './cards.js'
+import deck from './deck.js'
+import list from './list.js'
+import quest from './quest.js'
 
 const serialization = {
   battle,

@@ -1,5 +1,5 @@
-import { getEntries } from '~/helpers/sanity'
-import { FIELDS } from './utils'
+import { getEntries } from '#helpers/sanity'
+import { FIELDS } from './utils.js'
 
 const getWallpapersFromType = async ({ type, isPreview } = {}) => {
   const wallpapers = await getEntries({

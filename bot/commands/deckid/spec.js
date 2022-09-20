@@ -1,4 +1,4 @@
-import command from './'
+import command from './index.js'
 const deckid = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'

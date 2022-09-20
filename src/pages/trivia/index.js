@@ -1,8 +1,8 @@
-import PageTrivia from '~/components/PageTrivia'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import getTriviaQuestions from '~/helpers/getTriviaQuestions'
-import getBrawls from '~/api/brawls/getBrawls'
-import getBooks from '~/api/books/getBooks'
+import PageTrivia from '#components/PageTrivia'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import getTriviaQuestions from '#helpers/getTriviaQuestions'
+import getBrawls from '#api/brawls/getBrawls'
+import getBooks from '#api/books/getBooks'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

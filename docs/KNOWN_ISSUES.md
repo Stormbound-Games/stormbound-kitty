@@ -37,26 +37,18 @@ The data sent from the server to the client is quite heavy, regardless of which 
 
 This adds an extra ~80Kb on the initial payload, which is certainly not great but kind of unavoidable.
 
-## Discord dependency
-
-The Discord dependency is stuck in version 12 because it is impossible to upgrade it without a major refactoring of the codebase.
-
-Running Discord.js 14+ on Node 16.6 (the minimum required version) causes the following error: `Error: Cannot find module 'node:events'`. This happens because [the `esm` module does not support the `node:` protocol](https://github.com/standard-things/esm/issues/904). This means we need _not_ to use `esm` for the bot and rely solely on native Node.
-
-Removing `-r esm` from the bot process causes the following error: `SyntaxError: Cannot use import statement outside a module`. This is because `import` statements are not natively supported outside of a project with `"type": "module"` or `.mjs` files. Either solution works to move on.
-
-Then, running the bot command causes the following error: `ReferenceError: require is not defined in ES module scope, you can use import instead`. This is because the entry point contains `require` statements. Updating them to use `import` is enough to move on.
-
-The next error is: `Error [ERR_MODULE_NOT_FOUND]: Cannot find package '~' imported from /Users/kitty/Sites/stormbound-kitty/bot/handle.mjs`. That’s because the `~` alias is not handled. This means we need to integrate `module-alias`. We can do so with `-r module-alias/register` in the Node process.
-
-This does change the error to: `Error [ERR_MODULE_NOT_FOUND]: Cannot find package '~' imported from /Users/kitty/Sites/stormbound-kitty/bot/handle.mjs. Did you mean to import /Users/kitty/Sites/stormbound-kitty/src/helpers/getChannelId/index.js?`. It means the aliasing somewhat works, but it still doesn’t fully resolve the problem.
-
-And I believe this is because [module-alias does not work with ESM](https://github.com/ilearnio/module-alias/search?q=esm&type=issues). Not just the `esm` polyfilling module but actual native ESM as well.
-
-The solution would be to rely on [native import mapping](https://github.com/ilearnio/module-alias/issues/113) but this involves replacing module-alias with it across the entire code base. This is also not exactly enough as all things around it (tests, bot, scripts) also need to be updated.
-
 ## Jest parallelization
 
 The unit test runner (Jest) runs on a single worker (via [`--runInBand`](https://jestjs.io/docs/cli#--runinband)) because there is no way to define per-worker setup code (see [related issue](https://github.com/facebook/jest/issues/8708)). This causes unit tests to be a little slower than they could theoretically be.
 
 What I believe happens is that one of the workers executes the global setup (`jestSetup/globalSetup.js`) which exposes the CMS data as global variables. At the same time, other workers start loading some test files and use the global data to moch some API helpers (`jestSetup/setupFilesAfterEnv.js`). Unfortunately at this stage the global data may or may not be ready. I am unsure why Jest is designed this way.
+
+## Discord bot pre-script
+
+To avoid having to rely on [module-alias](https://github.com/ilearnio/module-alias) for aliased paths, the project uses [native import mapping](https://github.com/ilearnio/module-alias/issues/113). With some configuration, this enables Next.js, Jest, Node scripts and the Discord bot to all understand aliased paths.
+
+For `import` and `export` to be understood on all contexts, we used to rely on [esm](https://github.com/standard-things/esm) when executing the bot script. Unfortunately that dependency is outdated, unmaintained and doesn’t play well with newer features from the language.
+
+The native way to add support for `import` and `export` is to use `.mjs` files or to set `"type": "module"` in the package.json. Unfortunately both options cause problems with Next.js, which inherently uses CommonJS. Therefore, the bot script automatically injects `"type": "module"` onto the package.json before starting so its context is ESM.
+
+To prevent risking committing that modification when running the bot locally, a pre-commit hook checks the package.json to make sure it doesn’t contain that property. If it does, it blocks the commit with an error.

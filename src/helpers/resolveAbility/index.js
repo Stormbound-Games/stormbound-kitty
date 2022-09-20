@@ -1,4 +1,4 @@
-import unfoldValue from '~/helpers/unfoldValue'
+import unfoldValue from '#helpers/unfoldValue'
 
 // Not a star, space or forward slash
 // Followed by a slash

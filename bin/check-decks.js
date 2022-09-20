@@ -1,10 +1,8 @@
-require('module-alias/register')
-
-const parseDate = require('~/helpers/parseDate').default
-const toSentence = require('~/helpers/toSentence').default
-const groupBy = require('~/helpers/groupBy').default
-const { formatDate } = require('~/helpers/formatDate')
-const getDecks = require('~/api/decks/getDecks').default
+import parseDate from '#helpers/parseDate'
+import toSentence from '#helpers/toSentence'
+import groupBy from '#helpers/groupBy'
+import getDecks from '#api/decks/getDecks'
+import { formatDate } from '#helpers/formatDate'
 
 const now = new Date()
 const BOUNDARY_DATE = new Date(now.getFullYear() - 1, now.getMonth(), 15)

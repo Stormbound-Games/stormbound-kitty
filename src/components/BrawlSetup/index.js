@@ -1,11 +1,11 @@
 import React from 'react'
-import BrawlExport from '~/components/BrawlExport'
-import BrawlImport from '~/components/BrawlImport'
-import PremiumPassCheckbox from '~/components/PremiumPassCheckbox'
-import Radio from '~/components/Radio'
-import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
-import VisuallyHidden from '~/components/VisuallyHidden'
+import BrawlExport from '#components/BrawlExport'
+import BrawlImport from '#components/BrawlImport'
+import PremiumPassCheckbox from '#components/PremiumPassCheckbox'
+import Radio from '#components/Radio'
+import Row from '#components/Row'
+import Spacing from '#components/Spacing'
+import VisuallyHidden from '#components/VisuallyHidden'
 
 export default React.memo(function BrawlSetup(props) {
   return (

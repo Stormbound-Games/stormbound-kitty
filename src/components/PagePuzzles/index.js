@@ -1,12 +1,12 @@
 import React from 'react'
-import Page from '~/components/Page'
-import Link from '~/components/Link'
-import Notice from '~/components/Notice'
-import ListHeader from '~/components/ListHeader'
-import ListLayoutItem from '~/components/ListLayoutItem'
-import Teasers from '~/components/Teasers'
-import parseDate from '~/helpers/parseDate'
-import { formatDate } from '~/helpers/formatDate'
+import Page from '#components/Page'
+import Link from '#components/Link'
+import Notice from '#components/Notice'
+import ListHeader from '#components/ListHeader'
+import ListLayoutItem from '#components/ListLayoutItem'
+import Teasers from '#components/Teasers'
+import parseDate from '#helpers/parseDate'
+import { formatDate } from '#helpers/formatDate'
 
 const getCardForPuzzle = puzzle => ({
   name: puzzle.name,

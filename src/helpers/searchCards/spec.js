@@ -1,4 +1,4 @@
-import searchCards from './'
+import searchCards from './index.js'
 
 describe('The `searchCards` helper', () => {
   it('should skip 1-character searches', () => {

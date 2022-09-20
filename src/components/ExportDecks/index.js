@@ -1,11 +1,11 @@
 import React from 'react'
-import CTA from '~/components/CTA'
-import Only from '~/components/Only'
-import { NotificationContext } from '~/components/NotificationProvider'
-import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
-import download from '~/helpers/download'
-import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
-import track from '~/helpers/track'
+import CTA from '#components/CTA'
+import Only from '#components/Only'
+import { NotificationContext } from '#components/NotificationProvider'
+import { PersonalDecksContext } from '#components/PersonalDecksProvider'
+import download from '#helpers/download'
+import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
+import track from '#helpers/track'
 
 export default React.memo(function ExportDecks() {
   const { decks } = React.useContext(PersonalDecksContext)

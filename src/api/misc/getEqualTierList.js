@@ -1,5 +1,5 @@
-import { getEntry } from '~/helpers/sanity'
-import serializeDate from '~/helpers/serializeDate'
+import { getEntry } from '#helpers/sanity'
+import serializeDate from '#helpers/serializeDate'
 
 const FIELDS = `
 _updatedAt,

@@ -1,7 +1,7 @@
 import LRUCache from 'lru-cache'
 import Fuse from 'fuse.js'
-import getSearchIndex from '~/helpers/getSearchIndex'
-import applyRateLimit from '~/helpers/applyRateLimit'
+import getSearchIndex from '#helpers/getSearchIndex'
+import applyRateLimit from '#helpers/applyRateLimit'
 
 const cache = new LRUCache({
   // Single item cache (full registry).

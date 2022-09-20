@@ -1,10 +1,10 @@
 import React from 'react'
 import { Reorder } from 'framer-motion'
 import { useFela } from 'react-fela'
-import { CardsContext } from '~/components/CardsProvider'
-import ListBuilderTierHeader from '~/components/ListBuilderTierHeader'
-import ListBuilderTierItem from '~/components/ListBuilderTierItem'
-import Spacing from '~/components/Spacing'
+import { CardsContext } from '#components/CardsProvider'
+import ListBuilderTierHeader from '#components/ListBuilderTierHeader'
+import ListBuilderTierItem from '#components/ListBuilderTierItem'
+import Spacing from '#components/Spacing'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTier(props) {

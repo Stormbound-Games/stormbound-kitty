@@ -1,8 +1,8 @@
-import advice, { SATYR_CONSUMERS } from './'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
-import serialization from '~/helpers/serialization'
-import modifyDeck from '~/helpers/modifyDeck'
-import toSentence from '~/helpers/toSentence'
+import advice, { SATYR_CONSUMERS } from './index.js'
+import getResolvedCardData from '#helpers/getResolvedCardData'
+import serialization from '#helpers/serialization'
+import modifyDeck from '#helpers/modifyDeck'
+import toSentence from '#helpers/toSentence'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(

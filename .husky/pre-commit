@@ -1,3 +1,10 @@
 #!/bin/sh
 
 npx --no-install lint-staged
+
+# Ensure the local modification of the package.json needed for the bot to run
+# doesn’t make its way onto SCV.
+if grep -q "\"type\": \"module\"" "package.json"; then
+  echo "(!) Discard \`\"type\": \"module\"\` from the package.json file before committing."
+  exit 1
+fi

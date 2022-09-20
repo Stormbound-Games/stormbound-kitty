@@ -1,4 +1,4 @@
-import getChannelId from '~/helpers/getChannelId'
+import getChannelId from '#helpers/getChannelId'
 
 const handle = client => async message => {
   const isCommand = message.content.startsWith('!')

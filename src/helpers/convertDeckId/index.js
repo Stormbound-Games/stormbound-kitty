@@ -1,5 +1,5 @@
-import serialization from '~/helpers/serialization'
-import { base64Decode, base64Encode } from '~/helpers/base64'
+import serialization from '#helpers/serialization'
+import { base64Decode, base64Encode } from '#helpers/base64'
 
 export const convertToSkId = (cardsIndexBySid, blob) => {
   const hash = base64Decode(blob)

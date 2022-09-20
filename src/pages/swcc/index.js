@@ -1,6 +1,6 @@
-import PageSWCC from '~/components/PageSWCC'
-import getSWCCSeasons from '~/api/swcc/getSWCCSeasons'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageSWCC from '#components/PageSWCC'
+import getSWCCSeasons from '#api/swcc/getSWCCSeasons'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })

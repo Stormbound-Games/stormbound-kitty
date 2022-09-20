@@ -1,4 +1,4 @@
-import capitalize from '~/helpers/capitalize'
+import capitalize from '#helpers/capitalize'
 
 const formatCardStats = state => {
   const faction = capitalize(state.faction)

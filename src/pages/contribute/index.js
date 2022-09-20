@@ -1,8 +1,8 @@
-import PageContribute from '~/components/PageContribute'
-import getContributions from '~/api/contributions/getContributions'
-import getDonations from '~/api/donations/getDonations'
-import getSiteSettings from '~/api/misc/getSiteSettings'
-import uniqueBy from '~/helpers/uniqueBy'
+import PageContribute from '#components/PageContribute'
+import getContributions from '#api/contributions/getContributions'
+import getDonations from '#api/donations/getDonations'
+import getSiteSettings from '#api/misc/getSiteSettings'
+import uniqueBy from '#helpers/uniqueBy'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const donations = await getDonations({ order: 'user.name asc', isPreview })

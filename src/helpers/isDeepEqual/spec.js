@@ -1,4 +1,4 @@
-import isDeepEqual from './'
+import isDeepEqual from './index.js'
 
 describe('The `isDeepEqual` helper', () => {
   it('should handle empty objects', () => {

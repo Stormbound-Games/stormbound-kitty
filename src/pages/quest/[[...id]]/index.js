@@ -1,6 +1,6 @@
-import PageQuestBuilder from '~/components/PageQuestBuilder'
-import serialization from '~/helpers/serialization'
-import getSiteSettings from '~/api/misc/getSiteSettings'
+import PageQuestBuilder from '#components/PageQuestBuilder'
+import serialization from '#helpers/serialization'
+import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { id: [] } }], fallback: 'blocking' }
