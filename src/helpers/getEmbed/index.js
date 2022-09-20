@@ -1,7 +1,7 @@
 import Discord from 'discord.js'
 
 const getEmbed = ({ withHeader = true } = {}) => {
-  const embed = new Discord.MessageEmbed()
+  const embed = new Discord.EmbedBuilder()
 
   embed.setColor('#D7598B')
 
