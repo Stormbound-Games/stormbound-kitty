@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import applyRateLimit from '~/helpers/applyRateLimit'
 import getPathname from '~/helpers/getPathname'
 import isChecklyRequest from '~/helpers/isChecklyRequest'
