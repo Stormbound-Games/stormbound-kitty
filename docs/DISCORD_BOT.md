@@ -24,6 +24,5 @@ JSONBIN_TOKEN=<token> GUILD_ID=<guild id> bot/setup.sh
 
 For the bot to work properly on a Discord server, it requires:
 
-- A #trivia channel for the `!trivia` command.
-- A #stormbot channel for all the other commands.
+- A #trivia channel for the `/trivia` command.
 - Ideally some of the roles: Diamond, Platinum, Gold, Silver, Bronze, Iron, Starter, Swarm, Shadowfen, Ironclad, Winter, Neutral, Tournamentee, Artist and Streambound.
