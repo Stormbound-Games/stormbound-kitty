@@ -12,16 +12,16 @@ const deckadvice = {
     .setDescription('Get advice and suggestions for the given deck.')
     .addStringOption(option =>
       option
-        .setName('id')
-        .setDescription('The Stormbound-Kitty deck ID or deck URL')
+        .setName('deck')
+        .setDescription('A Stormbound-Kitty deck ID or deck URL.')
         .setRequired(true)
     ),
 
   async execute(interaction, client) {
-    const message = interaction.options.getString('id')
-    const id = getDeckIDFromURL(message)
+    const input = interaction.options.getString('deck')
+    const id = getDeckIDFromURL(input)
 
-    if (id.length === 0) {
+    if (!id) {
       return interaction.reply({
         content: 'There was an error evaluating the given deck ID.',
         ephemeral: true,

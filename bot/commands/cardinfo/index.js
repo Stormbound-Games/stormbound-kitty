@@ -10,9 +10,7 @@ const cardinfo = {
     .addStringOption(option =>
       option
         .setName('card')
-        .setDescription(
-          'A card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name'
-        )
+        .setDescription('An abbreviation, ID, or approximate name.')
         .setRequired(true)
         .setAutocomplete(true)
     ),

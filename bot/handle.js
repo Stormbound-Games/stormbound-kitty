@@ -1,38 +1,30 @@
-export const handleAutocomplete = client => async interaction => {
-  if (!interaction.isAutocomplete()) return
-  if (interaction.user.bot) return
+export const handleMessage = client => async interaction => {
+  if (!interaction.isChatInputCommand() || interaction.user.bot) return
 
-  const { commandName } = interaction
-  const command = client.commands.get(commandName)
-
-  if (!command) return
+  const command = client.commands.get(interaction.commandName)
 
   try {
-    await command.autocomplete(interaction, client)
+    if (command) await command.execute(interaction, client)
   } catch (error) {
     console.error(error)
     await interaction.reply({
-      content: 'Sorry! There was an error while autocompleting this command.',
+      content: 'Sorry! There was an error while executing this command.',
       ephemeral: true,
     })
   }
 }
 
-export const handleMessage = client => async interaction => {
-  if (!interaction.isChatInputCommand()) return
-  if (interaction.user.bot) return
+export const handleAutocomplete = client => async interaction => {
+  if (!interaction.isAutocomplete() || interaction.user.bot) return
 
-  const { commandName } = interaction
-  const command = client.commands.get(commandName)
-
-  if (!command) return
+  const command = client.commands.get(interaction.commandName)
 
   try {
-    await command.execute(interaction, client)
+    if (command) await command.autocomplete(interaction, client)
   } catch (error) {
     console.error(error)
     await interaction.reply({
-      content: 'Sorry! There was an error while executing this command.',
+      content: 'Sorry! There was an error while autocompleting this command.',
       ephemeral: true,
     })
   }

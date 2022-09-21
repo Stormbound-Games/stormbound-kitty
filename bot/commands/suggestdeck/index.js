@@ -6,11 +6,11 @@ import getDecks from '#api/decks/getDecks'
 const suggestdeck = {
   data: new SlashCommandBuilder()
     .setName('suggestdeck')
-    .setDescription('Suggest a deck.')
+    .setDescription('Get a featured deck.')
     .addStringOption(option =>
       option
         .setName('faction')
-        .setDescription('Deck faction')
+        .setDescription('The deck faction.')
         .addChoices(
           { name: 'Ironclad', value: 'ironclad' },
           { name: 'Winter', value: 'winter' },

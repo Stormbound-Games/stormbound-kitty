@@ -25,18 +25,19 @@ const getExistingFactionRole = member => {
 const role = {
   data: new SlashCommandBuilder()
     .setName('role')
-    .setDescription(
-      'Assign yourself (or remove) a decorative role (regardless of casing).'
-    )
+    .setDescription('Assign yourself (or remove) a decorative role.')
     .addRoleOption(option =>
-      option.setName('role').setDescription('Role to define').setRequired(true)
+      option
+        .setName('role')
+        .setDescription('Role to add/remove.')
+        .setRequired(true)
     ),
 
   async execute(interaction) {
     const newRole = interaction.options.getRole('role')
     const member = interaction.member
     const roles = ROLES.filter(roleName =>
-      interaction.guild.roles.cache.find(r => r.name === roleName)
+      interaction.guild.roles.cache.find(role => role.name === roleName)
     )
 
     if (!roles.includes(newRole.name)) {

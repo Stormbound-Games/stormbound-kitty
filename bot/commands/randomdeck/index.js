@@ -29,7 +29,7 @@ const randomdeck = {
     .addStringOption(option =>
       option
         .setName('faction')
-        .setDescription('Deck faction')
+        .setDescription('The deck faction.')
         .addChoices(
           { name: 'Ironclad', value: 'ironclad' },
           { name: 'Winter', value: 'winter' },
@@ -40,7 +40,7 @@ const randomdeck = {
     .addStringOption(option =>
       option
         .setName('including')
-        .setDescription('Included cards (separated by commas)')
+        .setDescription('Cards that must be included (separated by commas).')
     ),
 
   async execute(interaction) {

@@ -14,12 +14,10 @@ const client = new Discord.Client({
     GatewayIntentBits.MessageContent,
   ],
 })
-client.commands = new Discord.Collection()
-client.aliases = new Discord.Collection()
 
+client.commands = new Discord.Collection()
 fs.readdirSync('./bot/commands').forEach(async name => {
   const { default: command } = await import(`./commands/${name}/index.js`)
-
   if (command.data) client.commands.set(command.data.name, command)
 })
 
@@ -29,13 +27,13 @@ Promise.all([
   getBrawls(),
   getCards(),
 ]).then(([abbreviations, books, brawls, cards]) => {
+  // Store some collections on the client, particularly the ones that are used
+  // within autocompletion so they don’t get queried on every keystroke — this
+  // could be problematic in terms of usage of the Sanity API.
   client.abbreviations = new Discord.Collection(Object.entries(abbreviations))
-  client.books = new Discord.Collection()
-  books.forEach(book => client.books.set(book.id, book))
-  client.brawls = new Discord.Collection()
-  brawls.forEach(brawl => client.brawls.set(brawl.id, brawl))
-  client.cards = new Discord.Collection()
-  cards.forEach(card => client.cards.set(card.id, card))
+  client.books = new Discord.Collection(books.map(book => [book.id, book]))
+  client.brawls = new Discord.Collection(brawls.map(brawl => [brawl.id, brawl]))
+  client.cards = new Discord.Collection(cards.map(card => [card.id, card]))
 
   client.on('ready', () => console.log(`Logged in as ${client.user.tag}!`))
   client.on('interactionCreate', handleMessage(client))

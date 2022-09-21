@@ -16,7 +16,7 @@ const member = {
       option
         .setName('username')
         .setDescription(
-          'The member’s username as it appears on the site (regardless of casing)'
+          'The member’s username as it appears on the site (regardless of casing).'
         )
         .setRequired(true)
     ),

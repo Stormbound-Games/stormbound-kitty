@@ -22,17 +22,15 @@ const bookodds = {
     )
     .addStringOption(option =>
       option
-        .setName('book')
-        .setDescription('The type of book')
+        .setName('book_type')
+        .setDescription('The type of book.')
         .setRequired(true)
         .setAutocomplete(true)
     )
     .addStringOption(option =>
       option
         .setName('target')
-        .setDescription(
-          'FS, a card abbr, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name'
-        )
+        .setDescription('What you hope to find.')
         .addChoices(
           ...Object.entries(TARGETS).map(([value, name]) => ({ name, value }))
         )
@@ -51,7 +49,7 @@ const bookodds = {
   },
 
   async execute(interaction, client) {
-    const bookId = interaction.options.getString('book')
+    const bookId = interaction.options.getString('book_type')
     const target = interaction.options.getString('target')
     const cards = [...client.cards.values()]
     const book = client.books.get(bookId)

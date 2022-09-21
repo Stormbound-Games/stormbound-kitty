@@ -52,7 +52,7 @@ const decks = {
       'Get a link to a deck search matching the given search criteria.'
     )
     .addStringOption(option =>
-      option.setName('input').setDescription('Optional search terms')
+      option.setName('input').setDescription('Optional search terms.')
     ),
 
   async execute(interaction, client) {

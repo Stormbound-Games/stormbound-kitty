@@ -48,11 +48,9 @@ const parseMessage = content => {
 const randomcard = {
   data: new SlashCommandBuilder()
     .setName('randomcard')
-    .setDescription(
-      'Get a random card, optionally matching certain search criteria.'
-    )
+    .setDescription('Get a random card.')
     .addStringOption(option =>
-      option.setName('input').setDescription('The search parameter')
+      option.setName('input').setDescription('The optional search parameters.')
     ),
 
   async execute(interaction) {

@@ -44,12 +44,10 @@ export default class Trivia {
   start(interaction) {
     const channel = interaction.channel
     const mode = interaction.options.getSubcommand().toUpperCase()
-    const minDuration = mode === 'QUESTION' ? 8 : 30
-    const maxDuration = mode === 'QUESTION' ? 20 : 120
     const duration = clamp(
       interaction.options.getInteger('duration'),
-      minDuration,
-      maxDuration
+      mode === 'QUESTION' ? 8 : 30,
+      mode === 'QUESTION' ? 20 : 120
     )
 
     if (this.mode || !mode) return

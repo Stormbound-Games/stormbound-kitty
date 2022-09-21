@@ -8,14 +8,16 @@ const gameid = {
       'Record your Stormbound game ID so people can look it up directly from Discord and add you as friend.'
     )
     .addStringOption(option =>
-      option.setName('gameid').setDescription('Set your own game ID')
+      option.setName('game_id').setDescription('Your own game ID to record.')
     )
     .addUserOption(option =>
-      option.setName('member').setDescription('Get another player’s game ID')
+      option
+        .setName('member')
+        .setDescription('Another player’s game ID to look up.')
     ),
 
   async execute(interaction) {
-    const gameId = interaction.options.getString('gameid')
+    const gameId = interaction.options.getString('game_id')
     const member = interaction.options.getUser('member')
     const guildId = interaction.guild.id
 

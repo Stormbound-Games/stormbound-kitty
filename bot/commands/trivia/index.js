@@ -7,46 +7,46 @@ const trivia = {
   data: new SlashCommandBuilder()
     .setName('trivia')
     .setDescription(
-      'Initiate a card, question, or image trivia (only in #trivia, if it exists).'
+      'Initiate a card, question, or image trivia (only in #trivia).'
     )
     .addSubcommand(subcommand =>
       subcommand
         .setName('card')
-        .setDescription('Start a card guessing trivia')
+        .setDescription('Start a card guessing trivia.')
         .addIntegerOption(option =>
-          option.setName('duration').setDescription('Duration of the round')
+          option.setName('duration').setDescription('Duration of the round.')
         )
     )
     .addSubcommand(subcommand =>
       subcommand
         .setName('image')
-        .setDescription('Start an image guessing trivia')
+        .setDescription('Start an image guessing trivia.')
         .addStringOption(option =>
           option
             .setName('difficulty')
-            .setDescription('Difficulty of the round')
+            .setDescription('Difficulty of the round.')
             .addChoices(
               { name: 'Regular', value: 'regular' },
               { name: 'Hard', value: 'hard' }
             )
         )
         .addIntegerOption(option =>
-          option.setName('duration').setDescription('Duration of the round')
+          option.setName('duration').setDescription('Duration of the round.')
         )
     )
     .addSubcommand(subcommand =>
       subcommand
         .setName('question')
-        .setDescription('Start a question trivia')
+        .setDescription('Start a question trivia.')
         .addIntegerOption(option =>
-          option.setName('duration').setDescription('Duration of the round')
+          option.setName('duration').setDescription('Duration of the round.')
         )
     )
     .addSubcommand(subcommand =>
-      subcommand.setName('score').setDescription('Retrieve your trivia score')
+      subcommand.setName('score').setDescription('Retrieve your trivia score.')
     )
     .addSubcommand(subcommand =>
-      subcommand.setName('scores').setDescription('Retrieve trivia scores')
+      subcommand.setName('scores').setDescription('Retrieve all trivia scores.')
     ),
 
   async execute(interaction, client) {

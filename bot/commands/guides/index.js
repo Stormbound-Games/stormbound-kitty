@@ -6,10 +6,10 @@ const guides = {
   data: new SlashCommandBuilder()
     .setName('guides')
     .setDescription(
-      'List existing guides from Stormbound-Kitty or a search a specific guide.'
+      'List existing guides from Stormbound-Kitty or search for a specific guide.'
     )
     .addStringOption(option =>
-      option.setName('input').setDescription('The search parameter')
+      option.setName('input').setDescription('The optional search parameter.')
     ),
 
   async execute(interaction) {
