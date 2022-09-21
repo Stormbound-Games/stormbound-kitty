@@ -1,31 +1,52 @@
 import command from './index.js'
-const abbr = command.handler.bind(command)
+
+const mockInteraction = value => ({
+  options: { getString: jest.fn(() => value) },
+  reply: jest.fn(),
+})
 
 describe('Bot — !abbr', () => {
-  it('should return nothing for a missing term', () => {
-    return abbr('  ').then(output => expect(output).toEqual(undefined))
-  })
+  it('should return nothing for a missing/invalid term', async () => {
+    const interaction = mockInteraction('dfsfsd')
 
-  it('should handle an abbreviation with a single definition', () => {
-    return abbr('VotM').then(output =>
-      expect(output.description).toContain('Victors of the Melee')
-    )
-  })
+    await command.execute(interaction)
 
-  it('should discard casing entirely', () => {
-    return abbr('aoe').then(output =>
-      expect(output.description).toContain('Area of Effect')
-    )
-  })
-
-  it('should handle an abbreviation with multiple definitions', () => {
-    return abbr('fs').then(output => {
-      expect(output.description).toContain('Fusion Stones')
-      expect(output.description).toContain('Forgotten Souls')
+    expect(interaction.reply).toHaveBeenCalledWith({
+      content: `Could not find any match for abbreviation “dfsfsd”.`,
+      ephemeral: true,
     })
   })
 
-  it('should return nothing for a no-match', () => {
-    return abbr('flksdjf').then(output => expect(output).toEqual(undefined))
+  it('should handle an abbreviation with a single definition', async () => {
+    const interaction = mockInteraction('VotM')
+
+    await command.execute(interaction)
+
+    expect(interaction.reply).toHaveBeenCalledWith({
+      content: `“VotM” might mean “Victors of the Melee”.`,
+      ephemeral: true,
+    })
+  })
+
+  it('should discard casing entirely', async () => {
+    const interaction = mockInteraction('aoe')
+
+    await command.execute(interaction)
+
+    expect(interaction.reply).toHaveBeenCalledWith({
+      content: `“aoe” might mean “Area of Effect”.`,
+      ephemeral: true,
+    })
+  })
+
+  it('should handle an abbreviation with multiple definitions', async () => {
+    const interaction = mockInteraction('fs')
+
+    await command.execute(interaction)
+
+    expect(interaction.reply).toHaveBeenCalledWith({
+      content: `“fs” might mean “Final Sacrifice”, “Flaming Stream”, “Feral Shamans”, “Forgotten Souls”, or “Fusion Stones”.`,
+      ephemeral: true,
+    })
   })
 })
