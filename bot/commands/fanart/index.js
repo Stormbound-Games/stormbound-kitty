@@ -1,26 +1,20 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
 import arrayRandom from '#helpers/arrayRandom'
 import getArtworks from '#api/artworks/getArtworks'
 
 const fanart = {
-  command: 'fanart',
-  label: '👩‍🎨  Fan-art',
-  aliases: ['fanarts'],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/fan-art')
-      .setDescription(
-        `Get a random fan-art from the community. For instance, \`!${this.command}\`.`
-      )
-  },
-  handler: async function () {
+  data: new SlashCommandBuilder()
+    .setName('fanart')
+    .setDescription('Get a random fan-art from the Stormbound community.'),
+
+  async execute(interaction) {
     const artworks = await getArtworks()
     const embed = getEmbed()
     const { image, user, date } = arrayRandom(artworks)
 
     embed
-      .setTitle(`${this.label}`)
+      .setTitle('👩‍🎨  Fan-art')
       .setURL('https://stormbound-kitty.com/members/' + user.slug)
       .addFields([
         { name: 'author', value: user.name, inline: true },
@@ -28,7 +22,7 @@ const fanart = {
       ])
       .setImage(image)
 
-    return embed
+    return interaction.reply({ embeds: [embed], ephemeral: true })
   },
 }
 

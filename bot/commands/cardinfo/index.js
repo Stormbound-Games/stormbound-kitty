@@ -1,37 +1,49 @@
-import getEmbed from '#helpers/getEmbed'
+import { SlashCommandBuilder } from 'discord.js'
 import searchCards from '#helpers/searchCards'
-import handleSearchAlias from '#helpers/handleSearchAlias'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getCards from '#api/cards/getCards'
 
 const cardinfo = {
-  command: 'cardinfo',
-  label: '⚡️  Card Info',
-  aliases: ['ci'],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/card')
-      .setDescription(
-        `Get information about the card(s) matching the given search criteria (up to 3 results). It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
-      )
-  },
-  handler: async function (message) {
-    const alias = handleSearchAlias(message)
+  data: new SlashCommandBuilder()
+    .setName('cardinfo')
+    .setDescription(
+      'Get information about the card(s) matching the given search criteria (up to 3 results).'
+    )
+    .addStringOption(option =>
+      option
+        .setName('card')
+        .setDescription(
+          'A card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name'
+        )
+        .setRequired(true)
+        .setAutocomplete(true)
+    ),
 
-    if (alias[0] === 'id') {
-      return `https://stormbound-kitty.com/cards/${alias[1]}`
+  async autocomplete(interaction, client) {
+    const focusedValue = interaction.options.getFocused()
+    const cards = [...client.cards.values()]
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const filtered = searchCards(cards, abbreviations, focusedValue)
+
+    return interaction.respond(
+      filtered.map(card => ({ name: card.name, value: card.id }))
+    )
+  },
+
+  // @TODO: add support back for aliases
+  async execute(interaction, client) {
+    const id = interaction.options.getString('card')
+    const card = client.cards.get(id)
+
+    if (!card) {
+      return interaction.reply({
+        content: `Could not find a card matching “${id}”.`,
+        ephemeral: true,
+      })
     }
 
-    const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
-
-    return (
-      searchCards(cards, abbreviations, message)
-        .map(card => `https://stormbound-kitty.com/cards/${card.id}`)
-        .slice(0, 3)
-        .join('\n') || undefined
-    )
+    return interaction.reply({
+      content: `https://stormbound-kitty.com/cards/${id}`,
+      ephemeral: true,
+    })
   },
 }
 

@@ -1,6 +1,6 @@
+import { SlashCommandBuilder } from 'discord.js'
 import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
 import arrayRandom from '#helpers/arrayRandom'
-import getEmbed from '#helpers/getEmbed'
 import getIgnoredSearch from '#helpers/getIgnoredSearch'
 import handleSearchAlias from '#helpers/handleSearchAlias'
 import getCards from '#api/cards/getCards'
@@ -46,22 +46,24 @@ const parseMessage = content => {
 }
 
 const randomcard = {
-  command: 'randomcard',
-  label: '🃏  Random Card',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com')
-      .setDescription(
-        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, card type, unit type or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
-      )
-  },
-  handler: async function (message) {
-    const cards = await getCards()
+  data: new SlashCommandBuilder()
+    .setName('randomcard')
+    .setDescription(
+      'Get a random card, optionally matching certain search criteria.'
+    )
+    .addStringOption(option =>
+      option.setName('input').setDescription('The search parameter')
+    ),
 
-    if (message.length === 0) {
-      return linkify(arrayRandom(cards))
+  async execute(interaction) {
+    const message = interaction.options.getString('input')
+    const cards = (await getCards()).filter(card => !card.token)
+
+    if (!message) {
+      return interaction.reply({
+        content: linkify(arrayRandom(cards)),
+        ephemeral: true,
+      })
     }
 
     const { filters, ignored } = parseMessage(message.toLowerCase())
@@ -86,9 +88,15 @@ const randomcard = {
 
     if (results.length === 0) return
 
-    return [linkify(arrayRandom(results)), getIgnoredSearch(message, ignored)]
-      .filter(Boolean)
-      .join('\n')
+    return interaction.reply({
+      content: [
+        linkify(arrayRandom(results)),
+        getIgnoredSearch(message, ignored),
+      ]
+        .filter(Boolean)
+        .join('\n'),
+      ephemeral: true,
+    })
   },
 }
 

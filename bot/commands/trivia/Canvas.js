@@ -73,10 +73,9 @@ export default class Canvas {
       this.context.putImageData(this.grayscale(), 0, 0)
     }
 
-    return new Discord.MessageAttachment(
-      this.canvas.toBuffer(),
-      'trivia_img.png'
-    )
+    return new Discord.AttachmentBuilder(this.canvas.toBuffer(), {
+      name: 'trivia_img.png',
+    })
   }
 
   grayscale() {

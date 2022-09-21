@@ -1,47 +1,43 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getStoriesForSearch from '#helpers/getStoriesForSearch'
-import getEmbed from '#helpers/getEmbed'
 import arrayRandom from '#helpers/arrayRandom'
-import indexArray from '#helpers/indexArray'
 import getStories from '#api/stories/getStories'
 import getCards from '#api/cards/getCards'
 
-const getEmbedForStory = (cardsIndex, label, story) => {
-  return getEmbed()
-    .setTitle(`${label}: ${story.title}`)
-    .setURL('https://stormbound-kitty.com/stories/' + story.slug)
-    .addFields(
-      { name: 'Author', value: story.author.name, inline: true },
-      { name: 'Card', value: cardsIndex[story.cardId].name, inline: true }
-    )
-    .setDescription(story.excerpt.replace(/\n/g, ' '))
-}
-
 const story = {
-  command: 'story',
-  label: '📝  Story',
-  aliases: ['stories'],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/stories')
-      .setDescription(
-        `Link a random story published on Stormbound-Kitty. It optionally accepts a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name to find an associated story. For instance, \`!${this.command} mia\`.`
-      )
-  },
-  handler: async function (message) {
-    const cards = await getCards()
-    const cardsIndex = indexArray(cards)
+  data: new SlashCommandBuilder()
+    .setName('story')
+    .setDescription(
+      'Link a random story published on Stormbound-Kitty or matching a certain criteria.'
+    )
+    .addStringOption(option =>
+      option
+        .setName('input')
+        .setDescription(
+          'A card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name'
+        )
+    ),
 
-    if (message === 'random' || message === '') {
+  async execute(interaction) {
+    const message = interaction.options.getString('input')
+
+    if (message === 'random' || !message) {
       const stories = await getStories()
       const story = arrayRandom(stories)
 
-      return getEmbedForStory(cardsIndex, this.label, story)
+      return interaction.reply({
+        content: 'https://stormbound-kitty.com/stories/' + story.slug,
+        ephemeral: true,
+      })
     }
 
+    const cards = await getCards()
     const results = await getStoriesForSearch(cards, message)
 
-    return getEmbedForStory(cardsIndex, this.label, results[0])
+    return interaction.reply({
+      content: 'https://stormbound-kitty.com/stories/' + results[0].slug,
+      ephemeral: true,
+    })
   },
 }
 

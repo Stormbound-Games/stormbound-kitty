@@ -8,9 +8,9 @@ import getEmbed from '#helpers/getEmbed'
 import getRandomQuestion from '#helpers/getRandomQuestion'
 import getTriviaQuestions from '#helpers/getTriviaQuestions'
 import parseCardGuess from '#helpers/parseCardGuess'
-import parseTriviaSettings from '#helpers/parseTriviaSettings'
 import searchCards from '#helpers/searchCards'
 import getOrdinalSuffix from '#helpers/getOrdinalSuffix'
+import clamp from '#helpers/clamp'
 import Canvas from './Canvas.js'
 
 const KITTY_ID = '368097495605182483'
@@ -41,23 +41,32 @@ export default class Trivia {
     this.canvas = new Canvas()
   }
 
-  start({ author, channel, content }) {
-    const { mode, difficulty, duration } = parseTriviaSettings(content)
+  start(interaction) {
+    const channel = interaction.channel
+    const mode = interaction.options.getSubcommand().toUpperCase()
+    const minDuration = mode === 'QUESTION' ? 8 : 30
+    const maxDuration = mode === 'QUESTION' ? 20 : 120
+    const duration = clamp(
+      interaction.options.getInteger('duration'),
+      minDuration,
+      maxDuration
+    )
 
     if (this.mode || !mode) return
 
     this.mode = mode
-    this.difficulty = difficulty
+    this.difficulty = interaction.options.getString('difficulty') || 'regular'
     this.duration = duration
-    this.initiator = author
+    this.initiator = interaction.user
     this.answer = this.defineAnswer()
     this.collector = this.createCollector(channel)
-    this.canvas.setDifficulty(difficulty)
-    this.getTriviaDisplay(channel)
+    this.canvas.setDifficulty(this.difficulty)
     this.halfTimer = setTimeout(
       () => this.halfTime(channel),
       (this.duration / 2) * 1000
     )
+
+    return this.announceTrivia(interaction)
   }
 
   halfTime(channel) {
@@ -77,10 +86,9 @@ export default class Trivia {
   }
 
   createCollector(channel) {
-    const options = { time: this.duration * 1000 }
     const collector = channel.createMessageCollector({
-      ...options,
       filter: message => this.shouldCollect(message),
+      time: this.duration * 1000,
     })
 
     collector.on('collect', message => {
@@ -234,7 +242,7 @@ export default class Trivia {
       .setTitle(`❌ Incorrect guess: ~~${guess}~~`)
       .addFields(
         { name: 'User', value: author.username, inline: true },
-        { name: 'Points', value: -1, inline: true }
+        { name: 'Points', value: '-1', inline: true }
       )
 
     if (streak > 1) {
@@ -281,11 +289,11 @@ export default class Trivia {
     this.halfTimer = clearTimeout(this.halfTimer)
   }
 
-  getTriviaDisplay(channel) {
+  announceTrivia(interaction) {
     const embed = getEmbed({ withHeader: false })
       .addFields({
         name: 'Initiator',
-        value: this.initiator.username,
+        value: interaction.user.username,
         inline: true,
       })
       .addFields({
@@ -295,7 +303,7 @@ export default class Trivia {
       })
 
     if (this.mode === 'CARD') {
-      return channel.send({
+      return interaction.reply({
         embeds: [
           embed
             .setTitle('🔮  Card trivia started')
@@ -306,7 +314,7 @@ export default class Trivia {
       })
     } else if (this.mode === 'IMAGE') {
       return this.canvas.getAttachment(this.answer.image).then(attachment => {
-        const difficulty = capitalize((this.difficulty || '').toLowerCase())
+        const difficulty = capitalize(this.difficulty || '')
 
         embed
           .setTitle('🔮  Image trivia started')
@@ -317,10 +325,10 @@ export default class Trivia {
             inline: true,
           })
 
-        return channel.send({ files: [attachment], embeds: [embed] })
+        return interaction.reply({ files: [attachment], embeds: [embed] })
       })
     } else if (this.mode === 'QUESTION') {
-      return channel.send({
+      return interaction.reply({
         embeds: [
           embed
             .setTitle('🔮  ' + this.answer.question)
@@ -331,73 +339,63 @@ export default class Trivia {
                 )
                 .join('\n')
             )
-            .addFields({ name: 'Attempts', value: 1, inline: true }),
+            .addFields({ name: 'Attempts', value: '1', inline: true }),
         ],
       })
     }
   }
 
-  updateScore(user, delta) {
-    return api
-      .setScore(user.id, this.guildId, delta)
-      .then(() => console.log(`Update ${user.id}’s score by ${delta}.`))
-      .catch(error => console.error(error))
+  async updateScore(user, delta) {
+    try {
+      await api.setScore(user.id, this.guildId, delta)
+      console.log(`Update ${user.id}’s score by ${delta}.`)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
-  score({ author }) {
-    const embed = getEmbed({ withHeader: false })
-      .setTitle('Current trivia score')
-      .addFields({ name: 'Member', value: author.username, inline: true })
+  async score(interaction) {
+    try {
+      const id = interaction.member.id
+      const scores = await api.getScores(interaction.guild.id)
+      const score = scores[id]
+      const groupScores = groupScoresByPoints(scores)
+      const scoresByPoints = Object.keys(scores).reduce(groupScores, {})
+      const position = Object.keys(scoresByPoints)
+        .sort((a, b) => +b - +a)
+        .findIndex(score => scoresByPoints[score].includes(id))
 
-    return api
-      .getScores(this.guildId)
-      .then(scores => {
-        const score = scores[author.id]
-        const scoresByPoints = Object.keys(scores).reduce(
-          groupScoresByPoints(scores),
-          {}
-        )
-        const position = Object.keys(scoresByPoints)
-          .sort((a, b) => +b - +a)
-          .findIndex(score => scoresByPoints[score].includes(author.id))
+      const content =
+        position > -1
+          ? `You are ${getOrdinalSuffix(position + 1)} with ${score} points.`
+          : score
+          ? `Your score is ${score}.`
+          : 'No scores yet.'
 
-        if (position > -1)
-          embed.addFields({
-            name: 'Position',
-            value: getOrdinalSuffix(position + 1),
-            inline: true,
-          })
+      return interaction.reply({ content, ephemeral: true })
+    } catch (error) {
+      const content =
+        error.name === 'AbortError'
+          ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+          : 'Failed to get your score. Try again later.'
 
-        return embed.setDescription(
-          score ? `🏅 Your score is ${score}.` : '🏅 No scores yet.'
-        )
-      })
-      .catch(error => {
-        const message =
-          error.name === 'AbortError'
-            ? '🏅 It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
-            : '🏅 Failed to get your score. Try again later.'
-
-        return embed.setDescription(message)
-      })
+      return interaction.reply({ content, ephemeral: true })
+    }
   }
 
-  scores() {
-    const embed = getEmbed({ withHeader: false }).setTitle(
-      'Current trivia scores'
-    )
+  async scores(interaction) {
+    try {
+      const scores = await api.getScores(interaction.guild.id)
+      const output = formatTriviaScores(scores)
 
-    return api
-      .getScores(this.guildId)
-      .then(formatTriviaScores)
-      .then(output => embed.setDescription(output))
-      .catch(error => {
-        const message =
-          error.name === 'AbortError'
-            ? '🏅 It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
-            : '🏅 Failed to get scores. Try again later.'
+      return interaction.reply({ content: output.join('\n'), ephemeral: true })
+    } catch (error) {
+      const content =
+        error.name === 'AbortError'
+          ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+          : 'Failed to get scores. Try again later.'
 
-        return embed.setDescription(message)
-      })
+      return interaction.reply({ content, ephemeral: true })
+    }
   }
 }

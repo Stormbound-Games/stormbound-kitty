@@ -1,23 +1,18 @@
-import getEmbed from '#helpers/getEmbed'
-
-const BASE_MESSAGE =
-  'This Discord bot and <https://stormbound-kitty.com> are solely maintained by <@368097495605182483> and 100% free — no ads, no marketing tracking, no paywall. If you enjoy them, please consider donating: <https://stormbound-kitty.com/contribute>'
+import { SlashCommandBuilder } from 'discord.js'
 
 const donate = {
-  command: 'donate',
-  label: '💸  Donate',
-  aliases: ['contribute'],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/contribute')
-      .setDescription(BASE_MESSAGE)
-  },
-  handler: function () {
-    return getEmbed()
-      .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/contribute')
-      .setDescription(BASE_MESSAGE)
+  data: new SlashCommandBuilder()
+    .setName('donate')
+    .setDescription(
+      'Get information to support Kitty maintaining this Discord bot as well as Stormbound-Kitty.'
+    ),
+
+  async execute(interaction) {
+    return interaction.reply({
+      content:
+        'This Discord bot and <https://stormbound-kitty.com> are solely maintained by <@368097495605182483> and 100% free — no ads, no marketing tracking, no paywall. If you enjoy them, please consider donating: <https://stormbound-kitty.com/contribute>',
+      ephemeral: true,
+    })
   },
 }
 

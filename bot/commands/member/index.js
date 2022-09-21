@@ -1,3 +1,4 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
 import capitalize from '#helpers/capitalize'
 import groupBy from '#helpers/groupBy'
@@ -6,32 +7,36 @@ import getContentFromUser from '#api/users/getContentFromUser'
 const BASE_URL = 'https://stormbound-kitty.com'
 
 const member = {
-  command: 'member',
-  label: '😻  SK member',
-  aliases: ['members'],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL(BASE_URL)
-      .setDescription(
-        'Retrieve someone’s contributions from Stormbound-Kitty based on their username (e.g. `!member kitty`).'
-      )
-  },
-  handler: async function (message) {
-    if (message.trim() === '') return
+  data: new SlashCommandBuilder()
+    .setName('member')
+    .setDescription(
+      'Retrieve someone’s contributions from Stormbound-Kitty based on their username.'
+    )
+    .addStringOption(option =>
+      option
+        .setName('username')
+        .setDescription(
+          'The member’s username as it appears on the site (regardless of casing)'
+        )
+        .setRequired(true)
+    ),
 
-    const { user, feed } = await getContentFromUser({
-      slug: message.toLowerCase(),
-    })
-    const embed = getEmbed()
-      .setTitle(`${this.label}: ${user.name}`)
-      .setURL(BASE_URL + `/members/${user.slug}`)
+  async execute(interaction) {
+    const username = interaction.options.getString('username').toLowerCase()
+    const { user, feed } = await getContentFromUser({ slug: username })
 
-    if (feed.length === 0) {
-      return embed.setDescription(
-        `There are no contributions found from ${user.name} on Stormbound-Kitty.`
-      )
+    if (!user || feed.length === 0) {
+      const name = user?.name ?? username
+
+      return interaction.reply({
+        content: `There is no one named “${name}” on Stormbound-Kitty.`,
+        ephemeral: true,
+      })
     }
+
+    const embed = getEmbed()
+      .setTitle(`😻  SK member: ${user.name}`)
+      .setURL(BASE_URL + `/members/${user.slug}`)
 
     const isKAT = user.role === 'KAT' || user.role === 'SUPER_KAT'
     const isSuperKAT = user.role === 'SUPER_KAT'
@@ -41,19 +46,21 @@ const member = {
     const fields = Object.entries(groupBy(feed, '_type'))
       .map(([type, entries]) => ({
         name: capitalize(type),
-        value: entries.length,
+        value: String(entries.length),
         inline: true,
       }))
       .filter(entry => entry.value > 0)
       .sort((a, b) => b.value - a.value)
 
-    return embed
+    embed
       .setDescription(
         `${user.name} is a member of the community and has issued ${
           feed.length
         } contribution${feed.length === 1 ? '' : 's'}.${KATMessage}`
       )
       .addFields(...fields)
+
+    return interaction.reply({ embeds: [embed], ephemeral: true })
   },
 }
 

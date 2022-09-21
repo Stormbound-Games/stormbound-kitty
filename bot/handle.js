@@ -1,51 +1,39 @@
-import getChannelId from '#helpers/getChannelId'
+export const handleAutocomplete = client => async interaction => {
+  if (!interaction.isAutocomplete()) return
+  if (interaction.user.bot) return
 
-const handle = client => async message => {
-  const isCommand = message.content.startsWith('!')
-
-  // If the message comes from a bot (or itself), do not process any further.
-  if (message.author.bot) return
-
-  // If the message contains the top-level domain, react with joy.
-  if (!isCommand) {
-    if (message.content.includes('https://stormbound-kitty.com')) {
-      return message.react('😻')
-    }
-
-    // If the message does not contain any command, do not process any further.
-    return
-  }
-
-  const [commandName, ...rest] = message.content.slice(1).split(' ')
-  const content = rest
-    .filter(term => !term.startsWith('<@'))
-    .join(' ')
-    .trim()
-  const command =
-    client.commands.get(commandName) || client.aliases.get(commandName)
+  const { commandName } = interaction
+  const command = client.commands.get(commandName)
 
   if (!command) return
 
-  const channelId = getChannelId(message, command)
-  const answer = /\bhelp\b/.test(content)
-    ? await command.help(content, client, message)
-    : await command.handler(content, client, message)
-
-  if (answer && channelId) {
-    const channel = client.channels.cache.get(channelId)
-
-    if (typeof answer === 'string') {
-      channel.send({
-        content: answer,
-        reply: { messageReference: command.ping ? message.id : undefined },
-      })
-    } else {
-      channel.send({
-        embeds: [answer],
-        reply: { messageReference: command.ping ? message.id : undefined },
-      })
-    }
+  try {
+    await command.autocomplete(interaction, client)
+  } catch (error) {
+    console.error(error)
+    await interaction.reply({
+      content: 'Sorry! There was an error while autocompleting this command.',
+      ephemeral: true,
+    })
   }
 }
 
-export default handle
+export const handleMessage = client => async interaction => {
+  if (!interaction.isChatInputCommand()) return
+  if (interaction.user.bot) return
+
+  const { commandName } = interaction
+  const command = client.commands.get(commandName)
+
+  if (!command) return
+
+  try {
+    await command.execute(interaction, client)
+  } catch (error) {
+    console.error(error)
+    await interaction.reply({
+      content: 'Sorry! There was an error while executing this command.',
+      ephemeral: true,
+    })
+  }
+}

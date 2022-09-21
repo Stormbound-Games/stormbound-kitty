@@ -1,12 +1,9 @@
+import { SlashCommandBuilder } from 'discord.js'
 import { FACTIONS } from '#constants/game'
-import getDeckSearchDescription from '#helpers/getDeckSearchDescription'
-import getEmbed from '#helpers/getEmbed'
 import handleSearchAlias from '#helpers/handleSearchAlias'
 import searchCards from '#helpers/searchCards'
 import indexArray from '#helpers/indexArray'
 import getDeckTags from '#api/decks/getDeckTags'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getCards from '#api/cards/getCards'
 
 export const parseMessage = (cards, abbreviations, tags, content) => {
   const terms = content.split(/\s+/g)
@@ -49,41 +46,35 @@ export const parseMessage = (cards, abbreviations, tags, content) => {
 }
 
 const decks = {
-  command: 'decks',
-  label: '🔍  Deck Search',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/decks')
-      .setDescription(
-        `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, tags and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
-      )
-  },
-  handler: async function (message) {
+  data: new SlashCommandBuilder()
+    .setName('decks')
+    .setDescription(
+      'Get a link to a deck search matching the given search criteria.'
+    )
+    .addStringOption(option =>
+      option.setName('input').setDescription('Optional search terms')
+    ),
+
+  async execute(interaction, client) {
+    const message = interaction.options.getString('input')
     const tags = await getDeckTags()
-    const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
-    const cardsIndex = indexArray(cards)
-    const embed = getEmbed()
-      .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/decks')
 
     // If no additional parameters were given, reply with the overall featured
     // decks page
-    if (message.length === 0) {
-      embed.setDescription(getDeckSearchDescription(cardsIndex))
-
-      return embed
+    if (!message) {
+      return interaction.reply({
+        content: 'https://stormbound-kitty.com/decks',
+        ephemeral: true,
+      })
     }
 
-    const { params, ignored } = parseMessage(
-      cards,
-      abbreviations,
+    const searchParams = new URLSearchParams()
+    const { params } = parseMessage(
+      [...client.cards.values()],
+      Object.fromEntries(client.abbreviations),
       tags,
       message.toLowerCase()
     )
-    const searchParams = new URLSearchParams()
 
     for (let param in params) {
       if (param === 'tags')
@@ -99,20 +90,7 @@ const decks = {
       (searchParams.toString().length ? '?' : '') +
       searchParams.toString()
 
-    embed.setDescription(
-      getDeckSearchDescription(cardsIndex, params) + '\n' + url
-    )
-
-    embed.setURL(url)
-
-    if (ignored.length > 0) {
-      embed.addFields({
-        name: 'Ignored terms',
-        value: ignored.join(', '),
-      })
-    }
-
-    return embed
+    return interaction.reply({ content: url, ephemeral: true })
   },
 }
 

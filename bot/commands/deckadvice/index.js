@@ -1,33 +1,38 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getDeckAdvice from '#helpers/getDeckAdvice'
 import getEmbed from '#helpers/getEmbed'
 import getResolvedCardData from '#helpers/getResolvedCardData'
 import serialization from '#helpers/serialization'
 import getDeckIDFromURL from '#helpers/getDeckIDFromURL'
 import indexArray from '#helpers/indexArray'
-import getCards from '#api/cards/getCards'
 
 const deckadvice = {
-  command: 'deckadvice',
-  label: '💎  Deck Advice',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/deck')
-      .setDescription(
-        `Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3xn1n2s1n3s24s2n67s6n15s8n63s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
-      )
-  },
-  handler: async function (message) {
+  data: new SlashCommandBuilder()
+    .setName('deckadvice')
+    .setDescription('Get advice and suggestions for the given deck.')
+    .addStringOption(option =>
+      option
+        .setName('id')
+        .setDescription('The Stormbound-Kitty deck ID or deck URL')
+        .setRequired(true)
+    ),
+
+  async execute(interaction, client) {
+    const message = interaction.options.getString('id')
     const id = getDeckIDFromURL(message)
 
-    if (id.length === 0) return
+    if (id.length === 0) {
+      return interaction.reply({
+        content: 'There was an error evaluating the given deck ID.',
+        ephemeral: true,
+      })
+    }
 
-    const cards = await getCards()
+    const cards = [...client.cards.values()]
     const cardsIndex = indexArray(cards)
     const cardsIndexBySid = indexArray(cards, 'sid')
     const embed = getEmbed()
-      .setTitle(`${this.label}: ` + id)
+      .setTitle(`💎  Deck Advice: ${id}`)
       .setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
 
     try {
@@ -35,16 +40,21 @@ const deckadvice = {
         .deserialize(cardsIndexBySid, id)
         .map(card => getResolvedCardData(cardsIndex, card))
 
-      if (cards.some(card => !card)) return
+      if (cards.some(card => !card)) {
+        return interaction.reply({
+          content: 'There was an error evaluating the given deck.',
+          ephemeral: true,
+        })
+      }
 
       const advice = await getDeckAdvice(cardsIndex, cards)
 
       if (advice.length === 0) {
-        embed.setDescription(
-          'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!'
-        )
-
-        return embed
+        return interaction.editReply({
+          content:
+            'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!',
+          ephemeral: true,
+        })
       }
 
       embed.addFields(
@@ -54,8 +64,13 @@ const deckadvice = {
         }))
       )
 
-      return embed
-    } catch (error) {}
+      return interaction.reply({ embeds: [embed], ephemeral: true })
+    } catch (error) {
+      return interaction.reply({
+        content: 'There was an error evaluating the given deck.',
+        ephemeral: true,
+      })
+    }
   },
 }
 

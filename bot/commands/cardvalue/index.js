@@ -1,64 +1,74 @@
-import getEmbed from '#helpers/getEmbed'
-import clamp from '#helpers/clamp'
+import { SlashCommandBuilder } from 'discord.js'
 import getCardValue from '#helpers/getCardValue'
 import searchCards from '#helpers/searchCards'
-import indexArray from '#helpers/indexArray'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getCards from '#api/cards/getCards'
-
-const getLevel = message => {
-  message = message.trim()
-  const leadingLevel = (message.match(/^(\d)/) || [])[1]
-  const trailingLevel = (message.match(/(\d)$/) || [])[1]
-  const hasLevel = leadingLevel || trailingLevel
-  const level = clamp(+hasLevel, 1, 5)
-
-  message = message.replace(/^(\d)/, '').replace(/(\d)$/, '')
-
-  return [hasLevel ? level : 1, message]
-}
 
 const cardvalue = {
-  command: 'cardvalue',
-  label: '⚖️  Card value',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/calculators/value')
-      .setDescription(
-        `Get the estimated value of a card for a single turn. It optionally accepts a level. For instance, \`!${this.command} rof\` or \`!${this.command} mia 4\`.`
-      )
-  },
-  handler: async function (message) {
-    const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
-    const cardsIndex = indexArray(cards)
-    const [level, search] = getLevel(message)
-    const [card] = searchCards(cards, abbreviations, search)
-
-    if (!card) return
-
-    const value = getCardValue(cardsIndex, card.id, level)
-    const embed = getEmbed().setTitle(
-      `${this.label}: ${card.name} (level ${level})`
+  data: new SlashCommandBuilder()
+    .setName('cardvalue')
+    .setDescription('Get the estimated value of a card for a single turn.')
+    .addStringOption(option =>
+      option
+        .setName('card')
+        .setDescription(
+          'A card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name'
+        )
+        .setRequired(true)
+        .setAutocomplete(true)
     )
+    .addIntegerOption(option =>
+      option
+        .setName('level')
+        .setDescription('Card level')
+        .addChoices(
+          { name: '1', value: 1 },
+          { name: '2', value: 2 },
+          { name: '3', value: 3 },
+          { name: '4', value: 4 },
+          { name: '5', value: 5 }
+        )
+    ),
 
-    if (!value) {
-      return embed.setDescription(
-        `It is not possible to efficiently compute the value of ${card.name}.`
-      )
+  async autocomplete(interaction, client) {
+    const focusedValue = interaction.options.getFocused()
+    const cards = [...client.cards.values()]
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const filtered = searchCards(cards, abbreviations, focusedValue)
+
+    return interaction.respond(
+      filtered.map(card => ({ name: card.name, value: card.id }))
+    )
+  },
+
+  async execute(interaction, client) {
+    const id = interaction.options.getString('card')
+    const card = client.cards.get(id)
+
+    if (!card) {
+      return interaction.reply({
+        content: `Could not find a card matching “${id}”.`,
+        ephemeral: true,
+      })
     }
 
-    return embed.addFields(
-      { name: 'Min', value: value[0].toFixed(2), inline: true },
-      { name: 'Max', value: value[1].toFixed(2), inline: true },
-      {
-        name: 'Avg',
-        value: ((value[0] + value[1]) / 2).toFixed(2),
-        inline: true,
-      }
-    )
+    const level = interaction.options.getInteger('level') || 1
+    const cardsIndex = Object.fromEntries(client.cards)
+    const value = getCardValue(cardsIndex, card.id, level)
+
+    if (!value) {
+      return interaction.reply({
+        content: `It is not possible to efficiently compute the value of ${card.name}.`,
+        ephemeral: true,
+      })
+    }
+
+    const min = value[0].toFixed(2)
+    const max = value[1].toFixed(2)
+    const avg = ((value[0] + value[1]) / 2).toFixed(2)
+
+    return interaction.reply({
+      content: `The estimated value for ${card.name} at level ${level} for a single turn is between ${min} and ${max}, averaging at ${avg}.`,
+      ephemeral: true,
+    })
   },
 }
 
