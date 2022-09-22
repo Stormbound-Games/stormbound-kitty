@@ -12,7 +12,7 @@ const guides = {
       option.setName('input').setDescription('The optional search parameter.')
     ),
 
-  async execute(interaction) {
+  async execute(interaction, client) {
     const message = interaction.options.getString('input')
     const guides = await getGuides()
     const match = guides.find(guide =>
@@ -24,7 +24,7 @@ const guides = {
         content: match
           ? 'https://stormbound-kitty.com/guides/' + match.slug
           : 'Could not find a guide matching “sdfsf”.',
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -41,7 +41,7 @@ const guides = {
 
         return desc
       }, ''),
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

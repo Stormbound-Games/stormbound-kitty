@@ -16,7 +16,7 @@ const gameid = {
         .setDescription('Another player’s game ID to look up.')
     ),
 
-  async execute(interaction) {
+  async execute(interaction, client) {
     const gameId = interaction.options.getString('game_id')
     const member = interaction.options.getUser('member')
     const guildId = interaction.guild.id
@@ -29,7 +29,7 @@ const gameid = {
 
         return interaction.reply({
           content: `Your game ID (${gameId}) has been recorded.`,
-          ephemeral: true,
+          ephemeral: !client.DEBUG_MODE,
         })
       } catch (error) {
         console.error(error)
@@ -39,7 +39,7 @@ const gameid = {
             ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
             : `There was an issue recording your game ID (${gameId}).`
 
-        return interaction.reply({ content, ephemeral: true })
+        return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
       }
     }
 
@@ -52,7 +52,7 @@ const gameid = {
           ? `${member.username}’s game ID is ${id}.`
           : `${member.username}’s game ID is not recorded yet.`
 
-        return interaction.reply({ content, ephemeral: true })
+        return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
       } catch (error) {
         console.error(error)
 
@@ -61,7 +61,7 @@ const gameid = {
             ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
             : `There was an issue finding ${member.username}’s game ID.`
 
-        return interaction.reply({ content, ephemeral: true })
+        return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
       }
     }
 
@@ -71,7 +71,7 @@ const gameid = {
         ? `Your game ID is ${id}.`
         : 'Your game ID is not recorded yet.'
 
-      return interaction.reply({ content, ephemeral: true })
+      return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
     } catch (error) {
       console.error(error)
 
@@ -80,7 +80,7 @@ const gameid = {
           ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
           : `There was an issue finding your game ID.`
 
-      return interaction.reply({ content, ephemeral: true })
+      return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
     }
   },
 }

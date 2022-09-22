@@ -64,7 +64,7 @@ const randomcard = {
     if (!faction && !type && !rarity && !unitType) {
       return interaction.reply({
         content: linkify(arrayRandom(cards)),
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -83,7 +83,7 @@ const randomcard = {
       content: results.length
         ? linkify(arrayRandom(results))
         : `Could not find a card matching ${filters.join(', ')}.`,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

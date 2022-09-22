@@ -21,6 +21,9 @@ fs.readdirSync('./bot/commands').forEach(async name => {
   if (command.data) client.commands.set(command.data.name, command)
 })
 
+// When enabled, this causes all ephemeral messages no longer to be ephemeral.
+client.DEBUG_MODE = true
+
 Promise.all([
   getAbbreviations({ casing: 'LOWERCASE' }),
   getBooks(),

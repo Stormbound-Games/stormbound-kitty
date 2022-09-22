@@ -34,13 +34,13 @@ const cardinfo = {
     if (!card) {
       return interaction.reply({
         content: `Could not find a card matching “${id}”.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
     return interaction.reply({
       content: `https://stormbound-kitty.com/cards/${id}`,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

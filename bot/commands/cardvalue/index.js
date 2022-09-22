@@ -44,7 +44,7 @@ const cardvalue = {
     if (!card) {
       return interaction.reply({
         content: `Could not find a card matching “${id}”.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -55,7 +55,7 @@ const cardvalue = {
     if (!value) {
       return interaction.reply({
         content: `It is not possible to efficiently compute the value of ${card.name}.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -68,7 +68,7 @@ const cardvalue = {
         ? `The estimated value for ${card.name} at level ${level} for a single turn is ${avg}.`
         : `The estimated value for ${card.name} at level ${level} for a single turn is between ${min} and ${max}, averaging at ${avg}.`
 
-    return interaction.reply({ content, ephemeral: true })
+    return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
   },
 }
 

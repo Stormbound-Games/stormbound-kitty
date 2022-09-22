@@ -9,7 +9,7 @@ export const handleMessage = client => async interaction => {
     console.error(error)
     await interaction.reply({
       content: 'Sorry! There was an error while executing this command.',
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   }
 }
@@ -25,7 +25,7 @@ export const handleAutocomplete = client => async interaction => {
     console.error(error)
     await interaction.reply({
       content: 'Sorry! There was an error while autocompleting this command.',
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   }
 }

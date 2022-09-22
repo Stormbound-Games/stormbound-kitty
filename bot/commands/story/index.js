@@ -22,7 +22,7 @@ const story = {
 
       return interaction.reply({
         content: 'https://stormbound-kitty.com/stories/' + story.slug,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -34,7 +34,7 @@ const story = {
         results.length === 0
           ? `Could not find a story matching “${input}”.`
           : 'https://stormbound-kitty.com/stories/' + results[0].slug,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

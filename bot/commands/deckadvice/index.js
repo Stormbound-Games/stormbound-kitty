@@ -24,7 +24,7 @@ const deckadvice = {
     if (!id) {
       return interaction.reply({
         content: 'There was an error evaluating the given deck ID.',
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -43,7 +43,7 @@ const deckadvice = {
       if (cards.some(card => !card)) {
         return interaction.reply({
           content: 'There was an error evaluating some of the cards.',
-          ephemeral: true,
+          ephemeral: !client.DEBUG_MODE,
         })
       }
 
@@ -53,7 +53,7 @@ const deckadvice = {
         return interaction.editReply({
           content:
             'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!',
-          ephemeral: true,
+          ephemeral: !client.DEBUG_MODE,
         })
       }
 
@@ -64,11 +64,14 @@ const deckadvice = {
         }))
       )
 
-      return interaction.reply({ embeds: [embed], ephemeral: true })
+      return interaction.reply({
+        embeds: [embed],
+        ephemeral: !client.DEBUG_MODE,
+      })
     } catch (error) {
       return interaction.reply({
         content: 'There was an error evaluating the given deck.',
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
   },

@@ -33,7 +33,7 @@ const role = {
         .setRequired(true)
     ),
 
-  async execute(interaction) {
+  async execute(interaction, client) {
     const newRole = interaction.options.getRole('role')
     const member = interaction.member
     const roles = ROLES.filter(roleName =>
@@ -43,7 +43,7 @@ const role = {
     if (!roles.includes(newRole.name)) {
       return interaction.reply({
         content: `The “${newRole.name}” role cannot be self-assigned.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -51,7 +51,7 @@ const role = {
       member.roles.remove(newRole)
       return interaction.reply({
         content: `“${newRole.name}” role removed.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -81,7 +81,7 @@ const role = {
           ? ` and “${existingFactionRole.name}” role removed`
           : ''
       }.`,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

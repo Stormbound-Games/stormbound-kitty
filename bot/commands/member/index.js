@@ -21,7 +21,7 @@ const member = {
         .setRequired(true)
     ),
 
-  async execute(interaction) {
+  async execute(interaction, client) {
     const username = interaction.options.getString('username').toLowerCase()
     const { user, feed } = await getContentFromUser({ slug: username })
 
@@ -30,7 +30,7 @@ const member = {
 
       return interaction.reply({
         content: `There is no one named “${name}” on Stormbound-Kitty.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -60,7 +60,7 @@ const member = {
       )
       .addFields(...fields)
 
-    return interaction.reply({ embeds: [embed], ephemeral: true })
+    return interaction.reply({ embeds: [embed], ephemeral: !client.DEBUG_MODE })
   },
 }
 

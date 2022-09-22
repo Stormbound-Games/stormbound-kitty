@@ -43,7 +43,7 @@ const changelog = {
     if (!card) {
       return interaction.reply({
         content: `Could not find a card matching “${id}”.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -67,7 +67,7 @@ const changelog = {
         })
     )
 
-    return interaction.reply({ embeds: [embed], ephemeral: true })
+    return interaction.reply({ embeds: [embed], ephemeral: !client.DEBUG_MODE })
   },
 }
 

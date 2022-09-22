@@ -57,7 +57,7 @@ const bookodds = {
     if (!book) {
       return interaction.reply({
         content: `Could not find a book matching “${bookId}”.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -66,7 +66,7 @@ const bookodds = {
         content: `A **${book.name}** has ${
           book.fsOdds * 100
         }% chance of drawing **Fusion Stones**.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -78,7 +78,7 @@ const bookodds = {
 
       return interaction.reply({
         content: `A **${book.name}** has ${odds}% chance of drawing **${TARGETS[target]}**.`,
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -102,7 +102,7 @@ const bookodds = {
 
     return interaction.reply({
       content: `A **${book.name}** has a static ${fsOdds}% chance of drawing **Fusion Stones**, an estimated ${specificOdds}% chance of drawing **a specific card** and an estimated ${anyOdds}% chance of drawing **any card**.`,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

@@ -97,7 +97,7 @@ const randomdeck = {
       return interaction.reply({
         content:
           'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).',
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 
@@ -107,7 +107,7 @@ const randomdeck = {
 
     return interaction.reply({
       content: 'https://stormbound-kitty.com/deck/' + id,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

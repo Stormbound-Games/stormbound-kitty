@@ -53,7 +53,7 @@ const trivia = {
     if (interaction.channel.name !== 'trivia') {
       return interaction.reply({
         content: 'The trivia command only works in the #trivia channel.',
-        ephemeral: true,
+        ephemeral: !client.DEBUG_MODE,
       })
     }
 

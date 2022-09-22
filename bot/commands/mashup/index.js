@@ -40,7 +40,7 @@ const mashup = {
 
     return interaction.reply({
       content: `Here is your mashup: **${getRandomCardName(cards)}**`,
-      ephemeral: true,
+      ephemeral: !client.DEBUG_MODE,
     })
   },
 }

@@ -22,7 +22,7 @@ const abbr = {
       ? `“${abbr}” might mean ${toSentence(matches.map(quotify), 'or')}.`
       : `Could not find any match for abbreviation “${abbr}”.`
 
-    return interaction.reply({ content, ephemeral: true })
+    return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
   },
 }
 
