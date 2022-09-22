@@ -1,11 +1,13 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import CTA from '#components/CTA'
 import DeckAdvice from '#components/DeckAdvice'
 import Page from '#components/Page'
 import Deck from '#components/Deck'
 import Info from '#components/Info'
 import Link from '#components/Link'
 import Row from '#components/Row'
+import ShareButton from '#components/DeckShareButton'
 import Stats from '#components/DeckStats'
 import Title from '#components/Title'
 import { CardsContext } from '#components/CardsProvider'
@@ -97,6 +99,14 @@ export default React.memo(function DeckDetailView(props) {
               </p>
             </Info>
           )}
+          <Row>
+            <Row.Column>
+              <CTA to={'/deck/' + id}>Edit deck</CTA>
+            </Row.Column>
+            <Row.Column>
+              <ShareButton deck={deck} withoutIntro />
+            </Row.Column>
+          </Row>
         </Row.Column>
 
         <Row.Column width='1/3'>

@@ -55,11 +55,13 @@ export default React.memo(function DeckShareButton(props) {
       disabled={props.disabled}
       image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
     >
-      <p>
-        Your deck is automatically saved to the URL of the page as you work on
-        it. You can safely reload the page, or bookmark it to come back to it
-        later.
-      </p>
+      {!props.withoutIntro && (
+        <p>
+          Your deck is automatically saved to the URL of the page as you work on
+          it. You can safely reload the page, or bookmark it to come back to it
+          later.
+        </p>
+      )}
 
       <p>
         If you would like to share your deck with others, you can easily do so
