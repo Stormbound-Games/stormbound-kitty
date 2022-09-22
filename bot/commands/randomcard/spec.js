@@ -1,150 +1,81 @@
-import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
 import command from './index.js'
+import { mockInteraction, client } from '#helpers/jestSetup/discord'
 
-const randomcard = command.handler.bind(command)
+describe('Bot — /randomcard', () => {
+  it('should return a random card', async () => {
+    const interaction = mockInteraction()
+    const output = await command.execute(interaction, client)
 
-const BASE_URL = 'https://stormbound-kitty.com/cards/'
-const ALIASES = [
-  { keyword: 'struct', key: 'type', value: 'structure' },
-  { keyword: 'ic', key: 'faction', value: 'ironclad' },
-  { keyword: 'red', key: 'faction', value: 'ironclad' },
-  { keyword: 'sf', key: 'faction', value: 'shadowfen' },
-  { keyword: 'green', key: 'faction', value: 'shadowfen' },
-  { keyword: 'w', key: 'faction', value: 'winter' },
-  { keyword: 'wp', key: 'faction', value: 'winter' },
-  { keyword: 'blue', key: 'faction', value: 'winter' },
-  { keyword: 'sw', key: 'faction', value: 'swarm' },
-  { keyword: 'yellow', key: 'faction', value: 'swarm' },
-]
-
-const getCardId = url => (url ? url.replace(BASE_URL, '') : url)
-
-describe('Bot — !randomcard', () => {
-  it('should return a random card for an empty search', () => {
-    return randomcard('').then(output => expect(output).toContain(BASE_URL))
-  })
-
-  it('should handle factions', () => {
-    const faction = FACTIONS[0]
-
-    return randomcard(faction).then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].faction).toEqual(faction)
-    })
-  })
-
-  it('should handle negative factions', () => {
-    const faction = FACTIONS[0]
-
-    return randomcard('!' + faction).then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].faction).not.toEqual(faction)
-    })
-  })
-
-  it('should handle types', () => {
-    const type = TYPES[0]
-
-    return randomcard(type).then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].type).toEqual(type)
-    })
-  })
-
-  it('should handle negative types', () => {
-    const type = TYPES[0]
-
-    return randomcard('!' + type).then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].type).not.toEqual(type)
-    })
-  })
-
-  it('should handle unit types', () => {
-    const unitType = UNIT_TYPES[0]
-
-    return randomcard(unitType).then(output => {
-      const id = getCardId(output)
-      const card = global.__CARDS_INDEX__[id]
-
-      expect(card.unitTypes).toContain(unitType)
-    })
-  })
-
-  it('should handle negative unit types', () => {
-    const unitType = UNIT_TYPES[0]
-
-    return randomcard('!' + unitType).then(output => {
-      const id = getCardId(output)
-      const card = global.__CARDS_INDEX__[id]
-
-      expect(card.unitTypes).not.toContain(unitType)
-    })
-  })
-
-  it('should handle rarities', () => {
-    const rarity = RARITIES[0]
-
-    return randomcard(rarity).then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].rarity).toEqual(rarity)
-    })
-  })
-
-  it('should handle negative rarities', () => {
-    const rarity = RARITIES[0]
-
-    return randomcard('!' + rarity).then(output => {
-      const id = getCardId(output)
-      expect(global.__CARDS_INDEX__[id].rarity).not.toEqual(rarity)
-    })
-  })
-
-  it('should handle aliases', () => {
-    return Promise.all(
-      ALIASES.map(test => {
-        return randomcard(test.keyword).then(output => {
-          const id = getCardId(output)
-          expect(global.__CARDS_INDEX__[id][test.key]).toEqual(test.value)
-        })
-      })
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toMatch(
+      /^https:\/\/stormbound-kitty.com\/cards\/\w+$/
     )
   })
 
-  it('should handle negative aliases', () => {
-    return Promise.all(
-      ALIASES.map(test => {
-        return randomcard('!' + test.keyword).then(output => {
-          const id = getCardId(output)
-          expect(global.__CARDS_INDEX__[id][test.key]).not.toEqual(test.value)
-        })
-      })
+  it('should return a random card of a specific faction', async () => {
+    const interaction = mockInteraction({ faction: 'ironclad' })
+    const output = await command.execute(interaction, client)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toMatch(
+      /^https:\/\/stormbound-kitty.com\/cards\/I\d+$/
     )
   })
 
-  it('should handle multi-searches', () => {
-    return randomcard('ic spell rare').then(output => {
-      const id = getCardId(output)
-      const card = global.__CARDS_INDEX__[id]
+  it('should return a random card of a specific type', async () => {
+    const interaction = mockInteraction({ type: 'spell' })
+    const output = await command.execute(interaction, client)
+    const ID = output.content.replace('https://stormbound-kitty.com/cards/', '')
+    const card = client.cards.get(ID)
 
-      expect(card.faction).toEqual('ironclad')
-      expect(card.type).toEqual('spell')
-      expect(card.rarity).toEqual('rare')
-    })
+    expect(output.ephemeral).toBeTruthy()
+    expect(card.type).toMatch('spell')
   })
 
-  it('should ignore unknown terms', () => {
-    return randomcard('ic foo spell bar rare').then(output => {
-      const id = getCardId(output)
+  it('should return a random card of a specific rarity', async () => {
+    const interaction = mockInteraction({ rarity: 'rare' })
+    const output = await command.execute(interaction, client)
+    const ID = output.content.replace('https://stormbound-kitty.com/cards/', '')
+    const card = client.cards.get(ID)
 
-      expect(id).toContain('~~foo~~')
-      expect(id).toContain('~~bar~~')
-    })
+    expect(output.ephemeral).toBeTruthy()
+    expect(card.rarity).toMatch('rare')
   })
 
-  it('should return nothing for unknown search', () => {
-    return randomcard('foo bar').then(output =>
-      expect(getCardId(output)).toEqual(undefined)
+  it('should return a random card of a specific unit type', async () => {
+    const interaction = mockInteraction({ unit_type: 'dwarf' })
+    const output = await command.execute(interaction, client)
+    const ID = output.content.replace('https://stormbound-kitty.com/cards/', '')
+    const card = client.cards.get(ID)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(card.unitTypes).toContain('dwarf')
+  })
+
+  it('should handle multiple filters', async () => {
+    const interaction = mockInteraction({
+      faction: 'neutral',
+      unit_type: 'dwarf',
+    })
+    const output = await command.execute(interaction, client)
+    const ID = output.content.replace('https://stormbound-kitty.com/cards/', '')
+    const card = client.cards.get(ID)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(card.faction).toContain('neutral')
+    expect(card.unitTypes).toContain('dwarf')
+  })
+
+  it('should return an error for invalid parameters', async () => {
+    const interaction = mockInteraction({
+      faction: 'shadowfen',
+      unit_type: 'dwarf',
+    })
+    const output = await command.execute(interaction, client)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toBe(
+      'Could not find a card matching shadowfen, dwarf.'
     )
   })
 })

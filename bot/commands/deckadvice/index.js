@@ -42,7 +42,7 @@ const deckadvice = {
 
       if (cards.some(card => !card)) {
         return interaction.reply({
-          content: 'There was an error evaluating the given deck.',
+          content: 'There was an error evaluating some of the cards.',
           ephemeral: true,
         })
       }

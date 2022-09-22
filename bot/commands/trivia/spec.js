@@ -1,121 +1,117 @@
+import command from './index.js'
 import Discord from 'discord.js'
-import Trivia from './Trivia'
+import {
+  mockInteraction,
+  mockChannel,
+  mockGuild,
+  mockUser,
+  client,
+} from '#helpers/jestSetup/discord'
 
-const LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('')
-
-// This test suite doesn’t work on GitHub for some reason. :(
-describe.skip('Bot — !trivia', () => {
-  const channelID = Discord.SnowflakeUtil.generate()
-  const client = new Discord.Client()
-  const guild = new Discord.Guild(client)
-  const channel = new Discord.TextChannel(guild, {
-    ...new Discord.GuildChannel(guild, {
-      ...new Discord.Channel(client, { id: channelID }),
-    }),
-  })
-  const user = new Discord.User(client, {
-    id: '368097495605182483',
-    username: 'Kitty ✨',
-    discriminator: 'Kitty#1909',
-    avatar: '<mock>',
-    bot: false,
-  })
-  const trivia = new Trivia({
-    guildId: 'guildId',
-    withScores: false,
-    abbreviations: global.__ABBREVIATIONS__,
-    cards: global.__CARDS__,
-    brawls: global.__BRAWLS__,
-  })
-
-  it('should ignore invalid commands', () => {
-    trivia.start({ author: user, channel, content: '!trivia foo' })
-    expect(trivia.mode).toEqual(null)
-  })
-
-  it('should be possible to start a new card trivia', () => {
-    trivia.start({ author: user, channel, content: '!trivia card' })
-    expect(trivia.mode).toEqual('CARD')
-    expect(trivia.initiator).toEqual(user)
-    expect(trivia.halfTimer).not.toEqual(undefined)
-  })
-
-  it('should be possible to ask for hints', () => {
-    const output = trivia.guess({ author: user, channel, content: 'pirate' })
-    expect(output.title).not.toEqual(undefined)
-    expect(output.description).toContain('pirate')
-  })
-
-  it('should be possible to emit guesses', () => {
-    const output = trivia.guess({ author: user, channel, content: 'mia' })
-    expect(output.title).not.toEqual(undefined)
-    expect(output.description).toContain('Doctor Mia')
-  })
-
-  it('should be possible to stop an ongoing trivia', () => {
-    trivia.stop('ABORT')
-    expect(trivia.mode).toEqual(null)
-    expect(trivia.initiator).toEqual(null)
-    expect(trivia.halfTimer).toEqual(undefined)
-  })
-
-  it('should be possible to win a card trivia', () => {
-    trivia.start({ author: user, channel, content: '!trivia card' })
-    const output = trivia.guess({
-      author: user,
-      channel,
-      content: trivia.answer.name,
-    })
-    expect(output.title).toContain('🎉')
-  })
-
-  it('should be possible to start a new question trivia', () => {
-    trivia.start({ author: user, channel, content: '!trivia question' })
-    expect(trivia.mode).toEqual('QUESTION')
-    expect(trivia.initiator).toEqual(user)
-    expect(trivia.halfTimer).not.toEqual(undefined)
-  })
-
-  it('should ignore guesses that are not amongst letters', () => {
-    trivia.start({ author: user, channel, content: '!trivia question' })
-    const guess = LETTERS.find(
-      letter =>
-        !Object.keys(trivia.answer.choices).includes(letter.toUpperCase())
+describe('Bot — /trivia', () => {
+  it('should be possible to display scores', async () => {
+    const channel = mockChannel({ name: 'trivia' })
+    const guild = { id: Discord.SnowflakeUtil.generate() }
+    const interaction = mockInteraction(
+      { subcommand: 'scores' },
+      { channel, guild }
     )
-    trivia.guess({ author: user, channel, content: guess })
+    const output = await command.execute(interaction, client)
 
-    expect(trivia.mode).toEqual('QUESTION')
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toContain('🥇')
   })
 
-  it('should interrupt question trivia after first incorrect guess', () => {
-    trivia.start({ author: user, channel, content: '!trivia question' })
-    const output = trivia.guess({
-      author: user,
-      channel,
-      content: Object.keys(trivia.answer.choices).find(
-        letter => trivia.answer.choices[letter] !== trivia.answer.name
-      ),
+  it('should be possible to display one’s score', async () => {
+    const member = mockUser({ username: 'Kitty' })
+    const channel = mockChannel({ name: 'trivia' })
+    const guild = mockGuild()
+    const interaction = mockInteraction(
+      { subcommand: 'score' },
+      { channel, guild, member }
+    )
+    const output = await command.execute(interaction, client)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toContain('No scores yet.')
+  })
+
+  it('should be possible to start a card trivia', async () => {
+    const member = mockUser({ username: 'Kitty' })
+    const channel = mockChannel({ name: 'trivia' })
+    const guild = mockGuild()
+    const interaction = mockInteraction(
+      { subcommand: 'card' },
+      { channel, guild, member }
+    )
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeFalsy()
+    expect(embed.title).toContain('Card trivia started')
+    expect(embed.description).toBeTruthy()
+    expect(embed.fields[0]).toEqual({
+      name: 'Initiator',
+      value: 'Kitty',
+      inline: true,
     })
-
-    expect(output.title).toContain('Incorrect')
-    expect(trivia.mode).toEqual(null)
-  })
-
-  it('should be possible to win a question trivia', () => {
-    trivia.start({ author: user, channel, content: '!trivia question' })
-    const output = trivia.guess({
-      author: user,
-      channel,
-      content: Object.keys(trivia.answer.choices).find(
-        letter => trivia.answer.choices[letter] === trivia.answer.name
-      ),
+    expect(embed.fields[1]).toEqual({
+      name: 'Duration',
+      value: '75 seconds',
+      inline: true,
     })
-    expect(output.title).toContain('🎉')
   })
 
-  it('should be possible to display scores', () => {
-    trivia.scores().then(output => {
-      expect(output.title).toContain('scores')
+  it('should be possible to start a question trivia', async () => {
+    const member = mockUser({ username: 'Kitty' })
+    const channel = mockChannel({ name: 'trivia' })
+    const guild = mockGuild()
+    const interaction = mockInteraction(
+      { subcommand: 'question' },
+      { channel, guild, member }
+    )
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeFalsy()
+    expect(embed.title).toContain('?')
+    expect(embed.description).toBeTruthy()
+    expect(embed.fields[0]).toEqual({
+      name: 'Initiator',
+      value: 'Kitty',
+      inline: true,
+    })
+    expect(embed.fields[1]).toEqual({
+      name: 'Duration',
+      value: '15 seconds',
+      inline: true,
+    })
+  })
+
+  it('should be possible to start an image trivia', async () => {
+    const member = mockUser({ username: 'Kitty' })
+    const channel = mockChannel({ name: 'trivia' })
+    const guild = mockGuild()
+    const interaction = mockInteraction(
+      { subcommand: 'image' },
+      { channel, guild, member }
+    )
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeFalsy()
+    expect(embed.title).toContain('Image trivia started')
+    expect(embed.description).toBeTruthy()
+    expect(output.files).toHaveLength(1)
+    expect(embed.fields[0]).toEqual({
+      name: 'Initiator',
+      value: 'Kitty',
+      inline: true,
+    })
+    expect(embed.fields[1]).toEqual({
+      name: 'Duration',
+      value: '75 seconds',
+      inline: true,
     })
   })
 })

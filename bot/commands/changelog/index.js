@@ -53,14 +53,6 @@ const changelog = {
 
     const cardChanges = await getChangesFromCard({ id: card.id })
     const changesByDate = cardChanges.reduce(groupByDate, {})
-    const hasChanges = Object.keys(changesByDate).length > 0
-
-    if (!hasChanges) {
-      return interaction.reply({
-        content: `It seems there are no recorded changes for **${card.name}**.`,
-        ephemeral: true,
-      })
-    }
 
     embed.addFields(
       ...Object.keys(changesByDate)

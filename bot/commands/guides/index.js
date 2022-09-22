@@ -19,9 +19,11 @@ const guides = {
       guide.name.toLowerCase().includes(message)
     )
 
-    if (message && match) {
+    if (message) {
       return interaction.reply({
-        content: 'https://stormbound-kitty.com/guides/' + match.slug,
+        content: match
+          ? 'https://stormbound-kitty.com/guides/' + match.slug
+          : 'Could not find a guide matching “sdfsf”.',
         ephemeral: true,
       })
     }

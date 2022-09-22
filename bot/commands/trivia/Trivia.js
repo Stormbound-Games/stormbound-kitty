@@ -45,7 +45,8 @@ export default class Trivia {
     const channel = interaction.channel
     const mode = interaction.options.getSubcommand().toUpperCase()
     const duration = clamp(
-      interaction.options.getInteger('duration'),
+      interaction.options.getInteger('duration') ||
+        (mode === 'QUESTION' ? 15 : 75),
       mode === 'QUESTION' ? 8 : 30,
       mode === 'QUESTION' ? 20 : 120
     )
@@ -372,6 +373,7 @@ export default class Trivia {
 
       return interaction.reply({ content, ephemeral: true })
     } catch (error) {
+      console.error(error)
       const content =
         error.name === 'AbortError'
           ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'

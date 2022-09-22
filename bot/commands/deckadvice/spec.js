@@ -1,48 +1,39 @@
 import command from './index.js'
-const deckadvice = command.handler.bind(command)
+import { client, mockInteraction } from '#helpers/jestSetup/discord.js'
 
-describe('Bot — !deckadvice', () => {
-  it('should return nothing for a missing term', () => {
-    return deckadvice('').then(output => expect(output).toEqual(undefined))
-  })
+describe('Bot — /deckadvice', () => {
+  it('should return an error for a missing id', async () => {
+    const interaction = mockInteraction({ deck: '' })
+    const output = await command.execute(interaction, client)
 
-  it('should handle a Stormbound-Kitty deck ID', () => {
-    return deckadvice('5n35n125n163w54n184w95w125w133n394w153w194w21').then(
-      output => expect(output).not.toEqual(undefined)
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toBe(
+      'There was an error evaluating the given deck ID.'
     )
   })
 
-  it('should handle a Stormbound-Kitty deck URL', () => {
-    const url =
-      'https://stormbound-kitty.com/deck/5n35n125n163w54n184w95w125w133n394w153w194w21'
+  it('should return an error for an invalid id', async () => {
+    const interaction = mockInteraction({ deck: 'sdfsf' })
+    const output = await command.execute(interaction, client)
 
-    return Promise.all([
-      deckadvice(url).then(output => expect(output).not.toEqual(undefined)),
-      deckadvice(url + '/detail').then(output =>
-        expect(output).not.toEqual(undefined)
-      ),
-      deckadvice(url + '/dry-run').then(output =>
-        expect(output).not.toEqual(undefined)
-      ),
-    ])
-  })
-
-  it('should handle a lack of advice', () => {
-    return deckadvice('5n31n41n95n121n143w54n185w74w95w125w133w19').then(
-      output =>
-        expect(output.description).toContain('No particular suggestions')
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toBe(
+      'There was an error evaluating some of the cards.'
     )
   })
 
-  it('should return advice', () => {
-    return deckadvice('3n631n703n335n133n415n193n592w102n614n225w23n7').then(
-      output => expect(output.fields.length > 0).toEqual(true)
-    )
-  })
+  it('should return advice for a given deck', async () => {
+    const interaction = mockInteraction({
+      deck: '5n35n125n163w54n184w95w125w133n394w153w194w21',
+    })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
-  it('should return nothing for a no-match', () => {
-    return deckadvice('flksdjf').then(output =>
-      expect(output).toEqual(undefined)
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toContain('Deck Advice')
+    expect(embed.url).toContain(
+      'https://stormbound-kitty.com/deck/5n35n125n163w54n184w95w125w133n394w153w194w21/detail'
     )
+    expect(embed.fields.length).toBeGreaterThan(0)
   })
 })

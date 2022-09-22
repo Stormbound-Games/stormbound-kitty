@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js'
 import arrayRandom from '#helpers/arrayRandom'
-import getCards from '#api/cards/getCards'
 
 const getChunks = cards => {
   const starts = []
@@ -36,8 +35,8 @@ const mashup = {
     .setName('mashup')
     .setDescription('Randomly generate a random card name from existing ones.'),
 
-  async execute(interaction) {
-    const cards = await getCards()
+  async execute(interaction, client) {
+    const cards = [...client.cards.values()]
 
     return interaction.reply({
       content: `Here is your mashup: **${getRandomCardName(cards)}**`,

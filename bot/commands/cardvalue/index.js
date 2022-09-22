@@ -63,10 +63,12 @@ const cardvalue = {
     const max = value[1].toFixed(2)
     const avg = ((value[0] + value[1]) / 2).toFixed(2)
 
-    return interaction.reply({
-      content: `The estimated value for ${card.name} at level ${level} for a single turn is between ${min} and ${max}, averaging at ${avg}.`,
-      ephemeral: true,
-    })
+    const content =
+      min === max
+        ? `The estimated value for ${card.name} at level ${level} for a single turn is ${avg}.`
+        : `The estimated value for ${card.name} at level ${level} for a single turn is between ${min} and ${max}, averaging at ${avg}.`
+
+    return interaction.reply({ content, ephemeral: true })
   },
 }
 
