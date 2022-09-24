@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const API_TOKEN = process.env.API_TOKEN
+const JSONBIN_TOKEN = process.env.JSONBIN_TOKEN
 const API_BASE_URL = 'https://jsonbin.org/kittysparkles'
 const API_TIMEOUT = 5000
 
@@ -20,7 +20,7 @@ const getScores = guildId => {
   return fetch(API_BASE_URL + '/' + guildId + '/scores', {
     signal: controller.signal,
     method: 'GET',
-    headers: { Authorization: 'token ' + API_TOKEN },
+    headers: { Authorization: 'token ' + JSONBIN_TOKEN },
   })
     .then(response => response.json())
     .then(handleUnauthorized)
@@ -39,7 +39,7 @@ const setScore = (id, guildId, update = +1) =>
       return fetch(API_BASE_URL + '/' + guildId + '/scores', {
         signal: controller.signal,
         method: 'PATCH',
-        headers: { Authorization: 'token ' + API_TOKEN },
+        headers: { Authorization: 'token ' + JSONBIN_TOKEN },
         body: JSON.stringify({ [id]: score + update }),
       }).finally(() => clearTimeout(timeout))
     })
@@ -51,7 +51,7 @@ const setGameId = (guildId, userId, gameId) => {
   return fetch(API_BASE_URL + '/' + guildId + '/gameids', {
     signal: controller.signal,
     method: 'PATCH',
-    headers: { Authorization: 'token ' + API_TOKEN },
+    headers: { Authorization: 'token ' + JSONBIN_TOKEN },
     body: JSON.stringify({ [userId]: gameId }),
   }).finally(() => clearTimeout(timeout))
 }
@@ -63,7 +63,7 @@ const getGameId = async (guildId, userId) => {
   return fetch(API_BASE_URL + '/' + guildId + '/gameids', {
     signal: controller.signal,
     method: 'GET',
-    headers: { Authorization: 'token ' + API_TOKEN },
+    headers: { Authorization: 'token ' + JSONBIN_TOKEN },
   })
     .then(response => response.json())
     .then(handleUnauthorized)
