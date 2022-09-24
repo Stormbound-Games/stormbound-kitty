@@ -1,7 +1,51 @@
 import { SlashCommandBuilder } from 'discord.js'
+import { FACTIONS } from '#constants/game'
 import arrayRandom from '#helpers/arrayRandom'
 import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
+import indexArray from '#helpers/indexArray'
+import searchCards from '#helpers/searchCards'
+import handleSearchAlias from '#helpers/handleSearchAlias'
 import getDecks from '#api/decks/getDecks'
+
+export const parseMessage = (cards, abbreviations, tags, content) => {
+  const terms = content.split(/\s+/g)
+  const params = {}
+  const unmatched = []
+  const ignored = []
+  const tagsIndex = indexArray(tags, 'slug')
+
+  terms.forEach(term => {
+    if (FACTIONS.includes(term)) {
+      params.faction = term
+    } else if (term.toUpperCase() in tagsIndex) {
+      if (!params.tags) params.tags = []
+      params.tags.push(tagsIndex[term.toUpperCase()])
+    } else {
+      const [key, value] = handleSearchAlias(term)
+      if (key) {
+        if (Array.isArray(value)) {
+          if (!params[key]) params[key] = []
+          params[key].push(...value)
+        }
+        params[key] = value
+      } else unmatched.push(term)
+    }
+  })
+
+  // After having gone through all term individually, join the ones that didn’t
+  // match anything to perform a card search.
+  const [card] = searchCards(cards, abbreviations, unmatched.join(' '))
+
+  // If a card was found with the unmatching terms, store it, otherwise ignore
+  // the unmatching terms.
+  if (card) {
+    params.including = card.id
+  } else {
+    Array.prototype.push.apply(ignored, unmatched)
+  }
+
+  return { params, ignored }
+}
 
 const suggestdeck = {
   data: new SlashCommandBuilder()
