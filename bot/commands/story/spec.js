@@ -15,9 +15,12 @@ describe('Bot — /story', () => {
   it('should return an error if no story was found for the input', async () => {
     const interaction = mockInteraction({ input: 'sdfsf' })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe('Could not find a story matching “sdfsf”.')
+    expect(embed.title).toBe('📝 Story')
+    expect(embed.url).toBe('https://stormbound-kitty.com/stories')
+    expect(embed.description).toBe('Could not find a story matching “sdfsf”.')
   })
 
   it('should return a random story without an input', async () => {
@@ -26,7 +29,7 @@ describe('Bot — /story', () => {
 
     expect(output.ephemeral).toBeTruthy()
     expect(output.content).toMatch(
-      /^https:\/\/stormbound-kitty.com\/stories\/[a-z-]+$/
+      /^https:\/\/stormbound-kitty.com\/stories\/[a-z0-9-]+$/
     )
   })
 })

@@ -14,9 +14,11 @@ describe('Bot — /role', () => {
     const guild = mockGuild({ roles: [role] })
     const interaction = mockInteraction({ role }, { guild, user })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe('“Diamond” role added.')
+    expect(embed.title).toBe('🌟 Role Assignment')
+    expect(embed.description).toBe('“Diamond” role added.')
   })
 
   it('should be possible to remove a role', async () => {
@@ -25,9 +27,11 @@ describe('Bot — /role', () => {
     const guild = mockGuild({ roles: [role] })
     const interaction = mockInteraction({ role }, { guild, user })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe('“Diamond” role removed.')
+    expect(embed.title).toBe('🌟 Role Assignment')
+    expect(embed.description).toBe('“Diamond” role removed.')
   })
 
   it('should return an error for an invalid role', async () => {
@@ -36,8 +40,12 @@ describe('Bot — /role', () => {
     const guild = mockGuild({ roles: [role] })
     const interaction = mockInteraction({ role }, { guild, user })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe('The “Moderator” role cannot be self-assigned.')
+    expect(embed.title).toBe('🌟 Role Assignment')
+    expect(embed.description).toBe(
+      'The “Moderator” role cannot be self-assigned.'
+    )
   })
 })

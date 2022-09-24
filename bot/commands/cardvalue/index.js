@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getCardValue from '#helpers/getCardValue'
 import searchCards from '#helpers/searchCards'
+import getEmbed from '#helpers/getEmbed'
 
 const cardvalue = {
   data: new SlashCommandBuilder()
@@ -38,25 +39,31 @@ const cardvalue = {
   },
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const id = interaction.options.getString('card')
     const card = client.cards.get(id)
+    const embed = getEmbed()
+      .setTitle('⚖️ Card Value')
+      .setURL('https://stormbound-kitty.com/calculators/value')
 
     if (!card) {
-      return interaction.reply({
-        content: `Could not find a card matching “${id}”.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription(`Could not find a card matching “${id}”.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
+
+    embed.setImage(card.image)
 
     const level = interaction.options.getInteger('level') || 1
     const cardsIndex = Object.fromEntries(client.cards)
     const value = getCardValue(cardsIndex, card.id, level)
 
     if (!value) {
-      return interaction.reply({
-        content: `It is not possible to efficiently compute the value of ${card.name}.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription(
+        `It is not possible to efficiently compute the value of ${card.name}.`
+      )
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     const min = value[0].toFixed(2)
@@ -68,7 +75,18 @@ const cardvalue = {
         ? `The estimated value for ${card.name} at level ${level} for a single turn is ${avg}.`
         : `The estimated value for ${card.name} at level ${level} for a single turn is between ${min} and ${max}, averaging at ${avg}.`
 
-    return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
+    embed
+      .setDescription(content)
+      .setURL(
+        `https://stormbound-kitty.com/calculators/value/${level}${card.id.toLowerCase()}`
+      )
+      .addFields([
+        { name: 'Minimum', value: min, inline: true },
+        { name: 'Maximum', value: max, inline: true },
+        { name: 'Average', value: avg, inline: true },
+      ])
+
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

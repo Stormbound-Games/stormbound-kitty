@@ -3,15 +3,10 @@ import Discord from 'discord.js'
 const getEmbed = ({ withHeader = true } = {}) => {
   const embed = new Discord.EmbedBuilder()
 
-  embed.setColor('#D7598B')
+  embed.setColor('#101F26')
 
   if (withHeader) {
-    embed.setAuthor({
-      name: 'Stormbound-Kitty',
-      iconURL:
-        'https://cdn.sanity.io/images/5hlpazgd/production/8fb3c0530531a501d9eb31690b684b40d5761c8a-500x364.png',
-      url: 'https://stormbound-kitty.com',
-    })
+    embed.setAuthor({ name: 'Stormbound-Kitty' })
   }
 
   return embed

@@ -37,19 +37,22 @@ const changelog = {
   },
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const id = interaction.options.getString('card')
     const card = client.cards.get(id)
+    const embed = getEmbed().setTitle('🛠 Card Changelog')
 
     if (!card) {
-      return interaction.reply({
-        content: `Could not find a card matching “${id}”.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed
+        .setURL('https://stormbound-kitty.com/changelog')
+        .setDescription(`Could not find a card matching “${id}”.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
-    const embed = getEmbed()
-      .setTitle(`🛠  Card Changelog: ${card.name}`)
+    embed
       .setURL(`https://stormbound-kitty.com/cards/${card.id}`)
+      .setImage(card.image)
 
     const cardChanges = await getChangesFromCard({ id: card.id })
     const changesByDate = cardChanges.reduce(groupByDate, {})
@@ -67,7 +70,7 @@ const changelog = {
         })
     )
 
-    return interaction.reply({ embeds: [embed], ephemeral: !client.DEBUG_MODE })
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

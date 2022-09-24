@@ -9,6 +9,7 @@ const fanart = {
     .setDescription('Get a random fan-art from the Stormbound community.'),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const artworks = await getArtworks()
     const embed = getEmbed()
     const { image, user, date } = arrayRandom(artworks)
@@ -22,7 +23,7 @@ const fanart = {
       ])
       .setImage(image)
 
-    return interaction.reply({ embeds: [embed], ephemeral: !client.DEBUG_MODE })
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

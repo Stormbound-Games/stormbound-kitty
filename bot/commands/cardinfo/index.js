@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import searchCards from '#helpers/searchCards'
+import getEmbed from '#helpers/getEmbed'
 
 const cardinfo = {
   data: new SlashCommandBuilder()
@@ -28,19 +29,22 @@ const cardinfo = {
 
   // @TODO: add support back for aliases
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const id = interaction.options.getString('card')
     const card = client.cards.get(id)
 
     if (!card) {
-      return interaction.reply({
-        content: `Could not find a card matching “${id}”.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      const embed = getEmbed()
+        .setTitle('⚡️ Card Info')
+        .setURL('https://stormbound-kitty.com/card')
+        .setDescription(`Could not find a card matching “${id}”.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     return interaction.reply({
       content: `https://stormbound-kitty.com/cards/${id}`,
-      ephemeral: !client.DEBUG_MODE,
+      ephemeral,
     })
   },
 }

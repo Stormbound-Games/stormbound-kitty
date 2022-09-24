@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import arrayRandom from '#helpers/arrayRandom'
+import getEmbed from '#helpers/getEmbed'
 
 const getChunks = cards => {
   const starts = []
@@ -36,12 +37,13 @@ const mashup = {
     .setDescription('Randomly generate a random card name from existing ones.'),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const cards = [...client.cards.values()]
+    const embed = getEmbed()
+      .setTitle('🤪 Card Mashup')
+      .setDescription(`Here is your mashup: **${getRandomCardName(cards)}**`)
 
-    return interaction.reply({
-      content: `Here is your mashup: **${getRandomCardName(cards)}**`,
-      ephemeral: !client.DEBUG_MODE,
-    })
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

@@ -1,7 +1,10 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getStoriesForSearch from '#helpers/getStoriesForSearch'
 import arrayRandom from '#helpers/arrayRandom'
+import getEmbed from '#helpers/getEmbed'
 import getStories from '#api/stories/getStories'
+
+const BASE_URL = 'https://stormbound-kitty.com/stories/'
 
 const story = {
   data: new SlashCommandBuilder()
@@ -14,28 +17,29 @@ const story = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const input = interaction.options.getString('input')
 
     if (input === 'random' || !input) {
       const stories = await getStories()
       const story = arrayRandom(stories)
 
-      return interaction.reply({
-        content: 'https://stormbound-kitty.com/stories/' + story.slug,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      return interaction.reply({ content: BASE_URL + story.slug, ephemeral })
     }
 
     const cards = [...client.cards.values()]
     const results = await getStoriesForSearch(cards, input)
 
-    return interaction.reply({
-      content:
-        results.length === 0
-          ? `Could not find a story matching “${input}”.`
-          : 'https://stormbound-kitty.com/stories/' + results[0].slug,
-      ephemeral: !client.DEBUG_MODE,
-    })
+    if (results.length === 0) {
+      const embed = getEmbed()
+        .setTitle('📝 Story')
+        .setDescription(`Could not find a story matching “${input}”.`)
+        .setURL('https://stormbound-kitty.com/stories')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
+
+    return interaction.reply({ content: BASE_URL + results[0].slug, ephemeral })
   },
 }
 

@@ -22,7 +22,7 @@ fs.readdirSync('./bot/commands').forEach(async name => {
 })
 
 // When enabled, this causes all ephemeral messages no longer to be ephemeral.
-client.DEBUG_MODE = true
+client.DEBUG_MODE = false
 
 Promise.all([
   getAbbreviations({ casing: 'LOWERCASE' }),

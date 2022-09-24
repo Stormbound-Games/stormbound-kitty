@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import toSentence from '#helpers/toSentence'
+import getEmbed from '#helpers/getEmbed'
 
 const quotify = value => `“${value}”`
 
@@ -15,14 +16,20 @@ const abbr = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const abbr = interaction.options.getString('abbr')
     const abbreviations = Object.fromEntries(client.abbreviations)
     const matches = abbreviations[abbr.toLowerCase()]
-    const content = matches
-      ? `“${abbr}” might mean ${toSentence(matches.map(quotify), 'or')}.`
-      : `Could not find any match for abbreviation “${abbr}”.`
+    const embed = getEmbed()
+      .setTitle('❔ Abbreviation')
+      .setURL('https://stormbound-kitty.com/lexicon')
+      .setDescription(
+        matches
+          ? `“${abbr}” might mean ${toSentence(matches.map(quotify), 'or')}.`
+          : `Could not find any match for abbreviation “${abbr}”.`
+      )
 
-    return interaction.reply({ content, ephemeral: !client.DEBUG_MODE })
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

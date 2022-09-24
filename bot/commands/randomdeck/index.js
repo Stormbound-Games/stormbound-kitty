@@ -5,6 +5,7 @@ import arrayRandom from '#helpers/arrayRandom'
 import searchCards from '#helpers/searchCards'
 import getRandomDeck from '#helpers/getRandomDeck'
 import serialization from '#helpers/serialization'
+import getEmbed from '#helpers/getEmbed'
 
 const ALLOWED_FACTIONS = FACTIONS.filter(faction => faction !== 'neutral')
 
@@ -80,6 +81,7 @@ const randomdeck = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const message = interaction.options.getString('including') || ''
     const cards = [...client.cards.values()]
     const abbreviations = Object.fromEntries(client.abbreviations)
@@ -94,11 +96,14 @@ const randomdeck = {
     )
 
     if (!faction) {
-      return interaction.reply({
-        content:
-          'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).',
-        ephemeral: !client.DEBUG_MODE,
-      })
+      const embed = getEmbed()
+        .setTitle('🎲 Random Deck')
+        .setURL('https://stormbound-kitty.com/deck')
+        .setDescription(
+          'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).'
+        )
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
@@ -107,7 +112,7 @@ const randomdeck = {
 
     return interaction.reply({
       content: 'https://stormbound-kitty.com/deck/' + id,
-      ephemeral: !client.DEBUG_MODE,
+      ephemeral,
     })
   },
 }

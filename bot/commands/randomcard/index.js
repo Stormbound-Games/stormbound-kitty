@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from 'discord.js'
 import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
 import arrayRandom from '#helpers/arrayRandom'
 import capitalize from '#helpers/capitalize'
+import getEmbed from '#helpers/getEmbed'
 
 const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 
@@ -55,6 +56,7 @@ const randomcard = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const faction = interaction.options.getString('faction')
     const type = interaction.options.getString('type')
     const rarity = interaction.options.getString('rarity')
@@ -64,7 +66,7 @@ const randomcard = {
     if (!faction && !type && !rarity && !unitType) {
       return interaction.reply({
         content: linkify(arrayRandom(cards)),
-        ephemeral: !client.DEBUG_MODE,
+        ephemeral,
       })
     }
 
@@ -77,13 +79,19 @@ const randomcard = {
       return true
     })
 
-    const filters = [faction, type, rarity, unitType].filter(Boolean)
+    if (results.length === 0) {
+      const filters = [faction, type, rarity, unitType].filter(Boolean)
+      const embed = getEmbed()
+        .setTitle('🃏 Random Card')
+        .setDescription(`Could not find a card matching ${filters.join(', ')}.`)
+        .setURL('https://stormbound-kitty.com/card')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
 
     return interaction.reply({
-      content: results.length
-        ? linkify(arrayRandom(results))
-        : `Could not find a card matching ${filters.join(', ')}.`,
-      ephemeral: !client.DEBUG_MODE,
+      content: linkify(arrayRandom(results)),
+      ephemeral,
     })
   },
 }

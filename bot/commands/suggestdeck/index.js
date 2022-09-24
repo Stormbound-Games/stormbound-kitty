@@ -20,6 +20,7 @@ const suggestdeck = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const decks = await getDecks()
     const faction = interaction.options.getString('faction')
     const candidates = decks
@@ -32,7 +33,7 @@ const suggestdeck = {
 
     return interaction.reply({
       content: 'https://stormbound-kitty.com/deck/' + deck.id,
-      ephemeral: !client.DEBUG_MODE,
+      ephemeral,
     })
   },
 }

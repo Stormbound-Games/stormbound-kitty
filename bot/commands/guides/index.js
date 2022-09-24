@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getGuides from '#api/guides/getGuides'
 import { GUIDE_CATEGORIES } from '#constants/guides'
+import getEmbed from '#helpers/getEmbed'
 
 const guides = {
   data: new SlashCommandBuilder()
@@ -13,23 +14,31 @@ const guides = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const message = interaction.options.getString('input')
     const guides = await getGuides()
     const match = guides.find(guide =>
       guide.name.toLowerCase().includes(message)
     )
+    const embed = getEmbed()
+      .setTitle('🧭 Guides')
+      .setURL('https://stormbound-kitty.com/guides')
 
     if (message) {
+      if (!match) {
+        embed.setDescription(`Could not find a guide matching “${message}”.`)
+
+        return interaction.reply({ embeds: [embed], ephemeral })
+      }
+
       return interaction.reply({
-        content: match
-          ? 'https://stormbound-kitty.com/guides/' + match.slug
-          : 'Could not find a guide matching “sdfsf”.',
-        ephemeral: !client.DEBUG_MODE,
+        content: 'https://stormbound-kitty.com/guides/' + match.slug,
+        ephemeral,
       })
     }
 
-    return interaction.reply({
-      content: Object.keys(GUIDE_CATEGORIES).reduce((desc, category) => {
+    embed.setDescription(
+      Object.keys(GUIDE_CATEGORIES).reduce((desc, category) => {
         desc += '\n\n**' + GUIDE_CATEGORIES[category].name.long + '**\n'
         desc += guides
           .filter(guide => guide.category === category)
@@ -40,9 +49,10 @@ const guides = {
           .join('\n- ')
 
         return desc
-      }, ''),
-      ephemeral: !client.DEBUG_MODE,
-    })
+      }, '')
+    )
+
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

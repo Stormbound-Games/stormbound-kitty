@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getDrawingExpectations from '#helpers/getDrawingExpectations'
 import getDrawingProbability from '#helpers/getDrawingProbability'
+import getEmbed from '#helpers/getEmbed'
 
 const TARGETS = {
   FUSION_STONES: 'Fusion Stones',
@@ -49,25 +50,31 @@ const bookodds = {
   },
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const bookId = interaction.options.getString('book_type')
     const target = interaction.options.getString('target')
     const cards = [...client.cards.values()]
     const book = client.books.get(bookId)
+    const embed = getEmbed()
+      .setTitle('📕 Book Drawing Odds')
+      .setURL('https://stormbound-kitty.com/calculators/books')
 
     if (!book) {
-      return interaction.reply({
-        content: `Could not find a book matching “${bookId}”.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription(`Could not find a book matching “${bookId}”.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
+    embed.setImage(book.image)
+
     if (target === 'FUSION_STONES') {
-      return interaction.reply({
-        content: `A **${book.name}** has ${
-          book.fsOdds * 100
-        }% chance of drawing **Fusion Stones**.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      const odds = book.fsOdds * 100
+
+      embed.setDescription(
+        `A **${book.name}** has ${odds}% chance of drawing **Fusion Stones**.`
+      )
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     if (target) {
@@ -76,10 +83,11 @@ const bookodds = {
       const probability = getDrawingProbability(cards, book, expectations)
       const odds = (probability * 100).toFixed(2)
 
-      return interaction.reply({
-        content: `A **${book.name}** has ${odds}% chance of drawing **${TARGETS[target]}**.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription(
+        `A **${book.name}** has ${odds}% chance of drawing **${TARGETS[target]}**.`
+      )
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     const odds = Object.keys(TARGETS).map(target => {
@@ -100,10 +108,11 @@ const bookodds = {
       .join('/')
     const fsOdds = book.fsOdds * 100
 
-    return interaction.reply({
-      content: `A **${book.name}** has a static ${fsOdds}% chance of drawing **Fusion Stones**, an estimated ${specificOdds}% chance of drawing **a specific card** and an estimated ${anyOdds}% chance of drawing **any card**.`,
-      ephemeral: !client.DEBUG_MODE,
-    })
+    embed.setDescription(
+      `A **${book.name}** has a static ${fsOdds}% chance of drawing **Fusion Stones**, an estimated ${specificOdds}% chance of drawing **a specific card** and an estimated ${anyOdds}% chance of drawing **any card**.`
+    )
+
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

@@ -72,9 +72,11 @@ describe('Bot — /randomcard', () => {
       unit_type: 'dwarf',
     })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe(
+    expect(embed.title).toBe('🃏 Random Card')
+    expect(embed.description).toBe(
       'Could not find a card matching shadowfen, dwarf.'
     )
   })

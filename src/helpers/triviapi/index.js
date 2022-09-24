@@ -4,6 +4,11 @@ const API_TOKEN = process.env.API_TOKEN
 const API_BASE_URL = 'https://jsonbin.org/kittysparkles'
 const API_TIMEOUT = 5000
 
+const handleUnauthorized = response => {
+  if (response.status === 412) throw new Error(response.message)
+  return response
+}
+
 const getScores = guildId => {
   if (typeof window !== 'undefined' && window.Cypress) {
     return Promise.resolve({})
@@ -18,6 +23,7 @@ const getScores = guildId => {
     headers: { Authorization: 'token ' + API_TOKEN },
   })
     .then(response => response.json())
+    .then(handleUnauthorized)
     .finally(() => clearTimeout(timeout))
 }
 
@@ -60,6 +66,7 @@ const getGameId = async (guildId, userId) => {
     headers: { Authorization: 'token ' + API_TOKEN },
   })
     .then(response => response.json())
+    .then(handleUnauthorized)
     .then(data => data[userId])
     .finally(() => clearTimeout(timeout))
 }

@@ -18,22 +18,22 @@ const deckadvice = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const input = interaction.options.getString('deck')
     const id = getDeckIDFromURL(input)
+    const embed = getEmbed().setTitle('💎 Deck Advice')
 
     if (!id) {
-      return interaction.reply({
-        content: 'There was an error evaluating the given deck ID.',
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription('There was an error evaluating the given deck ID.')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     const cards = [...client.cards.values()]
     const cardsIndex = indexArray(cards)
     const cardsIndexBySid = indexArray(cards, 'sid')
-    const embed = getEmbed()
-      .setTitle(`💎  Deck Advice: ${id}`)
-      .setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
+
+    embed.setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
 
     try {
       const cards = serialization.deck
@@ -41,20 +41,19 @@ const deckadvice = {
         .map(card => getResolvedCardData(cardsIndex, card))
 
       if (cards.some(card => !card)) {
-        return interaction.reply({
-          content: 'There was an error evaluating some of the cards.',
-          ephemeral: !client.DEBUG_MODE,
-        })
+        embed.setDescription('There was an error evaluating some of the cards.')
+
+        return interaction.reply({ embeds: [embed], ephemeral })
       }
 
       const advice = await getDeckAdvice(cardsIndex, cards)
 
       if (advice.length === 0) {
-        return interaction.editReply({
-          content:
-            'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!',
-          ephemeral: !client.DEBUG_MODE,
-        })
+        embed.setDescription(
+          'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!'
+        )
+
+        return interaction.reply({ embeds: [embed], ephemeral })
       }
 
       embed.addFields(
@@ -64,15 +63,11 @@ const deckadvice = {
         }))
       )
 
-      return interaction.reply({
-        embeds: [embed],
-        ephemeral: !client.DEBUG_MODE,
-      })
+      return interaction.reply({ embeds: [embed], ephemeral })
     } catch (error) {
-      return interaction.reply({
-        content: 'There was an error evaluating the given deck.',
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription('There was an error evaluating the given deck.')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
   },
 }

@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import Trivia from './Trivia.js'
+import getEmbed from '#helpers/getEmbed'
 
 const cache = new Map()
 
@@ -50,11 +51,15 @@ const trivia = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+
     if (interaction.channel.name !== 'trivia') {
-      return interaction.reply({
-        content: 'The trivia command only works in the #trivia channel.',
-        ephemeral: !client.DEBUG_MODE,
-      })
+      const embed = getEmbed()
+        .setTitle('🔮 Trivia')
+        .setDescription('The trivia command only works in the #trivia channel.')
+        .setURL('https://stormbound-kitty.com/trivia')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     const guildId = interaction.guild.id

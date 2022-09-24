@@ -22,21 +22,22 @@ const member = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const username = interaction.options.getString('username').toLowerCase()
     const { user, feed } = await getContentFromUser({ slug: username })
+    const embed = getEmbed().setTitle('😻 SK member')
 
     if (!user || feed.length === 0) {
       const name = user?.name ?? username
 
-      return interaction.reply({
-        content: `There is no one named “${name}” on Stormbound-Kitty.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed
+        .setURL(BASE_URL + `/members`)
+        .setDescription(`There is no one named “${name}” on Stormbound-Kitty.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
-    const embed = getEmbed()
-      .setTitle(`😻  SK member: ${user.name}`)
-      .setURL(BASE_URL + `/members/${user.slug}`)
+    embed.setURL(BASE_URL + `/members/${user.slug}`)
 
     const isKAT = user.role === 'KAT' || user.role === 'SUPER_KAT'
     const isSuperKAT = user.role === 'SUPER_KAT'
@@ -60,7 +61,7 @@ const member = {
       )
       .addFields(...fields)
 
-    return interaction.reply({ embeds: [embed], ephemeral: !client.DEBUG_MODE })
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

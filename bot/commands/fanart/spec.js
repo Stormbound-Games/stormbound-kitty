@@ -8,7 +8,7 @@ describe('Bot — /fanart', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(embed.title).toContain('Fan-art')
+    expect(embed.title).toBe('👩‍🎨  Fan-art')
     expect(embed.url).toMatch(/^https:\/\/stormbound\-kitty\.com\/members\//)
     expect(embed.fields).toHaveLength(2)
     expect(embed.fields[0].name).toBe('author')

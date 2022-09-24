@@ -10,9 +10,11 @@ describe('Bot — /mashup', () => {
         [global.__CARDS__[1].id, global.__CARDS__[1]],
       ]),
     })
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toMatch(
+    expect(embed.title).toBe('🤪 Card Mashup')
+    expect(embed.description).toMatch(
       /^Here is your mashup: \*\*(Green Neglects|Erratic Prototypes)\*\*$/
     )
   })

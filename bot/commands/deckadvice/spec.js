@@ -5,9 +5,11 @@ describe('Bot — /deckadvice', () => {
   it('should return an error for a missing id', async () => {
     const interaction = mockInteraction({ deck: '' })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe(
+    expect(embed.title).toBe('💎 Deck Advice')
+    expect(embed.description).toBe(
       'There was an error evaluating the given deck ID.'
     )
   })
@@ -15,9 +17,11 @@ describe('Bot — /deckadvice', () => {
   it('should return an error for an invalid id', async () => {
     const interaction = mockInteraction({ deck: 'sdfsf' })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe(
+    expect(embed.title).toBe('💎 Deck Advice')
+    expect(embed.description).toBe(
       'There was an error evaluating some of the cards.'
     )
   })
@@ -30,7 +34,7 @@ describe('Bot — /deckadvice', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(embed.title).toContain('Deck Advice')
+    expect(embed.title).toBe('💎 Deck Advice')
     expect(embed.url).toContain(
       'https://stormbound-kitty.com/deck/5n35n125n163w54n184w95w125w133n394w153w194w21/detail'
     )

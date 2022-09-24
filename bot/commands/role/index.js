@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js'
+import getEmbed from '#helpers/getEmbed'
 
 const LEAGUE_ROLES = [
   'Heroes',
@@ -34,25 +35,26 @@ const role = {
     ),
 
   async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
     const newRole = interaction.options.getRole('role')
     const member = interaction.member
     const roles = ROLES.filter(roleName =>
       interaction.guild.roles.cache.find(role => role.name === roleName)
     )
+    const embed = getEmbed().setTitle('🌟 Role Assignment')
 
     if (!roles.includes(newRole.name)) {
-      return interaction.reply({
-        content: `The “${newRole.name}” role cannot be self-assigned.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      embed.setDescription(
+        `The “${newRole.name}” role cannot be self-assigned.`
+      )
+
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     if (member.roles.cache.some(role => role.name === newRole.name)) {
+      embed.setDescription(`“${newRole.name}” role removed.`)
       member.roles.remove(newRole)
-      return interaction.reply({
-        content: `“${newRole.name}” role removed.`,
-        ephemeral: !client.DEBUG_MODE,
-      })
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     // If the user already has a league role and wants a new league role, start
@@ -73,16 +75,16 @@ const role = {
     // Add the new role to the member.
     member.roles.add(newRole)
 
-    return interaction.reply({
-      content: `“${newRole.name}” role added${
-        wantsLeagueRole && existingLeagueRole
-          ? ` and “${existingLeagueRole.name}” role removed`
-          : wantsFactionRole && existingFactionRole
-          ? ` and “${existingFactionRole.name}” role removed`
-          : ''
-      }.`,
-      ephemeral: !client.DEBUG_MODE,
-    })
+    const content = `“${newRole.name}” role added${
+      wantsLeagueRole && existingLeagueRole
+        ? ` and “${existingLeagueRole.name}” role removed`
+        : wantsFactionRole && existingFactionRole
+        ? ` and “${existingFactionRole.name}” role removed`
+        : ''
+    }.`
+    embed.setDescription(content)
+
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

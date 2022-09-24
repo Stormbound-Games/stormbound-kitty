@@ -354,6 +354,8 @@ export default class Trivia {
   }
 
   async score(interaction) {
+    const embed = getEmbed().setTitle('🏅 Trivia score')
+
     try {
       const id = interaction.member.id
       const scores = await api.getScores(interaction.guild.id)
@@ -364,38 +366,45 @@ export default class Trivia {
         .sort((a, b) => +b - +a)
         .findIndex(score => scoresByPoints[score].includes(id))
 
-      const content =
+      embed.setDescription(
         position > -1
           ? `You are ${getOrdinalSuffix(position + 1)} with ${score} points.`
           : score
           ? `Your score is ${score}.`
           : 'No scores yet.'
+      )
 
-      return interaction.reply({ content, ephemeral: true })
+      return interaction.reply({ embeds: [embed], ephemeral: true })
     } catch (error) {
       console.error(error)
-      const content =
+
+      embed.setDescription(
         error.name === 'AbortError'
           ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
           : 'Failed to get your score. Try again later.'
+      )
 
-      return interaction.reply({ content, ephemeral: true })
+      return interaction.reply({ embeds: [embed], ephemeral: true })
     }
   }
 
   async scores(interaction) {
+    const embed = getEmbed().setTitle('🏅 Trivia scores')
+
     try {
       const scores = await api.getScores(interaction.guild.id)
-      const output = formatTriviaScores(scores)
 
-      return interaction.reply({ content: output.join('\n'), ephemeral: true })
+      embed.setDescription(formatTriviaScores(scores).join('\n'))
+
+      return interaction.reply({ embeds: [embed] })
     } catch (error) {
-      const content =
+      embed.setDescription(
         error.name === 'AbortError'
           ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
           : 'Failed to get scores. Try again later.'
+      )
 
-      return interaction.reply({ content, ephemeral: true })
+      return interaction.reply({ embeds: [embed] })
     }
   }
 }

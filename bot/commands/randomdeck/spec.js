@@ -42,9 +42,12 @@ describe('Bot — /randomdeck', () => {
   it('should return an error for invalid parameters', async () => {
     const interaction = mockInteraction({ faction: 'winter', including: 'mia' })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe(
+    expect(embed.title).toBe('🎲 Random Deck')
+    expect(embed.url).toBe('https://stormbound-kitty.com/deck')
+    expect(embed.description).toBe(
       'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).'
     )
   })

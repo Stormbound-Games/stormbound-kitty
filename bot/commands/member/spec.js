@@ -5,9 +5,10 @@ describe('Bot — /member', () => {
   it('should return an error for a non-existing member', async () => {
     const interaction = mockInteraction({ username: 'efsfdlfk' })
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toBe(
+    expect(embed.description).toBe(
       'There is no one named “efsfdlfk” on Stormbound-Kitty.'
     )
   })
@@ -18,7 +19,7 @@ describe('Bot — /member', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(embed.title).toContain('22cires')
+    expect(embed.title).toBe('😻 SK member')
     expect(embed.description).toMatch(
       /22cires is a member of the community and has issued \d+ contributions?./
     )
@@ -32,6 +33,7 @@ describe('Bot — /member', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('😻 SK member')
     expect(embed.description).toMatch(/They are also a super KAT member!/)
   })
 })
