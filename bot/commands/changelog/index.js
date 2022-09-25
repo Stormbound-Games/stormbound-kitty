@@ -1,10 +1,9 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
 import searchCards from '#helpers/searchCards'
 import parseDate from '#helpers/parseDate'
 import getChangesFromCard from '#api/changes/getChangesFromCard'
 import { formatPreciseDate } from '#helpers/formatDate'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getCards from '#api/cards/getCards'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -15,40 +14,48 @@ const groupByDate = (acc, change) => {
 }
 
 const changelog = {
-  command: 'changelog',
-  label: '🛠  Card Changelog',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/changelog')
-      .setDescription(
-        `List the changes applied to a card over time. It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name and picks the first result. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
-      )
+  data: new SlashCommandBuilder()
+    .setName('changelog')
+    .setDescription('List the changes applied to a card over time.')
+    .addStringOption(option =>
+      option
+        .setName('card')
+        .setDescription('An abbreviation, ID, or approximate name.')
+        .setRequired(true)
+        .setAutocomplete(true)
+    ),
+
+  async autocomplete(interaction, client) {
+    const focusedValue = interaction.options.getFocused()
+    const cards = [...client.cards.values()]
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const filtered = searchCards(cards, abbreviations, focusedValue)
+
+    return interaction.respond(
+      filtered.map(card => ({ name: card.name, value: card.id }))
+    )
   },
-  handler: async function (message) {
-    const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
-    const [card] = searchCards(cards, abbreviations, message)
 
-    // If no card was found with the given search, look no further.
-    if (!card) return
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const id = interaction.options.getString('card')
+    const card = client.cards.get(id)
+    const embed = getEmbed().setTitle('🛠 Card Changelog')
 
-    const embed = getEmbed()
-      .setTitle(`${this.label}: ${card.name}`)
+    if (!card) {
+      embed
+        .setURL('https://stormbound-kitty.com/changelog')
+        .setDescription(`Could not find a card matching “${id}”.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
+
+    embed
       .setURL(`https://stormbound-kitty.com/cards/${card.id}`)
+      .setImage(card.image)
 
     const cardChanges = await getChangesFromCard({ id: card.id })
     const changesByDate = cardChanges.reduce(groupByDate, {})
-    const hasChanges = Object.keys(changesByDate).length > 0
-
-    if (!hasChanges) {
-      embed.setDescription(
-        `It seems there are no recorded changes for **${card.name}**.`
-      )
-
-      return embed
-    }
 
     embed.addFields(
       ...Object.keys(changesByDate)
@@ -63,7 +70,7 @@ const changelog = {
         })
     )
 
-    return embed
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

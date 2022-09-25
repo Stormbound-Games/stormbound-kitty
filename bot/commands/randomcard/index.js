@@ -1,94 +1,98 @@
+import { SlashCommandBuilder } from 'discord.js'
 import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
 import arrayRandom from '#helpers/arrayRandom'
+import capitalize from '#helpers/capitalize'
 import getEmbed from '#helpers/getEmbed'
-import getIgnoredSearch from '#helpers/getIgnoredSearch'
-import handleSearchAlias from '#helpers/handleSearchAlias'
-import getCards from '#api/cards/getCards'
 
 const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 
-const parseMessage = content => {
-  const terms = content.split(/\s+/g)
-  const ignored = []
-  const filters = []
-
-  terms.forEach(term => {
-    const filter = {}
-
-    // Determine whether the method is inclusive or exclusive
-    filter.method = term.startsWith('!') ? 'EXC' : 'INC'
-
-    // Remove any leading bang from the search term to match it
-    filter.value = term.replace('!', '')
-
-    if (FACTIONS.includes(filter.value)) {
-      filter.key = 'faction'
-    } else if (UNIT_TYPES.includes(filter.value)) {
-      filter.key = 'unitTypes'
-    } else if (RARITIES.includes(filter.value)) {
-      filter.key = 'rarity'
-    } else if (TYPES.includes(filter.value)) {
-      filter.key = 'type'
-    } else {
-      const [key, value] = handleSearchAlias(filter.value)
-      if (key) {
-        filter.key = key
-        filter.value = value
-      } else ignored.push(filter.value)
-    }
-
-    if (filter.key) {
-      filters.push(filter)
-    }
-  })
-
-  return { filters, ignored }
-}
-
 const randomcard = {
-  command: 'randomcard',
-  label: '🃏  Random Card',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com')
-      .setDescription(
-        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, card type, unit type or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
-      )
-  },
-  handler: async function (message) {
-    const cards = await getCards()
+  data: new SlashCommandBuilder()
+    .setName('randomcard')
+    .setDescription('Get a random card.')
+    .addStringOption(option =>
+      option
+        .setName('faction')
+        .setDescription('The card faction.')
+        .addChoices(
+          ...FACTIONS.map(faction => ({
+            name: capitalize(faction),
+            value: faction,
+          }))
+        )
+    )
+    .addStringOption(option =>
+      option
+        .setName('type')
+        .setDescription('The card type.')
+        .addChoices(
+          ...TYPES.map(faction => ({
+            name: capitalize(faction),
+            value: faction,
+          }))
+        )
+    )
+    .addStringOption(option =>
+      option
+        .setName('rarity')
+        .setDescription('The card rarity.')
+        .addChoices(
+          ...RARITIES.map(faction => ({
+            name: capitalize(faction),
+            value: faction,
+          }))
+        )
+    )
+    .addStringOption(option =>
+      option
+        .setName('unit_type')
+        .setDescription('The card unit type.')
+        .addChoices(
+          ...UNIT_TYPES.map(faction => ({
+            name: capitalize(faction),
+            value: faction,
+          }))
+        )
+    ),
 
-    if (message.length === 0) {
-      return linkify(arrayRandom(cards))
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const faction = interaction.options.getString('faction')
+    const type = interaction.options.getString('type')
+    const rarity = interaction.options.getString('rarity')
+    const unitType = interaction.options.getString('unit_type')
+    const cards = [...client.cards.values()].filter(card => !card.token)
+
+    if (!faction && !type && !rarity && !unitType) {
+      return interaction.reply({
+        content: linkify(arrayRandom(cards)),
+        ephemeral,
+      })
     }
 
-    const { filters, ignored } = parseMessage(message.toLowerCase())
+    const results = cards.filter(card => {
+      if (card.token) return false
+      if (faction && card.faction !== faction) return false
+      if (type && card.type !== type) return false
+      if (rarity && card.rarity !== rarity) return false
+      if (unitType && !card.unitTypes.includes(unitType)) return false
+      return true
+    })
 
-    if (filters.length === 0) return
+    if (results.length === 0) {
+      const filters = [faction, type, rarity, unitType].filter(Boolean)
+      const embed = getEmbed()
+        .setTitle('🃏 Random Card')
+        .setDescription(`Could not find a card matching ${filters.join(', ')}.`)
+        .setURL('https://stormbound-kitty.com/card')
 
-    const results = cards
-      .filter(card => !card.token)
-      .filter(card => {
-        for (const { key, method, value } of filters) {
-          if (Array.isArray(card[key])) {
-            if (method === 'INC' && !card[key].includes(value)) return false
-            if (method === 'EXC' && card[key].includes(value)) return false
-          } else {
-            if (method === 'INC' && card[key] !== value) return false
-            if (method === 'EXC' && card[key] === value) return false
-          }
-        }
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
 
-        return true
-      })
-
-    if (results.length === 0) return
-
-    return [linkify(arrayRandom(results)), getIgnoredSearch(message, ignored)]
-      .filter(Boolean)
-      .join('\n')
+    return interaction.reply({
+      content: linkify(arrayRandom(results)),
+      ephemeral,
+    })
   },
 }
 

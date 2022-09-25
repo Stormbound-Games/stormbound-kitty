@@ -1,31 +1,48 @@
 import command from './index.js'
-const abbr = command.handler.bind(command)
+import { client, mockInteraction } from '#helpers/jestSetup/discord.js'
 
-describe('Bot — !abbr', () => {
-  it('should return nothing for a missing term', () => {
-    return abbr('  ').then(output => expect(output).toEqual(undefined))
-  })
+describe('Bot — /abbr', () => {
+  it('should return an error for a missing/invalid term', async () => {
+    const interaction = mockInteraction({ abbr: 'dfsfsd' })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
-  it('should handle an abbreviation with a single definition', () => {
-    return abbr('VotM').then(output =>
-      expect(output.description).toContain('Victors of the Melee')
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('❔ Abbreviation')
+    expect(embed.url).toBe('https://stormbound-kitty.com/lexicon')
+    expect(embed.description).toBe(
+      'Could not find any match for abbreviation “dfsfsd”.'
     )
   })
 
-  it('should discard casing entirely', () => {
-    return abbr('aoe').then(output =>
-      expect(output.description).toContain('Area of Effect')
+  it('should handle an abbreviation with a single definition', async () => {
+    const interaction = mockInteraction({ abbr: 'VotM' })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('❔ Abbreviation')
+    expect(embed.url).toBe('https://stormbound-kitty.com/lexicon')
+    expect(embed.description).toBe('“VotM” might mean “Victors of the Melee”.')
+  })
+
+  it('should discard casing entirely', async () => {
+    const interaction = mockInteraction({ abbr: 'aoe' })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.description).toBe('“aoe” might mean “Area of Effect”.')
+  })
+
+  it('should handle an abbreviation with multiple definitions', async () => {
+    const interaction = mockInteraction({ abbr: 'fs' })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.description).toBe(
+      '“fs” might mean “Final Sacrifice”, “Flaming Stream”, “Feral Shamans”, “Forgotten Souls”, or “Fusion Stones”.'
     )
-  })
-
-  it('should handle an abbreviation with multiple definitions', () => {
-    return abbr('fs').then(output => {
-      expect(output.description).toContain('Fusion Stones')
-      expect(output.description).toContain('Forgotten Souls')
-    })
-  })
-
-  it('should return nothing for a no-match', () => {
-    return abbr('flksdjf').then(output => expect(output).toEqual(undefined))
   })
 })

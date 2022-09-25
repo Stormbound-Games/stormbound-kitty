@@ -1,5 +1,5 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
-import toSentence from '#helpers/toSentence'
 
 const LEAGUE_ROLES = [
   'Heroes',
@@ -12,114 +12,79 @@ const LEAGUE_ROLES = [
   'Starter',
 ]
 const FACTION_ROLES = ['Swarm', 'Shadowfen', 'Ironclad', 'Winter', 'Neutral']
-const MISC_ROLES = [
-  'Tournamentee',
-  'Streambound',
-  'SWCC',
-  'BS squad',
-  'Artist',
-  'Toad-Gamer',
-]
+const MISC_ROLES = ['Tournamentee', 'Streambound', 'SWCC', 'BS squad', 'Artist']
 const ROLES = [...LEAGUE_ROLES, ...FACTION_ROLES, ...MISC_ROLES]
 
-const getAvailableRoles = guild => {
-  return ROLES.filter(roleName =>
-    guild.roles.cache.find(r => r.name === roleName)
-  )
-}
-
-const getExpectedRole = ({ content, guild }) => {
-  const message = content.replace('!role', '').trim().toLowerCase()
-  const roleName = ROLES.find(role => message === role.toLowerCase())
-
-  if (!roleName) return null
-
-  return guild.roles.cache.find(role => role.name === roleName)
-}
-
-const getExistingLeagueRole = ({ member }) => {
+const getExistingLeagueRole = member => {
   return member.roles.cache.find(role => LEAGUE_ROLES.includes(role.name))
 }
 
-const getExistingFactionRole = ({ member }) => {
+const getExistingFactionRole = member => {
   return member.roles.cache.find(role => FACTION_ROLES.includes(role.name))
 }
 
-const hasRole = (member, role) => {
-  return member.roles.cache.find(r => r.name === role.name)
-}
-
 const role = {
-  command: 'role',
-  label: '🌟  Role Assignment',
-  aliases: ['roles'],
-  help: function (message, client, messageObject) {
-    const embed = getEmbed().setTitle(`${this.label}: help`)
+  data: new SlashCommandBuilder()
+    .setName('role')
+    .setDescription('Assign yourself (or remove) a decorative role.')
+    .addRoleOption(option =>
+      option
+        .setName('role')
+        .setDescription('Role to add/remove.')
+        .setRequired(true)
+    ),
 
-    let help = `Assign yourself a decorative role (regardless of casing). Use the command again to have the role removed.`
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const newRole = interaction.options.getRole('role')
+    const member = interaction.member
+    const roles = ROLES.filter(roleName =>
+      interaction.guild.roles.cache.find(role => role.name === roleName)
+    )
+    const embed = getEmbed().setTitle('🌟 Role Assignment')
 
-    const availableRoles = getAvailableRoles(messageObject.guild)
+    if (!roles.includes(newRole.name)) {
+      embed.setDescription(
+        `The “${newRole.name}” role cannot be self-assigned.`
+      )
 
-    if (availableRoles.length > 0) {
-      help += ` Available roles are ${toSentence(
-        availableRoles,
-        'and'
-      )}. For instance \`!${this.command} ${availableRoles[0].toLowerCase()}\`.`
-    } else {
-      help += ' Unfortunately this server does not have any self-assigned role.'
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
-    embed.setDescription(help)
-
-    return embed
-  },
-  handler: async function (message, client, messageObject) {
-    const newRole = getExpectedRole(messageObject)
-
-    // If the given argument is not an allowed role, abort.
-    if (!newRole) return
-
-    const embed = getEmbed().setTitle(`${this.label}: ${newRole.name}`)
-
-    // If the user already has the expected role, remove it, like a toggle.
-    if (hasRole(messageObject.member, newRole)) {
-      await messageObject.member.roles.remove(newRole)
-
+    if (member.roles.cache.some(role => role.name === newRole.name)) {
       embed.setDescription(`“${newRole.name}” role removed.`)
-
-      return embed
+      member.roles.remove(newRole)
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     // If the user already has a league role and wants a new league role, start
     // by removing it the old one. Similar thing for faction roles.
-    const existingLeagueRole = getExistingLeagueRole(messageObject)
-    const existingFactionRole = getExistingFactionRole(messageObject)
+    const existingLeagueRole = getExistingLeagueRole(member)
+    const existingFactionRole = getExistingFactionRole(member)
     const wantsLeagueRole = LEAGUE_ROLES.includes(newRole.name)
     const wantsFactionRole = FACTION_ROLES.includes(newRole.name)
 
     if (wantsLeagueRole && existingLeagueRole) {
-      await messageObject.member.roles.remove(existingLeagueRole)
+      member.roles.remove(existingLeagueRole)
     }
 
     if (wantsFactionRole && existingFactionRole) {
-      await messageObject.member.roles.remove(existingFactionRole)
+      member.roles.remove(existingFactionRole)
     }
 
     // Add the new role to the member.
-    await messageObject.member.roles.add(newRole)
+    member.roles.add(newRole)
 
-    // Return what happened.
-    embed.setDescription(
-      `“${newRole.name}” role added${
-        wantsLeagueRole && existingLeagueRole
-          ? ` and “${existingLeagueRole.name}” role removed`
-          : wantsFactionRole && existingFactionRole
-          ? ` and “${existingFactionRole.name}” role removed`
-          : ''
-      }.`
-    )
+    const content = `“${newRole.name}” role added${
+      wantsLeagueRole && existingLeagueRole
+        ? ` and “${existingLeagueRole.name}” role removed`
+        : wantsFactionRole && existingFactionRole
+        ? ` and “${existingFactionRole.name}” role removed`
+        : ''
+    }.`
+    embed.setDescription(content)
 
-    return embed
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

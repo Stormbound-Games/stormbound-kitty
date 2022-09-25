@@ -1,48 +1,72 @@
-import getChannelId from '#helpers/getChannelId'
-import getEmbed from '#helpers/getEmbed'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getBooks from '#api/books/getBooks'
-import getBrawls from '#api/brawls/getBrawls'
-import getCards from '#api/cards/getCards'
+import { SlashCommandBuilder } from 'discord.js'
 import Trivia from './Trivia.js'
+import getEmbed from '#helpers/getEmbed'
 
 const cache = new Map()
 
 const trivia = {
-  command: 'trivia',
-  label: '🔮  Trivia',
-  aliases: [],
-  ping: false,
-  help: function () {
-    return getEmbed({ withHeader: false })
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/trivia')
-      .setDescription(
-        `Initiate a card, question, or image trivia (only in #trivia, if it exists). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia).`
-      )
-      .addFields(
-        { name: 'Start card trivia', value: '`!trivia card`', inline: true },
-        { name: 'Start image trivia', value: '`!trivia image`', inline: true },
-        {
-          name: 'Start question trivia',
-          value: '`!trivia question`',
-          inline: true,
-        },
-        { name: 'Emit guess', value: '`<guess>`', inline: true },
-        { name: 'Stop current trivia', value: '`stop`', inline: true },
-        { name: 'Display scores', value: '`!trivia scores`', inline: true },
-        { name: 'Display your score', value: '`!trivia score`', inline: true }
-      )
-  },
-  handler: async function (message, client, messageObject) {
-    const cards = await getCards()
-    const books = await getBooks()
-    const abbreviations = await getAbbreviations({ cards, casing: 'LOWERCASE' })
-    const brawls = await getBrawls()
-    const channelId = getChannelId(messageObject, this)
-    const guildId = messageObject.channel.guild.id
+  data: new SlashCommandBuilder()
+    .setName('trivia')
+    .setDescription(
+      'Initiate a card, question, or image trivia (only in #trivia).'
+    )
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName('card')
+        .setDescription('Start a card guessing trivia.')
+        .addIntegerOption(option =>
+          option.setName('duration').setDescription('Duration of the round.')
+        )
+    )
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName('image')
+        .setDescription('Start an image guessing trivia.')
+        .addStringOption(option =>
+          option
+            .setName('difficulty')
+            .setDescription('Difficulty of the round.')
+            .addChoices(
+              { name: 'Regular', value: 'regular' },
+              { name: 'Hard', value: 'hard' }
+            )
+        )
+        .addIntegerOption(option =>
+          option.setName('duration').setDescription('Duration of the round.')
+        )
+    )
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName('question')
+        .setDescription('Start a question trivia.')
+        .addIntegerOption(option =>
+          option.setName('duration').setDescription('Duration of the round.')
+        )
+    )
+    .addSubcommand(subcommand =>
+      subcommand.setName('score').setDescription('Retrieve your trivia score.')
+    )
+    .addSubcommand(subcommand =>
+      subcommand.setName('scores').setDescription('Retrieve all trivia scores.')
+    ),
 
-    if (!channelId) return
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+
+    if (interaction.channel.name !== 'trivia') {
+      const embed = getEmbed()
+        .setTitle('🔮 Trivia')
+        .setDescription('The trivia command only works in the #trivia channel.')
+        .setURL('https://stormbound-kitty.com/trivia')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
+
+    const guildId = interaction.guild.id
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const books = [...client.books.values()]
+    const brawls = [...client.brawls.values()]
+    const cards = [...client.cards.values()]
 
     if (!cache.has(guildId)) {
       cache.set(
@@ -52,17 +76,14 @@ const trivia = {
     }
 
     const trivia = cache.get(guildId)
+    const subcommand = interaction.options.getSubcommand()
 
-    if (
-      message.startsWith('card') ||
-      message.startsWith('image') ||
-      message.startsWith('question')
-    ) {
-      return trivia.start(messageObject)
-    } else if (message === 'scores') {
-      return trivia.scores(messageObject)
-    } else if (message === 'score') {
-      return trivia.score(messageObject)
+    if (['card', 'image', 'question'].includes(subcommand)) {
+      return trivia.start(interaction)
+    } else if (subcommand === 'scores') {
+      return trivia.scores(interaction)
+    } else if (subcommand === 'score') {
+      return trivia.score(interaction)
     }
   },
 }

@@ -1,152 +1,118 @@
-import { RARITIES } from '#constants/game'
+import { SlashCommandBuilder } from 'discord.js'
 import getDrawingExpectations from '#helpers/getDrawingExpectations'
 import getDrawingProbability from '#helpers/getDrawingProbability'
-import searchCards from '#helpers/searchCards'
-import indexArray from '#helpers/indexArray'
 import getEmbed from '#helpers/getEmbed'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getCards from '#api/cards/getCards'
-import getBooks from '#api/books/getBooks'
 
-const getEmbedFields = (cards, book) => {
-  const fields = []
-
-  RARITIES.forEach(rarity => {
-    const anyKey = 'ANY_' + rarity.toUpperCase()
-    const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
-    const anyOdds = getDrawingExpectations(anyKey).getExpectations(
-      cards,
-      book.only
-    )
-    const specificOdds = getDrawingExpectations(specificKey).getExpectations(
-      cards,
-      book.only
-    )
-
-    fields.push({
-      name: `Any ${rarity} card`,
-      value:
-        (getDrawingProbability(cards, book, anyOdds) * 100).toFixed(2) + '%',
-      inline: true,
-    })
-
-    fields.push({
-      name: `Specific ${rarity} card`,
-      value:
-        (getDrawingProbability(cards, book, specificOdds) * 100).toFixed(2) +
-        '%',
-      inline: true,
-    })
-  })
-
-  fields.push({
-    name: 'Fusion stones',
-    value: book.fsOdds * 100 + '%',
-    inline: true,
-  })
-
-  return fields
-}
-
-const parseMessage = (booksIndex, cards, abbreviations, search) => {
-  const terms = search.split(/\s+/g)
-  const params = {}
-
-  terms.forEach(term => {
-    if (term.toUpperCase() in booksIndex) {
-      params.book = booksIndex[term.toUpperCase()]
-    } else if (RARITIES.includes(term.toLowerCase())) {
-      params.target = term.toUpperCase()
-    } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
-      params.target = 'FUSION_STONES'
-    } else if (!params.target) {
-      const [card] = searchCards(cards, abbreviations, term)
-      params.target = card
-    }
-  })
-
-  return params
+const TARGETS = {
+  FUSION_STONES: 'Fusion Stones',
+  ANY_COMMON: 'any Common',
+  ANY_RARE: 'any Rare',
+  ANY_EPIC: 'any Epic',
+  ANY_LEGENDARY: 'any Legendary',
+  SPECIFIC_COMMON: 'a specific Common',
+  SPECIFIC_RARE: 'a specific Rare',
+  SPECIFIC_EPIC: 'a specific Epic',
+  SPECIFIC_LEGENDARY: 'a specific Legendary',
 }
 
 const bookodds = {
-  command: 'bookodds',
-  label: '📕  Book Drawing Odds',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/calculators/books')
-      .setDescription(
-        `Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
-      )
-  },
-  handler: async function (message) {
-    const books = await getBooks()
-    const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
-    const booksIndex = indexArray(books)
+  data: new SlashCommandBuilder()
+    .setName('bookodds')
+    .setDescription(
+      'Get the odds of drawing a certain card or Fusion stones from a certain book.'
+    )
+    .addStringOption(option =>
+      option
+        .setName('book_type')
+        .setDescription('The type of book.')
+        .setRequired(true)
+        .setAutocomplete(true)
+    )
+    .addStringOption(option =>
+      option
+        .setName('target')
+        .setDescription('What you hope to find.')
+        .addChoices(
+          ...Object.entries(TARGETS).map(([value, name]) => ({ name, value }))
+        )
+    ),
 
-    const { book, target } = parseMessage(
-      booksIndex,
-      cards,
-      abbreviations,
-      message
+  async autocomplete(interaction, client) {
+    const focusedValue = interaction.options.getFocused()
+    const books = [...client.books.values()]
+    const filtered = books.filter(book =>
+      book.name.match(new RegExp(focusedValue, 'gi'))
     )
 
-    // The book argument should be mandatory and there is no way to compute
-    // anything if it’s not provided.
-    if (!book) return
+    return interaction.respond(
+      filtered.map(book => ({ name: book.name, value: book.id }))
+    )
+  },
 
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const bookId = interaction.options.getString('book_type')
+    const target = interaction.options.getString('target')
+    const cards = [...client.cards.values()]
+    const book = client.books.get(bookId)
     const embed = getEmbed()
-      .setTitle(`${this.label}: ${book.name}`)
+      .setTitle('📕 Book Drawing Odds')
       .setURL('https://stormbound-kitty.com/calculators/books')
-    const intro = `A **${book.name}** has:`
+
+    if (!book) {
+      embed.setDescription(`Could not find a book matching “${bookId}”.`)
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
+
+    embed.setImage(book.image)
 
     if (target === 'FUSION_STONES') {
-      embed.setTitle(embed.title + ' · Fusion stones')
+      const odds = book.fsOdds * 100
+
       embed.setDescription(
-        intro.slice(0, -1) +
-          ` ${book.fsOdds * 100}% chance of drawing **Fusion stones**`
+        `A **${book.name}** has ${odds}% chance of drawing **Fusion Stones**.`
       )
 
-      return embed
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
-    // If no specific target is provided, return all the odds for the given book
-    // starting with fusion stones, and then going through rarities.
-    if (!target) {
-      embed.addFields(...getEmbedFields(cards, book))
+    if (target) {
+      const drawing = getDrawingExpectations(target)
+      const expectations = drawing.getExpectations(cards, book.only)
+      const probability = getDrawingProbability(cards, book, expectations)
+      const odds = (probability * 100).toFixed(2)
 
-      return embed
-    }
-
-    // If the target happens to be a card, compute the odds to draw a specific
-    // card of the card’s rarity, and provide a custom answer.
-    if (target.id) {
-      const rarity = target.rarity.toUpperCase()
-      const odds =
-        getDrawingProbability(
-          cards,
-          book,
-          getDrawingExpectations('SPECIFIC_' + rarity).getExpectations(
-            cards,
-            book.only
-          )
-        ) * 100
-
-      embed.setTitle(embed.title + ' · ' + target.name)
       embed.setDescription(
-        `${intro.slice(0, -1)} ${odds.toFixed(2)}% chance of drawing **${
-          target.name
-        }**.`
+        `A **${book.name}** has ${odds}% chance of drawing **${TARGETS[target]}**.`
       )
 
-      return embed
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
-    embed.addFields(...getEmbedFields(cards, book))
+    const odds = Object.keys(TARGETS).map(target => {
+      const drawing = getDrawingExpectations(target)
+      const expectations = drawing.getExpectations(cards, book.only)
+      const probability = getDrawingProbability(cards, book, expectations)
+      const odds = (probability * 100).toFixed(2)
 
-    return embed
+      return { target, odds }
+    })
+    const anyOdds = odds
+      .filter(({ target }) => target.startsWith('ANY_'))
+      .map(({ odds }) => odds)
+      .join('/')
+    const specificOdds = odds
+      .filter(({ target }) => target.startsWith('SPECIFIC_'))
+      .map(({ odds }) => odds)
+      .join('/')
+    const fsOdds = book.fsOdds * 100
+
+    embed.setDescription(
+      `A **${book.name}** has a static ${fsOdds}% chance of drawing **Fusion Stones**, an estimated ${specificOdds}% chance of drawing **a specific card** and an estimated ${anyOdds}% chance of drawing **any card**.`
+    )
+
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

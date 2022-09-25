@@ -1,37 +1,35 @@
+import { SlashCommandBuilder } from 'discord.js'
 import toSentence from '#helpers/toSentence'
 import getEmbed from '#helpers/getEmbed'
-import getAbbreviations from '#api/misc/getAbbreviations'
 
 const quotify = value => `“${value}”`
 
 const abbr = {
-  command: 'abbr',
-  label: '❔  Abbreviation',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/lexicon')
-      .setDescription(
-        `Get the meaning of a card or popular abbreviation (regardless of casing). For instance, \`!${this.command} rof\` or \`!${this.command} AoE\`.`
-      )
-  },
-  handler: async function (message) {
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE' })
-    const matches = abbreviations[message.toLowerCase()]
+  data: new SlashCommandBuilder()
+    .setName('abbr')
+    .setDescription('Get the meaning of a card or popular abbreviation.')
+    .addStringOption(option =>
+      option
+        .setName('abbr')
+        .setDescription('The abbreviation to demystify.')
+        .setRequired(true)
+    ),
 
-    if (!matches) return
-
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const abbr = interaction.options.getString('abbr')
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const matches = abbreviations[abbr.toLowerCase()]
     const embed = getEmbed()
-
-    embed
-      .setTitle(`${this.label}: “${message}”`)
+      .setTitle('❔ Abbreviation')
       .setURL('https://stormbound-kitty.com/lexicon')
       .setDescription(
-        `“${message}” might mean ${toSentence(matches.map(quotify), 'or')}.`
+        matches
+          ? `“${abbr}” might mean ${toSentence(matches.map(quotify), 'or')}.`
+          : `Could not find any match for abbreviation “${abbr}”.`
       )
 
-    return embed
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 

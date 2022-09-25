@@ -1,55 +1,40 @@
-import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
 import command from './index.js'
-const suggestdeck = command.handler.bind(command)
+import { mockInteraction, client } from '#helpers/jestSetup/discord'
+import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
 
-const BASE_URL = 'https://stormbound-kitty.com/deck/'
+describe('Bot — /suggestdeck', () => {
+  it('should return a random suggested deck', async () => {
+    const interaction = mockInteraction()
+    const output = await command.execute(interaction, client)
 
-// Skipped because the tests are costly in terms of Sanity requests at the moment.
-describe('Bot — !suggestdeck', () => {
-  it('should return a suggested deck for an empty search', () => {
-    return suggestdeck('').then(output => {
-      expect(output.url).toContain(BASE_URL)
-    })
-  })
-
-  it('should handle factions', () => {
-    return suggestdeck('ironclad').then(output =>
-      expect(output.url.replace(BASE_URL, '')).toContain('i')
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toMatch(
+      /^https:\/\/stormbound-kitty.com\/deck\/\w+$/
     )
   })
 
-  it('should handle aliases', () => {
-    return suggestdeck('ic').then(output =>
-      expect(output.url.replace(BASE_URL, '')).toContain('i')
+  it('should return a random suggested deck of the given faction', async () => {
+    const interaction = mockInteraction({ faction: 'swarm' })
+    const output = await command.execute(interaction, client)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toMatch(
+      /^https:\/\/stormbound-kitty.com\/deck\/\w+$/
     )
+    expect(
+      getFactionFromDeckID(
+        output.content.replace('https://stormbound-kitty.com/deck/', '')
+      )
+    ).toBe('swarm')
   })
 
-  it('should handle including a card', () => {
-    return Promise.all([
-      suggestdeck('N48'),
-      suggestdeck('Earyn'),
-      suggestdeck('rof'),
-    ]).then(outputs => {
-      expect(outputs[0].url).toContain('n48')
-      expect(outputs[1].url).toContain('n48')
-      expect(outputs[2].url).toContain('f8')
-    })
-  })
+  it('should not return Brawl or Equals decks', async () => {
+    const interaction = mockInteraction()
+    const output = await command.execute(interaction, client)
+    const ID = output.content.replace('https://stormbound-kitty.com/deck/', '')
+    const deck = global.__DECKS_INDEX__[ID]
 
-  it.only('should handle multi-searches', () => {
-    return suggestdeck('ic hl').then(output => {
-      const id = output.url.replace(BASE_URL, '')
-      const deck = global.__DECKS_INDEX__[id]
-      const tagSlugs = deck.tags.map(tag => tag.slug)
-
-      expect(tagSlugs.includes('HIGH_LEVELS')).toEqual(true)
-      expect(getFactionFromDeckID(deck.id)).toEqual('ironclad')
-    })
-  })
-
-  it('should ignore unknown terms', () => {
-    return suggestdeck('ic foobar').then(output => {
-      expect(output.fields.pop().value).toContain('foobar')
-    })
+    expect(deck.tags).not.toContain('BRAWL')
+    expect(deck.tags).not.toContain('EQUALS')
   })
 })

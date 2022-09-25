@@ -20,8 +20,6 @@ const handleSearchAlias = term => {
       return ['id', 'W5']
     case 'kepp':
       return ['id', 'S4']
-    case 'kitty':
-      return ['id', 'N86']
     case 'ludo88':
       return ['id', 'N43']
     case 'omer':

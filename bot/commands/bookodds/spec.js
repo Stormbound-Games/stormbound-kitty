@@ -1,63 +1,66 @@
 import command from './index.js'
-const bookodds = command.handler.bind(command)
+import { client, mockInteraction } from '#helpers/jestSetup/discord.js'
 
-describe('Bot — !bookodds', () => {
-  it('should return nothing for a missing term', () => {
-    return bookodds('').then(output => expect(output).toEqual(undefined))
-  })
-
-  it('should return nothing for a missing book', () => {
-    return bookodds('rare').then(output => expect(output).toEqual(undefined))
-  })
-
-  it('should return odds for fusion stones', () => {
-    return Promise.all([
-      bookodds('mythic fs'),
-      bookodds('classic fs'),
-      bookodds('heroic fs'),
-      bookodds('noble fs'),
-      bookodds('humble fs'),
-    ]).then(outputs => {
-      expect(outputs[0].description).toContain('Fusion stones')
-      expect(outputs[1].description).toContain('Fusion stones')
-      expect(outputs[2].description).toContain('Fusion stones')
-      expect(outputs[3].description).toContain('Fusion stones')
-      expect(outputs[4].description).toContain('Fusion stones')
+describe('Bot — /bookodds', () => {
+  it('should return an error if no book was given/found', async () => {
+    const interaction = mockInteraction({
+      book_type: 'foobar',
+      target: 'FUSION_STONES',
     })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('📕 Book Drawing Odds')
+    expect(embed.url).toBe('https://stormbound-kitty.com/calculators/books')
+    expect(embed.description).toBe('Could not find a book matching “foobar”.')
   })
 
-  it('should return odds for a rarity', () => {
-    return bookodds('mythic common').then(output => {
-      const fields = output.fields.map(field => field.name).join(' ')
-
-      expect(fields).toContain('Any common card')
-      expect(fields).toContain('Specific common card')
+  it('should return odds for Fusion Stones', async () => {
+    const interaction = mockInteraction({
+      book_type: 'MYTHIC',
+      target: 'FUSION_STONES',
     })
-  })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
-  it('should return odds for a specific card', () => {
-    return Promise.all([
-      bookodds('mythic N1'),
-      bookodds('mythic gifted'),
-      bookodds('mythic rof'),
-      bookodds('mythic QoH'),
-    ]).then(outputs => {
-      expect(outputs[0].title).toContain('Green Prototypes')
-      expect(outputs[1].title).toContain('Gifted Recruits')
-      expect(outputs[2].title).toContain('Rain of Frogs')
-      expect(outputs[3].title).toContain('Queen of Herds')
-    })
-  })
-
-  it('should ignore casing', () => {
-    return bookodds('MytHiC fS').then(output =>
-      expect(output.title).toContain('Fusion stones')
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('📕 Book Drawing Odds')
+    expect(embed.url).toBe('https://stormbound-kitty.com/calculators/books')
+    expect(embed.description).toBe(
+      'A **Mythic Tome** has 10% chance of drawing **Fusion Stones**.'
     )
   })
 
-  it('should ignore order', () => {
-    return bookodds('fs classic').then(output =>
-      expect(output.title).toContain('Fusion stones')
+  it('should return odds for a different target', async () => {
+    const interaction = mockInteraction({
+      book_type: 'MYTHIC',
+      target: 'SPECIFIC_LEGENDARY',
+    })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('📕 Book Drawing Odds')
+    expect(embed.url).toBe('https://stormbound-kitty.com/calculators/books')
+    expect(embed.description).toMatch(
+      /^A \*\*Mythic Tome\*\* has \d+\.\d\d% chance of drawing \*\*a specific Legendary\*\*.$/
+    )
+  })
+
+  it('should return odds for no target', async () => {
+    const interaction = mockInteraction({
+      book_type: 'HEROIC',
+      target: '',
+    })
+    const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(embed.title).toBe('📕 Book Drawing Odds')
+    expect(embed.url).toBe('https://stormbound-kitty.com/calculators/books')
+    expect(embed.description).toMatch(
+      /^A \*\*Heroic Tome\*\* has a static 10% chance of drawing \*\*Fusion Stones\*\*, an estimated \d+\.\d\d\/\d+\.\d\d\/\d+\.\d\d\/\d+\.\d\d% chance of drawing \*\*a specific card\*\* and an estimated \d+\.\d\d\/\d+\.\d\d\/\d+\.\d\d\/\d+\.\d\d% chance of drawing \*\*any card\*\*.$/
     )
   })
 })

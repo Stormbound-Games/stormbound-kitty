@@ -1,41 +1,50 @@
+import { SlashCommandBuilder } from 'discord.js'
 import getDeckAdvice from '#helpers/getDeckAdvice'
 import getEmbed from '#helpers/getEmbed'
 import getResolvedCardData from '#helpers/getResolvedCardData'
 import serialization from '#helpers/serialization'
 import getDeckIDFromURL from '#helpers/getDeckIDFromURL'
 import indexArray from '#helpers/indexArray'
-import getCards from '#api/cards/getCards'
 
 const deckadvice = {
-  command: 'deckadvice',
-  label: '💎  Deck Advice',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/deck')
-      .setDescription(
-        `Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3xn1n2s1n3s24s2n67s6n15s8n63s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
-      )
-  },
-  handler: async function (message) {
-    const id = getDeckIDFromURL(message)
+  data: new SlashCommandBuilder()
+    .setName('deckadvice')
+    .setDescription('Get advice and suggestions for the given deck.')
+    .addStringOption(option =>
+      option
+        .setName('deck')
+        .setDescription('A Stormbound-Kitty deck ID or deck URL.')
+        .setRequired(true)
+    ),
 
-    if (id.length === 0) return
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const input = interaction.options.getString('deck')
+    const id = getDeckIDFromURL(input)
+    const embed = getEmbed().setTitle('💎 Deck Advice')
 
-    const cards = await getCards()
+    if (!id) {
+      embed.setDescription('There was an error evaluating the given deck ID.')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
+
+    const cards = [...client.cards.values()]
     const cardsIndex = indexArray(cards)
     const cardsIndexBySid = indexArray(cards, 'sid')
-    const embed = getEmbed()
-      .setTitle(`${this.label}: ` + id)
-      .setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
+
+    embed.setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
 
     try {
       const cards = serialization.deck
         .deserialize(cardsIndexBySid, id)
         .map(card => getResolvedCardData(cardsIndex, card))
 
-      if (cards.some(card => !card)) return
+      if (cards.some(card => !card)) {
+        embed.setDescription('There was an error evaluating some of the cards.')
+
+        return interaction.reply({ embeds: [embed], ephemeral })
+      }
 
       const advice = await getDeckAdvice(cardsIndex, cards)
 
@@ -44,7 +53,7 @@ const deckadvice = {
           'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!'
         )
 
-        return embed
+        return interaction.reply({ embeds: [embed], ephemeral })
       }
 
       embed.addFields(
@@ -54,8 +63,12 @@ const deckadvice = {
         }))
       )
 
-      return embed
-    } catch (error) {}
+      return interaction.reply({ embeds: [embed], ephemeral })
+    } catch (error) {
+      embed.setDescription('There was an error evaluating the given deck.')
+
+      return interaction.reply({ embeds: [embed], ephemeral })
+    }
   },
 }
 

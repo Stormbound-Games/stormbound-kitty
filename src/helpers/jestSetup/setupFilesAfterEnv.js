@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // String.prototype.replaceAll is not available in Node 14-, which prevents Jest
 // from running tests properly.
 if (typeof String.prototype.replaceAll !== 'function') {

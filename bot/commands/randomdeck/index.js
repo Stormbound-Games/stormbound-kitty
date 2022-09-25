@@ -1,62 +1,15 @@
+import { SlashCommandBuilder } from 'discord.js'
 import { FACTIONS } from '#constants/game'
-import areAllValuesEqual from '#helpers/areAllValuesEqual'
+import areAllValuesEqual from '#helpers/arrayRandom'
 import arrayRandom from '#helpers/arrayRandom'
 import searchCards from '#helpers/searchCards'
-import getEmbed from '#helpers/getEmbed'
 import getRandomDeck from '#helpers/getRandomDeck'
-import handleSearchAlias from '#helpers/handleSearchAlias'
 import serialization from '#helpers/serialization'
-import getAbbreviations from '#api/misc/getAbbreviations'
-import getCards from '#api/cards/getCards'
+import getEmbed from '#helpers/getEmbed'
 
 const ALLOWED_FACTIONS = FACTIONS.filter(faction => faction !== 'neutral')
 
-const findFaction = message => {
-  const terms = message.split(/[\s,]+/g).filter(Boolean)
-
-  for (let term of terms) {
-    if (FACTIONS.includes(term)) return [term, term]
-    else {
-      const [key, value] = handleSearchAlias(term)
-      if (key === 'faction') return [term, value]
-    }
-  }
-
-  return []
-}
-
-export const parseMessage = (allCards, abbreviations, message) => {
-  // Find the faction of the deck (if any), as well as the term that describes
-  // it; either a faction name (e.g. shadowfen), or an alias (e.g. sf).
-  const [authored, resolved] = findFaction(message)
-
-  // Remove the term describing the faction from the message to be left with
-  // potential cards to include in the deck.
-  message = message.replace(authored, '').trim()
-
-  const parts = message.split(/\s*,\s*/g).filter(Boolean)
-  const cards = []
-  const ignored = []
-
-  parts.forEach(part => {
-    // Make sure not to include a card twice. For instance, `herald, herald`
-    // should include Pan Heralds and Herald’s Hymn, but not one of them twice.
-    // Same goes for other cases, such as `dread, dread`.
-    const card = searchCards(allCards, abbreviations, part).find(
-      card => !cards.map(c => c.id).includes(card.id)
-    )
-    if (card) cards.push(card)
-    else ignored.push(part)
-  })
-
-  return {
-    faction: { authored, resolved },
-    including: cards,
-    ignored,
-  }
-}
-
-export const validateFaction = (faction, including = []) => {
+const validateFaction = (faction, including = []) => {
   const randomFaction = arrayRandom(ALLOWED_FACTIONS)
 
   // If the provided faction is “neutral”, abort as a random deck cannot be
@@ -89,49 +42,78 @@ export const validateFaction = (faction, including = []) => {
   return faction || factions[0] || randomFaction
 }
 
+export const parseIncluded = (allCards, abbreviations, message) => {
+  const parts = message.split(/\s*,\s*/g).filter(Boolean)
+  const cards = []
+
+  parts.forEach(part => {
+    // Make sure not to include a card twice. For instance, `herald, herald`
+    // should include Pan Heralds and Herald’s Hymn, but not one of them twice.
+    // Same goes for other cases, such as `dread, dread`.
+    const card = searchCards(allCards, abbreviations, part).find(
+      card => !cards.map(c => c.id).includes(card.id)
+    )
+    if (card) cards.push(card)
+  })
+
+  return cards
+}
+
 const randomdeck = {
-  command: 'randomdeck',
-  label: '🎲  Random Deck',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/deck')
-      .setDescription(
-        `Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
-      )
-  },
-  handler: async function (message) {
-    const cards = await getCards()
-    const abbreviations = await getAbbreviations({ casing: 'LOWERCASE', cards })
-    const { faction, including } = parseMessage(
+  data: new SlashCommandBuilder()
+    .setName('randomdeck')
+    .setDescription('Randomly generate a deck.')
+    .addStringOption(option =>
+      option
+        .setName('faction')
+        .setDescription('The deck faction.')
+        .addChoices(
+          { name: 'Ironclad', value: 'ironclad' },
+          { name: 'Winter', value: 'winter' },
+          { name: 'Swarm', value: 'swarm' },
+          { name: 'Shadowfen', value: 'shadowfen' }
+        )
+    )
+    .addStringOption(option =>
+      option
+        .setName('including')
+        .setDescription('Cards that must be included (separated by commas).')
+    ),
+
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const message = interaction.options.getString('including') || ''
+    const cards = [...client.cards.values()]
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const including = parseIncluded(
       cards,
       abbreviations,
-      message.toLowerCase()
+      message?.toLowerCase()
     )
-    const resolvedFaction = validateFaction(faction.resolved, including)
-    const embed = getEmbed()
-      .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/deck')
+    const faction = validateFaction(
+      interaction.options.getString('faction'),
+      including
+    )
 
-    // If there was an issue resolving the faction, return early.
-    if (!resolvedFaction) {
-      embed.setDescription(
-        'Unfortunately, there was an issue generating a random deck. This might be because of conflicting argument (e.g. `wp rof`, `fc, mia`…).'
-      )
+    if (!faction) {
+      const embed = getEmbed()
+        .setTitle('🎲 Random Deck')
+        .setURL('https://stormbound-kitty.com/deck')
+        .setDescription(
+          'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).'
+        )
 
-      return embed
+      return interaction.reply({ embeds: [embed], ephemeral })
     }
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
-    const deck = getRandomDeck({
-      availableCards: cards,
-      initialCards,
-      faction: resolvedFaction,
-    })
+    const deck = getRandomDeck({ availableCards: cards, initialCards, faction })
     const id = serialization.deck.serialize(deck)
 
-    return 'https://stormbound-kitty.com/deck/' + id
+    return interaction.reply({
+      content: 'https://stormbound-kitty.com/deck/' + id,
+      ephemeral,
+    })
   },
 }
 

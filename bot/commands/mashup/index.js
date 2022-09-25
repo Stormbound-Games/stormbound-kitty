@@ -1,6 +1,6 @@
+import { SlashCommandBuilder } from 'discord.js'
 import arrayRandom from '#helpers/arrayRandom'
 import getEmbed from '#helpers/getEmbed'
-import getCards from '#api/cards/getCards'
 
 const getChunks = cards => {
   const starts = []
@@ -32,20 +32,18 @@ const getRandomCardName = cards => {
 }
 
 const mashup = {
-  command: 'mashup',
-  label: '🤪  Card Mashup',
-  aliases: [],
-  help: function () {
-    return getEmbed()
-      .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com')
-      .setDescription(
-        'Randomly generate a random card name from existing ones.'
-      )
-  },
-  handler: async function () {
-    const cards = await getCards()
-    return getEmbed().setTitle(this.label + ': ' + getRandomCardName(cards))
+  data: new SlashCommandBuilder()
+    .setName('mashup')
+    .setDescription('Randomly generate a random card name from existing ones.'),
+
+  async execute(interaction, client) {
+    const ephemeral = !client.DEBUG_MODE
+    const cards = [...client.cards.values()]
+    const embed = getEmbed()
+      .setTitle('🤪 Card Mashup')
+      .setDescription(`Here is your mashup: **${getRandomCardName(cards)}**`)
+
+    return interaction.reply({ embeds: [embed], ephemeral })
   },
 }
 
