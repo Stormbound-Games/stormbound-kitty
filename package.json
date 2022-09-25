@@ -43,7 +43,7 @@
     "fuse.js": "^6.6.2",
     "html2canvas": "^1.4.1",
     "next": "12.3",
-    "next-plausible": "^3.6.2",
+    "next-plausible": "^3.6.3",
     "next-sitemap": "^3.1.22",
     "node-fetch": "^2.6.7",
     "random-weighted-choice": "^0.1.4",
