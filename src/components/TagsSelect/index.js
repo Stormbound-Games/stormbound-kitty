@@ -2,11 +2,13 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import Label from '#components/Label'
 import useSelectStyles from '#hooks/useSelectStyles'
+import useIsMounted from '#hooks/useIsMounted'
 import indexArray from '#helpers/indexArray'
 
 const Select = dynamic(() => import('react-select'), { ssr: false })
 
 export default React.memo(function TagsSelect(props) {
+  const isMounted = useIsMounted()
   const styles = useSelectStyles()
   const tagsIndex = React.useMemo(
     () => indexArray(props.availableTags, 'slug'),
@@ -23,6 +25,10 @@ export default React.memo(function TagsSelect(props) {
     label: tag.name,
   }))
   const id = props.id || 'tags-select'
+
+  if (!isMounted) {
+    return null
+  }
 
   return (
     <>

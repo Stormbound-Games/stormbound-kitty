@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import { CardsContext } from '#components/CardsProvider'
 import { CollectionContext } from '#components/CollectionProvider'
 import BookmarkDeckButton from '#components/BookmarkDeckButton'
@@ -20,15 +19,13 @@ import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
 import serialization from '#helpers/serialization'
 
 export default React.memo(function PageFeaturedDecks(props) {
-  const router = useRouter()
-  const { query } = router
   const formRef = React.useRef(null)
   const { cardsIndex, cardsIndexBySid } = React.useContext(CardsContext)
   const { hasDefaultCollection } = React.useContext(CollectionContext)
-  const [tags, setTags] = React.useState(query.tags?.split(',') ?? [])
-  const [faction, setFaction] = React.useState(query.faction || '*')
-  const [authorSlug, setAuthorSlug] = React.useState(query.author || '*')
-  const [including, setIncluding] = React.useState(query.including || null)
+  const [tags, setTags] = React.useState([])
+  const [faction, setFaction] = React.useState('*')
+  const [authorSlug, setAuthorSlug] = React.useState('*')
+  const [including, setIncluding] = React.useState(null)
   const [name, setName] = React.useState('')
   const [order, setOrder] = React.useState(
     hasDefaultCollection ? 'DATE' : 'FEASIBILITY'
@@ -41,35 +38,6 @@ export default React.memo(function PageFeaturedDecks(props) {
     setName('')
     setIncluding(null)
   }, [])
-
-  React.useEffect(() => {
-    const parameters = { ...query }
-
-    if (tags.length === 0) delete parameters.tags
-    else parameters.tags = tags.join(',')
-
-    if (faction === '*') delete parameters.faction
-    else parameters.faction = faction
-
-    if (authorSlug === '*') delete parameters.author
-    else parameters.author = authorSlug
-
-    if (including === null) delete parameters.including
-    else parameters.including = including
-
-    if (
-      new URLSearchParams(parameters).toString() !==
-      new URLSearchParams(query).toString()
-    ) {
-      const path =
-        Object.keys(parameters).length > 0
-          ? '/decks?' + new URLSearchParams(parameters).toString()
-          : '/decks'
-
-      router.replace(path, null, { scroll: false, shallow: true })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, tags, faction, authorSlug, including])
 
   const matchesFaction = React.useCallback(
     deck => faction === '*' || getFactionFromDeckID(deck.id) === faction,
