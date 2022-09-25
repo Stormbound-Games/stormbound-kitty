@@ -146,7 +146,7 @@ export default class Trivia {
       const [key, value] = parseCardGuess(content, true)
       const embed = getEmbed({ withHeader: false }).addFields({
         name: 'User',
-        value: author.username,
+        value: String(author),
         inline: true,
       })
 
@@ -224,7 +224,7 @@ export default class Trivia {
     const increment = this.difficulty === 'HARD' ? +2 : +1
     const embed = getEmbed({ withHeader: false })
       .setTitle('🎉 Correct answer: ' + this.answer.name)
-      .addFields({ name: 'Winner', value: author.username, inline: true })
+      .addFields({ name: 'Winner', value: String(author), inline: true })
       .addFields({ name: 'Points', value: '+' + increment, inline: true })
 
     this.streaks[author.id] = (this.streaks[author.id] || 0) + 1
@@ -239,7 +239,7 @@ export default class Trivia {
     const embed = getEmbed({ withHeader: false })
       .setTitle(`❌ Incorrect guess: ~~${guess}~~`)
       .addFields(
-        { name: 'User', value: author.username, inline: true },
+        { name: 'User', value: String(author), inline: true },
         { name: 'Points', value: '-1', inline: true }
       )
 
@@ -264,7 +264,7 @@ export default class Trivia {
       .setTitle('🔌 Trivia stopped')
       .addFields({
         name: 'Initiator',
-        value: this.initiator.username,
+        value: String(this.initiator),
         inline: true,
       })
       .addFields({ name: 'Answer', value: answer, inline: true })
@@ -290,7 +290,7 @@ export default class Trivia {
     const embed = getEmbed({ withHeader: false })
       .addFields({
         name: 'Initiator',
-        value: interaction.user.username,
+        value: String(interaction.user),
         inline: true,
       })
       .addFields({
@@ -345,7 +345,7 @@ export default class Trivia {
   async updateScore(user, delta) {
     try {
       await api.setScore(user.id, this.guildId, delta)
-      console.log(`Update ${user.id}’s score by ${delta}.`)
+      console.log(`Update ${user.username}’s score by ${delta}.`)
     } catch (error) {
       console.error(error)
     }
