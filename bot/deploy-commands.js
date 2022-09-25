@@ -24,11 +24,9 @@ const rest = new REST({ version: '10' }).setToken(DISCORD_TOKEN)
       `Started refreshing ${commands.length} application (/) commands.`
     )
 
-    const data = await rest.put(
-      // @TODO: remove guid ID once it’s ready.
-      Routes.applicationCommands(CLIENT_ID),
-      { body: commands }
-    )
+    const data = await rest.put(Routes.applicationCommands(CLIENT_ID), {
+      body: commands,
+    })
 
     console.log(
       `Successfully reloaded ${data.length} application (/) commands.`
