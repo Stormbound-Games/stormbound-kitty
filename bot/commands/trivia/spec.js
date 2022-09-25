@@ -1,5 +1,4 @@
 import command from './index.js'
-import Discord from 'discord.js'
 import {
   mockInteraction,
   mockChannel,
@@ -11,7 +10,7 @@ import {
 describe('Bot — /trivia', () => {
   it('should be possible to display scores', async () => {
     const channel = mockChannel({ name: 'trivia' })
-    const guild = { id: Discord.SnowflakeUtil.generate() }
+    const guild = mockGuild({ id: '714858253531742208' })
     const interaction = mockInteraction(
       { subcommand: 'scores' },
       { channel, guild }
@@ -20,13 +19,13 @@ describe('Bot — /trivia', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeFalsy()
-    expect(embed.description).toContain('🥇')
+    expect(embed.title).toBe('🏅 Trivia scores')
   })
 
   it('should be possible to display one’s score', async () => {
     const member = mockUser({ username: 'Kitty' })
     const channel = mockChannel({ name: 'trivia' })
-    const guild = mockGuild()
+    const guild = mockGuild({ id: '714858253531742208' })
     const interaction = mockInteraction(
       { subcommand: 'score' },
       { channel, guild, member }
@@ -35,7 +34,7 @@ describe('Bot — /trivia', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(embed.description).toContain('No scores yet.')
+    expect(embed.title).toBe('🏅 Trivia score')
   })
 
   it('should be possible to start a card trivia', async () => {
@@ -52,11 +51,8 @@ describe('Bot — /trivia', () => {
     expect(output.ephemeral).toBeFalsy()
     expect(embed.title).toContain('Card trivia started')
     expect(embed.description).toBeTruthy()
-    expect(embed.fields[0]).toEqual({
-      name: 'Initiator',
-      value: 'Kitty',
-      inline: true,
-    })
+    expect(embed.fields[0].name).toBe('Initiator')
+    expect(embed.fields[0].inline).toBe(true)
     expect(embed.fields[1]).toEqual({
       name: 'Duration',
       value: '75 seconds',
@@ -78,11 +74,8 @@ describe('Bot — /trivia', () => {
     expect(output.ephemeral).toBeFalsy()
     expect(embed.title).toContain('?')
     expect(embed.description).toBeTruthy()
-    expect(embed.fields[0]).toEqual({
-      name: 'Initiator',
-      value: 'Kitty',
-      inline: true,
-    })
+    expect(embed.fields[0].name).toBe('Initiator')
+    expect(embed.fields[0].inline).toBe(true)
     expect(embed.fields[1]).toEqual({
       name: 'Duration',
       value: '15 seconds',
@@ -105,11 +98,8 @@ describe('Bot — /trivia', () => {
     expect(embed.title).toContain('Image trivia started')
     expect(embed.description).toBeTruthy()
     expect(output.files).toHaveLength(1)
-    expect(embed.fields[0]).toEqual({
-      name: 'Initiator',
-      value: 'Kitty',
-      inline: true,
-    })
+    expect(embed.fields[0].name).toBe('Initiator')
+    expect(embed.fields[0].inline).toBe(true)
     expect(embed.fields[1]).toEqual({
       name: 'Duration',
       value: '75 seconds',

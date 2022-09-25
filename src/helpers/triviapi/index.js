@@ -4,8 +4,13 @@ const JSONBIN_TOKEN = process.env.JSONBIN_TOKEN
 const API_BASE_URL = 'https://jsonbin.org/kittysparkles'
 const API_TIMEOUT = 5000
 
-const handleUnauthorized = response => {
-  if (response.status === 412) throw new Error(response.message)
+const handleError = response => {
+  if (!response.ok) {
+    throw new Error(
+      response.status + ': ' + (response.statusText || response.message)
+    )
+  }
+
   return response
 }
 
@@ -22,8 +27,8 @@ const getScores = guildId => {
     method: 'GET',
     headers: { Authorization: 'token ' + JSONBIN_TOKEN },
   })
+    .then(handleError)
     .then(response => response.json())
-    .then(handleUnauthorized)
     .finally(() => clearTimeout(timeout))
 }
 
@@ -65,8 +70,8 @@ const getGameId = async (guildId, userId) => {
     method: 'GET',
     headers: { Authorization: 'token ' + JSONBIN_TOKEN },
   })
+    .then(handleError)
     .then(response => response.json())
-    .then(handleUnauthorized)
     .then(data => data[userId])
     .finally(() => clearTimeout(timeout))
 }
