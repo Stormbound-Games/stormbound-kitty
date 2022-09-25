@@ -17,9 +17,10 @@ describe('Bot — /trivia', () => {
       { channel, guild }
     )
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
-    expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toContain('🥇')
+    expect(output.ephemeral).toBeFalsy()
+    expect(embed.description).toContain('🥇')
   })
 
   it('should be possible to display one’s score', async () => {
@@ -31,9 +32,10 @@ describe('Bot — /trivia', () => {
       { channel, guild, member }
     )
     const output = await command.execute(interaction, client)
+    const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(output.content).toContain('No scores yet.')
+    expect(embed.description).toContain('No scores yet.')
   })
 
   it('should be possible to start a card trivia', async () => {
