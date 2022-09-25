@@ -29,7 +29,6 @@ export default class Trivia {
       this.difficulty =
       this.duration =
       this.answer =
-      this.user =
       this.initiator =
       this.collector =
         null
@@ -281,7 +280,6 @@ export default class Trivia {
       this.difficulty =
       this.duration =
       this.answer =
-      this.user =
       this.initiator =
       this.collector =
         null
