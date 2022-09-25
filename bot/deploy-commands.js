@@ -26,7 +26,7 @@ const rest = new REST({ version: '10' }).setToken(DISCORD_TOKEN)
 
     const data = await rest.put(
       // @TODO: remove guid ID once it’s ready.
-      Routes.applicationGuildCommands(CLIENT_ID, '714858253531742208'),
+      Routes.applicationCommands(CLIENT_ID),
       { body: commands }
     )
 
