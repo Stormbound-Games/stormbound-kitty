@@ -5,10 +5,6 @@ updates:
     schedule:
       interval: 'weekly'
     ignore:
-      # Version 13+ of discord.js is incompatible with the existing setup.
-      # See: ./docs/KNOWN_ISSUES.md
-      - dependency-name: 'discord.js'
-        versions: ['13.x', '14.x']
       # Version 3+ of node-fetch is esm only, which is not going to work for
       # this project.
       - dependency-name: 'node-fetch'
