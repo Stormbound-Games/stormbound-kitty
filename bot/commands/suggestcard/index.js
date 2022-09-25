@@ -8,7 +8,7 @@ const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 
 const randomcard = {
   data: new SlashCommandBuilder()
-    .setName('randomcard')
+    .setName('suggestcard')
     .setDescription('Get a random card.')
     .addStringOption(option =>
       option
@@ -82,7 +82,7 @@ const randomcard = {
     if (results.length === 0) {
       const filters = [faction, type, rarity, unitType].filter(Boolean)
       const embed = getEmbed()
-        .setTitle('🃏 Random Card')
+        .setTitle('🃏 Suggest Card')
         .setDescription(`Could not find a card matching ${filters.join(', ')}.`)
         .setURL('https://stormbound-kitty.com/card')
 
