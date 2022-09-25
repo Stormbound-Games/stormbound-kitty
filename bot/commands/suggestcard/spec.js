@@ -1,7 +1,7 @@
 import command from './index.js'
 import { mockInteraction, client } from '#helpers/jestSetup/discord'
 
-describe('Bot — /randomcard', () => {
+describe('Bot — /suggestcard', () => {
   it('should return a random card', async () => {
     const interaction = mockInteraction()
     const output = await command.execute(interaction, client)
@@ -75,7 +75,7 @@ describe('Bot — /randomcard', () => {
     const embed = output.embeds[0].data
 
     expect(output.ephemeral).toBeTruthy()
-    expect(embed.title).toBe('🃏 Random Card')
+    expect(embed.title).toBe('🃏 Suggest Card')
     expect(embed.description).toBe(
       'Could not find a card matching shadowfen, dwarf.'
     )
