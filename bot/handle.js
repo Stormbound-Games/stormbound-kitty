@@ -1,7 +1,12 @@
 import getEmbed from '#helpers/getEmbed'
 
+const isProd = process.env.NODE_ENV === 'production'
+const TEST_SERVER_ID = '714858253531742208'
+
 export const handleMessage = client => async interaction => {
-  if (!interaction.isChatInputCommand() || interaction.user.bot) return
+  if (!interaction.isChatInputCommand()) return
+  if (interaction.user.bot) return
+  if (isProd && interaction.guildId === TEST_SERVER_ID) return
 
   const command = client.commands.get(interaction.commandName)
 
@@ -22,7 +27,9 @@ export const handleMessage = client => async interaction => {
 }
 
 export const handleAutocomplete = client => async interaction => {
-  if (!interaction.isAutocomplete() || interaction.user.bot) return
+  if (!interaction.isAutocomplete()) return
+  if (interaction.user.bot) return
+  if (isProd && interaction.guildId === TEST_SERVER_ID) return
 
   const command = client.commands.get(interaction.commandName)
 
