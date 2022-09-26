@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 import getIP from '#helpers/getIP'
 import isChecklyRequest from '#helpers/isChecklyRequest'
 
