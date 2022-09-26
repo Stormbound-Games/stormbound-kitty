@@ -28,29 +28,20 @@ const cardvalue = {
         )
     ),
 
-  async autocomplete(interaction, client) {
-    const focusedValue = interaction.options.getFocused()
-    const cards = [...client.cards.values()]
-    const abbreviations = Object.fromEntries(client.abbreviations)
-    const filtered = searchCards(cards, abbreviations, focusedValue)
-
-    return interaction.respond(
-      filtered.map(card => ({ name: card.name, value: card.id }))
-    )
-  },
-
   async execute(interaction, client) {
     const ephemeral = !client.DEBUG_MODE
-    const id = interaction.options.getString('card')
-    const card = client.cards.get(id)
+    const input = interaction.options.getString('card')
+    const cards = [...client.cards.values()]
+    const abbreviations = Object.fromEntries(client.abbreviations)
+    const [card] = searchCards(cards, abbreviations, input)
     const embed = getEmbed()
       .setTitle('⚖️ Card Value')
       .setURL('https://stormbound-kitty.com/calculators/value')
 
-    trackBotCommand(interaction, { card: id })
+    trackBotCommand(interaction, { card: input })
 
     if (!card) {
-      embed.setDescription(`Could not find a card matching “${id}”.`)
+      embed.setDescription(`Could not find a card matching “${input}”.`)
 
       return interaction.reply({ embeds: [embed], ephemeral })
     }

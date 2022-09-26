@@ -1,9 +1,5 @@
 import command from './index.js'
-import {
-  client,
-  mockInteraction,
-  mockAutocomplete,
-} from '#helpers/jestSetup/discord.js'
+import { client, mockInteraction } from '#helpers/jestSetup/discord.js'
 
 describe('Bot — /cardvalue', () => {
   it('should return an error for a missing/invalid card', async () => {
@@ -67,20 +63,5 @@ describe('Bot — /cardvalue', () => {
     expect(embed.description).toBe(
       'The estimated value for Gifted Recruits at level 1 for a single turn is 0.50.'
     )
-  })
-
-  it('should autocomplete the card ID from an abbreviation', async () => {
-    const filters = await command.autocomplete(mockAutocomplete('votm'), client)
-    expect(filters).toHaveLength(1)
-    expect(filters[0].name).toBe('Victors of the Melee')
-  })
-
-  it('should autocomplete the card ID from a fuzzy name', async () => {
-    const filters = await command.autocomplete(
-      mockAutocomplete('victor'),
-      client
-    )
-    expect(filters).toHaveLength(1)
-    expect(filters[0].name).toBe('Victors of the Melee')
   })
 })
