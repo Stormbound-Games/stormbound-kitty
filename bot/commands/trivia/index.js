@@ -52,8 +52,9 @@ const trivia = {
 
   async execute(interaction, client) {
     const ephemeral = !client.DEBUG_MODE
+    const channel = client.channels.cache.get(interaction.channelId)
 
-    if (interaction.channel.name !== 'trivia') {
+    if (channel.name !== 'trivia') {
       const embed = getEmbed()
         .setTitle('🔮 Trivia')
         .setDescription('The trivia command only works in the #trivia channel.')
@@ -62,7 +63,7 @@ const trivia = {
       return interaction.reply({ embeds: [embed], ephemeral })
     }
 
-    const guildId = interaction.guild.id
+    const guildId = interaction.guildId
     const abbreviations = Object.fromEntries(client.abbreviations)
     const books = [...client.books.values()]
     const brawls = [...client.brawls.values()]

@@ -38,8 +38,9 @@ const role = {
     const ephemeral = !client.DEBUG_MODE
     const newRole = interaction.options.getRole('role')
     const member = interaction.member
+    const guild = client.guilds.cache.get(interaction.guildId)
     const roles = ROLES.filter(roleName =>
-      interaction.guild.roles.cache.find(role => role.name === roleName)
+      guild.roles.cache.find(role => role.name === roleName)
     )
     const embed = getEmbed().setTitle('🌟 Role Assignment')
 

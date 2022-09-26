@@ -21,7 +21,7 @@ const gameid = {
     const ephemeral = !client.DEBUG_MODE
     const gameId = interaction.options.getString('game_id')
     const member = interaction.options.getUser('member')
-    const guildId = interaction.guild.id
+    const guildId = interaction.guildId
     const embed = getEmbed().setTitle('🎮 Game ID')
 
     // If the message looks like a Stormbound game ID, record it as the game ID

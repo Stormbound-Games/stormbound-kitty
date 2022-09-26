@@ -356,7 +356,7 @@ export default class Trivia {
 
     try {
       const id = interaction.member.id
-      const scores = await api.getScores(interaction.guild.id)
+      const scores = await api.getScores(interaction.guildId)
       const score = scores[id]
       const groupScores = groupScoresByPoints(scores)
       const scoresByPoints = Object.keys(scores).reduce(groupScores, {})
@@ -390,7 +390,7 @@ export default class Trivia {
     const embed = getEmbed().setTitle('🏅 Trivia scores')
 
     try {
-      const scores = await api.getScores(interaction.guild.id)
+      const scores = await api.getScores(interaction.guildId)
 
       embed.setDescription(formatTriviaScores(scores).join('\n'))
 
