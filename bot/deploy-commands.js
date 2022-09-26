@@ -18,21 +18,32 @@ const commands = (
 
 ;(async () => {
   try {
+    const rest = new REST({ version: '10' }).setToken(DISCORD_TOKEN)
     const environment = process.env.NODE_ENV
+    const global = Routes.applicationCommands(CLIENT_ID)
+    const local = Routes.applicationGuildCommands(
+      CLIENT_ID,
+      '714858253531742208'
+    )
+
     console.log(
       `Started refreshing ${commands.length} application (/) commands in ${environment}.`
     )
 
-    const endpoint =
-      environment === 'development'
-        ? Routes.applicationGuildCommands(CLIENT_ID, '714858253531742208')
-        : Routes.applicationCommands(CLIENT_ID)
-    const rest = new REST({ version: '10' }).setToken(DISCORD_TOKEN)
-    const data = await rest.put(endpoint, { body: commands })
+    if (environment === 'production') {
+      const data = await rest.put(global, { body: commands })
+      await rest.put(local, { body: [] })
 
-    console.log(
-      `Successfully reloaded ${data.length} application (/) commands in ${environment}.`
-    )
+      console.log(
+        `Successfully reloaded ${data.length} application (/) commands in ${environment}.`
+      )
+    } else {
+      const data = await rest.put(local, { body: commands })
+
+      console.log(
+        `Successfully reloaded ${data.length} application (/) commands in ${environment}.`
+      )
+    }
   } catch (error) {
     console.error(error)
   }
