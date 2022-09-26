@@ -8,6 +8,11 @@ import {
 } from '#helpers/jestSetup/discord'
 
 describe('Bot — /trivia', () => {
+  afterEach(() => {
+    client.guilds.cache.clear()
+    client.channels.cache.clear()
+  })
+
   it('should be possible to display scores', async () => {
     const channel = mockChannel({ name: 'trivia' })
     const guild = mockGuild({ id: '714858253531742208' })
@@ -15,6 +20,10 @@ describe('Bot — /trivia', () => {
       { subcommand: 'scores' },
       { channel, guild }
     )
+
+    client.channels.cache.set(channel.id, channel)
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
@@ -30,6 +39,10 @@ describe('Bot — /trivia', () => {
       { subcommand: 'score' },
       { channel, guild, member }
     )
+
+    client.channels.cache.set(channel.id, channel)
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
@@ -45,6 +58,10 @@ describe('Bot — /trivia', () => {
       { subcommand: 'card' },
       { channel, guild, member }
     )
+
+    client.channels.cache.set(channel.id, channel)
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
@@ -68,6 +85,10 @@ describe('Bot — /trivia', () => {
       { subcommand: 'question' },
       { channel, guild, member }
     )
+
+    client.channels.cache.set(channel.id, channel)
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
@@ -91,6 +112,10 @@ describe('Bot — /trivia', () => {
       { subcommand: 'image' },
       { channel, guild, member }
     )
+
+    client.channels.cache.set(channel.id, channel)
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
