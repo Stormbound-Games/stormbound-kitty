@@ -8,11 +8,18 @@ import {
 } from '#helpers/jestSetup/discord'
 
 describe('Bot — /role', () => {
+  afterEach(() => {
+    client.guilds.cache.clear()
+  })
+
   it('should be possible to add a role', async () => {
     const role = mockRole({ name: 'Diamond' })
     const user = mockUser({ roles: [] })
     const guild = mockGuild({ roles: [role] })
     const interaction = mockInteraction({ role }, { guild, user })
+
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
@@ -26,6 +33,9 @@ describe('Bot — /role', () => {
     const user = mockUser({ roles: [role] })
     const guild = mockGuild({ roles: [role] })
     const interaction = mockInteraction({ role }, { guild, user })
+
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 
@@ -39,6 +49,9 @@ describe('Bot — /role', () => {
     const user = mockUser({ roles: [role] })
     const guild = mockGuild({ roles: [role] })
     const interaction = mockInteraction({ role }, { guild, user })
+
+    client.guilds.cache.set(guild.id, guild)
+
     const output = await command.execute(interaction, client)
     const embed = output.embeds[0].data
 

@@ -3,6 +3,7 @@ import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
 import arrayRandom from '#helpers/arrayRandom'
 import capitalize from '#helpers/capitalize'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 
@@ -62,6 +63,8 @@ const randomcard = {
     const rarity = interaction.options.getString('rarity')
     const unitType = interaction.options.getString('unit_type')
     const cards = [...client.cards.values()].filter(card => !card.token)
+
+    trackBotCommand(interaction, { faction, type, rarity, unitType })
 
     if (!faction && !type && !rarity && !unitType) {
       return interaction.reply({

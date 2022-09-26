@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
 import arrayRandom from '#helpers/arrayRandom'
+import trackBotCommand from '#helpers/trackBotCommand'
 import getArtworks from '#api/artworks/getArtworks'
 
 const fanart = {
@@ -13,6 +14,8 @@ const fanart = {
     const artworks = await getArtworks()
     const embed = getEmbed()
     const { image, user, date } = arrayRandom(artworks)
+
+    trackBotCommand(interaction)
 
     embed
       .setTitle('👩‍🎨  Fan-art')

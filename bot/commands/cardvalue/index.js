@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from 'discord.js'
 import getCardValue from '#helpers/getCardValue'
 import searchCards from '#helpers/searchCards'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const cardvalue = {
   data: new SlashCommandBuilder()
@@ -45,6 +46,8 @@ const cardvalue = {
     const embed = getEmbed()
       .setTitle('⚖️ Card Value')
       .setURL('https://stormbound-kitty.com/calculators/value')
+
+    trackBotCommand(interaction, { card: id })
 
     if (!card) {
       embed.setDescription(`Could not find a card matching “${id}”.`)

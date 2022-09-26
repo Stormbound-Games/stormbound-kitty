@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
 import capitalize from '#helpers/capitalize'
 import groupBy from '#helpers/groupBy'
+import trackBotCommand from '#helpers/trackBotCommand'
 import getContentFromUser from '#api/users/getContentFromUser'
 
 const BASE_URL = 'https://stormbound-kitty.com'
@@ -26,6 +27,8 @@ const member = {
     const username = interaction.options.getString('username').toLowerCase()
     const { user, feed } = await getContentFromUser({ slug: username })
     const embed = getEmbed().setTitle('😻 SK member')
+
+    trackBotCommand(interaction, { username })
 
     if (!user || feed.length === 0) {
       const name = user?.name ?? username

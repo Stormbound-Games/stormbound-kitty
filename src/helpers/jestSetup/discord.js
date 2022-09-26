@@ -9,6 +9,8 @@ export const client = {
     global.__BRAWLS__.map(brawl => [brawl.id, brawl])
   ),
   cards: new Discord.Collection(Object.entries(global.__CARDS_INDEX__)),
+  channels: { cache: new Map() },
+  guilds: { cache: new Map() },
 }
 
 export const mockChannel = (options = {}) => ({
@@ -54,8 +56,8 @@ export const mockRole = (options = {}) => ({
 export const mockInteraction = (parameters = {}, options = {}) => ({
   channelId: options.channel?.id ?? Discord.SnowflakeUtil.generate(),
   channel: options.channel,
-  member: options.member || options.user,
-  user: options.user || options.member,
+  member: options.member || options.user || mockUser(),
+  user: options.user || options.member || mockUser(),
   guildId: options.guild?.id ?? Discord.SnowflakeUtil.generate(),
   guild: options.guild,
   options: {
