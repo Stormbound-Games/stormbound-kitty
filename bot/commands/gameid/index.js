@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import api from '#helpers/triviapi'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const gameid = {
   data: new SlashCommandBuilder()
@@ -23,6 +24,11 @@ const gameid = {
     const member = interaction.options.getUser('member')
     const guildId = interaction.guildId
     const embed = getEmbed().setTitle('🎮 Game ID')
+
+    trackBotCommand(interaction, {
+      game_id: gameId,
+      member: member ? { id: member?.id, name: member?.name } : null,
+    })
 
     // If the message looks like a Stormbound game ID, record it as the game ID
     // of the message author.

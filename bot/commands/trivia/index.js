@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import Trivia from './Trivia.js'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const cache = new Map()
 
@@ -78,6 +79,8 @@ const trivia = {
 
     const trivia = cache.get(guildId)
     const subcommand = interaction.options.getSubcommand()
+
+    trackBotCommand(interaction, { subcommand })
 
     if (['card', 'image', 'question'].includes(subcommand)) {
       return trivia.start(interaction)

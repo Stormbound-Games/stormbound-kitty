@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const LEAGUE_ROLES = [
   'Heroes',
@@ -43,6 +44,10 @@ const role = {
       guild.roles.cache.find(role => role.name === roleName)
     )
     const embed = getEmbed().setTitle('🌟 Role Assignment')
+
+    trackBotCommand(interaction, {
+      role: { id: newRole.id, name: newRole.name },
+    })
 
     if (!roles.includes(newRole.name)) {
       embed.setDescription(

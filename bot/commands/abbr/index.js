@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import toSentence from '#helpers/toSentence'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const quotify = value => `“${value}”`
 
@@ -28,6 +29,8 @@ const abbr = {
           ? `“${abbr}” might mean ${toSentence(matches.map(quotify), 'or')}.`
           : `Could not find any match for abbreviation “${abbr}”.`
       )
+
+    trackBotCommand(interaction, { abbr })
 
     return interaction.reply({ embeds: [embed], ephemeral })
   },

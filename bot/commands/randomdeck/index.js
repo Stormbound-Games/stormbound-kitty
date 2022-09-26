@@ -6,6 +6,7 @@ import searchCards from '#helpers/searchCards'
 import getRandomDeck from '#helpers/getRandomDeck'
 import serialization from '#helpers/serialization'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const ALLOWED_FACTIONS = FACTIONS.filter(faction => faction !== 'neutral')
 
@@ -94,6 +95,8 @@ const randomdeck = {
       interaction.options.getString('faction'),
       including
     )
+
+    trackBotCommand(interaction, { including: message })
 
     if (!faction) {
       const embed = getEmbed()

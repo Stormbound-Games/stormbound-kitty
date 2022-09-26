@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from 'discord.js'
 import getDrawingExpectations from '#helpers/getDrawingExpectations'
 import getDrawingProbability from '#helpers/getDrawingProbability'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const TARGETS = {
   FUSION_STONES: 'Fusion Stones',
@@ -58,6 +59,8 @@ const bookodds = {
     const embed = getEmbed()
       .setTitle('📕 Book Drawing Odds')
       .setURL('https://stormbound-kitty.com/calculators/books')
+
+    trackBotCommand(interaction, { book_type: bookId, target })
 
     if (!book) {
       embed.setDescription(`Could not find a book matching “${bookId}”.`)

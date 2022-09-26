@@ -4,6 +4,7 @@ import searchCards from '#helpers/searchCards'
 import parseDate from '#helpers/parseDate'
 import getChangesFromCard from '#api/changes/getChangesFromCard'
 import { formatPreciseDate } from '#helpers/formatDate'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -41,6 +42,8 @@ const changelog = {
     const id = interaction.options.getString('card')
     const card = client.cards.get(id)
     const embed = getEmbed().setTitle('🛠 Card Changelog')
+
+    trackBotCommand(interaction, { card: id })
 
     if (!card) {
       embed

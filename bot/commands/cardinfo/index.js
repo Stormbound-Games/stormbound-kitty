@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import searchCards from '#helpers/searchCards'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const cardinfo = {
   data: new SlashCommandBuilder()
@@ -32,6 +33,8 @@ const cardinfo = {
     const ephemeral = !client.DEBUG_MODE
     const id = interaction.options.getString('card')
     const card = client.cards.get(id)
+
+    trackBotCommand(interaction, { card: id })
 
     if (!card) {
       const embed = getEmbed()

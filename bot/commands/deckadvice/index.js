@@ -5,6 +5,7 @@ import getResolvedCardData from '#helpers/getResolvedCardData'
 import serialization from '#helpers/serialization'
 import getDeckIDFromURL from '#helpers/getDeckIDFromURL'
 import indexArray from '#helpers/indexArray'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const deckadvice = {
   data: new SlashCommandBuilder()
@@ -22,6 +23,8 @@ const deckadvice = {
     const input = interaction.options.getString('deck')
     const id = getDeckIDFromURL(input)
     const embed = getEmbed().setTitle('💎 Deck Advice')
+
+    trackBotCommand(interaction, { deck: id })
 
     if (!id) {
       embed.setDescription('There was an error evaluating the given deck ID.')

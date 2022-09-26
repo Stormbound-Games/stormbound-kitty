@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 import arrayRandom from '#helpers/arrayRandom'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const getChunks = cards => {
   const starts = []
@@ -42,6 +43,8 @@ const mashup = {
     const embed = getEmbed()
       .setTitle('🤪 Card Mashup')
       .setDescription(`Here is your mashup: **${getRandomCardName(cards)}**`)
+
+    trackBotCommand(interaction)
 
     return interaction.reply({ embeds: [embed], ephemeral })
   },

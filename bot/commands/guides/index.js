@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from 'discord.js'
 import getGuides from '#api/guides/getGuides'
 import { GUIDE_CATEGORIES } from '#constants/guides'
 import getEmbed from '#helpers/getEmbed'
+import trackBotCommand from '#helpers/trackBotCommand'
 
 const guides = {
   data: new SlashCommandBuilder()
@@ -23,6 +24,8 @@ const guides = {
     const embed = getEmbed()
       .setTitle('🧭 Guides')
       .setURL('https://stormbound-kitty.com/guides')
+
+    trackBotCommand(interaction, { input: message })
 
     if (message) {
       if (!match) {
