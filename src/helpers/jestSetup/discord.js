@@ -52,9 +52,11 @@ export const mockRole = (options = {}) => ({
 })
 
 export const mockInteraction = (parameters = {}, options = {}) => ({
+  channelId: options.channel?.id ?? Discord.SnowflakeUtil.generate(),
   channel: options.channel,
   member: options.member || options.user,
   user: options.user || options.member,
+  guildId: options.guild?.id ?? Discord.SnowflakeUtil.generate(),
   guild: options.guild,
   options: {
     getInteger: jest.fn(key => parameters[key]),
