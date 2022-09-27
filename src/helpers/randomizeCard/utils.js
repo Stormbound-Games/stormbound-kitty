@@ -1,4 +1,4 @@
-import { VERBOSE } from './constants'
+import { VERBOSE } from './constants.js'
 
 export function log(...message) {
   if (VERBOSE) console.log(...message)
