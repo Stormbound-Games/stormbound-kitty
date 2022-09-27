@@ -16,6 +16,6 @@ const trackBotCommand = (interaction, params = {}) =>
       guildId: interaction.guildId,
       channelId: interaction.channelId,
     }
-  )
+  ).catch(error => console.error(error))
 
 export default trackBotCommand
