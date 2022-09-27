@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import unfetch from 'isomorphic-unfetch'
 import getIP from '#helpers/getIP'
 import isChecklyRequest from '#helpers/isChecklyRequest'
 
@@ -30,7 +30,7 @@ const trackAsync = async (request, eventName, pathname, props = {}) => {
   }
 
   try {
-    return await fetch(API_URL, {
+    return await unfetch(API_URL, {
       method: 'POST',
       headers: getHeaders(request),
       body: JSON.stringify(getBody(eventName, pathname, props)),

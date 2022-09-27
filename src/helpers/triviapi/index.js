@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import unfetch from 'isomorphic-unfetch'
 
 const JSONBIN_TOKEN = process.env.JSONBIN_TOKEN
 const API_BASE_URL = 'https://jsonbin.org/kittysparkles'
@@ -22,7 +22,7 @@ const getScores = guildId => {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), API_TIMEOUT)
 
-  return fetch(API_BASE_URL + '/' + guildId + '/scores', {
+  return unfetch(API_BASE_URL + '/' + guildId + '/scores', {
     signal: controller.signal,
     method: 'GET',
     headers: { Authorization: 'token ' + JSONBIN_TOKEN },
@@ -41,7 +41,7 @@ const setScore = (id, guildId, update = +1) =>
       const controller = new AbortController()
       const timeout = setTimeout(() => controller.abort(), API_TIMEOUT)
 
-      return fetch(API_BASE_URL + '/' + guildId + '/scores', {
+      return unfetch(API_BASE_URL + '/' + guildId + '/scores', {
         signal: controller.signal,
         method: 'PATCH',
         headers: { Authorization: 'token ' + JSONBIN_TOKEN },
@@ -53,7 +53,7 @@ const setGameId = (guildId, userId, gameId) => {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), API_TIMEOUT)
 
-  return fetch(API_BASE_URL + '/' + guildId + '/gameids', {
+  return unfetch(API_BASE_URL + '/' + guildId + '/gameids', {
     signal: controller.signal,
     method: 'PATCH',
     headers: { Authorization: 'token ' + JSONBIN_TOKEN },
@@ -65,7 +65,7 @@ const getGameId = async (guildId, userId) => {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), API_TIMEOUT)
 
-  return fetch(API_BASE_URL + '/' + guildId + '/gameids', {
+  return unfetch(API_BASE_URL + '/' + guildId + '/gameids', {
     signal: controller.signal,
     method: 'GET',
     headers: { Authorization: 'token ' + JSONBIN_TOKEN },
