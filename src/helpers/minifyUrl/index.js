@@ -1,12 +1,9 @@
 import unfetch from 'isomorphic-unfetch'
 
-const minifyUrl = url => {
-  return unfetch('/api/shorten?url=' + encodeURIComponent(url), {
-    method: 'GET',
-  })
+const minifyUrl = (url, { baseUrl = '' } = {}) =>
+  unfetch(baseUrl + '/api/shorten?url=' + encodeURIComponent(url))
     .then(response => response.json())
-    .then(response => response.shortLink || url)
+    .then(data => data.shortLink || url)
     .catch(() => url)
-}
 
 export default minifyUrl

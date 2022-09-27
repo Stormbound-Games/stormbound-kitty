@@ -1,25 +1,9 @@
-import fetch from 'node-fetch'
 import { SlashCommandBuilder } from 'discord.js'
 import randomizeCard from '#helpers/randomizeCard'
 import serialization from '#helpers/serialization'
 import trackBotCommand from '#helpers/trackBotCommand'
+import minifyUrl from '#helpers/minifyUrl'
 
-const BASE_URL = 'https://stormbound-kitty.com/card/'
-
-const minify = async url => {
-  try {
-    const response = await fetch(
-      'https://stormbound-kitty.com/api/shorten?url=' + encodeURIComponent(url),
-      { method: 'GET' }
-    )
-    const data = await response.json()
-
-    return data.shortLink || url
-  } catch (error) {
-    console.error(error)
-    return url
-  }
-}
 const randomcard = {
   data: new SlashCommandBuilder()
     .setName('randomcard')
@@ -60,11 +44,12 @@ const randomcard = {
     // by Discord so it is best to use a deferred reply.
     await interaction.deferReply({ ephemeral })
 
-    const url = client.SKIP_MINIFICATION
-      ? BASE_URL + id
-      : await minify(BASE_URL + id)
+    const url = 'https://stormbound-kitty.com/card/' + id
+    const content = client.SKIP_MINIFICATION
+      ? url
+      : await minifyUrl(url, { baseUrl: 'https://stormbound-kitty.com' })
 
-    return interaction.editReply({ content: url, ephemeral })
+    return interaction.editReply({ content, ephemeral })
   },
 }
 
