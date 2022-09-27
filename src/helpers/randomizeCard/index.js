@@ -12,8 +12,8 @@ import {
   STATLINES_NONE,
   STATLINES_SLOW,
   TRIGGERS,
-} from './data'
-import { MIN_MANA, MAX_MANA, MAX_EFF_COST } from './constants'
+} from './data.js'
+import { MIN_MANA, MAX_MANA, MAX_EFF_COST } from './constants.js'
 import { log, fixWording, highlight } from './utils.js'
 
 class Card {

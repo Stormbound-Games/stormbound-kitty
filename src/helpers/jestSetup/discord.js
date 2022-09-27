@@ -69,6 +69,8 @@ export const mockInteraction = (parameters = {}, options = {}) => ({
     getSubcommand: jest.fn(() => parameters.subcommand),
   },
   reply: jest.fn(v => v),
+  deferReply: jest.fn(v => v),
+  editReply: jest.fn(v => v),
 })
 
 export const mockAutocomplete = input => ({
