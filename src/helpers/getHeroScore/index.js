@@ -7,7 +7,7 @@ const getHeroScore = ({ current: Sa, opponent: Sb, coefficient: K, won }) => {
   const deviation = 1 / (1 + 10 ** (diff / 400))
   const score = K * (Number(won) - deviation)
   const capped = won
-    ? Math.max(5, Math.min(500, score))
+    ? Math.max(5, Math.min(400, score))
     : Math.max(-10, Math.min(1, score))
 
   return Math.round(Sa + capped)
