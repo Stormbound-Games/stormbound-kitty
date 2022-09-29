@@ -131,7 +131,7 @@ export default React.memo(function PageIncomeCalculator(props) {
   const [brawlCost, setBrawlCost] = React.useState(0)
   const [draftSessions, setDraftSessions] = React.useState(0)
   const [draftWins, setDraftWins] = React.useState(0)
-  const [heroesPosition, setHeroesPosition] = React.useState('NOT_RANKED')
+  const [heroesPosition, setHeroesPosition] = React.useState('TOP_500')
   const [rubiesConversion, setRubiesConversion] = React.useState('NONE')
   const [preferTier3Stones, setPreferTier3Stones] = React.useState(false)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
@@ -282,8 +282,8 @@ export default React.memo(function PageIncomeCalculator(props) {
                 disabled={league !== 'HEROES'}
                 onChange={event => setHeroesPosition(event.target.value)}
               >
-                <option value='NOT_RANKED'>Not within top 500</option>
                 <option value='TOP_500'>Top 500</option>
+                <option value='TOP_250'>Top 250</option>
                 <option value='TOP_100'>Top 100</option>
                 <option value='TOP_10'>Top 10</option>
                 <option value='TOP_1'>Top 1</option>
