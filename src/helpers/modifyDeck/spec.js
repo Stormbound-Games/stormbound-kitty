@@ -19,7 +19,7 @@ describe('The `modifyDeck` helper', () => {
     ['STRUCTURE_MANA', 'N13', 2],
     ['TOAD_MANA', 'N52', 2],
     ['KNIGHT_MANA', 'N7', 1],
-    ['DWARF_MANA', 'W17', 4],
+    ['DWARF_MANA', 'W17', 5],
     ['SPELL_MANA', 'N21', 2],
   ].forEach(([brawl, id, mana]) => {
     it(`should handle ${brawl} brawl`, () => {

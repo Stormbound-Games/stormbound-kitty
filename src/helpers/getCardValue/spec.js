@@ -630,9 +630,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N70', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N70', 5)
     expect(value1[0]).toEqual((5 / 7) * 1)
-    expect(value1[1]).toEqual(((5 + 4) / 7) * 1)
+    expect(value1[1]).toEqual(((5 + 5) / 7) * 1)
     expect(value5[0]).toEqual((10 / 7) * 1)
-    expect(value5[1]).toEqual(((10 + 9) / 7) * 1)
+    expect(value5[1]).toEqual(((10 + 10) / 7) * 1)
   })
 
   it('should return value for Rapid Mousers', () => {
@@ -1343,9 +1343,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'S12', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'S12', 5)
     expect(value1[0]).toEqual((2 / 4) * 1.5)
-    expect(value1[1]).toEqual(((2 + 1 * 2) / 4) * 1.5)
+    expect(value1[1]).toEqual(((2 + 2 * 2) / 4) * 1.5)
     expect(value5[0]).toEqual((4 / 4) * 1.5)
-    expect(value5[1]).toEqual(((4 + 3 * 2) / 4) * 1.5)
+    expect(value5[1]).toEqual(((4 + 4 * 2) / 4) * 1.5)
   })
 
   it('should return value for Mischiefs', () => {
@@ -1639,10 +1639,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Wolfcloaks', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W17', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W17', 5)
-    expect(value1[0]).toEqual((1 / 6) * 1.5)
-    expect(value1[1]).toEqual((7 / 6) * 1.5)
-    expect(value5[0]).toEqual((1 / 6) * 1.5)
-    expect(value5[1]).toEqual((13 / 6) * 1.5)
+    expect(value1[0]).toEqual((1 / 7) * 1.5)
+    expect(value1[1]).toEqual((7 / 7) * 1.5)
+    expect(value5[0]).toEqual((1 / 7) * 1.5)
+    expect(value5[1]).toEqual((13 / 7) * 1.5)
   })
 
   it('should return value for Fleshmenders', () => {
