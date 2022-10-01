@@ -6,7 +6,6 @@ import formatTriviaScores, {
 } from '#helpers/formatTriviaScores'
 import getEmbed from '#helpers/getEmbed'
 import getRandomQuestion from '#helpers/getRandomQuestion'
-import getTriviaQuestions from '#helpers/getTriviaQuestions'
 import parseCardGuess from '#helpers/parseCardGuess'
 import searchCards from '#helpers/searchCards'
 import getOrdinalSuffix from '#helpers/getOrdinalSuffix'
@@ -18,10 +17,9 @@ const KITTY_ID = '368097495605182483'
 export default class Trivia {
   constructor({
     guildId,
-    books = [],
+    questions = [],
     cards = [],
     abbreviations = {},
-    brawls = [],
     withScores = true,
   }) {
     this.withScores = withScores
@@ -36,7 +34,7 @@ export default class Trivia {
     this.cards = cards
     this.abbreviations = abbreviations
     this.guildId = guildId
-    this.questions = getTriviaQuestions(cards, brawls, books)
+    this.questions = questions
     this.canvas = new Canvas()
   }
 

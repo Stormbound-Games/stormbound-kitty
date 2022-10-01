@@ -22,33 +22,22 @@ const getLetters = (amount, useRandomLetters = false) => {
 
 const getRandomQuestion = (questions, useRandomLetters = true) => {
   // Pick a question at random.
-  let question = arrayRandom(questions)
+  const question = arrayRandom(questions)
 
-  // If the question is dynamic (function), resolve it.
-  if (typeof question === 'function') {
-    question = question()
-  }
-
-  // Shuffle all options while discarding the answer if it is part of it (which
-  // can happen in ranges and dynamically generated arrays).
+  // Shuffle all options while discarding the answer if it is part of it and
+  // preserve a maximum of 4. Then add the answer, and shuffle the resulting
+  // array once more to avoid the answer being the last one.
   const options = shuffle(
-    question.options.filter(option => option !== question.answer)
+    shuffle(question.options.filter(option => option !== question.answer))
+      .slice(0, MAX_CHOICES - 1)
+      .concat(question.answer)
   )
 
-  // Compose the choices by combining 4 wrong options and the correct answer and
-  // shuffle the 5 of them to vary the position of the correct answer. Create an
-  // object mapping letters (either random or not based on the configuration) to
-  // choices (all strings for consistency). making them all a string for
-  // consistency.
+  // Create an object mapping letters (either random or not based on the
+  // configuration) to choices (all strings for consistency).
   const letters = getLetters(MAX_CHOICES, useRandomLetters)
-  const choices = shuffle([
-    ...options.slice(0, MAX_CHOICES - 1),
-    question.answer,
-  ]).reduce(
-    (choices, choice, index) => ({
-      ...choices,
-      [letters[index]]: String(choice),
-    }),
+  const choices = options.reduce(
+    (acc, choice, index) => ({ ...acc, [letters[index]]: String(choice) }),
     {}
   )
 
