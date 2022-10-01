@@ -22,6 +22,7 @@ import siteSettings from './documents/siteSettings'
 import story from './documents/story'
 import swcc from './documents/swcc'
 import tournament from './documents/tournament'
+import trivia from './documents/trivia'
 import user from './documents/user'
 import wallpaper from './documents/wallpaper'
 import { isNotAdmin, COMMUNITY_TYPES } from '../config/access'
@@ -52,6 +53,7 @@ export default createSchema({
       story,
       swcc,
       tournament,
+      trivia,
       user,
       wallpaper,
     }).map(([type, document]) => ({

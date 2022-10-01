@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from 'discord.js'
 import Trivia from './Trivia.js'
 import getEmbed from '#helpers/getEmbed'
 import trackBotCommand from '#helpers/trackBotCommand'
+import getQuestions from '#api/trivia/getQuestions'
 
 const cache = new Map()
 
@@ -66,14 +67,13 @@ const trivia = {
 
     const guildId = interaction.guildId
     const abbreviations = Object.fromEntries(client.abbreviations)
-    const books = [...client.books.values()]
-    const brawls = [...client.brawls.values()]
     const cards = [...client.cards.values()]
+    const questions = await getQuestions({ cards })
 
     if (!cache.has(guildId)) {
       cache.set(
         guildId,
-        new Trivia({ books, cards, abbreviations, brawls, guildId })
+        new Trivia({ questions, cards, abbreviations, guildId })
       )
     }
 

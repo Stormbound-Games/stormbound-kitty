@@ -14,6 +14,7 @@ export const COMMUNITY_TYPES = [
   'story',
   'SWCC',
   'tournament',
+  'trivia',
   'user',
 ]
 
