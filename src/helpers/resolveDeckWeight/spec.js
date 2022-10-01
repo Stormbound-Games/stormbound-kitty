@@ -22,12 +22,4 @@ describe('The `resolveDeckWeight` helper', () => {
       )
     ).toEqual(true)
   })
-
-  it('should match sequence given by Arano', () => {
-    expect(
-      resolveDeckWeight(global.__CARDS_INDEX__, deck)
-        .sort((a, b) => a.weight - b.weight)
-        .map(card => card.weight)
-    ).toEqual([0, 1, 2, 4, 7, 12, 20, 33, 53, 85, 137, 220])
-  })
 })

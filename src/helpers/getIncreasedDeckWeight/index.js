@@ -9,7 +9,7 @@ const getIncreasedDeckWeight = ({ deck, hand, reset }) => {
       return card
     }
 
-    const weight = isReset(card) ? 0 : increaseCardWeight(card.weight)
+    const weight = isReset(card) ? 1 : increaseCardWeight(card.weight)
     return { ...card, weight }
   })
 }

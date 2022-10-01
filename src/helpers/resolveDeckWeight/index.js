@@ -1,7 +1,9 @@
 import getResolvedCardData from '#helpers/getResolvedCardData'
 import shuffle from '#helpers/shuffle'
 
-export const increaseCardWeight = weight => Math.floor(weight * 1.6) + 1
+// The real formula is actually not rounded, but the `random-weighted-choice`
+// library expects integers, so it is important we actually round the weights.
+export const increaseCardWeight = weight => Math.round(weight * 1.6) + 100
 
 const resolveDeckWeight = (cardsIndex, deck) => {
   // Store the order of the deck before starting to weight id
@@ -13,7 +15,7 @@ const resolveDeckWeight = (cardsIndex, deck) => {
   // Compute the weight of the cards in sequence
   shuffledDeck.forEach((card, index) => {
     card.weight =
-      index === 0 ? 0 : increaseCardWeight(shuffledDeck[index - 1].weight)
+      index === 0 ? 1 : increaseCardWeight(shuffledDeck[index - 1].weight)
   })
   // Recompose the deck in its original order
   return deckIds.reduce(
