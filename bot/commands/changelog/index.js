@@ -23,7 +23,6 @@ const changelog = {
         .setName('card')
         .setDescription('An abbreviation, ID, or approximate name.')
         .setRequired(true)
-        .setAutocomplete(true)
     ),
 
   async execute(interaction, client) {

@@ -13,7 +13,6 @@ const cardvalue = {
         .setName('card')
         .setDescription('An abbreviation, ID, or approximate name.')
         .setRequired(true)
-        .setAutocomplete(true)
     )
     .addIntegerOption(option =>
       option
