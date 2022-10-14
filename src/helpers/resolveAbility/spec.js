@@ -55,6 +55,18 @@ describe('The `resolveAbility` helper', () => {
     ])
   })
 
+  it('should unfold copied values', () => {
+    const resolved = resolveAbility('Buff *bordering/~/~/surrounding/~* units')
+    expect(resolved.display).toEqual('Buff *bordering/~/~/surrounding/~* units')
+    expect(resolved.values).toEqual([
+      'Buff *bordering* units',
+      'Buff *bordering* units',
+      'Buff *bordering* units',
+      'Buff *surrounding* units',
+      'Buff *surrounding* units',
+    ])
+  })
+
   it('should unfold multiple values', () => {
     const resolved = resolveAbility(
       'Deals 1/2/3/4/5 damage, and gain 2/3/4/5/6 strength'

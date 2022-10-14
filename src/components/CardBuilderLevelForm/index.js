@@ -14,8 +14,10 @@ export default React.memo(function CardBuilderLevelForm(props) {
     <>
       <p>
         Attributes leveling can be expressed using slashes (<code>/</code>) to
-        separate dynamic values across levels, for instance “3/4/5/5/6”. Exactly
-        one or five values need to be expressed for it to be valid.
+        separate dynamic values across levels, for instance “3/4/5/5/6” —
+        exactly one or five values need to be expressed for it to be valid. A
+        tilde (<code>~</code>) means same value as the previous level, for
+        instance “bordering/~/~/surrounding/~”.
       </p>
 
       <Row isDesktopOnly>
