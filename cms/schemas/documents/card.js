@@ -155,7 +155,7 @@ const card = {
       name: 'token',
       type: 'boolean',
       initialValue: false,
-      hidden: ({ document }) => document?.type !== 'unit',
+      hidden: ({ document }) => document?.type === 'spell',
     },
     {
       title: 'Additional notes',
