@@ -629,10 +629,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Aged Duskbringers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N70', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N70', 5)
-    expect(value1[0]).toEqual((5 / 7) * 1)
-    expect(value1[1]).toEqual(((5 + 5) / 7) * 1)
-    expect(value5[0]).toEqual((10 / 7) * 1)
-    expect(value5[1]).toEqual(((10 + 10) / 7) * 1)
+    expect(value1[0]).toEqual((6 / 7) * 1)
+    expect(value1[1]).toEqual(((6 + 5) / 7) * 1)
+    expect(value5[0]).toEqual((11 / 7) * 1)
+    expect(value5[1]).toEqual(((11 + 10) / 7) * 1)
   })
 
   it('should return value for Rapid Mousers', () => {
@@ -657,9 +657,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N73', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N73', 5)
     expect(value1[0]).toEqual((3 / 3) * 0.5)
-    expect(value1[1]).toEqual(((3 + 3) / 3) * 0.5)
+    expect(value1[1]).toEqual(((3 + 2) / 3) * 0.5)
     expect(value5[0]).toEqual((7 / 3) * 0.5)
-    expect(value5[1]).toEqual(((7 + 5) / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 6) / 3) * 0.5)
   })
 
   it('should return value for Beards of Crowglyph', () => {
@@ -757,10 +757,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Fortification Tonic', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I3', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I3', 5)
-    expect(value1[0]).toEqual((2 * 1) / 3)
-    expect(value1[1]).toEqual((2 * 8) / 3)
-    expect(value5[0]).toEqual((6 * 1) / 3)
-    expect(value5[1]).toEqual((6 * 8) / 3)
+    expect(value1[0]).toEqual((3 * 1) / 3)
+    expect(value1[1]).toEqual((3 * 8) / 3)
+    expect(value5[0]).toEqual((7 * 1) / 3)
+    expect(value5[1]).toEqual((7 * 8) / 3)
   })
 
   it('should return value for Ozone Purifiers', () => {
@@ -839,9 +839,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I12', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I12', 5)
     expect(value1[0]).toEqual((1 / 5) * 1.5)
-    expect(value1[1]).toEqual(((1 + 3) / 5) * 1.5)
+    expect(value1[1]).toEqual(((1 + 4) / 5) * 1.5)
     expect(value5[0]).toEqual((1 / 5) * 1.5)
-    expect(value5[1]).toEqual(((1 + 7) / 5) * 1.5)
+    expect(value5[1]).toEqual(((1 + 8) / 5) * 1.5)
   })
 
   it('should return value for Embers of Chaos', () => {
@@ -986,6 +986,15 @@ describe('The `getCardValue` helper', () => {
     expect(value1[1]).toEqual(((5 + 3) / 6) * 0.5)
     expect(value5[0]).toEqual((10 / 6) * 0.5)
     expect(value5[1]).toEqual(((10 + 6) / 6) * 0.5)
+  })
+
+  it('should return value for Frontline Engineers', () => {
+    const value1 = getCardValue(global.__CARDS_INDEX__, 'I33', 1)
+    const value5 = getCardValue(global.__CARDS_INDEX__, 'I33', 5)
+    expect(value1[0]).toEqual((2 / 4) * 1)
+    expect(value1[1]).toEqual(((2 + 2 * 8) / 4) * 1)
+    expect(value5[0]).toEqual((5 / 4) * 1)
+    expect(value5[1]).toEqual(((5 + 4 * 8) / 4) * 1)
   })
 
   it('should return value for Brood Sages', () => {
@@ -1490,6 +1499,15 @@ describe('The `getCardValue` helper', () => {
     expect(value1[1]).toEqual(((6 + 5 * 2) / 6) * 0.5)
     expect(value5[0]).toEqual((14 / 6) * 0.5)
     expect(value5[1]).toEqual(((14 + 13 * 2) / 6) * 0.5)
+  })
+
+  it('should return value for Cursed Cemetery', () => {
+    const value1 = getCardValue(global.__CARDS_INDEX__, 'S33', 1)
+    const value5 = getCardValue(global.__CARDS_INDEX__, 'S33', 5)
+    expect(value1[0]).toEqual(3 / 4)
+    expect(value1[1]).toEqual((3 + 1 * 2) / 4)
+    expect(value5[0]).toEqual(7 / 4)
+    expect(value5[1]).toEqual((7 + 3 * 2) / 4)
   })
 
   it('should return value for Icicle Burst', () => {
