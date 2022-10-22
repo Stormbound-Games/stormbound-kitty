@@ -19,7 +19,7 @@ export default React.memo(function PageSWCC(props) {
         { name: 'Grimm', slug: 'grimm' },
       ]}
       action={{ to: '/card', children: 'Card builder' }}
-      meta='Ongoing'
+      meta='Finished'
       isEditorialContent
     >
       <Page.Narrow>
