@@ -8,7 +8,7 @@ import { npxImport } from 'npx-import'
 const convert = async (result, { scale = 1, ex = 6 }) => {
   const width = result.width.slice(0, result.width.length - 2) * ex * scale
   const buffer = Buffer.from(result.svg, 'utf8')
-  const svg2png = await npxImport('svg2png@4')
+  const { default: svg2png } = await npxImport('svg2png@4')
   const stream = await svg2png(buffer, { width })
 
   return stream.toString('base64')
