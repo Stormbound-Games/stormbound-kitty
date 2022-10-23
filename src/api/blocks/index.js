@@ -37,7 +37,7 @@ _type == "columns" => {
   }
 },
 _type == "battleSim" => { content[] { ${block} } },
-_type == "card" => { ..., ${card} },
+_type == "card" => { ..., ${card} }{ ..., "versions": *[ _type == "changelog" && card -> id.current match ^.cardId && count(from) > 0] | order(date desc) { date, from } },
 _type == "deckEmbed" => { ..., ${deckAuthor}, ${deckTags} },
 _type == "faq" => { entries[] { "id": id.current, question, answer[] { ${block} } } },
 _type == "image" => { ${image} },

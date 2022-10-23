@@ -17,7 +17,7 @@ export default React.memo(function PageReleaseNotes(props) {
       withDropCap
     >
       <Page.Narrow>
-        <BlocksRenderer value={props.content} />
+        <BlocksRenderer value={props.content} date={props.date} />
       </Page.Narrow>
     </Page>
   )

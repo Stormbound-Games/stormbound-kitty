@@ -100,6 +100,7 @@ export default React.memo(function BlocksRenderer(props) {
   return (
     <RichTextContext.Provider
       value={{
+        date: props.date,
         ast: props.value,
         columns: props.columns || { count: 0, wide: false },
       }}
