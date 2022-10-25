@@ -1,6 +1,6 @@
 import PageEqualsList from '#components/PageEqualsList'
 import getSiteSettings from '#api/misc/getSiteSettings'
-import getEqualTierList from '#api/misc/getEqualTierList'
+import getEqualTierList from '#api/lists/getEqualTierList'
 
 export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
