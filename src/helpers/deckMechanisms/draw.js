@@ -17,7 +17,7 @@ const draw = (state, card = null) => {
 
   // Put the new card into the hand and reset its weight.
   state.hand.push(pick)
-  state.deck.find(isCard(pick)).weight = 0
+  state.deck.find(isCard(pick)).weight = 1
 
   return state
 }
