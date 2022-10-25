@@ -289,14 +289,14 @@ const getNavigation = async ({ isPreview }) => {
               id: 'FEATURED_DECKS',
             },
             {
+              label: 'Ranked Tier Lists',
+              to: '/tier-list',
+              id: 'TIER_LISTS',
+            },
+            {
               label: 'Equals Tier List',
               to: '/tier-list/equals',
               id: 'EQUALS_LIST',
-            },
-            {
-              label: 'Ranked Tier List',
-              to: '/tier-list/ranked',
-              id: 'RANKED_LIST',
             },
             {
               label: 'Draft Tier List',
