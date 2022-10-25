@@ -19,6 +19,15 @@ export const UNIT_TYPES = [
   'undead',
 ]
 export const CURRENCIES = ['coins', 'rubies', 'stones']
+export const LEAGUES = [
+  'starters',
+  'iron',
+  'silver',
+  'gold',
+  'platinum',
+  'diamond',
+  'heroes',
+]
 export const UPGRADE_COST = [50, 100, 300, 1000]
 export const RARITY_COPIES = {
   common: {
