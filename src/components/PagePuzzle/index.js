@@ -26,6 +26,7 @@ export default React.memo(function PagePuzzle(props) {
       description={`Figure out how to solve ${puzzle.name} by ${
         puzzle.user.name
       } (made in ${formatDate(date)}).`}
+      image={puzzle.image}
       isEditorialContent
     >
       <BattleSimApp {...state} {...props} />
