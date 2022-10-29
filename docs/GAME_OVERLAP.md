@@ -11,3 +11,7 @@ The site has had unique deck IDs since March 2019, while Stormbound only added d
 - Both systems rely on different card identifiers.
 
 The deck builder does provide a way to get (and copy to clipboard) the Stormbound deck ID of a given deck. This way a deck can be made on the site and copied to the game. Similarly, Stormbound deck IDs are supported by the deck builder and decoded properly.
+
+## League Tier Lists
+
+The site provides tier lists of the most used cards per league. This is made possible by querying game data from Stormbound Games’ Google Cloud Platform. The request is authenticated with a secret token exposed as an environment variable via Vercel, and only available at build time (revalidated daily).
