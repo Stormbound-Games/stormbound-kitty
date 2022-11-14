@@ -48,7 +48,7 @@
     "next-sitemap": "^3.1.29",
     "random-weighted-choice": "^0.1.4",
     "react": "^18.2.0",
-    "react-a11y-dialog": "^6.1.5",
+    "react-a11y-dialog": "^6.2.0",
     "react-dom": "^18.2.0",
     "react-dom-confetti": "^0.2.0",
     "react-fela": "^12.2.0",
