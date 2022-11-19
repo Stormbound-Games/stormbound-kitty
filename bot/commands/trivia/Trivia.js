@@ -219,7 +219,7 @@ export default class Trivia {
   }
 
   handleSuccess(author) {
-    const increment = this.difficulty === 'HARD' ? +2 : +1
+    const increment = this.difficulty === 'hard' ? +2 : +1
     const embed = getEmbed({ withHeader: false })
       .setTitle('🎉 Correct answer: ' + this.answer.name)
       .addFields({ name: 'Winner', value: String(author), inline: true })

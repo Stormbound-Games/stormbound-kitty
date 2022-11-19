@@ -69,7 +69,7 @@ export default class Canvas {
     this.context.clearRect(0, 0, width, height)
     this.context.drawImage(...args)
 
-    if (this.difficulty === 'HARD') {
+    if (this.difficulty === 'hard') {
       this.context.putImageData(this.grayscale(), 0, 0)
     }
 
