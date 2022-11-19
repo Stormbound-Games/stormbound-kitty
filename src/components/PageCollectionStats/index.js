@@ -49,7 +49,7 @@ export default React.memo(function PageCollectionStats(props) {
                 <Only.DefaultCollection>
                   Start by{' '}
                   <Link to='/collection'>setting up your card collection</Link>.
-                  In the mean time, the visualised collection contains all cards
+                  In the meantime, the visualised collection contains all cards
                   in the game at level 1.
                 </Only.DefaultCollection>
               </p>
