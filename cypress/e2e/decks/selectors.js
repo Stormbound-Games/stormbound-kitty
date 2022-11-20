@@ -13,7 +13,7 @@ const selectors = {
   DECK_FORM: '[data-testid="deck-form"]',
   DECK_ID_INPUT: '[data-testid="deck-id-input"]',
   DECK_NAME_INPUT: '[data-testid="deck-name-input"]',
-  DECK_TAGS_INPUT: '#deck-tags input:not([type="hidden"])',
+  DECK_TAGS_INPUT: '#deck-tags input[type="text"]',
   DECK_SUBMIT_BTN: '[data-testid="deck-submit"]',
 
   IMPORT_DECKS_BTN: '[data-testid="import-decks-btn"]',
@@ -21,7 +21,7 @@ const selectors = {
 
   PERSONAL_DECKS_NAME_INPUT: '[data-testid="decks-name-input"]',
   PERSONAL_DECKS_FACTION_SELECT: '[data-testid="decks-faction-select"]',
-  PERSONAL_DECKS_TAGS_SELECT: '#tags input:not([type="hidden"])',
+  PERSONAL_DECKS_TAGS_SELECT: '#tags input[type="text"]',
 
   DECK_SUGGESTION: '[data-testid="featured-deck"]',
   BOOKMARK_BTN: '[data-testid="bookmark-btn"]',
