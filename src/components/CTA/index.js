@@ -42,7 +42,6 @@ export default React.memo(function CTA({
       href={props.to}
       scroll={scroll}
       prefetch={false}
-      legacyBehavior={false}
       data-testid={props['data-testid']}
       aria-label={props['aria-label']}
       className={css(styles.cta, extend)}

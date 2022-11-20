@@ -36,7 +36,6 @@ function Link({ extend, hideNewTabIndicator, scroll, to, ...props }, ref) {
         href={to}
         scroll={scroll}
         prefetch={false}
-        legacyBehavior={false}
         ref={ref}
         className={css(styles.link, extend)}
       >
