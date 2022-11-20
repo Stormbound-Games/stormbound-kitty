@@ -20,7 +20,6 @@ export default React.memo(function DiamondButton({
       href={props.to}
       scroll={scroll}
       prefetch={false}
-      legacyBehavior={false}
       className={css(styles.button, extend)}
       data-testid={props['data-testid']}
       title={label}
