@@ -16,9 +16,10 @@ export default React.memo(function BattleSimBoardMobile(props) {
       <Image
         src='/assets/images/bg-swarm.jpg'
         alt='Mobile-format Swarm-themed battle background featuring the main interface elements from a Stormbound battle, especially the board'
-        layout='fill'
-        objectFit='cover'
         priority
+        fill
+        sizes='100vw'
+        style={{ objectFit: 'cover' }}
       />
 
       <div className={css(styles.health({ player: 'RED' }))}>
