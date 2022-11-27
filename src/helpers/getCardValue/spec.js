@@ -249,10 +249,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Warfront Runners', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N28', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N28', 5)
-    expect(value1[0]).toEqual((2 / 4) * 1.5)
-    expect(value1[1]).toEqual((2 / 4) * 1.5)
-    expect(value5[0]).toEqual((6 / 4) * 1.5)
-    expect(value5[1]).toEqual((6 / 4) * 1.5)
+    expect(value1[0]).toEqual((3 / 4) * 1.5)
+    expect(value1[1]).toEqual((3 / 4) * 1.5)
+    expect(value5[0]).toEqual((7 / 4) * 1.5)
+    expect(value5[1]).toEqual((7 / 4) * 1.5)
   })
 
   it('should return value for Bladestorm', () => {
@@ -267,10 +267,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Bluesail Raiders', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N30', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N30', 5)
-    expect(value1[0]).toEqual((3 / 5) * 1.5)
-    expect(value1[1]).toEqual((3 / 5) * 1.5)
-    expect(value5[0]).toEqual((7 / 5) * 1.5)
-    expect(value5[1]).toEqual((7 / 5) * 1.5)
+    expect(value1[0]).toEqual((4 / 5) * 1.5)
+    expect(value1[1]).toEqual((4 / 5) * 1.5)
+    expect(value5[0]).toEqual((8 / 5) * 1.5)
+    expect(value5[1]).toEqual((8 / 5) * 1.5)
   })
 
   it('should return value for Flooding the Gates', () => {
@@ -467,10 +467,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Salty Outcasts', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N52', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N52', 5)
-    expect(value1[0]).toEqual((5 / 7) * 1.5)
-    expect(value1[1]).toEqual((5 / 7) * 1.5)
-    expect(value5[0]).toEqual((10 / 7) * 1.5)
-    expect(value5[1]).toEqual((10 / 7) * 1.5)
+    expect(value1[0]).toEqual((6 / 7) * 1.5)
+    expect(value1[1]).toEqual((6 / 7) * 1.5)
+    expect(value5[0]).toEqual((11 / 7) * 1.5)
+    expect(value5[1]).toEqual((11 / 7) * 1.5)
   })
 
   it('should return value for Sharpfist Exiles', () => {
@@ -730,10 +730,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Eternal Ethereals', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N84', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N84', 5)
-    expect(value1[0]).toEqual((5 / 8) * 1.75)
-    expect(value1[1]).toEqual((5 / 8) * 1.75)
-    expect(value5[0]).toEqual((11 / 8) * 1.75)
-    expect(value5[1]).toEqual((11 / 8) * 1.75)
+    expect(value1[0]).toEqual((6 / 8) * 1.75)
+    expect(value1[1]).toEqual((6 / 8) * 1.75)
+    expect(value5[0]).toEqual((12 / 8) * 1.75)
+    expect(value5[1]).toEqual((12 / 8) * 1.75)
   })
 
   it('should return value for Destructobots', () => {
@@ -1477,10 +1477,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Obliterators', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'S26', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'S26', 5)
-    expect(value1[0]).toEqual((4 / 6) * 1.5)
-    expect(value1[1]).toEqual((4 / 6) * 1.5)
-    expect(value5[0]).toEqual((8 / 6) * 1.5)
-    expect(value5[1]).toEqual((8 / 6) * 1.5)
+    expect(value1[0]).toEqual((5 / 6) * 1.5)
+    expect(value1[1]).toEqual((5 / 6) * 1.5)
+    expect(value5[0]).toEqual((9 / 6) * 1.5)
+    expect(value5[1]).toEqual((9 / 6) * 1.5)
   })
 
   it.skip('should return value for Petrified Fossils', () => {
@@ -1738,10 +1738,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Sleetstompers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W26', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W26', 5)
-    expect(value1[0]).toEqual((6 / 8) * 1.5)
-    expect(value1[1]).toEqual((6 / 8) * 1.5)
-    expect(value5[0]).toEqual((12 / 8) * 1.5)
-    expect(value5[1]).toEqual((12 / 8) * 1.5)
+    expect(value1[0]).toEqual((8 / 8) * 1.5)
+    expect(value1[1]).toEqual((8 / 8) * 1.5)
+    expect(value5[0]).toEqual((14 / 8) * 1.5)
+    expect(value5[1]).toEqual((14 / 8) * 1.5)
   })
 
   it('should return value for Earthfathers', () => {
