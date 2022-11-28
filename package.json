@@ -24,7 +24,7 @@
     "@reach/tooltip": "^0.18.0",
     "@sanity/client": "^3.4.1",
     "canvas": "^2.10.2",
-    "copy-to-clipboard": "^3.3.2",
+    "copy-to-clipboard": "^3.3.3",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "express-rate-limit": "^6.7.0",
