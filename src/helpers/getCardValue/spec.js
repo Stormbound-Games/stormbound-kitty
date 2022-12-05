@@ -458,8 +458,8 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Dangerous Suitors', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N51', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N51', 5)
-    expect(value1[0]).toEqual((5 / 6) * 1)
-    expect(value1[1]).toEqual(((5 + MAX_TILES * 2) / 6) * 1)
+    expect(value1[0]).toEqual((4 / 6) * 1)
+    expect(value1[1]).toEqual(((4 + MAX_TILES * 2) / 6) * 1)
     expect(value5[0]).toEqual((10 / 6) * 1)
     expect(value5[1]).toEqual(((10 + MAX_TILES * 4) / 6) * 1)
   })
