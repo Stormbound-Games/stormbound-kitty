@@ -31,7 +31,7 @@
     "express-slow-down": "^1.5.0",
     "fela": "^12.2.1",
     "fela-enforce-longhands": "^12.2.1",
-    "fela-plugin-embedded": "^12.2.0",
+    "fela-plugin-embedded": "^12.2.1",
     "fela-plugin-extend": "^12.2.1",
     "fela-plugin-fallback-value": "^12.2.0",
     "fela-plugin-named-keys": "^12.2.0",
