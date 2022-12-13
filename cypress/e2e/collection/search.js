@@ -1,15 +1,7 @@
 import s from './selectors'
 
 describe('Collection — Search', () => {
-  before(() => {
-    cy.visit('/collection')
-  })
-
-  beforeEach(() => {
-    cy.get(s.RESET_BTN).then($button => {
-      if (!$button.is(':disabled')) cy.wrap($button).click()
-    })
-  })
+  beforeEach(() => cy.visit('/collection'))
 
   it('should be able to filter by faction', () => {
     cy.get(s.FACTION_SELECT).select('ironclad')

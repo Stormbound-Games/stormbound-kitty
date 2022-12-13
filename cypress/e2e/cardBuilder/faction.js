@@ -8,15 +8,19 @@ const assertCardFaction = (index, faction) =>
     .should('have.attr', 'data-faction', faction)
 
 describe('Card Builder — Faction', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be neutral by default', () => {
-    cy.get(s.FACTION_SELECT).should('have.value', 'neutral')
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to update the card faction', () => {
+    cy.get(s.FACTION_SELECT).should('have.value', 'neutral')
     cy.get(s.FACTION_SELECT)
       .should('be.visible')
       .select('ironclad')
@@ -25,8 +29,6 @@ describe('Card Builder — Faction', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     cy.get(s.FACTION_SELECT).should('have.value', 'ironclad')
     assertCardFaction(0, 'ironclad')
   })

@@ -8,15 +8,19 @@ const assertCardRarity = (index, rarity) =>
     .should('have.attr', 'alt', rarity)
 
 describe('Card Builder — Rarity', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be common by default', () => {
-    cy.get(s.RARITY_SELECT).should('have.value', 'common')
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to define the card rarity', () => {
+    cy.get(s.RARITY_SELECT).should('have.value', 'common')
     cy.get(s.RARITY_SELECT)
       .should('be.visible')
       .select('epic')
@@ -25,8 +29,6 @@ describe('Card Builder — Rarity', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     cy.get(s.RARITY_SELECT).should('have.value', 'epic')
     assertCardRarity(0, 'epic')
   })

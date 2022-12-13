@@ -1,7 +1,14 @@
 import s from './selectors'
 
 describe('Deck Builder — Index', () => {
-  before(() => cy.visit('/deck'))
+  let id = ''
+  beforeEach(() => cy.visit('/deck/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'deck') id = last
+    })
+  )
 
   it('should be possible to add a card to the deck', () => {
     // Record some aliases.

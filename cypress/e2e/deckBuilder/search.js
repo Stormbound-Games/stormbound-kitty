@@ -1,9 +1,7 @@
 import s from './selectors'
 
 describe('Deck Builder — Search', () => {
-  before(() => {
-    cy.visit('/deck')
-  })
+  beforeEach(() => cy.visit('/deck'))
 
   beforeEach(() => {
     cy.get(s.RESET_FILTERS_BTN).then($button => {

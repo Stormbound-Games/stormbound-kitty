@@ -25,7 +25,7 @@ const RESOLVED_N1 = serialization.card.deserialize(
 )
 
 describe('Cards Index — Index', () => {
-  before(() => cy.visit('/cards/N1'))
+  beforeEach(() => cy.visit('/cards/N1'))
 
   it('should hide the editing interface', () => {
     cy.get('form:not([name="search"])').should('not.exist')

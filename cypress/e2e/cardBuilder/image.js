@@ -8,17 +8,21 @@ const assertCardImage = (index, image) =>
     .should('have.attr', 'src', image)
 
 describe('Card Builder — Image', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be empty by default', () => {
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
+
+  it('should be possible to pick a card’s image', () => {
     cy.get(s.IMAGE_SELECT)
       .find('.CardSelect__single-value')
       .should('have.text', 'Pick a card')
-  })
-
-  it('should be possible to pick a card’s image', () => {
     cy.get(s.IMAGE_SELECT)
       .find('input')
       .first()
@@ -33,8 +37,6 @@ describe('Card Builder — Image', () => {
   })
 
   it.skip('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     assertCardImage(
       0,
       'https://cdn.sanity.io/images/5hlpazgd/production/acd2a07b8a65b920b41af9b63bcbdbb19f6429a0-512x512.png?auto=format&fit=max&w=300&q=90'

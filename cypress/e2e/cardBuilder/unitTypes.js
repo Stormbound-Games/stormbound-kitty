@@ -38,24 +38,25 @@ const assertFieldDisabled = () =>
   cy.get(s.UNIT_TYPES_SELECT).find('input').first().and('be.disabled')
 
 describe('Card Builder — Unit types', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be empty by default', () => {
-    assertFieldEmpty()
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to pick an existing unit type', () => {
+    assertFieldEmpty()
     fill('knight')
     assertFieldDisplay('knight')
     assertCardUnitTypes(0, 'knight')
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/card$/)
-      .reload()
     assertFieldDisplay('knight')
     assertCardUnitTypes(0, 'knight')
   })

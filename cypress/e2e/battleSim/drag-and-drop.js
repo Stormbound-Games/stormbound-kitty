@@ -1,9 +1,14 @@
 import s from './selectors'
 
 describe('Battle Simulator — Drag and drop', () => {
-  before(() => {
-    cy.visit('/simulators/battle')
-  })
+  let id = ''
+  beforeEach(() => cy.visit('/simulators/battle/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'battle') id = last
+    })
+  )
 
   it('should be possible to drag a filled cell on an empty slot', () => {
     cy.bsFill('A1', { card: 'Zhev', strength: 1 })

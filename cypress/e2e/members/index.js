@@ -12,8 +12,8 @@ describe('Members page', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
-    cy.get('#user-name')
+    cy.visit('/members')
+      .get('#user-name')
       .find('[class$="-singleValue"]')
       .should('contain', 'Kitty')
   })

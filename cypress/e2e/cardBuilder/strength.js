@@ -8,15 +8,19 @@ const assertCardStrength = (index, strength) =>
     .should('have.text', strength)
 
 describe('Card Builder — Strength', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be empty by default', () => {
-    cy.get(s.STRENGTH_INPUT).should('be.empty')
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to define the card strength', () => {
+    cy.get(s.STRENGTH_INPUT).should('be.empty')
     cy.get(s.STRENGTH_INPUT)
       .should('be.visible')
       .type('5')
@@ -25,8 +29,6 @@ describe('Card Builder — Strength', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     cy.get(s.STRENGTH_INPUT).should('have.value', '5')
     assertCardStrength(0, '5')
   })

@@ -12,16 +12,20 @@ const assertCardMovement = (index, movement, assertFixed = false) =>
     })
 
 describe('Card Builder — Movement', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be empty by default', () => {
-    cy.get(s.MOVEMENT_INPUT).should('be.empty')
-    cy.get(s.CARD_PREVIEW).eq(0).find(s.CARD_MOVEMENT).should('not.exist')
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to define the card movement', () => {
+    cy.get(s.MOVEMENT_INPUT).should('be.empty')
+    cy.get(s.CARD_PREVIEW).eq(0).find(s.CARD_MOVEMENT).should('not.exist')
     cy.get(s.MOVEMENT_INPUT)
       .should('be.visible')
       .type('0')
@@ -36,8 +40,6 @@ describe('Card Builder — Movement', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     cy.get(s.MOVEMENT_INPUT).should('have.value', '2')
     assertCardMovement(0, '2', true)
   })

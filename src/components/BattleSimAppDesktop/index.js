@@ -102,7 +102,7 @@ export default React.memo(function BattleSimAppDesktop(props) {
       )}
 
       {props.mode === 'EDITOR' && (
-        <Spacing top='LARGEST'>
+        <Spacing top='LARGEST' data-testid='battle-sim-settings'>
           <Row isDesktopOnly>
             <Row.Column width='1/3'>
               <Title>Game settings</Title>

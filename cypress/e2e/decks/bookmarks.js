@@ -1,8 +1,8 @@
 import s from './selectors'
 
 describe('Deck Builder - Bookmarks', () => {
-  before(() => cy.clearLocalStorageSnapshot().visit('/decks/bookmarks'))
-  beforeEach(() => cy.restoreLocalStorage())
+  before(() => cy.clearLocalStorageSnapshot())
+  beforeEach(() => cy.restoreLocalStorage().visit('/decks/bookmarks'))
   afterEach(() => cy.saveLocalStorage())
 
   it('should be possible to add a deck', () => {
