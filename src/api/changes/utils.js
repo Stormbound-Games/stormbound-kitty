@@ -1,7 +1,10 @@
 import serializeDate from '#helpers/serializeDate'
 
 export const FIELDS = `
-"id": card -> id.current,
+"id": coalesce(
+  card -> id.current,
+  *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id.current
+),
 type,
 date,
 description,
