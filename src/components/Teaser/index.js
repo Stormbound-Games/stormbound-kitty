@@ -19,7 +19,8 @@ export default React.memo(function Teaser(props) {
       <div
         className={css(styles.header)}
         style={{
-          '--color': `var(--light-${card?.faction}, var(--dark-beige))`,
+          '--color':
+            props.color || `var(--light-${card?.faction}, var(--dark-beige))`,
         }}
       >
         <div className={css(styles.card)}>

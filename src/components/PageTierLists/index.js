@@ -11,6 +11,7 @@ const ITEMS = [
     cardId: IDs[index],
     title: capitalize(league) + ' Tier List',
     to: '/tier-list/' + league,
+    color: `var(--${league}, var(--beige))`,
     excerpt: (
       <>
         A tier list based on the game data to list the most used card in the{' '}
