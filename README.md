@@ -40,6 +40,12 @@ npm install
 npm start
 ```
 
+On a M1 machine, it maybe necessary to install a certain amount of libraries via Homebrew prior the first `npm install` in order to provide the necessary dependencies for `node-canvas`:
+
+```sh
+brew install pkg-config cairo pango libpng jpeg giflib librsvg
+```
+
 ## Tests
 
 Unit tests are authored and ran with Jest, while end-to-end tests are executed via Cypress.
