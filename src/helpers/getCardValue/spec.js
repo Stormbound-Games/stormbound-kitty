@@ -78,9 +78,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N9', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N9', 5)
     expect(value1[0]).toEqual(1 / 3)
-    expect(value1[1]).toEqual((10 - 5) / 3)
+    expect(value1[1]).toEqual((12 - 5) / 3)
     expect(value5[0]).toEqual(1 / 3)
-    expect(value5[1]).toEqual((24 - 1) / 3)
+    expect(value5[1]).toEqual((26 - 1) / 3)
   })
 
   it('should return value for Conflicted Drakes', () => {
@@ -285,10 +285,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Heroic Soldiers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N32', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N32', 5)
-    expect(value1[0]).toEqual((5 / 5) * 1)
-    expect(value1[1]).toEqual((5 / 5) * 1)
-    expect(value5[0]).toEqual((10 / 5) * 1)
-    expect(value5[1]).toEqual((10 / 5) * 1)
+    expect(value1[0]).toEqual((6 / 5) * 1)
+    expect(value1[1]).toEqual((6 / 5) * 1)
+    expect(value5[0]).toEqual((11 / 5) * 1)
+    expect(value5[1]).toEqual((11 / 5) * 1)
   })
 
   it('should return value for Snake Eyes', () => {
@@ -485,10 +485,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Veterans of War', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N54', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N54', 5)
-    expect(value1[0]).toEqual((8 / 7) * 1)
-    expect(value1[1]).toEqual((8 / 7) * 1)
-    expect(value5[0]).toEqual((18 / 7) * 1)
-    expect(value5[1]).toEqual((18 / 7) * 1)
+    expect(value1[0]).toEqual((9 / 7) * 1)
+    expect(value1[1]).toEqual((9 / 7) * 1)
+    expect(value5[0]).toEqual((19 / 7) * 1)
+    expect(value5[1]).toEqual((19 / 7) * 1)
   })
 
   it('should return value for Joust Champions', () => {
@@ -522,9 +522,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N58', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N58', 5)
     expect(value1[0]).toEqual((6 / 9) * 1.75)
-    expect(value1[1]).toEqual(((6 + (10 - 3) * 3) / 9) * 1.75)
+    expect(value1[1]).toEqual(((6 + (12 - 3) * 3) / 9) * 1.75)
     expect(value5[0]).toEqual((12 / 9) * 1.75)
-    expect(value5[1]).toEqual(((12 + (24 - 3) * 3) / 9) * 1.75)
+    expect(value5[1]).toEqual(((12 + (26 - 3) * 3) / 9) * 1.75)
   })
 
   it('should return value for Edrik the Fierce', () => {
@@ -549,9 +549,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N61', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N61', 5)
     expect(value1[0]).toEqual((3 / 3) * 0.5)
-    expect(value1[1]).toEqual(((3 + 10 * 2) / 3) * 0.5)
+    expect(value1[1]).toEqual(((3 + 12 * 2) / 3) * 0.5)
     expect(value5[0]).toEqual((7 / 3) * 0.5)
-    expect(value5[1]).toEqual(((7 + 24 * 2) / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 26 * 2) / 3) * 0.5)
   })
 
   it('should return value for Sweetcap Kittens', () => {
@@ -919,10 +919,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Delegators', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I21', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I21', 5)
-    expect(value1[0]).toEqual((7 / 6) * 1)
-    expect(value1[1]).toEqual((7 / 6) * 1)
-    expect(value5[0]).toEqual((15 / 6) * 1)
-    expect(value5[1]).toEqual((15 / 6) * 1)
+    expect(value1[0]).toEqual((8 / 6) * 1)
+    expect(value1[1]).toEqual((8 / 6) * 1)
+    expect(value5[0]).toEqual((16 / 6) * 1)
+    expect(value5[1]).toEqual((16 / 6) * 1)
   })
 
   it('should return value for Project PH03-NIX', () => {
@@ -964,10 +964,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Operators', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I26', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I26', 5)
-    expect(value1[0]).toEqual((10 / 8) * 1)
-    expect(value1[1]).toEqual((10 / 8) * 1)
-    expect(value5[0]).toEqual((24 / 8) * 1)
-    expect(value5[1]).toEqual((24 / 8) * 1)
+    expect(value1[0]).toEqual((12 / 8) * 1)
+    expect(value1[1]).toEqual((12 / 8) * 1)
+    expect(value5[0]).toEqual((26 / 8) * 1)
+    expect(value5[1]).toEqual((26 / 8) * 1)
   })
 
   it('should return value for Scrapped Planners', () => {
@@ -1027,9 +1027,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Toxic Sacrifice', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F4', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F4', 5)
-    expect(value1[0]).toEqual((1 - 10) / 2)
+    expect(value1[0]).toEqual((1 - 12) / 2)
     expect(value1[1]).toEqual((8 * 2 - 1) / 2)
-    expect(value5[0]).toEqual((1 - 24) / 2)
+    expect(value5[0]).toEqual((1 - 26) / 2)
     expect(value5[1]).toEqual((8 * 6 - 1) / 2)
   })
 
@@ -1163,9 +1163,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F19', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F19', 5)
     expect(value1[0]).toEqual((2 / 5) * 1)
-    expect(value1[1]).toEqual(((2 + 10) / 5) * 1)
+    expect(value1[1]).toEqual(((2 + 12) / 5) * 1)
     expect(value5[0]).toEqual((6 / 5) * 1)
-    expect(value5[1]).toEqual(((6 + 24) / 5) * 1)
+    expect(value5[1]).toEqual(((6 + 26) / 5) * 1)
   })
 
   it('should return value for Blood Ministers', () => {
@@ -1729,10 +1729,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Iced Droplings', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W25', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W25', 5)
-    expect(value1[0]).toEqual((7 / 6) * 1)
-    expect(value1[1]).toEqual((7 / 6) * 1)
-    expect(value5[0]).toEqual((15 / 6) * 1)
-    expect(value5[1]).toEqual((15 / 6) * 1)
+    expect(value1[0]).toEqual((8 / 6) * 1)
+    expect(value1[1]).toEqual((8 / 6) * 1)
+    expect(value5[0]).toEqual((16 / 6) * 1)
+    expect(value5[1]).toEqual((16 / 6) * 1)
   })
 
   it('should return value for Sleetstompers', () => {
