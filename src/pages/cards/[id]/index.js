@@ -6,6 +6,7 @@ import getChangesFromCard from '#api/changes/getChangesFromCard'
 import getCards from '#api/cards/getCards'
 import getCardFeed from '#api/cards/getCardFeed'
 import { FIELDS as CARD_FIELDS } from '#api/cards/utils'
+import { block, card as cardBlock } from '#api/blocks/index'
 
 export async function getStaticPaths() {
   const cards = (await getCards()).filter(card => !card.token)
@@ -14,11 +15,18 @@ export async function getStaticPaths() {
   return { paths, fallback: 'blocking' }
 }
 
+const query = `
+${CARD_FIELDS},
+id.current == $id => {
+  _id,
+  notes[] { ${block}, _type == "card" => { ${cardBlock} } }
+}`
+
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const cardId = params.id.toUpperCase()
   const cards = await getCards({
     isPreview,
-    fields: CARD_FIELDS + ', id.current == $id => { _id, notes }',
+    fields: query,
     params: { id: cardId },
   })
   const settings = await getSiteSettings({ isPreview, cards })

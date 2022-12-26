@@ -136,9 +136,25 @@ export default React.memo(function Card(props) {
           <span className={css(styles.level)} data-testid='card-level'>
             Level{' '}
             {
-              // Token cards carry their strength in their level but they should
-              // always be displayed as level 1.
-              props.token ? 1 : props.level
+              // This is a little awkward: back in the days of writing the
+              // battle sim, I decided to store a token’s strength in its level
+              // property since it doesn’t actually have a level per se. This
+              // allowed for serializing a 3-strength token card as `3t1` for
+              // instance.
+              // This is why the property was originally expressed as:
+              //    props.token ? 1 : props.level
+              //
+              // Unfortunately that notion that token cards do not have a level
+              // no longer holds up, because cards like Malicious Finch create
+              // token cards which very much have leveling. And when displaying
+              // a token card across its 5 levels for showcasing purposes (such
+              // as in release notes or the official card pages), we want the
+              // levels to range from 1 to 5, not 1 every time.
+              //
+              // This check is not great because it would render a 4-strength
+              // token as level 4 in the battle sim, which is not exactly
+              // correct, but that’s the best I’ve got right now.
+              props.token && props.level > 5 ? 1 : props.level
             }
           </span>
 
