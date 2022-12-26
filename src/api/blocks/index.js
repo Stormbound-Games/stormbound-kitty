@@ -1,4 +1,4 @@
-const card = `
+export const card = `
 "cardId": coalesce(
   card -> id.current,
   *[ _type == "card" && _id in ["drafts." + ^.card._ref, ^.card._ref] ][0].id.current
@@ -19,7 +19,7 @@ const deckTags = `"tags": deckTags[] -> { name, "slug": slug.current }`
 const deckAuthor = `"author": user -> { name, "slug": slug.current }`
 const image = `"src": asset -> url`
 
-const block = `..., ${markDefs}`
+export const block = `..., ${markDefs}`
 
 const blocks = `
 ${block},
