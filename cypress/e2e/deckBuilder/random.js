@@ -1,8 +1,7 @@
 import s from './selectors'
 
 describe('Deck Builder — Random deck', () => {
-  before(() => cy.visit('/deck/1n1'))
-  beforeEach(() => cy.dbReset())
+  beforeEach(() => cy.visit('/deck/1n1').dbReset())
 
   it('should be possible to generate a random deck', () => {
     cy.get(s.RANDOM_BTN).click().wait(1000)

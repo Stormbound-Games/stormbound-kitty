@@ -1,9 +1,14 @@
 import s from './selectors'
 
 describe('Battle Simulator — Cells', () => {
-  before(() => {
-    cy.visit('/simulators/battle')
-  })
+  let id = ''
+  beforeEach(() => cy.visit('/simulators/battle/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'battle') id = last
+    })
+  )
 
   it('should be possible to select and unselect an cell', () => {
     cy.get(s.CELL_A1).click().should('have.attr', 'aria-pressed', 'true')
@@ -48,7 +53,6 @@ describe('Battle Simulator — Cells', () => {
   })
 
   it('should be possible to update the vitality status of a filled cell', () => {
-    cy.get(s.CELL_A1).click() // Don’t ask me…
     cy.url().then(currentUrl => {
       cy.get(s.CELL_A1).click()
       cy.get(s.CELL_FORM_VITALITY_CHECKBOX).click({ force: true })
@@ -62,7 +66,6 @@ describe('Battle Simulator — Cells', () => {
   })
 
   it('should be possible to empty a filled cell', () => {
-    cy.get(s.CELL_A1).click() // Don’t ask me…
     cy.url().then(currentUrl => {
       cy.get(s.CELL_A1).click()
       cy.get(s.CELL_FORM_REMOVE_BTN).should('be.visible').click()
@@ -73,7 +76,6 @@ describe('Battle Simulator — Cells', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.get(s.CELL_A1).click() // Don’t ask me…
     cy.url().then(currentUrl => {
       cy.bsFill('A1', {
         card: 'Zhev',

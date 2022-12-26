@@ -8,9 +8,16 @@ const assert = (property, value) =>
     .should('have.attr', 'data-' + property, value)
 
 describe('Card Builder — Randomize', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
+
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should allow picking a card type', () => {
     // Open the dialog.

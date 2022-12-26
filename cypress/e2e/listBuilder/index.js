@@ -1,7 +1,15 @@
 import s from './selectors'
 
 describe('List Builder', () => {
-  before(() => cy.visit('/list'))
+  let id = ''
+
+  beforeEach(() => cy.visit('/list/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'list') id = last
+    })
+  )
 
   it('should be possible to fill the first tier', () => {
     cy.get(s.TIER).should('have.length', 1)
@@ -38,7 +46,14 @@ describe('List Builder', () => {
   })
 
   it('should be possible to reorder tiers', () => {
-    cy.get(s.TIER).first().find(s.TIER_NAME_INPUT).invoke('val').as('name')
+    cy.get(s.TIER)
+      .first()
+      .find(s.TIER_NAME_INPUT)
+      .invoke('val')
+      // Cypress 12 shenanigans 🙃
+      // Ref: https://docs.cypress.io/guides/references/migration-guide#-invoke
+      .then(value => value)
+      .as('name')
     cy.get(s.TIER).first().find(s.TIER_DOWN).click()
     cy.get(s.TIER)
       .last()

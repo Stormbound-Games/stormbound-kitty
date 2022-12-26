@@ -4,15 +4,19 @@ const assertCardName = (index, name) =>
   cy.get(s.CARD_PREVIEW).eq(index).find(s.CARD_NAME).should('have.text', name)
 
 describe('Card Builder — Name', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be empty by default', () => {
-    cy.get(s.NAME_INPUT).should('be.empty')
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to define the card name', () => {
+    cy.get(s.NAME_INPUT).should('be.empty')
     cy.get(s.NAME_INPUT)
       .should('be.visible')
       .type('Kitty Sparkles')
@@ -21,8 +25,6 @@ describe('Card Builder — Name', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     cy.get(s.NAME_INPUT).should('have.value', 'Kitty Sparkles')
     assertCardName(0, 'Kitty Sparkles')
   })

@@ -1,11 +1,8 @@
 import s from './selectors'
 
 describe('Battle Simulator — Reset', () => {
-  before(() => {
-    cy.visit('/simulators/battle')
-  })
-
   it('should reset all info', () => {
+    cy.visit('/simulators/battle')
     cy.get(s.RED_HEALTH_INPUT).clear().type('9')
     cy.get(s.BLUE_FACTION_SELECT).select('ironclad')
     cy.get(s.GRID_MARKERS_CHECKBOX).click()

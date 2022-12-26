@@ -1,9 +1,14 @@
 import s from './selectors'
 
 describe('Battle Simulator — Front lines', () => {
-  before(() => {
-    cy.visit('/simulators/battle')
-  })
+  let id = ''
+  beforeEach(() => cy.visit('/simulators/battle/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'battle') id = last
+    })
+  )
 
   it('should have initial front lines', () => {
     cy.get(s.ROWS).eq(0).should('have.attr', 'data-battle-sim-row', 'RED-0')

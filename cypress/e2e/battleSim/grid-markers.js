@@ -1,9 +1,14 @@
 import s from './selectors'
 
 describe('Battle Simulator — Grid Markers', () => {
-  before(() => {
-    cy.visit('/simulators/battle')
-  })
+  let id = ''
+  beforeEach(() => cy.visit('/simulators/battle/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'battle') id = last
+    })
+  )
 
   it('should be possible to enable grid markers', () => {
     cy.get(s.GRID_MARKERS_CHECKBOX).click()

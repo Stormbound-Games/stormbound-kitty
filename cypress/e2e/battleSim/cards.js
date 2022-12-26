@@ -1,9 +1,14 @@
 import s from './selectors'
 
 describe('Battle Simulator — Cards', () => {
-  before(() => {
-    cy.visit('/simulators/battle')
-  })
+  let id = ''
+  beforeEach(() => cy.visit('/simulators/battle/' + id))
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'battle') id = last
+    })
+  )
 
   it('should be possible to add a card in hand', () => {
     cy.bsDraw({ slot: 1, card: 'Zhev' })

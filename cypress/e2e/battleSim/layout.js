@@ -1,8 +1,7 @@
 import s from './selectors'
 
 describe('Battle Simulator — Layout', () => {
-  before(() => cy.visit('/simulators/battle'))
-  beforeEach(() => cy.viewport('iphone-6'))
+  beforeEach(() => cy.viewport('iphone-6').visit('/simulators/battle'))
 
   it('should be possible to open and close the cell panel', () => {
     cy.get(s.BOARD).should('be.visible')

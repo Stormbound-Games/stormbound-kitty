@@ -4,7 +4,7 @@ const DECK_ID = '5n15n25n35n235n45n55n625s35n145w125w104w19'
 const HAND = ['N14', 'W10', 'W12', 'W19']
 
 describe('Dry-runner — Reset', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`).drDrawHand(HAND)
   })
 

@@ -2,7 +2,7 @@ import s from './selectors'
 
 describe('Search', () => {
   it('should be possible to do a search', () => {
-    cy.visit('/')
+    cy.visit('/').wait(1000)
     cy.get(s.SEARCH_BUTTON).last().click()
     cy.get(s.SEARCH_DIALOG).should('be.visible')
     cy.get(s.SEARCH_INPUT).type('kitt')

@@ -1,7 +1,7 @@
 import s from './selectors'
 
 describe('Collection — Books', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('/calculators/books')
   })
 

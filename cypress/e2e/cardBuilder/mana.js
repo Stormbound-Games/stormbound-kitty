@@ -4,16 +4,20 @@ const assertCardMana = (index, mana) =>
   cy.get(s.CARD_PREVIEW).eq(index).find(s.CARD_MANA).should('have.text', mana)
 
 describe('Card Builder — Mana', () => {
-  before(() => {
-    cy.visit('/card')
-  })
+  let id = ''
 
-  it('should be empty by default', () => {
-    cy.get(s.MANA_INPUT).should('be.empty')
-    assertCardMana(0, '')
-  })
+  beforeEach(() => cy.visit('/card/' + id))
+
+  afterEach(() =>
+    cy.url().then(url => {
+      let last = url.split('/').pop()
+      if (last !== 'card') id = last
+    })
+  )
 
   it('should be possible to define the card mana', () => {
+    cy.get(s.MANA_INPUT).should('be.empty')
+    assertCardMana(0, '')
     cy.get(s.MANA_INPUT)
       .should('be.visible')
       .type('5')
@@ -22,8 +26,6 @@ describe('Card Builder — Mana', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url().should('not.match', /\/card$/)
-    cy.reload()
     cy.get(s.MANA_INPUT).should('have.value', '5')
     assertCardMana(0, '5')
   })

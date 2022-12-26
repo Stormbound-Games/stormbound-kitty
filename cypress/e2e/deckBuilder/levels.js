@@ -1,9 +1,7 @@
 import s from './selectors'
 
 describe('Deck Builder — Levels', () => {
-  before(() => {
-    cy.visit('/deck')
-  })
+  beforeEach(() => cy.visit('/deck'))
 
   it('should display cards level 1', () => {
     cy.get(s.CARD).find(s.CARD_LEVEL).should('contain', 1)

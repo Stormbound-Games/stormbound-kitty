@@ -1,7 +1,8 @@
 import s from './selectors'
 
 describe('Cards Index — Changelog', () => {
-  before(() => cy.visit('/cards/N1'))
+  let version = ''
+  beforeEach(() => cy.visit('/cards/N1/' + version))
 
   it('should be possible to load previous version', () => {
     cy.get(s.CARD_ABILITY)
@@ -17,6 +18,7 @@ describe('Cards Index — Changelog', () => {
           .invoke('text')
           .should('not.equal', ability)
       })
+    cy.url().then(url => (version = url.split('/').pop()))
   })
 
   it('should mention the version in page meta', () => {
