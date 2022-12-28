@@ -27,12 +27,12 @@ const play = (state, card, opts, HoS) => {
 
   if (!card) return state
 
-  const cardData = state.deck.find(isCard(card))
-
   // Remove the played card from the hand
   state.hand = state.hand.filter(isNotCard(card))
 
   if (options.discard) return state
+
+  const cardData = state.deck.find(isCard(card))
 
   // Log card being played
   state.playedCards = [cardData, ...state.playedCards]

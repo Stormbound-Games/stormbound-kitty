@@ -315,6 +315,23 @@ const handleCardEffect = (state, card, mode, HoS) => {
       break
     }
 
+    // Strict Quartermasters
+    case 'N107': {
+      const pirates = state.deck
+        .filter(isPirateInDeck(state))
+        .filter(isNotCard(card))
+
+      // If Strict Quartermasters are played without any pirate in the remaining
+      // cards from the deck, there is nothing more to do.
+      if (mode === 'MANUAL' || pirates.length === 0) {
+        break
+      }
+
+      state.hand.push(arrayRandom(pirates))
+
+      break
+    }
+
     // Spellbinder Zhevana gains mana depending on the approximation of the
     // number of frozen enemy units on the board. The RNG appearing in the
     // game—how many units are played in the same column—is replaced by a RNG
@@ -355,6 +372,13 @@ const handleCardEffect = (state, card, mode, HoS) => {
 
 const isNotPirate = state => card =>
   !state.deck.find(isCard(card)).unitTypes.includes('pirate')
+
+const isPirateInDeck = state => card => {
+  const isInHand = state.hand.find(isCard(card))
+  const cardInDeck = state.deck.find(isCard(card))
+
+  return !isInHand && cardInDeck.unitTypes.includes('pirate')
+}
 
 const isSatyrInDeck = state => card => {
   const isInHand = state.hand.find(isCard(card))
