@@ -1,6 +1,7 @@
 import { DEFAULT_MANA } from '#constants/battle'
 import resolveManaRNG from './resolveManaRNG'
 import refill from './refill'
+import { handleOpponentMaliciousFinch } from './handleCardEffect'
 
 export const DEFAULT_END_TURN_OPTIONS = {
   modifier: null,
@@ -37,6 +38,12 @@ const endTurn = (state, opts) => {
 
   // Refill the hand up to 4 cards
   refill(state)
+
+  // If the opponent has Malicious Finch, they may play it and insert a card
+  // in the player’s deck.
+  if (state.opponentDeck.map(card => card.id).includes('N106')) {
+    handleOpponentMaliciousFinch(state)
+  }
 
   return state
 }

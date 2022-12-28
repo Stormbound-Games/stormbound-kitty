@@ -1,5 +1,6 @@
 import { PROBABILITIES } from '#constants/dryRunner'
 import arrayRandom from '#helpers/arrayRandom'
+import getResolvedCardData from '#helpers/getResolvedCardData'
 import isCard, { isNotCard } from '#helpers/isCard'
 import shuffle from '#helpers/shuffle'
 import play from './play'
@@ -364,6 +365,27 @@ const isSatyrInDeck = state => card => {
     cardInDeck.unitTypes.includes('satyr') &&
     ['common', 'rare'].includes(cardInDeck.rarity)
   )
+}
+
+export const handleOpponentMaliciousFinch = state => {
+  // In friendly RNG, the opponent never gets to play Malicious Finch, even if
+  // they have it in the deck.
+  if (state.RNG === 'FRIENDLY') return
+
+  // The odds of getting to play Malicious Finch are 1 in 4 in unfriendly RNG,
+  // and 1 in 12 otherwise.
+  const odds = (1 / 12) * (12 - (state.RNG === 'REGULAR' ? 11 : 9))
+
+  if (Math.random() < odds) {
+    const cardId = arrayRandom(['T18', 'T19', 'T20'])
+    const card = getResolvedCardData(state.cardsIndex, { id: cardId })
+
+    card.weight = 1
+    card.singleUse = card.created = true
+    card.idx = state.deck.filter(card => card.id === cardId).length.toString()
+
+    state.deck.push(card)
+  }
 }
 
 export default handleCardEffect
