@@ -43,14 +43,22 @@ const RNG_SENSITIVE_CARDS = {
     UNFRIENDLY: () => <>When <CardLink id='N38' /> manage to create a copy, it’s generally weak</>,
     REGULAR: () => <><CardLink id='N38' /> sometimes create an average copy</>,
   },
+  N106: {
+    FRIENDLY: () => <>The opponent never plays <CardLink id='N106' /></>,
+    REGULAR: () => <>The opponent rarely plays <CardLink id='N106' /></>,
+    UNFRIENDLY: () => <>The opponent often plays <CardLink id='N106' /></>,
+  }
 }
 
 export default React.memo(function DryRunnerRNGField(props) {
   const { css } = useFela()
   const deckIds = props.deck.map(card => card.id)
+  const opponentDeckIds = props.opponentDeck.map(card => card.id)
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
-  const RNGSensitiveCards = possibleRNGSensitiveCards.filter(cardId =>
-    deckIds.includes(cardId)
+  const RNGSensitiveCards = possibleRNGSensitiveCards.filter(
+    cardId =>
+      deckIds.includes(cardId) ||
+      (cardId === 'N106' && opponentDeckIds.includes(cardId))
   )
 
   // The RNG settings need to be displayed if:

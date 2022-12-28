@@ -44,6 +44,7 @@ export default React.memo(function DryRunnerSettings(props) {
         RNG={props.RNG}
         setRNG={props.setRNG}
         deck={props.deck}
+        opponentDeck={props.opponentDeck}
       />
     </div>
   )
