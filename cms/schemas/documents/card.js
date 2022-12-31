@@ -158,6 +158,15 @@ const card = {
       initialValue: false,
     },
     {
+      title: 'Without level',
+      name: 'withoutLevel',
+      description:
+        'Whether the token card is a “pure” token, which does not have a concept of leveling at all (e.g. Token Construct).',
+      type: 'boolean',
+      hidden: ({ document }) => !document.token,
+      initialValue: false,
+    },
+    {
       title: 'Additional notes',
       name: 'notes',
       type: 'array',
