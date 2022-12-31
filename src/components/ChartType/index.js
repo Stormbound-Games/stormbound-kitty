@@ -12,21 +12,19 @@ import Title from '#components/Title'
 import { TOOLTIP_STYLES } from '#constants/stats'
 
 export default React.memo(function ChartType() {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const types = ['unit', 'spell', 'structure']
-  const data = cards
-    .filter(card => !card.token)
-    .reduce(
-      (acc, card) => {
-        acc[types.indexOf(card.type)].value++
-        return acc
-      },
-      [
-        { name: 'Units', value: 0, color: '#e74c3c' },
-        { name: 'Spells', value: 0, color: '#9b59b6' },
-        { name: 'Structures', value: 0, color: '#1abc9c' },
-      ]
-    )
+  const data = cardsWithoutTokens.reduce(
+    (acc, card) => {
+      acc[types.indexOf(card.type)].value++
+      return acc
+    },
+    [
+      { name: 'Units', value: 0, color: '#e74c3c' },
+      { name: 'Spells', value: 0, color: '#9b59b6' },
+      { name: 'Structures', value: 0, color: '#1abc9c' },
+    ]
+  )
 
   return (
     <>

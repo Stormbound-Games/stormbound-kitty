@@ -8,6 +8,7 @@ type,
 "unitTypes": coalesce(unitTypes, []),
 rarity,
 token,
+token => { withoutLevel },
 
 strength,
 mana,

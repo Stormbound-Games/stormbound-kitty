@@ -62,6 +62,7 @@ const card = {
       options: { list: RARITIES },
       validation: Rule =>
         Rule.custom((value, context) => {
+          // Token cards do not have a concept of rarity: they are common.
           if (!context.document?.token && !value) return 'Required'
           return true
         }),

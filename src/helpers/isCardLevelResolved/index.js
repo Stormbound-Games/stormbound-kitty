@@ -22,4 +22,5 @@ const isCardLevelResolved = card => {
 
   return true
 }
+
 export default isCardLevelResolved

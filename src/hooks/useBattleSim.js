@@ -339,7 +339,7 @@ const useBattleSim = props => {
       if (cell.card.id) {
         setZoomed({
           id: cell.card.id,
-          level: cell.card.token ? cell.strength : cell.level,
+          level: cell.card.withoutLevel ? 1 : cell.level,
           player: cell.player,
         })
       }

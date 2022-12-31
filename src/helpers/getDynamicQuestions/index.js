@@ -27,7 +27,7 @@ const getDynamicQuestions = async cards => {
 
   return [
     {
-      question: 'How many cards are there?',
+      question: 'How many non-token cards are there?',
       answer: cardsWithoutTokens.length,
       options: rangeAround(cardsWithoutTokens.length, 20),
     },

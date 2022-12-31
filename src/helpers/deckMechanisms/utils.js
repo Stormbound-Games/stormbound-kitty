@@ -37,7 +37,10 @@ const getHarvestersOfSoulsCopiedCard = (state, pool, harvestersLevel) => {
   copiedCard.strengthIncreased = copiedCardStrength > copiedCard.strength
   copiedCard.strengthDecreased = copiedCardStrength < copiedCard.strength
 
-  if (copiedCard.token) {
+  // The check is done on the `withoutLevel` property and not the `token`
+  // property because this is about setting the right strength to “pure” tokens
+  // (card that do not have a concept of leveling).
+  if (copiedCard.withoutLevel) {
     copiedCard.level = copiedCardStrength
 
     if (
@@ -117,6 +120,9 @@ export const isPlayableSpell = state => card => {
 export const getCollectorMirzToken = (cardsIndex, deck, level) => {
   const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15])
   const token = getResolvedCardData(cardsIndex, { id })
+  // All the card IDs listed above are token cards without levels, so their
+  // strength is carried in the `level` property (due to the way serializtion
+  // works for these cards).
   token.level = [5, 6, 6, 8, 10][level - 1]
   token.weight = 1
   token.mana = 0

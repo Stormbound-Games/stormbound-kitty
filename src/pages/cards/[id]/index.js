@@ -9,7 +9,9 @@ import { FIELDS as CARD_FIELDS } from '#api/cards/utils'
 import { block, card as cardBlock } from '#api/blocks/index'
 
 export async function getStaticPaths() {
-  const cards = (await getCards()).filter(card => !card.token)
+  // All cards, tokens included, should have an official card page, except for
+  // pure tokens (i.e. cards without a concept of leveling).
+  const cards = (await getCards()).filter(card => !card.withoutLevel)
   const paths = cards.map(card => ({ params: { id: card.id } }))
 
   return { paths, fallback: 'blocking' }
@@ -33,7 +35,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cardsIndex = indexArray(settings.cards)
   const isOfficial = cardId in cardsIndex
 
-  if (!isOfficial || cardsIndex[cardId].token) {
+  if (!isOfficial || cardsIndex[cardId].withoutLevel) {
     return { notFound: true }
   }
 

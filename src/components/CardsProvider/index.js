@@ -10,10 +10,20 @@ export default React.memo(function CardsProvider({ children, cards = [] }) {
     [cards]
   )
   const cardsIndexBySid = React.useMemo(() => indexArray(cards, 'sid'), [cards])
+  const cardsWithoutTokens = React.useMemo(
+    () => cards.filter(card => !card.token),
+    [cards]
+  )
 
   return (
     <CardsContext.Provider
-      value={{ cards, cardsIndex, cardsIndexByName, cardsIndexBySid }}
+      value={{
+        cards,
+        cardsWithoutTokens,
+        cardsIndex,
+        cardsIndexByName,
+        cardsIndexBySid,
+      }}
     >
       {children}
     </CardsContext.Provider>

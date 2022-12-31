@@ -11,7 +11,11 @@ export default React.memo(function Embellish(props) {
       new RegExp(
         '(' +
           cards
-            .filter(card => !card.token)
+            // The point of “embellishing” card names is to provide a link to
+            // their official page. Token cards without a concept of leveling
+            // (i.e. “pure” tokens) do not have an official page, so they should
+            // be excluded.
+            .filter(card => !card.withoutLevel)
             .map(card => card.name)
             .join('|') +
           ')',

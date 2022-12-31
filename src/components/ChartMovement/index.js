@@ -14,6 +14,8 @@ import { TOOLTIP_STYLES } from '#constants/stats'
 export default React.memo(function ChartMovement() {
   const { cards } = React.useContext(CardsContext)
   const data = cards
+    // Make sure not to take token cards into account otherwise it would skew
+    // the movement stats downwards since tokens are typically 0-move.
     .filter(card => !card.token)
     .reduce(
       (acc, card) => {

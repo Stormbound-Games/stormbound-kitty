@@ -24,7 +24,7 @@ export const getExperience = (collection, cardsIndex) =>
   collection.reduce((acc, card) => {
     const { level, missing, id } = card
 
-    if (card.token || missing) return acc
+    if (missing) return acc
 
     const sum = (a, b) => a + b
     const { rarity } = cardsIndex[id]

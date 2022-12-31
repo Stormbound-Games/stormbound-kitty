@@ -114,6 +114,8 @@ export default class Trivia {
 
   defineAnswer() {
     if (this.mode === 'IMAGE' || this.mode === 'CARD') {
+      // Make sure not to pick a token card as players tend not to know all the
+      // names very well.
       return arrayRandom(this.cards.filter(card => !card.token))
     } else if (this.mode === 'QUESTION') {
       const { question, choices } = getRandomQuestion(this.questions, true)

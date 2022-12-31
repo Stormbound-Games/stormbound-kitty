@@ -22,10 +22,8 @@ const getAverageLevel = cards =>
   cards.map(card => card.level).reduce(sum, 0) / cards.length
 const getUpgradableCards = (cardsIndex, cards) =>
   cards.filter(card => isCardUpgradable(cardsIndex, card))
-const getMissingCards = cards =>
-  cards.filter(card => card.missing && !card.token)
-const getNonMissingCards = cards =>
-  cards.filter(card => !card.missing && !card.token)
+const getMissingCards = cards => cards.filter(card => card.missing)
+const getNonMissingCards = cards => cards.filter(card => !card.missing)
 const getLevelStats = (cards, totalKnownCards) =>
   cards
     .reduce(

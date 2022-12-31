@@ -16,6 +16,7 @@ const QUERY = `*[ _type == "card" ] {
   strength,
   movement,
   token => { token },
+  withoutLevel => { withoutLevel },
   "image": image.asset -> url
 }`
 
