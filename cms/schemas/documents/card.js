@@ -154,6 +154,8 @@ const card = {
     {
       title: 'Token',
       name: 'token',
+      description:
+        'Token cards are cards which are not part of the default card collection, such as event-specific or spawned cards.',
       type: 'boolean',
       initialValue: false,
     },
