@@ -18,6 +18,9 @@ Alternatively, look at the top right corner of the page for 3 little dots. Click
 
 In that mode, every request made to the CMS will bypass cache and query draft versions, so you will see unpublished content. You can safely browse the website or refresh the page — the preview mode will remain active for an hour or until the next website deployment (or until you remove it).
 
+> **Note:**  
+> Tests can also be run with preview data. Unit tests need the `SANITY_PREVIEW_TOKEN` environment variable (so they fetch the preview data during the setup), while end-to-end tests need the `SANITY_STUDIO_PREVIEW_TOKEN` environment variable (so they enable the preview mode before running).
+
 ## Publishing content
 
 When a document gets published in the CMS, the cache for relevant pages gets invalidated (see [Next.js docs](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#on-demand-revalidation-beta)). For instance, updating a guide document causes the page for the guide to be updated almost immediately (or within a few seconds). Adding a new story causes this story to be visible immediately. And so on.

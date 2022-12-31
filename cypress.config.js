@@ -7,6 +7,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   pageLoadTimeout: 90000,
   env: {
+    SANITY_STUDIO_PREVIEW_TOKEN: process.env.SANITY_STUDIO_PREVIEW_TOKEN,
     coverage: false,
   },
   numTestsKeptInMemory: 10,
