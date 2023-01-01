@@ -28,14 +28,6 @@ const ITEMS = [
     excerpt:
       'A tier list dedicated to the ‘Equals’ game mode, curated by the community on a semi-regular basis.',
   },
-  {
-    meta: 'Community content',
-    cardId: 'N86',
-    title: 'Ranked Tier List',
-    to: '/tier-list/ranked',
-    excerpt:
-      'A tier list automatically computed based on the community decks to figure out which are the cards the most included.',
-  },
 ]
 
 export default React.memo(function PageFanKit() {
