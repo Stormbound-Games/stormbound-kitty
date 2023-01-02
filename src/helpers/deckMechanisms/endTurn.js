@@ -41,7 +41,7 @@ const endTurn = (state, opts) => {
 
   // If the opponent has Malicious Finch, they may play it and insert a card
   // in the player’s deck.
-  if (state.opponentDeck.map(card => card.id).includes('N106')) {
+  if (state.opponentDeck.find(card => card.id === 'N106')) {
     handleOpponentMaliciousFinch(state)
   }
 
