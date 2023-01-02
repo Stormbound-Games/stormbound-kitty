@@ -28,7 +28,7 @@ const getDefaultState = props => ({
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
   modifier: props.modifier,
-  opponentDeck: getOpponentDeck(props.cards, props.brawls, props.modifier),
+  opponentDeck: getOpponentDeck(props),
   cardsIndex: props.cardsIndex,
 })
 
@@ -95,6 +95,11 @@ const useDeckMechanisms = props => {
     },
     [state.mana, state.deck, state.turn, state.specifics]
   )
+
+  React.useEffect(() => {
+    setState(state => ({ ...state, opponentDeck: getOpponentDeck(props) }))
+    // eslint-disable-next-line
+  }, [props.modifier, props.opponentFinch])
 
   const reset = React.useCallback(
     withRefill => {

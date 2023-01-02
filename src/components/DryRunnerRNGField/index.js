@@ -78,7 +78,7 @@ export default React.memo(function DryRunnerRNGField(props) {
   }
 
   return (
-    <fieldset>
+    <fieldset data-testid='rng-settings'>
       <Label as='legend'>RNG (luck)</Label>
       <Radio
         id='RNG-FRIENDLY'

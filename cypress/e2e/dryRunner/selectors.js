@@ -11,6 +11,7 @@ const selectors = {
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   EQUALS_MODE_CHECKBOX: '[data-testid="equals-mode"]',
+  OPPONENT_FINCH_CHECKBOX: '[data-testid="opponent-finch"]',
   RESET_DIALOG: '#reset-dialog',
   BRAWL_MODIFIER_DIALOG: '#brawl-modifier-dialog',
   EQUALS_DIALOG: '#equals-mode-dialog',
@@ -19,6 +20,7 @@ const selectors = {
   DECK_CARD_LEVEL: '[data-testid="deck-card-level"]',
   CARD_LOG: '[data-testid="card-log"]',
   RNG_INPUT: '[data-testid="RNG-input"]',
+  RNG_SETTINGS: '[data-testid="rng-settings"]',
 }
 
 export default selectors

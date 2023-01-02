@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import CardLink from '#components/CardLink'
 import Checkbox from '#components/Checkbox'
 import DryRunnerEqualsMode from '#components/DryRunnerEqualsMode'
 import DryRunnerBrawlModifiers from '#components/DryRunnerBrawlModifiers'
@@ -27,10 +28,25 @@ export default React.memo(function DryRunnerSettings(props) {
         </Checkbox>
       </Spacing>
 
-      <DryRunnerEqualsMode
-        equalsMode={props.equalsMode}
-        setEqualsMode={props.setEqualsMode}
-      />
+      <Spacing bottom='BASE'>
+        <DryRunnerEqualsMode
+          equalsMode={props.equalsMode}
+          setEqualsMode={props.setEqualsMode}
+        />
+      </Spacing>
+
+      <Spacing bottom='LARGE'>
+        <Checkbox
+          extend={styles.opponentFinch}
+          id='opponent-finch'
+          checked={props.opponentFinch}
+          onChange={event => props.setOpponentFinch(event.target.checked)}
+          data-testid='opponent-finch'
+        >
+          <span className={css(styles.info)}>Opponent Malicious Finch</span>
+          Force the presence of <CardLink id='N106' /> in the opponent’s deck
+        </Checkbox>
+      </Spacing>
 
       <DryRunnerBrawlModifiers
         brawls={props.brawls}

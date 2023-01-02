@@ -15,6 +15,7 @@ export default React.memo(function DeckDryRunView(props) {
   )
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
+  const [opponentFinch, setOpponentFinch] = React.useState(false)
   const [harvestersCards, setHarvestersCards] = React.useState([])
   const harvestersDialogRef = React.useRef()
   const HoS = {
@@ -44,7 +45,15 @@ export default React.memo(function DeckDryRunView(props) {
   const deck = modifyDeck(cardsIndex, props.deck, modifier, equalsMode).map(
     addIdx
   )
-  const settings = { HoS, equalsMode, setEqualsMode, modifier, setModifier }
+  const settings = {
+    HoS,
+    equalsMode,
+    setEqualsMode,
+    modifier,
+    setModifier,
+    opponentFinch,
+    setOpponentFinch,
+  }
   const deckMechanisms = useDeckMechanisms({
     brawls: props.brawls,
     deck,
