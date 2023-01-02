@@ -396,6 +396,11 @@ export const handleOpponentMaliciousFinch = state => {
   // they have it in the deck.
   if (state.RNG === 'FRIENDLY') return
 
+  const MaliciousFinch = getResolvedCardData(state.cardsIndex, { id: 'N106' })
+
+  // If there is not enough mana to play Malicious Finch, move on.
+  if (MaliciousFinch.mana > state.mana) return
+
   // The odds of getting to play Malicious Finch are 1 in 4 in unfriendly RNG,
   // and 1 in 12 otherwise.
   const odds = (1 / 12) * (12 - (state.RNG === 'REGULAR' ? 11 : 9))
