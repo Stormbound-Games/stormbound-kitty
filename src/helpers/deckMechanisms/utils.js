@@ -62,7 +62,7 @@ const getHarvestersOfSoulsCopiedCard = (state, pool, harvestersLevel) => {
 
 export const getRogueSheepCardCopies = (state, level) => {
   const draws = [1, 1, 2, 2, 3][level - 1]
-  const deck = shuffle(state.opponentDeck)
+  const deck = shuffle(state.opponentDeck.slice(0))
   const hand = deck.slice(0, 4)
   const pool = hand.filter(card => !card.unitTypes.includes('pirate'))
   const hasPirateInHand = state.hand.some(c => c.unitTypes.includes('pirate'))
