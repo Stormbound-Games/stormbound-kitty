@@ -1,7 +1,6 @@
 const info = {
-  color: 'var(--white)',
+  color: 'var(--beige)',
   display: 'block',
-  textTransform: 'initial',
 }
 
 const infoInner = {

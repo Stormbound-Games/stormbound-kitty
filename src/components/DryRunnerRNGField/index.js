@@ -89,19 +89,17 @@ export default React.memo(function DryRunnerRNGField(props) {
         data-testid='RNG-input'
         required
       >
-        Friendly
-        <span className={css(styles.info)}>
-          {hasFreezeCards ? (
-            <span className={css(styles.infoInner)}>
-              Freeze cards manage to freeze many enemies
-            </span>
-          ) : null}
-          {RNGSensitiveCards.map(cardId => (
-            <span key={cardId} className={css(styles.infoInner)}>
-              {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
-            </span>
-          ))}
-        </span>
+        <span className={css(styles.info)}>Friendly</span>
+        {hasFreezeCards ? (
+          <span className={css(styles.infoInner)}>
+            Freeze cards manage to freeze many enemies
+          </span>
+        ) : null}
+        {RNGSensitiveCards.map(cardId => (
+          <span key={cardId} className={css(styles.infoInner)}>
+            {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
+          </span>
+        ))}
       </Radio>
       <Radio
         id='RNG-UNFRIENDLY'
@@ -112,19 +110,17 @@ export default React.memo(function DryRunnerRNGField(props) {
         data-testid='RNG-input'
         required
       >
-        Unfriendly
-        <span className={css(styles.info)}>
-          {hasFreezeCards ? (
-            <span className={css(styles.infoInner)}>
-              Freeze cards do not manage to freeze many enemies
-            </span>
-          ) : null}
-          {RNGSensitiveCards.map(cardId => (
-            <span key={cardId} className={css(styles.infoInner)}>
-              {RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}
-            </span>
-          ))}
-        </span>
+        <span className={css(styles.info)}>Unfriendly</span>
+        {hasFreezeCards ? (
+          <span className={css(styles.infoInner)}>
+            Freeze cards do not manage to freeze many enemies
+          </span>
+        ) : null}
+        {RNGSensitiveCards.map(cardId => (
+          <span key={cardId} className={css(styles.infoInner)}>
+            {RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}
+          </span>
+        ))}
       </Radio>
       <Radio
         id='RNG-REGULAR'
@@ -135,21 +131,19 @@ export default React.memo(function DryRunnerRNGField(props) {
         data-testid='RNG-input'
         required
       >
-        Regular{' '}
-        <span className={css(styles.info)}>
-          <>
-            {hasFreezeCards ? (
-              <span className={css(styles.infoInner)}>
-                Freeze cards manage to freeze a few enemies
-              </span>
-            ) : null}
-            {RNGSensitiveCards.map(cardId => (
-              <span key={cardId} className={css(styles.infoInner)}>
-                {RNG_SENSITIVE_CARDS[cardId].REGULAR()}
-              </span>
-            ))}
-          </>
-        </span>
+        <span className={css(styles.info)}>Regular </span>
+        <>
+          {hasFreezeCards ? (
+            <span className={css(styles.infoInner)}>
+              Freeze cards manage to freeze a few enemies
+            </span>
+          ) : null}
+          {RNGSensitiveCards.map(cardId => (
+            <span key={cardId} className={css(styles.infoInner)}>
+              {RNG_SENSITIVE_CARDS[cardId].REGULAR()}
+            </span>
+          ))}
+        </>
       </Radio>
     </fieldset>
   )

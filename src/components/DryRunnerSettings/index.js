@@ -22,10 +22,8 @@ export default React.memo(function DryRunnerSettings(props) {
           onChange={event => props.setDisplayChance(event.target.checked)}
           data-testid='display-chance'
         >
-          Drawing odds
-          <span className={css(styles.info)}>
-            Display drawing odds in the deck
-          </span>
+          <span className={css(styles.info)}>Drawing odds</span>
+          Display drawing odds in the deck
         </Checkbox>
       </Spacing>
 
