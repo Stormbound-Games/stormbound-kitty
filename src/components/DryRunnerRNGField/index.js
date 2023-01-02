@@ -5,6 +5,7 @@ import Radio from '#components/Radio'
 import CardLink from '#components/CardLink'
 import { FRIENDLY_CHANCES } from '#constants/dryRunner'
 import styles from './styles'
+import useIsMounted from '#hooks/useIsMounted'
 
 // prettier-ignore
 const RNG_SENSITIVE_CARDS = {
@@ -52,13 +53,18 @@ const RNG_SENSITIVE_CARDS = {
 
 export default React.memo(function DryRunnerRNGField(props) {
   const { css } = useFela()
+  const isMounted = useIsMounted()
   const deckIds = props.deck.map(card => card.id)
   const opponentDeckIds = props.opponentDeck.map(card => card.id)
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
   const RNGSensitiveCards = possibleRNGSensitiveCards.filter(
     cardId =>
       deckIds.includes(cardId) ||
-      (cardId === 'N106' && opponentDeckIds.includes(cardId))
+      // We check whether we’re mounted to check the opponent deck otherwise we
+      // may have a rendering mismatch if the server contains N106, but the
+      // client doesn’t (or the opposite) — since the opponent deck is redrawn
+      // on mount.
+      (isMounted && cardId === 'N106' && opponentDeckIds.includes(cardId))
   )
 
   // The RNG settings need to be displayed if:
