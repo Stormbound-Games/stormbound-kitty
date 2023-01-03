@@ -22,6 +22,7 @@ export const CURRENCIES = ['coins', 'rubies', 'stones']
 export const LEAGUES = [
   'starters',
   'iron',
+  'bronze',
   'silver',
   'gold',
   'platinum',
