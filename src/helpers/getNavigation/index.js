@@ -289,7 +289,7 @@ const getNavigation = async ({ isPreview }) => {
               id: 'FEATURED_DECKS',
             },
             {
-              label: 'Ranked Tier Lists',
+              label: 'Card usage data',
               to: '/tier-list',
               id: 'TIER_LISTS',
             },

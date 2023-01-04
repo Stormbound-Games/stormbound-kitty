@@ -314,8 +314,8 @@ const getSearchIndex = async ({ isPreview } = {}) => {
   })
 
   links.push({
-    label: 'Ranked List',
-    path: '/tier-list/ranked',
+    label: 'Card Usage Data',
+    path: '/tier-list',
     breadcrumbs: ['Community', 'Meta'],
     icon: 'star',
   })

@@ -7,34 +7,35 @@ import capitalize from '#helpers/capitalize'
 const IDs = ['N102', 'N59', 'N54', 'N47', 'N32', 'N28', 'N7', 'N3']
 const ITEMS = [
   ...LEAGUES.reverse().map((league, index) => ({
+    id: league,
     meta: 'Official content',
     cardId: IDs[index],
-    title: capitalize(league) + ' Tier List',
+    title: 'Card usage in ' + capitalize(league),
     to: '/tier-list/' + league,
     color: `var(--${league}, var(--beige))`,
     excerpt: (
       <>
-        A tier list based on the game data to list the most used card in the{' '}
-        <strong className='Highlight'>{capitalize(league)}</strong> league over
-        the last 30 days.
+        A card list extracted from the game data ranking the most used cards in
+        the <strong className='Highlight'>{capitalize(league)}</strong> league
+        over the last 30 days.
       </>
     ),
   })),
   {
     meta: 'Community content',
     cardId: 'N38',
-    title: 'Equals Tier List',
+    title: 'Equals tier list',
     to: '/tier-list/equals',
     excerpt:
       'A tier list dedicated to the ‘Equals’ game mode, curated by the community on a semi-regular basis.',
   },
 ]
 
-export default React.memo(function PageFanKit() {
+export default React.memo(function PageCardUsageData() {
   return (
     <Page
-      title='Tier Lists'
-      description='Find all the tier lists, some curated by the community while others are extracted from the game data'
+      title='Card Usage Data'
+      description='Find the usage of cards across leagues (extracted from the game data) and game modes'
     >
       <Teasers items={ITEMS} />
     </Page>

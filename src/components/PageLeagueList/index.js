@@ -16,11 +16,11 @@ export default React.memo(function PageListBuilderDisplay(props) {
 
   return (
     <Page
-      title={`${league} Tier List`}
+      title={`Cards Usage in ${league}`}
       description={`Find the most used cards for the ${league} league over the last 30 days.`}
       action={{
         to: `/tier-list`,
-        children: 'Lists index',
+        children: 'Card usage data',
       }}
       meta={meta}
     >

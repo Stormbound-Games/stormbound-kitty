@@ -1,4 +1,4 @@
-import PageTierLists from '#components/PageTierLists'
+import PageCardUsageData from '#components/PageCardUsageData'
 import getSiteSettings from '#api/misc/getSiteSettings'
 
 export async function getStaticProps({ preview: isPreview = false }) {
@@ -9,4 +9,4 @@ export async function getStaticProps({ preview: isPreview = false }) {
   }
 }
 
-export default PageTierLists
+export default PageCardUsageData
