@@ -78,13 +78,13 @@ const renderRootStyles = renderer => {
 
       // League colors
       '--starter': 'currentcolor',
-      '--iron': '#d3d1cc',
-      '--bronze': '#e2c3b7',
-      '--silver': '#d6d9e2',
-      '--gold': '#f1e0be',
-      '--platinum': '#c0e0cf',
-      '--diamond': '#c8c0df',
-      '--heroes': '#caf9ff',
+      '--iron': '#7f776a',
+      '--bronze': '#a35335',
+      '--silver': '#a5b0b5',
+      '--gold': '#dda51e',
+      '--platinum': '#22a272',
+      '--diamond': '#65489c',
+      '--heroes': '#76e9fb',
 
       // Rarity colors
       '--common': '#f5f1e5',
