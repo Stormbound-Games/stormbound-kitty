@@ -27,8 +27,6 @@ const LEGACY_PATHS = {
   '/income-calculator': '/calculators/income',
   '/list/equals': '/tier-list/equals',
   '/list/equals/display': '/tier-list/equals',
-  '/list/ranked': '/tier-list/ranked',
-  '/list/ranked/display': '/tier-list/ranked',
   '/member/:id*': '/members/:id*',
   '/releases/end-of-2020': '/releases/01-2021',
   '/sim/:id*': '/simulators/battle/:id*',
