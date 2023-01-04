@@ -3,6 +3,7 @@ import { Reorder } from 'framer-motion'
 import { useFela } from 'react-fela'
 import DiamondButton from '#components/DiamondButton'
 import Link from '#components/Link'
+import Mana from '#components/Mana'
 import Image from '#components/Image'
 import styles from './styles'
 
@@ -39,6 +40,10 @@ export default React.memo(function ListBuilderTierItem(props) {
               .join(' · ')}
           </span>
         </p>
+        <Mana
+          mana={props.mana}
+          extend={{ marginLeft: 'auto', filter: 'grayscale(1)' }}
+        />
       </li>
     )
   }
