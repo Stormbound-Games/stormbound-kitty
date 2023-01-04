@@ -6,12 +6,23 @@ import Row from '#components/Row'
 import ListBuilderTier from '#components/ListBuilderTier'
 import ListBuilderToc from '#components/ListBuilderToc'
 import Title from '#components/Title'
+import FactionSelect from '#components/FactionSelect'
 import capitalize from '#helpers/capitalize'
+import { getLongFaction } from '#helpers/encoding'
 
 export default React.memo(function PageListBuilderDisplay(props) {
   const { tiers, error } = props
   const league = capitalize(props.league)
-  const count = tiers.map(tier => tier.cards.length).reduce((a, b) => a + b, 0)
+  const [faction, setFaction] = React.useState('*')
+  const matchesFaction = id =>
+    faction === '*' || getLongFaction(id[0]) === faction
+  const filteredTiers = tiers.map(tier => ({
+    ...tier,
+    cards: tier.cards.filter(matchesFaction),
+  }))
+  const count = filteredTiers
+    .map(tier => tier.cards.length)
+    .reduce((a, b) => a + b, 0)
   const meta = error ? null : `${count} cards in ${tiers.length} tiers`
 
   return (
@@ -41,7 +52,16 @@ export default React.memo(function PageListBuilderDisplay(props) {
             the last month.
           </p>
 
-          {!error && <ListBuilderToc tiers={tiers} />}
+          {!error && <ListBuilderToc tiers={filteredTiers} />}
+
+          <FactionSelect
+            name='faction'
+            id='faction'
+            onChange={event => setFaction(event.target.value)}
+            value={faction}
+            withNeutral
+            withAny
+          />
         </Row.Column>
         <Row.Column width='2/3'>
           {props.error ? (
@@ -50,7 +70,7 @@ export default React.memo(function PageListBuilderDisplay(props) {
             <>
               <Title>Tier list</Title>
 
-              {tiers.map((tier, index) => (
+              {filteredTiers.map((tier, index) => (
                 <ListBuilderTier
                   {...tier}
                   color={TIER_COLORS[index]}
