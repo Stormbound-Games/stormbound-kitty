@@ -5,6 +5,7 @@ import Page from '#components/Page'
 import Row from '#components/Row'
 import ListBuilderTier from '#components/ListBuilderTier'
 import ListBuilderToc from '#components/ListBuilderToc'
+import Spacing from '#components/Spacing'
 import Title from '#components/Title'
 import FactionSelect from '#components/FactionSelect'
 import capitalize from '#helpers/capitalize'
@@ -16,14 +17,20 @@ export default React.memo(function PageListBuilderDisplay(props) {
   const [faction, setFaction] = React.useState('*')
   const matchesFaction = id =>
     faction === '*' || getLongFaction(id[0]) === faction
-  const filteredTiers = tiers.map(tier => ({
-    ...tier,
-    cards: tier.cards.filter(matchesFaction),
-  }))
+  const filteredTiers = tiers
+    .map(tier => ({
+      ...tier,
+      cards: tier.cards.filter(matchesFaction),
+    }))
+    .filter(tier => tier.cards.length > 0)
   const count = filteredTiers
     .map(tier => tier.cards.length)
     .reduce((a, b) => a + b, 0)
-  const meta = error ? null : `${count} cards in ${tiers.length} tiers`
+  const meta = error
+    ? null
+    : `${count} cards in ${filteredTiers.length} tier${
+        filteredTiers.length === 1 ? '' : 's'
+      }`
 
   return (
     <Page
@@ -41,27 +48,43 @@ export default React.memo(function PageListBuilderDisplay(props) {
 
           <p>
             This list features the most used cards for the {league} league. The
-            data is extracted directly from the game (with Stormbound-Games’
-            help) based on the last 30 days of usage.
+            data is extracted directly from the game (courtesy of
+            Stormbound-Games), based on the last 30 days of usage, and updated
+            on a daily basis.
           </p>
 
           <p>
             The name of a tier corresponds to the presence ratio of the cards
             that make it. For instance <code>0.5 – 0.6</code> means cards that
             were found in 50 to 60% of all decks played in {league} league over
-            the last month.
+            the last month — regardless of faction.
           </p>
 
-          {!error && <ListBuilderToc tiers={filteredTiers} />}
+          <p>
+            The data does not take match outcome into account, nor does it
+            consider whether a card was in a deck but never played. It purely
+            checks whether a card was part of a deck used in a ranked match.
+          </p>
 
-          <FactionSelect
-            name='faction'
-            id='faction'
-            onChange={event => setFaction(event.target.value)}
-            value={faction}
-            withNeutral
-            withAny
-          />
+          <p>
+            It also does not downscale neutral cards, which is why the most
+            frequently used cards are consistently all neutral, since they are
+            used in decks across all factions. This is why you can filter out
+            the data by faction below:
+          </p>
+
+          <Spacing bottom='BASE'>
+            <FactionSelect
+              name='faction'
+              id='faction'
+              onChange={event => setFaction(event.target.value)}
+              value={faction}
+              withNeutral
+              withAny
+            />
+          </Spacing>
+
+          {!error && <ListBuilderToc tiers={filteredTiers} />}
         </Row.Column>
         <Row.Column width='2/3'>
           {props.error ? (
