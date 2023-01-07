@@ -59,5 +59,5 @@ Summary:
 To export the cards data as a JSON file, run the following command (after having installed Node modules):
 
 ```
-node -r esm ./bin/export-cards.js
+npm run export-cards
 ```
