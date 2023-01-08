@@ -52,3 +52,11 @@ For `import` and `export` to be understood on all contexts, we used to rely on [
 The native way to add support for `import` and `export` is to use `.mjs` files or to set `"type": "module"` in the package.json. Unfortunately both options cause problems with Next.js, which inherently uses CommonJS. Therefore, the bot script automatically injects `"type": "module"` onto the package.json before starting so its context is ESM.
 
 To prevent risking committing that modification when running the bot locally, a pre-commit hook checks the package.json to make sure it doesn’t contain that property. If it does, it blocks the commit with an error.
+
+## Token cards
+
+The concept of token cards on the site is a bit more complicated than it is in the game.
+
+In Stormbound, a card is either “collectable” or not. Most cards are collectable, which means that can be found in books, crafted, and so on. However, there is no difference in logic between these cards and regular cards. That means if such a card (e.g. Qordia’s Nest) was to be put in a player’s hand, they could simply use it.
+
+These cards are called “token” cards on the site (`token = !collectable` essentially). But the site also has a concept of “pure tokens” for non-collectable cards that do not have a concept of static stats and leveling (e.g. Token Construct). These cards have a `withoutLevel` boolean property, and are handled differently in some instances. For instance, they do not have an official card page (since it would not make sense), and they are serialized a little differently (`1T4` means 1-strength Token Pirate; `25t4` means 25-strength Token Pirate).
