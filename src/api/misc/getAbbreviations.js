@@ -16,6 +16,8 @@ const getAbbreviations = async ({
   const abbreviations = {}
 
   cards
+    // Remove all token cards before computing all the name abbreviations as
+    // players tend not to know, care or abbreviate token card names.
     .filter(card => !card.token)
     .forEach(card => {
       const abbreviatedName = abbreviate(card.name)

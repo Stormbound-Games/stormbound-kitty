@@ -9,9 +9,14 @@ const getChunks = cards => {
   const names = []
 
   cards.forEach(card => {
+    // Discard card names that include the word “Token” since it makes for weird
+    // mashups. The check is made on the name instead of the `token` property on
+    // purpose since it’s what we care about here.
+    if (card.name.toLowerCase().includes('token')) return
+
     names.push(card.name)
+
     const [start, ...rest] = card.name.split(/\s+/g)
-    if (card.token) return
     if (rest.length === 0) {
       ends.push(start)
     } else {

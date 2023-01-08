@@ -277,12 +277,13 @@ export default React.memo(function CardsFiltering(props) {
   const collection = props.cards
     .filter(card => {
       // It is technically possible for the card not to be found in the
-      // collection at all if it was added as a new card in a separate
-      // branch, stored in local storage. Then, checking out a branch
-      // without this card in the database yet would cause the card not to
-      // be found in the collection. It cannot happen in production unless
-      // cards ever get removed from the game.
+      // collection at all if it was added as a new card in a separate branch,
+      // stored in local storage. Then, checking out a branch without this card
+      // in the database yet would cause the card not to be found in the
+      // collection. It cannot happen in production unless cards ever get
+      // removed from the game.
       if (!card) return false
+      // Remove token cards from the collection since they do not belong to it.
       if (card.token) return false
       if (!matchesText(card)) return false
       if (!matchesFaction(card)) return false

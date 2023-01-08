@@ -27,6 +27,7 @@ export default React.memo(function PageOfficialCard(props) {
     .filter(Boolean)
     .join(' · ')
   const { image } = cardsIndex[cardData.imageCardId]
+  const wikiLink = getWikiCardLink(cardData)
 
   return (
     <Page
@@ -35,10 +36,7 @@ export default React.memo(function PageOfficialCard(props) {
       title={cardData.name}
       description={formatCardStats(cardData)}
       image={image}
-      action={{
-        href: getWikiCardLink(cardData.name),
-        children: 'Open in wiki',
-      }}
+      action={wikiLink ? { href: wikiLink, children: 'Open in wiki' } : null}
       isEditorialContent
     >
       <Spacing bottom='LARGEST'>

@@ -47,7 +47,6 @@ export default React.memo(function BattleSimCellForm(props) {
       activeCell: props.activeCell,
     })
     const isNotStructure = activeCellCard.card.type !== 'structure'
-    const isToken = (activeCellCard.card.id || '').startsWith('T')
 
     setStrength(activeCellCard.strength || 1)
     setPoisoned(isNotStructure ? activeCellCard.poisoned : false)
@@ -55,7 +54,7 @@ export default React.memo(function BattleSimCellForm(props) {
     setFrozen(isNotStructure ? activeCellCard.frozen : false)
     setConfused(isNotStructure ? activeCellCard.confused : false)
     setDisabled(isNotStructure ? activeCellCard.disabled : false)
-    setLevel(isToken ? 1 : activeCellCard.level || 1)
+    setLevel(activeCellCard.card.withoutLevel ? 1 : activeCellCard.level || 1)
     setCard(activeCellCard.card.id || '')
     setCardSelectValue(activeCellCard.card.id || '')
   }, [props.activeCell, props.board, setCardSelectValue])
@@ -112,7 +111,7 @@ export default React.memo(function BattleSimCellForm(props) {
           <Row.Column width='1/4'>
             <Select
               label='Level'
-              disabled={(card || '').startsWith('T')}
+              disabled={cardsIndex[card]?.withoutLevel}
               id='level'
               value={level}
               onChange={event => {

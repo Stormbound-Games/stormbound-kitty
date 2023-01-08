@@ -6,15 +6,21 @@ const serializeCards = cards => {
   // that do not have an ID here; maybe when passing a deck with empty slots?
   cards = cards.filter(card => card && card.id)
 
-  // Token cards are serialized a little different since their strength is
+  // Some token cards are serialized a little different since their strength is
   // carried in the level slot (see below), so we cannot use the global level
   // when some cards are tokens.
-  const hasToken = cards.some(card => card.token || card.id.startsWith('T'))
+  // Note that if the card object happens to be incomplete (e.g. only `id` +
+  // `level`), the `withoutLevel` property may be missing, which would cause
+  // `hasPureToken` to be truthy even though it’s not. It would cause the ID not
+  // to use the global level while it theoretically could — no big deal.
+  const hasPureToken = cards.some(
+    card => card.withoutLevel || card.id.startsWith('T')
+  )
   const hasUniqueLevel = areAllValuesEqual(cards.map(card => card.level))
 
-  // If there are more than 2 cards, none of them are tokens, and they all have
-  // the same level, we can use the global level to increase compression.
-  const canUseGlobalLevel = hasUniqueLevel && !hasToken && cards.length > 2
+  // If there are more than 2 cards, none of them are pure tokens, and they all
+  // have the same level, we can use the global level to increase compression.
+  const canUseGlobalLevel = hasUniqueLevel && !hasPureToken && cards.length > 2
 
   if (canUseGlobalLevel) {
     return cards[0].level + 'x' + cards.map(card => card.id).join('')
@@ -24,8 +30,12 @@ const serializeCards = cards => {
     .map(
       card =>
         // Because the serialized cards are joined together without commas and
-        // because tokens carry their strength in their level, we need a
+        // because certain tokens carry their strength in their level, we need a
         // deterministic approach to deserialize them later on.
+        // Note: we explicitly use the `token` property here instead of the
+        // `withoutLevel` one (even though the latter would be more accurate),
+        // because we cannot deterministically reverse the operation in the
+        // deserialization (since all we have is the letter `T` as an indicator).
         String(card.level).padStart(card.token ? 2 : 1, '0') + card.id
     )
     .join('')

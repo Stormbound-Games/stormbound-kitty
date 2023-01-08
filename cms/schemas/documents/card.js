@@ -62,6 +62,7 @@ const card = {
       options: { list: RARITIES },
       validation: Rule =>
         Rule.custom((value, context) => {
+          // Token cards do not have a concept of rarity: they are common.
           if (!context.document?.token && !value) return 'Required'
           return true
         }),
@@ -154,7 +155,18 @@ const card = {
     {
       title: 'Token',
       name: 'token',
+      description:
+        'Token cards are cards which are not part of the default card collection, such as event-specific or spawned cards.',
       type: 'boolean',
+      initialValue: false,
+    },
+    {
+      title: 'Without level',
+      name: 'withoutLevel',
+      description:
+        'Whether the token card is a “pure” token, which does not have a concept of leveling at all (e.g. Token Construct).',
+      type: 'boolean',
+      hidden: ({ document }) => !document.token,
       initialValue: false,
     },
     {

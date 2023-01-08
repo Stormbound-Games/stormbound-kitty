@@ -12,8 +12,12 @@ describe('Dry-runner — Collector Mirz', () => {
       .should('have.length', 13)
       .then($cards => {
         const tokens = $cards.filter((index, $card) => {
-          const id = $card.getAttribute('data-testid')
-          return id.slice(0, 1) === 'T' && id.slice(1, 3) !== '12'
+          const [id] = $card.getAttribute('data-testid').split('_')
+          const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15].map(
+            id => 'T' + id
+          )
+
+          return ids.includes(id)
         })
         expect(tokens).to.have.length(1)
       })

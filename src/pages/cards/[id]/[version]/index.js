@@ -37,7 +37,7 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   const cardsIndex = indexArray(settings.cards)
   const isOfficial = cardId in cardsIndex
 
-  if (!isOfficial || cardsIndex[cardId].token) {
+  if (!isOfficial || cardsIndex[cardId].withoutLevel) {
     return { notFound: true }
   }
 

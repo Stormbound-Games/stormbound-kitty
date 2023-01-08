@@ -9,7 +9,9 @@ const SEARCH_OPTIONS = {
 
 const searchCards = (cards = [], abbreviations = {}, search = '') => {
   const searcher = new Fuse(
-    cards.filter(card => !card.token),
+    // Remove the “pure” token cards from the search (i.e. cards without a
+    // concept of leveling), but preserve other token cards.
+    cards.filter(card => !card.withoutLevel),
     SEARCH_OPTIONS
   )
   const needle = search.trim()

@@ -39,10 +39,12 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
         <Row.Column width='1/3'>
           <Row withNarrowGutter>
             <Row.Column>
-              {cardsIndex[props.cards[index].id]?.token ? (
+              {/* If the card is a card without levels (i.e. a pure token), the
+                  field is used to pick the card strength. */}
+              {cardsIndex[props.cards[index].id]?.withoutLevel ? (
                 <NumberInput
                   hideLabel
-                  label={`Slot #${index + 1}’s level`}
+                  label={`Slot #${index + 1}’s strength`}
                   name={`card-${index}-level`}
                   id={`card-${index}-level`}
                   required
@@ -55,7 +57,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
                 <Select
                   hideLabel
                   label={`Slot #${index + 1}’s level`}
-                  disabled={cardsIndex[props.cards[index].id]?.token}
+                  disabled={cardsIndex[props.cards[index].id]?.withoutLevel}
                   id={`card-${index}-level`}
                   value={Math.min(props.cards[index].level, 5) || 1}
                   onChange={event =>

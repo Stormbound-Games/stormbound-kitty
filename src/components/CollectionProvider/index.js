@@ -20,6 +20,7 @@ const normalizeCard = card => ({
   copies: typeof card.copies === 'undefined' ? 0 : +card.copies,
 })
 
+// Make sure not to include token cards as they are not part of the collection.
 const normaliseCollection = collection =>
   collection.filter(card => !card.token).map(normalizeCard)
 
@@ -53,11 +54,7 @@ const getInitialCollectionData = cardsWithoutTokens => {
 }
 
 export default React.memo(function CollectionProvider(props) {
-  const { cards } = React.useContext(CardsContext)
-  const cardsWithoutTokens = React.useMemo(
-    () => cards.filter(card => !card.token),
-    [cards]
-  )
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const defaultCollection = React.useMemo(
     () => cardsWithoutTokens.map(normalizeCard),
     [cardsWithoutTokens]

@@ -31,6 +31,7 @@ export default React.memo(function ChartStrength() {
       Object.values(cardsIndex)
         .filter(
           card =>
+            // Make sure not to take token cards into account.
             !card.token &&
             (factions[0] === '*' || factions.includes(card.faction))
         )

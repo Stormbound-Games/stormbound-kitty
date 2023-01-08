@@ -62,6 +62,7 @@ const randomcard = {
     const type = interaction.options.getString('type')
     const rarity = interaction.options.getString('rarity')
     const unitType = interaction.options.getString('unit_type')
+    // Skip all token cards, not just the pure tokens.
     const cards = [...client.cards.values()].filter(card => !card.token)
 
     trackBotCommand(interaction, { faction, type, rarity, unitType })
@@ -74,7 +75,6 @@ const randomcard = {
     }
 
     const results = cards.filter(card => {
-      if (card.token) return false
       if (faction && card.faction !== faction) return false
       if (type && card.type !== type) return false
       if (rarity && card.rarity !== rarity) return false

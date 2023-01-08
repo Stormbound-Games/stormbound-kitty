@@ -31,6 +31,8 @@ export default React.memo(function ChartMana() {
       Object.values(cardsIndex)
         .filter(
           card =>
+            // Make sure not to take token cards into account otherwise it would
+            // skew the mana stats downwards since tokens are typically 0-cost.
             !card.token &&
             (factions[0] === '*' || factions.includes(card.faction))
         )
@@ -39,16 +41,14 @@ export default React.memo(function ChartMana() {
   )
 
   const data = Object.values(
-    cards
-      .filter(card => !card.token)
-      .reduce((acc, card) => {
-        if (typeof acc[card.mana] === 'undefined') {
-          acc[card.mana] = { name: card.mana, value: 0 }
-        }
+    cards.reduce((acc, card) => {
+      if (typeof acc[card.mana] === 'undefined') {
+        acc[card.mana] = { name: card.mana, value: 0 }
+      }
 
-        acc[card.mana].value++
-        return acc
-      }, {})
+      acc[card.mana].value++
+      return acc
+    }, {})
   )
 
   return (

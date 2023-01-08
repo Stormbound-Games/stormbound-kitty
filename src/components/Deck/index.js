@@ -132,9 +132,11 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       />
       <span
         className={css(styles.level)}
-        data-testid={card.token ? 'deck-token-level' : 'deck-card-level'}
+        // If the card doesn’t have a concept of leveling (i.e. pure tokens),
+        // the level is actually its strength.
+        data-testid={card.withoutLevel ? 'deck-token-level' : 'deck-card-level'}
       >
-        {card.level}
+        {card.withoutLevel ? 1 : card.level}
       </span>
     </li>
   )

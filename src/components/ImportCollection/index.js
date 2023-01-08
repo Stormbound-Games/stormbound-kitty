@@ -23,27 +23,25 @@ const parseCSVData = cards => data => {
     : chunk(data.split(',').slice(3), hasCollectionCardNames ? 4 : 3)
 
   // To make sure the collection is complete, the source of truth is the data
-  // from the constant file
-  return cards
-    .filter(card => !card.token)
-    .map(card => {
-      const item = items.find(item => item[0] === card.id)
+  // from the CMS
+  return cards.map(card => {
+    const item = items.find(item => item[0] === card.id)
 
-      // The card has not been found in the CSV data, which might mean it’s a
-      // new card, therefore consider it missing
-      if (!item) {
-        return { id: card.id, level: 1, copies: 0, missing: true }
-      }
+    // The card has not been found in the CSV data, which might mean it’s a
+    // new card, therefore consider it missing
+    if (!item) {
+      return { id: card.id, level: 1, copies: 0, missing: true }
+    }
 
-      const level = hasCollectionCardNames ? +item[2] : +item[1]
-      const copies = hasCollectionCardNames ? +item[3] : +item[2]
+    const level = hasCollectionCardNames ? +item[2] : +item[1]
+    const copies = hasCollectionCardNames ? +item[3] : +item[2]
 
-      if (level === 0) {
-        return { id: card.id, level: 1, copies: 0, missing: true }
-      }
+    if (level === 0) {
+      return { id: card.id, level: 1, copies: 0, missing: true }
+    }
 
-      return { id: card.id, level, copies, missing: false }
-    })
+    return { id: card.id, level, copies, missing: false }
+  })
 }
 
 const notification = {
@@ -53,7 +51,7 @@ const notification = {
 
 export default React.memo(function ImportCollection(props) {
   const isMounted = useIsMounted()
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const { updateCollection } = React.useContext(CollectionContext)
   const { notify } = React.useContext(NotificationContext)
   const { onChange } = props
@@ -80,7 +78,7 @@ export default React.memo(function ImportCollection(props) {
       Import collection
       <FileUpload
         id='import'
-        process={parseCSVData(cards)}
+        process={parseCSVData(cardsWithoutTokens)}
         onSuccess={handleSuccess}
         data-testid='import-btn'
       />

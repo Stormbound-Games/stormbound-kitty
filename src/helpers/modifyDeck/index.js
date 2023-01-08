@@ -1,6 +1,12 @@
 import getResolvedCardData from '#helpers/getResolvedCardData'
 
-const setToLevel1 = card => ({ ...card, level: card.token ? card.level : 1 })
+const setToLevel1 = card => ({
+  ...card,
+  // If the card doesn’t have a concept of level (i.e. “pure” token), preserve
+  // its level as it may contain strength information that cannot be resolved
+  // otherwise.
+  level: card.withoutLevel ? card.level : 1,
+})
 
 const modifyDeck = (cardsIndex, deck, modifier, equalsMode) => {
   const fullDeck = equalsMode

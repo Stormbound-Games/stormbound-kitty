@@ -20,6 +20,11 @@ const getInitialCardData = (cards, card) => {
     // from the ID. Not amazing but it does the job.
     if (card.startsWith('T')) resolvedCard.token = true
 
+    // Similarly, card serialization doesn’t define the `withoutLevel` key, so
+    // it can be inferred from the name. Definitely not great, but it works.
+    if (resolvedCard.name.toLowerCase().includes('token'))
+      resolvedCard.withoutLevel = true
+
     return resolvedCard
   }
 
