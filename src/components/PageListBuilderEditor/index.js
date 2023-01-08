@@ -23,6 +23,7 @@ export default React.memo(function PageListBuilderEditor(props) {
   const [tiers, setTiers] = React.useState(props.tiers)
   const reset = React.useCallback(() => setTiers(DEFAULT_LIST), [])
   const id = serialization.list.serialize(tiers)
+  const includedCards = tiers.flatMap(tier => tier.cards)
 
   const updateTier = React.useCallback(
     (index, update) =>
@@ -139,6 +140,7 @@ export default React.memo(function PageListBuilderEditor(props) {
               updateName={name => updateTier(index, { name })}
               addCard={cardId => addCardToTier(index, cardId)}
               removeCard={cardId => removeCardFromTier(index, cardId)}
+              includedCards={includedCards}
               // Tiers order
               moveUp={moveTierUp(index)}
               moveDown={moveTierDown(index)}

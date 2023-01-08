@@ -18,7 +18,7 @@ export default React.memo(function ListBuilderTier(props) {
   return (
     <Spacing bottom='LARGE' data-testid='tier'>
       {shouldRenderHeader && (
-        <ListBuilderTierHeader {...props} cards={props.cards} />
+        <ListBuilderTierHeader {...props} cards={props.includedCards} />
       )}
 
       {props.cards.length > 0 ? (
