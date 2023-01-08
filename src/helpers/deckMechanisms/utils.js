@@ -32,7 +32,8 @@ const getHarvestersOfSoulsCopiedCard = (state, pool, harvestersLevel) => {
   copiedCard.weight = 1
   copiedCard.id = id
   copiedCard.idx = state.deck.filter(card => card.id === id).length.toString()
-  copiedCard.created = true
+  copiedCard.token = true
+  copiedCard.withoutLevel = true
 
   copiedCard.strengthIncreased = copiedCardStrength > copiedCard.strength
   copiedCard.strengthDecreased = copiedCardStrength < copiedCard.strength
@@ -128,7 +129,7 @@ export const getCollectorMirzToken = (cardsIndex, deck, level) => {
   token.mana = 0
   token.id = id
   token.idx = deck.filter(card => card.id === id).length.toString()
-  token.created = true
+  token.withoutLevel = true
   token.strengthIncreased = true
   return token
 }

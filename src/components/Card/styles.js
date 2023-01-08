@@ -196,16 +196,15 @@ const footer = ({ type }) => ({
 
 // 1. Every card rarity icon is slightly off-scale and needs to be adjusted,
 //    with scale to avoid messing with the card layout.
-// 2. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
-//    should not render the rarity however the card layout should remain
+// 2. Token cards do not have a rarity however the card layout should remain
 //    unchanged, hence why the image is still rendered but visually hidden.
-const rarity = ({ isCreated, level }) => ({
+const rarity = ({ isToken, level }) => ({
   display: 'inline-block',
   objectFit: 'contain',
   margin: '0 auto 0.25em',
   maxHeight: '2em',
   transform: `scale(${[0.71, 1.05, 0.85, 1.15, 1.05][level - 1]})`, // 1
-  visibility: isCreated ? 'hidden' : 'visible', // 2
+  visibility: isToken ? 'hidden' : 'visible', // 2
 })
 
 const strengthAndMovement = ({ isMissing }) => ({
@@ -290,18 +289,19 @@ const movementContent = ({ hasFixedMovement }) => ({
     : 'translate(-50%, -50%)',
 })
 
-// 1. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
-//    should not render the rarity however the card layout should remain
-//    unchanged, hence why the image is still rendered but visually hidden.
+// 1. “Pure token” cards (such as token “Token Pirate”) do not have a concept of
+//    leveling and should not render their level however the card layout should
+//    remain unchanged, hence why the image is still rendered but visually
+//    hidden.
 // 2. Make sure the element always take the same amount of room regardless of
 //    whether or not the card has a unit type.
-const level = ({ isCreated, rarity, isMissing }) => ({
+const level = ({ isWithoutLevel, rarity, isMissing }) => ({
   fontSize: '140%',
   textTransform: 'uppercase',
   color: `var(--${rarity || 'common'})`,
   opacity: isMissing ? 0.5 : undefined,
   display: 'block',
-  visibility: isCreated ? 'hidden' : 'visible', // 1
+  visibility: isWithoutLevel ? 'hidden' : 'visible', // 1
   minHeight: '1em', // 2
   marginBottom: '0.3em',
 })

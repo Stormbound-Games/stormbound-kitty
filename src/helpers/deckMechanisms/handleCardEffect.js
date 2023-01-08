@@ -410,7 +410,7 @@ export const handleOpponentMaliciousFinch = state => {
     const card = getResolvedCardData(state.cardsIndex, { id: cardId })
 
     card.weight = 1
-    card.singleUse = card.created = true
+    card.singleUse = card.token = card.withoutLevel = true
     card.idx = state.deck.filter(card => card.id === cardId).length.toString()
 
     state.deck.push(card)

@@ -36,7 +36,8 @@ export default React.memo(function Card(props) {
     hasIncreasedMovement: props.movementIncreased,
     hasIncreasedStrength: props.strengthIncreased,
     isAffordable: props.affordable,
-    isCreated: props.created,
+    isToken: props.token,
+    isWithoutLevel: props.withoutLevel,
     isHero: props.unitTypes.includes('hero'),
     isMissing: props.missing,
     isUpgradable: props.upgradable,
@@ -104,18 +105,20 @@ export default React.memo(function Card(props) {
           <p className={css(styles.ability)} data-testid='card-ability'>
             {microMarkdown(props.ability)}
           </p>
-          {props.rarity && (
-            <Image
-              extend={styles.rarity(styleProps)}
-              src={`/assets/images/card/rarity_${props.rarity}_${level}.png`}
-              alt={props.rarity}
-              data-testid='card-rarity'
-              withoutWebp
-              width={45}
-              height={45}
-              lazy
-            />
-          )}
+
+          <Image
+            extend={styles.rarity({ ...styleProps, isToken: !props.rarity })}
+            src={`/assets/images/card/rarity_${
+              props.rarity || 'common'
+            }_${level}.png`}
+            alt={props.rarity}
+            aria-hidden={!props.rarity}
+            data-testid='card-rarity'
+            withoutWebp
+            width={45}
+            height={45}
+            lazy
+          />
 
           {props.type !== 'spell' && props.strength !== null && (
             <div className={css(styles.strength)}>
