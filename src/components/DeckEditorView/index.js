@@ -4,6 +4,7 @@ import { CardsContext } from '#components/CardsProvider'
 import { CollectionContext } from '#components/CollectionProvider'
 import { PersonalDecksContext } from '#components/PersonalDecksProvider'
 import Page from '#components/Page'
+import CollectionClearHint from '#components/CollectionClearHint'
 import CardLevelField from '#components/DeckCardLevelField'
 import CardsFiltering from '#components/CardsFiltering'
 import CardsGallery from '#components/CardsGallery'
@@ -11,7 +12,9 @@ import Checkbox from '#components/Checkbox'
 import Deck from '#components/Deck'
 import EmptySearch from '#components/EmptySearch'
 import Filters from '#components/DeckEditorFilters'
+import ImportCollection from '#components/ImportCollection'
 import Info from '#components/Info'
+import LearnMoreIcon from '#components/LearnMoreIcon'
 import RandomDeckInfo from '#components/RandomDeckInfo'
 import LoadDeck from '#components/LoadDeck'
 import Only from '#components/Only'
@@ -243,6 +246,16 @@ export default React.memo(function DeckEditorView(props) {
               <RandomDeckInfo defineDeck={props.defineDeck} />
             </>
           )}
+
+          <Only.Desktop>
+            <CollectionInfo
+              onCollectionImport={collection =>
+                // When importing a custom collection, set the card levels in
+                // the gallery to the ones from the collection (`0`).
+                collection ? setCardLevel(0) : undefined
+              }
+            />
+          </Only.Desktop>
         </Row.Column>
 
         <Row.Column width='2/3'>
@@ -403,6 +416,32 @@ const LoadInfo = React.memo(function LoadInfo(props) {
         If you export a deck via the game, you can load it directly onto the
         site to tweak and experiment with it. Click the “Load deck” button below
         to get started.
+      </p>
+    </Info>
+  )
+})
+
+export const CollectionInfo = React.memo(function CollectionInfo(props) {
+  const { hasDefaultCollection } = React.useContext(CollectionContext)
+
+  if (!hasDefaultCollection) {
+    return <CollectionClearHint />
+  }
+
+  return (
+    <Info
+      icon='books'
+      title={
+        <>
+          Your collection
+          <LearnMoreIcon anchor='#collection-benefits' />
+        </>
+      }
+      CTA={<ImportCollection onChange={props.onCollectionImport} />}
+    >
+      <p>
+        If you have already created your collection, you can import it directly
+        in the deck builder to compose decks that you can make in-game.
       </p>
     </Info>
   )
