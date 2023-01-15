@@ -1,12 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { CardsContext } from '#components/CardsProvider'
-import Card from '#components/Card'
-import getResolvedCardData from '#helpers/getResolvedCardData'
+import VersionedCard from '#components/VersionedCard'
 import styles from './styles'
 
 export default React.memo(function CardZoom(props) {
-  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
   const { close } = props
   const handleESC = React.useCallback(
@@ -36,12 +33,11 @@ export default React.memo(function CardZoom(props) {
       data-testid='zoom'
     >
       <div className={css(styles.wrapper)}>
-        <Card
-          {...getResolvedCardData(cardsIndex, {
-            id: props.cardId,
-            level: props.level,
-          })}
-          {...props}
+        <VersionedCard
+          id={props.cardId}
+          level={props.level}
+          date={props.date}
+          versions={props.versions}
         />
       </div>
     </div>
