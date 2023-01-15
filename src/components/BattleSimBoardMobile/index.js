@@ -36,14 +36,7 @@ export default React.memo(function BattleSimBoardMobile(props) {
       </div>
 
       {props.zoomed && (
-        <CardZoom
-          cardId={props.zoomed.id}
-          level={props.zoomed.level}
-          player={props.zoomed.player}
-          versions={props.zoomed.versions}
-          date={props.date}
-          close={props.unzoom}
-        />
+        <CardZoom {...props.zoomed} date={props.date} close={props.unzoom} />
       )}
 
       <div className={css(styles.grid)}>
