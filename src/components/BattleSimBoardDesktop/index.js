@@ -78,12 +78,7 @@ export default React.memo(function BattleSimBoardDesktop(props) {
       </div>
 
       {props.zoomed && (
-        <CardZoom
-          cardId={props.zoomed.id}
-          level={props.zoomed.level}
-          player={props.zoomed.player}
-          close={props.unzoom}
-        />
+        <CardZoom {...props.zoomed} date={props.date} close={props.unzoom} />
       )}
 
       <div className={css(styles.grid)}>
@@ -104,7 +99,12 @@ export default React.memo(function BattleSimBoardDesktop(props) {
 
       {isMounted && (
         <div className={css(styles.cards)}>
-          <Cards cards={props.cards} zoom={props.zoom} mana={props.mana} />
+          <Cards
+            cards={props.cards}
+            zoom={props.zoom}
+            mana={props.mana}
+            date={props.date}
+          />
         </div>
       )}
     </div>

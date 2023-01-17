@@ -29,7 +29,7 @@ export default React.memo(function PagePuzzle(props) {
       image={puzzle.image}
       isEditorialContent
     >
-      <BattleSimApp {...state} {...props} />
+      <BattleSimApp {...state} {...props} date={date} />
       <Page.Narrow>
         <BlockNotice>{puzzle.objective}</BlockNotice>
         {puzzle.restrictions.length > 0 && (
@@ -78,8 +78,10 @@ export default React.memo(function PagePuzzle(props) {
               </>
             ) : (
               <>
-                If you believe it no longer to be possible in the current state
-                of the game, please reach out to the author or Kitty on Discord.
+                Note that the cards are rendered as they existed in the game
+                back then. If you still believe it no longer to be possible in
+                the current state of the game for any reason, please reach out
+                to the author or Kitty on Discord.
               </>
             )}
           </FAQEntry>

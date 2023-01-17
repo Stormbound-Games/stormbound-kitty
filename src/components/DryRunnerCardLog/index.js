@@ -14,11 +14,7 @@ export default React.memo(function DryRunnerCardLog(props) {
   return (
     <>
       {zoomedCard && (
-        <CardZoom
-          cardId={zoomedCard.id}
-          {...zoomedCard}
-          close={() => setZoomedCard(undefined)}
-        />
+        <CardZoom {...zoomedCard} close={() => setZoomedCard(undefined)} />
       )}
       <h2 className={css(styles.title)}>Last played cards</h2>
       <div className={css(styles.container)} data-testid='card-log'>

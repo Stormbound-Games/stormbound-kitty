@@ -1,12 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { CardsContext } from '#components/CardsProvider'
-import Card from '#components/Card'
-import getResolvedCardData from '#helpers/getResolvedCardData'
+import VersionedCard from '#components/VersionedCard'
 import styles from './styles'
 
 export default React.memo(function CardZoom(props) {
-  const { cardsIndex } = React.useContext(CardsContext)
   const { css } = useFela()
   const { close } = props
   const handleESC = React.useCallback(
@@ -17,7 +14,7 @@ export default React.memo(function CardZoom(props) {
   React.useEffect(() => {
     document.addEventListener('keydown', handleESC)
 
-    if (props.cardId) {
+    if (props.id) {
       document.documentElement.style.overflowY = 'hidden'
     } else {
       document.documentElement.style.overflowY = ''
@@ -27,22 +24,16 @@ export default React.memo(function CardZoom(props) {
       document.removeEventListener('keydown', handleESC)
       document.documentElement.style.overflowY = ''
     }
-  }, [handleESC, props.cardId])
+  }, [handleESC, props.id])
 
-  return props.cardId ? (
+  return props.id ? (
     <div
       className={css(styles.overlay)}
       onClick={props.close}
       data-testid='zoom'
     >
       <div className={css(styles.wrapper)}>
-        <Card
-          {...getResolvedCardData(cardsIndex, {
-            id: props.cardId,
-            level: props.level,
-          })}
-          {...props}
-        />
+        <VersionedCard {...props} />
       </div>
     </div>
   ) : null
