@@ -17,9 +17,9 @@ export default React.memo(function VersionedCard({
   const { cardsIndex } = React.useContext(CardsContext)
   const currentData = getResolvedCardData(cardsIndex, { id, level })
 
-  // If no date was passed to the component, this is the latest version of the
-  // card and we can just return the card with its resolved data.
-  if (!date) {
+  // If no date or no versions were passed to the component, this is the latest
+  // version of the card and we can just return the card with its resolved data.
+  if (!date || !versions || versions.length === 0) {
     return (
       <Card {...currentData} affordable={currentData.mana <= currentMana} />
     )
