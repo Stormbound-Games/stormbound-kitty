@@ -28,34 +28,35 @@ const role = {
   data: new SlashCommandBuilder()
     .setName('role')
     .setDescription('Assign yourself (or remove) a decorative role.')
-    .addRoleOption(option =>
+    .addStringOption(option =>
       option
         .setName('role')
         .setDescription('Role to add/remove.')
         .setRequired(true)
+        .addChoices(...ROLES.map(role => ({ name: role, value: role })))
     ),
 
   async execute(interaction, client) {
     const ephemeral = !client.DEBUG_MODE
-    const newRole = interaction.options.getRole('role')
+    const newRoleName = interaction.options.getString('role')
     const member = interaction.member
     const guild = client.guilds.cache.get(interaction.guildId)
-    const roles = ROLES.filter(roleName =>
+    const validRoleNames = ROLES.filter(roleName =>
       guild.roles.cache.find(role => role.name === roleName)
     )
     const embed = getEmbed().setTitle('🌟 Role Assignment')
 
-    trackBotCommand(interaction, {
-      role: { id: newRole.id, name: newRole.name },
-    })
-
-    if (!roles.includes(newRole.name)) {
-      embed.setDescription(
-        `The “${newRole.name}” role cannot be self-assigned.`
-      )
+    if (!validRoleNames.includes(newRoleName)) {
+      embed.setDescription(`The “${newRoleName}” role cannot be self-assigned.`)
 
       return interaction.reply({ embeds: [embed], ephemeral })
     }
+
+    const newRole = guild.roles.cache.find(role => role.name === newRoleName)
+
+    trackBotCommand(interaction, {
+      role: { id: newRole.id, name: newRole.name },
+    })
 
     if (member.roles.cache.some(role => role.name === newRole.name)) {
       embed.setDescription(`“${newRole.name}” role removed.`)
