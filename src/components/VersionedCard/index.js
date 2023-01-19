@@ -11,6 +11,7 @@ export default React.memo(function VersionedCard({
   id,
   currentMana,
   date,
+  strength,
   level = 1,
   versions = [],
 }) {
@@ -21,7 +22,12 @@ export default React.memo(function VersionedCard({
   // version of the card and we can just return the card with its resolved data.
   if (!date || !versions || versions.length === 0) {
     return (
-      <Card {...currentData} affordable={currentData.mana <= currentMana} />
+      <Card
+        {...currentData}
+        // The strength property can be updated in the battle sim
+        strength={strength ?? currentData.strength}
+        affordable={currentData.mana <= currentMana}
+      />
     )
   }
 
@@ -40,5 +46,12 @@ export default React.memo(function VersionedCard({
   }
 
   // Finally render the card with the right data.
-  return <Card {...card} affordable={card.mana <= currentMana} />
+  return (
+    <Card
+      {...card}
+      // The strength property can be updated in the battle sim
+      strength={strength ?? card.strength}
+      affordable={card.mana <= currentMana}
+    />
+  )
 })
