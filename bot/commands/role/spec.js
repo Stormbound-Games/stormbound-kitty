@@ -16,7 +16,7 @@ describe('Bot — /role', () => {
     const role = mockRole({ name: 'Diamond' })
     const user = mockUser({ roles: [] })
     const guild = mockGuild({ roles: [role] })
-    const interaction = mockInteraction({ role }, { guild, user })
+    const interaction = mockInteraction({ role: 'Diamond' }, { guild, user })
 
     client.guilds.cache.set(guild.id, guild)
 
@@ -32,7 +32,7 @@ describe('Bot — /role', () => {
     const role = mockRole({ name: 'Diamond' })
     const user = mockUser({ roles: [role] })
     const guild = mockGuild({ roles: [role] })
-    const interaction = mockInteraction({ role }, { guild, user })
+    const interaction = mockInteraction({ role: 'Diamond' }, { guild, user })
 
     client.guilds.cache.set(guild.id, guild)
 
@@ -48,7 +48,7 @@ describe('Bot — /role', () => {
     const role = mockRole({ name: 'Moderator' })
     const user = mockUser({ roles: [role] })
     const guild = mockGuild({ roles: [role] })
-    const interaction = mockInteraction({ role }, { guild, user })
+    const interaction = mockInteraction({ role: 'Moderator' }, { guild, user })
 
     client.guilds.cache.set(guild.id, guild)
 
