@@ -2,7 +2,7 @@ import command from './index.js'
 import { mockInteraction, client } from '#helpers/jestSetup/discord'
 
 describe('Bot — /story', () => {
-  it('should return a specific guide if found', async () => {
+  it('should return a specific story if found', async () => {
     const interaction = mockInteraction({ input: 'mia' })
     const output = await command.execute(interaction, client)
 

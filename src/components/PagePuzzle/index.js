@@ -23,9 +23,11 @@ export default React.memo(function PagePuzzle(props) {
       author={puzzle.user}
       meta={formatDate(date)}
       action={{ to: '/puzzles', children: 'Back to puzzles' }}
-      description={`Figure out how to solve ${puzzle.name} by ${
-        puzzle.user.name
-      } (made in ${formatDate(date)}).`}
+      description={`Figure out how to solve ${puzzle.name} made in ${formatDate(
+        date
+      )} by ${puzzle.user.name}: ${puzzle.objective} ${puzzle.restrictions.join(
+        ' '
+      )}`}
       image={puzzle.image}
       isEditorialContent
     >
