@@ -65,9 +65,16 @@ module.exports = withBundleAnalyzer({
   // Ref: https://nextjs.org/docs/advanced-features/compiler#remove-react-properties
   compiler: { reactRemoveProperties: VERCEL_ENV === 'production' },
 
-  // Expose the Vercel environment to the client
-  // Ref: https://nextjs.org/docs/api-reference/next.config.js/environment-variables
-  env: { NEXT_PUBLIC_VERCEL_ENV: VERCEL_ENV },
+  env: {
+    // Expose the Vercel environment to the client
+    // Ref: https://nextjs.org/docs/api-reference/next.config.js/environment-variables
+    NEXT_PUBLIC_VERCEL_ENV: VERCEL_ENV,
+    // This is necessary, otherwise the rendered script by the Plausible context
+    // is `plausible.*.js` which has a 3,600 seconds cache instead of a 86,400
+    // seconds cache.
+    next_plausible_proxy: 'true',
+    next_plausible_scriptName: 'script',
+  },
 
   // Allow Sanity CDN to be used with next/image
   // Ref: https://nextjs.org/docs/basic-features/image-optimization#domains
@@ -99,13 +106,6 @@ module.exports = withBundleAnalyzer({
         destination: 'https://plausible.io/api/event',
       },
     ]
-  },
-
-  publicRuntimeConfig: {
-    // This is necessary, otherwise the rendered script by the Plausible context
-    // is `plausible.*.js` which has a 3,600 seconds cache instead of a 86,400
-    // seconds cache.
-    nextPlausiblePublicProxyOptions: { scriptName: 'script' },
   },
 
   // Set up the right headers for all resources
