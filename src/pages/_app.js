@@ -59,7 +59,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
 
       <PlausibleProvider
         domain='stormbound-kitty.com'
-        enabled={process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'}
+        enabled={process.env.NEXT_PUBLIC_VERCEL_ENV !== 'preview'}
         exclude={[
           '/calculators/value/*',
           '/card/**',
