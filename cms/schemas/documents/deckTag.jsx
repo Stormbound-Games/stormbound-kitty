@@ -46,7 +46,7 @@ export default deckTag
 export const deckTagOrder = (S, context) =>
   orderableDocumentListDeskItem({
     type: 'deckTag',
-    title: 'Deck tag order',
+    title: 'Deck tags order',
     S,
     context,
   })
