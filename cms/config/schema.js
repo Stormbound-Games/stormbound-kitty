@@ -52,10 +52,7 @@ export default Object.entries({
   user,
   wallpaper,
 })
-  .map(([type, document]) => ({
-    ...document,
-    fields: document.fields.map(addReadOnly(type)),
-  }))
+  .map(([type, document]) => addReadOnly(type)(document))
   .map(type => {
     if (type.type === 'document' && !COMMUNITY_TYPES.includes(type.name)) {
       return { ...type, __experimental_omnisearch_visibility: isAdmin() }
@@ -65,21 +62,37 @@ export default Object.entries({
   })
 
 function addReadOnly(type) {
-  return function (field) {
-    if (field.type === 'block') return field
+  return function (docOrField) {
+    // If the field belongs to a portable text block, there is nothing to
+    // update as there is concept of readonly.
+    if (docOrField.type === 'block') return docOrField
 
-    if (
-      typeof field.readOnly === 'undefined' &&
-      !COMMUNITY_TYPES.includes(type)
-    ) {
-      field.readOnly = isNotAdmin
+    // If the field is a public field (as in not restricted to administrators
+    // only), there is nothing to update.
+    if (COMMUNITY_TYPES.includes(type)) return docOrField
+
+    // Make sure not to mutate fields, which is a problem for shared types like
+    // `banner`, `cardLink`…
+    const clone = { ...docOrField }
+
+    // Recursively mark all fields as readonly, which is important for fields
+    // with nested fields such as `banner`.
+    if ('fields' in docOrField) {
+      clone.fields = clone.fields.map(addReadOnly(type))
     }
 
-    if (typeof field.of !== 'undefined') {
-      field.of.forEach(addReadOnly(type))
+    // For array fields, mark all options as readonly.
+    if ('of' in docOrField) {
+      clone.of = clone.of.map(addReadOnly(type))
     }
 
-    return field
+    // Unless we already have a readonly property, make sure that the field can
+    // only be updated by administrators.
+    if (typeof docOrField.readOnly !== 'undefined') {
+      clone.readOnly = isNotAdmin
+    }
+
+    return clone
   }
 }
 
