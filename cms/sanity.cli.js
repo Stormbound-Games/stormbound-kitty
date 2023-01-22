@@ -4,7 +4,10 @@ import { defineCliConfig } from 'sanity/cli'
 const aliasPath = dir => path.resolve(__dirname, '..', 'src', dir)
 
 export default defineCliConfig({
-  api: {},
+  api: {
+    projectId: '5hlpazgd',
+    dataset: 'production',
+  },
 
   vite: prevConfig => {
     return {
