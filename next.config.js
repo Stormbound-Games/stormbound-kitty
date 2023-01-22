@@ -1,4 +1,5 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')
+const { withPlausibleProxy } = require('next-plausible')
 
 const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
 
@@ -50,9 +51,15 @@ const toRedirect = ([source, destination]) => ({
   permanent: true,
 })
 
-module.exports = withBundleAnalyzer({
-  enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1',
-})({
+const wrapConfig =
+  (...wrappers) =>
+  configuration =>
+    wrappers.reduceRight((config, wrapper) => wrapper(config), configuration)
+
+module.exports = wrapConfig(
+  withPlausibleProxy(),
+  withBundleAnalyzer({ enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1' })
+)({
   // Disable x-powered-by header
   // Ref: https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
   poweredByHeader: false,
@@ -69,11 +76,6 @@ module.exports = withBundleAnalyzer({
     // Expose the Vercel environment to the client
     // Ref: https://nextjs.org/docs/api-reference/next.config.js/environment-variables
     NEXT_PUBLIC_VERCEL_ENV: VERCEL_ENV,
-    // This is necessary, otherwise the rendered script by the Plausible context
-    // is `plausible.*.js` which has a 3,600 seconds cache instead of a 86,400
-    // seconds cache.
-    next_plausible_proxy: 'true',
-    next_plausible_scriptName: 'script',
   },
 
   // Allow Sanity CDN to be used with next/image
@@ -86,25 +88,6 @@ module.exports = withBundleAnalyzer({
     return [
       ...Object.entries(LEGACY_PATHS).map(toRedirect),
       ...Object.entries(PERMALINKS).map(toRedirect),
-    ]
-  },
-
-  // Author the rewrites manually instead of using `withPlausibleProxy` because
-  // it proxies https://plausible.io/js/plausible.exclusions.js, which has a
-  // 3,600 seconds cache instead of the script below (as recommended in the
-  // documentation) which has a 86,400 seconds cache. Additionally, it proxies
-  // all the other plugin variants which we don’t need.
-  // See: https://github.com/4lejandrito/next-plausible/blob/c01d2bfab71c60cc8893bcc83225467e37bd5f8c/index.tsx#L42
-  async rewrites() {
-    return [
-      {
-        source: '/js/script.exclusions.js',
-        destination: 'https://plausible.io/js/script.exclusions.js',
-      },
-      {
-        source: '/proxy/api/event',
-        destination: 'https://plausible.io/api/event',
-      },
     ]
   },
 
