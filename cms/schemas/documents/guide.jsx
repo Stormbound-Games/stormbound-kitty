@@ -13,7 +13,7 @@ import tableOfContents from '../richText/tableOfContents'
 import tierList from '../richText/tierList'
 import { GUIDE_CATEGORIES } from '#constants/guides'
 import { formatDate } from '#helpers/formatDate'
-// import { isNotAdmin } from '../../config/access'
+import { isNotAdmin } from '../../config/access'
 
 const guide = {
   title: 'Guides',
@@ -41,7 +41,7 @@ const guide = {
       type: 'slug',
       options: { source: 'name' },
       fieldset: 'metadata',
-      // readOnly: isNotAdmin,
+      readOnly: isNotAdmin,
       validation: Rule => Rule.required(),
     },
     {
@@ -51,7 +51,7 @@ const guide = {
       description:
         'The identifier is used to map this guide’s metadata to the actual content.',
       type: 'string',
-      // readOnly: isNotAdmin,
+      readOnly: isNotAdmin,
       validation: Rule =>
         Rule.required()
           .uppercase()
