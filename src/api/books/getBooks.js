@@ -5,7 +5,7 @@ const getBooks = async ({ isPreview } = {}) => {
   const books = await getEntries({
     conditions: ['_type == "book"'],
     fields: FIELDS,
-    options: { order: 'order asc', isPreview },
+    options: { order: 'orderRank asc', isPreview },
   })
 
   return books.map(MAPPER)

@@ -28,7 +28,7 @@ const getBlock = ({
     withNotice && {
       title: 'Notice',
       value: 'notice',
-      blockEditor: { render: NoticeRenderer },
+      component: NoticeRenderer,
     },
   ].filter(Boolean),
   lists: withLists
@@ -44,10 +44,8 @@ const getBlock = ({
       {
         title: 'Sparkles',
         value: 'sparkles',
-        blockEditor: {
-          icon: () => '✨',
-          render: Sparkly,
-        },
+        icon: () => '✨',
+        component: Sparkly,
       },
       { title: 'Strike', value: 'strike-through' },
     ],
