@@ -10,6 +10,7 @@ import newDocumentOptions from './config/newDocumentOptions'
 import theme from './config/theme'
 import toolMenu from './config/toolMenu'
 import schema from './config/schema'
+import './config/global.css'
 
 export default defineConfig({
   name: 'default',

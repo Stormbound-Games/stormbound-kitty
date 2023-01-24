@@ -1,0 +1,40 @@
+fieldset legend {
+  position: relative;
+}
+
+fieldset legend button::after {
+  content: '';
+  position: absolute;
+  top: -0.2em;
+  right: -0.2em;
+  bottom: -0.2em;
+  left: -0.2em;
+  background-color: rgb(25 75 125 / 0.15);
+  border-radius: 0.2em;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+/**
+ * Toggles for collapsible sections lack a bit of interactivity. This should
+ * make it more clear that they are interactive.
+ */
+fieldset legend button:focus::after,
+fieldset legend button:hover::after {
+  opacity: 1;
+}
+
+/**
+ * Buttons have the default cursor for some reasons, and this should be fixed.
+ */
+button:not(:disabled) {
+  cursor: pointer !important;
+}
+
+/**
+ * Increase the maximum width of rich text containers when expanded (which is
+ * characterized by being rendered inside this “document-panel-portal” node).
+ */
+[data-testid='document-panel-portal'] [data-ui='Container'] {
+  max-width: 80ch;
+}
