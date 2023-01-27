@@ -15,8 +15,9 @@ export default React.memo(function PageListBuilderDisplay(props) {
   const { tiers, error } = props
   const league = capitalize(props.league)
   const [faction, setFaction] = React.useState('*')
+  const factions = faction.split(',')
   const matchesFaction = id =>
-    faction === '*' || getLongFaction(id[0]) === faction
+    factions[0] === '*' || factions.includes(getLongFaction(id[0]))
   const filteredTiers = tiers
     .map(tier => ({
       ...tier,
@@ -79,8 +80,9 @@ export default React.memo(function PageListBuilderDisplay(props) {
               id='faction'
               onChange={event => setFaction(event.target.value)}
               value={faction}
-              withNeutral
               withAny
+              withNeutral
+              withExtendedVersions
             />
           </Spacing>
 
