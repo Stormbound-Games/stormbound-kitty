@@ -113,10 +113,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Fort of Ebonrock', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N13', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N13', 5)
-    expect(value1[0]).toEqual(4 / 3)
-    expect(value1[1]).toEqual(4 / 3)
-    expect(value5[0]).toEqual(8 / 3)
-    expect(value5[1]).toEqual(8 / 3)
+    expect(value1[0]).toEqual(5 / 3)
+    expect(value1[1]).toEqual(5 / 3)
+    expect(value5[0]).toEqual(9 / 3)
+    expect(value5[1]).toEqual(9 / 3)
   })
 
   it('should return value for Freebooters', () => {
@@ -167,10 +167,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Cabin Girls', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N19', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N19', 5)
-    expect(value1[0]).toEqual((5 / 4) * 0.5)
-    expect(value1[1]).toEqual((5 / 4) * 0.5)
-    expect(value5[0]).toEqual((10 / 4) * 0.5)
-    expect(value5[1]).toEqual((10 / 4) * 0.5)
+    expect(value1[0]).toEqual((6 / 4) * 0.5)
+    expect(value1[1]).toEqual((6 / 4) * 0.5)
+    expect(value5[0]).toEqual((11 / 4) * 0.5)
+    expect(value5[1]).toEqual((11 / 4) * 0.5)
   })
 
   it('should return value for Emerald Towers', () => {
@@ -647,10 +647,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Seasick Bouncers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N72', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N72', 5)
-    expect(value1[0]).toEqual((8 / 6) * 0.5)
-    expect(value1[1]).toEqual((8 / 6) * 0.5)
-    expect(value5[0]).toEqual((18 / 6) * 0.5)
-    expect(value5[1]).toEqual((18 / 6) * 0.5)
+    expect(value1[0]).toEqual((10 / 6) * 0.5)
+    expect(value1[1]).toEqual((10 / 6) * 0.5)
+    expect(value5[0]).toEqual((20 / 6) * 0.5)
+    expect(value5[1]).toEqual((20 / 6) * 0.5)
   })
 
   it('should return value for Trekking Aldermen', () => {
@@ -712,10 +712,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Flameless Lizards', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N82', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N82', 5)
-    expect(value1[0]).toEqual((7 / 5) * 0.5)
-    expect(value1[1]).toEqual((7 / 5) * 0.5)
-    expect(value5[0]).toEqual((14 / 5) * 0.5)
-    expect(value5[1]).toEqual((14 / 5) * 0.5)
+    expect(value1[0]).toEqual((8 / 5) * 0.5)
+    expect(value1[1]).toEqual((8 / 5) * 0.5)
+    expect(value5[0]).toEqual((15 / 5) * 0.5)
+    expect(value5[1]).toEqual((15 / 5) * 0.5)
   })
 
   it('should return value for Headless Hotheads', () => {
@@ -1225,10 +1225,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Untamed Cultists', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F26', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F26', 5)
-    expect(value1[0]).toEqual((10 / 7) * 0.5)
-    expect(value1[1]).toEqual((10 / 7) * 0.5)
-    expect(value5[0]).toEqual((24 / 7) * 0.5)
-    expect(value5[1]).toEqual((24 / 7) * 0.5)
+    expect(value1[0]).toEqual((12 / 7) * 0.5)
+    expect(value1[1]).toEqual((12 / 7) * 0.5)
+    expect(value5[0]).toEqual((26 / 7) * 0.5)
+    expect(value5[1]).toEqual((26 / 7) * 0.5)
   })
 
   it('should return value for Faithless Prophets', () => {
@@ -1684,10 +1684,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Calming Spirits', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W20', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W20', 5)
-    expect(value1[0]).toEqual((10 / 7) * 0.5)
-    expect(value1[1]).toEqual((10 / 7) * 0.5)
-    expect(value5[0]).toEqual((24 / 7) * 0.5)
-    expect(value5[1]).toEqual((24 / 7) * 0.5)
+    expect(value1[0]).toEqual((12 / 7) * 0.5)
+    expect(value1[1]).toEqual((12 / 7) * 0.5)
+    expect(value5[0]).toEqual((26 / 7) * 0.5)
+    expect(value5[1]).toEqual((26 / 7) * 0.5)
   })
 
   it('should return value for Visions of the Grove', () => {
