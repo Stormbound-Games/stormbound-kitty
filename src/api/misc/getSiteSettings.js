@@ -1,10 +1,14 @@
 import { getEntry } from '#helpers/sanity'
-import getNavigation from '#helpers/getNavigation'
 import getCards from '#api/cards/getCards'
+import getReleases from '#api/releases/getReleases'
 
 const getSiteSettings = async ({ isPreview, cards } = {}) => {
   if (!cards) cards = await getCards({ isPreview })
-  const navigation = await getNavigation({ isPreview })
+  const lastReleases = await getReleases({
+    fields: 'title, slug, id',
+    limit: 3,
+    isPreview,
+  })
   const siteSettings = await getEntry({
     conditions: ['_type == "siteSettings"'],
     fields: `_updatedAt, eyeCatcher`,
@@ -15,7 +19,12 @@ const getSiteSettings = async ({ isPreview, cards } = {}) => {
     ? { content: siteSettings?.eyeCatcher, id: siteSettings._updatedAt }
     : null
 
-  return { navigation, eyeCatcher, cards: cards.map(cleanUpCard), isPreview }
+  return {
+    lastReleases,
+    eyeCatcher,
+    cards: cards.map(cleanUpCard),
+    isPreview,
+  }
 }
 
 // The codebase should be resilient to absence of value for properties which

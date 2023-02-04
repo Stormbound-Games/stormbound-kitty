@@ -36,7 +36,7 @@ export default React.memo(function Layout(props) {
       ) : null}
 
       <Header
-        navigation={props.settings.navigation}
+        lastReleases={props.settings.lastReleases}
         active={props.active}
         openSearch={() => searchDialog.current.show()}
       />

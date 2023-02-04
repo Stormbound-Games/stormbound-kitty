@@ -12,6 +12,7 @@ import Only from '#components/Only'
 import Icon from '#components/Icon'
 import useIsMounted from '#hooks/useIsMounted'
 import useUser from '#hooks/useUser'
+import getNavigation from '#helpers/getNavigation'
 import styles from './styles'
 
 const SubNav = React.memo(function SubNav(props) {
@@ -71,7 +72,8 @@ const HeaderItem = props => {
   )
 }
 
-const useNavigation = (navigation = []) => {
+const useNavigation = (lastReleases = []) => {
+  const navigation = getNavigation(lastReleases)
   const { isUnseen } = React.useContext(PersonalDecksContext)
   const [user] = useUser()
 
@@ -113,7 +115,7 @@ export default React.memo(function Header(props) {
   const { css } = useFela({ isMobileNavOpen })
   const [open, setOpen] = React.useState(null)
   const { asPath } = useRouter()
-  const navigation = useNavigation(props.navigation)
+  const navigation = useNavigation(props.lastReleases)
 
   React.useEffect(() => {
     setOpen(null)
