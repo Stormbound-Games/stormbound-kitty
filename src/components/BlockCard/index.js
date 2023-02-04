@@ -50,7 +50,7 @@ export default React.memo(function BlockCard(props) {
   const { cardId: id, level } = props.value
   const cardData = useCorrectCardData(props.value)
 
-  if (!id) {
+  if (!(id in cardsIndex)) {
     console.warn('Could not resolve card for id', id)
     return null
   }
