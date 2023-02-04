@@ -1,35 +1,31 @@
 {
   "name": "stormbound-kitty-cms",
+  "type": "module",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
   "scripts": {
     "start": "sanity start",
-    "build": "sanity build"
+    "build": "sanity build",
+    "dev": "sanity dev"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.35.4",
-    "@sanity/core": "^2.35.3",
-    "@sanity/default-layout": "^2.35.4",
-    "@sanity/default-login": "^2.35.4",
-    "@sanity/desk-tool": "^2.35.4",
     "@sanity/eslint-config-studio": "^2.0.1",
+    "@sanity/orderable-document-list": "^1.0.2",
     "@sanity/production-preview": "^2.35.3",
-    "@sanity/vision": "^2.35.4",
+    "@sanity/table": "^1.0.1",
+    "@sanity/vision": "^3.2.4",
     "eslint": "^8.6.0",
-    "prop-types": "^15.7",
-    "react": "^17.0",
-    "react-dom": "^17.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
-    "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
-    "sanity-plugin-iframe-pane": "^1.0.16",
-    "sanity-plugin-media-library": "^2.0.2",
-    "sanity-plugin-order-documents": "^0.0.22",
-    "sanity-plugin-table": "^2.3.0",
-    "styled-components": "^5.2.0"
-  },
-  "devDependencies": {}
+    "sanity": "^3.2.6",
+    "sanity-plugin-iframe-pane": "^2.1.1",
+    "sanity-plugin-media": "^2.0.4",
+    "styled-components": "^5.2"
+  }
 }

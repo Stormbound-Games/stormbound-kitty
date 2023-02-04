@@ -1,3 +1,8 @@
+import {
+  orderableDocumentListDeskItem,
+  orderRankField,
+  orderRankOrdering,
+} from '@sanity/orderable-document-list'
 import { MdMenuBook } from 'react-icons/md'
 import { FACTIONS, UNIT_TYPES, TYPES, RARITIES } from '#constants/game'
 import capitalize from '#helpers/capitalize'
@@ -243,7 +248,9 @@ const book = {
       type: 'number',
       hidden: true,
     },
+    orderRankField({ type: 'book' }),
   ],
+  ordering: [orderRankOrdering],
   preview: {
     select: {
       cost: 'cost',
@@ -269,3 +276,11 @@ const book = {
 }
 
 export default book
+
+export const bookOrder = (S, context) =>
+  orderableDocumentListDeskItem({
+    type: 'book',
+    title: 'Books order',
+    S,
+    context,
+  })

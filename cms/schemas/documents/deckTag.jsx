@@ -1,6 +1,11 @@
+import {
+  orderableDocumentListDeskItem,
+  orderRankField,
+  orderRankOrdering,
+} from '@sanity/orderable-document-list'
 import { MdOutlineLabel } from 'react-icons/md'
 
-const deckTags = {
+const deckTag = {
   title: 'Deck tags',
   name: 'deckTag',
   type: 'document',
@@ -25,7 +30,9 @@ const deckTags = {
       type: 'number',
       hidden: true,
     },
+    orderRankField({ type: 'deckTag' }),
   ],
+  ordering: [orderRankOrdering],
   preview: {
     select: { name: 'name', slug: 'slug.current' },
     prepare({ name, slug }) {
@@ -34,4 +41,12 @@ const deckTags = {
   },
 }
 
-export default deckTags
+export default deckTag
+
+export const deckTagOrder = (S, context) =>
+  orderableDocumentListDeskItem({
+    type: 'deckTag',
+    title: 'Deck tags order',
+    S,
+    context,
+  })
