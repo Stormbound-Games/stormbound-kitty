@@ -9,7 +9,7 @@
     "modulify": "node bin/modulify.mjs",
     "start": "next dev",
     "build-site": "next build && next-sitemap",
-    "test": "jest --forceExit --runInBand",
+    "test": "jest --forceExit --maxWorkers=1",
     "bot": "npm run modulify && node bot/cli.js",
     "bot:dev": "npm run modulify && nodemon bot/cli.js --watch src --watch bot",
     "prepare": "husky install",
