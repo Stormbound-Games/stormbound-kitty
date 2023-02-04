@@ -21,8 +21,8 @@ describe('Bot — /changelog', () => {
     expect(output.ephemeral).toBeTruthy()
     expect(embed.title).toBe('🛠 Card Changelog')
     expect(embed.url).toBe('https://stormbound-kitty.com/cards/N19')
-    expect(embed.fields).toHaveLength(1)
-    expect(embed.fields[0]).toEqual({
+    expect(embed.fields).toHaveLength(2)
+    expect(embed.fields.at(-1)).toEqual({
       name: 'Sep 18th, 2017',
       value: '- Released with the game',
     })
