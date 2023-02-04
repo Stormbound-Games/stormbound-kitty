@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "16.x",
-    "npm": "7"
+    "node": "18.x"
   },
   "scripts": {
     "modulify": "node bin/modulify.mjs",
