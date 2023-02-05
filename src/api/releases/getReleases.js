@@ -1,10 +1,10 @@
 import { getEntries } from '#helpers/sanity'
 import { FIELDS, MAPPER } from './utils.js'
 
-const getReleases = async ({ isPreview, limit } = {}) => {
+const getReleases = async ({ isPreview, fields = FIELDS, limit } = {}) => {
   const releases = await getEntries({
     conditions: ['_type == "release"'],
-    fields: '_createdAt,' + FIELDS,
+    fields,
     options: {
       order: 'date desc, _createdAt desc',
       slice: limit ? `0...${limit}` : undefined,

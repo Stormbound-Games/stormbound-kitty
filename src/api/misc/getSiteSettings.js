@@ -5,7 +5,7 @@ import getReleases from '#api/releases/getReleases'
 const getSiteSettings = async ({ isPreview, cards } = {}) => {
   if (!cards) cards = await getCards({ isPreview })
   const lastReleases = await getReleases({
-    fields: 'title, slug, id',
+    fields: 'date, title, "slug": slug.current, id',
     limit: 3,
     isPreview,
   })
