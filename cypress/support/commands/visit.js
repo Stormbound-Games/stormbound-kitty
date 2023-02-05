@@ -5,7 +5,10 @@ const visit = (originalFn, url, options = {}) => {
   if (token && !options.previewEnabled) {
     return cy
       .log('Enabling preview mode')
-      .wrap(originalFn(`/api/preview?token=${token}&type=siteSettings`), noLogs)
+      .wrap(originalFn(`/api/preview?token=${token}&type=siteSettings`), {
+        ...noLogs,
+        timeout: 10000,
+      })
       .then(() => visit(originalFn, url, { ...options, previewEnabled: true }))
   }
 
