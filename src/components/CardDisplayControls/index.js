@@ -31,6 +31,11 @@ export default React.memo(function CardDisplayControls(props) {
   const previousCard =
     cardInCollection && orderedCollection[indexInCollection - 1]
 
+  // Skip rendering controls for token cards
+  if (cardsIndex[id]?.token) {
+    return null
+  }
+
   return (
     <div className={css(styles.container)}>
       <div>
