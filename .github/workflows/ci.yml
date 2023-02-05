@@ -1,25 +1,12 @@
 name: Continuous Integration
-on: [deployment_status]
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print context
-        run: |
-          echo "State: ${{ github.event.deployment_status.state }}"
-          echo "URL: ${{ github.event.deployment_status.target_url }}"
-          echo "Environment: ${{ github.event.deployment.environment }}"
-
   unit_tests:
-    # Only run if the build was successful and coming from Vercel
-    if: |
-      github.event.deployment_status.state == 'success' &&
-      contains(github.event.deployment_status.target_url, 'vercel') == true
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -35,18 +22,29 @@ jobs:
         env:
           JSONBIN_TOKEN: ${{ secrets.JSONBIN_TOKEN }}
 
-  cypress_tests:
-    # Only run if the build was a successful preview from Vercel
-    if: |
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'Preview' &&
-      contains(github.event.deployment_status.target_url, 'vercel') == true
-    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
-    with:
-      n: 9
-      group: 'Integration tests'
-      config: baseUrl=${{ github.event.deployment_status.target_url }}
-      config-file: ./cypress.config.js
-      install-command: npm ci --legacy-peer-deps
-    secrets:
-      recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2

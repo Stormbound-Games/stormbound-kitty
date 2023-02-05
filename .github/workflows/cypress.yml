@@ -1,0 +1,32 @@
+name: Cypress
+on: [deployment_status]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print context
+        run: |
+          echo "State: ${{ github.event.deployment_status.state }}"
+          echo "URL: ${{ github.event.deployment_status.target_url }}"
+          echo "Environment: ${{ github.event.deployment.environment }}"
+
+  cypress_tests:
+    # Only run if the build was a successful preview from Vercel
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Preview' &&
+      contains(github.event.deployment_status.target_url, 'vercel') == true
+    uses: bahmutov/cypress-workflows/.github/workflows/parallel.yml@v1
+    with:
+      n: 9
+      group: 'Integration tests'
+      config: baseUrl=${{ github.event.deployment_status.target_url }}
+      config-file: ./cypress.config.js
+      install-command: npm ci --legacy-peer-deps
+    secrets:
+      recordKey: ${{ secrets.CYPRESS_RECORD_KEY }}
