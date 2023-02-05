@@ -6,8 +6,7 @@ import getDeckTags from '#api/decks/getDeckTags'
 import getBooks from '#api/books/getBooks'
 import getCards from '#api/cards/getCards'
 
-module.exports = async function () {
-  const isPreview = Boolean(process.env.SANITY_PREVIEW_TOKEN)
+const getGlobals = async ({ isPreview }) => {
   const cards = await getCards({ isPreview })
   const abbreviations = await getAbbreviations({
     isPreview,
@@ -19,14 +18,18 @@ module.exports = async function () {
   const decks = await getDecks({ isPreview })
   const deckTags = await getDeckTags({ isPreview })
 
-  globalThis.__ABBREVIATIONS__ = abbreviations
-  globalThis.__BOOKS__ = books
-  globalThis.__BOOKS_INDEX__ = indexArray(books)
-  globalThis.__BRAWLS__ = brawls
-  globalThis.__CARDS__ = cards
-  globalThis.__CARDS_INDEX__ = indexArray(cards)
-  globalThis.__CARDS_INDEX_BY_SID__ = indexArray(cards, 'sid')
-  globalThis.__DECKS__ = decks
-  globalThis.__DECKS_INDEX__ = indexArray(decks)
-  globalThis.__DECK_TAGS__ = deckTags
+  return {
+    __ABBREVIATIONS__: abbreviations,
+    __BOOKS__: books,
+    __BOOKS_INDEX__: indexArray(books),
+    __BRAWLS__: brawls,
+    __CARDS__: cards,
+    __CARDS_INDEX__: indexArray(cards),
+    __CARDS_INDEX_BY_SID__: indexArray(cards, 'sid'),
+    __DECKS__: decks,
+    __DECKS_INDEX__: indexArray(decks),
+    __DECK_TAGS__: deckTags,
+  }
 }
+
+export default getGlobals

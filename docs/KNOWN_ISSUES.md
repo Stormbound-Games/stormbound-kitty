@@ -37,12 +37,6 @@ The data sent from the server to the client is quite heavy, regardless of which 
 
 This adds an extra ~80Kb on the initial payload, which is certainly not great but kind of unavoidable.
 
-## Jest parallelization
-
-The unit test runner (Jest) runs on a single worker (via [`--runInBand`](https://jestjs.io/docs/cli#--runinband)) because there is no way to define per-worker setup code (see [related issue](https://github.com/facebook/jest/issues/8708)). This causes unit tests to be a little slower than they could theoretically be.
-
-What I believe happens is that one of the workers executes the global setup (`jestSetup/globalSetup.js`) which exposes the CMS data as global variables. At the same time, other workers start loading some test files and use the global data to moch some API helpers (`jestSetup/setupFilesAfterEnv.js`). Unfortunately at this stage the global data may or may not be ready. I am unsure why Jest is designed this way.
-
 ## Discord bot pre-script
 
 To avoid having to rely on [module-alias](https://github.com/ilearnio/module-alias) for aliased paths, the project uses [native import mapping](https://github.com/ilearnio/module-alias/issues/113). With some configuration, this enables Next.js, Jest, Node scripts and the Discord bot to all understand aliased paths.

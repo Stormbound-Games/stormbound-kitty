@@ -8,6 +8,7 @@ if (typeof String.prototype.replaceAll !== 'function') {
   }
 }
 
+// Avoid querying data from the CMS over and over throughout a test run
 jest.mock('#api/misc/getAbbreviations', () =>
   jest.fn(() => global.__ABBREVIATIONS__)
 )
