@@ -17,7 +17,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '17'
+          node-version: '18'
 
       - name: 'Revalidate ${{ github.event.inputs.path }}'
         run: node --experimental-fetch bin/revalidate.js "${{ github.event.inputs.path }}"
