@@ -32,6 +32,7 @@ const LEGACY_PATHS = {
   '/releases/end-of-2020': '/releases/01-2021',
   '/sim/:id*': '/simulators/battle/:id*',
   '/simulators/battle/puzzles': '/puzzles',
+  '/tier-list': '/card-usage',
 }
 
 const PERMALINKS = {

@@ -11,7 +11,7 @@ import FactionSelect from '#components/FactionSelect'
 import capitalize from '#helpers/capitalize'
 import { getLongFaction } from '#helpers/encoding'
 
-export default React.memo(function PageListBuilderDisplay(props) {
+export default React.memo(function PageLeagueUsageData(props) {
   const { tiers, error } = props
   const league = capitalize(props.league)
   const [faction, setFaction] = React.useState('*')
@@ -38,7 +38,7 @@ export default React.memo(function PageListBuilderDisplay(props) {
       title={`Cards Usage in ${league}`}
       description={`Find the most used cards for the ${league} league over the last 30 days.`}
       action={{
-        to: `/tier-list`,
+        to: '/card-usage',
         children: 'Card usage data',
       }}
       meta={meta}
@@ -48,10 +48,10 @@ export default React.memo(function PageListBuilderDisplay(props) {
           <Title>Information</Title>
 
           <p>
-            This list features the most used cards for the {league} league. The
-            data is extracted directly from the game (courtesy of
-            Stormbound-Games), based on the last 30 days of usage, and updated
-            on a daily basis.
+            This list features the most used cards for the{' '}
+            <strong className='Highlight'>{league}</strong> league. The data is
+            extracted directly from the game (courtesy of Stormbound-Games),
+            based on the last 30 days of usage, and updated on a daily basis.
           </p>
 
           <p>
