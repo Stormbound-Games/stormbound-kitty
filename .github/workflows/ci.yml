@@ -18,7 +18,7 @@ jobs:
           CYPRESS_INSTALL_BINARY: 0
 
       - name: Run unit tests
-        run: npm test
+        run: npm test -- --maxWorkers=3
         env:
           JSONBIN_TOKEN: ${{ secrets.JSONBIN_TOKEN }}
 
