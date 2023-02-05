@@ -5,7 +5,7 @@ export async function getStaticProps({ preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
 
   return {
-    props: { settings, breadcrumbs: ['COMMUNITY', 'META', 'TIER_LISTS'] },
+    props: { settings, breadcrumbs: ['GAME', 'INFORMATION', 'CARD_USAGE'] },
   }
 }
 

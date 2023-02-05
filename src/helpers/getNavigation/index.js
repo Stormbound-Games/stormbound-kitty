@@ -72,6 +72,7 @@ const getNavigation = releases => [
             to: '/drawing-mechanics',
             id: 'DRAWING_MECHANICS',
           },
+          { label: 'Lexicon', to: '/lexicon', id: 'LEXICON' },
         ],
       },
       {
@@ -86,8 +87,12 @@ const getNavigation = releases => [
           },
           { label: 'Known Bugs', to: '/known-bugs', id: 'KNOWN_BUGS' },
           { label: 'Cards Index', to: '/cards/N89', id: 'CARDS' },
+          {
+            label: 'Card usage data',
+            to: '/card-usage',
+            id: 'CARD_USAGE',
+          },
           { label: 'Statistics', to: '/stats', id: 'STATISTICS' },
-          { label: 'Lexicon', to: '/lexicon', id: 'LEXICON' },
         ],
       },
     ],
@@ -283,11 +288,6 @@ const getNavigation = releases => [
             label: 'Featured Decks',
             to: '/decks',
             id: 'FEATURED_DECKS',
-          },
-          {
-            label: 'Card usage data',
-            to: '/tier-list',
-            id: 'TIER_LISTS',
           },
           {
             label: 'Equals Tier List',

@@ -1,5 +1,6 @@
 import { GUIDE_CATEGORIES } from '#constants/guides'
 import { STORY_CATEGORIES } from '#constants/stories'
+import { LEAGUES } from '#constants/game'
 import getBrawls from '#api/brawls/getBrawls'
 import getCards from '#api/cards/getCards'
 import getDecks from '#api/decks/getDecks'
@@ -10,6 +11,7 @@ import getSWCCContests from '#api/swcc/getSWCCContests'
 import getPuzzles from '#api/puzzles/getPuzzles'
 import getReleases from '#api/releases/getReleases'
 import getUsers from '#api/users/getUsers'
+import capitalize from '#helpers/capitalize'
 
 const getSearchIndex = async ({ isPreview } = {}) => {
   const [
@@ -315,9 +317,18 @@ const getSearchIndex = async ({ isPreview } = {}) => {
 
   links.push({
     label: 'Card Usage Data',
-    path: '/tier-list',
-    breadcrumbs: ['Community', 'Meta'],
+    path: '/card-usage',
+    breadcrumbs: ['Official', 'Information'],
     icon: 'star',
+  })
+
+  LEAGUES.map(league => {
+    links.push({
+      label: 'Card Usage in ' + capitalize(league),
+      path: '/card-usage/' + league,
+      breadcrumbs: ['Official', 'Information'],
+      icon: 'star',
+    })
   })
 
   links.push({

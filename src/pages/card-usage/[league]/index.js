@@ -1,4 +1,4 @@
-import PageLeagueList from '#components/PageLeagueList'
+import PageLeagueUsageData from '#components/PageLeagueUsageData'
 import getLeagueTierList from '#api/lists/getLeagueTierList'
 import getSiteSettings from '#api/misc/getSiteSettings'
 import getInitialListData from '#helpers/getInitialListData'
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, preview: isPreview = false }) {
   const settings = await getSiteSettings({ isPreview })
   const { league } = params
-  const breadcrumbs = ['COMMUNITY', 'META', 'TIER_LISTS']
+  const breadcrumbs = ['GAME', 'INFORMATION', 'CARD_USAGE']
 
   if (!LEAGUES.includes(league)) {
     return { notFound: true }
@@ -43,4 +43,4 @@ export async function getStaticProps({ params, preview: isPreview = false }) {
   }
 }
 
-export default PageLeagueList
+export default PageLeagueUsageData
