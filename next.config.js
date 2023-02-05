@@ -33,6 +33,14 @@ const LEGACY_PATHS = {
   '/sim/:id*': '/simulators/battle/:id*',
   '/simulators/battle/puzzles': '/puzzles',
   '/tier-list': '/card-usage',
+  '/tier-list/heroes': '/card-usage/heroes',
+  '/tier-list/diamond': '/card-usage/diamond',
+  '/tier-list/platinum': '/card-usage/platinum',
+  '/tier-list/gold': '/card-usage/gold',
+  '/tier-list/silver': '/card-usage/silver',
+  '/tier-list/bronze': '/card-usage/bronze',
+  '/tier-list/iron': '/card-usage/iron',
+  '/tier-list/starters': '/card-usage/starters',
 }
 
 const PERMALINKS = {
