@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install Sanity
         run: npx @sanity/cli install
@@ -22,7 +22,7 @@ jobs:
           SANITY_STUDIO_API_PROJECT_ID: 5hlpazgd
 
       - name: Store artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: production-dataset
           path: cms/production.tar.gz
