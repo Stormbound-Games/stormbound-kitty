@@ -7,6 +7,10 @@ concurrency:
 
 jobs:
   debug:
+    # Only run if the build was successful and coming from Vercel
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      contains(github.event.deployment_status.target_url, 'vercel') == true
     runs-on: ubuntu-latest
     steps:
       - name: Print context
