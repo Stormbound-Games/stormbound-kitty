@@ -11,13 +11,18 @@ const getSiteSettings = async ({ isPreview, cards } = {}) => {
   })
   const siteSettings = await getEntry({
     conditions: ['_type == "siteSettings"'],
-    fields: `_updatedAt, eyeCatcher`,
+    fields: `_updatedAt, eyeCatcher, "eyeCatcherText": pt::text(eyeCatcher)`,
     options: { isPreview },
   })
 
-  const eyeCatcher = siteSettings?.eyeCatcher
-    ? { content: siteSettings?.eyeCatcher, id: siteSettings._updatedAt }
-    : null
+  // This is a little awkward: there seems to be no way to empty a portable text
+  // field. Once filled at least once, it will always contain at least one empty
+  // block. So we need to serialize it to see if there is ultimately some text
+  // to render.
+  const eyeCatcher =
+    siteSettings?.eyeCatcherText.length > 0
+      ? { content: siteSettings.eyeCatcher, id: siteSettings._updatedAt }
+      : null
 
   return {
     lastReleases,
