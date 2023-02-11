@@ -10,7 +10,7 @@ const assertCardType = (index, type) =>
 describe('Card Builder — Type', () => {
   let id = ''
 
-  beforeEach(() => cy.visit('/card/' + id))
+  beforeEach(() => cy.visit(['/card', id].filter(Boolean).join('/')))
 
   afterEach(() =>
     cy.url().then(url => {

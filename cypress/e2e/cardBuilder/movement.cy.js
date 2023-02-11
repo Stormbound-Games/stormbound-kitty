@@ -14,7 +14,7 @@ const assertCardMovement = (index, movement, assertFixed = false) =>
 describe('Card Builder — Movement', () => {
   let id = ''
 
-  beforeEach(() => cy.visit('/card/' + id))
+  beforeEach(() => cy.visit(['/card', id].filter(Boolean).join('/')))
 
   afterEach(() =>
     cy.url().then(url => {
