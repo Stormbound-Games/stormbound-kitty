@@ -10,7 +10,7 @@ const assertCardRarity = (index, rarity) =>
 describe('Card Builder — Rarity', () => {
   let id = ''
 
-  beforeEach(() => cy.visit('/card/' + id))
+  beforeEach(() => cy.visit(['/card', id].filter(Boolean).join('/')))
 
   afterEach(() =>
     cy.url().then(url => {

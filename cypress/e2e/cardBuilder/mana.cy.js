@@ -6,7 +6,7 @@ const assertCardMana = (index, mana) =>
 describe('Card Builder — Mana', () => {
   let id = ''
 
-  beforeEach(() => cy.visit('/card/' + id))
+  beforeEach(() => cy.visit(['/card', id].filter(Boolean).join('/')))
 
   afterEach(() =>
     cy.url().then(url => {

@@ -3,7 +3,7 @@ import s from './selectors'
 describe('List Builder', () => {
   let id = ''
 
-  beforeEach(() => cy.visit('/list/' + id))
+  beforeEach(() => cy.visit(['/list', id].filter(Boolean).join('/')))
   afterEach(() =>
     cy.url().then(url => {
       let last = url.split('/').pop()

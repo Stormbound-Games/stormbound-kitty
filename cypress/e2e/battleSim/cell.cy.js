@@ -2,7 +2,9 @@ import s from './selectors'
 
 describe('Battle Simulator — Cells', () => {
   let id = ''
-  beforeEach(() => cy.visit('/simulators/battle/' + id))
+  beforeEach(() =>
+    cy.visit(['/simulators/battle', id].filter(Boolean).join('/'))
+  )
   afterEach(() =>
     cy.url().then(url => {
       let last = url.split('/').pop()

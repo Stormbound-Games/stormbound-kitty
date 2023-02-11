@@ -2,7 +2,7 @@ import s from './selectors'
 
 describe('Deck Builder — Index', () => {
   let id = ''
-  beforeEach(() => cy.visit('/deck/' + id))
+  beforeEach(() => cy.visit(['/deck', id].filter(Boolean).join('/')))
   afterEach(() =>
     cy.url().then(url => {
       let last = url.split('/').pop()
