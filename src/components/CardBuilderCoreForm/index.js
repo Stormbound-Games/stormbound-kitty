@@ -32,6 +32,18 @@ export default React.memo(function CardBuilderCoreForm(props) {
             data-testid='cb-name-input'
           />
         </Row.Column>
+      </Row>
+      <Row withNarrowGutter>
+        <Row.Column>
+          <Input
+            label='Mana'
+            id='mana'
+            value={props.mana}
+            onChange={event => props.setMana(event.target.value)}
+            required
+            data-testid='cb-mana-input'
+          />
+        </Row.Column>
         <Row.Column>
           <Input
             label='Movement'

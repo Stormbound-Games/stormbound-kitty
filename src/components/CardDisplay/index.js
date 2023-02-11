@@ -42,7 +42,6 @@ export default React.memo(function CardDisplay(props) {
                     <Card
                       {...props}
                       containerWidth={220}
-                      mana={props.mana.values[level]}
                       strength={props.strength.values[level]}
                       ability={props.ability.values[level]}
                       image={
@@ -65,7 +64,6 @@ export default React.memo(function CardDisplay(props) {
             {...props}
             key={activeLevel}
             containerWidth={400}
-            mana={props.mana.values[activeLevel - 1]}
             strength={props.strength.values[activeLevel - 1]}
             ability={props.ability.values[activeLevel - 1]}
             image={cardsIndex[props.imageCardId]?.image ?? props.imageURL}

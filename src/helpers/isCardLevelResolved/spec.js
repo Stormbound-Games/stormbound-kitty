@@ -21,17 +21,6 @@ describe('The `isCardLevelResolved` helper', () => {
     ).toEqual(false)
   })
 
-  it('should return false if the mana contains slashes', () => {
-    expect(
-      isCardLevelResolved({
-        name: 'Foo',
-        strength: 4,
-        ability: 'Foo d',
-        mana: '1/2/3/4/5',
-      })
-    ).toEqual(false)
-  })
-
   it('should return true otherwise', () => {
     expect(
       isCardLevelResolved({

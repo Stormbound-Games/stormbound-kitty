@@ -35,17 +35,6 @@ export default React.memo(function CardBuilderLevelForm(props) {
             data-testid='cb-strength-input'
           />
         </Row.Column>
-        <Row.Column>
-          <Input
-            label='Mana'
-            id='mana'
-            value={props.mana.display === null ? '' : props.mana.display}
-            onChange={event => props.setMana(event.target.value)}
-            required
-            placeholder='e.g. “3” or “5/5/4/4/3”'
-            data-testid='cb-mana-input'
-          />
-        </Row.Column>
       </Row>
 
       <Row>

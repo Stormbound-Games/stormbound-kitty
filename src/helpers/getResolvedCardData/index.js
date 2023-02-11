@@ -24,14 +24,10 @@ const getResolvedCardData = (cardsIndex, card) => {
 
   // Find the card data for the given level, or default to the first level if
   // not found.
-  const unfoldedMana = cardData.mana ? unfoldValue(cardData.mana) : null
   const unfoldedStrength = cardData.strength
     ? unfoldValue(cardData.strength)
     : null
   const unfoldedAbility = resolveAbility(cardData.ability).values
-  const mana = unfoldedMana
-    ? +(unfoldedMana[level - 1] || unfoldedMana[0])
-    : null
   const strength = unfoldedStrength
     ? +(unfoldedStrength[level - 1] || unfoldedStrength[0])
     : null
@@ -41,7 +37,6 @@ const getResolvedCardData = (cardsIndex, card) => {
     ...cardData,
     copies: typeof copies === 'undefined' ? null : copies,
     missing: missing || null,
-    mana,
     strength,
     ability,
     level,

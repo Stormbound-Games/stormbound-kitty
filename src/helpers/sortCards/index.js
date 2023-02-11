@@ -1,5 +1,4 @@
 import { FACTIONS, RARITIES } from '#constants/game'
-import unfoldValue from '#helpers/unfoldValue'
 import { getCardCost } from '#helpers/getCollectionCost'
 import getExtraAfterMax from '#helpers/getExtraAfterMax'
 
@@ -50,14 +49,11 @@ const sortNaturally =
     if (withFaction && factionIndexA > factionIndexB) return +1
     if (withFaction && factionIndexA < factionIndexB) return -1
 
-    const manaA = +unfoldValue(a.mana)[0]
-    const manaB = +unfoldValue(b.mana)[0]
-
     if (a.token && !b.token) return +1
     if (!a.token && b.token) return -1
 
-    if (manaA > manaB) return +1
-    if (manaA < manaB) return -1
+    if (a.mana > b.mana) return +1
+    if (a.mana < b.mana) return -1
 
     return a.name > b.name ? +1 : -1
   }
@@ -72,8 +68,8 @@ export const sortByMana = cardsIndex => (a, b) => {
   if (!cardA) return +1
   if (!cardB) return -1
 
-  if (cardA.mana > cardB.mana) return +1
-  if (cardA.mana < cardB.mana) return -1
+  if (+cardA.mana > +cardB.mana) return +1
+  if (+cardA.mana < +cardB.mana) return -1
 
   if (cardA.name > cardB.name) return +1
   if (cardA.name < cardB.name) return -1

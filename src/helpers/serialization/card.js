@@ -11,19 +11,6 @@ import {
 } from '#helpers/encoding'
 import { base64Decode, base64Encode } from '#helpers/base64'
 
-const resolveMana = value => {
-  const chunks = value.split('/')
-
-  if (chunks.length === 1) {
-    return {
-      values: [null, null, null, null, null].fill(chunks[0]),
-      display: chunks[0],
-    }
-  }
-
-  return { values: chunks, display: value }
-}
-
 const resolveStrength = (value, cardType) => {
   const chunks = value.split('/')
 
@@ -51,7 +38,7 @@ export const deserializeCard = (cardsIndex, string) => {
   card.faction = getLongFaction(chunks[0])
   card.type = getLongType(chunks[2])
   card.rarity = getLongRarity(chunks[3])
-  card.mana = resolveMana(chunks[4])
+  card.mana = +chunks[4]
   card.strength = resolveStrength(chunks[6], card.type)
   card.name = decodeURIComponent(chunks[7])
 

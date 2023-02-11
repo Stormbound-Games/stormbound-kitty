@@ -20,9 +20,11 @@ ability,
 `
 
 export const MAPPER = card => {
-  // The movement is recorded as a string in case it needs to change across
-  // levels, but right now the site doesn’t support that and expects a number.
+  // The movement and the mana cost are recorded as strings in case they need
+  // to change across levels, but right now the site doesn’t support that and
+  // expects a number.
   card.movement = card.movement ? Number(card.movement) : null
+  card.mana = card.mana ? Number(card.mana) : null
 
   return card
 }

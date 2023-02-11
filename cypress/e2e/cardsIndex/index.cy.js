@@ -9,7 +9,7 @@ const N1 = {
   id: 'N1',
   image:
     'https://cdn.sanity.io/images/5hlpazgd/production/74d169c287905be1edd33c81c09e87a62e485648-512x512.png',
-  mana: '1',
+  mana: 1,
   movement: 1,
   name: 'Green Prototypes',
   rarity: 'rare',

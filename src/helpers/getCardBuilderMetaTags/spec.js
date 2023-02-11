@@ -43,7 +43,7 @@ describe('The `getCardBuilderMetaTags` helper', () => {
     expect(
       getCardBuilderMetaTags(global.__CARDS_INDEX__, {
         name: 'Foo',
-        mana: { display: '1' },
+        mana: 1,
         type: 'spell',
         unitTypes: [],
         ability: { display: '' },
@@ -55,7 +55,7 @@ describe('The `getCardBuilderMetaTags` helper', () => {
     expect(
       getCardBuilderMetaTags(global.__CARDS_INDEX__, {
         name: 'Foo',
-        mana: { display: '1' },
+        mana: 1,
         type: 'unit',
         unitTypes: [],
         ability: { display: '' },

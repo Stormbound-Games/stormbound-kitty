@@ -7,7 +7,7 @@ const formatCardStats = state => {
   const rarity = capitalize(state.rarity)
   const unitTypes = state.unitTypes.map(capitalize).join(' ')
   const ability = capitalize(state.ability.display || '')
-  const mana = `${state.mana.display} mana`
+  const mana = `${state.mana} mana`
   const strength =
     state.type !== 'spell' ? `${state.strength.display} strength` : ''
   let movement = state.type === 'unit' ? `${state.movement} movement` : ''

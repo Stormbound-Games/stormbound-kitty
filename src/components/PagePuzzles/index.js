@@ -12,7 +12,7 @@ const getCardForPuzzle = puzzle => ({
   name: puzzle.name,
   type: 'unit',
   unitTypes: [puzzle.user.name],
-  mana: '0',
+  mana: 0,
   rarity: 'common',
   faction: 'neutral',
   image: puzzle.image,

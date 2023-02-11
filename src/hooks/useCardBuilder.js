@@ -20,7 +20,7 @@ export const INITIAL_STATE = {
   type: 'unit',
   movement: null,
   fixedMovement: false,
-  mana: formatLevelProp(null),
+  mana: null,
   strength: formatLevelProp(null),
   ability: formatLevelProp(null),
 }
@@ -41,7 +41,6 @@ const useCardBuilder = props => {
       const data = {
         ...cardData,
         strength: cardData.strength.display,
-        mana: cardData.mana.display,
         ability: cardData.ability.display,
       }
       const id = isDefaultState ? '' : serialization.card.serialize(data)
@@ -68,7 +67,7 @@ const useCardBuilder = props => {
   const setMovement = setProperty('movement')
   const setFixedMovement = setProperty('fixedMovement')
   const setFaction = setProperty('faction')
-  const setMana = setProperty('mana', resolveLeveledProperty)
+  const setMana = setProperty('mana')
   const setStrength = setProperty('strength', resolveLeveledProperty)
   const setAbility = setProperty('ability', resolveAbility)
 

@@ -10,7 +10,7 @@ const getInitialCardData = (cards, card) => {
 
   if (card.toUpperCase() in cardsIndex) {
     // Go through the serialization on the official card data as it deals with
-    // normalisation and resolution of properties like mana, strength and image.
+    // normalisation and resolution of properties like strength and image.
     const resolvedCard = serialization.card.deserialize(
       cardsIndex,
       serialization.card.serialize(cardsIndex[card.toUpperCase()])

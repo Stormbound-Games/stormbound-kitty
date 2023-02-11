@@ -12,10 +12,6 @@ const isCardLevelResolved = card => {
   // means it hasn’t been resolved yet.
   if (card.ability && card.ability.includes('/')) return false
 
-  // If the mana cost is defined, it should not include slashes, otherwise it
-  // means it hasn’t been resolved yet.
-  if (card.mana && String(card.mana).includes('/')) return false
-
   // If card mana is not defined, it should be considered not resolved. Again,
   // not sure why.
   if (!card.mana && card.mana !== 0) return false
