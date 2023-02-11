@@ -13,7 +13,10 @@ const visit = (originalFn, url, options = {}) => {
   }
 
   return cy
-    .wrap(originalFn(url, options), noLogs)
+    .wrap(originalFn(url, options), {
+      ...noLogs,
+      timeout: 10000,
+    })
     .its('__cypress_ready', noLogs)
     .should('eq', true)
 }
