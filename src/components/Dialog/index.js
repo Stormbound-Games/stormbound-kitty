@@ -24,13 +24,23 @@ export default React.memo(function Dialog(props) {
   const Body = props.Body || 'div'
 
   const registerDialog = ref => {
+    // Scrollbar management logic mainly taken from: https://github.com/tailwindlabs/headlessui/pull/1457/files
     if (ref && !allowScroll) {
+      const html = document.documentElement
+      const sbWidthBefore = window.innerWidth - html.clientWidth
+
       ref
         .on('show', () => {
-          document.documentElement.style.overflowY = 'hidden'
+          html.style.overflowY = 'hidden'
+          if (sbWidthBefore > 0) {
+            const padding =
+              sbWidthBefore - (html.clientWidth - html.offsetWidth)
+            html.style.paddingRight = `${padding}px`
+          }
         })
         .on('hide', () => {
-          document.documentElement.style.overflowY = ''
+          html.style.overflowY = ''
+          if (sbWidthBefore > 0) html.style.paddingRight = ''
         })
     }
 
