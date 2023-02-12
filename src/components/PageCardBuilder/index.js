@@ -42,15 +42,15 @@ export default React.memo(function PageCardBuilder(props) {
     <Page {...pageProps} {...metaTags}>
       <Spacing bottom='LARGEST'>
         <CardDisplay {...card} mode={props.mode} />
-      </Spacing>
 
-      {card.hasSingleLevel && (
-        <Notice icon='hammer'>
-          This card was created before it was possible to define all 5 levels,
-          or without consideration for leveling, therefore only the level{' '}
-          {props.level} is relevant.
-        </Notice>
-      )}
+        {card.hasSingleLevel && (
+          <Notice icon='hammer'>
+            This card was created before it was possible to define all 5 levels,
+            or without consideration for leveling, therefore only the level{' '}
+            {props.level} is relevant.
+          </Notice>
+        )}
+      </Spacing>
 
       {props.mode === 'EDITOR' && (
         <Page.Narrow>
