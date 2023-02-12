@@ -8,6 +8,7 @@ const input = {
   backgroundColor: 'transparent',
   border: '1px solid #ded7a480',
   color: 'var(--white)',
+  colorScheme: 'dark',
 
   ':disabled': {
     opacity: 0.5,
