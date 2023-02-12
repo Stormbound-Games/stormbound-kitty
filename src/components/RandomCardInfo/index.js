@@ -66,6 +66,7 @@ export default React.memo(function RandomCardInfo(props) {
       <Info
         icon='wand'
         title='Random card'
+        spacing={{ bottom: 'LARGEST' }}
         CTA={
           <CTA
             onClick={() => dialog.current.show()}

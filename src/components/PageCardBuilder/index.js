@@ -6,7 +6,6 @@ import Page from '#components/Page'
 import CoreForm from '#components/CardBuilderCoreForm'
 import Notice from '#components/Notice'
 import LevelForm from '#components/CardBuilderLevelForm'
-import Row from '#components/Row'
 import Spacing from '#components/Spacing'
 import Title from '#components/Title'
 import getCardBuilderMetaTags from '#helpers/getCardBuilderMetaTags'
@@ -42,37 +41,31 @@ export default React.memo(function PageCardBuilder(props) {
     <Page {...pageProps} {...metaTags}>
       <Spacing bottom='LARGEST'>
         <CardDisplay {...card} mode={props.mode} />
-      </Spacing>
 
-      {card.hasSingleLevel && (
-        <Notice icon='hammer'>
-          This card was created before it was possible to define all 5 levels,
-          or without consideration for leveling, therefore only the level{' '}
-          {props.level} is relevant.
-        </Notice>
-      )}
+        {card.hasSingleLevel && (
+          <Notice icon='hammer'>
+            This card was created before it was possible to define all 5 levels,
+            or without consideration for leveling, therefore only the level{' '}
+            {props.level} is relevant.
+          </Notice>
+        )}
+      </Spacing>
 
       {props.mode === 'EDITOR' && (
         <Page.Narrow>
           <RandomCardInfo setCardData={setters.setCardData} />
-        </Page.Narrow>
-      )}
 
-      {props.mode === 'EDITOR' && (
-        <Spacing top='LARGEST'>
           <form onSubmit={event => event.preventDefault()}>
-            <Row isDesktopOnly>
-              <Row.Column>
-                <Title>Core attributes</Title>
-                <CoreForm {...card} {...setters} />
-              </Row.Column>
-              <Row.Column>
-                <Title>Level-specific attributes</Title>
-                <LevelForm {...card} {...setters} />
-              </Row.Column>
-            </Row>
+            <Spacing vertical='LARGE'>
+              <Title>Core attributes</Title>
+              <CoreForm {...card} {...setters} />
+            </Spacing>
+            <Spacing vertical='LARGE'>
+              <Title>Level-specific attributes</Title>
+              <LevelForm {...card} {...setters} />
+            </Spacing>
           </form>
-        </Spacing>
+        </Page.Narrow>
       )}
     </Page>
   )

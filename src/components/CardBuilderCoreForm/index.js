@@ -38,10 +38,14 @@ export default React.memo(function CardBuilderCoreForm(props) {
           <Input
             label='Mana'
             id='mana'
-            value={props.mana}
+            onKeyPress={event =>
+              !/[0-9]/.test(event.key) && event.preventDefault()
+            }
             onChange={event => props.setMana(event.target.value)}
             required
+            value={props.mana}
             data-testid='cb-mana-input'
+            pattern='[0-9]*'
           />
         </Row.Column>
         <Row.Column>
