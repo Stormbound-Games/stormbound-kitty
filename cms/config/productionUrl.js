@@ -36,7 +36,9 @@ export default async function productionUrl(prev, context) {
 
   switch (document._type) {
     case 'changelog':
-      return getPreviewURL({ id: cardsMap.get(document.card._ref) })
+      return document.card
+        ? getPreviewURL({ id: cardsMap.get(document.card._ref) })
+        : prev
 
     case 'card':
       return getPreviewURL({ id: document.id?.current })
