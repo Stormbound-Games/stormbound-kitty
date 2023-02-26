@@ -271,12 +271,15 @@ const handleCardEffect = (state, card, mode, HoS) => {
 
     // Temple of Space
     case 'I29': {
+      // If the RNG is unfriendly or half the time in regular, there is no
+      // existing Temple of Space, which means the card comes back to hand.
       if (
-        state.RNG === 'FRIENDLY' ||
+        state.RNG === 'UNFRIENDLY' ||
         (state.RNG === 'REGULAR' && Math.random() <= PROBABILITIES.TOS_RETURNS)
       ) {
         state.hand.push(card)
       }
+
       break
     }
 

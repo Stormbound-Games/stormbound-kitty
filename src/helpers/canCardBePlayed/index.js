@@ -1,3 +1,5 @@
+import { PROBABILITIES } from '#constants/dryRunner'
+
 const DEFAULT_STATE = {
   frozenEnemies: false,
   noUnits: false,
@@ -39,6 +41,18 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
 
     if (unplayableSpells.includes(card.id)) return false
   }
+
+  // Temple of Space can be played for free if there is an existing friendly
+  // Temple of Space on the board. This requires enough turns to have passed for
+  // a first Temple of Space to have been played, and then a friendly RNG.
+  const isToS = card.id === 'I29'
+  const hasPossibleToS = state.mana > card.mana
+  const hasToS =
+    state.RNG === 'FRIENDLY' ||
+    (state.RNG === 'REGULAR' &&
+      Math.random() <= PROBABILITIES.FREE_TEMPLE_OF_SPACE)
+
+  if (isToS && hasPossibleToS && hasToS) return true
 
   return card.mana <= availableMana
 }
