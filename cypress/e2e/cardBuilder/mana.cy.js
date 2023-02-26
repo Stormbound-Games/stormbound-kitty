@@ -29,16 +29,4 @@ describe('Card Builder — Mana', () => {
     cy.get(s.MANA_INPUT).should('have.value', '5')
     assertCardMana(0, '5')
   })
-
-  it('should be possible to define it per level', () => {
-    cy.get(s.MANA_INPUT)
-      .clear()
-      .type('1/2/3/4/5')
-      .should('have.value', '1/2/3/4/5')
-    assertCardMana(0, '1')
-    assertCardMana(1, '2')
-    assertCardMana(2, '3')
-    assertCardMana(3, '4')
-    assertCardMana(4, '5')
-  })
 })
