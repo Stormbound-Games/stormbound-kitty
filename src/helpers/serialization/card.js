@@ -38,7 +38,7 @@ export const deserializeCard = (cardsIndex, string) => {
   card.faction = getLongFaction(chunks[0])
   card.type = getLongType(chunks[2])
   card.rarity = getLongRarity(chunks[3])
-  card.mana = +chunks[4]
+  card.mana = parseInt(chunks[4], 10)
   card.strength = resolveStrength(chunks[6], card.type)
   card.name = decodeURIComponent(chunks[7])
 
