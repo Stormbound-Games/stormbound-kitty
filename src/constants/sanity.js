@@ -1,4 +1,4 @@
-import sanityClient from '@sanity/client'
+import { createClient } from '@sanity/client'
 
 const configuration = {
   projectId: '5hlpazgd',
@@ -6,7 +6,7 @@ const configuration = {
   apiVersion: '2022-02-01',
 }
 
-export const client = sanityClient({
+export const client = createClient({
   ...configuration,
   // Using Sanity’s API CDN is generally good for performance, but does not play
   // too nicely with on-demand revalidation. When the Sanity webhook instructs
@@ -24,7 +24,7 @@ export const client = sanityClient({
 // silently behave like the production client, which would lead to a non-
 // functional preview mode without any error.
 export const previewClient = process.env.SANITY_PREVIEW_TOKEN
-  ? sanityClient({
+  ? createClient({
       ...configuration,
       useCdn: false,
       // Passing a token is what makes it possible to retrieve draft documents.
