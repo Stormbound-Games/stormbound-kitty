@@ -26,9 +26,8 @@ const resolveManaRNG = state => {
       state.specifics.activeDawnsparks = 0
 
       // When RNG is unfriendly, we expect the opponent player to destroy all
-      // other ancients but the Orgone Leechers so they leech a maximum amount
-      // of mana.
-      state.specifics.activeFriendlyAncients = 0
+      // Orgone Leechers allies so they leech a maximum amount of mana.
+      state.specifics.activeOrgoneLeechersAllies = 0
       state.mana -= Math.min(3 * state.specifics.activeOrgoneLeechers)
       break
     }
@@ -46,11 +45,12 @@ const resolveManaRNG = state => {
         PROBABILITIES.DAWNSPARKS_STAYS
       )
 
-      // Choose how many friendly ancients survive (for Orgone Leechers)
-      state.specifics.activeFriendlyAncients -= getBinomialRandomVariableResult(
-        state.specifics.activeFriendlyAncients,
-        PROBABILITIES.ANCIENT_STAYS
-      )
+      // Choose how many friendly Orgone Leechers allies survive
+      state.specifics.activeOrgoneLeechersAllies -=
+        getBinomialRandomVariableResult(
+          state.specifics.activeOrgoneLeechersAllies,
+          PROBABILITIES.ORGONE_LEECHERS_ALLY_STAYS
+        )
 
       // Add mana from remaining Frozen Cores
       state.mana += state.specifics.activeFrozenCores * 3
@@ -62,9 +62,10 @@ const resolveManaRNG = state => {
           PROBABILITIES.DAWNSPARKS_HITS
         ) * 4
 
-      // Decrease mana based on the amount of active friendly ancients.
+      // Decrease mana based on the amount of active friendly Orgone Leechers
+      // allies.
       state.mana -= Math.max(
-        (3 - state.specifics.activeFriendlyAncients) *
+        (3 - state.specifics.activeOrgoneLeechersAllies) *
           state.specifics.activeOrgoneLeechers,
         0
       )
@@ -76,7 +77,7 @@ const resolveManaRNG = state => {
       state.mana += state.specifics.activeFrozenCores * 3
       state.mana += state.specifics.activeDawnsparks * 4
       state.mana -= Math.max(
-        (3 - state.specifics.activeFriendlyAncients) *
+        (3 - state.specifics.activeOrgoneLeechersAllies) *
           state.specifics.activeOrgoneLeechers,
         0
       )

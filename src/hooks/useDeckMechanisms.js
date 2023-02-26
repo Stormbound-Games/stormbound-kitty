@@ -12,7 +12,7 @@ const getDefaultState = props => ({
   RNG: props.RNG || 'REGULAR',
   hasCycledThisTurn: false,
   specifics: {
-    activeFriendlyAncients: 0,
+    activeOrgoneLeechersAllies: 0,
     activeFrozenCores: 0,
     activeDawnsparks: 0,
     activeOrgoneLeechers: 0,

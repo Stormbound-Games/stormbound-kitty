@@ -50,15 +50,20 @@ const play = (state, card, opts, HoS) => {
     state.specifics.noUnitsOnFirstTurn = false
   }
 
-  // If the card is an ancient, increment the counter of friendly ancients on
-  // the board as it impacts some cards. If the card is Orgone Leechers though,
-  // we only increment the amount of ancients if we have other Orgone Leechers
+  // If the card is an Ancient or a Frostling, increment the counter of friendly
+  // Orgone Leechers allies on the board. If the card is Orgone Leechers though,
+  // we only increment the amount of allies if we have other Orgone Leechers
   // on the board otherwise it counts for itself.
+  const isOrgoneLeechers = cardData.id === 'W33'
+  const isOrgoneLeechersAlly =
+    cardData.unitTypes.includes('ancient') ||
+    cardData.unitTypes.includes('frostling')
+
   if (
-    cardData.unitTypes.includes('ancient') &&
-    (cardData.id !== 'W33' || state.specifics.activeOrgoneLeechers)
+    isOrgoneLeechersAlly &&
+    (!isOrgoneLeechers || state.specifics.activeOrgoneLeechers > 0)
   ) {
-    state.specifics.activeFriendlyAncients += 1
+    state.specifics.activeOrgoneLeechersAllies += 1
   }
 
   // After having played a card, we need to readjust the weight of all cards
