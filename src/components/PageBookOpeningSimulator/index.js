@@ -141,7 +141,7 @@ const CustomBookFields = ({
 }
 
 export default React.memo(function PageBookOpeningSimulator(props) {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const { css } = useFela()
   const router = useRouter()
   const { viewportWidth } = useViewportSize()
@@ -180,9 +180,9 @@ export default React.memo(function PageBookOpeningSimulator(props) {
               odds: expectations.map(expectation => expectation / 100),
             }
 
-      setDeck(openBook(cards, book))
+      setDeck(openBook(cardsWithoutTokens, book))
     },
-    [cards, booksIndex, bookId, expectations, amount]
+    [cardsWithoutTokens, booksIndex, bookId, expectations, amount]
   )
 
   React.useEffect(() => {
