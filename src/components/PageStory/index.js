@@ -21,7 +21,7 @@ export default React.memo(function PageStory(props) {
       <Page
         title={story.title}
         author={story.author}
-        image={cardsIndex[story.cardId].image}
+        image={cardsIndex[story.cardId]?.image}
         description={story.excerpt}
         background={STORY_CATEGORIES[story.category].background}
         meta={story.readingTime}
