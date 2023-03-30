@@ -140,10 +140,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Westwind Sailors', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N16', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N16', 5)
-    expect(value1[0]).toEqual((2 / 3) * 1)
-    expect(value1[1]).toEqual((2 / 3) * 1)
-    expect(value5[0]).toEqual((6 / 3) * 1)
-    expect(value5[1]).toEqual((6 / 3) * 1)
+    expect(value1[0]).toEqual((3 / 3) * 1)
+    expect(value1[1]).toEqual((3 / 3) * 1)
+    expect(value5[0]).toEqual((7 / 3) * 1)
+    expect(value5[1]).toEqual((7 / 3) * 1)
   })
 
   it('should return value for Wetland Deceivers', () => {
@@ -1288,10 +1288,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Faun Companions', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'S5', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'S5', 5)
-    expect(value1[0]).toEqual((1 / 3) * 1)
-    expect(value1[1]).toEqual(((1 + 3) / 3) * 1)
-    expect(value5[0]).toEqual((3 / 3) * 1)
-    expect(value5[1]).toEqual(((3 + 6) / 3) * 1)
+    expect(value1[0]).toEqual((2 / 3) * 1)
+    expect(value1[1]).toEqual(((2 + 3) / 3) * 1)
+    expect(value5[0]).toEqual((4 / 3) * 1)
+    expect(value5[1]).toEqual(((4 + 6) / 3) * 1)
   })
 
   it.skip('should return value for Forgotten Souls', () => {

@@ -42,7 +42,7 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
     if (unplayableSpells.includes(card.id)) return false
   }
 
-  // Temple of Space can be played for free if there is an existing friendly
+  // Temple of Space can be played for 1 mana if there is an existing friendly
   // Temple of Space on the board. This requires enough turns to have passed for
   // a first Temple of Space to have been played, and then a friendly RNG.
   const isToS = card.id === 'I29'
@@ -50,9 +50,11 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
   const hasToS =
     state.RNG === 'FRIENDLY' ||
     (state.RNG === 'REGULAR' &&
-      Math.random() <= PROBABILITIES.FREE_TEMPLE_OF_SPACE)
+      Math.random() <= PROBABILITIES.CHEAP_TEMPLE_OF_SPACE)
 
-  if (isToS && hasPossibleToS && hasToS) return true
+  if (isToS && hasPossibleToS && hasToS) {
+    return 1 <= availableMana
+  }
 
   return card.mana <= availableMana
 }

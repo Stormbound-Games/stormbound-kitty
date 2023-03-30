@@ -28,6 +28,7 @@ export default React.memo(function ChartMovement() {
         { name: '1 movement', value: 0, color: '#605c44' },
         { name: '2 movement', value: 0, color: '#607058' },
         { name: '3 movement', value: 0, color: '#60846c' },
+        { name: '4 movement', value: 0, color: '#30846c' },
       ]
     )
 
