@@ -8,14 +8,8 @@ import serialization from '#helpers/serialization'
 import getEmbed from '#helpers/getEmbed'
 import trackBotCommand from '#helpers/trackBotCommand'
 
-const ALLOWED_FACTIONS = FACTIONS.filter(faction => faction !== 'neutral')
-
 const validateFaction = (faction, including = []) => {
-  const randomFaction = arrayRandom(ALLOWED_FACTIONS)
-
-  // If the provided faction is “neutral”, abort as a random deck cannot be
-  // neutral.
-  if (faction === 'neutral') return null
+  const randomFaction = arrayRandom(FACTIONS)
 
   // If there are no included cards, return the provided faction, if any, or a
   // random one.
