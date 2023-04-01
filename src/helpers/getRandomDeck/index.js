@@ -72,8 +72,9 @@ const getRandomCard = (cards, cardsIndex, deck, options) => {
   const hasEnoughEpics =
     deck.filter(card => card.rarity === 'epic').length >= options.maxEpicCards
   const hasEnoughNeutrals =
+    options.faction !== 'neutral' &&
     deck.filter(card => card.faction === 'neutral').length >=
-    12 - options.minFactionCards
+      12 - options.minFactionCards
   const hasEnoughExpensiveCards =
     deck.filter(card => card.mana >= 5).length >= 4
   const hasCardAlready = deck.find(c => c.id === card.id)

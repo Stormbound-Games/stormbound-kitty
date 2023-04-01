@@ -45,6 +45,7 @@ export default React.memo(function RandomDeckFilters(props) {
             value={faction}
             onChange={event => setFaction(event.target.value)}
             withAny
+            withNeutral
           />
         </Row.Column>
         <Row.Column>

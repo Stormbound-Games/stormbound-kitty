@@ -28,6 +28,21 @@ describe('Bot — /randomdeck', () => {
     ).toBe('shadowfen')
   })
 
+  it('should return a random deck of the specified faction, even if neutral', async () => {
+    const interaction = mockInteraction({ faction: 'neutral' })
+    const output = await command.execute(interaction, client)
+
+    expect(output.ephemeral).toBeTruthy()
+    expect(output.content).toMatch(
+      /^https:\/\/stormbound-kitty.com\/deck\/\w+$/
+    )
+    expect(
+      getFactionFromDeckID(
+        output.content.replace('https://stormbound-kitty.com/deck/', '')
+      )
+    ).toBe('neutral')
+  })
+
   it('should include specific cards', async () => {
     const interaction = mockInteraction({ including: 'mia' })
     const output = await command.execute(interaction, client)
