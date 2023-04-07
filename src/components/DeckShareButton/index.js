@@ -52,8 +52,15 @@ export default React.memo(function DeckShareButton(props) {
   return (
     <ShareDialog
       label='Share deck'
-      disabled={props.disabled}
       image='https://cdn.sanity.io/images/5hlpazgd/production/596e054dac114d033c4ceca539e4af9f00ff6f87-512x512.png'
+      trigger={
+        props.trigger ??
+        (triggerProps => (
+          <CTA {...triggerProps} disabled={props.disabled}>
+            Share deck
+          </CTA>
+        ))
+      }
     >
       {!props.withoutIntro && (
         <p>
