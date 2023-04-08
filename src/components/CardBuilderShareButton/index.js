@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Checkbox from '#components/Checkbox'
+import CTA from '#components/CTA'
 import Select from '#components/Select'
 import ShareDialog from '#components/ShareDialog'
 import Spacing from '#components/Spacing'
@@ -21,7 +22,6 @@ export default React.memo(function CardBuilderShareButton(props) {
   return (
     <ShareDialog
       label='Share card'
-      disabled={props.disabled}
       image='https://cdn.sanity.io/images/5hlpazgd/production/d7567c8333cfa033713404794775bc0b939f5715-301x300.png'
       ctaLabel={
         'Copy ' +
@@ -33,6 +33,11 @@ export default React.memo(function CardBuilderShareButton(props) {
         title: mode.includes('STATS') ? props.title : undefined,
         content: mode.includes('STATS') ? props.content : undefined,
       }}
+      trigger={triggerProps => (
+        <CTA {...triggerProps} disabled={props.disabled}>
+          Share card
+        </CTA>
+      )}
     >
       <p>
         Your card is automatically saved to the URL of the page as you work on

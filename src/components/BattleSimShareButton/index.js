@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Checkbox from '#components/Checkbox'
+import CTA from '#components/CTA'
 import ShareDialog from '#components/ShareDialog'
 import Spacing from '#components/Spacing'
 import styles from './styles'
@@ -14,9 +15,13 @@ export default React.memo(function BattleSimShareButton(props) {
   return (
     <ShareDialog
       label='Share board'
-      disabled={props.disabled}
       image='https://cdn.sanity.io/images/5hlpazgd/production/77baae150df0e9784678c1147fd1fa0d0fcbb9ee-512x512.png'
       share={{ processURL, shortenURL: true }}
+      trigger={triggerProps => (
+        <CTA {...triggerProps} disabled={props.disabled}>
+          Share board
+        </CTA>
+      )}
     >
       <p>
         Your board is automatically saved to the URL of the page as you work on

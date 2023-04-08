@@ -1,5 +1,4 @@
 import React from 'react'
-import CTA from '#components/CTA'
 import Dialog from '#components/Dialog'
 import useShare from '#hooks/useShare'
 
@@ -11,15 +10,7 @@ export default React.memo(function ShareDialog(props) {
 
   return (
     <>
-      <CTA
-        onClick={open}
-        type='button'
-        disabled={props.disabled}
-        extend={props.extend}
-        isFullWidthOnMobile={props.isFullWidthOnMobile}
-      >
-        {props.label}
-      </CTA>
+      {props?.trigger({ onClick: open, type: 'button' })}
       <Dialog
         id='share-dialog'
         title={props.label}

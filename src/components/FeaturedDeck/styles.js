@@ -24,16 +24,16 @@ const rarityBar = {
 const actions = {
   fontSize: '80%',
   display: 'flex',
+  gap: 'var(--s-base)',
   marginTop: 'var(--s-base)',
   marginLeft: 'auto',
+  marginRight: 'var(--s-smaller)',
   opacity: 0.5,
   transition: '250ms',
 
   ':hover': {
     opacity: 1,
   },
-
-  '> *': { margin: '0 var(--s-smaller) 0 var(--s-smallest)' },
 }
 
 const styles = {

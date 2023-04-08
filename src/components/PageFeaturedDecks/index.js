@@ -2,7 +2,9 @@ import React from 'react'
 import { CardsContext } from '#components/CardsProvider'
 import { CollectionContext } from '#components/CollectionProvider'
 import BookmarkDeckButton from '#components/BookmarkDeckButton'
+import DeckShareButton from '#components/DeckShareButton'
 import Decks from '#components/Decks'
+import DiamondButton from '#components/DiamondButton'
 import EmptySearch from '#components/EmptySearch'
 import Page from '#components/Page'
 import ImportCollection from '#components/ImportCollection'
@@ -180,7 +182,20 @@ export default React.memo(function PageFeaturedDecks(props) {
               decks={decks}
               withBookmarking
               showUpgrades
-              actions={deck => [<BookmarkDeckButton key={deck.id} {...deck} />]}
+              actions={deck => [
+                <DeckShareButton
+                  withoutIntro
+                  deck={serialization.deck.deserialize(
+                    cardsIndexBySid,
+                    deck.id
+                  )}
+                  trigger={triggerProps => (
+                    <DiamondButton icon='share' {...triggerProps} />
+                  )}
+                  key='share'
+                />,
+                <BookmarkDeckButton key='bookmark' {...deck} icon='share' />,
+              ]}
             />
           ) : (
             <EmptySearch title='No Decks found' resetFilters={resetFilters} />

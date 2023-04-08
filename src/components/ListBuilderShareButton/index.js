@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import CTA from '#components/CTA'
 import Checkbox from '#components/Checkbox'
 import ShareDialog from '#components/ShareDialog'
 import Spacing from '#components/Spacing'
@@ -14,7 +15,6 @@ export default React.memo(function ListBuilderShareButton(props) {
   return (
     <ShareDialog
       label='Share list'
-      disabled={props.disabled}
       image='https://cdn.sanity.io/images/5hlpazgd/production/75fe3608b1fb8b5a814addd5633268dde65aa978-512x512.png'
       share={{
         processURL,
@@ -22,6 +22,11 @@ export default React.memo(function ListBuilderShareButton(props) {
         content: props.content,
         shortenURL: true,
       }}
+      trigger={triggerProps => (
+        <CTA {...triggerProps} disabled={props.disabled}>
+          Share list
+        </CTA>
+      )}
     >
       <p>
         Your list is automatically saved to the URL of the page as you work on
