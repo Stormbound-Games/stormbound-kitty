@@ -22,6 +22,6 @@ describe('The `searchCards` helper', () => {
     ).toEqual(1)
     expect(
       searchCards(global.__CARDS__, global.__ABBREVIATIONS__, 'fs').length
-    ).toEqual(4)
+    ).toEqual(5)
   })
 })

@@ -42,7 +42,7 @@ describe('Bot — /abbr', () => {
 
     expect(output.ephemeral).toBeTruthy()
     expect(embed.description).toBe(
-      '“fs” might mean “Final Sacrifice”, “Flaming Stream”, “Feral Shamans”, “Forgotten Souls”, or “Fusion Stones”.'
+      '“fs” might mean “Final Sacrifice”, “Froglet Strays”, “Flaming Stream”, “Feral Shamans”, “Forgotten Souls”, or “Fusion Stones”.'
     )
   })
 })
