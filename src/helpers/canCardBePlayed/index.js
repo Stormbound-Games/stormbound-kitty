@@ -53,7 +53,7 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
       Math.random() <= PROBABILITIES.CHEAP_TEMPLE_OF_SPACE)
 
   if (isToS && hasPossibleToS && hasToS) {
-    return 1 <= availableMana
+    return 2 <= availableMana
   }
 
   return card.mana <= availableMana
