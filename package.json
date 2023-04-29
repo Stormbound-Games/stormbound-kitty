@@ -21,7 +21,7 @@
     "@discordjs/rest": "^1.7.0",
     "@portabletext/react": "^2.0.1",
     "@reach/tooltip": "^0.18.0",
-    "@sanity/client": "^5.2.2",
+    "@sanity/client": "^5.4.2",
     "canvas": "^2.11.0",
     "copy-to-clipboard": "^3.3.3",
     "discord.js": "^14.8.0",
