@@ -41,7 +41,7 @@
     "framer-motion": "^10.12.4",
     "fuse.js": "^6.6.2",
     "html2canvas": "^1.4.1",
-    "isomorphic-unfetch": "^3.1.0",
+    "isomorphic-unfetch": "^4.0.2",
     "next": "^13.3.1",
     "next-plausible": "^3.7.2",
     "next-sitemap": "^3.1.52",
