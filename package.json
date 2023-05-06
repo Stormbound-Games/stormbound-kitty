@@ -79,7 +79,7 @@
     "npx-import": "^1.1.4",
     "prettier": "^2.8.4",
     "replace-in-file": "^6.3.5",
-    "webpack": "^5.76.2"
+    "webpack": "^5.82.0"
   },
   "lint-staged": {
     "*.js": [
