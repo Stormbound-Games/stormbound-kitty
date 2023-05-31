@@ -61,8 +61,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N7', 5)
     expect(value1[0]).toEqual((3 / 3) * 0.5)
     expect(value1[1]).toEqual(((3 + 1) / 3) * 0.5)
-    expect(value5[0]).toEqual((6 / 3) * 0.5)
-    expect(value5[1]).toEqual(((6 + 3) / 3) * 0.5)
+    expect(value5[0]).toEqual((7 / 3) * 0.5)
+    expect(value5[1]).toEqual(((7 + 3) / 3) * 0.5)
   })
 
   it('should return value for Collector Mirz', () => {
@@ -160,8 +160,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N18', 5)
     expect(value1[0]).toEqual((3 / 4) * 1)
     expect(value1[1]).toEqual(((3 + 2 * MAX_TILES) / 4) * 1)
-    expect(value5[0]).toEqual((6 / 4) * 1)
-    expect(value5[1]).toEqual(((6 + 4 * MAX_TILES) / 4) * 1)
+    expect(value5[0]).toEqual((7 / 4) * 1)
+    expect(value5[1]).toEqual(((7 + 4 * MAX_TILES) / 4) * 1)
   })
 
   it('should return value for Cabin Girls', () => {
@@ -440,10 +440,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Avian Stalkers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N49', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N49', 5)
-    expect(value1[0]).toEqual((5 / 6) * 0.5)
-    expect(value1[1]).toEqual(((5 + 4 * 3) / 6) * 0.5)
-    expect(value5[0]).toEqual((10 / 6) * 0.5)
-    expect(value5[1]).toEqual(((10 + 4 * 7) / 6) * 0.5)
+    expect(value1[0]).toEqual((5 / 5) * 0.5)
+    expect(value1[1]).toEqual(((5 + 4 * 3) / 5) * 0.5)
+    expect(value5[0]).toEqual((10 / 5) * 0.5)
+    expect(value5[1]).toEqual(((10 + 4 * 7) / 5) * 0.5)
   })
 
   it('should return value for Call for Aid', () => {
