@@ -65,7 +65,7 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.17.0",
     "@next/bundle-analyzer": "^13.4.4",
-    "@svgr/webpack": "^6.5.1",
+    "@svgr/webpack": "^8.0.1",
     "cypress": "^12.13.0",
     "cypress-localstorage-commands": "^2.2.3",
     "diff": "^5.1.0",
