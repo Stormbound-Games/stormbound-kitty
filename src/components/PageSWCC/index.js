@@ -14,12 +14,9 @@ export default React.memo(function PageSWCC(props) {
     <Page
       title='Weekly Card Contest'
       description='All the information to participate and/or vote in the Stormbound weekly card competitions'
-      authors={[
-        { name: 'TaKo_G', slug: 'tako_g' },
-        { name: 'Grimm', slug: 'grimm' },
-      ]}
+      authors={[{ name: 'Equinox', slug: 'equinox' }]}
       action={{ to: '/card', children: 'Card builder' }}
-      meta='Finished'
+      meta='Ongoing'
       isEditorialContent
     >
       <Page.Narrow>
@@ -27,7 +24,7 @@ export default React.memo(function PageSWCC(props) {
           The following is a collection of all of the information to participate
           and/or vote in the weekly card competitions. Would you have any
           questions or <span className='Highlight'>want to be a judge</span>,
-          feel free to message @TaKo_G#0373 on the{' '}
+          feel free to message Equinox on the{' '}
           <Link href='https://discord.gg/stormbound'>Stormbound Discord</Link>.
         </p>
 
@@ -108,7 +105,7 @@ export default React.memo(function PageSWCC(props) {
           you want to update the text, art or stats, you only need to reopen the
           form and it should allow you to edit your submission there.
           Alternatively, you can send a link to your updated card and send it to
-          me on Discord (@TaKo_G#0373).
+          Equinox on Discord.
         </p>
 
         <p>
@@ -137,20 +134,20 @@ export default React.memo(function PageSWCC(props) {
         <ul>
           <li>
             The community-voted ultimate winner will be awarded{' '}
-            <Rubies amount={50} />.
+            <Rubies amount={100} />.
           </li>
           <li>
             The runners-up as selected by the judges will be awarded{' '}
-            <Rubies amount={25} />.
+            <Rubies amount={50} />.
           </li>
         </ul>
 
         <Title id='becoming-a-judge'>Becoming a judge</Title>
         <p>
-          If you want to be a judge, just message me on Discord (@TaKo_G#0373).
-          You’ll be expected to judge several cards at the end of the week. If
-          we are full of judges, I can add you to a queue and you can judge in
-          the following week.
+          If you want to be a judge, just message Equinox on Discord. You’ll be
+          expected to judge several cards at the end of the week. If we are full
+          of judges, I can add you to a queue and you can judge in the following
+          week.
         </p>
 
         <Title id='rules'>Rules</Title>
