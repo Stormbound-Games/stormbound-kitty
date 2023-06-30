@@ -131,10 +131,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Potion of Growth', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N15', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N15', 5)
-    expect(value1[0]).toEqual(2 / 3)
-    expect(value1[1]).toEqual(2 / 3)
-    expect(value5[0]).toEqual(6 / 3)
-    expect(value5[1]).toEqual(6 / 3)
+    expect(value1[0]).toEqual(3 / 3)
+    expect(value1[1]).toEqual(3 / 3)
+    expect(value5[0]).toEqual(7 / 3)
+    expect(value5[1]).toEqual(7 / 3)
   })
 
   it('should return value for Westwind Sailors', () => {
@@ -260,8 +260,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N29', 5)
     expect(value1[0]).toEqual(1 / 5)
     expect(value1[1]).toEqual((1 * 20) / 5)
-    expect(value5[0]).toEqual(4 / 5)
-    expect(value5[1]).toEqual((4 * 20) / 5)
+    expect(value5[0]).toEqual(5 / 5)
+    expect(value5[1]).toEqual((5 * 20) / 5)
   })
 
   it('should return value for Bluesail Raiders', () => {
@@ -1514,9 +1514,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W1', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W1', 5)
     expect(value1[0]).toEqual(1 / 1)
-    expect(value1[1]).toEqual(8 / 1)
+    expect(value1[1]).toEqual(6 / 1)
     expect(value5[0]).toEqual(1 / 1)
-    expect(value5[1]).toEqual(18 / 1)
+    expect(value5[1]).toEqual(12 / 1)
   })
 
   it('should return value for Frosthexers', () => {
