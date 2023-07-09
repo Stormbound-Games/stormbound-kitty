@@ -24,8 +24,9 @@ export default React.memo(function PageSWCCSeason(props) {
       title={'SWCC Season ' + props.number}
       description={`Find all the cards created by the community from the Stormbound Weekly Card Contest season ${props.number}`}
       authors={[
-        { name: 'TaKo_G', slug: 'tako_g' },
-        props.number >= 4 && { name: 'Grimm', slug: 'grimm' },
+        props.number <= 4 && { name: 'TaKo_G', slug: 'tako_g' },
+        props.number === 4 && { name: 'Grimm', slug: 'grimm' },
+        props.number >= 5 && { name: 'Equinox', slug: 'equinox' },
       ].filter(Boolean)}
       action={{ to: '/swcc', children: 'Back to SWCC' }}
       meta={`${props.contests.length} weeks`}
