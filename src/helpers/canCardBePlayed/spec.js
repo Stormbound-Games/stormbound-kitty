@@ -44,19 +44,19 @@ describe('The `canCardBePlayed` helper', () => {
   })
 
   // Tests for spells needing a friendly target
-  ;['N100', 'N105'].forEach(id => {
+  ;['N15', 'N100'].forEach(id => {
     const cardData = global.__CARDS_INDEX__[id]
 
     it(`should return false if the card is ${cardData.name} and there are no friendly units at turn 1`, () => {
-      expect(canCardBePlayed(4, cardData, { turn: 1, noUnits: true })).toEqual(
-        false
-      )
+      expect(
+        canCardBePlayed(4, cardData, { turn: 1, noFriendlyUnits: true })
+      ).toEqual(false)
     })
 
     it(`should return true if the card is ${cardData.name} and there are friendly units at turn 1`, () => {
-      expect(canCardBePlayed(4, cardData, { turn: 1, noUnits: false })).toEqual(
-        true
-      )
+      expect(
+        canCardBePlayed(4, cardData, { turn: 1, noFriendlyUnits: false })
+      ).toEqual(true)
     })
   })
 
@@ -67,15 +67,15 @@ describe('The `canCardBePlayed` helper', () => {
     const state = { turn: 1, modifier: 'SPELL_MANA' }
 
     it(`should return false if the card is ${cardData.name} and there is no target in Eye of the Tempest Brawl`, () => {
-      expect(canCardBePlayed(4, card, { ...state, noUnits: true })).toEqual(
-        false
-      )
+      expect(
+        canCardBePlayed(4, card, { ...state, noFriendlyUnits: true })
+      ).toEqual(false)
     })
 
     it(`should return true if the card is ${cardData.name} and there is a target in Eye of the Tempest Brawl`, () => {
-      expect(canCardBePlayed(4, card, { ...state, noUnits: false })).toEqual(
-        true
-      )
+      expect(
+        canCardBePlayed(4, card, { ...state, noFriendlyUnits: false })
+      ).toEqual(true)
     })
   })
 

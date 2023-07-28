@@ -47,7 +47,7 @@ const getCardToCycle = ({ availableMana, hand, modifier }) => {
   const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
   const state = {
     turn: availableMana - 2,
-    noUnits: isFirstTurn && !hasUnit,
+    noFriendlyUnits: isFirstTurn && !hasUnit,
     frozenEnemies: hasFreeze,
     emptyCells: true,
     modifier,
