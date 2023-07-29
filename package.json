@@ -63,7 +63,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@cypress/webpack-preprocessor": "^5.17.0",
+    "@cypress/webpack-preprocessor": "^5.17.1",
     "@next/bundle-analyzer": "^13.4.12",
     "@svgr/webpack": "^8.0.1",
     "cypress": "^12.17.2",
