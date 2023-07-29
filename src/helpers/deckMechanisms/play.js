@@ -47,7 +47,7 @@ const play = (state, card, opts, HoS) => {
   // Check if this card spawns units on the board, this is used to check
   // if Toxic Sacrifice can be played on this turn.
   if (state.turn === 1 && cardData.type === 'unit') {
-    state.specifics.noUnitsOnFirstTurn = false
+    state.specifics.noFriendlyUnitsOnFirstTurn = false
   }
 
   // If the card is an Ancient or a Frostling, increment the counter of friendly

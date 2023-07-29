@@ -53,7 +53,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
     // Summon Militia (won’t cause any board filling issues)
     case 'N2': {
       if (state.turn === 1) {
-        state.specifics.noUnitsOnFirstTurn = false
+        state.specifics.noFriendlyUnitsOnFirstTurn = false
         state.specifics.emptyCellsIndicator = Math.max(
           state.specifics.emptyCellsIndicator - 1,
           0
@@ -67,7 +67,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
       const frogs = [4, 5, 5, 6, 6]
 
       if (state.turn === 1) {
-        state.specifics.noUnitsOnFirstTurn = false
+        state.specifics.noFriendlyUnitsOnFirstTurn = false
         state.specifics.emptyCellsIndicator = Math.max(
           state.specifics.emptyCellsIndicator - frogs[card.level - 1],
           0
@@ -79,7 +79,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
     // Head Start
     case 'S24': {
       if (state.turn === 1) {
-        state.specifics.noUnitsOnFirstTurn = false
+        state.specifics.noFriendlyUnitsOnFirstTurn = false
       }
       break
     }

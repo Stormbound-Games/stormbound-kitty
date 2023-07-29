@@ -39,7 +39,7 @@ const getPossibleManaSpent = availableMana => cards => {
   ]
 }
 
-const getCardToCycle = ({ availableMana, hand }) => {
+const getCardToCycle = ({ availableMana, hand, modifier }) => {
   const handIds = hand.map(card => card.id)
   const getManaCost = getEffectiveManaCost(availableMana)
   const isFirstTurn = availableMana === 3
@@ -47,9 +47,10 @@ const getCardToCycle = ({ availableMana, hand }) => {
   const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
   const state = {
     turn: availableMana - 2,
-    noUnits: isFirstTurn && !hasUnit,
+    noFriendlyUnits: isFirstTurn && !hasUnit,
     frozenEnemies: hasFreeze,
     emptyCells: true,
+    modifier,
   }
 
   const cycledCard = hand.reduce((a, b) => {
@@ -73,10 +74,10 @@ const getCardToCycle = ({ availableMana, hand }) => {
   return cycledCard
 }
 
-export const getCycledHands = ({ availableMana, deck, hand }) => {
+export const getCycledHands = ({ availableMana, deck, hand, modifier }) => {
   const handIds = hand.map(card => card.id)
   const deckCards = deck.filter(card => !handIds.includes(card.id))
-  const cycledCard = getCardToCycle({ availableMana, hand })
+  const cycledCard = getCardToCycle({ availableMana, hand, modifier })
 
   return deckCards.map(replacement =>
     hand.map(card => (cycledCard.id === card.id ? replacement : card))
@@ -130,7 +131,12 @@ const computeDeckChances = (deck, availableMana, modifier = 'NONE') => {
       // If the hand cannot spend all of the available mana, we need to cycle
       // the most expensive card (which is a decent approximation at this stage)
       // which gives 8 news hands.
-      const cycledHands = getCycledHands({ deck, hand, availableMana })
+      const cycledHands = getCycledHands({
+        deck,
+        hand,
+        availableMana,
+        modifier,
+      })
       const handsSpendingAllMana = cycledHands.filter(hand =>
         canSpendAllMana({ availableMana, hand })
       )
@@ -155,7 +161,12 @@ const computeDeckChances = (deck, availableMana, modifier = 'NONE') => {
       // If the hand cannot play all 4 cards within the available mana, we need
       // to cycle the most expensive card (which is a decent approximation at
       // this stage) which gives 8 news hands.
-      const cycledHands = getCycledHands({ deck, hand, availableMana })
+      const cycledHands = getCycledHands({
+        deck,
+        hand,
+        availableMana,
+        modifier,
+      })
       const handsPlayingAllCards = cycledHands.filter(hand =>
         canPlayAllCards({ availableMana, hand })
       )

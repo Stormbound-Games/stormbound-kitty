@@ -16,7 +16,7 @@ const getDefaultState = props => ({
     activeFrozenCores: 0,
     activeDawnsparks: 0,
     activeOrgoneLeechers: 0,
-    noUnitsOnFirstTurn: true,
+    noFriendlyUnitsOnFirstTurn: true,
     frozenEnemiesLevel: 0,
     emptyCellsIndicator: 4,
   },
@@ -88,7 +88,7 @@ const useDeckMechanisms = props => {
 
       return canCardBePlayed(state.mana, cardData, {
         turn: state.turn,
-        noUnits: Boolean(state.specifics.noUnitsOnFirstTurn),
+        noFriendlyUnits: Boolean(state.specifics.noFriendlyUnitsOnFirstTurn),
         frozenEnemies: Boolean(state.specifics.frozenEnemiesLevel),
         emptyCells: Boolean(state.specifics.emptyCellsIndicator),
       })

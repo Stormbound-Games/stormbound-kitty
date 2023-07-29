@@ -24,7 +24,7 @@ const getPlayableCards = (mana, cards) =>
       turn: 1,
       emptyCells: true,
       frozenEnemies: false,
-      noUnits: !canDeployUnits(mana - card.mana, cards),
+      noFriendlyUnits: !canDeployUnits(mana - card.mana, cards),
     })
   )
 
