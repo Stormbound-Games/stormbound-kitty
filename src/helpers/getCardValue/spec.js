@@ -366,10 +366,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Lich Summoners', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N41', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N41', 5)
-    expect(value1[0]).toEqual((3 / 4) * 1)
-    expect(value1[1]).toEqual(((3 + 3) / 4) * 1)
-    expect(value5[0]).toEqual((6 / 4) * 1)
-    expect(value5[1]).toEqual(((6 + 7) / 4) * 1)
+    expect(value1[0]).toEqual((4 / 4) * 1)
+    expect(value1[1]).toEqual(((4 + 3) / 4) * 1)
+    expect(value5[0]).toEqual((7 / 4) * 1)
+    expect(value5[1]).toEqual(((7 + 7) / 4) * 1)
   })
 
   it('should return value for Lucky Charmers', () => {
@@ -991,10 +991,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Frontline Engineers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I33', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I33', 5)
-    expect(value1[0]).toEqual((2 / 4) * 1)
-    expect(value1[1]).toEqual(((2 + 2 * 8) / 4) * 1)
-    expect(value5[0]).toEqual((5 / 4) * 1)
-    expect(value5[1]).toEqual(((5 + 4 * 8) / 4) * 1)
+    expect(value1[0]).toEqual((3 / 4) * 1)
+    expect(value1[1]).toEqual(((3 + 2 * 8) / 4) * 1)
+    expect(value5[0]).toEqual((6 / 4) * 1)
+    expect(value5[1]).toEqual(((6 + 4 * 8) / 4) * 1)
   })
 
   it('should return value for Brood Sages', () => {
@@ -1415,9 +1415,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'S19', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'S19', 5)
     expect(value1[0]).toEqual((3 / 5) * 0.5)
-    expect(value1[1]).toEqual(((3 + 3 * 3) / 5) * 2)
+    expect(value1[1]).toEqual(((3 + 3 * 1) / 5) * 2)
     expect(value5[0]).toEqual((7 / 5) * 0.5)
-    expect(value5[1]).toEqual(((7 + 3 * 7) / 5) * 2)
+    expect(value5[1]).toEqual(((7 + 3 * 5) / 5) * 2)
   })
 
   it.skip('should return value for Herald’s Hymn', () => {
@@ -1747,10 +1747,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Earthfathers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W27', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W27', 5)
-    expect(value1[0]).toEqual((5 / 7) * 1)
-    expect(value1[1]).toEqual(((5 + 3) / 7) * 1)
-    expect(value5[0]).toEqual((11 / 7) * 1)
-    expect(value5[1]).toEqual(((11 + 4) / 7) * 1)
+    expect(value1[0]).toEqual((6 / 7) * 1)
+    expect(value1[1]).toEqual(((6 + 4) / 7) * 1)
+    expect(value5[0]).toEqual((12 / 7) * 1)
+    expect(value5[1]).toEqual(((12 + 5) / 7) * 1)
   })
 
   it('should return value for Chilled Stonedames', () => {
