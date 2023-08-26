@@ -18,7 +18,7 @@
     "export-cards": "npm run modulify && node bin/export-cards.js"
   },
   "dependencies": {
-    "@discordjs/rest": "^2.0.0",
+    "@discordjs/rest": "^2.0.1",
     "@portabletext/react": "^3.0.4",
     "@reach/tooltip": "^0.18.0",
     "@sanity/client": "^6.4.0",
