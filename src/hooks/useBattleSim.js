@@ -330,29 +330,38 @@ const useBattleSim = props => {
       })
     }
 
-  const onCellClick = (x, y) => () => {
+  const onCellClick = (x, y) => {
     const cell = sim.board[x][y]
-    const isActiveCell =
-      activeCell && x === activeCell[0] && y === activeCell[1]
 
-    if (props.mode === 'DISPLAY') {
-      if (cell.card.id) {
-        setZoomed({
-          id: cell.card.id,
-          level: cell.card.withoutLevel ? 1 : cell.level,
-          strength: cell.strength,
-          versions: cell.card.versions,
-          player: cell.player,
-        })
+    if (props.mode === 'DISPLAY' && !cell.card.id) return null
+
+    return () => {
+      const isActiveCell =
+        activeCell && x === activeCell[0] && y === activeCell[1]
+
+      if (props.mode === 'DISPLAY') {
+        if (cell.card.id) {
+          setZoomed({
+            id: cell.card.id,
+            level: cell.card.withoutLevel ? 1 : cell.level,
+            strength: cell.strength,
+            versions: cell.card.versions,
+            player: cell.player,
+          })
+        }
+
+        return
       }
 
-      return
+      setActiveCell(isActiveCell ? null : [x, y])
+      setActivePlayer(
+        isActiveCell
+          ? null
+          : cell.card.id
+          ? cell.player
+          : activePlayer || 'BLUE'
+      )
     }
-
-    setActiveCell(isActiveCell ? null : [x, y])
-    setActivePlayer(
-      isActiveCell ? null : cell.card.id ? cell.player : activePlayer || 'BLUE'
-    )
   }
 
   const updateRedPlayer = redPlayer =>

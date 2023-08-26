@@ -33,10 +33,8 @@ const useFirstReleaseConfusionVisualization = id => {
       ['E2', '2\u20443', '1\u20443', 'edge'],
     ]
 
-    ODDS.forEach(([cell, newOdd, oldOdd, position]) => {
-      const container = document.querySelector(
-        `[data-cell-coords="cell-${cell}"]`
-      )
+    ODDS.forEach(([coords, newOdd, oldOdd, position]) => {
+      const container = document.querySelector(`[data-cell-coords="${coords}"]`)
       if (!container) return
       const odds = container.querySelector('[data-selector="odd"]')
       const content = withConfusionFix ? newOdd : oldOdd
