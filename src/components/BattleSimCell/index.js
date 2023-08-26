@@ -44,6 +44,7 @@ export default React.memo(function BattleSimCell(props) {
       onMouseUp={props.onMouseUp}
       onMouseOver={props.onMouseOver}
       data-testid={props['data-testid']}
+      data-cell-coords={props['data-cell-coords']}
       title={getTitle(props)}
       label={props.mode === 'DISPLAY' ? '' : 'Select cell'}
     >
