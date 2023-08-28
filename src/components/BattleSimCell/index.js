@@ -5,7 +5,7 @@ import BlankButton from '#components/BlankButton'
 import styles from './styles'
 
 const getTitle = props => {
-  if (props.mode === 'DISPLAY' || !props.card.id) {
+  if (!props.card.id) {
     return undefined
   }
 
@@ -20,34 +20,57 @@ const getTitle = props => {
   }`
 }
 
-export default React.memo(function BattleSimCell(props) {
-  const styleProps = {
-    activePlayer: props.activePlayer,
-    player: props.player,
-    isActive: props.isActive,
-    isDragging: props.isDragging,
-    isDisplay: props.mode === 'DISPLAY',
-    isPoisoned: props.poisoned,
-    isVitalized: props.vitalized,
-    isFrozen: props.frozen,
-    isConfused: props.confused,
-    isDisabled: props.disabled,
-  }
-  const { css } = useFela(styleProps)
+const CellButton = props => (
+  <BlankButton
+    extend={styles.cell(getStyleProps(props))}
+    aria-pressed={props.isActive}
+    onClick={props.onClick}
+    onMouseDown={props.onMouseDown}
+    onMouseUp={props.onMouseUp}
+    onMouseOver={props.onMouseOver}
+    data-testid={props['data-testid']}
+    data-cell-coords={props['data-cell-coords']}
+    title={getTitle(props)}
+    label={props.mode === 'DISPLAY' ? 'Zoom cell' : 'Select cell'}
+  >
+    {props.children}
+  </BlankButton>
+)
+
+const EmptyCell = props => {
+  const { css } = useFela()
 
   return (
-    <BlankButton
-      extend={styles.cell(styleProps)}
-      aria-pressed={props.isActive}
-      onClick={props.onClick}
-      onMouseDown={props.onMouseDown}
-      onMouseUp={props.onMouseUp}
-      onMouseOver={props.onMouseOver}
+    <div
       data-testid={props['data-testid']}
       data-cell-coords={props['data-cell-coords']}
-      title={getTitle(props)}
-      label={props.mode === 'DISPLAY' ? '' : 'Select cell'}
+      className={css(styles.cell(getStyleProps(props)))}
     >
+      {props.children}
+    </div>
+  )
+}
+
+const getStyleProps = props => ({
+  activePlayer: props.activePlayer,
+  player: props.player,
+  isActive: props.isActive,
+  isDragging: props.isDragging,
+  isDisplay: props.mode === 'DISPLAY',
+  isPoisoned: props.poisoned,
+  isVitalized: props.vitalized,
+  isFrozen: props.frozen,
+  isConfused: props.confused,
+  isDisabled: props.disabled,
+})
+
+export default React.memo(function BattleSimCell(props) {
+  const styleProps = getStyleProps(props)
+  const { css } = useFela(styleProps)
+  const CellComponent = props.onClick ? CellButton : EmptyCell
+
+  return (
+    <CellComponent {...props}>
       {props.strength > 0 && (
         <span
           data-testid='cell-strength'
@@ -186,6 +209,6 @@ export default React.memo(function BattleSimCell(props) {
           &times;
         </span>
       )}
-    </BlankButton>
+    </CellComponent>
   )
 })

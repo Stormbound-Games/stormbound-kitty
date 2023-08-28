@@ -15,7 +15,7 @@ const GridRow = props => {
           <div className={css(styles.cellContent)}>
             <Cell
               {...cell}
-              data-cell-coords={`cell-${'ABCDE'[x]}${'1234'[y]}`}
+              data-cell-coords={`${'ABCDE'[x]}${'1234'[y]}`}
               data-testid={`cell-${'ABCDE'[x]}${'1234'[y]}`}
               mode={props.mode}
               activePlayer={props.activePlayer}
