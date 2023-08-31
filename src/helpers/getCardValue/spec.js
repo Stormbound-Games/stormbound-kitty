@@ -1126,10 +1126,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Amberhides', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'F15', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'F15', 5)
-    expect(value1[0]).toEqual((4 / 5) * 1)
-    expect(value1[1]).toEqual(((4 + 4 * 2) / 5) * 1)
-    expect(value5[0]).toEqual((8 / 5) * 1)
-    expect(value5[1]).toEqual(((8 + 8 * 2) / 5) * 1)
+    expect(value1[0]).toEqual((5 / 5) * 1)
+    expect(value1[1]).toEqual(((5 + 4 * 2) / 5) * 1)
+    expect(value5[0]).toEqual((9 / 5) * 1)
+    expect(value5[1]).toEqual(((9 + 8 * 2) / 5) * 1)
   })
 
   it('should return value for Feral Shamans', () => {
@@ -1360,10 +1360,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Mischiefs', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'S13', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'S13', 5)
-    expect(value1[0]).toEqual(((4 + 1) / 4) * 1)
-    expect(value1[1]).toEqual(((4 + 1) / 4) * 1)
-    expect(value5[0]).toEqual(((8 + 2) / 4) * 1)
-    expect(value5[1]).toEqual(((8 + 2) / 4) * 1)
+    expect(value1[0]).toEqual(((3 + 1) / 4) * 1)
+    expect(value1[1]).toEqual(((3 + 1) / 4) * 1)
+    expect(value5[0]).toEqual(((7 + 2) / 4) * 1)
+    expect(value5[1]).toEqual(((7 + 2) / 4) * 1)
   })
 
   it('should return value for Pan Heralds', () => {
