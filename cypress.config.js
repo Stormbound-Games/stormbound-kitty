@@ -19,9 +19,6 @@ module.exports = defineConfig({
   // Automatically retry tests up to 3 times when run from the command line.
   retries: { runMode: 3, openMode: 0 },
 
-  // Disable video recording for successful runs.
-  videoUploadOnPasses: false,
-
   // Increase the default viewport size to small laptop screens.
   viewportHeight: 768,
   viewportWidth: 1200,
