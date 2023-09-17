@@ -14,7 +14,7 @@ import capitalize from '#helpers/capitalize'
 import countCards from '#helpers/countCards'
 
 export default React.memo(function ChartUnitType() {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const UNIT_TYPES_COLORS = {
     frostling: 'var(--winter)',
     dwarf: 'var(--light-winter)',
@@ -34,7 +34,7 @@ export default React.memo(function ChartUnitType() {
   }
   const data = Object.entries(UNIT_TYPES_COLORS).map(([unitType, color]) => ({
     name: capitalize(unitType),
-    value: countCards(cards, { unitType }, false),
+    value: countCards(cardsWithoutTokens, { unitType }, false),
     color,
   }))
 

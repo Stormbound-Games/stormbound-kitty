@@ -14,8 +14,8 @@ import getCardsByFaction from '#helpers/getCardsByFaction'
 import { TOOLTIP_STYLES } from '#constants/stats'
 
 export default React.memo(function ChartFactionCard() {
-  const { cards: allCards } = React.useContext(CardsContext)
-  const cards = getCardsByFaction(allCards)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
+  const cards = getCardsByFaction(cardsWithoutTokens)
   const data = Object.keys(cards)
     .filter(faction => faction !== 'tokens')
     .map(faction => ({

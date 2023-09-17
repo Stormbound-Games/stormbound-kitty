@@ -28,8 +28,9 @@ const ROLLS = [
   state => {
     const legendaries = shuffle(
       state.cards.filter(
-        ({ rarity, faction }) => rarity === 'legendary' && faction !== 'neutral'
-      )
+        ({ rarity, faction }) =>
+          rarity === 'legendary' && faction !== 'neutral',
+      ),
     )
 
     const options = []
@@ -46,7 +47,7 @@ const ROLLS = [
       ({ rarity, faction, id }) =>
         rarity === 'epic' &&
         faction === state.faction &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
@@ -54,7 +55,7 @@ const ROLLS = [
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
         mana <= 3 &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
@@ -62,21 +63,21 @@ const ROLLS = [
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
         mana <= 4 &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'rare' &&
         [state.faction, 'neutral'].includes(faction) &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
@@ -84,7 +85,7 @@ const ROLLS = [
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
         mana <= 3 &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
@@ -92,50 +93,50 @@ const ROLLS = [
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
         mana <= 4 &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'common' &&
         [state.faction, 'neutral'].includes(faction) &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'epic' &&
         [state.faction, 'neutral'].includes(faction) &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
   state =>
     state.cards.filter(
       ({ rarity, faction, id }) =>
         rarity === 'legendary' &&
         faction === 'neutral' &&
-        !state.deck.some(card => card.id === id)
+        !state.deck.some(card => card.id === id),
     ),
 ]
 
 const useOptions = deck => {
-  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { cardsWithoutTokens, cardsIndex } = React.useContext(CardsContext)
 
   if (deck.length === 12) return []
 
   const { faction } = deck.find(card => card.faction !== 'neutral') ?? {}
   const getPool = ROLLS[deck.length]
-  const pool = shuffle(getPool({ cards, deck, faction }))
+  const pool = shuffle(getPool({ cards: cardsWithoutTokens, deck, faction }))
   const options = pool.slice(0, 3)
 
   return options.map(card =>
-    getResolvedCardData(cardsIndex, { id: card.id, level: 1 })
+    getResolvedCardData(cardsIndex, { id: card.id, level: 1 }),
   )
 }
 
@@ -160,7 +161,7 @@ export default React.memo(function PageDraftSimulator(props) {
       router.replace(`/simulators/draft/${deckId}`, null, { scroll: false })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props.deck]
+    [props.deck],
   )
 
   return (

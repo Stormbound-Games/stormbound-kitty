@@ -12,8 +12,8 @@ import Title from '#components/Title'
 import { TOOLTIP_STYLES } from '#constants/stats'
 
 export default React.memo(function ChartMovement() {
-  const { cards } = React.useContext(CardsContext)
-  const data = cards
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
+  const data = cardsWithoutTokens
     // Make sure not to take token cards into account otherwise it would skew
     // the movement stats downwards since tokens are typically 0-move.
     .filter(card => !card.token)
@@ -29,7 +29,7 @@ export default React.memo(function ChartMovement() {
         { name: '2 movement', value: 0, color: '#607058' },
         { name: '3 movement', value: 0, color: '#60846c' },
         { name: '4 movement', value: 0, color: '#30846c' },
-      ]
+      ],
     )
 
   return (

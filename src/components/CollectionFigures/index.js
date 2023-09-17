@@ -31,13 +31,13 @@ const getLevelStats = (cards, totalKnownCards) =>
         acc[card.level - 1]++
         return acc
       },
-      [0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0],
     )
     .map(amount => (amount / totalKnownCards) * 100)
     .reduce(
       (acc, value, i) =>
         `${acc}${i === 0 ? '' : ', '} ${Math.round(value)}% level ${i + 1}`,
-      ''
+      '',
     )
 
 const useAvailableCoins = () => {
@@ -54,14 +54,14 @@ const useAvailableCoins = () => {
       // removed from the game.
       .filter(card => cardsIndex[card.id].id)
       .map(
-        card => getExtraAfterMax(getResolvedCardData(cardsIndex, card)).coins
+        card => getExtraAfterMax(getResolvedCardData(cardsIndex, card)).coins,
       )
       .reduce(sum, 0)
   )
 }
 
 const useCopiesData = expectedCardLevel => {
-  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { cardsWithoutTokens, cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
 
   return Object.keys(RARITY_COPIES).map(rarity => {
@@ -70,12 +70,12 @@ const useCopiesData = expectedCardLevel => {
       .reduce((a, b) => a + b, 1)
 
     const cardsFromRarity = collection.filter(
-      card => cardsIndex[card.id].rarity === rarity
+      card => cardsIndex[card.id].rarity === rarity,
     )
 
     // Total amount of copies of this rarity needed to reach `cardLevel`
     const total =
-      countCards(cards, { rarity }, false) *
+      countCards(cardsWithoutTokens, { rarity }, false) *
       RARITY_COPIES[rarity].copies
         .slice(0, expectedCardLevel - 1)
         .reduce((a, b) => a + b, 1)
@@ -85,7 +85,7 @@ const useCopiesData = expectedCardLevel => {
 
       const upgradeCost = UPGRADE_COST.slice(
         card.level - 1,
-        expectedCardLevel - 1
+        expectedCardLevel - 1,
       ).reduce((a, b) => a + b, 0)
 
       return total + upgradeCost
@@ -103,7 +103,7 @@ const useCopiesData = expectedCardLevel => {
 
       const levelCopies = RARITY_COPIES[rarity].copies.reduce(
         (acc, copies, index) => (card.level < index + 2 ? acc : acc + copies),
-        1
+        1,
       )
 
       return acc + Math.min(copiesForCardLevel, levelCopies + card.copies)
@@ -123,7 +123,7 @@ const getFortressAfterUpgrade = (collection, cardsIndex) => {
     return {
       ...card,
       level: [5, 4, 3, 2].find(level =>
-        isLevelAvailable(cardsIndex, card, level)
+        isLevelAvailable(cardsIndex, card, level),
       ),
     }
   }
@@ -181,30 +181,30 @@ export default React.memo(function CollectionFigures(props) {
   const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
   const ownedCards = React.useMemo(
     () => getNonMissingCards(collection),
-    [collection]
+    [collection],
   )
   const averageLevel = React.useMemo(
     () => getAverageLevel(ownedCards),
-    [ownedCards]
+    [ownedCards],
   )
   const upgradableCards = React.useMemo(
     () => getUpgradableCards(cardsIndex, collection),
-    [cardsIndex, collection]
+    [cardsIndex, collection],
   )
   const missingCards = React.useMemo(
     () => getMissingCards(collection),
-    [collection]
+    [collection],
   )
   const levelStats = React.useMemo(
     () => getLevelStats(collection, collection.length - missingCards.length),
-    [missingCards.length, collection]
+    [missingCards.length, collection],
   )
 
   const extraAfterMax = useAvailableCoins()
 
   const collectionCost = React.useMemo(
     () => getCollectionCost(cardsIndex, collection),
-    [cardsIndex, collection]
+    [cardsIndex, collection],
   )
   const copiesData = useCopiesData(expectedCardLevel)
   const fortressDisplay = useFortressDisplay()

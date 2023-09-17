@@ -12,7 +12,7 @@ import getAverageStonesPerBook from '#helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '#helpers/getExpectedCoinsPerBook'
 
 const useExpectedCoins = book => {
-  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { cardsWithoutTokens, cardsIndex } = React.useContext(CardsContext)
   const { hasDefaultCollection, collection } =
     React.useContext(CollectionContext)
   const collectionWithRarity = React.useMemo(
@@ -21,18 +21,18 @@ const useExpectedCoins = book => {
         card.rarity = cardsIndex[card.id].rarity
         return card
       }),
-    [collection, cardsIndex]
+    [collection, cardsIndex],
   )
 
   const expectedCoins = hasDefaultCollection
     ? 0
-    : getExpectedCoinsPerBook(cards, collectionWithRarity, book)
+    : getExpectedCoinsPerBook(cardsWithoutTokens, collectionWithRarity, book)
 
   return expectedCoins
 }
 
 export default React.memo(function BookOutcome(props) {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const { css } = useFela()
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
@@ -40,8 +40,8 @@ export default React.memo(function BookOutcome(props) {
     : getDrawingExpectations(props.target).label.toLowerCase()
   const expectations = props.expectations.map(a => a || 0)
   const bookExpectations = getDrawingExpectations(props.target).getExpectations(
-    cards,
-    props.book.only
+    cardsWithoutTokens,
+    props.book.only,
   )
   const chances =
     props.target === 'FUSION_STONES'
@@ -49,7 +49,7 @@ export default React.memo(function BookOutcome(props) {
       : getDrawingProbability(
           cards,
           props.book,
-          props.isAdvancedMode ? expectations : bookExpectations
+          props.isAdvancedMode ? expectations : bookExpectations,
         )
 
   return (

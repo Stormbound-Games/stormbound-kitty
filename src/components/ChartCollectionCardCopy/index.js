@@ -21,14 +21,14 @@ const getTotalCopiesForCard = (card, rarity) => {
   const maxCopies = RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
   const levelCopies = RARITY_COPIES[rarity].copies.reduce(
     (acc, copies, index) => (card.level < index + 2 ? acc : acc + copies),
-    1
+    1,
   )
 
   return Math.min(maxCopies, levelCopies + card.copies)
 }
 
 const useCopiesData = () => {
-  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { cardsWithoutTokens, cardsIndex } = React.useContext(CardsContext)
   const { collection } = React.useContext(CollectionContext)
 
   return RARITIES.map(rarity => {
@@ -37,10 +37,10 @@ const useCopiesData = () => {
       .reduce(
         (acc, card) =>
           acc + getTotalCopiesForCard(card, cardsIndex[card.id].rarity),
-        0
+        0,
       )
     const total =
-      countCards(cards, { rarity }, false) *
+      countCards(cardsWithoutTokens, { rarity }, false) *
       RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
 
     return {
@@ -75,7 +75,7 @@ export default React.memo(function ChartCollectionCardCopy() {
           cursor={{ fill: '#ffffff1a' }}
           formatter={(value, name, props) =>
             `${value} copies (${((value / props.payload.total) * 100).toFixed(
-              2
+              2,
             )}%)`
           }
         />

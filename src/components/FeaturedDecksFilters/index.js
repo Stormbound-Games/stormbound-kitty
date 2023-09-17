@@ -25,19 +25,19 @@ const getAuthors = decks => {
 }
 
 export default React.memo(function FeaturedDecksFilters(props) {
-  const { cards, cardsIndex } = React.useContext(CardsContext)
+  const { cardsWithoutTokens, cardsIndex } = React.useContext(CardsContext)
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const authors = React.useMemo(() => getAuthors(props.decks), [props.decks])
   const isInvalidFaction = React.useCallback(
     card => !['neutral', props.faction].includes(card.faction),
-    [props.faction]
+    [props.faction],
   )
   const disabledOptions = React.useMemo(
     () =>
       props.faction !== '*'
-        ? cards.filter(isInvalidFaction).map(card => card.id)
+        ? cardsWithoutTokens.filter(isInvalidFaction).map(card => card.id)
         : [],
-    [cards, props.faction, isInvalidFaction]
+    [cardsWithoutTokens, props.faction, isInvalidFaction],
   )
 
   const { updateIncluding } = props

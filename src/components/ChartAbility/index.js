@@ -27,13 +27,13 @@ const ABILITIES = {
 }
 const ABILITY_REGEX = new RegExp(
   '(' + Object.keys(ABILITIES).join('|') + ')',
-  'i'
+  'i',
 )
 
 export default React.memo(function ChartAbility() {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const data = Object.values(
-    cards.reduce((acc, card) => {
+    cardsWithoutTokens.reduce((acc, card) => {
       if (!card.ability) return acc
 
       const isChip = CHIP_CARDS.includes(card.id)
@@ -67,7 +67,7 @@ export default React.memo(function ChartAbility() {
         acc.chip.value++
       }
       return acc
-    }, {})
+    }, {}),
   )
 
   return (

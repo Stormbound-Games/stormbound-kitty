@@ -23,7 +23,7 @@ import styles from './styles'
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), min), max)
 
 export default React.memo(function PageBooksCalculator(props) {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
   const [bookId, setBookId] = React.useState(props.books[0].id)
   const [target, setTarget] = React.useState('FUSION_STONES')
@@ -44,7 +44,7 @@ export default React.memo(function PageBooksCalculator(props) {
         : clamp(
             0,
             Number(value),
-            countCards(cards, { rarity: RARITIES[index] })
+            countCards(cardsWithoutTokens, { rarity: RARITIES[index] }, true),
           ),
       ...expectations.slice(index + 1),
     ])
@@ -53,22 +53,22 @@ export default React.memo(function PageBooksCalculator(props) {
   const setCommonExpectation = React.useCallback(
     value => setExpectation(0, value),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   )
   const setRareExpectation = React.useCallback(
     value => setExpectation(1, value),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   )
   const setEpicExpectation = React.useCallback(
     value => setExpectation(2, value),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   )
   const setLegendaryExpectation = React.useCallback(
     value => setExpectation(3, value),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   )
 
   return (
@@ -175,7 +175,7 @@ export default React.memo(function PageBooksCalculator(props) {
                     <NumberInput
                       label='Common cards'
                       min={0}
-                      max={countCards(cards, { rarity: 'common' })}
+                      max={countCards(cardsWithoutTokens, { rarity: 'common' })}
                       name='target-common'
                       id='target-common'
                       onChange={setCommonExpectation}
@@ -186,7 +186,7 @@ export default React.memo(function PageBooksCalculator(props) {
                     <NumberInput
                       label='Rare cards'
                       min={0}
-                      max={countCards(cards, { rarity: 'rare' })}
+                      max={countCards(cardsWithoutTokens, { rarity: 'rare' })}
                       name='target-rare'
                       id='target-rare'
                       onChange={setRareExpectation}
@@ -199,7 +199,7 @@ export default React.memo(function PageBooksCalculator(props) {
                     <NumberInput
                       label='Epic cards'
                       min={0}
-                      max={countCards(cards, { rarity: 'epic' })}
+                      max={countCards(cardsWithoutTokens, { rarity: 'epic' })}
                       name='target-epic'
                       id='target-epic'
                       onChange={setEpicExpectation}
@@ -210,7 +210,9 @@ export default React.memo(function PageBooksCalculator(props) {
                     <NumberInput
                       label='Legendary cards'
                       min={0}
-                      max={countCards(cards, { rarity: 'legendary' })}
+                      max={countCards(cardsWithoutTokens, {
+                        rarity: 'legendary',
+                      })}
                       name='target-legendary'
                       id='target-legendary'
                       onChange={setLegendaryExpectation}
