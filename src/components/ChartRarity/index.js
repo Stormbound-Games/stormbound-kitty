@@ -15,10 +15,10 @@ import capitalize from '#helpers/capitalize'
 import countCards from '#helpers/countCards'
 
 export default React.memo(function ChartRarity() {
-  const { cards } = React.useContext(CardsContext)
+  const { cardsWithoutTokens } = React.useContext(CardsContext)
   const data = RARITIES.map(rarity => ({
     name: capitalize(rarity),
-    value: countCards(cards, { rarity }) - 1,
+    value: countCards(cardsWithoutTokens, { rarity }, false),
     color: `var(--${rarity})`,
   }))
 
