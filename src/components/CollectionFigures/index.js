@@ -208,6 +208,12 @@ export default React.memo(function CollectionFigures(props) {
   )
   const copiesData = useCopiesData(expectedCardLevel)
   const fortressDisplay = useFortressDisplay()
+  const isLevelCompleted = {
+    2: useCopiesData(2).every(data => !data.missing),
+    3: useCopiesData(3).every(data => !data.missing),
+    4: useCopiesData(4).every(data => !data.missing),
+    5: useCopiesData(5).every(data => !data.missing),
+  }
 
   return (
     <>
@@ -249,47 +255,61 @@ export default React.memo(function CollectionFigures(props) {
           <span className={css(styles.item)}>{fortressDisplay}</span>
         </li>
       </ul>
-      <p>
-        To bring your entire collection to{' '}
-        <Select
-          hideLabel
-          label='Level'
-          id='level'
-          extend={styles.select}
-          value={expectedCardLevel}
-          onChange={event => setExpectedCardLevel(+event.target.value)}
-        >
-          <option value={2}>level 2</option>
-          <option value={3}>level 3</option>
-          <option value={4}>level 4</option>
-          <option value={5}>level 5</option>
-        </Select>
-        , you still need:
-      </p>
-      <ul className={css(styles.list)}>
-        {copiesData.map(({ rarity, total, current, missing, cost, coins }) => {
-          if (current >= total) {
-            return <li key={rarity}>No more {rarity} copies</li>
-          }
+      {!isLevelCompleted[5] && (
+        <>
+          <p>
+            To bring your entire collection to{' '}
+            <Select
+              hideLabel
+              label='Level'
+              id='level'
+              extend={styles.select}
+              value={expectedCardLevel}
+              onChange={event => setExpectedCardLevel(+event.target.value)}
+            >
+              {[2, 3, 4, 5].map(level => (
+                <option
+                  key={level}
+                  value={level}
+                  disabled={isLevelCompleted[level]}
+                >
+                  {isLevelCompleted[level]
+                    ? `level ${level} ✔`
+                    : `level ${level}`}
+                </option>
+              ))}
+            </Select>
+            , you still need:
+          </p>
 
-          return (
-            <li key={rarity}>
-              {missing}{' '}
-              <span className={css({ color: `var(--${rarity})` })}>
-                {rarity}
-              </span>{' '}
-              {missing === 1 ? 'copy' : 'copies'} out of {total} (
-              {((current / total) * 100).toFixed(2)}% completed) or{' '}
-              <Stones amount={cost} />
-              {coins > 0 ? (
-                <>
-                  , and <Coins amount={coins} /> for the upgrades
-                </>
-              ) : null}
-            </li>
-          )
-        })}
-      </ul>
+          <ul className={css(styles.list)}>
+            {copiesData.map(
+              ({ rarity, total, current, missing, cost, coins }) => {
+                if (current >= total) {
+                  return <li key={rarity}>No more {rarity} copies</li>
+                }
+
+                return (
+                  <li key={rarity}>
+                    {missing}{' '}
+                    <span className={css({ color: `var(--${rarity})` })}>
+                      {rarity}
+                    </span>{' '}
+                    {missing === 1 ? 'copy' : 'copies'} out of {total} (
+                    {((current / total) * 100).toFixed(2)}% completed) or{' '}
+                    <Stones amount={cost} />
+                    {coins > 0 ? (
+                      <>
+                        , and <Coins amount={coins} /> for the upgrades
+                      </>
+                    ) : null}
+                  </li>
+                )
+              },
+            )}
+          </ul>
+        </>
+      )}
 
       <Info icon='equalizer' title='Calculators'>
         <p>
