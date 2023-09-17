@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import PlausibleProvider from 'next-plausible'
+import { Analytics } from '@vercel/analytics/react'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
 import CardsProvider from '#components/CardsProvider'
@@ -89,6 +90,8 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
           </ErrorBoundary>
         </RendererProvider>
       </PlausibleProvider>
+
+      <Analytics />
 
       <Script lazyOnload src='/focus-visible.min.js' />
     </>

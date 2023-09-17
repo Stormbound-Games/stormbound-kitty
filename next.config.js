@@ -67,7 +67,7 @@ const wrapConfig =
 
 module.exports = wrapConfig(
   withPlausibleProxy(),
-  withBundleAnalyzer({ enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1' })
+  withBundleAnalyzer({ enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1' }),
 )({
   // Disable x-powered-by header
   // Ref: https://nextjs.org/docs/api-reference/next.config.js/disabling-x-powered-by
@@ -125,6 +125,7 @@ module.exports = wrapConfig(
         SELF,
         /* Next.js rehydration */ UNSAFE_INLINE,
         /* react-refresh */ VERCEL_ENV === 'development' ? UNSAFE_EVAL : '',
+        /* Vercel Analytics */ 'va.vercel-scripts.com',
       ],
       'style-src': [/* react-tooltip styles */ SELF, UNSAFE_INLINE],
       'worker-src': [NONE],
