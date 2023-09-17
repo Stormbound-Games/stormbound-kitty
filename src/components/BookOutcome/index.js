@@ -47,7 +47,7 @@ export default React.memo(function BookOutcome(props) {
     props.target === 'FUSION_STONES'
       ? props.book.fsOdds
       : getDrawingProbability(
-          cards,
+          cardsWithoutTokens,
           props.book,
           props.isAdvancedMode ? expectations : bookExpectations,
         )
