@@ -214,9 +214,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N24', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N24', 5)
     expect(value1[0]).toEqual((1 / 3) * 1)
-    expect(value1[1]).toEqual(((1 + 2) / 3) * 1)
+    expect(value1[1]).toEqual(((1 + 3) / 3) * 1)
     expect(value5[0]).toEqual((3 / 3) * 1)
-    expect(value5[1]).toEqual(((3 + 4) / 3) * 1)
+    expect(value5[1]).toEqual(((3 + 5) / 3) * 1)
   })
 
   it('should return value for Siegebreakers', () => {
@@ -260,8 +260,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N29', 5)
     expect(value1[0]).toEqual(1 / 5)
     expect(value1[1]).toEqual((1 * 20) / 5)
-    expect(value5[0]).toEqual(5 / 5)
-    expect(value5[1]).toEqual((5 * 20) / 5)
+    expect(value5[0]).toEqual(4.5 / 5)
+    expect(value5[1]).toEqual((4.5 * 20) / 5)
   })
 
   it('should return value for Bluesail Raiders', () => {
@@ -829,10 +829,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Boosting Elixir', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I11', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I11', 5)
-    expect(value1[0]).toEqual(3 / 4)
-    expect(value1[1]).toEqual((3 + 3) / 4)
-    expect(value5[0]).toEqual(6 / 4)
-    expect(value5[1]).toEqual((6 + 6) / 4)
+    expect(value1[0]).toEqual(4 / 4)
+    expect(value1[1]).toEqual((4 + 4) / 4)
+    expect(value5[0]).toEqual(7 / 4)
+    expect(value5[1]).toEqual((7 + 7) / 4)
   })
 
   it('should return value for Chaotic Pupil', () => {
