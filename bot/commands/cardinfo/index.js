@@ -1,19 +1,18 @@
 import { SlashCommandBuilder } from 'discord.js'
 import searchCards from '#helpers/searchCards'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const cardinfo = {
   data: new SlashCommandBuilder()
     .setName('cardinfo')
     .setDescription(
-      'Get information about the card(s) matching the given search criteria (up to 3 results).'
+      'Get information about the card(s) matching the given search criteria (up to 3 results).',
     )
     .addStringOption(option =>
       option
         .setName('card')
         .setDescription('An abbreviation, ID, or approximate name.')
-        .setRequired(true)
+        .setRequired(true),
     ),
 
   // @TODO: add support back for aliases
@@ -23,8 +22,6 @@ const cardinfo = {
     const cards = [...client.cards.values()]
     const abbreviations = Object.fromEntries(client.abbreviations)
     const [card] = searchCards(cards, abbreviations, input)
-
-    trackBotCommand(interaction, { card: input })
 
     if (!card) {
       const embed = getEmbed()

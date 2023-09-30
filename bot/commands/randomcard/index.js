@@ -1,7 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import randomizeCard from '#helpers/randomizeCard'
 import serialization from '#helpers/serialization'
-import trackBotCommand from '#helpers/trackBotCommand'
 import minifyUrl from '#helpers/minifyUrl'
 
 const randomcard = {
@@ -17,8 +16,8 @@ const randomcard = {
           { name: 'Ironclad', value: 'ironclad' },
           { name: 'Winter', value: 'winter' },
           { name: 'Swarm', value: 'swarm' },
-          { name: 'Shadowfen', value: 'shadowfen' }
-        )
+          { name: 'Shadowfen', value: 'shadowfen' },
+        ),
     )
     .addStringOption(option =>
       option
@@ -27,8 +26,8 @@ const randomcard = {
         .addChoices(
           { name: 'Unit', value: 'unit' },
           { name: 'Structure', value: 'structure' },
-          { name: 'Spell', value: 'spell' }
-        )
+          { name: 'Spell', value: 'spell' },
+        ),
     ),
 
   async execute(interaction, client) {
@@ -37,8 +36,6 @@ const randomcard = {
     const type = interaction.options.getString('type')
     const card = randomizeCard({ faction, type })
     const id = serialization.card.serialize(card)
-
-    trackBotCommand(interaction, { faction, type })
 
     // The URL minification could take longer than the 3-second window imposed
     // by Discord so it is best to use a deferred reply.

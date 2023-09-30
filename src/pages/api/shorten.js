@@ -1,7 +1,5 @@
 import applyRateLimit from '#helpers/applyRateLimit'
-import getPathname from '#helpers/getPathname'
 import isChecklyRequest from '#helpers/isChecklyRequest'
-import trackAsync from '#helpers/trackAsync'
 
 const API_KEY = process.env.CUTTLY_API_KEY
 const API_URL = 'https://cutt.ly/api/api.php'
@@ -11,7 +9,7 @@ const shorten = (url, withCustomDomain = false) =>
   fetch(
     API_URL +
       `?key=${API_KEY}&short=${url}&noTitle=1&userDomain=` +
-      Number(withCustomDomain)
+      Number(withCustomDomain),
   ).then(response => response.json())
 
 export default async function handler(request, response) {
@@ -29,14 +27,10 @@ export default async function handler(request, response) {
     decodeURIComponent(
       request.query.url.replace(
         'http://localhost:3000',
-        'https://stormbound-kitty.com'
-      )
-    )
+        'https://stormbound-kitty.com',
+      ),
+    ),
   )
-
-  trackAsync(request, 'shorten_url', '/api/shorten', {
-    path: getPathname(decodeURIComponent(url)),
-  })
 
   if (cache.has(url)) {
     return response.status(200).json(cache.get(url))
@@ -47,7 +41,7 @@ export default async function handler(request, response) {
       url,
       // Avoid Checkly’s automated checks taking custom links from the 1,000
       // monthly quota.
-      !isChecklyRequest(request)
+      !isChecklyRequest(request),
     )
 
     // Not super elegant, but when we’ve reached the monthly quota of branded
@@ -63,7 +57,7 @@ export default async function handler(request, response) {
         'Failed to shorten link',
         url,
         'with status code',
-        data.url.status
+        data.url.status,
       )
 
       return response.status(400).send('Bad request')

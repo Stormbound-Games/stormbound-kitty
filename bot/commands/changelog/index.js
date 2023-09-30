@@ -4,7 +4,6 @@ import searchCards from '#helpers/searchCards'
 import parseDate from '#helpers/parseDate'
 import getChangesFromCard from '#api/changes/getChangesFromCard'
 import { formatPreciseDate } from '#helpers/formatDate'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -22,7 +21,7 @@ const changelog = {
       option
         .setName('card')
         .setDescription('An abbreviation, ID, or approximate name.')
-        .setRequired(true)
+        .setRequired(true),
     ),
 
   async execute(interaction, client) {
@@ -32,8 +31,6 @@ const changelog = {
     const abbreviations = Object.fromEntries(client.abbreviations)
     const [card] = searchCards(cards, abbreviations, input)
     const embed = getEmbed().setTitle('🛠 Card Changelog')
-
-    trackBotCommand(interaction, { card: input })
 
     if (!card) {
       embed
@@ -60,7 +57,7 @@ const changelog = {
             .join('\n')
 
           return { name, value }
-        })
+        }),
     )
 
     return interaction.reply({ embeds: [embed], ephemeral })

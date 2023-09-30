@@ -3,7 +3,6 @@ import { FACTIONS, UNIT_TYPES, RARITIES, TYPES } from '#constants/game'
 import arrayRandom from '#helpers/arrayRandom'
 import capitalize from '#helpers/capitalize'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const linkify = card => `https://stormbound-kitty.com/cards/${card.id}`
 
@@ -19,8 +18,8 @@ const randomcard = {
           ...FACTIONS.map(faction => ({
             name: capitalize(faction),
             value: faction,
-          }))
-        )
+          })),
+        ),
     )
     .addStringOption(option =>
       option
@@ -30,8 +29,8 @@ const randomcard = {
           ...TYPES.map(faction => ({
             name: capitalize(faction),
             value: faction,
-          }))
-        )
+          })),
+        ),
     )
     .addStringOption(option =>
       option
@@ -41,8 +40,8 @@ const randomcard = {
           ...RARITIES.map(faction => ({
             name: capitalize(faction),
             value: faction,
-          }))
-        )
+          })),
+        ),
     )
     .addStringOption(option =>
       option
@@ -52,8 +51,8 @@ const randomcard = {
           ...UNIT_TYPES.map(faction => ({
             name: capitalize(faction),
             value: faction,
-          }))
-        )
+          })),
+        ),
     ),
 
   async execute(interaction, client) {
@@ -64,8 +63,6 @@ const randomcard = {
     const unitType = interaction.options.getString('unit_type')
     // Skip all token cards, not just the pure tokens.
     const cards = [...client.cards.values()].filter(card => !card.token)
-
-    trackBotCommand(interaction, { faction, type, rarity, unitType })
 
     if (!faction && !type && !rarity && !unitType) {
       return interaction.reply({

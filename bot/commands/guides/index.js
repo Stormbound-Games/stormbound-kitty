@@ -2,16 +2,15 @@ import { SlashCommandBuilder } from 'discord.js'
 import getGuides from '#api/guides/getGuides'
 import { GUIDE_CATEGORIES } from '#constants/guides'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const guides = {
   data: new SlashCommandBuilder()
     .setName('guides')
     .setDescription(
-      'List existing guides from Stormbound-Kitty or search for a specific guide.'
+      'List existing guides from Stormbound-Kitty or search for a specific guide.',
     )
     .addStringOption(option =>
-      option.setName('input').setDescription('The optional search parameter.')
+      option.setName('input').setDescription('The optional search parameter.'),
     ),
 
   async execute(interaction, client) {
@@ -19,13 +18,11 @@ const guides = {
     const message = interaction.options.getString('input')
     const guides = await getGuides()
     const match = guides.find(guide =>
-      guide.name.toLowerCase().includes(message)
+      guide.name.toLowerCase().includes(message),
     )
     const embed = getEmbed()
       .setTitle('🧭 Guides')
       .setURL('https://stormbound-kitty.com/guides')
-
-    trackBotCommand(interaction, { input: message })
 
     if (message) {
       if (!match) {
@@ -47,12 +44,14 @@ const guides = {
           .filter(guide => guide.category === category)
           .map(
             guide =>
-              guide.name + ': https://stormbound-kitty.com/guides/' + guide.slug
+              guide.name +
+              ': https://stormbound-kitty.com/guides/' +
+              guide.slug,
           )
           .join('\n- ')
 
         return desc
-      }, '')
+      }, ''),
     )
 
     return interaction.reply({ embeds: [embed], ephemeral })

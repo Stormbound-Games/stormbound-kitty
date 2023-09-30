@@ -5,7 +5,6 @@ import getFactionFromDeckID from '#helpers/getFactionFromDeckID'
 import indexArray from '#helpers/indexArray'
 import searchCards from '#helpers/searchCards'
 import handleSearchAlias from '#helpers/handleSearchAlias'
-import trackBotCommand from '#helpers/trackBotCommand'
 import getDecks from '#api/decks/getDecks'
 
 export const parseMessage = (cards, abbreviations, tags, content) => {
@@ -60,8 +59,8 @@ const suggestdeck = {
           { name: 'Ironclad', value: 'ironclad' },
           { name: 'Winter', value: 'winter' },
           { name: 'Swarm', value: 'swarm' },
-          { name: 'Shadowfen', value: 'shadowfen' }
-        )
+          { name: 'Shadowfen', value: 'shadowfen' },
+        ),
     ),
 
   async execute(interaction, client) {
@@ -75,8 +74,6 @@ const suggestdeck = {
         return !tagSlugs.includes('BRAWL') && !tagSlugs.includes('EQUALS')
       })
     const deck = arrayRandom(candidates)
-
-    trackBotCommand(interaction, { faction })
 
     return interaction.reply({
       content: 'https://stormbound-kitty.com/deck/' + deck.id,

@@ -1,7 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import Trivia from './Trivia.js'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 import getQuestions from '#api/trivia/getQuestions'
 
 const cache = new Map()
@@ -10,15 +9,15 @@ const trivia = {
   data: new SlashCommandBuilder()
     .setName('trivia')
     .setDescription(
-      'Initiate a card, question, or image trivia (only in #trivia).'
+      'Initiate a card, question, or image trivia (only in #trivia).',
     )
     .addSubcommand(subcommand =>
       subcommand
         .setName('card')
         .setDescription('Start a card guessing trivia.')
         .addIntegerOption(option =>
-          option.setName('duration').setDescription('Duration of the round.')
-        )
+          option.setName('duration').setDescription('Duration of the round.'),
+        ),
     )
     .addSubcommand(subcommand =>
       subcommand
@@ -30,26 +29,28 @@ const trivia = {
             .setDescription('Difficulty of the round.')
             .addChoices(
               { name: 'Regular', value: 'regular' },
-              { name: 'Hard', value: 'hard' }
-            )
+              { name: 'Hard', value: 'hard' },
+            ),
         )
         .addIntegerOption(option =>
-          option.setName('duration').setDescription('Duration of the round.')
-        )
+          option.setName('duration').setDescription('Duration of the round.'),
+        ),
     )
     .addSubcommand(subcommand =>
       subcommand
         .setName('question')
         .setDescription('Start a question trivia.')
         .addIntegerOption(option =>
-          option.setName('duration').setDescription('Duration of the round.')
-        )
+          option.setName('duration').setDescription('Duration of the round.'),
+        ),
     )
     .addSubcommand(subcommand =>
-      subcommand.setName('score').setDescription('Retrieve your trivia score.')
+      subcommand.setName('score').setDescription('Retrieve your trivia score.'),
     )
     .addSubcommand(subcommand =>
-      subcommand.setName('scores').setDescription('Retrieve all trivia scores.')
+      subcommand
+        .setName('scores')
+        .setDescription('Retrieve all trivia scores.'),
     ),
 
   async execute(interaction, client) {
@@ -73,14 +74,12 @@ const trivia = {
     if (!cache.has(guildId)) {
       cache.set(
         guildId,
-        new Trivia({ questions, cards, abbreviations, guildId })
+        new Trivia({ questions, cards, abbreviations, guildId }),
       )
     }
 
     const trivia = cache.get(guildId)
     const subcommand = interaction.options.getSubcommand()
-
-    trackBotCommand(interaction, { subcommand })
 
     if (['card', 'image', 'question'].includes(subcommand)) {
       return trivia.start(interaction)

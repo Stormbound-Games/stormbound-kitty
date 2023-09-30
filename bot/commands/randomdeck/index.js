@@ -6,7 +6,6 @@ import searchCards from '#helpers/searchCards'
 import getRandomDeck from '#helpers/getRandomDeck'
 import serialization from '#helpers/serialization'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const validateFaction = (faction, including = []) => {
   const randomFaction = arrayRandom(FACTIONS)
@@ -46,7 +45,7 @@ export const parseIncluded = (allCards, abbreviations, message) => {
     // should include Pan Heralds and Herald’s Hymn, but not one of them twice.
     // Same goes for other cases, such as `dread, dread`.
     const card = searchCards(allCards, abbreviations, part).find(
-      card => !cards.map(c => c.id).includes(card.id)
+      card => !cards.map(c => c.id).includes(card.id),
     )
     if (card) cards.push(card)
   })
@@ -66,13 +65,13 @@ const randomdeck = {
           { name: 'Ironclad', value: 'ironclad' },
           { name: 'Winter', value: 'winter' },
           { name: 'Swarm', value: 'swarm' },
-          { name: 'Shadowfen', value: 'shadowfen' }
-        )
+          { name: 'Shadowfen', value: 'shadowfen' },
+        ),
     )
     .addStringOption(option =>
       option
         .setName('including')
-        .setDescription('Cards that must be included (separated by commas).')
+        .setDescription('Cards that must be included (separated by commas).'),
     ),
 
   async execute(interaction, client) {
@@ -83,21 +82,19 @@ const randomdeck = {
     const including = parseIncluded(
       cards,
       abbreviations,
-      message?.toLowerCase()
+      message?.toLowerCase(),
     )
     const faction = validateFaction(
       interaction.options.getString('faction'),
-      including
+      including,
     )
-
-    trackBotCommand(interaction, { including: message })
 
     if (!faction) {
       const embed = getEmbed()
         .setTitle('🎲 Random Deck')
         .setURL('https://stormbound-kitty.com/deck')
         .setDescription(
-          'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).'
+          'There was an issue generating a random deck. This might be because of conflicting argument (e.g. `winter` + `rof`, `fc, mia`…).',
         )
 
       return interaction.reply({ embeds: [embed], ephemeral })
