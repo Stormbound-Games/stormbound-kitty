@@ -116,7 +116,7 @@ export default React.memo(function CardsFiltering(props) {
         search
           .replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
           .replace(/\*/g, '(.*?)'),
-        'i'
+        'i',
       )
 
       // if the search matches an abbreviation (regardless of casing), consider
@@ -131,25 +131,25 @@ export default React.memo(function CardsFiltering(props) {
       // normalised card ability match the search term, consider it a match.
       return search.length > 3 ? ability.match(re) : false
     },
-    [filters.text]
+    [filters.text],
   )
 
   const matchesFaction = React.useCallback(
     card =>
       filters.faction === '*' ||
       filters.faction.split(',').includes(card.faction),
-    [filters.faction]
+    [filters.faction],
   )
 
   const matchesUnitType = React.useCallback(
     card =>
       filters.unitType === '*' || card.unitTypes.includes(filters.unitType),
-    [filters.unitType]
+    [filters.unitType],
   )
 
   const matchesType = React.useCallback(
     card => filters.type === '*' || filters.type === card.type,
-    [filters.type]
+    [filters.type],
   )
 
   const matchesNumeric = key => card => {
@@ -172,7 +172,7 @@ export default React.memo(function CardsFiltering(props) {
     card =>
       !filters.fixedMovement ||
       Boolean(card.fixedMovement) === filters.fixedMovement,
-    [filters.fixedMovement]
+    [filters.fixedMovement],
   )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -182,7 +182,7 @@ export default React.memo(function CardsFiltering(props) {
 
   const matchesRarity = React.useCallback(
     card => filters.rarity === '*' || filters.rarity === card.rarity,
-    [filters.rarity]
+    [filters.rarity],
   )
 
   const matchesStatus = React.useCallback(
@@ -192,13 +192,13 @@ export default React.memo(function CardsFiltering(props) {
       (filters.status === 'MAXABLE' && isLevelAvailable(cardsIndex, card, 5)) ||
       (filters.status === 'UPGRADABLE' && isCardUpgradable(cardsIndex, card)) ||
       (filters.status === 'EXCESS' && getExtraAfterMax(card).coins > 0),
-    [cardsIndex, filters.status]
+    [cardsIndex, filters.status],
   )
 
   const matchesLevel = React.useCallback(
     card =>
       filters.level === '*' || (card.level === +filters.level && !card.missing),
-    [filters.level]
+    [filters.level],
   )
 
   const matchesAbility = React.useCallback(
@@ -216,6 +216,7 @@ export default React.memo(function CardsFiltering(props) {
         (ability === 'MOVING' && /moving/i.test(card.ability || '')) ||
         (ability === 'ON_DEATH' && /on death/i.test(card.ability || '')) ||
         (ability === 'PUSH_PULL' && /push|pull/i.test(card.ability || '')) ||
+        (ability === 'VANILLA' && !card.ability) ||
         (ability === 'PUSH' && /push/i.test(card.ability || '')) ||
         (ability === 'PULL' && /pull/i.test(card.ability || '')) ||
         (ability === 'FREEZE' && /(freeze|frozen)/i.test(card.ability || '')) ||
@@ -224,7 +225,7 @@ export default React.memo(function CardsFiltering(props) {
         (ability === 'VITALITY' && /vital/i.test(card.ability || ''))
       )
     },
-    [filters.ability]
+    [filters.ability],
   )
 
   const toggleAdvancedSearch = () => {

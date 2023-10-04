@@ -162,6 +162,7 @@ export default React.memo(function DeckEditorFilters(props) {
                     data-testid='ability-select'
                   >
                     <option value='*'>Any</option>
+                    <option value='VANILLA'>No ability (“vanilla”)</option>
                     <option value='ATTACKING'>Attacking Effect</option>
                     <option value='CHIP'>Chip</option>
                     <option value='COMMAND'>Command</option>

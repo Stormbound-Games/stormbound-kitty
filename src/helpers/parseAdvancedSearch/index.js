@@ -68,7 +68,8 @@ const parseAdvancedSearch = value => {
 
   if (hasChunk) {
     const ability = hasChunk.replace(HAS_TOKEN, '').toUpperCase()
-    if (ability) accumulator.ability = ability
+    if (ability === 'vanilla') accumulator.ability = null
+    else if (ability) accumulator.ability = ability
   }
 
   return is.reduce((acc, chunk) => {
