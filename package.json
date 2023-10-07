@@ -70,7 +70,7 @@
     "cypress": "^13.1.0",
     "cypress-localstorage-commands": "^2.2.4",
     "diff": "^5.1.0",
-    "eslint": "^8.47.0",
+    "eslint": "^8.51.0",
     "eslint-config-next": "^13.4.19",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.3",
