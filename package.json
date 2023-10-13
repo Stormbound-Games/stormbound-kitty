@@ -45,7 +45,7 @@
     "isomorphic-unfetch": "^3.1.0",
     "next": "^13.5.4",
     "next-plausible": "^3.7.2",
-    "next-sitemap": "^3.1.52",
+    "next-sitemap": "^4.2.3",
     "random-weighted-choice": "^0.1.4",
     "react": "^18.2.0",
     "react-a11y-dialog": "^7.2.0",
