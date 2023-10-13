@@ -24,7 +24,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - Hosting: [Vercel](https://vercel.com/) (via an [open-source sponsorship](https://vercel.com/support/articles/can-vercel-sponsor-my-open-source-project))
 - Monitoring: [Checkly](https://www.checklyhq.com/)
 - Testing: [Jest](https://jestjs.io/) unit tests and [Cypress](https://www.cypress.io/) end-to-end tests (via an [open-source plan](https://docs.cypress.io/guides/dashboard/organizations#Open-Source-Plan))
-- Analytics: [Plausible](https://plausible.io/)
+- Analytics: [Vercel Analytics](https://vercel.com/analytics)
 - URL shortening: [Cutt.ly](https://cutt.ly/) (via an open-source sponsorship)
 - CMS: [Sanity](sanity.io/) (via an [open-source plan](https://www.sanity.io/docs/open-source-plan))
 - Discord bot hosting: [Heroku](https://www.heroku.com/)

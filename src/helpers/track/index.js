@@ -1,7 +1,7 @@
 import va from '@vercel/analytics'
 
 const track = (eventName, props = {}) => {
-  if (!window.plausible) {
+  if (!va.track) {
     return console.log(
       `Failed attempt to track event ‘${eventName}’ with props`,
       props,
@@ -9,7 +9,6 @@ const track = (eventName, props = {}) => {
   }
 
   va.track(eventName, props)
-  window.plausible(eventName, { props })
 }
 
 export default track

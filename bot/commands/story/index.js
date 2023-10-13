@@ -2,7 +2,6 @@ import { SlashCommandBuilder } from 'discord.js'
 import getStoriesForSearch from '#helpers/getStoriesForSearch'
 import arrayRandom from '#helpers/arrayRandom'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 import getStories from '#api/stories/getStories'
 
 const BASE_URL = 'https://stormbound-kitty.com/stories/'
@@ -14,14 +13,12 @@ const story = {
     .addStringOption(option =>
       option
         .setName('input')
-        .setDescription('An abbreviation, ID, or approximate card name.')
+        .setDescription('An abbreviation, ID, or approximate card name.'),
     ),
 
   async execute(interaction, client) {
     const ephemeral = !client.DEBUG_MODE
     const input = interaction.options.getString('input')
-
-    trackBotCommand(interaction, { input })
 
     if (input === 'random' || !input) {
       const stories = await getStories()

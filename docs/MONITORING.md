@@ -20,7 +20,7 @@ To get more information about it, log into Vercel, then open the [Deployments ta
 
 The site has a lot of pages, and for the most part it does its best to maintain some form of backward compatibility with old URLs. A lot of them are maintained with permanent redirects in `next.config.js`, and some redirects are done at runtime in relevant pages.
 
-404 errors can also be [tracked in Plausible](https://plausible.io/stormbound-kitty.com?goal=404). It should list the paths yielding a proper HTTP 404 in the browser. This is a good way to figure out which path might need to be updated or redirected.
+404 errors can also be [tracked in Vercel Analytics](https://vercel.com/stormbound/stormbound-kitty/analytics?filter=%7B%22event_name%22%3A%7B%22values%22%3A%5B%22404%22%5D%2C%22operator%22%3A%22eq%22%7D%7D&event_property=search). It should list the paths yielding a proper HTTP 404 in the browser. This is a good way to figure out which path might need to be updated or redirected.
 
 Finding old links can be done in two ways:
 

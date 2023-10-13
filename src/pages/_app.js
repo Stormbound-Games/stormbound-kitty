@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import PlausibleProvider from 'next-plausible'
 import { Analytics } from '@vercel/analytics/react'
 import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
@@ -58,38 +57,21 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       </Head>
       <Sprite />
 
-      <PlausibleProvider
-        domain='stormbound-kitty.com'
-        enabled={process.env.NEXT_PUBLIC_VERCEL_ENV !== 'preview'}
-        exclude={[
-          '/calculators/value/*',
-          '/card/**',
-          '/deck/**',
-          '/list/**',
-          '/quest/*',
-          '/simulators/battle/**',
-          '/simulators/books/*',
-          '/simulators/draft/*',
-          // Plausible expects a comma-separated list of paths, and
-          // next-plausible only proxies the value without changing it.
-        ].join(',')}
-      >
-        <RendererProvider renderer={renderer}>
-          <ErrorBoundary>
-            <NotificationProvider>
-              <CardsProvider cards={cards}>
-                <CollectionProvider>
-                  <PersonalDecksProvider>
-                    <Layout active={breadcrumbs || []} settings={settings}>
-                      <Component {...componentProps} />
-                    </Layout>
-                  </PersonalDecksProvider>
-                </CollectionProvider>
-              </CardsProvider>
-            </NotificationProvider>
-          </ErrorBoundary>
-        </RendererProvider>
-      </PlausibleProvider>
+      <RendererProvider renderer={renderer}>
+        <ErrorBoundary>
+          <NotificationProvider>
+            <CardsProvider cards={cards}>
+              <CollectionProvider>
+                <PersonalDecksProvider>
+                  <Layout active={breadcrumbs || []} settings={settings}>
+                    <Component {...componentProps} />
+                  </Layout>
+                </PersonalDecksProvider>
+              </CollectionProvider>
+            </CardsProvider>
+          </NotificationProvider>
+        </ErrorBoundary>
+      </RendererProvider>
 
       <Analytics />
 

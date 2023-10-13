@@ -1,5 +1,4 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')
-const { withPlausibleProxy } = require('next-plausible')
 
 const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
 
@@ -66,7 +65,6 @@ const wrapConfig =
     wrappers.reduceRight((config, wrapper) => wrapper(config), configuration)
 
 module.exports = wrapConfig(
-  withPlausibleProxy(),
   withBundleAnalyzer({ enabled: process.env.WEBPACK_BUNDLE_ANALYZER === '1' }),
 )({
   // Disable x-powered-by header

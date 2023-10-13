@@ -14,7 +14,6 @@ export default function Custom404() {
     <>
       <Error title='The page was not found' error='404 — Page Not Found' />
       <Script id='404-tracking' strategy='lazyOnload'>
-        {`if (window.plausible) window.plausible("404", { props: { path: document.location.pathname } });`}
         {`if (va.track) va.track("404", { props: { path: document.location.pathname } });`}
       </Script>
     </>

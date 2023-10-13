@@ -14,7 +14,6 @@ export default function Custom500() {
     <>
       <Error error='500 — Internal Server Error' />
       <Script id='500-tracking' strategy='lazyOnload'>
-        {`if (window.plausible) window.plausible("500", { props: { path: document.location.pathname } });`}
         {`if (va.track) va.track("500", { props: { path: document.location.pathname } });`}
       </Script>
     </>

@@ -2,7 +2,6 @@ import { SlashCommandBuilder } from 'discord.js'
 import getDrawingExpectations from '#helpers/getDrawingExpectations'
 import getDrawingProbability from '#helpers/getDrawingProbability'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const TARGETS = {
   FUSION_STONES: 'Fusion Stones',
@@ -20,33 +19,33 @@ const bookodds = {
   data: new SlashCommandBuilder()
     .setName('bookodds')
     .setDescription(
-      'Get the odds of drawing a certain card or Fusion stones from a certain book.'
+      'Get the odds of drawing a certain card or Fusion stones from a certain book.',
     )
     .addStringOption(option =>
       option
         .setName('book_type')
         .setDescription('The type of book.')
         .setRequired(true)
-        .setAutocomplete(true)
+        .setAutocomplete(true),
     )
     .addStringOption(option =>
       option
         .setName('target')
         .setDescription('What you hope to find.')
         .addChoices(
-          ...Object.entries(TARGETS).map(([value, name]) => ({ name, value }))
-        )
+          ...Object.entries(TARGETS).map(([value, name]) => ({ name, value })),
+        ),
     ),
 
   async autocomplete(interaction, client) {
     const focusedValue = interaction.options.getFocused()
     const books = [...client.books.values()]
     const filtered = books.filter(book =>
-      book.name.match(new RegExp(focusedValue, 'gi'))
+      book.name.match(new RegExp(focusedValue, 'gi')),
     )
 
     return interaction.respond(
-      filtered.map(book => ({ name: book.name, value: book.id }))
+      filtered.map(book => ({ name: book.name, value: book.id })),
     )
   },
 
@@ -60,8 +59,6 @@ const bookodds = {
       .setTitle('📕 Book Drawing Odds')
       .setURL('https://stormbound-kitty.com/calculators/books')
 
-    trackBotCommand(interaction, { book_type: bookId, target })
-
     if (!book) {
       embed.setDescription(`Could not find a book matching “${bookId}”.`)
 
@@ -74,7 +71,7 @@ const bookodds = {
       const odds = book.fsOdds * 100
 
       embed.setDescription(
-        `A **${book.name}** has ${odds}% chance of drawing **Fusion Stones**.`
+        `A **${book.name}** has ${odds}% chance of drawing **Fusion Stones**.`,
       )
 
       return interaction.reply({ embeds: [embed], ephemeral })
@@ -87,7 +84,7 @@ const bookodds = {
       const odds = (probability * 100).toFixed(2)
 
       embed.setDescription(
-        `A **${book.name}** has ${odds}% chance of drawing **${TARGETS[target]}**.`
+        `A **${book.name}** has ${odds}% chance of drawing **${TARGETS[target]}**.`,
       )
 
       return interaction.reply({ embeds: [embed], ephemeral })
@@ -112,7 +109,7 @@ const bookodds = {
     const fsOdds = book.fsOdds * 100
 
     embed.setDescription(
-      `A **${book.name}** has a static ${fsOdds}% chance of drawing **Fusion Stones**, an estimated ${specificOdds}% chance of drawing **a specific card** and an estimated ${anyOdds}% chance of drawing **any card**.`
+      `A **${book.name}** has a static ${fsOdds}% chance of drawing **Fusion Stones**, an estimated ${specificOdds}% chance of drawing **a specific card** and an estimated ${anyOdds}% chance of drawing **any card**.`,
     )
 
     return interaction.reply({ embeds: [embed], ephemeral })

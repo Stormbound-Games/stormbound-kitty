@@ -1,6 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const LEAGUE_ROLES = [
   'Heroes',
@@ -33,7 +32,7 @@ const role = {
         .setName('role')
         .setDescription('Role to add/remove.')
         .setRequired(true)
-        .addChoices(...ROLES.map(role => ({ name: role, value: role })))
+        .addChoices(...ROLES.map(role => ({ name: role, value: role }))),
     ),
 
   async execute(interaction, client) {
@@ -42,7 +41,7 @@ const role = {
     const member = interaction.member
     const guild = client.guilds.cache.get(interaction.guildId)
     const validRoleNames = ROLES.filter(roleName =>
-      guild.roles.cache.find(role => role.name === roleName)
+      guild.roles.cache.find(role => role.name === roleName),
     )
     const embed = getEmbed().setTitle('🌟 Role Assignment')
 
@@ -53,10 +52,6 @@ const role = {
     }
 
     const newRole = guild.roles.cache.find(role => role.name === newRoleName)
-
-    trackBotCommand(interaction, {
-      role: { id: newRole.id, name: newRole.name },
-    })
 
     if (member.roles.cache.some(role => role.name === newRole.name)) {
       embed.setDescription(`“${newRole.name}” role removed.`)

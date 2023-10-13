@@ -2,7 +2,6 @@ import { SlashCommandBuilder } from 'discord.js'
 import getCardValue from '#helpers/getCardValue'
 import searchCards from '#helpers/searchCards'
 import getEmbed from '#helpers/getEmbed'
-import trackBotCommand from '#helpers/trackBotCommand'
 
 const cardvalue = {
   data: new SlashCommandBuilder()
@@ -12,7 +11,7 @@ const cardvalue = {
       option
         .setName('card')
         .setDescription('An abbreviation, ID, or approximate name.')
-        .setRequired(true)
+        .setRequired(true),
     )
     .addIntegerOption(option =>
       option
@@ -23,8 +22,8 @@ const cardvalue = {
           { name: '2', value: 2 },
           { name: '3', value: 3 },
           { name: '4', value: 4 },
-          { name: '5', value: 5 }
-        )
+          { name: '5', value: 5 },
+        ),
     ),
 
   async execute(interaction, client) {
@@ -36,8 +35,6 @@ const cardvalue = {
     const embed = getEmbed()
       .setTitle('⚖️ Card Value')
       .setURL('https://stormbound-kitty.com/calculators/value')
-
-    trackBotCommand(interaction, { card: input })
 
     if (!card) {
       embed.setDescription(`Could not find a card matching “${input}”.`)
@@ -53,7 +50,7 @@ const cardvalue = {
 
     if (!value) {
       embed.setDescription(
-        `It is not possible to efficiently compute the value of ${card.name}.`
+        `It is not possible to efficiently compute the value of ${card.name}.`,
       )
 
       return interaction.reply({ embeds: [embed], ephemeral })
@@ -71,7 +68,7 @@ const cardvalue = {
     embed
       .setDescription(content)
       .setURL(
-        `https://stormbound-kitty.com/calculators/value/${level}${card.id.toLowerCase()}`
+        `https://stormbound-kitty.com/calculators/value/${level}${card.id.toLowerCase()}`,
       )
       .addFields([
         { name: 'Minimum', value: min, inline: true },
