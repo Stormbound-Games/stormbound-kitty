@@ -25,7 +25,7 @@
     "@vercel/analytics": "^1.0.2",
     "canvas": "^2.11.2",
     "copy-to-clipboard": "^3.3.3",
-    "discord.js": "^14.11.0",
+    "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
     "express-rate-limit": "^6.7.0",
     "express-slow-down": "^1.6.0",
