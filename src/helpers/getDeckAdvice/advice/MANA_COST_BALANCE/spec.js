@@ -7,7 +7,7 @@ const getCards = (id, modifier = 'NONE') =>
   modifyDeck(
     global.__CARDS_INDEX__,
     serialization.deck.deserialize(global.__CARDS_INDEX_BY_SID__, id),
-    modifier
+    modifier,
   ).map(card => getResolvedCardData(global.__CARDS_INDEX__, card))
 
 describe('The `MANA_COST_BALANCE` advice', () => {
@@ -22,7 +22,7 @@ describe('The `MANA_COST_BALANCE` advice', () => {
   })
 
   it('should be returned if there are at least 9 cards costing an even number of mana', () => {
-    const cards = getCards('5n15n25n31n235n44n54n62n622n672n664n185n19')
+    const cards = getCards('5n15n21n1055n35n44n54n62n622n671n234n185n19')
     expect(advice(cards)).not.toEqual(null)
   })
 
@@ -34,7 +34,7 @@ describe('The `MANA_COST_BALANCE` advice', () => {
   it('should not count cards costing 0 mana', () => {
     const cards = getCards(
       '5n25f45n35n44n54n62n623n632n672f84n185n19',
-      'SPELL_MANA'
+      'SPELL_MANA',
     )
     expect(advice(cards)).toEqual(null)
   })
