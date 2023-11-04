@@ -54,7 +54,7 @@
     "react-intersection-observer": "^9.5.2",
     "react-masonry-css": "^1.0.16",
     "react-select": "^5.7.5",
-    "recharts": "^2.7.3",
+    "recharts": "^2.9.2",
     "speakingurl": "^14.0.1"
   },
   "browserslist": [
