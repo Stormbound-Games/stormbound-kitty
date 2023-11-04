@@ -1,3 +1,4 @@
+import { track } from '@vercel/analytics/server'
 import applyRateLimit from '#helpers/applyRateLimit'
 import getBrawl from '#api/brawls/getBrawl'
 import getCard from '#api/cards/getCard'
@@ -143,6 +144,8 @@ export default async function handler(request, response) {
     // published yet, it needs to force the preview option when querying data from
     // Sanity.
     const url = await getRedirectUrl({ ...parameters, isPreview: true })
+
+    track('cms_preview', { path: getPathname(url) })
 
     response.setPreviewData({}, { maxAge: PREVIEW_MODE_DURATION })
     response.redirect(url)

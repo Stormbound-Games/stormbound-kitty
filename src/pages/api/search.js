@@ -28,6 +28,9 @@ export default async function handler(request, response) {
     isCaseSensitive: false,
     includeScore: true,
   })
+  const term = (request.query.search || '').trim()
+
+  track('site_search', { search: term })
 
   try {
     await applyRateLimit(request, response)
@@ -37,8 +40,6 @@ export default async function handler(request, response) {
 
   // Set up a 4 hours cache on the response.
   response.setHeader('Cache-Control', 's-maxage=' + 60 * 60 * 4 + ', public')
-
-  const term = (request.query.search || '').trim()
 
   if (term.length === 0) {
     return response.status(400).send('Bad request')

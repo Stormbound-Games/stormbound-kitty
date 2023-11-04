@@ -6,7 +6,6 @@ import Input from '#components/Input'
 import Link from '#components/Link'
 import FeedEntry from '#components/FeedEntry'
 import Loader from '#components/Loader'
-import track from '#helpers/track'
 import useDebounce from '#hooks/useDebounce'
 import useSearchShortcut from '#hooks/useSearchShortcut'
 import styles from './styles'
@@ -23,14 +22,14 @@ const Breadcrumbs = React.memo(function Breadcrumbs(props) {
   return props.breadcrumbs.reduce((acc, crumb, index) => {
     if (index !== 0) {
       acc.push(
-        <Icon icon='arrow-right' extend={styles.arrow} key={index + '-icon'} />
+        <Icon icon='arrow-right' extend={styles.arrow} key={index + '-icon'} />,
       )
     }
 
     acc.push(
       <span className='Highlight' key={index}>
         {crumb}
-      </span>
+      </span>,
     )
     return acc
   }, [])
@@ -48,7 +47,6 @@ export default React.memo(function SearchDialog(props) {
 
   React.useEffect(() => {
     if (debouncedSearch && debouncedSearch.length >= 3) {
-      track('site_search', { search: debouncedSearch })
       runSearch(debouncedSearch).then(results => {
         setResults(results)
         setIsLoading(false)

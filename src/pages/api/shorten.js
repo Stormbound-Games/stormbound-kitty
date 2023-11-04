@@ -1,3 +1,4 @@
+import { track } from '@vercel/analytics/server'
 import applyRateLimit from '#helpers/applyRateLimit'
 import isChecklyRequest from '#helpers/isChecklyRequest'
 
@@ -31,6 +32,8 @@ export default async function handler(request, response) {
       ),
     ),
   )
+
+  track('shorten_url', { path: getPathname(decodeURIComponent(url)) })
 
   if (cache.has(url)) {
     return response.status(200).json(cache.get(url))
