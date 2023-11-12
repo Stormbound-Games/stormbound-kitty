@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@discordjs/rest": "^2.0.1",
-    "@portabletext/react": "^3.0.9",
+    "@portabletext/react": "^3.0.11",
     "@reach/tooltip": "^0.18.0",
     "@sanity/client": "^6.4.12",
     "@vercel/analytics": "^1.1.1",
