@@ -1,5 +1,6 @@
 import { track } from '@vercel/analytics/server'
 import applyRateLimit from '#helpers/applyRateLimit'
+import getPathname from '#helpers/getPathname'
 import getBrawl from '#api/brawls/getBrawl'
 import getCard from '#api/cards/getCard'
 import getDeck from '#api/decks/getDeck'

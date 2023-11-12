@@ -1,5 +1,6 @@
 import { track } from '@vercel/analytics/server'
 import applyRateLimit from '#helpers/applyRateLimit'
+import getPathname from '#helpers/getPathname'
 import isChecklyRequest from '#helpers/isChecklyRequest'
 
 const API_KEY = process.env.CUTTLY_API_KEY
