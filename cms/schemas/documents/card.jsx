@@ -19,7 +19,11 @@ const card = {
       title: 'Stormbound-Kitty ID',
       name: 'id',
       type: 'slug',
-      validation: Rule => Rule.required(),
+      validation: Rule =>
+        Rule.required().custom(value => {
+          if (/^[NSFWIT]\d+$/.test(value.current)) return true
+          return 'The ID is invalid: it should be N, S, F, W, I or T followed by a number.'
+        }),
     },
     {
       title: 'Stormbound ID',
