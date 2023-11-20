@@ -28,7 +28,7 @@
     "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
     "express-rate-limit": "^6.7.0",
-    "express-slow-down": "^1.6.0",
+    "express-slow-down": "^2.0.1",
     "fela": "^12.2.1",
     "fela-enforce-longhands": "^12.2.1",
     "fela-plugin-embedded": "^12.2.1",
