@@ -214,7 +214,8 @@ export default React.memo(function CardsFiltering(props) {
         (ability === 'SURVIVING' && /surviving/i.test(card.ability || '')) ||
         (ability === 'ATTACKING' && /attacking/i.test(card.ability || '')) ||
         (ability === 'MOVING' && /moving/i.test(card.ability || '')) ||
-        (ability === 'ON_DEATH' && /on death/i.test(card.ability || '')) ||
+        (ability === 'ON_DEATH' &&
+          /(on death|when dying)/i.test(card.ability || '')) ||
         (ability === 'PUSH_PULL' && /push|pull/i.test(card.ability || '')) ||
         (ability === 'VANILLA' && !card.ability) ||
         (ability === 'PUSH' && /push/i.test(card.ability || '')) ||
