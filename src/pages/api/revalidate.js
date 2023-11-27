@@ -73,16 +73,13 @@ const getRevalidationPaths = body => {
       return [...userPaths, '/about', '/contribute']
     case 'deck':
       return [
-        // Do not revalidate `/decks` since it is server-side rendered and does
-        // not have a `getStaticProps` function. This causes revalidation to
-        // fail with: “Failed to revalidate /decks: Invalid response 200”
-        // '/decks',
         ...userPaths,
+        '/decks',
         body.id && `/deck/${body.id}`,
         body.id && `/deck/${body.id}/detail`,
       ]
     case 'deckTags':
-      return [/*'/decks'*/ '/decks/bookmarks']
+      return ['/decks', '/decks/bookmarks']
     case 'equalTierList':
       return ['/tier-list/equals']
     case 'event':
