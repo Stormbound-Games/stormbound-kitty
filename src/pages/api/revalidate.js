@@ -85,6 +85,8 @@ const getRevalidationPaths = body => {
       return [/*'/decks'*/ '/decks/bookmarks']
     case 'equalTierList':
       return ['/tier-list/equals']
+    case 'event':
+      return [...userPaths]
     case 'guide': {
       const slug = body.slug?.current ?? body.slug
       const category = GUIDE_CATEGORIES[body.category]
@@ -148,7 +150,7 @@ const middlewares = getRateLimitMiddlewares(40)
 export default async function handler(request, response) {
   try {
     await Promise.all(
-      middlewares.map(middleware => middleware(request, response))
+      middlewares.map(middleware => middleware(request, response)),
     )
   } catch {
     return response.status(429).send('Too Many Requests')
