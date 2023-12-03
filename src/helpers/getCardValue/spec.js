@@ -856,10 +856,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Mech Workshop', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I14', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I14', 5)
-    expect(value1[0]).toEqual(3 / 4)
-    expect(value1[1]).toEqual((3 + 2) / 4)
-    expect(value5[0]).toEqual(6 / 4)
-    expect(value5[1]).toEqual((6 + 6) / 4)
+    expect(value1[0]).toEqual(5 / 4)
+    expect(value1[1]).toEqual((5 + 2) / 4)
+    expect(value5[0]).toEqual(8 / 4)
+    expect(value5[1]).toEqual((8 + 6) / 4)
   })
 
   it('should return value for Overchargers', () => {
@@ -874,10 +874,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Debug Loggers', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I16', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I16', 5)
-    expect(value1[0]).toEqual((4 / 5) * 1)
-    expect(value1[1]).toEqual(((4 + 2 * 2) / 5) * 1)
-    expect(value5[0]).toEqual((8 / 5) * 1)
-    expect(value5[1]).toEqual(((8 + 5 * 2) / 5) * 1)
+    expect(value1[0]).toEqual((5 / 5) * 1)
+    expect(value1[1]).toEqual(((5 + 2 * 2) / 5) * 1)
+    expect(value5[0]).toEqual((9 / 5) * 1)
+    expect(value5[1]).toEqual(((9 + 5 * 2) / 5) * 1)
   })
 
   it('should return value for Eloth the Ignited', () => {
@@ -947,9 +947,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'I24', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'I24', 5)
     expect(value1[0]).toEqual((5 / 6) * 1)
-    expect(value1[1]).toEqual(((5 + 3 + 2) / 6) * 1)
+    expect(value1[1]).toEqual(((5 + 5 + 2) / 6) * 1)
     expect(value5[0]).toEqual((9 / 6) * 1)
-    expect(value5[1]).toEqual(((9 + 6 + 6) / 6) * 1)
+    expect(value5[1]).toEqual(((9 + 8 + 6) / 6) * 1)
   })
 
   it('should return value for Agents in Charge', () => {
@@ -1648,10 +1648,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Dawnsparks', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'W16', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'W16', 5)
-    expect(value1[0]).toEqual((8 / 6) * 0.5)
-    expect(value1[1]).toEqual((8 / 6) * 0.5)
-    expect(value5[0]).toEqual((18 / 6) * 0.5)
-    expect(value5[1]).toEqual((18 / 6) * 0.5)
+    expect(value1[0]).toEqual((6 / 6) * 0.5)
+    expect(value1[1]).toEqual((6 / 6) * 0.5)
+    expect(value5[0]).toEqual((16 / 6) * 0.5)
+    expect(value5[1]).toEqual((16 / 6) * 0.5)
   })
 
   it('should return value for Wolfcloaks', () => {
