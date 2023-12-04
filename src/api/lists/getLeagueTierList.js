@@ -24,11 +24,14 @@ const getLeagueTierList = async ({ cards, league, isPreview } = {}) => {
   const cardsIndexBySid = indexArray(cards, 'sid')
 
   // Array of tiers (at most)
-  // 0 -> “0.9 – 1.0”, 1 -> “0.8 – 0.9”, 2 -> “0.7 – 0.8”…
-  let tiers = Array.from({ length: 10 }, (_, index) => {
-    const upper = 1 - index * 0.1
-    const lower = Math.abs(upper - 0.1)
-    const name = lower.toFixed(1) + ' – ' + upper.toFixed(1)
+  // 0 -> “0.95 – 1.00”
+  // 1 -> “0.90 – 0.95”
+  // 2 -> “0.85 – 0.90”
+  // …
+  let tiers = Array.from({ length: 20 }, (_, index) => {
+    const upper = 1 - index * 0.05
+    const lower = Math.abs(upper - 0.05)
+    const name = lower.toFixed(2) + ' – ' + upper.toFixed(2)
 
     return { name, cards: [] }
   })
@@ -38,7 +41,7 @@ const getLeagueTierList = async ({ cards, league, isPreview } = {}) => {
     const presence = item.count_in_deck / item.unique_decks
     const tier = Math.max(
       tiers.length - Math.floor(presence * tiers.length) - 1,
-      0
+      0,
     )
 
     if (card) {
@@ -52,12 +55,13 @@ const getLeagueTierList = async ({ cards, league, isPreview } = {}) => {
     }
   })
 
+  // Drop the last 2 tiers (0.00 – 0.05 and 0.00 – 0.10) tier since they contain
+  // most cards and don’t provide much value.
+  tiers.pop()
+  tiers.pop()
+
   // Preserve only tiers that have at least a card
   tiers = tiers.filter(({ cards }) => cards.length > 0)
-
-  // Drop the 0.0 – 0.1 tier since it contains most cards and doesn’t provide
-  // much value.
-  tiers.pop()
 
   return serialization.list.serialize(tiers)
 }

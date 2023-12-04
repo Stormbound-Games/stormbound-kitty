@@ -56,8 +56,8 @@ export default React.memo(function PageLeagueUsageData(props) {
 
           <p>
             The name of a tier corresponds to the presence ratio of the cards
-            that make it. For instance <code>0.5 – 0.6</code> means cards that
-            were found in 50 to 60% of all decks played in {league} league over
+            that make it. For instance <code>0.55 – 0.60</code> means cards that
+            were found in 55 to 60% of all decks played in {league} league over
             the last month — regardless of faction.
           </p>
 
