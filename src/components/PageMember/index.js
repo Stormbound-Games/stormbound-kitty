@@ -114,7 +114,7 @@ export default React.memo(function PageMember(props) {
               <p>
                 No ‘{props.user.name}’ user could be found, or no content was
                 associated to that user. If you believe this is a bug, please
-                report it to Kitty#1909 on Discord.
+                report it to kitty.sparkles on Discord.
               </p>
             </div>
           )}

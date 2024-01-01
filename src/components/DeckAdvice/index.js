@@ -23,7 +23,7 @@ export default React.memo(function DeckAdvice(props) {
 
   useOnUpdate(() => {
     getDeckAdvice(cardsIndex, props.deck, props.modifier).then(advice =>
-      setAdvice(advice)
+      setAdvice(advice),
     )
   }, [cardsIndex, props.deck, props.modifier])
 
@@ -53,7 +53,7 @@ export default React.memo(function DeckAdvice(props) {
           </p>
           <p>
             If you think something should be said about it however, please get
-            in touch with <span className='Highlight'>Kitty#1909</span> on
+            in touch with <span className='Highlight'>kitty.sparkles</span> on
             Discord to discuss potential improvements.
           </p>
         </>

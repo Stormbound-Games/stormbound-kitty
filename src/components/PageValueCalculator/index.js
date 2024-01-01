@@ -94,7 +94,7 @@ export default React.memo(function PageValueCalculator(props) {
     router.replace(
       ['/calculators/value', id].filter(Boolean).join('/').toLowerCase(),
       null,
-      { scroll: false, shallow: true }
+      { scroll: false, shallow: true },
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
@@ -150,8 +150,8 @@ export default React.memo(function PageValueCalculator(props) {
                 experimental and incomplete
               </Link>
               . If you would like to help, please get in touch with{' '}
-              <Link to='/members/kitty'>Kitty#1909</Link> or{' '}
-              <Link to='/members/derk'>Derk#7109</Link> on Discord.
+              <Link to='/members/kitty'>kitty.sparkles</Link> or{' '}
+              <Link to='/members/derk'>derkywerky</Link> on Discord.
             </p>
           </Info>
         </Row.Column>

@@ -40,7 +40,8 @@ export default React.memo(function PageStatistics() {
         <p>
           This is data visualization about the current state of the Stormbound
           card collection. If you would like to suggest more data
-          representations, please get in touch with me on Discord (Kitty#1909).
+          representations, please get in touch with me on Discord
+          (kitty.sparkles).
         </p>
 
         <Only.CustomCollection>

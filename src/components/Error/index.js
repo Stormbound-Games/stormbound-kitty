@@ -36,7 +36,7 @@ export default React.memo(function Error(props) {
               though, don’t worry!
             </p>
             <p>
-              What you can do is report it to Kitty#1909 on the{' '}
+              What you can do is report it to kitty.sparkles on the{' '}
               <Link href='https://discord.gg/stormbound'>
                 Stormbound Discord
               </Link>

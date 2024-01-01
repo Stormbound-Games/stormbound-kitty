@@ -62,7 +62,7 @@ const useIncomeOverPeriod = (books, settings, period, rubiesConversion) => {
   if (settings.league === 'HEROES') {
     const heroLeagueRewards = getHeroesLeagueRewards(
       books,
-      settings.heroesPosition
+      settings.heroesPosition,
     )
     income.add(heroLeagueRewards)
   }
@@ -71,7 +71,7 @@ const useIncomeOverPeriod = (books, settings, period, rubiesConversion) => {
     const climbingRewards = getClimbingRewards(
       books,
       settings.league,
-      settings.rank
+      settings.rank,
     )
     income.add(climbingRewards)
   }
@@ -83,7 +83,7 @@ const useIncomeOverPeriod = (books, settings, period, rubiesConversion) => {
       books,
       sessions,
       wins,
-      settings.withPremiumPass
+      settings.withPremiumPass,
     )
     // We consider that 1 entry card a week gets collected via watching an ad,
     // and the other ones are paid for 600 coins a piece.
@@ -156,12 +156,12 @@ export default React.memo(function PageIncomeCalculator(props) {
       draftWins,
     },
     period,
-    rubiesConversion
+    rubiesConversion,
   )
 
   const coinCap = withPremiumPass ? 700 : 400
   const maxWins = Math.ceil(
-    (coinCap - 30) / getVictoryCoins(setup, league, withPremiumPass)
+    (coinCap - 30) / getVictoryCoins(setup, league, withPremiumPass),
   )
 
   React.useEffect(() => {
@@ -192,9 +192,9 @@ export default React.memo(function PageIncomeCalculator(props) {
           </p>
 
           <p>
-            Special thanks to <Link to='/members/oeni'>Oeni</Link> (oeni#7266)
-            and <Link to='/members/roman'>Roman</Link> (Roman_NFP#6918) for
-            their help in designing and making this simulator possible.
+            Special thanks to <Link to='/members/oeni'>Oeni</Link> (.oeni) and{' '}
+            <Link to='/members/roman'>Roman</Link> (roman_nfp) for their help in
+            designing and making this simulator possible.
           </p>
         </Row.Column>
         <Row.Column width='2/3'>
