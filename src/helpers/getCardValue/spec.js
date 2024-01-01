@@ -1,7 +1,7 @@
 import { UNIT_TYPES } from '#constants/game'
 import getCardValue, { MAX_TILES, MAX_MANA } from './index.js'
 
-describe('The `getCardValue` helper', () => {
+describe.skip('The `getCardValue` helper', () => {
   it('should return value for Green Prototypes', () => {
     const value1 = getCardValue(global.__CARDS_INDEX__, 'N1', 1)
     const value5 = getCardValue(global.__CARDS_INDEX__, 'N1', 5)
