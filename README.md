@@ -12,6 +12,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - [Known issues](./docs/KNOWN_ISSUES.md)
 - [Monitoring](./docs/MONITORING.md)
 - [Performance](./docs/PERFORMANCE.md)
+- [Release notes](./docs/RELEASE_NOTES.md)
 - [Security](./docs/SECURITY.md)
 - [Workflows](./WORKFLOWS.md)
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
