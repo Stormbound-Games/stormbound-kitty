@@ -24,6 +24,13 @@ export default React.memo(function BattleSimAppMobile(props) {
   const [down, setDown] = React.useState({ x: null, y: null })
   const { shouldRenderLeftPanel, shouldRenderRightPanel } = props
 
+  const handleTouchStart = React.useCallback(event => {
+    if (!['BUTTON', 'INPUT'].includes(event.target.nodeName)) {
+      const [firstTouch] = getTouches(event)
+      setDown({ x: firstTouch.clientX, y: firstTouch.clientY })
+    }
+  }, [])
+
   React.useEffect(() => {
     if (!props.withoutGestures) {
       document.addEventListener('touchstart', handleTouchStart, false)
@@ -43,13 +50,6 @@ export default React.memo(function BattleSimAppMobile(props) {
   React.useEffect(() => {
     if (!props.activePlayer) setMode(MODES.GAME)
   }, [props.activePlayer])
-
-  const handleTouchStart = React.useCallback(event => {
-    if (!['BUTTON', 'INPUT'].includes(event.target.nodeName)) {
-      const [firstTouch] = getTouches(event)
-      setDown({ x: firstTouch.clientX, y: firstTouch.clientY })
-    }
-  }, [])
 
   const handleTouchMove = React.useCallback(
     event => {
@@ -71,7 +71,7 @@ export default React.memo(function BattleSimAppMobile(props) {
 
       setDown({ x: null, y: null })
     },
-    [down, handleLeftSwipe, handleRightSwipe]
+    [down, handleLeftSwipe, handleRightSwipe],
   )
 
   const handleLeftSwipe = React.useCallback(() => {
@@ -103,7 +103,7 @@ export default React.memo(function BattleSimAppMobile(props) {
             styles.panel({
               type: MODES.SETTINGS,
               isActive: mode === MODES.SETTINGS,
-            })
+            }),
           )}
         >
           {props.mode === 'EDITOR' ? (
@@ -163,7 +163,7 @@ export default React.memo(function BattleSimAppMobile(props) {
       {shouldRenderRightPanel && (
         <div
           className={css(
-            styles.panel({ type: MODES.CELL, isActive: mode === MODES.CELL })
+            styles.panel({ type: MODES.CELL, isActive: mode === MODES.CELL }),
           )}
         >
           {props.mode === 'EDITOR' ? (
