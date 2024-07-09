@@ -31,25 +31,16 @@ export default React.memo(function BattleSimAppMobile(props) {
     }
   }, [])
 
-  React.useEffect(() => {
-    if (!props.withoutGestures) {
-      document.addEventListener('touchstart', handleTouchStart, false)
-      document.addEventListener('touchend', handleTouchMove, false)
+  const handleLeftSwipe = React.useCallback(() => {
+    if (mode === MODES.GAME && shouldRenderRightPanel) setMode(MODES.CELL)
+    else if (mode === MODES.SETTINGS) setMode(MODES.GAME)
+  }, [mode, shouldRenderRightPanel])
 
-      return () => {
-        document.removeEventListener('touchstart', handleTouchStart, false)
-        document.removeEventListener('touchmove', handleTouchMove, false)
-      }
-    }
-  }, [handleTouchStart, handleTouchMove, props.withoutGestures])
-
-  React.useEffect(() => {
-    if (props.activeCell) setMode(MODES.CELL)
-  }, [props.activeCell])
-
-  React.useEffect(() => {
-    if (!props.activePlayer) setMode(MODES.GAME)
-  }, [props.activePlayer])
+  const handleRightSwipe = React.useCallback(() => {
+    if (mode === MODES.CELL) setMode(MODES.GAME)
+    else if (mode === MODES.GAME && shouldRenderLeftPanel)
+      setMode(MODES.SETTINGS)
+  }, [mode, shouldRenderLeftPanel])
 
   const handleTouchMove = React.useCallback(
     event => {
@@ -74,16 +65,25 @@ export default React.memo(function BattleSimAppMobile(props) {
     [down, handleLeftSwipe, handleRightSwipe],
   )
 
-  const handleLeftSwipe = React.useCallback(() => {
-    if (mode === MODES.GAME && shouldRenderRightPanel) setMode(MODES.CELL)
-    else if (mode === MODES.SETTINGS) setMode(MODES.GAME)
-  }, [mode, shouldRenderRightPanel])
+  React.useEffect(() => {
+    if (!props.withoutGestures) {
+      document.addEventListener('touchstart', handleTouchStart, false)
+      document.addEventListener('touchend', handleTouchMove, false)
 
-  const handleRightSwipe = React.useCallback(() => {
-    if (mode === MODES.CELL) setMode(MODES.GAME)
-    else if (mode === MODES.GAME && shouldRenderLeftPanel)
-      setMode(MODES.SETTINGS)
-  }, [mode, shouldRenderLeftPanel])
+      return () => {
+        document.removeEventListener('touchstart', handleTouchStart, false)
+        document.removeEventListener('touchmove', handleTouchMove, false)
+      }
+    }
+  }, [handleTouchStart, handleTouchMove, props.withoutGestures])
+
+  React.useEffect(() => {
+    if (props.activeCell) setMode(MODES.CELL)
+  }, [props.activeCell])
+
+  React.useEffect(() => {
+    if (!props.activePlayer) setMode(MODES.GAME)
+  }, [props.activePlayer])
 
   const onUnitSubmit = event => {
     props.onUnitSubmit(event)
