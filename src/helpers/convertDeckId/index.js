@@ -18,7 +18,7 @@ export const convertToSkId = (cardsIndexBySid, blob) => {
     skIds
       // Fallback to cards level 1 since the cards’ level is not provided by
       // Stormbound deck IDs.
-      .map(id => ({ id, level: 1 }))
+      .map(id => ({ id, level: 1 })),
   )
 }
 
@@ -43,8 +43,8 @@ export const isDecodedSbId = value => {
   //      ^                           $  Beginning-to-end matching
   //       \d                            Single-digit (faction indicator)
   //         (                      )+   Series of cards IDs
-  //          (b|s|u|ua|ud|ue|ut)\d+     Stormbound card ID syntax
-  return /^\d((b|s|u|ua|ud|ue|ut)\d+)+$/.test(value)
+  //          (b|s|u|ua|uc|ud|ue|ut)\d+     Stormbound card ID syntax
+  return /^\d((b|s|u|ua|uc|ud|ue|ut)\d+)+$/.test(value)
 }
 
 // This is not an incredibly elegant check to determine whether the id is a SBID
