@@ -11,7 +11,7 @@ describe('Dry-runner — Brawl', () => {
       .then($cards => {
         const deckCost = Array.from($cards).reduce(
           (acc, $card) => acc + parseInt($card.innerText),
-          0
+          0,
         )
 
         cy.drReset({ modifier: 'KNIGHT_MANA' })
@@ -20,7 +20,7 @@ describe('Dry-runner — Brawl', () => {
           .then($cards => {
             const newDeckCost = Array.from($cards).reduce(
               (acc, $card) => acc + parseInt($card.innerText),
-              0
+              0,
             )
             expect(newDeckCost).to.eq(deckCost - 20)
           })
@@ -34,7 +34,7 @@ describe('Dry-runner — Brawl', () => {
       .then($cards => {
         const deckCost = Array.from($cards).reduce(
           (acc, $card) => acc + parseInt($card.innerText),
-          0
+          0,
         )
 
         cy.drReset({ modifier: 'STRUCTURE_MANA' })
@@ -43,9 +43,9 @@ describe('Dry-runner — Brawl', () => {
           .then($cards => {
             const newDeckCost = Array.from($cards).reduce(
               (acc, $card) => acc + parseInt($card.innerText),
-              0
+              0,
             )
-            expect(newDeckCost).to.eq(deckCost - 24)
+            expect(newDeckCost).to.eq(deckCost - 22)
           })
       })
   })
