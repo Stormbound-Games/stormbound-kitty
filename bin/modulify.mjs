@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import replace from 'replace-in-file'
+import { replaceInFileSync } from 'replace-in-file'
 
 const pkg = JSON.parse(fs.readFileSync(path.resolve('./package.json'), 'utf8'))
 const options = {
@@ -11,7 +11,7 @@ const options = {
 
 if (pkg.type !== 'module') {
   try {
-    const results = replace.sync(options)
+    const results = replaceInFileSync(options)
     console.log('Replacement results:', results)
   } catch (error) {
     console.error('Error occurred:', error)
