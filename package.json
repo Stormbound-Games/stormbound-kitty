@@ -43,7 +43,7 @@
     "fuse.js": "^7.0.0",
     "html2canvas": "^1.4.1",
     "isomorphic-unfetch": "^3.1.0",
-    "next": "^13.5.4",
+    "next": "^14.2.7",
     "next-sitemap": "^4.2.3",
     "random-weighted-choice": "^0.1.4",
     "react": "^18.3.1",
