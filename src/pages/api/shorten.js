@@ -12,6 +12,7 @@ const shorten = (url, withCustomDomain = false) =>
     API_URL +
       `?key=${API_KEY}&short=${url}&noTitle=1&userDomain=` +
       Number(withCustomDomain),
+    { cache: 'force-cache' },
   ).then(response => response.json())
 
 export default async function handler(request, response) {
