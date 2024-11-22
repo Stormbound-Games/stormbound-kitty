@@ -1,5 +1,5 @@
 import { track } from '@vercel/analytics/server'
-import LRUCache from 'lru-cache'
+import { LRUCache } from 'lru-cache'
 import Fuse from 'fuse.js'
 import getSearchIndex from '#helpers/getSearchIndex'
 import applyRateLimit from '#helpers/applyRateLimit'
