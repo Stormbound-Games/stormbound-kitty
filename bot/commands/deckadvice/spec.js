@@ -26,7 +26,9 @@ describe('Bot — /deckadvice', () => {
     )
   })
 
-  it('should return advice for a given deck', async () => {
+  // This test can no longer be safely maintained without being involved in the
+  // regular card balancing.
+  it.skip('should return advice for a given deck', async () => {
     const interaction = mockInteraction({
       deck: '5n35n124w95n163w54n185w124w155w133n393w191w23',
     })
