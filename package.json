@@ -11,6 +11,7 @@
     "build-site": "next build && next-sitemap",
     "test": "npm run modulify && jest --forceExit",
     "bot": "npm run modulify && node bot/cli.js",
+    "bot:refresh": "npm run modulify && node bot/deploy-commands.js",
     "bot:dev": "npm run modulify && nodemon bot/cli.js --watch src --watch bot",
     "prepare": "husky install",
     "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js",
