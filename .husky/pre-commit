@@ -1,5 +1,3 @@
-#!/bin/sh
-
 npx --no-install lint-staged
 
 # Ensure the local modification of the package.json needed for the bot to run

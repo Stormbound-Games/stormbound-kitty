@@ -13,7 +13,7 @@
     "bot": "npm run modulify && node bot/cli.js",
     "bot:refresh": "npm run modulify && node bot/deploy-commands.js",
     "bot:dev": "npm run modulify && nodemon bot/cli.js --watch src --watch bot",
-    "prepare": "husky install",
+    "prepare": "husky",
     "revalidate": "node --experimental-fetch -r dotenv/config bin/revalidate.js",
     "check-decks": "npm run modulify && node bin/deck-checker.js",
     "export-cards": "npm run modulify && node bin/export-cards.js"
