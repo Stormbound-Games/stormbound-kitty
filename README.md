@@ -14,7 +14,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - [Performance](./docs/PERFORMANCE.md)
 - [Release notes](./docs/RELEASE_NOTES.md)
 - [Security](./docs/SECURITY.md)
-- [Workflows](./WORKFLOWS.md)
+- [Workflows](./docs/WORKFLOWS.md)
 - [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ## Technology stack
@@ -27,7 +27,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - Testing: [Jest](https://jestjs.io/) unit tests and [Cypress](https://www.cypress.io/) end-to-end tests (via an [open-source plan](https://docs.cypress.io/guides/dashboard/organizations#Open-Source-Plan))
 - Analytics: [Vercel Analytics](https://vercel.com/analytics)
 - URL shortening: [Cutt.ly](https://cutt.ly/) (via an open-source sponsorship)
-- CMS: [Sanity](sanity.io/) (via an [open-source plan](https://www.sanity.io/docs/open-source-plan))
+- CMS: [Sanity](https://sanity.io/) (via an [open-source plan](https://www.sanity.io/docs/open-source-plan))
 - Discord bot hosting: [Heroku](https://www.heroku.com/)
 
 ## Development
