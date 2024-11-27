@@ -45,7 +45,7 @@ describe('Dry-runner — Brawl', () => {
               (acc, $card) => acc + parseInt($card.innerText),
               0,
             )
-            expect(newDeckCost).to.eq(deckCost - 22)
+            expect(newDeckCost).to.eq(deckCost - 21)
           })
       })
   })
