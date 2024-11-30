@@ -69,7 +69,7 @@
     "@next/bundle-analyzer": "^14.0.4",
     "@svgr/webpack": "^8.1.0",
     "cypress": "^13.16.0",
-    "cypress-localstorage-commands": "^2.2.5",
+    "cypress-localstorage-commands": "^2.2.6",
     "diff": "^5.1.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
