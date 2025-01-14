@@ -36,6 +36,9 @@ module.exports = defineConfig({
             '#hooks': path.resolve('./src/hooks'),
           },
         },
+        node: {
+          net: 'empty',
+        },
       }
 
       // Enable Cypress to support path aliases
