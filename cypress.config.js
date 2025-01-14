@@ -35,9 +35,9 @@ module.exports = defineConfig({
             '#helpers': path.resolve('./src/helpers'),
             '#hooks': path.resolve('./src/hooks'),
           },
-        },
-        node: {
-          net: 'empty',
+          fallback: {
+            net: false,
+          },
         },
       }
 
