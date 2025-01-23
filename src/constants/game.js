@@ -12,6 +12,7 @@ export const UNIT_TYPES = [
   'hero',
   'knight',
   'pirate',
+  'primal',
   'raven',
   'rodent',
   'satyr',
