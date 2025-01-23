@@ -18,6 +18,7 @@ const UNIT_TYPES_SHORT = [
   'H',
   'K',
   'P',
+  'M',
   'R',
   'O',
   'S',
