@@ -81,11 +81,15 @@ const getNavigation = releases => [
         icon: 'star',
         items: [
           {
+            label: 'Community Programs',
+            to: '/community-programs',
+            id: 'COMMUNITY_PROGRAMS',
+          },
+          {
             label: 'Fan-Kit',
             to: '/fan-kit',
             id: 'FAN_KIT',
           },
-          { label: 'Known Bugs', to: '/known-bugs', id: 'KNOWN_BUGS' },
           { label: 'Cards Index', to: '/cards/N89', id: 'CARDS' },
           {
             label: 'Card usage data',
