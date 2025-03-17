@@ -7,7 +7,7 @@ describe('Dry-runner — Archdruid Earyn', () => {
 
   it('should be possible to play spells with Archdruid Earyn', () => {
     cy.drDrawHand(['N1', 'N44', 'N29', 'N48'])
-    cy.drEndTurn(5)
+    cy.drEndTurn(3)
     cy.drPlay('N48')
     cy.get(s.MANA).should('contain', 0)
     cy.get(s.CARD).should('have.length', 1)
