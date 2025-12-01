@@ -22,8 +22,9 @@ jobs:
           SANITY_STUDIO_API_PROJECT_ID: 5hlpazgd
 
       - name: Store artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: production-dataset
           path: cms/production.tar.gz
+          overwrite: true
           retention-days: 7
