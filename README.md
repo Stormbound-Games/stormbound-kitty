@@ -22,11 +22,11 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 - Framework: [Next.js](https://nextjs.org/)
 - Styling: [Fela](https://fela.js.org/)
 - CI/CD: [GitHub Worklows](https://docs.github.com/en/actions/using-workflows)
-- Hosting: [Vercel](https://vercel.com/) (via an [open-source sponsorship](https://vercel.com/support/articles/can-vercel-sponsor-my-open-source-project))
+- Hosting: [Vercel](https://vercel.com/)
 - Monitoring: [Checkly](https://www.checklyhq.com/)
 - Testing: [Jest](https://jestjs.io/) unit tests and [Cypress](https://www.cypress.io/) end-to-end tests (via an [open-source plan](https://docs.cypress.io/guides/dashboard/organizations#Open-Source-Plan))
-- Analytics: [Vercel Analytics](https://vercel.com/analytics)
-- URL shortening: [Cutt.ly](https://cutt.ly/) (via an open-source sponsorship)
+- Analytics: ~~[Vercel Analytics](https://vercel.com/analytics)~~
+- URL shortening: [Cutt.ly](https://cutt.ly/)
 - CMS: [Sanity](https://sanity.io/) (via an [open-source plan](https://www.sanity.io/docs/open-source-plan))
 - Discord bot hosting: [Heroku](https://www.heroku.com/)
 
@@ -78,4 +78,3 @@ SANITY_STUDIO_PREVIEW_TOKEN=YourValueHere npm start
 
 [![Powered by Sanity](https://stormbound-kitty.com/assets/images/sanity-logo.png)](https://www.sanity.io/)
 
-[![Powered by Cutt.ly](https://cutt.ly/img/cuttly.svg)](https://cutt.ly/)
